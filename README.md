@@ -31,3 +31,32 @@
         <strong>Administrator Themes</strong> - soon will be available.
     </li>
 </ul>
+
+<h4>Midrub's Documentation</h4>
+
+<p>The documentation ca be foun here https://www.midrub.com/</p>
+
+<p>Instructions for documentation:</p>
+<ul>
+    <li>
+        <strong>Configuration</strong> - contains the information about how to configure anything.
+    </li>
+    <li>
+        <strong>Apps, Components and Themes</strong> - contains generic information about the Apps, Components and Themes. In addition there is the category Development with information about how to develop new Apps, Components and Themes.
+    </li>
+    <li>
+        <strong>Apps, Components and Themes</strong> - contains generic information about the Apps, Components and Themes. In addition there is the category Development with information about how to develop new Apps, Components and Themes.
+    </li>
+    <li>
+        <strong>Usages</strong> - contains information about how to use the Midrub, Apps, Components and Themes.
+    </li>
+    <li>
+        <strong>Updates</strong> - contains information about updates.
+    </li>
+</ul>
+
+<h4>Midrub's License</h4>
+
+<p>I'm registering the copyright for Midrub, before release each new version. You aren't allowed to distribute this in any way. You aren't allowed to copy pieces of code to be used in other projects.</p>
+
+<p></p>
