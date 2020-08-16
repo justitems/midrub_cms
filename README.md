@@ -57,6 +57,8 @@
 
 <p>I'm registering the copyright for Midrub, before release each new version. You aren't allowed to distribute this in any way. You aren't allowed to copy pieces of code to be used in other projects.</p>
 
+<p>More details here https://github.com/scrisoft/midrub_cms/blob/master/license.md</p>
+
 <h4>Midrub's Updates</h4>
 
 <p>The updates can be downloaded from the administrator panel.</p>
