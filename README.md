@@ -1,5 +1,3 @@
-# midrub_cms
-
 <h3>Midrub</h3>
 
 <p>Midrub is a CMS for business. You can use it to start to provide SAAS services to your clients.</p>
@@ -34,7 +32,7 @@
 
 <h4>Midrub's Documentation</h4>
 
-<p>The documentation ca be foun here https://www.midrub.com/</p>
+<p>The documentation can be found here https://www.midrub.com/</p>
 
 <p>Instructions for documentation:</p>
 <ul>
@@ -59,4 +57,22 @@
 
 <p>I'm registering the copyright for Midrub, before release each new version. You aren't allowed to distribute this in any way. You aren't allowed to copy pieces of code to be used in other projects.</p>
 
-<p></p>
+<h4>Midrub's Updates</h4>
+
+<p>The updates can be downloaded from the administrator panel.</p>
+
+<h4>Midrub's Use</h4>
+
+<p>This version won't work with any app from CodeCanyon. Just social access and VK Communties are supported. </p>
+
+<p>All items here are supported https://novashock.net/shop/</p>
+
+<p>In the next 2 years i'm going to release 4 big products based in Midrub. The CRM collection is in development and it is very interesting and cool.</p>
+
+<h4>Midrub's Support</h4>
+
+<p>There is no free support. If your reported issues aren't for the features which are in this code, will be removed.</p>
+
+<h4>Midrub's Future</h4>
+
+<p>I don't know if the Midrub's name will be changed in the following years, but it will be updated. </p>

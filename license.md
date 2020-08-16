@@ -1,7 +1,6 @@
 <p>The Midrub&rsquo;s License grants you a non-exclusive right to develop a business idea.</p>
 <p>You are licensed to use the Item to create one end product for yourself or for one client, and the product can&rsquo;t be distributed.</p>
 <br>
-<br>
 <h4>
     You are allowed
 </h4>
