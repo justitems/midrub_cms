@@ -1,0 +1,360 @@
+/*******************************
+IMPORT FONTS
+********************************/
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+
+/*******************************
+MIDRUB ELEMENTS STYLES
+********************************/
+@mixin content-shadow() {
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 35px 0 rgba(154,161,171,.15);
+    box-shadow: 0 0 35px 0 rgba(154,161,171,.15);
+}
+
+@mixin app-settings-option() {
+    
+    .app-settings-option {
+        width: 100%;
+        text-align: right;
+
+        input[type=checkbox]{
+            display: none;
+        }
+
+        input[type=text] {
+            height: 35px;
+            line-height: 35px;
+            width: 100%;
+            padding: 0 7px;
+            border: 1px solid #dadae4;
+            color: #1b2733;
+            margin-top: 2px;
+        }
+        
+        textarea {
+            height: 135px;
+            line-height: 35px;
+            width: 100%;
+            padding: 0 7px;
+            border: 1px solid #dadae4;
+            color: #1b2733;
+            margin-top: 2px;
+            resize: none;
+        }
+
+        label{
+            cursor: pointer;
+            position: relative; 
+            width: 50px;
+            margin-right:15px;
+            margin-top: 20px;
+        }
+
+        label::before{
+            content: '';
+            background-color: #ced8dc;
+            box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            height: 14px;
+            margin-top: -6px;
+            position: absolute;
+            opacity: 0.3;
+            transition: all 0.4s ease-in-out;
+            width: 50px;
+            margin-left: -45px;
+        }
+
+        label::after {
+            background-color: #c1c7cd;
+            border-radius: 16px;
+            content: '';
+            height: 24px;
+            left: -4px;
+            margin-top: -8px;
+            position: absolute;
+            top: -4px;
+            transition: all 0.3s ease-in-out;
+            width: 24px;
+        }
+
+        input[type=checkbox]:checked + label::after {
+            left: 40px;
+            background-color: #59abfd;
+            box-shadow: none;
+        }
+
+    }
+        
+}
+
+@mixin opacity-animations($duration) {
+    -webkit-animation: loadingOpacity $duration;
+    animation: loadingOpacity $duration;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+        
+}
+
+/*******************************
+APPS STYLES
+********************************/
+section {
+    font-family: 'Nunito Sans', sans-serif;
+    
+    .container-fluid.apps {
+        
+        & > .row > .col-lg-12 {
+
+            & > .col-lg-12 {
+                margin-bottom: 20px;
+                min-height: 60px;
+                border-radius: 3px;
+                @include content-shadow();
+                
+                .apps-header {
+                    border-bottom: 1px solid rgba(65, 106, 166, 0.1);
+                    height: 60px;
+                    padding: 0 15px;
+
+                    h3 {
+                        margin: 0;
+                        line-height: 60px;
+                        font-size: 18px;
+                        color: #6c757d;
+                    }
+
+                    i {
+                        font-size: 20px;
+                        margin-right: 5px;
+                    }
+
+                }
+                
+                .apps-list {
+                    min-height: 400px;
+                    padding: 0;
+                    
+                    p.no-results-found {
+                        padding: 15px;
+                        line-height: 22px;
+                        font-size: 16px;
+                        color: #6c757d;
+                        margin-bottom: 0;
+                    }
+                    
+                    ul {
+                        margin: 0;
+                        padding: 0;
+                        width: 100%;
+                        
+                        li {
+                            padding: 15px;
+                            list-style: none;
+                            border-bottom: 1px solid rgba(65, 106, 166, 0.1);
+                            min-height: 50px;
+                            width: 100%;
+                            
+                            .col-lg-10 {
+                                
+                                p {
+                                    line-height: 32px;
+                                    font-size: 18px;
+                                    color: #6c757d;
+                                    margin-bottom: 0;
+                                    
+                                    i {
+                                        font-size: 22px;
+                                        color: #9aa4b2;
+                                        vertical-align: top;
+                                        margin-right: 5px;
+                                        margin-top: 5px;
+                                    }
+                                    
+                                }
+                                
+                            }
+                            
+                            .col-lg-2 {
+                                text-align: right;
+                                
+                                a {
+                                    border: thin solid #d3d3d3;
+                                    height: 38px;
+                                    line-height: 25px;
+                                    vertical-align: middle;
+                                    font-weight: 300;
+                                    box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+                                    
+                                    a {
+                                        margin-right: 5px;
+                                    }
+                                    
+                                    &:hover {
+                                        background: #f8f8f8;
+                                        color: #333;
+                                    }
+                                    
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                }
+
+            }
+
+        }
+        
+    }
+    
+    .container-fluid.app {
+        
+        & > .row > .col-lg-12 {
+
+            & > .col-lg-12 {
+                padding: 15px 0;
+                margin-bottom: 20px;
+                min-height: 60px;
+                border-radius: 3px;
+                @include content-shadow();
+                
+                .col-lg-2 {
+                    
+                    .nav-tabs {
+                        width: 100%;
+                        border-bottom: 0;
+                        border-right: 1px solid rgba(120, 130, 140, 0.13);
+                        
+                        li {
+                            width: 100%;
+                            
+                            a {
+                                border: 0;
+                                margin-right: 0;
+                                color: #263238;
+                                
+                                &:hover {
+                                    border-right: 2px solid #00bcd4;
+                                    background-color: #f9f9f9;
+                                    border-radius: 0;
+                                    margin-right: -1px;
+                                }
+                                
+                            }
+                            
+                            &.active {
+                                
+                                a {
+                                    border-right: 2px solid #00bcd4;
+                                    background-color: #f9f9f9;
+                                    border-radius: 0;
+                                    margin-right: -1px;
+                                }                                
+                                
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+                .col-lg-10 {
+                    
+                    ul {
+                        margin: 0;
+                        padding: 0;
+                        
+                        li {
+                            list-style: none;
+                            min-height: 40px;
+                            padding: 15px 0;
+                            border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+                            
+                            h3 {
+                                font-size: 16px;
+                                color: #1B2733;
+                                margin: 0 0 5px;
+                            }
+                            
+                            p {
+                                font-size: 13px;
+                                color: #637282;
+                                margin-bottom: 0;
+                            }
+                            
+                            @include app-settings-option();
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+}
+
+/*******************************
+CSS ANIMATIONS
+********************************/
+@-webkit-keyframes loading {
+    50% {
+        -ms-transform: rotate(180deg); 
+        -webkit-transform: rotate(180deg); 
+        transform: rotate(180deg); 
+    }
+    100% {
+        -ms-transform: rotate(0deg); 
+        -webkit-transform: rotate(0deg); 
+        transform: rotate(0deg); 
+    }	  
+}
+
+@keyframes loading {
+    50% {
+        -ms-transform: rotate(180deg); 
+        -webkit-transform: rotate(180deg); 
+        transform: rotate(180deg); 
+    }  
+    100% {
+        -ms-transform: rotate(0deg); 
+        -webkit-transform: rotate(0deg); 
+        transform: rotate(0deg); 
+    }
+}
+
+@-webkit-keyframes loadingOpacity {
+    0% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }	  
+}
+
+@keyframes loadingOpacity {
+    0% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }		
+}

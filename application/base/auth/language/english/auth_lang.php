@@ -1,0 +1,20 @@
+<?php
+$lang["auth_an_error_occurred"] = "An error occurred while processing your request.";
+$lang["auth_invalid_value"] = "One or more input has invalid value.";
+$lang["auth_username_or_password_too_short"] = "The username or password should have at least 6 characters.";
+$lang["auth_password_to_short_or_long"] = "Your password should contain at least six and maximum twenty characters.";
+$lang["auth_usename_password_without_white_spaces"] = "The username and password should not contain white spaces.";
+$lang["auth_email_was_found_in_the_database"] = "Your email address was found in our database.<br>Please, Sign In or Reset your password.";
+$lang["auth_username_already_in_use"] = "The username is already in use.<br> Please, enter a different username.";
+$lang["auth_email_address_was_not_found"] = "Your email address was not found in our database.";
+$lang["auth_email_password_request_once_24_hours"] = "You can request the password reset confirmation email once in 24 hours.";
+$lang["auth_password_instructions_was_sent"] = "Password reset instructions have been emailed to you, follow the link in the email to continue.";
+$lang["auth_your_account_is_blocked"] = "Your account is blocked. Please try later.";
+$lang["auth_your_account_is_disabled"] = "Your account is disabled.";
+$lang["auth_you_have_been_successfully_signed_in"] = "You have been successfully signed in.";
+$lang["auth_user_or_password_is_incorrect"] = "Username or password is incorrect.";
+$lang["auth_too_many_attempts"] = "Login failed, too many attempts. Please try again later.";
+$lang["auth_the_entered_data_is_wrong"] = "The data entered is wrong.";
+$lang["auth_no_account_found"] = "No account found in our database. Please, sign up.";
+$lang["auth_no_email_found"] = "No email found.";
+$lang["auth_registtration_failed"] = "An error occurred and you wasn't signed up successfully.";

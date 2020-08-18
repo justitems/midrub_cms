@@ -1,0 +1,76 @@
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans|Open+Sans:400,600|Montserrat:400,500,600");
+/*******************************
+MIDRUB GLOBAL VARIABLES
+********************************/
+/*******************************
+MIDRUB ELEMENTS STYLES
+********************************/
+/*******************************
+THEMES STYLES
+********************************/
+section .container-fluid .right-side .list-themes { margin: 0; padding: 0; }
+
+section .container-fluid .right-side .list-themes li { margin: 0; padding: 0; list-style: none; background-color: #fbfeff; border-radius: 2px; border: 0; padding: 15px 15px 18px; -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07); border-bottom: 1px solid #f5f5f5; font-family: Open Sans,sans-serif; font-weight: 400; }
+
+section .container-fluid .right-side .list-themes li.activated-theme { background-color: rgba(0, 0, 49, 0.2); }
+
+section .container-fluid .right-side .list-themes li:last-child { border-bottom: 0; }
+
+section .container-fluid .right-side .list-themes li a { color: #000031; }
+
+section .container-fluid .right-side .list-themes li a:hover { text-decoration: none; border-bottom: 1px solid #000031; }
+
+section .container-fluid .right-side .list-themes li .theme-preview { width: 250px; box-shadow: 0 1px 3px rgba(18, 38, 64, 0.07); float: left; }
+
+section .container-fluid .right-side .list-themes li .theme-preview img { max-width: 100%; }
+
+section .container-fluid .right-side .list-themes li .theme-description { float: left; width: calc(100% - 250px); padding-left: 15px; color: #3c4857; }
+
+@media screen and (max-width: 767px) { section .container-fluid .right-side .list-themes li .theme-description { width: 100%; padding: 15px 0; } }
+
+section .container-fluid .right-side .list-themes li .theme-description h2 { font-weight: 600; font-size: 16px; margin: 0 0 15px; padding: 0; }
+
+section .container-fluid .right-side .list-themes li .theme-description p { font-family: Arial, 'Open Sans', sans-serif; font-size: 14px; font-weight: 400; line-height: 24px; }
+
+section .container-fluid .right-side .list-themes li .label-default { background-color: transparent; font-size: 13px; color: #838E95; width: 100%; display: block; }
+
+section .container-fluid .right-side .list-themes li .btn-group .btn-default { padding: 0; border: 0; background-color: transparent; }
+
+section .container-fluid .right-side .list-themes li .btn-group .btn-default i { font-size: 18px; color: #000031; }
+
+section .container-fluid .right-side .list-themes li .btn-group .btn-default:hover, section .container-fluid .right-side .list-themes li .btn-group .btn-default:active, section .container-fluid .right-side .list-themes li .btn-group .btn-default:focus { background-color: transparent !important; box-shadow: none !important; }
+
+section .container-fluid .right-side .list-themes li .btn-group .dropdown-menu { margin-left: -140px; background-color: #fff; background-clip: padding-box; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: .25rem; padding: 0; box-shadow: none; }
+
+section .container-fluid .right-side .list-themes li .btn-group .dropdown-menu li { padding: 0; box-shadow: none; }
+
+section .container-fluid .right-side .list-themes li .btn-group .dropdown-menu li a { padding: 8px 20px; }
+
+section .container-fluid .right-side .list-themes li .btn-group .dropdown-menu li a i { margin: 0; margin-right: 5px; color: #343a40; }
+
+section .container-fluid .right-side .list-themes li .btn-group .dropdown-menu li a:active, section .container-fluid .right-side .list-themes li .btn-group .dropdown-menu li a:focus, section .container-fluid .right-side .list-themes li .btn-group .dropdown-menu li a:hover { background-color: #f7f7f7 !important; color: #343a40; border: 0; }
+
+section .container-fluid .right-side .themes-directory { border: 0; border-radius: 0; -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); margin-bottom: 20px; min-height: 100px; }
+
+section .container-fluid .right-side .themes-directory > .panel-heading { border-bottom: 1px solid #e3eaef; font-family: Open Sans,sans-serif; font-weight: 400; color: #000031; padding-bottom: 0; padding: 0 15px; background-color: #FFFFFF; margin: 0; }
+
+section .container-fluid .right-side .themes-directory > .panel-heading .nav-tabs { height: 40px; }
+
+section .container-fluid .right-side .themes-directory > .panel-heading .nav-tabs li { width: auto; display: inline-table; }
+
+section .container-fluid .right-side .themes-directory > .panel-heading .nav-tabs li a { border-radius: 0; padding: 10px 20px; border: 0; color: #343a40; background-color: transparent; }
+
+section .container-fluid .right-side .themes-directory > .panel-heading .nav-tabs li.active a, section .container-fluid .right-side .themes-directory > .panel-heading .nav-tabs li:hover a { text-decoration: none; border-bottom: 1px solid #000031; }
+
+section .container-fluid .right-side .themes-directory > .panel-body { min-height: 400px; }
+
+section .container-fluid .right-side .themes-directory > .panel-body #theme-install { line-height: 400px; text-align: center; }
+
+section .container-fluid .right-side .themes-directory > .panel-body #theme-install .select-theme { display: inline-block; padding: 7px 15px 6px; width: auto; border: 1px solid #cdcde6; border-radius: .25rem; line-height: 23px; font-weight: 400; color: #6c757d; background-color: #f5f9fd; box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.07); }
+
+section .container-fluid .right-side .themes-directory > .panel-body #theme-install .select-theme i { margin-right: 5px; }
+
+section .container-fluid .right-side .themes-directory > .panel-body #theme-install .select-theme:hover, section .container-fluid .right-side .themes-directory > .panel-body #theme-install .select-theme:focus { opacity: 0.7; text-decoration: none; }

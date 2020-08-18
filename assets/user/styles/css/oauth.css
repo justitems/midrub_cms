@@ -1,0 +1,68 @@
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600");
+/*******************************
+MIDRUB GLOBAL VARIABLES
+********************************/
+/*******************************
+MIDRUB ELEMENTS STYLES
+********************************/
+/*******************************
+OAUTH STYLES
+********************************/
+.authorize-page hr {
+  border-top: 1px solid #f0f0f0; }
+.authorize-page .authorize-content {
+  width: 100%;
+  max-width: 420px;
+  padding: 15px;
+  margin: 0 auto; }
+  .authorize-page .authorize-content .home-page-link {
+    display: block;
+    padding: 20px 0 20px; }
+    .authorize-page .authorize-content .home-page-link:hover {
+      text-decoration: none;
+      border: 0; }
+  .authorize-page .authorize-content .fa-cube {
+    font-size: 50px;
+    color: #346cb0; }
+  .authorize-page .authorize-content h3 {
+    font-size: 18px;
+    font-weight: 600;
+    font-family: "Open Sans", sans-serif; }
+  .authorize-page .authorize-content p {
+    color: #343a40;
+    font-size: 15px;
+    font-family: "Open Sans", sans-serif; }
+  .authorize-page .authorize-content ul {
+    margin: 30px;
+    padding: 0; }
+    .authorize-page .authorize-content ul li {
+      line-height: 40px;
+      font-family: "Open Sans", sans-serif;
+      font-size: 14px; }
+  .authorize-page .authorize-content .btn-success {
+    height: 36px;
+    background-color: #6086bf;
+    border-color: #6086bf;
+    color: #FFFFFF;
+    font-size: 14px;
+    margin-right: 15px; }
+    .authorize-page .authorize-content .btn-success:hover, .authorize-page .authorize-content .btn-success:active {
+      background-color: #6086bf;
+      border-color: #6086bf;
+      opacity: 0.7; }
+  .authorize-page .authorize-content .btn-default {
+    height: 36px;
+    background-color: #ea6759;
+    border-color: #ea6759;
+    color: #FFFFFF;
+    font-size: 14px; }
+    .authorize-page .authorize-content .btn-default:hover, .authorize-page .authorize-content .btn-default:active {
+      background-color: #ea6759;
+      border-color: #ea6759;
+      opacity: 0.7; }
+
+/*# sourceMappingURL=oauth.css.map */

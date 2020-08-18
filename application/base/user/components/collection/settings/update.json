@@ -1,0 +1,23 @@
+{
+    "version": "Version 0.3",
+    "changelogs": "Added support for automatic updates.",
+    "files": [
+        "application\/base\/user\/components\/collection\/settings\/main.php",
+        "application\/base\/user\/components\/collection\/settings\/controllers\/user.php",
+        "application\/base\/user\/components\/collection\/settings\/helpers\/options_templates.php",
+        "application\/base\/user\/components\/collection\/settings\/helpers\/settings.php",
+        "application\/base\/user\/components\/collection\/settings\/inc\/admin.php",
+        "application\/base\/user\/components\/collection\/settings\/inc\/settings.php",
+        "application\/base\/user\/components\/collection\/settings\/inc\/functions.php",
+        "application\/base\/user\/components\/collection\/settings\/language\/english\/settings_user_lang.php",
+        "application\/base\/user\/components\/collection\/settings\/views\/main.php",
+        "application\/base\/user\/components\/collection\/settings\/views\/menu.php",
+        "application\/base\/user\/components\/collection\/settings\/views\/templates\/advanced.php",
+        "application\/base\/user\/components\/collection\/settings\/views\/templates\/general.php",
+        "application\/base\/user\/components\/collection\/settings\/views\/templates\/invoices.php",
+        "application\/base\/user\/components\/collection\/settings\/views\/templates\/plan_usage.php",
+        "application\/base\/user\/components\/collection\/settings\/views\/templates\/referrals.php",
+        "assets\/base\/user\/components\/collection\/settings\/js\/main.js",
+        "assets\/base\/user\/components\/collection\/settings\/styles\/css\/settings.css"
+    ]
+}

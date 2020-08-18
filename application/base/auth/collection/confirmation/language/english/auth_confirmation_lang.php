@@ -1,0 +1,22 @@
+<?php
+$lang["auth_confirmation_page_title"] = "Please Activate Your Account";
+$lang["auth_confirmation_page_under_title"] = "Before you can login, you must active your account with the code sent to your email address.";
+$lang["auth_confirmation_resend_confirmation_code"] = "Resend Confirmation";
+$lang["auth_confirmation_change_email"] = "Change Email";
+$lang["auth_confirmation_enter_email"] = "Enter a new email address";
+$lang["auth_confirmation_change_email_and_resend_code"] = "Change Email and Resend Confirmation";
+$lang["auth_confirmation_resend_once_hour"] = "Resend activation done can be done once per hour.";
+$lang["auth_confirmation_wrong_email"] = "The email is wrong.";
+$lang["auth_confirmation_please_sign_in"] = "Please sign in again.";
+$lang["auth_confirmation_please_enter_different_email"] = "Please enter a different email.";
+$lang["auth_confirmation_another_user_has_email"] = "Another user has same email.";
+$lang["auth_confirmation_another_team_member_has_email"] = "A team's member has same email.";
+$lang["auth_confirmation_the_email_was_not_changed"] = "The email was not changed successfully.";
+$lang["auth_confirmation_the_email_was_changed_but_no_confirmation"] = "The email was changed but the confirmation code was not resent.";
+$lang["auth_confirmation_the_email_was_changed"] = "The email was changed and the confirmation code was resent.";
+$lang["auth_confirmation_the_confirmation_code_was_sent"] = "The confirmation code was resent successfully.";
+$lang["auth_confirmation_the_confirmation_code_was_not_sent"] = "The confirmation code was not resent successfully.";
+$lang["auth_confirmation_invalid_code"] = "Invalid Code.";
+$lang["auth_confirmation_congratulations_account_activated"] = "Congratulations, your account has been activated.";
+$lang["auth_confirmation_congratulations_account_please_sign_in"] = "Congratulations, your account has been activated. Please sign in.";
+$lang["auth_confirmation_account_not_activated"] = "Your account has not been activated.";

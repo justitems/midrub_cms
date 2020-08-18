@@ -1,0 +1,379 @@
+/*******************************
+IMPORT FONTS
+********************************/
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans|Open+Sans:400,600|Montserrat:400,500,600');
+
+/*******************************
+MIDRUB GLOBAL VARIABLES
+********************************/
+$primary-black: #343a40;
+$primary-green: #00a28a;
+$primary-red: #ea6759;
+$primary-blue: #0f96e6;
+$primary-yellow: #f7c46c;
+$primary-border-black: rgba(187,201,213,.6);
+$primary-shadow-black: 0 1px 1px rgba(0,0,0,.05);
+
+/*******************************
+UPDATE STYLES
+********************************/
+.update-page {
+    padding-top: 15px;
+        
+    & > .row > .col-lg-2 {
+        padding-left: 0;
+        
+        & > .row {
+            margin: 0;
+            
+            & > .col-lg-12 {
+                padding: 0;
+                
+                ul {
+                    margin: 0 0 15px;
+                    padding: 0;
+                    
+                    li {
+                        margin-bottom: 10px;
+                        padding: 5px 0;
+                        
+                        &.active {
+                            border-radius: 5px;
+                            background-color: #FFFFFF;
+                        }
+                        
+                        a {
+                            color: #656565;
+                            font-family: 'Nunito Sans', 'Montserrat', sans-serif;
+                            background-color: transparent;
+                            
+                            i {
+                                margin-right: 5px;
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+    & > .row > .col-lg-8 {
+        
+        & > .row {
+            
+            & > .col-lg-12.update-area {
+                margin-bottom: 15px;
+                padding: 0;
+                min-height: 200px;
+                border-radius: 5px;
+                background-color: #ffffff;
+                -webkit-box-shadow: 0 .26rem 1.872rem rgba(42,54,75,.05);
+                box-shadow: 0 .26rem 1.872rem rgba(42,54,75,.05);
+                
+                .panel {
+                    border: 0;
+                    box-shadow: none;
+                    
+                    .panel-heading {
+                        margin: 0;
+                        padding: 0 15px;
+                        background-color: transparent;
+                        border-bottom: 1px solid #e3eaef;
+                        font-family: 'Montserrat', sans-serif;
+                        font-size: 14px;
+                        font-weight: 500;
+                        line-height: 50px;
+                        
+                        i {
+                            margin-right: 5px;
+                        }
+                        
+                    }
+                    
+                    .panel-body {
+                        padding: 15px;
+                        min-height: 700px;
+
+                        .panel {
+                            margin-bottom: 10px;
+                            border-left: 3px solid #1dc9b7;
+                            border-radius: 0;
+                            -webkit-box-shadow: 0 0 13px 0 rgba(82,63,105,.1);
+                            box-shadow: 0 0 2px 0 rgba(82,63,105,0.2);
+
+                            .panel-heading {
+                                padding: 0;
+                                border: 0;
+                                -webkit-box-shadow: 0 0.75rem 1.5rem rgba(18,38,63,.03);
+                                box-shadow: 0 0.75rem 1.5rem rgba(18,38,63,.03);                                
+
+                                h4 {
+
+                                    a {
+                                        display: block;
+                                        padding: 0 15px;
+                                        line-height: 50px;
+                                        font-weight: 400;
+                                        font-size: 15px;
+                                        color: $primary-black;
+
+                                        &:hover,
+                                        &:focus,
+                                        &:active {
+                                            text-decoration: none;
+                                            color: $primary-black;
+                                        }
+
+                                    }
+
+                                }
+
+                            }
+
+                            .panel-body {
+                                min-height: auto;
+                                border: 0;
+
+                                ul {
+                                    margin: 0;
+                                    padding: 15px 0;
+
+                                    li {
+                                        margin-bottom: 15px;
+                                        list-style: none;
+                                        line-height: 25px;
+                                        font-family: 'Open Sans', sans-serif;
+                                        font-size: 14px;
+                                        font-weight: 400;
+                                        color: #6e84a3;
+
+                                        &::before {
+                                            margin-right: 5px;
+                                            font-weight: 900;
+                                            font-family: "Font Awesome 5 Free";
+                                            font-size: 10px;
+                                            content: '';
+                                        }
+
+                                    }
+
+                                }
+
+                            }
+
+                            .panel-footer {
+                                background: #f9f9fd;
+
+                                form {
+
+                                    .form-group {
+                                        margin-bottom: 0;
+                                        width: 100%;
+
+                                        .btn-primary {
+                                            display: -webkit-box;
+                                            display: -ms-flexbox;
+                                            display: flex;
+                                            margin: 0 15px 0 0;
+                                            width: auto;
+                                            line-height: 23px;
+                                            padding: 7px 15px 6px;
+                                            font-weight: 400;
+                                            border-radius: .25rem;
+                                            border: 1px solid $primary-blue;
+                                            border-radius: 3px;
+                                            background-color: $primary-blue;
+                                            color: #ffffff;    
+                                            -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.07);                                        
+                                            box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.07);
+
+                                            &:last-child {
+                                                margin: 0;
+                                            }
+                                            
+                                        }
+
+                                        .input-group {
+                                            position: relative;
+                                            display: -webkit-box;
+                                            display: -ms-flexbox;
+                                            display: flex;
+                                            -ms-flex-wrap: wrap;
+                                            flex-wrap: wrap;
+                                            -webkit-box-align: stretch;
+                                            -ms-flex-align: stretch;
+                                            align-items: stretch;
+                                            width: 100%;
+
+                                            input[type="text"] {
+                                                position: relative;
+                                                -webkit-box-flex: 1;
+                                                -ms-flex: 1 1 auto;
+                                                flex: 1 1 auto;
+                                                width: 1%;
+                                                margin: 0 15px 0 0;
+                                                min-height: 40px;
+                                                line-height: 40px;
+                                                box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important;
+                                                -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important;
+                                                font-size: 14px;
+                                                color: #6c757d;
+                                                padding: 0 15px;
+                                                border: 0;
+                                                
+                                                &:focus,
+                                                &:active {
+                                                    box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 2px 0px !important;
+                                                    -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 2px 0px !important;
+                                                    border: 0 !important;
+                                                }
+                                                
+                                            }
+
+                                        }
+
+                                    }
+
+                                }
+
+                            }
+                        
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
+        
+}
+
+/*******************************
+MODAL STYLES
+********************************/
+#update-system {
+
+    .modal-content {
+        border-radius: 0;
+
+        button {
+            text-align: center;
+            min-width: 150px;
+            text-decoration: none;
+            font-size: 14px;
+            font-family: Open Sans,sans-serif;
+            box-shadow: inset 0 32px 0 rgba(0, 0, 0, 0);
+            height: 36px;
+            padding: 0 12px;
+            overflow: hidden;
+            font-weight: 400;
+            border-radius: 4px;
+            margin: 0 0 0 15px;
+
+            &.btn-primary {
+                background-color: $primary-blue;
+                color: #FFFFFF;
+                border-color: $primary-blue;                    
+            }
+
+            &.btn-default {
+                background-color: #FFFFFF;
+                color: $primary-black;
+                border-color: #e2e5ec;                    
+            }
+            
+            &:hover,
+            &:focus {
+                outline: none;
+                box-shadow: none;
+                opacity: 0.7;
+            }
+
+        }
+
+        .modal-header {
+
+            .close {
+                font-size: 30px;
+                padding: 0;
+                min-width: auto;
+            }
+
+            .modal-title {
+                line-height: 35px;
+            }
+
+        }
+
+        .modal-body {
+            padding: 15px 15px 185px;
+        }
+
+    }
+
+}
+
+/*******************************
+CSS ANIMATIONS
+********************************/
+@-webkit-keyframes loading {
+    50% {
+        -ms-transform: rotate(180deg); 
+        -webkit-transform: rotate(180deg); 
+        transform: rotate(180deg); 
+    }
+    100% {
+        -ms-transform: rotate(0deg); 
+        -webkit-transform: rotate(0deg); 
+        transform: rotate(0deg); 
+    }	  
+}
+
+@keyframes loading {
+    50% {
+        -ms-transform: rotate(180deg); 
+        -webkit-transform: rotate(180deg); 
+        transform: rotate(180deg); 
+    }  
+    100% {
+        -ms-transform: rotate(0deg); 
+        -webkit-transform: rotate(0deg); 
+        transform: rotate(0deg); 
+    }
+}
+
+@-webkit-keyframes loadingOpacity {
+    0% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }	  
+}
+
+@keyframes loadingOpacity {
+    0% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }		
+}

@@ -1,0 +1,6 @@
+{
+    "version": "0.0.2",
+    "required": "0.0.8.1",
+    "php": "application_base_user_apps_collection_wmarketing.zip",
+    "assets": "assets_base_user_apps_collection_wmarketing.zip"
+}

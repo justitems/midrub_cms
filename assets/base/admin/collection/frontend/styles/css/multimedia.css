@@ -1,0 +1,115 @@
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans|Open+Sans:400,600|Montserrat:400,500,600");
+/*******************************
+MIDRUB GLOBAL VARIABLES
+********************************/
+/*******************************
+MIDRUB ELEMENTS STYLES
+********************************/
+/*******************************
+MODAL STYLES
+********************************/
+#multimedia-manager .modal-content {
+  border-radius: 0; }
+  #multimedia-manager .modal-content .modal-header {
+    padding: 0;
+    border: 0; }
+    #multimedia-manager .modal-content .modal-header .close {
+      margin: 15px; }
+      #multimedia-manager .modal-content .modal-header .close:hover, #multimedia-manager .modal-content .modal-header .close:focus {
+        outline: none;
+        box-shadow: none;
+        opacity: 0.7; }
+    #multimedia-manager .modal-content .modal-header .nav {
+      width: 100%;
+      margin-bottom: 15px;
+      -webkit-box-shadow: 0 0 33px 0 rgba(144, 163, 171, 0.15);
+      box-shadow: 0 0 33px 0 rgba(144, 163, 171, 0.15);
+      border-bottom: 1px solid rgba(65, 106, 166, 0.1); }
+      #multimedia-manager .modal-content .modal-header .nav li {
+        display: inline-block;
+        width: auto; }
+        #multimedia-manager .modal-content .modal-header .nav li a {
+          color: #999999;
+          font-size: 16px;
+          padding: 18px 25px;
+          border-color: transparent; }
+        #multimedia-manager .modal-content .modal-header .nav li.active a, #multimedia-manager .modal-content .modal-header .nav li:hover a {
+          background-color: transparent;
+          border: 1px solid transparent;
+          border-bottom: 1px solid #2e5f9b;
+          color: #2e5f9b; }
+  #multimedia-manager .modal-content .modal-body {
+    min-height: 500px; }
+    #multimedia-manager .modal-content .modal-body #multimedia-gallery .col-lg-3 {
+      margin-bottom: 20px; }
+      #multimedia-manager .modal-content .modal-body #multimedia-gallery .col-lg-3 a.delete-media-item {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 15px;
+        padding: 5px;
+        background-color: #FFFFFF; }
+        #multimedia-manager .modal-content .modal-body #multimedia-gallery .col-lg-3 a.delete-media-item:hover {
+          text-decoration: none;
+          opacity: 0.7; }
+      #multimedia-manager .modal-content .modal-body #multimedia-gallery .col-lg-3 img {
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        object-fit: cover; }
+    #multimedia-manager .modal-content .modal-body #multimedia-gallery .btn-load-old-media {
+      display: none;
+      margin: 7px auto 0;
+      padding: 4px 15px 4px;
+      width: auto;
+      border: 1px solid #cdcde6;
+      border-radius: .25rem;
+      line-height: 23px;
+      text-align: center;
+      font-weight: 400;
+      font-size: 14px;
+      color: #6c757d;
+      background-color: #f5f9fd;
+      -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.07);
+      box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.07); }
+      #multimedia-manager .modal-content .modal-body #multimedia-gallery .btn-load-old-media i {
+        margin-right: 5px; }
+      #multimedia-manager .modal-content .modal-body #multimedia-gallery .btn-load-old-media:hover, #multimedia-manager .modal-content .modal-body #multimedia-gallery .btn-load-old-media:focus {
+        text-decoration: none;
+        opacity: 0.7; }
+    #multimedia-manager .modal-content .modal-body #multimedia-upload .drag-and-drop-files {
+      height: 450px;
+      width: 100%;
+      padding: 10px;
+      -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
+      #multimedia-manager .modal-content .modal-body #multimedia-upload .drag-and-drop-files > div {
+        border: 2px dashed #D1D7DD;
+        width: 100%;
+        height: 430px;
+        color: #4FB2F9;
+        text-align: center;
+        font-size: 18px; }
+        #multimedia-manager .modal-content .modal-body #multimedia-upload .drag-and-drop-files > div i {
+          font-size: 70px;
+          margin-top: 120px;
+          display: block;
+          color: #D1D7DD;
+          transition: margin 700ms; }
+          #multimedia-manager .modal-content .modal-body #multimedia-upload .drag-and-drop-files > div i.drag-upload-active {
+            margin-top: 100x;
+            margin-bottom: 10px; }
+        #multimedia-manager .modal-content .modal-body #multimedia-upload .drag-and-drop-files > div a {
+          color: #4FB2F9;
+          text-decoration: none;
+          border-bottom: 1px solid #4FB2F9; }
+          #multimedia-manager .modal-content .modal-body #multimedia-upload .drag-and-drop-files > div a:hover {
+            border-bottom: 0; }
+      #multimedia-manager .modal-content .modal-body #multimedia-upload .drag-and-drop-files.drag-active > div {
+        border: 2px dashed #4FB2F9; }
+
+/*******************************
+CSS ANIMATIONS
+********************************/

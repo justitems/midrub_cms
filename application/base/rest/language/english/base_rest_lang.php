@@ -1,0 +1,26 @@
+<?php
+$lang["api_app_id_is_not_valid"] = "Application ID is not valid.";
+$lang["api_app_secret_is_not_valid"] = "Application Secret is not valid.";
+$lang["api_redirect_url_is_not_valid"] = "Redirect URL is not valid.";
+$lang["api_response_type_is_wrong"] = "The response type is wrong.";
+$lang["api_get_autorization"] = "Get Autorization";
+$lang["api_would_like_permissions"] = "This application would like your permission.";
+$lang["api_user_profile"] = "Read your profile information.";
+$lang["api_error_occured"] = "An error occurred while processing your request.";
+$lang["api_allow"] = "Allow";
+$lang["api_not_now"] = "Not now";
+$lang["api_grant_type_not_valid"] = "The grant type is not valid.";
+$lang["api_no_permissions_to_access_page"] = "You don't have permissions to access this page.";
+$lang["api_authorization_code_not_valid"] = "The authorization code is not valid.";
+$lang["api_authorization_failed"] = "Authorization failed.";
+$lang["api_failed_connect"] = "REST api call: Failed to connect.";
+$lang["api_failed_connect_access_token"] = "REST api call: Access token is not valid.";
+$lang["api_failed_connect_enough_permissions"] = "REST api call: You don't have enough permissions.";
+$lang["api_failed_access_token"] = "You have attempted with 5 wrong access tokens and you was blocked for a hour.";
+$lang["api_unconfirmed_account"] = "Your account is unconfirmed.";
+$lang["api_unpaid_invoice"] = "You have a unpaid invoice.";
+$lang["api_missing_scope"] = "The scope for your request is invalid.";
+$lang["api_your_account_is_blocked"] = "Your account is blocked. Please try later.";
+$lang["api_you_have_been_successfully"] = "You have been successfully signed in.";
+$lang["api_usrname_password_wrong"] = "Username or password is incorrect.";
+$lang["api_requested_endpoint_unavailable"] = "The requested endpoint is not available.";

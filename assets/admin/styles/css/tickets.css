@@ -1,0 +1,1586 @@
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600");
+/*******************************
+MIDRUB GLOBAL VARIABLES
+********************************/
+/*******************************
+MIDRUB ELEMENTS STYLES
+********************************/
+/*******************************
+GENERAL STYLES
+********************************/
+.btn.btn-info {
+  background-color: #59abfd !important;
+  border-color: #59abfd !important; }
+.btn.btn-danger {
+  background-color: #ea6759 !important;
+  border-color: #ea6759 !important; }
+.btn:hover {
+  opacity: 0.8; }
+
+.font-weight-bold {
+  font-weight: 600; }
+
+.pagination {
+  margin: 5px 5px 0;
+  border: 1px solid #E1E8F0;
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.02); }
+  .pagination li a,
+  .pagination li span {
+    border: 0; }
+  .pagination li.active a {
+    background-color: #f8fafb !important; }
+
+.page-loading {
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 9999;
+  margin-top: 0px;
+  top: 0px; }
+  .page-loading .loading-animation-area {
+    width: 100%;
+    height: 100%;
+    position: relative; }
+    .page-loading .loading-animation-area .loading-center-absolute {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      height: 200px;
+      width: 200px;
+      margin-top: -100px;
+      margin-left: -100px; }
+      .page-loading .loading-animation-area .loading-center-absolute .object {
+        -moz-border-radius: 50% 50% 50% 50%;
+        -webkit-border-radius: 50% 50% 50% 50%;
+        border-radius: 50% 50% 50% 50%;
+        position: absolute;
+        border-left: 5px solid #FFF;
+        border-right: 5px solid #FFF;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        -webkit-animation: loading 2s infinite;
+        animation: loading 2s infinite; }
+        .page-loading .loading-animation-area .loading-center-absolute .object.object_one {
+          left: 75px;
+          top: 75px;
+          width: 50px;
+          height: 50px; }
+        .page-loading .loading-animation-area .loading-center-absolute .object.object_two {
+          left: 65px;
+          top: 65px;
+          width: 70px;
+          height: 70px;
+          -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s; }
+        .page-loading .loading-animation-area .loading-center-absolute .object.object_three {
+          left: 55px;
+          top: 55px;
+          width: 90px;
+          height: 90px;
+          -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+        .page-loading .loading-animation-area .loading-center-absolute .object.object_four {
+          left: 45px;
+          top: 45px;
+          width: 110px;
+          height: 110px;
+          -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s; }
+
+body {
+  background-color: #f5f7fa; }
+
+/*******************************
+TICKETS STYLES
+********************************/
+section {
+  font-family: 'Nunito Sans', sans-serif; }
+  section .container-fluid.tickets {
+    padding-top: 15px; }
+    section .container-fluid.tickets i {
+      margin-right: 5px; }
+    section .container-fluid.tickets > .row > .col-lg-2 {
+      padding-left: 0; }
+      section .container-fluid.tickets > .row > .col-lg-2 .tickets-new-faq-article {
+        text-align: center;
+        background-color: #6086bf;
+        color: #FFFFFF;
+        border-color: #6086bf;
+        width: 100%;
+        text-decoration: none;
+        font-size: 13px;
+        box-shadow: inset 0 32px 0 rgba(0, 0, 0, 0);
+        height: 36px;
+        padding: 0 12px;
+        overflow: hidden;
+        line-height: 36px;
+        border-radius: 4px;
+        margin: -15px 0 0 0; }
+        section .container-fluid.tickets > .row > .col-lg-2 .tickets-new-faq-article i {
+          float: left;
+          margin-top: 12px; }
+      section .container-fluid.tickets > .row > .col-lg-2 > .row {
+        margin: 0; }
+        section .container-fluid.tickets > .row > .col-lg-2 > .row > .col-lg-12 {
+          padding: 15px 0; }
+          section .container-fluid.tickets > .row > .col-lg-2 > .row > .col-lg-12 ul {
+            margin: 0 0 15px;
+            padding: 0; }
+            section .container-fluid.tickets > .row > .col-lg-2 > .row > .col-lg-12 ul li {
+              margin-bottom: 10px; }
+              section .container-fluid.tickets > .row > .col-lg-2 > .row > .col-lg-12 ul li.active {
+                background-color: #FFFFFF; }
+              section .container-fluid.tickets > .row > .col-lg-2 > .row > .col-lg-12 ul li h4 {
+                padding: 0 15px;
+                margin-bottom: 20px;
+                text-transform: uppercase;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 14px;
+                font-weight: 500; }
+              section .container-fluid.tickets > .row > .col-lg-2 > .row > .col-lg-12 ul li a {
+                background-color: transparent;
+                color: #656565;
+                font-family: 'Nunito Sans', 'Montserrat', sans-serif; }
+                section .container-fluid.tickets > .row > .col-lg-2 > .row > .col-lg-12 ul li a i {
+                  margin-right: 5px; }
+    section .container-fluid.tickets > .row > .col-lg-8 {
+      padding: 0; }
+      @media only screen and (max-width: 1199px) {
+        section .container-fluid.tickets > .row > .col-lg-8 {
+          padding: 0 30px; } }
+      section .container-fluid.tickets > .row > .col-lg-8 .tab-content {
+        border-radius: 3px;
+        min-height: 700px;
+        background-color: #fff;
+        border: 1px solid #e1e8f0;
+        -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.02);
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.02); }
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead {
+          min-height: 67px;
+          padding: 12px 15px;
+          padding: 15px;
+          margin-bottom: 18px;
+          background-color: #f5f7f9; }
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr,
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr,
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th {
+              border-bottom: 0;
+              padding: 0;
+              line-height: 55px; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:checked,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:checked,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:checked {
+                position: absolute;
+                left: -9999px; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label {
+                position: relative;
+                padding-left: 1.95em;
+                cursor: pointer; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 25px;
+                height: 25px;
+                border: 1px solid #dddddd;
+                background: #fff;
+                border-radius: 4px;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label:after {
+                content: '\2713\0020';
+                position: absolute;
+                top: .15em;
+                left: .22em;
+                font-size: 1.3em;
+                line-height: 0.8;
+                color: #09ad7e;
+                transition: all .2s; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after {
+                opacity: 0;
+                transform: scale(0); }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label:after {
+                opacity: 1;
+                transform: scale(1); }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled:not(:checked) + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled:checked + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled:not(:checked) + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled:checked + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled:not(:checked) + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled:checked + label:before {
+                box-shadow: none;
+                border-color: #bbb;
+                background-color: #ddd; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled:checked + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled:checked + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled:checked + label:after {
+                color: #999; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled + label,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled + label,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled + label {
+                color: #aaa; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th:first-child,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th:first-child,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th:first-child {
+                width: 8%; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th:nth-child(2),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th:nth-child(2),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th:nth-child(2) {
+                width: 80%; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th:nth-child(3),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th:nth-child(3),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th:nth-child(3) {
+                width: 12%; }
+              @media only screen and (max-width: 1199px) {
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th:first-child,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th:first-child,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th:first-child {
+                  width: 25%; }
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th:nth-child(2),
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th:nth-child(2),
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th:nth-child(2) {
+                  width: 50%; }
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th:nth-child(3),
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th:nth-child(3),
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th:nth-child(3) {
+                  width: 25%; } }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th .checkbox-option-select,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th .checkbox-option-select,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th .checkbox-option-select {
+                float: left;
+                padding: 0;
+                width: 100%; }
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th .checkbox-option-select label::before,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th .checkbox-option-select label::before,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th .checkbox-option-select label::before {
+                  margin-top: -11px;
+                  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.07) !important;
+                  border: 0 !important; }
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th .checkbox-option-select label::after,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th .checkbox-option-select label::after,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th .checkbox-option-select label::after {
+                  margin-top: -8px; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th a.btn-option,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th a.btn-option,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th a.btn-option {
+                background-color: #FFFFFF;
+                color: #6c757d;
+                line-height: 23px;
+                padding: 7px 15px 6px;
+                font-weight: 400;
+                border-radius: .25rem;
+                margin-right: 15px;
+                box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.07);
+                border: 0; }
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th a.btn-option:hover, section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th a.btn-option:focus,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th a.btn-option:hover,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th a.btn-option:focus,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th a.btn-option:hover,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th a.btn-option:focus {
+                  opacity: 0.7;
+                  text-decoration: none;
+                  border: 0; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th a.dropdown-toggle,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th a.dropdown-toggle,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th a.dropdown-toggle {
+                height: 34px;
+                line-height: 19px; }
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th a.dropdown-toggle::after,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th a.dropdown-toggle::after,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th a.dropdown-toggle::after {
+                  display: inline-block;
+                  width: 0;
+                  height: 0;
+                  margin-left: .255em;
+                  vertical-align: .255em;
+                  content: "";
+                  border-top: .3em solid;
+                  border-right: .3em solid transparent;
+                  border-bottom: 0;
+                  border-left: .3em solid transparent; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th .dropdown-menu,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th .dropdown-menu,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th .dropdown-menu {
+                min-width: 100px;
+                margin-left: 15px;
+                -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+                border: 0;
+                padding: 0;
+                transform: inherit !important; }
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th .dropdown-menu .dropdown-item,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th .dropdown-menu .dropdown-item,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th .dropdown-menu .dropdown-item {
+                  display: block;
+                  width: 100%;
+                  padding: 0 15px;
+                  line-height: 40px;
+                  clear: both;
+                  font-weight: 400;
+                  color: #212529;
+                  text-align: inherit;
+                  white-space: nowrap;
+                  background-color: transparent;
+                  border: 0; }
+                  section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table thead tr th .dropdown-menu .dropdown-item:hover,
+                  section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table thead tr th .dropdown-menu .dropdown-item:hover,
+                  section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table thead tr th .dropdown-menu .dropdown-item:hover {
+                    background-color: #f6f6f6;
+                    text-decoration: none;
+                    border-bottom: 0; }
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr {
+          border-top: 1px solid #eee; }
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td,
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td,
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td {
+            border-bottom: 0;
+            padding: 0;
+            line-height: 55px;
+            border-top: 1px solid #eee; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td:first-child,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td:first-child,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td:first-child {
+              width: 8%; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td:nth-child(2),
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td:nth-child(2),
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td:nth-child(2) {
+              width: 8%; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td:nth-child(3),
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td:nth-child(3),
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td:nth-child(3) {
+              width: 72%; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td:nth-child(4),
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td:nth-child(4),
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td:nth-child(4) {
+              width: 12%; }
+            @media only screen and (max-width: 1199px) {
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td:first-child,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td:first-child,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td:first-child {
+                width: 25%; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td:nth-child(2),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td:nth-child(2),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td:nth-child(2) {
+                width: 20%; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td:nth-child(3),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td:nth-child(3),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td:nth-child(3) {
+                width: 30%; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td:nth-child(4),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td:nth-child(4),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td:nth-child(4) {
+                width: 25%; } }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td a,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td a,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td a {
+              color: #333333;
+              display: block; }
+              @media only screen and (max-width: 600px) {
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td a,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td a,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td a {
+                  width: 100px; } }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td span,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td span,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td span {
+              margin-right: 15px;
+              display: inline-block;
+              margin-top: 12px;
+              height: 22px;
+              width: 84px;
+              text-align: center;
+              line-height: 24px;
+              font-size: 11px; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td .ticket-active,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td .ticket-active,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td .ticket-active {
+              background-color: #f0f8ff; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td .ticket-unactive,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td .ticket-unactive,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td .ticket-unactive {
+              background-color: #f7f7f7; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td .ticket-closed,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td .ticket-closed,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td .ticket-closed {
+              background-color: #fff4f4; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td p,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td p,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td p {
+              white-space: nowrap;
+              overflow: hidden !important;
+              text-overflow: ellipsis;
+              color: #adb5bd;
+              margin-bottom: 0;
+              display: table-caption;
+              width: 60%; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked),
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked),
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked),
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked {
+              position: absolute;
+              left: -9999px; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label {
+              position: relative;
+              padding-left: 1.95em;
+              cursor: pointer; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label:before,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label:before,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label:before,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label:before,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label:before,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label:before {
+              content: '';
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 25px;
+              height: 25px;
+              border: 1px solid #dddddd;
+              background: #fff;
+              border-radius: 4px;
+              box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label:after {
+              content: '\2713\0020';
+              position: absolute;
+              top: .15em;
+              left: .22em;
+              font-size: 1.3em;
+              line-height: 0.8;
+              color: #09ad7e;
+              transition: all .2s; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after {
+              opacity: 0;
+              transform: scale(0); }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label:after {
+              opacity: 1;
+              transform: scale(1); }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled:not(:checked) + label:before,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled:checked + label:before,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled:not(:checked) + label:before,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled:checked + label:before,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled:not(:checked) + label:before,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled:checked + label:before {
+              box-shadow: none;
+              border-color: #bbb;
+              background-color: #ddd; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled:checked + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled:checked + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled:checked + label:after {
+              color: #999; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled + label,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled + label,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled + label {
+              color: #aaa; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td .checkbox-option-select,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td .checkbox-option-select,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td .checkbox-option-select {
+              float: left;
+              padding: 0;
+              width: 100%; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td .checkbox-option-select label::before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td .checkbox-option-select label::before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td .checkbox-option-select label::before {
+                margin-top: -11px;
+                border: 0 !important;
+                box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important;
+                -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tbody tr td .checkbox-option-select label::after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tbody tr td .checkbox-option-select label::after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tbody tr td .checkbox-option-select label::after {
+                margin-top: -8px; }
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tfoot tr td,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tfoot tr td,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tfoot tr td {
+          border-top: 1px solid #eee; }
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table tfoot tr td .pagination,
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table tfoot tr td .pagination,
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table tfoot tr td .pagination {
+            margin: 15px; }
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table.no-tickets-found tbody tr,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table.no-tickets-found tbody tr,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table.no-tickets-found tbody tr {
+          border-bottom: 0; }
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table.no-tickets-found tbody tr td p,
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table.no-tickets-found tbody tr td p,
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table.no-tickets-found tbody tr td p {
+            color: #777;
+            font-size: 15px;
+            padding-left: 15px;
+            width: 100%;
+            display: block; }
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-tickets .table.no-tickets-found tfoot tr td,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unanswered-tickets .table.no-tickets-found tfoot tr td,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #important-tickets .table.no-tickets-found tfoot tr td {
+          border: 0; }
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead {
+          min-height: 67px;
+          padding: 12px 15px;
+          padding: 15px;
+          margin-bottom: 18px;
+          background-color: #f5f7f9; }
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr,
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr,
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.07); }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th {
+              border-bottom: 0;
+              padding: 0;
+              line-height: 55px; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:checked,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:checked,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th .checkbox-option-select input[type="checkbox"]:checked {
+                position: absolute;
+                left: -9999px; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label {
+                position: relative;
+                padding-left: 1.95em;
+                cursor: pointer; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 25px;
+                height: 25px;
+                border: 1px solid #dddddd;
+                background: #fff;
+                border-radius: 4px;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label:after {
+                content: '\2713\0020';
+                position: absolute;
+                top: .15em;
+                left: .22em;
+                font-size: 1.3em;
+                line-height: 0.8;
+                color: #09ad7e;
+                transition: all .2s; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after {
+                opacity: 0;
+                transform: scale(0); }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th .checkbox-option-select input[type="checkbox"]:checked + label:after {
+                opacity: 1;
+                transform: scale(1); }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled:not(:checked) + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled:checked + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled:not(:checked) + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled:checked + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled:not(:checked) + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled:checked + label:before {
+                box-shadow: none;
+                border-color: #bbb;
+                background-color: #ddd; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled:checked + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled:checked + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled:checked + label:after {
+                color: #999; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled + label,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled + label,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th .checkbox-option-select input[type="checkbox"]:disabled + label {
+                color: #aaa; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th:first-child,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th:first-child,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th:first-child {
+                width: 8%; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th:nth-child(2),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th:nth-child(2),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th:nth-child(2) {
+                width: 62%; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th:nth-child(3),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th:nth-child(3),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th:nth-child(3) {
+                width: 30%; }
+              @media only screen and (max-width: 1199px) {
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th:first-child,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th:first-child,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th:first-child {
+                  width: 25%;
+                  padding-left: 30px;
+                  text-align: left; }
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th:nth-child(2),
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th:nth-child(2),
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th:nth-child(2) {
+                  width: 40%; }
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th:nth-child(3),
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th:nth-child(3),
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th:nth-child(3) {
+                  width: 35%; } }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th .checkbox-option-select,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th .checkbox-option-select,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th .checkbox-option-select {
+                float: left;
+                padding: 0;
+                width: 100%; }
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th .checkbox-option-select label::before,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th .checkbox-option-select label::before,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th .checkbox-option-select label::before {
+                  margin-top: -11px;
+                  border: 0 !important;
+                  box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important;
+                  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important; }
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th .checkbox-option-select label::after,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th .checkbox-option-select label::after,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th .checkbox-option-select label::after {
+                  margin-top: -8px; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th a.btn-option,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th a.btn-option,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th a.btn-option {
+                background-color: #FFFFFF;
+                color: #6c757d;
+                line-height: 23px;
+                padding: 7px 15px 6px;
+                font-weight: 400;
+                border-radius: .25rem;
+                margin-right: 15px;
+                box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.07);
+                border: 0; }
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th a.btn-option:hover, section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table thead tr th a.btn-option:focus,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th a.btn-option:hover,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table thead tr th a.btn-option:focus,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th a.btn-option:hover,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table thead tr th a.btn-option:focus {
+                  opacity: 0.7;
+                  text-decoration: none;
+                  border: 0; }
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr {
+          border-top: 1px solid #eee; }
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td,
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td,
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td {
+            border-bottom: 0;
+            padding: 0;
+            line-height: 55px;
+            border-top: 1px solid #eee; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td a,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td a,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td a {
+              color: #333333; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td span,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td span,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td span {
+              margin-right: 15px;
+              display: inline-block;
+              margin-top: 12px;
+              height: 22px;
+              width: 84px;
+              text-align: center;
+              line-height: 24px;
+              font-size: 11px; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td .ticket-active,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td .ticket-active,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td .ticket-active {
+              background-color: #f0f8ff; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td .ticket-unactive,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td .ticket-unactive,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td .ticket-unactive {
+              background-color: #f7f7f7; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td .ticket-closed,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td .ticket-closed,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td .ticket-closed {
+              background-color: #fff4f4; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td p,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td p,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td p {
+              white-space: normal;
+              color: #adb5bd;
+              margin-bottom: 0;
+              height: 50px;
+              overflow: hidden;
+              display: table-caption;
+              width: 60%; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked),
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked),
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked),
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked {
+              position: absolute;
+              left: -9999px; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label {
+              position: relative;
+              padding-left: 1.95em;
+              cursor: pointer; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label:before,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label:before,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label:before,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label:before,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label:before,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label:before {
+              content: '';
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 25px;
+              height: 25px;
+              border: 1px solid #dddddd;
+              background: #fff;
+              border-radius: 4px;
+              box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label:after {
+              content: '\2713\0020';
+              position: absolute;
+              top: .15em;
+              left: .22em;
+              font-size: 1.3em;
+              line-height: 0.8;
+              color: #09ad7e;
+              transition: all .2s; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after {
+              opacity: 0;
+              transform: scale(0); }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label:after {
+              opacity: 1;
+              transform: scale(1); }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled:not(:checked) + label:before,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled:checked + label:before,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled:not(:checked) + label:before,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled:checked + label:before,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled:not(:checked) + label:before,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled:checked + label:before {
+              box-shadow: none;
+              border-color: #bbb;
+              background-color: #ddd; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled:checked + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled:checked + label:after,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled:checked + label:after {
+              color: #999; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled + label,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled + label,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled + label {
+              color: #aaa; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td .checkbox-option-select,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td .checkbox-option-select,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td .checkbox-option-select {
+              float: left;
+              padding: 0;
+              width: 100%; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td .checkbox-option-select label::before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td .checkbox-option-select label::before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td .checkbox-option-select label::before {
+                margin-top: -11px;
+                border: 0 !important;
+                box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important;
+                -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tbody tr td .checkbox-option-select label::after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tbody tr td .checkbox-option-select label::after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tbody tr td .checkbox-option-select label::after {
+                margin-top: -8px; }
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tfoot tr td,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tfoot tr td,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tfoot tr td {
+          border-top: 1px solid #eee; }
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table tfoot tr td .pagination,
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table tfoot tr td .pagination,
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table tfoot tr td .pagination {
+            margin: 15px; }
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table.no-articles-found tbody tr,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table.no-articles-found tbody tr,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table.no-articles-found tbody tr {
+          border-bottom: 0; }
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table.no-articles-found tbody tr td p,
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table.no-articles-found tbody tr td p,
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table.no-articles-found tbody tr td p {
+            color: #777;
+            font-size: 15px;
+            padding-left: 15px;
+            width: 100%;
+            display: block; }
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .table.no-articles-found tfoot tr td,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .table.no-articles-found tfoot tr td,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .table.no-articles-found tfoot tr td {
+          border: 0; }
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list,
+        section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list {
+          padding: 0 45px; }
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item,
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item,
+          section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item {
+            border: 0;
+            padding: 0; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item .col-lg-12,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item .col-lg-12,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item .col-lg-12 {
+              min-height: 45px;
+              box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important;
+              -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important;
+              font-size: 14px;
+              color: #6c757d;
+              background-color: #ffffff;
+              border-color: #ffffff;
+              line-height: 19px;
+              margin-bottom: 15px;
+              padding-top: 12px; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked),
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked {
+                position: absolute;
+                left: -9999px; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked) + label,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked + label,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked) + label,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked + label,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked) + label,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked + label {
+                position: relative;
+                padding-left: 1.95em;
+                cursor: pointer; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked) + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked) + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked) + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked + label:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 25px;
+                height: 25px;
+                border: 1px solid #dddddd;
+                background: #fff;
+                border-radius: 4px;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked + label:after {
+                content: '\2713\0020';
+                position: absolute;
+                top: .15em;
+                left: .22em;
+                font-size: 1.3em;
+                line-height: 0.8;
+                color: #09ad7e;
+                transition: all .2s; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after {
+                opacity: 0;
+                transform: scale(0); }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked + label:after {
+                opacity: 1;
+                transform: scale(1); }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:disabled:not(:checked) + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:disabled:checked + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:disabled:not(:checked) + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:disabled:checked + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:disabled:not(:checked) + label:before,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:disabled:checked + label:before {
+                box-shadow: none;
+                border-color: #bbb;
+                background-color: #ddd; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:disabled:checked + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:disabled:checked + label:after,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:disabled:checked + label:after {
+                color: #999; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:disabled + label,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:disabled + label,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:disabled + label {
+                color: #aaa; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select {
+                float: left;
+                padding: 0;
+                margin-right: 10px; }
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select label::before,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select label::before,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select label::before {
+                  margin-top: -11px;
+                  border: 0 !important;
+                  box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important;
+                  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important; }
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select label::after,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select label::after,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select label::after {
+                  margin-top: -8px; }
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item .col-lg-12 .btn-danger,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item .col-lg-12 .btn-danger,
+              section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item .col-lg-12 .btn-danger {
+                -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) !important;
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) !important;
+                color: #6c757d;
+                height: 25px;
+                font-size: 12px;
+                line-height: 16px;
+                padding: 5px;
+                margin-top: -3px;
+                float: right;
+                background-color: #FFFFFF !important;
+                border: 1px solid #dddddd !important; }
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item .col-lg-12 .btn-danger:hover,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item .col-lg-12 .btn-danger:hover,
+                section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item .col-lg-12 .btn-danger:hover {
+                  color: #333333;
+                  border: 1px solid #333333 !important; }
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #all-articles .categories-list .list-group .list-group-item .list-group,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #unpublished-articles .categories-list .list-group .list-group-item .list-group,
+            section .container-fluid.tickets > .row > .col-lg-8 .tab-content #categories .categories-list .list-group .list-group-item .list-group {
+              margin-left: 30px;
+              margin-bottom: 0;
+              width: calc(100% - 30px); }
+  section .container-fluid.single-ticket {
+    padding-top: 15px; }
+    section .container-fluid.single-ticket > .row > .col-lg-2 {
+      min-height: 100px;
+      display: inline-table;
+      background-color: #FFFFFF;
+      padding: 15px;
+      margin-bottom: 20px;
+      -webkit-box-shadow: 0 0 0 1px rgba(61, 70, 79, 0.05), 0 1px 3px 0 rgba(61, 70, 79, 0.05);
+      box-shadow: 0 0 0 1px rgba(61, 70, 79, 0.05), 0 1px 3px 0 rgba(61, 70, 79, 0.05); }
+      section .container-fluid.single-ticket > .row > .col-lg-2 .nav {
+        width: 100%;
+        border-bottom: 0; }
+        section .container-fluid.single-ticket > .row > .col-lg-2 .nav li {
+          width: 100%;
+          padding: 0; }
+          section .container-fluid.single-ticket > .row > .col-lg-2 .nav li h3 {
+            margin: 0;
+            font-weight: 700;
+            color: #222;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-family: "Open Sans", sans-serif, "Arimo";
+            margin-bottom: 20px; }
+          section .container-fluid.single-ticket > .row > .col-lg-2 .nav li a {
+            padding: 0 15px;
+            font-family: "Open Sans", sans-serif;
+            font-size: 13px;
+            color: #212529;
+            line-height: 20px;
+            margin-bottom: 15px;
+            display: block;
+            border: 0; }
+            section .container-fluid.single-ticket > .row > .col-lg-2 .nav li a:hover {
+              border-bottom: 0; }
+          section .container-fluid.single-ticket > .row > .col-lg-2 .nav li .list-group {
+            margin: 0;
+            padding: 0 18px; }
+            section .container-fluid.single-ticket > .row > .col-lg-2 .nav li .list-group li {
+              list-style: disc; }
+              section .container-fluid.single-ticket > .row > .col-lg-2 .nav li .list-group li a {
+                padding: 0; }
+    @media only screen and (max-width: 1199px) {
+      section .container-fluid.single-ticket > .row .col-lg-6 {
+        padding: 0; } }
+    section .container-fluid.single-ticket > .row .col-lg-6 .settings-list {
+      min-height: 500px;
+      background-color: #FFFFFF;
+      border: 0;
+      -webkit-box-shadow: 0 0 0 1px rgba(61, 70, 79, 0.05), 0 1px 3px 0 rgba(61, 70, 79, 0.05);
+      box-shadow: 0 0 0 1px rgba(61, 70, 79, 0.05), 0 1px 3px 0 rgba(61, 70, 79, 0.05);
+      border-radius: 4px; }
+      @media only screen and (max-width: 1199px) {
+        section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .tab-pane {
+          margin: 0;
+          width: 100%;
+          max-width: 100%; } }
+      section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel {
+        border: 0;
+        margin: 20px 0;
+        border-radius: 0; }
+        section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-heading {
+          padding: 0 15px;
+          font-size: 15px;
+          border-bottom: 1px solid rgba(65, 106, 166, 0.1);
+          background-color: transparent;
+          color: #212529; }
+          section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-heading .breadcrumb {
+            background-color: transparent;
+            padding: 0;
+            margin-bottom: 0; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-heading .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+              content: "\203A";
+              padding: 0 5px;
+              color: #ccc;
+              margin-left: 5px; }
+        section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body {
+          min-height: 600px;
+          padding-bottom: 20px; }
+          section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body ul {
+            margin: 15px 0;
+            padding: 0; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body ul li {
+              line-height: 40px;
+              list-style: none; }
+              section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body ul li a {
+                color: #495057; }
+                section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body ul li a:hover {
+                  border-bottom: 1px solid #495057; }
+          section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article {
+            padding: 0; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article .title {
+              font-weight: 400;
+              font-size: 25px;
+              color: #253540;
+              margin-bottom: 0.5em;
+              text-transform: uppercase; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article p {
+              color: #4F5D6B;
+              font-size: 15px;
+              line-height: 26px;
+              margin-bottom: 1.5em;
+              word-wrap: break-word; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article ul {
+              padding: 0;
+              margin: 0 0 9px 25px; }
+              section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article ul li {
+                color: #4F5D6B;
+                font-size: 16px;
+                line-height: 26px;
+                list-style-type: disc; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article dt {
+              background: #3197d1; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article h4 {
+              font-weight: 400; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article p,
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article ul,
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article ol,
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article li,
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article div,
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article blockquote,
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article dd,
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article table {
+              color: #4F5D6B;
+              font-size: 16px;
+              line-height: 26px; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article strong {
+              color: #4A4D4F;
+              font-weight: 600; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article h1,
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article h2,
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article h3,
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article h4,
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article h5 {
+              color: #253540;
+              margin-bottom: 1em; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article h2,
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article h5 {
+              font-weight: 600; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article h4 {
+              font-weight: 500; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article h1,
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article h3 {
+              font-weight: 400; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article h3 {
+              font-size: 24px; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article pre,
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article table {
+              margin-bottom: 2.5em; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article dt {
+              font-size: 15px;
+              min-width: 9px; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article table th {
+              font-weight: 600; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-body .article img {
+              margin: 2.5em 0;
+              max-width: 100%; }
+        section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-footer {
+          background-color: transparent;
+          border: 0; }
+          section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-footer .ticket_status {
+            height: 50px;
+            background-color: #f5f7f9; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-footer .ticket_status p {
+              font-weight: 400;
+              font-size: 15px;
+              text-transform: none;
+              font-style: normal;
+              color: #545456;
+              cursor: inherit;
+              display: block;
+              opacity: 1;
+              line-height: 48px;
+              padding: 0 15px; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-footer .ticket_status .btn.btn-danger {
+              background-color: transparent !important;
+              border: 0 !important;
+              box-shadow: none !important;
+              color: #10ade4;
+              color: #346cb0;
+              margin-top: 7px;
+              margin-right: 10px; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-footer .ticket_status .dropdown-menu {
+              padding: 0; }
+              section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-footer .ticket_status .dropdown-menu a {
+                display: block;
+                padding: 10px 15px; }
+                section .container-fluid.single-ticket > .row .col-lg-6 .settings-list .panel .panel-footer .ticket_status .dropdown-menu a:hover {
+                  text-decoration: none;
+                  background-color: #f8f8f8;
+                  border-bottom: 0; }
+    section .container-fluid.single-ticket > .row .col-lg-6 .comment-form {
+      background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      -ms-box-shadow: none;
+      -o-box-shadow: none;
+      box-shadow: none;
+      margin-top: 50px; }
+      section .container-fluid.single-ticket > .row .col-lg-6 .comment-form .comment-form-area {
+        -webkit-box-shadow: 0 0 0 1px rgba(61, 70, 79, 0.05), 0 1px 3px 0 rgba(61, 70, 79, 0.05);
+        box-shadow: 0 0 0 1px rgba(61, 70, 79, 0.05), 0 1px 3px 0 rgba(61, 70, 79, 0.05);
+        background-color: #f8fafb;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -ms-border-radius: 0;
+        -o-border-radius: 0;
+        border-radius: 0;
+        float: left;
+        width: 100%; }
+        section .container-fluid.single-ticket > .row .col-lg-6 .comment-form .comment-form-area form {
+          float: left;
+          width: 100%; }
+          section .container-fluid.single-ticket > .row .col-lg-6 .comment-form .comment-form-area form textarea {
+            background: none repeat scroll 0 0 #fff;
+            border: medium none;
+            -webkit-border-radius: 4px 4px 0 0;
+            -moz-border-radius: 4px 4px 0 0;
+            -ms-border-radius: 4px 4px 0 0;
+            -o-border-radius: 4px 4px 0 0;
+            border-radius: 4px 4px 0 0;
+            color: #777777;
+            float: left;
+            font-family: Lato;
+            font-size: 14px;
+            height: 142px;
+            letter-spacing: 0.3px;
+            padding: 20px;
+            width: 100%;
+            resize: none;
+            outline: none !important;
+            box-shadow: none !important;
+            border-bottom: 1px solid #F2F2F2; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .comment-form .comment-form-area form textarea:focus, section .container-fluid.single-ticket > .row .col-lg-6 .comment-form .comment-form-area form textarea:active {
+              border: 0 !important;
+              outline: none !important;
+              box-shadow: none !important; }
+          section .container-fluid.single-ticket > .row .col-lg-6 .comment-form .comment-form-area form .btn {
+            margin: 10px; }
+    section .container-fluid.single-ticket > .row .col-lg-6 .replies-list {
+      margin-top: 290px; }
+      section .container-fluid.single-ticket > .row .col-lg-6 .replies-list .ticket-replies .ticket-reply {
+        margin-bottom: 50px;
+        padding: 15px;
+        border: 1px solid #e8e8e8;
+        -webkit-box-shadow: 0 0 0 1px rgba(61, 70, 79, 0.05), 0 1px 3px 0 rgba(61, 70, 79, 0.05);
+        box-shadow: 0 0 0 1px rgba(61, 70, 79, 0.05), 0 1px 3px 0 rgba(61, 70, 79, 0.05);
+        background-color: #FFFFFF; }
+        section .container-fluid.single-ticket > .row .col-lg-6 .replies-list .ticket-replies .ticket-reply .reply_img {
+          width: 10%;
+          display: inline-block;
+          vertical-align: top; }
+          section .container-fluid.single-ticket > .row .col-lg-6 .replies-list .ticket-replies .ticket-reply .reply_img img {
+            max-width: 70%;
+            border-radius: 50%; }
+          @media only screen and (max-width: 1199px) {
+            section .container-fluid.single-ticket > .row .col-lg-6 .replies-list .ticket-replies .ticket-reply .reply_img {
+              width: 15%; }
+              section .container-fluid.single-ticket > .row .col-lg-6 .replies-list .ticket-replies .ticket-reply .reply_img img {
+                max-width: 50%; } }
+        section .container-fluid.single-ticket > .row .col-lg-6 .replies-list .ticket-replies .ticket-reply .reply {
+          width: 80%;
+          display: inline-block; }
+          section .container-fluid.single-ticket > .row .col-lg-6 .replies-list .ticket-replies .ticket-reply .reply h5 {
+            font-size: 15px;
+            margin-bottom: 20px;
+            margin-top: 0; }
+            section .container-fluid.single-ticket > .row .col-lg-6 .replies-list .ticket-replies .ticket-reply .reply h5 span {
+              font-size: 13px;
+              color: #bac0c5;
+              padding-left: 15px; }
+          section .container-fluid.single-ticket > .row .col-lg-6 .replies-list .ticket-replies .ticket-reply .reply p {
+            font-size: 15px;
+            line-height: 26px;
+            color: #4B4D4E; }
+  section .container-fluid.new-faq-article,
+  section .container-fluid.single-faq-article {
+    padding-top: 15px; }
+    section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div,
+    section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div {
+      margin: 0; }
+      section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div,
+      section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div {
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        background-color: #f5f7f9;
+        background-color: #FFFFFF;
+        min-height: 300px; }
+        section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div select,
+        section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div select {
+          margin: 15px 0;
+          height: 38px;
+          border: 0;
+          -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+          border: 0 !important; }
+        section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div hr,
+        section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div hr {
+          margin: 0;
+          border-top: 1px solid #d8e0e0; }
+        section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .save-article,
+        section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .save-article {
+          text-align: center;
+          background-color: #6086bf;
+          color: #FFFFFF;
+          border-color: #6086bf;
+          width: 100%;
+          text-decoration: none;
+          font-size: 13px;
+          box-shadow: inset 0 32px 0 rgba(0, 0, 0, 0);
+          height: 36px;
+          padding: 0 12px;
+          overflow: hidden;
+          line-height: 36px;
+          border-radius: 4px;
+          margin: 15px 0; }
+          section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .save-article i,
+          section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .save-article i {
+            float: left;
+            margin-top: 12px; }
+        section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list,
+        section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list {
+          padding: 15px 30px; }
+          section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item,
+          section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item {
+            background-color: transparent;
+            border: 0;
+            padding: 0; }
+            section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12,
+            section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 {
+              min-height: 45px;
+              box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important;
+              -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important;
+              font-size: 14px;
+              color: #6c757d;
+              background-color: #ffffff;
+              border-color: #ffffff;
+              line-height: 19px;
+              margin-bottom: 15px;
+              padding-top: 12px; }
+              section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked),
+              section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked,
+              section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked),
+              section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked {
+                position: absolute;
+                left: -9999px; }
+              section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked) + label,
+              section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked + label,
+              section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked) + label,
+              section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked + label {
+                position: relative;
+                padding-left: 1.95em;
+                cursor: pointer; }
+              section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked) + label:before,
+              section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked + label:before,
+              section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked) + label:before,
+              section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked + label:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 25px;
+                height: 25px;
+                border: 1px solid #dddddd;
+                background: #fff;
+                border-radius: 4px;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); }
+              section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+              section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked + label:after,
+              section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+              section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked + label:after {
+                content: '\2713\0020';
+                position: absolute;
+                top: .15em;
+                left: .22em;
+                font-size: 1.3em;
+                line-height: 0.8;
+                color: #09ad7e;
+                transition: all .2s; }
+              section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+              section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after {
+                opacity: 0;
+                transform: scale(0); }
+              section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked + label:after,
+              section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:checked + label:after {
+                opacity: 1;
+                transform: scale(1); }
+              section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:disabled:not(:checked) + label:before,
+              section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:disabled:checked + label:before,
+              section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:disabled:not(:checked) + label:before,
+              section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:disabled:checked + label:before {
+                box-shadow: none;
+                border-color: #bbb;
+                background-color: #ddd; }
+              section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:disabled:checked + label:after,
+              section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:disabled:checked + label:after {
+                color: #999; }
+              section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:disabled + label,
+              section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select input[type="checkbox"]:disabled + label {
+                color: #aaa; }
+              section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select,
+              section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select {
+                float: left;
+                padding: 0;
+                margin-right: 10px; }
+                section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select label::before,
+                section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select label::before {
+                  margin-top: -11px;
+                  border: 0 !important;
+                  box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important;
+                  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important; }
+                section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select label::after,
+                section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .checkbox-option-select label::after {
+                  margin-top: -8px; }
+              section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .btn-danger,
+              section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .btn-danger {
+                -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) !important;
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) !important;
+                color: #6c757d;
+                height: 25px;
+                font-size: 12px;
+                line-height: 16px;
+                padding: 5px 7px;
+                margin-top: -3px;
+                float: right;
+                background-color: #FFFFFF !important;
+                border: 1px solid #dddddd !important; }
+                section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .btn-danger:hover,
+                section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .col-lg-12 .btn-danger:hover {
+                  color: #333333;
+                  border: 1px solid #333333 !important; }
+            section .container-fluid.new-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .list-group,
+            section .container-fluid.single-faq-article > form > .row > .col-lg-3 > div > div .categories-list .list-group .list-group-item .list-group {
+              margin-left: 30px;
+              margin-bottom: 0;
+              width: calc(100% - 30px); }
+    section .container-fluid.new-faq-article > form > .row > .col-lg-7,
+    section .container-fluid.single-faq-article > form > .row > .col-lg-7 {
+      padding: 0; }
+      @media only screen and (max-width: 1199px) {
+        section .container-fluid.new-faq-article > form > .row > .col-lg-7,
+        section .container-fluid.single-faq-article > form > .row > .col-lg-7 {
+          padding: 0 15px; } }
+      section .container-fluid.new-faq-article > form > .row > .col-lg-7 .nav-tabs,
+      section .container-fluid.single-faq-article > form > .row > .col-lg-7 .nav-tabs {
+        margin-bottom: 20px; }
+        section .container-fluid.new-faq-article > form > .row > .col-lg-7 .nav-tabs li,
+        section .container-fluid.single-faq-article > form > .row > .col-lg-7 .nav-tabs li {
+          margin-right: 15px;
+          display: inline-table; }
+          section .container-fluid.new-faq-article > form > .row > .col-lg-7 .nav-tabs li a,
+          section .container-fluid.single-faq-article > form > .row > .col-lg-7 .nav-tabs li a {
+            border-radius: 5px;
+            padding: 10px 20px;
+            border: 0;
+            background-color: transparent;
+            box-shadow: inset 0 0 0 1px #b6c1cd; }
+          section .container-fluid.new-faq-article > form > .row > .col-lg-7 .nav-tabs li.active a,
+          section .container-fluid.single-faq-article > form > .row > .col-lg-7 .nav-tabs li.active a {
+            background-color: #f9fdff;
+            box-shadow: 0 2px 0 0 rgba(187, 201, 213, 0.6); }
+      section .container-fluid.new-faq-article > form > .row > .col-lg-7 .note-editor.note-frame .note-editing-area,
+      section .container-fluid.single-faq-article > form > .row > .col-lg-7 .note-editor.note-frame .note-editing-area {
+        border-radius: 3px;
+        min-height: 700px;
+        background-color: #fff;
+        overflow: hidden;
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); }
+      section .container-fluid.new-faq-article > form > .row > .col-lg-7 .panel-heading,
+      section .container-fluid.single-faq-article > form > .row > .col-lg-7 .panel-heading {
+        padding: 5px 10px 10px;
+        margin: 0;
+        background-color: #f5f7f9; }
+        section .container-fluid.new-faq-article > form > .row > .col-lg-7 .panel-heading .btn,
+        section .container-fluid.single-faq-article > form > .row > .col-lg-7 .panel-heading .btn {
+          box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.07);
+          line-height: 21px;
+          border: 0; }
+      section .container-fluid.new-faq-article > form > .row > .col-lg-7 .note-editor.note-frame,
+      section .container-fluid.single-faq-article > form > .row > .col-lg-7 .note-editor.note-frame {
+        border: 0 !important; }
+      section .container-fluid.new-faq-article > form > .row > .col-lg-7 .note-statusbar,
+      section .container-fluid.single-faq-article > form > .row > .col-lg-7 .note-statusbar {
+        display: none; }
+      section .container-fluid.new-faq-article > form > .row > .col-lg-7 input[type="text"],
+      section .container-fluid.single-faq-article > form > .row > .col-lg-7 input[type="text"] {
+        height: 50px;
+        margin-bottom: 20px;
+        font-size: 15px;
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        border: 0; }
+        section .container-fluid.new-faq-article > form > .row > .col-lg-7 input[type="text"]:focus, section .container-fluid.new-faq-article > form > .row > .col-lg-7 input[type="text"]:active,
+        section .container-fluid.single-faq-article > form > .row > .col-lg-7 input[type="text"]:focus,
+        section .container-fluid.single-faq-article > form > .row > .col-lg-7 input[type="text"]:active {
+          -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+          border: 0 !important; }
+
+/*******************************
+MODAL STYLES
+********************************/
+.modal .modal-content .modal-header {
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 17px 0 rgba(19, 55, 82, 0.11); }
+.modal .modal-content .modal-body input[type="text"] {
+  background-clip: padding-box;
+  border: 1px solid #dadae4;
+  border-radius: 3px;
+  color: #434456;
+  display: block;
+  font-size: 14px;
+  width: 100%;
+  height: 35px;
+  padding: 5px 10px; }
+
+#new-category .modal-body {
+  padding: 30px 15px 15px; }
+  #new-category .modal-body input[type="text"],
+  #new-category .modal-body select {
+    height: 40px;
+    border: 1px solid #eaeaea !important; }
+
+/*******************************
+CSS ANIMATIONS
+********************************/
+@-webkit-keyframes loading {
+  50% {
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  100% {
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); } }
+@keyframes loading {
+  50% {
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  100% {
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); } }
+@-webkit-keyframes loadingOpacity {
+  0% {
+    opacity: 0; }
+  60% {
+    opacity: 0.5; }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+@keyframes loadingOpacity {
+  0% {
+    opacity: 0; }
+  60% {
+    opacity: 0.5; }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+
+/*# sourceMappingURL=tickets.css.map */

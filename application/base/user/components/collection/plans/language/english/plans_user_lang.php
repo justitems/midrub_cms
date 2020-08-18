@@ -1,0 +1,26 @@
+<?php
+$lang["plans"] = "Plans";
+$lang["plans_current_plan"] = "Current Plan";
+$lang["plans_renew_current_plan"] = "Renew Current Plan";
+$lang["plans_order_now"] = "Order Now";
+$lang["plans_total"] = "Total";
+$lang["plans_apply"] = "Apply";
+$lang["plans_enter_coupon"] = "Enter the coupon code";
+$lang["plans_pay_now"] = "Pay Now";
+$lang["plans_no_payments"] = "No payments gateways found.";
+$lang["plans_full_name"] = "Your full name";
+$lang["plans_credit_card"] = "Credit card number";
+$lang["plans_expiration"] = "Expiration";
+$lang["plans_cvv"] = "CVV";
+$lang["plans_month"] = "Month";
+$lang["plans_year"] = "Year";
+$lang["plans_next"] = "Next";
+$lang["plans_select_payment_method"] = "Select A Payment Method";
+$lang["plans_coupon_code_missing"] = "The coupon code missing.";
+$lang["plans_coupon_code_is_not_valid"] = "The coupon code is not valid.";
+$lang["plans_coupon_code_is_valid"] = "The coupon code was applied successfully.";
+$lang["plans_discount"] = "Discount";
+$lang["plans_was_upgraded"] = "The plan was upgraded successfully.";
+$lang["plans_was_not_upgraded"] = "The plan was not upgraded successfully.";
+$lang["plans_was_renewed"] = "The subscription was renewed successfully.";
+$lang["plans_was_not_renewed"] = "The subscription was not renewed successfully.";

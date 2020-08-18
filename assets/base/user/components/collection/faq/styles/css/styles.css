@@ -1,0 +1,439 @@
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600");
+/*******************************
+MIDRUB GLOBAL VARIABLES
+********************************/
+/*******************************
+MIDRUB ELEMENTS STYLES
+********************************/
+.btn-help-open-ticket {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  background-color: #7b9fcc;
+  border-color: #7b9fcc;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1); }
+  .btn-help-open-ticket:hover {
+    background-color: #7b9fcc;
+    border-color: #7b9fcc;
+    opacity: 0.7; }
+
+/*******************************
+FAQ STYLES
+********************************/
+section {
+  transform: scale(0.5);
+  -webkit-animation: loadingOpacity 0.5s;
+  animation: loadingOpacity 0.5s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
+  section.faq-page {
+    padding: 30px; }
+    section.faq-page .container-fluid .faq-page-header {
+      margin-bottom: 100px; }
+      section.faq-page .container-fluid .faq-page-header h2 {
+        font-size: 28px;
+        font-weight: 300;
+        margin-bottom: 20px; }
+      section.faq-page .container-fluid .faq-page-header .custom-search-input {
+        width: 100%;
+        padding: 10px 15px;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 18px;
+        border-radius: 4px;
+        background-color: #FFFFFF;
+        color: #333333;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+        border: 1px solid #f7f9fb; }
+        section.faq-page .container-fluid .faq-page-header .custom-search-input .input-group-prepend i {
+          line-height: 36px;
+          font-size: 20px;
+          color: #797876; }
+        section.faq-page .container-fluid .faq-page-header .custom-search-input input[type="text"] {
+          background: transparent;
+          border: 0;
+          -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+          outline: none !important; }
+        section.faq-page .container-fluid .faq-page-header .custom-search-input .search-results {
+          background: #fff;
+          width: calc(100% + 30px);
+          margin-left: -15px;
+          color: gray;
+          position: absolute;
+          top: 139%;
+          left: 0;
+          border: 1px solid rgba(0, 0, 0, 0.02);
+          z-index: 9;
+          border-radius: 5px;
+          -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+          display: none; }
+          section.faq-page .container-fluid .faq-page-header .custom-search-input .search-results ul {
+            margin: 0;
+            padding: 5px 15px;
+            text-align: left; }
+            section.faq-page .container-fluid .faq-page-header .custom-search-input .search-results ul li {
+              line-height: 40px;
+              list-style: none;
+              font-size: 16px; }
+              section.faq-page .container-fluid .faq-page-header .custom-search-input .search-results ul li a {
+                color: #495057; }
+                section.faq-page .container-fluid .faq-page-header .custom-search-input .search-results ul li a:hover {
+                  border-bottom: 1px solid #495057; }
+      section.faq-page .container-fluid .faq-page-header .cancel-search-for-articles {
+        background-color: transparent;
+        border: 0;
+        display: none; }
+        section.faq-page .container-fluid .faq-page-header .cancel-search-for-articles i {
+          color: #797876; }
+    section.faq-page .container-fluid .container .card-deck .card {
+      box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.03);
+      border: 1px solid #e1e8ed;
+      margin-bottom: 50px !important; }
+      section.faq-page .container-fluid .container .card-deck .card .card-body {
+        padding: 0; }
+        section.faq-page .container-fluid .container .card-deck .card .card-body a {
+          display: block;
+          padding: 20px 0;
+          color: #343a40;
+          -webkit-transition: background-color 1000ms linear;
+          -ms-transition: background-color 1000ms linear;
+          transition: background-color 1000ms linear; }
+          section.faq-page .container-fluid .container .card-deck .card .card-body a:hover {
+            border-bottom: 0;
+            background-color: #f7f9fb; }
+  section.faq-categories, section.single-faq-article, section.single-ticket {
+    padding: 30px; }
+    section.faq-categories .container-fluid > .row > .col-xl-2, section.single-faq-article .container-fluid > .row > .col-xl-2, section.single-ticket .container-fluid > .row > .col-xl-2 {
+      min-height: 100px;
+      display: inline-table;
+      padding: 15px;
+      margin-bottom: 20px;
+      background-color: #FFFFFF;
+      -webkit-box-shadow: 0 0 0 1px rgba(61, 70, 79, 0.05), 0 1px 3px 0 rgba(61, 70, 79, 0.05);
+      box-shadow: 0 0 0 1px rgba(61, 70, 79, 0.05), 0 1px 3px 0 rgba(61, 70, 79, 0.05); }
+      section.faq-categories .container-fluid > .row > .col-xl-2 .nav, section.single-faq-article .container-fluid > .row > .col-xl-2 .nav, section.single-ticket .container-fluid > .row > .col-xl-2 .nav {
+        width: 100%;
+        border-bottom: 0; }
+        section.faq-categories .container-fluid > .row > .col-xl-2 .nav li, section.single-faq-article .container-fluid > .row > .col-xl-2 .nav li, section.single-ticket .container-fluid > .row > .col-xl-2 .nav li {
+          width: 100%;
+          padding: 0; }
+          section.faq-categories .container-fluid > .row > .col-xl-2 .nav li h3, section.single-faq-article .container-fluid > .row > .col-xl-2 .nav li h3, section.single-ticket .container-fluid > .row > .col-xl-2 .nav li h3 {
+            margin: 0;
+            font-weight: 700;
+            color: #222;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-family: "Open Sans", sans-serif, Arial, Helvetica;
+            margin-bottom: 20px; }
+          section.faq-categories .container-fluid > .row > .col-xl-2 .nav li a, section.single-faq-article .container-fluid > .row > .col-xl-2 .nav li a, section.single-ticket .container-fluid > .row > .col-xl-2 .nav li a {
+            padding: 0 15px;
+            font-family: "Open Sans", sans-serif, Arial, Helvetica;
+            font-size: 14px;
+            color: #343a40;
+            line-height: 20px;
+            margin-bottom: 15px;
+            display: block;
+            border: 0; }
+            section.faq-categories .container-fluid > .row > .col-xl-2 .nav li a:hover, section.single-faq-article .container-fluid > .row > .col-xl-2 .nav li a:hover, section.single-ticket .container-fluid > .row > .col-xl-2 .nav li a:hover {
+              border-bottom: 0; }
+          section.faq-categories .container-fluid > .row > .col-xl-2 .nav li .list-group, section.single-faq-article .container-fluid > .row > .col-xl-2 .nav li .list-group, section.single-ticket .container-fluid > .row > .col-xl-2 .nav li .list-group {
+            margin: 0;
+            padding: 0 18px; }
+            section.faq-categories .container-fluid > .row > .col-xl-2 .nav li .list-group li, section.single-faq-article .container-fluid > .row > .col-xl-2 .nav li .list-group li, section.single-ticket .container-fluid > .row > .col-xl-2 .nav li .list-group li {
+              list-style: disc; }
+              section.faq-categories .container-fluid > .row > .col-xl-2 .nav li .list-group li a, section.single-faq-article .container-fluid > .row > .col-xl-2 .nav li .list-group li a, section.single-ticket .container-fluid > .row > .col-xl-2 .nav li .list-group li a {
+                padding: 0; }
+    @media only screen and (max-width: 1199px) {
+      section.faq-categories .container-fluid > .row .col-xl-6, section.single-faq-article .container-fluid > .row .col-xl-6, section.single-ticket .container-fluid > .row .col-xl-6 {
+        padding: 0; } }
+    section.faq-categories .container-fluid > .row .col-xl-6 .settings-list, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list {
+      min-height: 500px;
+      border: 1px solid #edf2f9;
+      background-color: #FFFFFF;
+      -webkit-box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+      box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+      border-radius: 4px; }
+      @media only screen and (max-width: 1199px) {
+        section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .tab-pane, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .tab-pane, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .tab-pane {
+          margin: 0;
+          width: 100%;
+          max-width: 100%; } }
+      section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel {
+        margin: 15px 0; }
+        section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-heading, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-heading, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-heading {
+          padding: 0;
+          font-size: 15px;
+          border-bottom: 1px solid rgba(65, 106, 166, 0.1);
+          color: #212529; }
+          section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-heading .breadcrumb, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-heading .breadcrumb, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-heading .breadcrumb {
+            background-color: transparent;
+            padding: 0; }
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-heading .breadcrumb .breadcrumb-item + .breadcrumb-item::before, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-heading .breadcrumb .breadcrumb-item + .breadcrumb-item::before, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-heading .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+              content: "\203A";
+              padding: 0 5px;
+              color: #ccc;
+              margin-left: 5px; }
+        section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body {
+          min-height: 600px;
+          padding-bottom: 20px; }
+          section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body ul, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body ul, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body ul {
+            margin: 15px 0;
+            padding: 0; }
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body ul li, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body ul li, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body ul li {
+              line-height: 40px;
+              list-style: none; }
+              section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body ul li a, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body ul li a, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body ul li a {
+                color: #495057; }
+                section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body ul li a:hover, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body ul li a:hover, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body ul li a:hover {
+                  border-bottom: 1px solid #495057; }
+          section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article {
+            padding: 25px 0; }
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article .title, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article .title, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article .title {
+              font-weight: 400;
+              font-size: 22px;
+              color: #253540;
+              margin-bottom: 1em;
+              text-transform: uppercase; }
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article p, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article p, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article p {
+              color: #4F5D6B;
+              font-size: 16px;
+              line-height: 26px;
+              margin-bottom: 1.5em;
+              word-wrap: break-word; }
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article ul, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article ul, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article ul {
+              padding: 0;
+              margin: 0 0 9px 25px; }
+              section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article ul li, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article ul li, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article ul li {
+                color: #4F5D6B;
+                font-size: 16px;
+                line-height: 26px;
+                list-style-type: disc; }
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article dt, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article dt, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article dt {
+              background: #3197d1; }
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h4, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h4, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h4 {
+              font-weight: 400; }
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article p,
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article ul,
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article ol,
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article li,
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article div,
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article blockquote,
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article dd,
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article table, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article p,
+            section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article ul,
+            section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article ol,
+            section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article li,
+            section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article div,
+            section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article blockquote,
+            section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article dd,
+            section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article table, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article p,
+            section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article ul,
+            section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article ol,
+            section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article li,
+            section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article div,
+            section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article blockquote,
+            section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article dd,
+            section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article table {
+              color: #4F5D6B;
+              font-size: 16px;
+              line-height: 26px; }
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article strong, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article strong, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article strong {
+              color: #4A4D4F;
+              font-weight: 600; }
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h1,
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h2,
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h3,
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h4,
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h5, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h1,
+            section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h2,
+            section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h3,
+            section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h4,
+            section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h5, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h1,
+            section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h2,
+            section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h3,
+            section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h4,
+            section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h5 {
+              color: #253540;
+              margin-bottom: 1em; }
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h2,
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h5, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h2,
+            section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h5, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h2,
+            section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h5 {
+              font-weight: 600; }
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h4, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h4, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h4 {
+              font-weight: 500; }
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h1,
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h3, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h1,
+            section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h3, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h1,
+            section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h3 {
+              font-weight: 400; }
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h3, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h3, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article h3 {
+              font-size: 24px; }
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article pre,
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article table, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article pre,
+            section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article table, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article pre,
+            section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article table {
+              margin-bottom: 2.5em; }
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article dt, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article dt, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article dt {
+              font-size: 15px;
+              min-width: 9px; }
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article table th, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article table th, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article table th {
+              font-weight: 600; }
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article img, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article img, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-body .article img {
+              margin: 2.5em 0;
+              max-width: 100%; }
+        section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-footer .ticket_status, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-footer .ticket_status, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-footer .ticket_status {
+          height: 50px;
+          background-color: #f5f7f9; }
+          section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-footer .ticket_status p, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-footer .ticket_status p, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-footer .ticket_status p {
+            font-weight: 400;
+            font-size: 15px;
+            text-transform: none;
+            font-style: normal;
+            color: #545456;
+            cursor: inherit;
+            display: block;
+            opacity: 1;
+            line-height: 48px;
+            padding: 0 15px; }
+          section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-footer .ticket_status button, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-footer .ticket_status button, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-footer .ticket_status button {
+            background-color: transparent;
+            border: 0;
+            color: #10ade4;
+            color: #346cb0;
+            margin-top: 7px;
+            margin-right: 10px; }
+          section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-footer .ticket_status .dropdown-menu, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-footer .ticket_status .dropdown-menu, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-footer .ticket_status .dropdown-menu {
+            padding: 0; }
+            section.faq-categories .container-fluid > .row .col-xl-6 .settings-list .panel .panel-footer .ticket_status .dropdown-menu a:hover, section.single-faq-article .container-fluid > .row .col-xl-6 .settings-list .panel .panel-footer .ticket_status .dropdown-menu a:hover, section.single-ticket .container-fluid > .row .col-xl-6 .settings-list .panel .panel-footer .ticket_status .dropdown-menu a:hover {
+              border-bottom: 0; }
+    section.faq-categories .container-fluid > .row .col-xl-6 .comment-form, section.single-faq-article .container-fluid > .row .col-xl-6 .comment-form, section.single-ticket .container-fluid > .row .col-xl-6 .comment-form {
+      background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      -ms-box-shadow: none;
+      -o-box-shadow: none;
+      box-shadow: none;
+      margin-top: 50px; }
+      section.faq-categories .container-fluid > .row .col-xl-6 .comment-form .comment-form-area, section.single-faq-article .container-fluid > .row .col-xl-6 .comment-form .comment-form-area, section.single-ticket .container-fluid > .row .col-xl-6 .comment-form .comment-form-area {
+        -webkit-box-shadow: 0 0 0 1px rgba(61, 70, 79, 0.05), 0 1px 3px 0 rgba(61, 70, 79, 0.05);
+        box-shadow: 0 0 0 1px rgba(61, 70, 79, 0.05), 0 1px 3px 0 rgba(61, 70, 79, 0.05);
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+        border-radius: 4px;
+        float: left;
+        width: 100%; }
+        section.faq-categories .container-fluid > .row .col-xl-6 .comment-form .comment-form-area form, section.single-faq-article .container-fluid > .row .col-xl-6 .comment-form .comment-form-area form, section.single-ticket .container-fluid > .row .col-xl-6 .comment-form .comment-form-area form {
+          float: left;
+          width: 100%; }
+          section.faq-categories .container-fluid > .row .col-xl-6 .comment-form .comment-form-area form textarea, section.single-faq-article .container-fluid > .row .col-xl-6 .comment-form .comment-form-area form textarea, section.single-ticket .container-fluid > .row .col-xl-6 .comment-form .comment-form-area form textarea {
+            background: none repeat scroll 0 0 #fff;
+            border: medium none;
+            -webkit-border-radius: 4px 4px 0 0;
+            -moz-border-radius: 4px 4px 0 0;
+            -ms-border-radius: 4px 4px 0 0;
+            -o-border-radius: 4px 4px 0 0;
+            border-radius: 4px 4px 0 0;
+            color: #777777;
+            float: left;
+            font-family: Lato;
+            font-size: 14px;
+            height: 142px;
+            letter-spacing: 0.3px;
+            padding: 20px;
+            width: 100%;
+            resize: none;
+            outline: none;
+            border-bottom: 1px solid #F2F2F2; }
+          section.faq-categories .container-fluid > .row .col-xl-6 .comment-form .comment-form-area form .btn, section.single-faq-article .container-fluid > .row .col-xl-6 .comment-form .comment-form-area form .btn, section.single-ticket .container-fluid > .row .col-xl-6 .comment-form .comment-form-area form .btn {
+            margin: 10px; }
+    section.faq-categories .container-fluid > .row .col-xl-6 .replies-list, section.single-faq-article .container-fluid > .row .col-xl-6 .replies-list, section.single-ticket .container-fluid > .row .col-xl-6 .replies-list {
+      margin-top: 290px; }
+      section.faq-categories .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply, section.single-faq-article .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply, section.single-ticket .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply {
+        margin-bottom: 50px;
+        padding: 15px;
+        background-color: #FFFFFF;
+        border: 1px solid #e8e8e8; }
+        section.faq-categories .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply_img, section.single-faq-article .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply_img, section.single-ticket .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply_img {
+          width: 10%;
+          display: inline-block;
+          vertical-align: top; }
+          section.faq-categories .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply_img img, section.single-faq-article .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply_img img, section.single-ticket .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply_img img {
+            max-width: 70%;
+            border-radius: 50%; }
+          @media only screen and (max-width: 1199px) {
+            section.faq-categories .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply_img, section.single-faq-article .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply_img, section.single-ticket .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply_img {
+              width: 15%; }
+              section.faq-categories .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply_img img, section.single-faq-article .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply_img img, section.single-ticket .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply_img img {
+                max-width: 50%; } }
+        section.faq-categories .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply, section.single-faq-article .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply, section.single-ticket .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply {
+          width: 80%;
+          display: inline-block; }
+          section.faq-categories .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply h5, section.single-faq-article .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply h5, section.single-ticket .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply h5 {
+            font-size: 15px;
+            margin-bottom: 20px; }
+            section.faq-categories .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply h5 span, section.single-faq-article .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply h5 span, section.single-ticket .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply h5 span {
+              font-size: 13px;
+              color: #bac0c5;
+              padding-left: 15px; }
+          section.faq-categories .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply p, section.single-faq-article .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply p, section.single-ticket .container-fluid > .row .col-xl-6 .replies-list .ticket-replies .ticket-reply .reply p {
+            font-size: 15px;
+            line-height: 26px;
+            color: #4B4D4E; }
+
+/*******************************
+MODAL STYLES
+********************************/
+.modal .modal-content .modal-header {
+  padding: 0;
+  border: 0; }
+  .modal .modal-content .modal-header nav {
+    width: 100%;
+    margin-bottom: 15px;
+    -webkit-box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
+    box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
+    border-bottom: 1px solid rgba(65, 106, 166, 0.1); }
+    .modal .modal-content .modal-header nav .nav-tabs {
+      border-bottom: 0; }
+      .modal .modal-content .modal-header nav .nav-tabs .nav-link {
+        color: #999999;
+        font-size: 16px;
+        padding: 15px 25px; }
+      .modal .modal-content .modal-header nav .nav-tabs .nav-link.active,
+      .modal .modal-content .modal-header nav .nav-tabs .nav-link:hover {
+        border: 1px solid transparent;
+        border-bottom: 1px solid #2e5f9b;
+        color: #2e5f9b; }
+    .modal .modal-content .modal-header nav button {
+      position: absolute;
+      right: 15px;
+      top: 15px; }
+.modal .modal-content .modal-body {
+  padding: 0; }
+  .modal .modal-content .modal-body .tab-pane {
+    padding: 15px; }
+    .modal .modal-content .modal-body .tab-pane textarea {
+      min-height: 250px;
+      width: 100%;
+      resize: none; }
+.modal .modal-content .modal-footer .btn {
+  padding: 5px 20px 7px;
+  font-size: 14px;
+  background-color: #6086bf;
+  border-color: #6086bf;
+  -webkit-box-shadow: 0 -3px 0px 0px rgba(0, 0, 0, 0.12) inset, inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 -3px 0px 0px rgba(0, 0, 0, 0.12) inset, inset 0 0 0 1px rgba(0, 0, 0, 0.08); }
+  .modal .modal-content .modal-footer .btn:hover {
+    opacity: 0.7; }
+
+/*# sourceMappingURL=styles.css.map */

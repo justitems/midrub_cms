@@ -1,0 +1,166 @@
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
+@import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Sans:400,700|Roboto:400,500,700,900");
+/*******************************
+RESET DEFAULT STYLES
+********************************/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details,
+footer, header, nav, section, summary,
+time, audio, video, .input-field {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active {
+  background-image: none !important;
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important; }
+
+/*******************************
+GENERAL STYLES
+********************************/
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #f4f4f4;
+  font-family: 'Open Sans', sans-serif;
+  color: rgba(0, 0, 0, 0.87); }
+
+html {
+  width: 100%;
+  height: 100%; }
+
+.clean {
+  padding: 0 !important;
+  margin: 0 !important; }
+
+.hidden-content {
+  display: none; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 20px; }
+
+/*******************************
+MENU STYLES
+********************************/
+.nav-menu > ul {
+  padding-top: 10px; }
+  .nav-menu > ul > li {
+    font-size: 17px;
+    font-weight: 600;
+    font-family: 'PT Sans Narrow', 'Roboto', 'PT Sans', Helvetica, sans-serif;
+    line-height: 50px;
+    min-height: 50px; }
+    .nav-menu > ul > li > a {
+      color: #55555a;
+      width: 100%;
+      height: 50px;
+      display: block; }
+      .nav-menu > ul > li > a i {
+        float: right;
+        vertical-align: middle;
+        margin-top: 12px; }
+    .nav-menu > ul > li > a > .expand {
+      display: none; }
+    .nav-menu > ul > li.open > a > .expand {
+      display: block; }
+    .nav-menu > ul > li.open > a > .expand-open {
+      display: none; }
+    .nav-menu > ul > li ul {
+      margin-left: 20px;
+      display: none; }
+      .nav-menu > ul > li ul li {
+        font-weight: 400;
+        line-height: 40px;
+        min-height: 40px; }
+        .nav-menu > ul > li ul li > a {
+          color: #55555a; }
+    .nav-menu > ul > li.open > ul {
+      display: block; }
+
+/*******************************
+CONTENT STYLES
+********************************/
+.content > .xl12 {
+  background-color: #ffffff;
+  min-height: 1000px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); }
+  .content > .xl12 .input-field {
+    border-bottom: 1px solid #e1e1e6;
+    height: 50px;
+    color: #aaaaaf;
+    font-family: 'Roboto', 'PT Sans', Helvetica, sans-serif;
+    font-weight: 300; }
+    .content > .xl12 .input-field i {
+      margin: 10px;
+      font-size: 28px;
+      color: #e1e1e6; }
+    .content > .xl12 .input-field input, .content > .xl12 .input-field input:focus, .content > .xl12 .input-field input:active {
+      border: 0 !important; }
+  .content > .xl12 article {
+    padding: 15px 15px 30px;
+    border-bottom: 1px solid #e1e1e6;
+    font-family: 'Open Sans', 'PT Sans', Helvetica, sans-serif;
+    display: none; }
+    .content > .xl12 article h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px; }
+    .content > .xl12 article p {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 25px;
+      margin-bottom: 15px; }
+    .content > .xl12 article ul, .content > .xl12 article ol {
+      margin-bottom: 20px; }
+      .content > .xl12 article ul li, .content > .xl12 article ol li {
+        font-size: 14px;
+        margin-left: 30px; }
+        .content > .xl12 article ul li strong, .content > .xl12 article ol li strong {
+          font-weight: 700; }
+        .content > .xl12 article ul li:before, .content > .xl12 article ol li:before {
+          content: " ";
+          width: 5px;
+          height: 5px;
+          background-color: #bebec3;
+          border-radius: 50%;
+          position: absolute;
+          margin-top: 7px;
+          margin-left: -15px; }
+    .content > .xl12 article ol li:before {
+      display: none; }
+    .content > .xl12 article.active {
+      display: block; }
+
+/*# sourceMappingURL=style.css.map */

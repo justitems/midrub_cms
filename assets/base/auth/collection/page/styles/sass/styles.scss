@@ -1,0 +1,77 @@
+/*******************************
+IMPORT FONTS
+********************************/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800|Roboto:400&display=swap');
+
+/*******************************
+GENERAL STYLES
+********************************/
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/*******************************
+MEMBERS ACCESS STYLES
+********************************/
+main {
+    
+    section {
+        
+        &.single-page {
+            padding: 40px 0;
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                color: #3c5044;
+                margin-bottom: 20px;
+                font-weight: 600;
+
+            }
+
+            h1 {
+                line-height: 32px;
+                font-size: 24px;                            
+            }
+
+            h2 {
+                line-height: 30px;
+                font-size: 22px;                            
+            }
+
+            h3 {
+                line-height: 28px;
+                font-size: 18px;                            
+            }
+
+            h4 {
+                line-height: 26px;
+                font-size: 16px;                            
+            }
+
+            h5 {
+                line-height: 24px;
+                font-size: 15px;                            
+            }
+
+            h6 {
+                line-height: 24px;
+                font-size: 14px;                            
+            }
+
+            p {
+                color: #3c4044;
+                font-family: 'Roboto', sans-serif;
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 26px;
+            }
+            
+        }
+        
+    }
+    
+}

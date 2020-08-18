@@ -1,0 +1,269 @@
+/*******************************
+IMPORT FONTS
+********************************/
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans|Open+Sans:400,600|Montserrat:400,500,600');
+
+/*******************************
+MIDRUB GLOBAL VARIABLES
+********************************/
+$primary-black: #343a40;
+$primary-green: #00a28a;
+$primary-red: #ea6759;
+$primary-blue: #2e5f9b;
+$primary-yellow: #f7c46c;
+$primary-border-black: rgba(187,201,213,.6);
+$primary-shadow-black: 0 1px 1px rgba(0,0,0,.05);
+
+/*******************************
+MIDRUB ELEMENTS STYLES
+********************************/
+
+/*******************************
+THEMES STYLES
+********************************/
+section {
+    
+    .container-fluid {
+
+        .right-side {
+
+            .list-themes {
+                margin: 0;
+                padding: 0;
+
+                li {
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                    background-color: #fbfeff;
+                    border-radius: 2px;
+                    border: 0;
+                    padding: 15px 15px 18px;
+                    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+                    box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+                    border-bottom: 1px solid #f5f5f5;
+                    font-family: Open Sans,sans-serif;
+                    font-weight: 400;
+
+                    &.activated-theme {
+                        background-color: rgba(0, 0, 49, 0.20);
+                    }
+
+                    &:last-child {
+                        border-bottom: 0;
+                    }
+
+                    a {
+                        color: #000031;
+
+                        &:hover {
+                            text-decoration: none;
+                            border-bottom: 1px solid #000031;
+                        }
+
+                    }
+
+                    .theme-preview {
+                        width: 250px;
+                        box-shadow: 0 1px 3px rgba(18, 38, 64, 0.07);
+                        float: left;
+
+                        img {
+                            max-width: 100%;
+                        }
+
+                    }
+
+                    .theme-description {
+                        float: left;
+                        width: calc(100% - 250px);
+                        padding-left: 15px;
+                        color: #3c4857;
+
+                        @media screen and (max-width: 767px) {
+
+                            & {
+                                width: 100%;
+                                padding: 15px 0;
+                            }
+            
+                        }
+
+                        h2 {
+                            font-weight: 600;
+                            font-size: 16px;
+                            margin: 0 0 15px;
+                            padding: 0;
+                        }
+
+                        p {
+                            font-family: Arial, 'Open Sans', sans-serif;
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 24px;
+                        }
+
+                    }
+
+                    .label-default {
+                        background-color: transparent;
+                        font-size: 13px;
+                        color: #838E95;
+                        width: 100%;
+                        display: block;
+                    }
+
+                    .btn-group {
+
+                        .btn-default {
+                            padding: 0;
+                            border: 0;
+                            background-color: transparent;
+
+                            i {
+                                font-size: 18px;
+                                color: #000031;
+                            }
+
+                            &:hover,
+                            &:active,
+                            &:focus {
+                                background-color: transparent !important;;
+                                box-shadow: none !important;
+                            }
+
+                        }
+
+                        .dropdown-menu {
+                            margin-left: -140px;
+                            background-color: #fff;
+                            background-clip: padding-box;
+                            border: 1px solid rgba(0,0,0,.15);
+                            border-radius: .25rem;
+                            padding: 0;
+                            box-shadow: none;
+
+                            li {
+                                padding: 0;
+                                box-shadow: none;
+
+                                a {
+                                    padding: 8px 20px;
+
+                                    i {
+                                        margin: 0;
+                                        margin-right: 5px;
+                                        color: $primary-black;
+                                    }
+
+                                    &:active,
+                                    &:focus,
+                                    &:hover {
+                                        background-color: #f7f7f7 !important;
+                                        color: $primary-black;
+                                        border: 0;
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            .themes-directory {
+                border: 0;
+                border-radius: 0;
+                -webkit-box-shadow: $primary-shadow-black;
+                box-shadow: $primary-shadow-black;
+                margin-bottom: 20px;
+                min-height: 100px;
+        
+                & > .panel-heading {
+                    border-bottom: 1px solid #e3eaef;
+                    font-family: Open Sans,sans-serif;
+                    font-weight: 400;
+                    color: #000031;
+                    padding-bottom: 0;
+                    padding: 0 15px;
+                    background-color: #FFFFFF;
+                    margin: 0;
+        
+                    .nav-tabs {
+                        height: 40px;
+                        
+                        li {
+                            width: auto;
+                            display: inline-table;
+                            
+                            a {
+                                border-radius: 0;
+                                padding: 10px 20px;
+                                border: 0;
+                                color: $primary-black;
+                                background-color: transparent;
+                            }
+                            
+                            &.active,
+                            &:hover {
+                                
+                                a {
+                                    text-decoration: none;
+                                    border-bottom: 1px solid #000031;
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                    }
+        
+                }
+        
+                & > .panel-body {
+                    min-height: 400px;
+        
+                    #theme-install {
+                        line-height: 400px;
+                        text-align: center;
+        
+                        .select-theme {
+                            display: inline-block;
+                            padding: 7px 15px 6px;
+                            width: auto;
+                            border: 1px solid #cdcde6;
+                            border-radius: .25rem;
+                            line-height: 23px;
+                            font-weight: 400;
+                            color: #6c757d;
+                            background-color: #f5f9fd;
+                            box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.07);
+                            
+                            i {
+                                margin-right: 5px;
+                            }
+        
+                            &:hover,
+                            &:focus {
+                                opacity: 0.7;
+                                text-decoration: none;
+                            }
+        
+                        }
+        
+                    }
+        
+                }
+                
+            }
+
+        }
+        
+    }
+    
+}

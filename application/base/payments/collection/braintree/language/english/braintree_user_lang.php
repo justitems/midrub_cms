@@ -1,0 +1,21 @@
+<?php
+$lang["braintree"] = "Braintree";
+$lang["pay_with_credit_card"] = "Pay With Your Credit Card";
+$lang["name"] = "Name";
+$lang["first_last_name"] = "First Last Name";
+$lang["card_number"] = "Card Number";
+$lang["expiration"] = "Expiration (mm/yy)";
+$lang["mm_yy"] = "MM/YY";
+$lang["cvv"] = "CVV";
+$lang["subscribe"] = "Subscribe";
+$lang["pay_now"] = "Pay Now";
+$lang["total"] = "Total";
+$lang["3_digits"] = "3 digits";
+$lang["john_doe"] = "John Doe";
+$lang["please_fill_all_required_fields"] = "Please fill in all required fields.";
+$lang["payment_was_accepted"] = "Thank you! The payment was accepted.";
+$lang["payment_was_not_accepted"] = "The payment was not accepted. Please ensure the credit card's data is correct.";
+$lang["transaction_expired"] = "The transaction has expired and must be restarted.";
+$lang["transaction_expired_go_back"] = "The transaction has expired and must be restarted. Please go back and repeat the process.";
+$lang["payment_was_accepted_but_not_saved"] = "Thank you! The payment was accepted. But the subscription was not saved in the database, please contact the support.";
+$lang["authorization"] = "Authorization";
