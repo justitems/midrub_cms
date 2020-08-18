@@ -1,0 +1,498 @@
+/*******************************
+IMPORT FONTS
+********************************/
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+
+/*******************************
+MIDRUB GLOBAL VARIABLES
+********************************/
+$open-sans: 'Open Sans', sans-serif;
+$nunito-sans: 'Nunito Sans', sans-serif;
+$primary-black: #212529;
+$primary-green: #00a28a;
+$primary-red: #ea6759;
+$primary-blue: #727df0;
+$primary-yellow: #f7c46c;
+$primary-border-black: rgba(65, 106, 166, 0.1);
+
+/*******************************
+MIDRUB ELEMENTS STYLES
+********************************/
+@mixin content-shadow() {
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 35px 0 rgba(154,161,171,.15);
+    box-shadow: 0 0 35px 0 rgba(154,161,171,.15);
+}
+
+@mixin app-plans-option() {
+    
+    .app-plans-option {
+        width: 100%;
+        text-align: right;
+
+        input[type=checkbox]{
+            display: none;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            height: 35px;
+            line-height: 35px;
+            width: 100%;
+            padding: 0 7px;
+            border: 1px solid #dadae4;
+            color: #1b2733;
+            margin-top: 2px;
+        }
+        
+        textarea {
+            height: 135px;
+            line-height: 35px;
+            width: 100%;
+            padding: 0 7px;
+            border: 1px solid #dadae4;
+            color: #1b2733;
+            margin-top: 2px;
+            resize: none;
+        }
+
+        label{
+            cursor: pointer;
+            position: relative; 
+            width: 50px;
+            margin-right:15px;
+            margin-top: 20px;
+        }
+
+        label::before{
+            content: '';
+            background-color: #ced8dc;
+            box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            height: 14px;
+            margin-top: -6px;
+            position: absolute;
+            opacity: 0.3;
+            transition: all 0.4s ease-in-out;
+            width: 50px;
+            margin-left: -45px;
+        }
+
+        label::after {
+            background-color: #c1c7cd;
+            border-radius: 16px;
+            content: '';
+            height: 24px;
+            left: -4px;
+            margin-top: -8px;
+            position: absolute;
+            top: -4px;
+            transition: all 0.3s ease-in-out;
+            width: 24px;
+        }
+
+        input[type="checkbox"]:checked + label::after {
+            left: 40px;
+            background-color: #59abfd;
+            box-shadow: none;
+        }
+
+    }
+        
+}
+
+@mixin opacity-animations($duration) {
+    -webkit-animation: loadingOpacity $duration;
+    animation: loadingOpacity $duration;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+        
+}
+
+/*******************************
+GENERAL STYLES
+********************************/
+.btn {
+
+    &.btn-info {
+        background-color: $primary-blue !important;
+        border-color: $primary-blue !important;
+    }
+    
+    &.btn-danger {
+        background-color: $primary-red !important;
+        border-color: $primary-red !important;
+    }    
+    
+    &:hover {
+        opacity: 0.8;
+    }
+
+}
+
+/*******************************
+PLANS STYLES
+********************************/
+section {
+    font-family: 'Nunito Sans', sans-serif;
+    
+    .container-fluid.plans {
+        
+        & > .row > .col-lg-12 {
+
+            & > .col-lg-12 {
+                margin-bottom: 20px;
+                min-height: 60px;
+                border-radius: 3px;
+                @include content-shadow();
+                
+                .apps-header {
+                    border-bottom: 1px solid rgba(65, 106, 166, 0.1);
+                    height: 60px;
+                    padding: 0 15px;
+
+                    h3 {
+                        margin: 0;
+                        line-height: 60px;
+                        font-size: 18px;
+                        color: #6c757d;
+                        
+                        a {
+                            float: right;
+                            font-size: 16px;
+                            line-height: 22px;
+                            margin-top: 18px;
+                            color: #346cb0;
+                            text-decoration: none;
+
+                            &:hover {
+                                text-decoration: none;
+                                border-bottom: 1px solid #346cb0;
+                            }
+                            
+                        }
+                        
+                    }
+
+                    i {
+                        font-size: 20px;
+                        margin-right: 5px;
+                    }
+
+                }
+                
+                .plans-list {
+                    min-height: 400px;
+                    padding: 0;
+                    
+                    p.no-results-found {
+                        padding: 15px;
+                        line-height: 22px;
+                        font-size: 16px;
+                        color: #6c757d;
+                        margin-bottom: 0;
+                    }
+                    
+                    ul {
+                        margin: 0;
+                        padding: 0;
+                        width: 100%;
+                        
+                        li {
+                            padding: 15px;
+                            list-style: none;
+                            border-bottom: 1px solid rgba(65, 106, 166, 0.1);
+                            min-height: 50px;
+                            width: 100%;
+                            
+                            .col-lg-10 {
+                                
+                                p {
+                                    line-height: 32px;
+                                    font-size: 18px;
+                                    color: #6c757d;
+                                    margin-bottom: 0;
+                                    
+                                    i {
+                                        font-size: 22px;
+                                        color: #9aa4b2;
+                                        vertical-align: top;
+                                        margin-right: 5px;
+                                        margin-top: 5px;
+                                    }
+                                    
+                                }
+                                
+                            }
+                            
+                            .col-lg-2 {
+                                text-align: right;
+                                
+                                a {
+                                    border: thin solid #d3d3d3;
+                                    height: 38px;
+                                    line-height: 25px;
+                                    vertical-align: middle;
+                                    font-weight: 300;
+                                    box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+                                    
+                                    i {
+                                        margin-right: 5px;
+                                    }
+                                    
+                                    &:hover {
+                                        background: #f8f8f8;
+                                        color: #333;
+                                    }
+                                    
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                }
+
+            }
+
+        }
+        
+    }
+    
+    .container-fluid.plan {
+        
+        & > .row > .col-lg-12 {
+
+            & > .col-lg-2 {
+                padding: 0 0 15px;
+                margin-bottom: 20px;
+                min-height: 60px;
+                border-radius: 3px;
+                @include content-shadow();
+                    
+                .nav-tabs {
+                    width: 100%;
+                    border-bottom: 0;
+                    border-right: 1px solid rgba(120, 130, 140, 0.13);
+
+                    li {
+                        width: 100%;
+                        padding: 15px 15px 0;
+
+                        a {
+                            border: 0;
+                            margin-right: 0;
+                            color: #868e96;
+                            border: 1px solid #eceaea;
+                            border-radius: 6px;
+                            text-align: center;
+                            
+                            i {
+                                font-size: 34px;
+                            }
+                            
+                            &:hover {
+                                background-color: #f9f9f9;
+                                color: #263238;
+                                border-radius: 6px;
+                            }
+
+                        }
+                        
+                        &.active {
+
+                            a {
+                                background-color: #f9f9f9;
+                                color: #263238;
+                                border-radius: 6px;
+                            }
+
+                        }
+
+                    }
+
+                }
+                
+            }
+            
+            & > .col-lg-10 {
+                
+                & > form > .row {
+                    margin-left: 0;
+                    
+                    & > .col-lg-12 {
+                        padding: 15px;
+                        margin-bottom: 20px;
+                        min-height: 60px;
+                        border-radius: 3px;
+                        @include content-shadow();
+                        
+                        .confirm {
+                            margin-bottom: 0;
+                        }
+                        
+                        .tab-pane {
+                            
+                            ul {
+                                margin: 0;
+                                padding: 0;
+
+                                li {
+                                    list-style: none;
+                                    min-height: 40px;
+                                    padding: 15px 0;
+                                    border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+
+                                    h3 {
+                                        font-size: 16px;
+                                        color: #1B2733;
+                                        margin: 0 0 5px;
+                                    }
+
+                                    p {
+                                        font-size: 13px;
+                                        color: #637282;
+                                        margin-bottom: 0;
+                                    }
+                                    
+                                    &:last-child {
+                                        border-bottom: 0;
+                                    }
+                                    
+                                    @include app-plans-option();
+
+                                }
+
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                    @media only screen and (max-width: 991px) {
+
+                        & {
+                            margin-left: -15px;
+                        }
+
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+}
+
+/*******************************
+MODAL STYLES
+********************************/
+.modal {
+    
+    .modal-content {
+        
+        .modal-header {
+            background-color: #FFFFFF;
+        }
+        
+        .modal-body {
+            
+            input[type="text"] {
+                background-clip: padding-box;
+                border: 1px solid #dadae4;
+                border-radius: 3px;
+                color: #434456;
+                display: block;
+                font-size: 14px;
+                width: 100%;
+                height: 35px;
+                padding: 5px 10px;
+            }
+            
+        }    
+        
+        .modal-footer {
+            
+            .btn-success {
+                box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important;
+                -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important;
+                height: 34px;
+                font-size: 16px;
+                color: #ffffff;
+                background-color: #6086bf;
+                border-color: #6086bf;
+                line-height: 13px;
+                padding: 0 15px;
+                
+                &:hover {
+                    opacity: 0.7;
+                }
+                
+            }
+            
+        }         
+        
+    }
+    
+}
+
+/*******************************
+CSS ANIMATIONS
+********************************/
+@-webkit-keyframes loading {
+    50% {
+        -ms-transform: rotate(180deg); 
+        -webkit-transform: rotate(180deg); 
+        transform: rotate(180deg); 
+    }
+    100% {
+        -ms-transform: rotate(0deg); 
+        -webkit-transform: rotate(0deg); 
+        transform: rotate(0deg); 
+    }	  
+}
+
+@keyframes loading {
+    50% {
+        -ms-transform: rotate(180deg); 
+        -webkit-transform: rotate(180deg); 
+        transform: rotate(180deg); 
+    }  
+    100% {
+        -ms-transform: rotate(0deg); 
+        -webkit-transform: rotate(0deg); 
+        transform: rotate(0deg); 
+    }
+}
+
+@-webkit-keyframes loadingOpacity {
+    0% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }	  
+}
+
+@keyframes loadingOpacity {
+    0% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }		
+}

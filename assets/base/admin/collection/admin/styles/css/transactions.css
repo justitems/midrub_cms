@@ -1,0 +1,220 @@
+/*******************************
+MIDRUB GLOBAL VARIABLES
+********************************/
+/*******************************
+CUSTOM STYLES FOR TRANSACTIONS
+********************************/
+.admin-page .transaction-header .print-invoice {
+  margin-right: 0 !important; }
+.admin-page .transaction-details .transaction-details-area {
+  padding: 0;
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  min-height: 200px; }
+  .admin-page .transaction-details .transaction-details-area .panel {
+    border: 0;
+    box-shadow: none; }
+    .admin-page .transaction-details .transaction-details-area .panel .panel-heading {
+      margin: 0;
+      padding: 0 15px;
+      background-color: transparent;
+      border-bottom: 1px solid #e3eaef;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 50px; }
+      .admin-page .transaction-details .transaction-details-area .panel .panel-heading i {
+        margin-right: 5px; }
+      .admin-page .transaction-details .transaction-details-area .panel .panel-heading > a {
+        float: right;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 16px;
+        line-height: 22px;
+        margin-top: 13px;
+        color: #346cb0;
+        text-decoration: none; }
+        .admin-page .transaction-details .transaction-details-area .panel .panel-heading > a:hover {
+          text-decoration: none;
+          border-bottom: 1px solid #346cb0; }
+      .admin-page .transaction-details .transaction-details-area .panel .panel-heading .nav-tabs {
+        border-bottom: 0; }
+        .admin-page .transaction-details .transaction-details-area .panel .panel-heading .nav-tabs li {
+          border: 0 !important;
+          margin-right: 30px; }
+          .admin-page .transaction-details .transaction-details-area .panel .panel-heading .nav-tabs li a {
+            border: 0 !important;
+            color: #ccc;
+            font-size: 14px;
+            padding: 0;
+            line-height: 50px;
+            background-color: transparent !important; }
+          .admin-page .transaction-details .transaction-details-area .panel .panel-heading .nav-tabs li.active {
+            margin-bottom: auto; }
+            .admin-page .transaction-details .transaction-details-area .panel .panel-heading .nav-tabs li.active a {
+              color: #777; }
+    .admin-page .transaction-details .transaction-details-area .panel .panel-body {
+      padding: 0;
+      min-height: 300px; }
+      .admin-page .transaction-details .transaction-details-area .panel .panel-body .details-list {
+        margin: 0;
+        padding: 0; }
+        .admin-page .transaction-details .transaction-details-area .panel .panel-body .details-list li {
+          padding: 15px;
+          list-style: none;
+          border-bottom: 1px solid rgba(65, 106, 166, 0.05); }
+          .admin-page .transaction-details .transaction-details-area .panel .panel-body .details-list li:last-child {
+            border-bottom: 0; }
+          .admin-page .transaction-details .transaction-details-area .panel .panel-body .details-list li h4 {
+            margin: 0;
+            line-height: 30px;
+            font-weight: 400;
+            font-size: 14px;
+            color: #212529; }
+          .admin-page .transaction-details .transaction-details-area .panel .panel-body .details-list li span {
+            font-size: 13px;
+            color: #343a40;
+            margin-bottom: 0; }
+          .admin-page .transaction-details .transaction-details-area .panel .panel-body .details-list li a {
+            border: 1px solid #dddddd;
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+            background-color: #FFFFFF;
+            color: #6c757d;
+            line-height: 23px;
+            padding: 7px 10px 6px;
+            margin-top: 4px;
+            display: block;
+            text-align: center; }
+          .admin-page .transaction-details .transaction-details-area .panel .panel-body .details-list li .label-default {
+            font-weight: 400;
+            background-color: #F8F8FC;
+            color: #000031; }
+          .admin-page .transaction-details .transaction-details-area .panel .panel-body .details-list li .label-primary {
+            font-weight: 400;
+            background-color: #eaeef8;
+            color: #000031; }
+          .admin-page .transaction-details .transaction-details-area .panel .panel-body .details-list li .label-danger {
+            font-weight: 400;
+            background-color: #f3ebed;
+            color: #000031; }
+.admin-page .transaction-body .transaction-fields,
+.admin-page .transaction-body .transaction-options {
+  padding: 0;
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  min-height: 200px; }
+  .admin-page .transaction-body .transaction-fields .panel,
+  .admin-page .transaction-body .transaction-options .panel {
+    border: 0;
+    box-shadow: none; }
+    .admin-page .transaction-body .transaction-fields .panel .panel-heading,
+    .admin-page .transaction-body .transaction-options .panel .panel-heading {
+      margin: 0;
+      padding: 0 15px;
+      background-color: transparent;
+      border-bottom: 1px solid #e3eaef;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 50px; }
+      .admin-page .transaction-body .transaction-fields .panel .panel-heading i,
+      .admin-page .transaction-body .transaction-options .panel .panel-heading i {
+        margin-right: 5px; }
+      .admin-page .transaction-body .transaction-fields .panel .panel-heading > a,
+      .admin-page .transaction-body .transaction-options .panel .panel-heading > a {
+        float: right;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 16px;
+        line-height: 22px;
+        margin-top: 13px;
+        color: #346cb0;
+        text-decoration: none; }
+        .admin-page .transaction-body .transaction-fields .panel .panel-heading > a:hover,
+        .admin-page .transaction-body .transaction-options .panel .panel-heading > a:hover {
+          text-decoration: none;
+          border-bottom: 1px solid #346cb0; }
+      .admin-page .transaction-body .transaction-fields .panel .panel-heading .nav-tabs,
+      .admin-page .transaction-body .transaction-options .panel .panel-heading .nav-tabs {
+        border-bottom: 0; }
+        .admin-page .transaction-body .transaction-fields .panel .panel-heading .nav-tabs li,
+        .admin-page .transaction-body .transaction-options .panel .panel-heading .nav-tabs li {
+          border: 0 !important;
+          margin-right: 30px; }
+          .admin-page .transaction-body .transaction-fields .panel .panel-heading .nav-tabs li a,
+          .admin-page .transaction-body .transaction-options .panel .panel-heading .nav-tabs li a {
+            border: 0 !important;
+            color: #ccc;
+            font-size: 14px;
+            padding: 0;
+            line-height: 50px;
+            background-color: transparent !important; }
+          .admin-page .transaction-body .transaction-fields .panel .panel-heading .nav-tabs li.active,
+          .admin-page .transaction-body .transaction-options .panel .panel-heading .nav-tabs li.active {
+            margin-bottom: auto; }
+            .admin-page .transaction-body .transaction-fields .panel .panel-heading .nav-tabs li.active a,
+            .admin-page .transaction-body .transaction-options .panel .panel-heading .nav-tabs li.active a {
+              color: #777; }
+    .admin-page .transaction-body .transaction-fields .panel .panel-body,
+    .admin-page .transaction-body .transaction-options .panel .panel-body {
+      padding: 0;
+      min-height: 300px; }
+      .admin-page .transaction-body .transaction-fields .panel .panel-body .fields-list,
+      .admin-page .transaction-body .transaction-fields .panel .panel-body .options-list,
+      .admin-page .transaction-body .transaction-options .panel .panel-body .fields-list,
+      .admin-page .transaction-body .transaction-options .panel .panel-body .options-list {
+        margin: 0;
+        padding: 0; }
+        .admin-page .transaction-body .transaction-fields .panel .panel-body .fields-list li,
+        .admin-page .transaction-body .transaction-fields .panel .panel-body .options-list li,
+        .admin-page .transaction-body .transaction-options .panel .panel-body .fields-list li,
+        .admin-page .transaction-body .transaction-options .panel .panel-body .options-list li {
+          padding: 15px;
+          list-style: none;
+          border-bottom: 1px solid rgba(65, 106, 166, 0.05); }
+          .admin-page .transaction-body .transaction-fields .panel .panel-body .fields-list li:last-child,
+          .admin-page .transaction-body .transaction-fields .panel .panel-body .options-list li:last-child,
+          .admin-page .transaction-body .transaction-options .panel .panel-body .fields-list li:last-child,
+          .admin-page .transaction-body .transaction-options .panel .panel-body .options-list li:last-child {
+            border-bottom: 0; }
+          .admin-page .transaction-body .transaction-fields .panel .panel-body .fields-list li h4,
+          .admin-page .transaction-body .transaction-fields .panel .panel-body .options-list li h4,
+          .admin-page .transaction-body .transaction-options .panel .panel-body .fields-list li h4,
+          .admin-page .transaction-body .transaction-options .panel .panel-body .options-list li h4 {
+            font-weight: 400;
+            font-size: 15px;
+            color: #212529;
+            margin-top: 0; }
+          .admin-page .transaction-body .transaction-fields .panel .panel-body .fields-list li p,
+          .admin-page .transaction-body .transaction-fields .panel .panel-body .options-list li p,
+          .admin-page .transaction-body .transaction-options .panel .panel-body .fields-list li p,
+          .admin-page .transaction-body .transaction-options .panel .panel-body .options-list li p {
+            font-size: 13px;
+            color: #343a40;
+            margin-bottom: 0; }
+          .admin-page .transaction-body .transaction-fields .panel .panel-body .fields-list li a,
+          .admin-page .transaction-body .transaction-fields .panel .panel-body .options-list li a,
+          .admin-page .transaction-body .transaction-options .panel .panel-body .fields-list li a,
+          .admin-page .transaction-body .transaction-options .panel .panel-body .options-list li a {
+            border: 1px solid #dddddd;
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+            background-color: #FFFFFF;
+            color: #6c757d;
+            line-height: 23px;
+            padding: 7px 10px 6px;
+            margin-top: 4px;
+            display: block;
+            text-align: center; }
+
+/*******************************
+MODAL STYLES
+********************************/
+/*******************************
+CSS ANIMATIONS
+********************************/
+
+/*# sourceMappingURL=transactions.css.map */

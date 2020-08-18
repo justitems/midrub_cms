@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap');
+
+/*******************************
+MIDRUB GLOBAL VARIABLES
+********************************/
+$open-sans: 'Open Sans', sans-serif;
+$nunito-sans: 'Nunito Sans', sans-serif;
+$primary-black: #343a40;
+$primary-green: #01a28b;
+$primary-red: #ea6759;
+$primary-blue: #2e5f9b;
+$primary-yellow: #f7c48c;
+$primary-border-black: rgba(65, 106, 166, 0.1);
+
+/*******************************
+MIDRUB ELEMENTS STYLES
+********************************/
+@mixin content-shadow() {
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 33px 0 rgba(144, 163, 171, 0.15);
+    box-shadow: 0 0 33px 0 rgba(144, 163, 171, 0.15);
+}
+
+.notification {  
+    text-align: left;
+    color: #ffffff;
+    -webkit-box-shadow: 0 8px 64px rgba(32, 32, 32, 0.08), 0 4px 16px rgba(32, 32, 32, 0.02);
+    -moz-box-shadow: 0 8px 64px rgba(32, 32, 32, 0.08), 0 4px 16px rgba(32, 32, 32, 0.02);
+    box-shadow: 0 8px 64px rgba(32, 32, 32, 0.08), 0 4px 16px rgba(32, 32, 32, 0.02);
+
+    .notification-error {
+        padding: 1.3rem;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -o-border-radius: 4px;
+        border-radius: 4px;  
+        background-color: #eb6276;
+    }
+
+    .notification-success {
+        padding: 1.3rem;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -o-border-radius: 4px;
+        border-radius: 4px;  
+        background-color: #4bc5ab;
+    }
+
+    i {
+        font-size: 18px;
+        margin-right: 10px;
+    }
+
+}
+
+body {
+    background-color: #f8f9fc;
+}
+
+/*******************************
+PAYMENTS APP STYLES
+********************************/
+.container {
+    font-family: 'Montserrat', sans-serif;
+
+    & > .payment-container {
+        margin-top: 100px;
+        padding: 45px 30px;
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 3px;
+
+        h3 {
+            text-align: center;
+            line-height: 50px;
+            margin-bottom: 40px;
+        }
+
+        .input-group {
+
+            &.w-25 {
+                margin-right: 15px;
+                width: 25%!important;
+                float: left;
+            }
+
+        }
+        
+        label {
+            padding-bottom: 5px;
+            font-size: 13px;
+
+            &.subscribe {
+                display: block;
+                margin-right: -15px;
+                padding-top: 3px;
+                text-align: right;
+            }
+
+        }
+        
+        input,
+        .form-control {
+            width: 100%;
+            background-color: #fff;
+            border: none;
+            box-shadow: inset 0 0 0 2px #dfe1e6;
+            color: #172b4d;
+            box-sizing: border-box;
+            -webkit-appearance: none;
+            border-radius: 3px;
+            display: block;
+            line-height: 35px;
+            margin-bottom: 22px;
+            padding: 8px 12px;
+            transition-property: border-color,box-shadow;
+            transition-duration: 85ms;
+            transition-timing-function: ease;
+            border: none;
+            box-shadow: inset 0 0 0 2px #dfe1e6;  
+
+            &:focus {
+                outline: none;
+                box-shadow: inset 0 0 0 2px #0f9a8b; 
+            }
+
+        }
+
+        #number.braintree-hosted-fields-focused,
+        #cvv.braintree-hosted-fields-focused,
+        #date.braintree-hosted-fields-focused {
+            outline: none;
+            box-shadow: inset 0 0 0 2px #0f9a8b; 
+        }
+
+        #number.braintree-hosted-fields-invalid,
+        #cvv.braintree-hosted-fields-invalid,
+        #date.braintree-hosted-fields-invalid {
+            color: $primary-red;
+        }
+
+        #number.braintree-hosted-fields-valid,
+        #cvv.braintree-hosted-fields-valid,
+        #date.braintree-hosted-fields-valid {
+            color: $primary-blue;
+        }
+
+        .form-control {
+            height: 51px;
+        }
+
+        .checkbox-option {
+            margin-top: -15px;
+            width: 100%;
+            text-align: right;
+    
+            input[type=checkbox]{
+                display: none;
+            }
+    
+            label{
+                cursor: pointer;
+                position: relative; 
+                width: 50px;
+                margin-right:15px;
+                margin-top: 20px;
+            }
+    
+            label::before{
+                position: absolute;
+                content: '';
+                margin-left: -45px;
+                margin-top: -6px;
+                border-radius: 8px;
+                height: 21px;
+                width: 50px;
+                opacity: 0.3;
+                background-color: #ced8dc;
+                box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
+                transition: all 0.4s ease-in-out;                
+            }
+    
+            label::after {
+                position: absolute;
+                content: '';
+                margin-top: -9px;
+                border-radius: 16px;
+                width: 35px;
+                height: 35px;
+                left: -4px;
+                top: -4px;
+                background-color: #c1c7cd;
+                transition: all 0.3s ease-in-out;
+                
+            }
+    
+            input[type=checkbox]:checked + label::after {
+                left: 40px;
+                background-color: $primary-yellow;
+                box-shadow: none;
+            }
+    
+        }
+
+        #paypal-button-container {
+            padding-top: 30px;
+        }        
+
+    }
+    
+}

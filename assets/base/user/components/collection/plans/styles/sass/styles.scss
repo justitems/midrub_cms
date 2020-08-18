@@ -1,0 +1,645 @@
+/*******************************
+IMPORT FONTS
+********************************/
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+@import url('https://fonts.googleapis.com/css?family=Arimo');
+
+/*******************************
+MIDRUB GLOBAL VARIABLES
+********************************/
+$open-sans: 'Open Sans', sans-serif;
+$nunito-sans: 'Nunito Sans', sans-serif;
+$primary-black: #212529;
+$primary-green: #01a28b;
+$primary-red: #ea6759;
+$primary-blue: #2e5f9b;
+$primary-yellow: #f7c48c;
+$primary-border-black: rgba(65, 106, 166, 0.1);
+
+/*******************************
+MIDRUB ELEMENTS STYLES
+********************************/
+
+@mixin opacity-animations($duration) {
+    -webkit-animation: loadingOpacity $duration;
+    animation: loadingOpacity $duration;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+        
+}
+
+.ui-dialog {
+    z-index: 999999 !important;
+
+    .add-tem-link {
+        margin-top: 15px;
+    }
+
+}
+
+.page-loading {
+    background-color: rgba(0,0,0,0.8);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+    margin-top: 0px;
+    top: 0px;
+        
+    .loading-animation-area {
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        .loading-center-absolute {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 200px;
+            width: 200px;
+            margin-top: -100px;
+            margin-left: -100px;
+            
+            .object{
+                -moz-border-radius: 50% 50% 50% 50%;
+                -webkit-border-radius: 50% 50% 50% 50%;
+                border-radius: 50% 50% 50% 50%;
+                position: absolute;
+                border-left: 5px solid #FFF;
+                border-right: 5px solid #FFF;
+                border-top: 5px solid transparent;
+                border-bottom: 5px solid transparent;
+                -webkit-animation: loading 2s infinite;
+                animation: loading 2s infinite;
+
+                &.object_one {
+                    left: 75px;
+                    top: 75px;
+                    width: 50px;
+                    height: 50px;
+                }
+
+                &.object_two {
+                    left: 65px;
+                    top: 65px;
+                    width: 70px;
+                    height: 70px;
+                    -webkit-animation-delay: 0.1s;
+                    animation-delay: 0.1s;
+                }
+
+                &.object_three {
+                    left: 55px;
+                    top: 55px;
+                    width: 90px;
+                    height: 90px;
+                    -webkit-animation-delay: 0.2s;
+                    animation-delay: 0.2s;
+                }
+
+                &.object_four {
+                    left: 45px;
+                    top: 45px;
+                    width: 110px;
+                    height: 110px;
+                    -webkit-animation-delay: 0.3s;
+                    animation-delay: 0.3s;
+
+                }
+
+            }
+            
+        }
+
+    }
+        
+}
+
+.confirm {
+    margin: 0 0 10px 10px;
+    line-height: 40px;
+    font-size: 14px !important;
+    color: #343a40 !important;
+    display: none;
+
+    a.yes {
+        color: $primary-green;
+        text-decoration: none;
+        font-weight: 600;
+        margin: 0px 15px;
+    }
+
+    a.no {
+        color: $primary-red;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+}
+
+.md-message {
+    min-height: 20px;
+    width: 40%;
+    margin-right: -40%;
+    min-width: 250px;
+    margin: auto;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    position: fixed;
+    z-index: 9999;
+    padding: 15px;
+    font-size: 17px;
+    border-radius: 3px;
+    font-weight: 400;
+    font-family: $nunito-sans;
+    -webkit-animation: mdmess 0.3s;
+    animation: mdmess 0.3s;
+
+    &.subi {
+        color: #FFFFFF;
+        background-color: $primary-green;
+        border-color: $primary-green;
+    }
+
+    &.sube {
+        color: #FFFFFF;
+        background-color: $primary-red;
+        border-color: $primary-red;         
+    }
+
+    i {
+        font-size: 25px;
+        margin-right: 13px;
+        float: left;
+    }
+
+}
+
+/*******************************
+PLANS STYLES
+********************************/
+body {
+    font-family: $nunito-sans;
+}
+
+a {
+    color: #346cb1;
+    text-decoration: none;
+    
+    &:hover {
+        text-decoration: none;
+        border-bottom: 1px solid #346cb1;
+    }
+    
+}
+
+a.active.focus,
+a.active:focus,
+a.focus,
+a:active.focus,
+a:active:focus,
+a:focus,
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="number"],
+input[type="color"],
+textarea,
+select,
+button,
+button.active.focus,
+button.active:focus,
+button.focus,
+button:active.focus,
+button:active:focus,
+button:focus,
+.btn.active.focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn:active:focus,
+.btn:focus,
+.emoji-wysiwyg-editor {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline: none !important; 
+}
+
+button {
+    cursor: pointer;
+}
+
+i {
+    margin-right: 5px;
+}
+
+p {
+    margin: 0;
+}
+
+.btn {
+
+    &.btn-success {
+        background-color: $primary-green;
+        border-color: $primary-green;
+    }
+    
+    &.btn-danger {
+        background-color: $primary-red;
+        border-color: $primary-red;
+    }    
+    
+    &:hover {
+        opacity: 0.8;
+    }
+
+}
+
+.clean {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.pageload {
+    display: none;
+}
+
+.container-fluid {
+    padding: 0;
+    margin: 0;
+    display: table;
+
+    main {
+        height: auto;
+        background-position: center center;
+        background-repeat: no-repeat;
+        min-height: 700px;
+        position: relative;
+        display: table-cell;
+        width: calc(100% - 70px);
+        
+        section {
+            transform: scale(0.5);
+            @include opacity-animations(0.5s);
+            
+            
+            &.plans-page {
+                padding: 80px 280px;
+                font-family: $open-sans, Arial, Helvetica;
+
+                @media only screen and (max-width: 1400px) {
+
+                    & {
+                        padding: 30px;
+                    }
+
+                }
+                
+                .container-fluid {
+                
+                    & > .row > .col-xl-1,
+                    & > .row > .col-xl-2,
+                    & > .row > .col-xl-3,
+                    & > .row > .col-xl-4,
+                    & > .row > .col-xl-5,
+                    & > .row > .col-xl-6,
+                    & > .row > .col-xl-7,
+                    & > .row > .col-xl-8,
+                    & > .row > .col-xl-9,
+                    & > .row > .col-xl-10,
+                    & > .row > .col-xl-11,
+                    & > .row > .col-xl-12 {
+
+                        & > .col-xl-12 {
+                            margin-bottom: 20px;
+                            padding-bottom: 20px;
+                            padding: 0;
+                            border-bottom: 2px solid rgba(0, 0, 0, 0.03);
+                            border-radius: 4px;
+                            background: #ffffff;
+                            box-shadow: 0 1px 1px 0 rgba(9, 30, 65, 0.1);
+                            
+                            .panel {
+                                overflow: hidden;
+                            
+                                .panel-heading {
+                                    width: 100%;
+                                    height: 60px;
+                                    padding: 0 15px;
+                                    border-bottom: 1px solid $primary-border-black;
+
+                                    h3 {
+                                        line-height: 60px;
+                                        font-size: 18px;
+                                        color: $primary-black;
+                                        text-align: center;
+                                        
+                                        a {
+                                            float: right;
+                                            font-size: 16px;
+                                            line-height: 22px;
+                                            margin-top: 18px;
+                                        }
+
+                                    }
+
+                                }
+
+                                .panel-body {
+                                    min-height: 400px;
+
+                                    .the-price {
+                                        text-align: center;
+
+                                        h1 {
+                                            line-height: 120px;
+                                        }
+
+                                    }
+
+                                    .table {
+                                        margin-bottom: 20px;
+
+                                        tr {
+
+                                            td {
+                                                text-align: center;
+                                                font-size: 14px;
+                                                color: #827f9b;
+                                                border-bottom: 1px solid rgba(65, 106, 166, 0.05);
+                                            }
+
+                                            &:first-child {
+
+                                                td {
+                                                    border-top: 1px solid rgba(65, 106, 166, 0.05);
+                                                }
+
+                                            }                                        
+
+                                            &:last-child {
+
+                                                td {
+                                                    border-bottom: 0;
+                                                }
+
+                                            }
+
+                                        }
+
+                                    }
+
+                                }
+
+                                .panel-footer {
+                                    height: 80px;
+                                    text-align: center;
+
+                                    a.btn-success {
+                                        text-transform: uppercase;
+                                        text-decoration: none;
+                                        color: $primary-blue;
+                                        font-weight: 400;
+                                        line-height: 35px;
+                                        border: 2px solid $primary-blue;
+                                        background-color: transparent;
+                                        display: inline-block;
+                                        width: 80%;
+                                        height: 50px;
+                                        border-radius: 4px;
+
+                                        &:hover {
+                                            background-color: $primary-blue;
+                                            color: #FFFFFF;
+                                        }
+
+                                    }
+
+                                    a.btn-default {
+                                        text-transform: uppercase;
+                                        text-decoration: none;
+                                        color: $primary-yellow;
+                                        font-weight: 400;
+                                        line-height: 35px;
+                                        border: 2px solid $primary-yellow;
+                                        background-color: transparent;
+                                        display: inline-block;
+                                        width: 80%;
+                                        height: 50px;
+                                        border-radius: 4px;
+
+                                        &:hover {
+                                            background-color: $primary-yellow;
+                                            color: #FFFFFF;
+                                        }
+
+                                    }                                
+
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                }
+            
+            }
+            
+            &.gateways-page {
+                padding: 80px 15px;
+                font-family: "Open Sans", sans-serif, Arial, Helvetica;
+                
+                .container-fluid {
+                
+                    & > .row > .col-xl-4 {
+
+                        & > .col-xl-12 {
+                            margin-bottom: 20px;
+                            padding-bottom: 20px;
+                            border-radius: 3px;
+                            padding: 0;
+                            
+                            .panel {
+                                overflow: hidden;
+                                border-bottom: 2px solid rgba(0, 0, 0, 0.03);
+                                border-radius: 4px;
+                                background: #ffffff;
+                                box-shadow: 0 1px 1px 0 rgba(9, 30, 65, 0.10);
+                            
+                                .panel-heading {
+                                    width: 100%;
+                                    height: 60px;
+                                    padding: 0 15px;
+                                    border-bottom: 1px solid $primary-border-black;
+
+                                    h3 {
+                                        line-height: 60px;
+                                        font-size: 17px;
+                                        color: $primary-black;
+
+                                        .plan-price {
+                                            font-size: 19px;
+                                            font-weight: 600;
+                                            color: $primary-black;
+                                        }
+
+                                        .discount-price {
+                                            margin-right: 10px;
+                                            color: $primary-green;
+                                        }
+
+                                    }
+
+                                }
+                                
+                            }
+                            
+                            .panel-body {
+                                    
+                                .coupon-code {
+                                    padding: 15px;
+                                    
+                                    input[type="text"],
+                                    button {
+                                        width: 100%;
+                                        height: 35px;
+                                    }
+                                    
+                                    input[type="text"] {
+                                        margin: 0;
+                                        padding: 11px 20px;
+                                        height: 40px;
+                                        width: 100%;
+                                        border: 1px solid #e8e8e8;
+                                        border-radius: 5px;
+                                        font-size: inherit;
+                                        font-family: inherit;
+                                        color: #222222;
+                                        background: #fff;
+                                        -webkit-appearance: textfield;
+                                    }
+                                    
+                                    .btn-primary {
+                                        height: 40px;
+                                        color: #fff;
+                                        background-color: $primary-yellow;
+                                        border-color: $primary-yellow;
+                                        
+                                        &:hover {
+                                            opacity: 0.7;
+                                        }
+                                        
+                                    }                                    
+                                    
+                                }
+                                
+                                .no-payments-found {
+                                    margin: 15px 0;
+                                    padding: 0 15px;
+                                    line-height: 45px;
+                                    font-size: 15px;
+                                    color: #333333;
+                                    background-color: #f9fafb;
+                                }
+                                
+                                ul {
+                                    margin: 10px 0;
+                                    padding: 0;
+
+                                    li {
+                                        list-style: none;
+                                        height: 70px;
+                                        border-bottom: 1px solid #f0f2f3;
+
+                                        &:first-child {
+                                            border-top: 0;    
+                                        }
+                                        
+                                        &:last-child {
+                                            border-bottom: 0;    
+                                        }
+                                        
+                                        i {
+                                            line-height: 69px;
+                                            font-size: 30px;
+                                        }
+
+                                        img {
+                                            margin-top: 20px;
+                                        }
+                                        
+                                        h3 {
+                                            line-height: 70px;
+                                            font-size: 17px;
+                                            font-weight: 400;
+                                            font-family: $open-sans, 'Arimo';
+                                            color: $primary-black;
+                                        }
+
+                                        .pay-now {
+                                            cursor: pointer;
+                                            border: none;
+                                            border-radius: 2px;
+                                            display: inline-block;
+                                            text-align: center;
+                                            vertical-align: middle;
+                                            padding: 8px 16px;
+                                            box-shadow: 0 1px 2px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.15), inset 0 -1px 0 rgba(0,0,0,0.15);
+                                            font: bold 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
+                                            color: #012d8a;
+                                            white-space: nowrap;
+                                            margin-top: 20px;
+                                        }
+
+                                    }
+
+                                }
+                                
+                            }
+
+                            .panel-footer {
+                                padding: 0 15px;
+                                width: 100%;
+                                height: 60px;
+                                border-top: 1px solid $primary-border-black;
+
+                                .btn-primary {
+                                    float: right;
+                                    margin-top: 10px;
+                                    color: $primary-black;
+                                    border-color: #f5f5f5;
+                                    background-color: #f5f5f5;
+
+                                    i {
+                                        margin-left: 10px;
+                                    }
+
+                                }
+
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+        
+        }
+
+    }
+
+}

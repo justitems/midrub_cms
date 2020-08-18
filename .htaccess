@@ -1,0 +1,8 @@
+RewriteEngine on
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+RewriteCond $1 !^(index\.php|cron\.php|loading\.html|update|assets|images|js|css|uploads|favicon.png)
+RewriteCond %(REQUEST_FILENAME) !-f
+RewriteCond %(REQUEST_FILENAME) !-d
+RewriteRule ^(.*)$ ./index.php?/$1 [L]

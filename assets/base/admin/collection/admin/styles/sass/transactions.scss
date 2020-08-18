@@ -1,0 +1,317 @@
+/*******************************
+MIDRUB GLOBAL VARIABLES
+********************************/
+$primary-black: #343a40;
+$primary-green: #00a28a;
+$primary-red: #ea6759;
+$primary-blue: #0f96e6;
+$primary-yellow: #f7c46c;
+$primary-border-black: rgba(187,201,213,.6);
+$primary-shadow-black: 0 1px 1px rgba(0,0,0,.05);
+
+/*******************************
+CUSTOM STYLES FOR TRANSACTIONS
+********************************/
+.admin-page {
+
+    .transaction-header {
+
+        .print-invoice {
+            margin-right: 0 !important;
+        }
+
+    }
+
+    .transaction-details {
+
+        .transaction-details-area {
+            padding: 0;
+            margin-bottom: 15px;
+            background-color: #ffffff;
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+            min-height: 200px;
+            
+            .panel {
+                border: 0;
+                box-shadow: none;
+                
+                .panel-heading {
+                    margin: 0;
+                    padding: 0 15px;
+                    background-color: transparent;
+                    border-bottom: 1px solid #e3eaef;
+                    font-family: 'Montserrat', sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 50px;
+                    
+                    i {
+                        margin-right: 5px;
+                    }
+                    
+                    & > a {
+                        float: right;
+                        font-family: 'Source Sans Pro', sans-serif;
+                        font-size: 16px;
+                        line-height: 22px;
+                        margin-top: 13px;
+                        color: #346cb0;
+                        text-decoration: none;
+                        
+                        &:hover {
+                            text-decoration: none;
+                            border-bottom: 1px solid #346cb0;
+                        }
+                        
+                    }
+                    
+                    .nav-tabs {
+                        border-bottom: 0;
+                        
+                        li {
+                            border: 0 !important;
+                            margin-right: 30px;
+                            
+                            a {
+                                border: 0 !important;
+                                color: #ccc;
+                                font-size: 14px;
+                                padding: 0;
+                                line-height: 50px;
+                                background-color: transparent !important;
+                            }
+                            
+                            &.active {
+                                margin-bottom: auto;
+                                
+                                a {
+                                    color: #777;
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+                .panel-body {
+                    padding: 0;
+                    min-height: 300px;
+
+                    .details-list {
+                        margin: 0;
+                        padding: 0;
+
+                        li {
+                            padding: 15px;
+                            list-style: none;
+                            border-bottom: 1px solid rgba(65, 106, 166, 0.05);
+                            
+                            &:last-child {
+                                border-bottom: 0;
+                            }
+
+                            h4 {
+                                margin: 0;
+                                line-height: 30px;
+                                font-weight: 400;
+                                font-size: 14px;
+                                color: #212529;
+                            }
+
+                            span {
+                                font-size: 13px;
+                                color: $primary-black;
+                                margin-bottom: 0;
+
+                            }
+                            
+                            a {
+                                border: 1px solid #dddddd;
+                                -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+                                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+                                background-color: #FFFFFF;
+                                color: #6c757d;
+                                line-height: 23px;
+                                padding: 7px 10px 6px;
+                                margin-top: 4px;
+                                display: block;
+                                text-align: center;
+                            }
+
+                            .label-default {
+                                font-weight: 400;
+                                background-color: #F8F8FC;
+                                color: #000031;
+                            }
+        
+                            .label-primary {
+                                font-weight: 400;
+                                background-color: #eaeef8;
+                                color: #000031;
+                            }
+        
+                            .label-danger {
+                                font-weight: 400;
+                                background-color: #f3ebed;
+                                color: #000031;
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .transaction-body {
+
+        .transaction-fields,
+        .transaction-options {
+            padding: 0;
+            margin-bottom: 15px;
+            background-color: #ffffff;
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+            min-height: 200px;
+            
+            .panel {
+                border: 0;
+                box-shadow: none;
+                
+                .panel-heading {
+                    margin: 0;
+                    padding: 0 15px;
+                    background-color: transparent;
+                    border-bottom: 1px solid #e3eaef;
+                    font-family: 'Montserrat', sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 50px;
+                    
+                    i {
+                        margin-right: 5px;
+                    }
+                    
+                    & > a {
+                        float: right;
+                        font-family: 'Source Sans Pro', sans-serif;
+                        font-size: 16px;
+                        line-height: 22px;
+                        margin-top: 13px;
+                        color: #346cb0;
+                        text-decoration: none;
+                        
+                        &:hover {
+                            text-decoration: none;
+                            border-bottom: 1px solid #346cb0;
+                        }
+                        
+                    }
+                    
+                    .nav-tabs {
+                        border-bottom: 0;
+                        
+                        li {
+                            border: 0 !important;
+                            margin-right: 30px;
+                            
+                            a {
+                                border: 0 !important;
+                                color: #ccc;
+                                font-size: 14px;
+                                padding: 0;
+                                line-height: 50px;
+                                background-color: transparent !important;
+                            }
+                            
+                            &.active {
+                                margin-bottom: auto;
+                                
+                                a {
+                                    color: #777;
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+                .panel-body {
+                    padding: 0;
+                    min-height: 300px;
+
+                    .fields-list,
+                    .options-list {
+                        margin: 0;
+                        padding: 0;
+
+                        li {
+                            padding: 15px;
+                            list-style: none;
+                            border-bottom: 1px solid rgba(65, 106, 166, 0.05);
+                            
+                            &:last-child {
+                                border-bottom: 0;
+                            }
+
+                            h4 {
+                                font-weight: 400;
+                                font-size: 15px;
+                                color: #212529;
+                                margin-top: 0;
+                            }
+
+                            p {
+                                font-size: 13px;
+                                color: $primary-black;
+                                margin-bottom: 0;
+
+                            }
+                            
+                            a {
+                                border: 1px solid #dddddd;
+                                -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+                                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+                                background-color: #FFFFFF;
+                                color: #6c757d;
+                                line-height: 23px;
+                                padding: 7px 10px 6px;
+                                margin-top: 4px;
+                                display: block;
+                                text-align: center;
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }    
+
+}
+
+/*******************************
+MODAL STYLES
+********************************/
+
+
+/*******************************
+CSS ANIMATIONS
+********************************/

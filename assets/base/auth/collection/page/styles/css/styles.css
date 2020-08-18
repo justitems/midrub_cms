@@ -1,0 +1,50 @@
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800|Roboto:400&display=swap");
+/*******************************
+GENERAL STYLES
+********************************/
+body {
+  font-family: 'Open Sans', sans-serif; }
+
+/*******************************
+MEMBERS ACCESS STYLES
+********************************/
+main section.single-page {
+  padding: 40px 0; }
+  main section.single-page h1,
+  main section.single-page h2,
+  main section.single-page h3,
+  main section.single-page h4,
+  main section.single-page h5,
+  main section.single-page h6 {
+    color: #3c5044;
+    margin-bottom: 20px;
+    font-weight: 600; }
+  main section.single-page h1 {
+    line-height: 32px;
+    font-size: 24px; }
+  main section.single-page h2 {
+    line-height: 30px;
+    font-size: 22px; }
+  main section.single-page h3 {
+    line-height: 28px;
+    font-size: 18px; }
+  main section.single-page h4 {
+    line-height: 26px;
+    font-size: 16px; }
+  main section.single-page h5 {
+    line-height: 24px;
+    font-size: 15px; }
+  main section.single-page h6 {
+    line-height: 24px;
+    font-size: 14px; }
+  main section.single-page p {
+    color: #3c4044;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 26px; }
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,23 @@
+<?php
+$lang["auth_signin_page_title"] = "Sign In";
+$lang["auth_signin_forgot_your_password"] = "Forgot password?";
+$lang["auth_signin_reset_it"] = "Reset it.";
+$lang["auth_signin_email_or_username"] = "Email or Username";
+$lang["auth_signin_enter_email_address"] = "Enter the email ...";
+$lang["auth_signin_password"] = "Password";
+$lang["auth_signin_enter_password"] = "Enter the password ...";
+$lang["auth_signin_sign_in_title"] = "Sign In";
+$lang["auth_signin_continue"] = "Continue";
+$lang["auth_signin_remember"] = "Remember";
+$lang["auth_signin_the_entered_data_is_wrong"] = "The data entered is wrong.";
+$lang["auth_signin_details"] = "Signin Details";
+$lang["auth_signin_continue_with"] = "Continue with";
+$lang["auth_signin_network_not_available"] = "(network) isn't available for sign in.";
+$lang["auth_signin_network_not_enabled"] = "(network) isn't enabled for sign in.";
+$lang["auth_signin_network_not_configured"] = "(network) isn't configured for sign in.";
+$lang["auth_signin_or_sign_up"] = "Sign Up";
+$lang["auth_signin_remember_me"] = "Remember Me";
+$lang["auth_signin_or"] = "or";
+$lang["auth_signin_sign_in_btn"] = "Sign In";
+$lang["auth_signin_email"] = "Email";
+$lang["auth_signin_enter_username_email_address"] = "Enter the username or email ...";

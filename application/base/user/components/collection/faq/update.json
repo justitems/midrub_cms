@@ -1,0 +1,10 @@
+{
+    "version": "Version 0.3",
+    "changelogs": "Added support for automatic updates.",
+    "files": [
+        "application\/base\/user\/components\/collection\/faq\/main.php",
+        "application\/base\/user\/components\/collection\/faq\/controllers\/user.php",
+        "application\/base\/user\/components\/collection\/faq\/helpers\/tickets.php",
+        "application\/base\/user\/components\/collection\/faq\/inc\/admin.php"
+    ]
+}

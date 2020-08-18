@@ -1,0 +1,32 @@
+{
+    "files": [
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/application\/base\/user\/components\/collection\/team\/main.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/application\/base\/user\/components\/collection\/team\/controllers\/user.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/application\/base\/user\/components\/collection\/team\/controllers\/ajax.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/application\/base\/user\/components\/collection\/team\/helpers\/roles.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/application\/base\/user\/components\/collection\/team\/helpers\/team.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/application\/base\/user\/components\/collection\/team\/inc\/admin.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/application\/base\/user\/components\/collection\/team\/inc\/members.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/application\/base\/user\/components\/collection\/team\/language\/english\/team_member_lang.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/application\/base\/user\/components\/collection\/team\/language\/english\/team_user_lang.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/application\/base\/user\/components\/collection\/team\/models\/teams_members.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/application\/base\/user\/components\/collection\/team\/models\/teams_roles.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/application\/base\/user\/components\/collection\/team\/views\/main.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/application\/base\/user\/components\/collection\/team\/views\/menu.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/application\/base\/user\/components\/collection\/team\/views\/templates\/member.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/application\/base\/user\/components\/collection\/team\/views\/templates\/members.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/application\/base\/user\/components\/collection\/team\/views\/templates\/new-member.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/application\/base\/user\/components\/collection\/team\/views\/templates\/new-role.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/application\/base\/user\/components\/collection\/team\/views\/templates\/no-member.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/application\/base\/user\/components\/collection\/team\/views\/templates\/no-role.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/application\/base\/user\/components\/collection\/team\/views\/templates\/role.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/application\/base\/user\/components\/collection\/team\/views\/templates\/roles.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/assets\/base\/user\/components\/collection\/team\/js\/member.js",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/assets\/base\/user\/components\/collection\/team\/js\/members.js",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/assets\/base\/user\/components\/collection\/team\/js\/new-member.js",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/assets\/base\/user\/components\/collection\/team\/js\/new-role.js",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/assets\/base\/user\/components\/collection\/team\/js\/role.js",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/assets\/base\/user\/components\/collection\/team\/js\/roles.js",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/team\/backup\/assets\/base\/user\/components\/collection\/team\/styles\/css\/styles.css"
+    ]
+}

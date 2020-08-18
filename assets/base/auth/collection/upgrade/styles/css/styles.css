@@ -1,0 +1,254 @@
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600");
+@import url("https://fonts.googleapis.com/css?family=Arimo");
+/*******************************
+MIDRUB GLOBAL VARIABLES
+********************************/
+/*******************************
+GENERAL STYLES
+********************************/
+body {
+  background-color: #f8f9fc;
+  font-family: 'Raleway', sans-serif;
+  overflow-x: hidden; }
+  body .container {
+    padding: 0; }
+  body .btn:hover, body .btn:active, body .btn:focus, body .btn:active:focus,
+  body input:hover,
+  body input:active,
+  body input:focus,
+  body input:active:focus,
+  body textarea:hover,
+  body textarea:active,
+  body textarea:focus,
+  body textarea:active:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    opacity: 0.7;
+    cursor: pointer; }
+
+.container {
+  max-width: 1240px;
+  width: 100%; }
+
+/*******************************
+UPGRADE STYLES
+********************************/
+body {
+  font-family: "Nunito Sans", sans-serif; }
+
+a {
+  color: #346cb1;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: none;
+    border-bottom: 1px solid #346cb1; }
+
+a.active.focus,
+a.active:focus,
+a.focus,
+a:active.focus,
+a:active:focus,
+a:focus,
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="number"],
+input[type="color"],
+textarea,
+select,
+button,
+button.active.focus,
+button.active:focus,
+button.focus,
+button:active.focus,
+button:active:focus,
+button:focus,
+.btn.active.focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn:active:focus,
+.btn:focus,
+.emoji-wysiwyg-editor {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  outline: none !important; }
+
+button {
+  cursor: pointer; }
+
+i {
+  margin-right: 5px; }
+
+p {
+  margin: 0; }
+
+.btn.btn-success {
+  background-color: #01a28b;
+  border-color: #01a28b; }
+.btn.btn-danger {
+  background-color: #ea6759;
+  border-color: #ea6759; }
+.btn:hover {
+  opacity: 0.8; }
+
+.clean {
+  padding: 0 !important;
+  margin: 0 !important; }
+
+.pull-left {
+  float: left; }
+
+.pull-right {
+  float: right; }
+
+.pageload {
+  display: none; }
+
+.container-fluid {
+  padding: 0;
+  margin: 0;
+  display: table; }
+  .container-fluid main {
+    height: auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 700px;
+    position: relative;
+    display: table-cell;
+    width: calc(100% - 70px); }
+    .container-fluid main .notification {
+      position: absolute;
+      top: 0px;
+      width: 100%;
+      padding: 13px;
+      box-sizing: border-box;
+      color: white;
+      text-align: center;
+      background-color: rgba(59, 89, 152, 0.8);
+      overflow: hidden;
+      box-sizing: border-box;
+      transition: min-height 0.4s; }
+      .container-fluid main .notification.show {
+        min-height: 50px; }
+    .container-fluid main section.gateways-page {
+      padding: 80px 15px;
+      font-family: "Open Sans", sans-serif, Arial, Helvetica; }
+      .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-radius: 3px;
+        padding: 0; }
+        .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel {
+          overflow: hidden;
+          border-bottom: 2px solid rgba(0, 0, 0, 0.03);
+          border-radius: 4px;
+          background: #ffffff;
+          box-shadow: 0 1px 1px 0 rgba(9, 30, 65, 0.1); }
+          .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel .panel-heading {
+            width: 100%;
+            height: 60px;
+            padding: 0 15px;
+            border-bottom: 1px solid rgba(65, 106, 166, 0.1); }
+            .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel .panel-heading h3 {
+              line-height: 60px;
+              font-size: 17px;
+              color: #212529; }
+              .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel .panel-heading h3 .plan-price {
+                font-size: 19px;
+                font-weight: 600;
+                color: #212529; }
+              .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel .panel-heading h3 .discount-price {
+                margin-right: 10px;
+                color: #01a28b; }
+        .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel-body p {
+          padding: 15px;
+          line-height: 24px;
+          font-size: 14px;
+          color: #6c757d; }
+        .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel-body .coupon-code {
+          padding: 15px; }
+          .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel-body .coupon-code input[type="text"],
+          .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel-body .coupon-code button {
+            width: 100%;
+            height: 35px; }
+          .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel-body .coupon-code input[type="text"] {
+            margin: 0;
+            padding: 11px 20px;
+            height: 40px;
+            width: 100%;
+            border: 1px solid #e8e8e8;
+            border-radius: 5px;
+            font-size: inherit;
+            font-family: inherit;
+            color: #222222;
+            background: #fff;
+            -webkit-appearance: textfield; }
+          .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel-body .coupon-code .btn-primary {
+            height: 40px;
+            color: #fff;
+            background-color: #f7c48c;
+            border-color: #f7c48c; }
+            .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel-body .coupon-code .btn-primary:hover {
+              opacity: 0.7; }
+        .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel-body .no-payments-found {
+          margin: 15px 0;
+          padding: 0 15px;
+          line-height: 45px;
+          font-size: 15px;
+          color: #333333;
+          background-color: #f9fafb; }
+        .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel-body ul {
+          margin: 10px 0;
+          padding: 0; }
+          .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel-body ul li {
+            list-style: none;
+            height: 70px;
+            border-bottom: 1px solid #f0f2f3; }
+            .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel-body ul li:first-child {
+              border-top: 0; }
+            .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel-body ul li:last-child {
+              border-bottom: 0; }
+            .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel-body ul li i {
+              line-height: 69px;
+              font-size: 30px; }
+            .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel-body ul li img {
+              margin-top: 20px; }
+            .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel-body ul li h3 {
+              line-height: 70px;
+              font-size: 17px;
+              font-weight: 400;
+              font-family: "Open Sans", sans-serif, "Arimo";
+              color: #212529; }
+            .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel-body ul li .pay-now {
+              cursor: pointer;
+              border: none;
+              border-radius: 2px;
+              display: inline-block;
+              text-align: center;
+              vertical-align: middle;
+              padding: 8px 16px;
+              box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+              font: bold 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
+              color: #012d8a;
+              white-space: nowrap;
+              margin-top: 20px; }
+        .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel-footer {
+          padding: 0 15px;
+          width: 100%;
+          height: 60px;
+          border-top: 1px solid rgba(65, 106, 166, 0.1); }
+          .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel-footer .btn-primary {
+            float: right;
+            margin-top: 10px;
+            color: #212529;
+            border-color: #f5f5f5;
+            background-color: #f5f5f5; }
+            .container-fluid main section.gateways-page .container-fluid > .row > .col-xl-4 > .col-xl-12 .panel-footer .btn-primary i {
+              margin-left: 10px; }
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,231 @@
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600");
+/*******************************
+MIDRUB GLOBAL VARIABLES
+********************************/
+/*******************************
+MIDRUB ELEMENTS STYLES
+********************************/
+i {
+  font-weight: 500;
+  font-size: 120%;
+  font-style: inherit; }
+  i.icon-general:after {
+    content: "\2690"; }
+  i.icon-error:after {
+    content: "\26A0"; }
+  i.icon-offers:after {
+    content: "\2105"; }
+
+/*******************************
+NOTIFICATIONS STYLES
+********************************/
+section {
+  transform: scale(0.5);
+  -webkit-animation: loadingOpacity 0.5s;
+  animation: loadingOpacity 0.5s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
+  section.notifications-page {
+    padding: 30px; }
+    section.notifications-page .tab-pane {
+      padding: 0; }
+    section.notifications-page .notifications-title {
+      font-size: 23px;
+      font-weight: 300;
+      font-family: "Open Sans", sans-serif, Arial, Helvetica;
+      margin-bottom: 40px;
+      margin-left: -15px; }
+    section.notifications-page > .row > .col-xl-2 {
+      min-height: 100px;
+      display: inline-table;
+      padding: 15px;
+      margin-bottom: 20px;
+      background-color: #FFFFFF;
+      -webkit-box-shadow: 0 0 0 1px rgba(61, 70, 79, 0.05), 0 1px 3px 0 rgba(61, 70, 79, 0.05);
+      box-shadow: 0 0 0 1px rgba(61, 70, 79, 0.05), 0 1px 3px 0 rgba(61, 70, 79, 0.05); }
+      section.notifications-page > .row > .col-xl-2 .notifications-menu-group {
+        width: 100%;
+        margin-bottom: 40px; }
+        section.notifications-page > .row > .col-xl-2 .notifications-menu-group:last-child {
+          margin-bottom: 0; }
+        section.notifications-page > .row > .col-xl-2 .notifications-menu-group .notifications-menu-header {
+          font-size: 15px;
+          font-weight: 300;
+          margin-bottom: 20px;
+          font-family: "Open Sans", sans-serif;
+          margin-top: 25px; }
+        section.notifications-page > .row > .col-xl-2 .notifications-menu-group .nav {
+          width: 100%;
+          border-bottom: 0; }
+          section.notifications-page > .row > .col-xl-2 .notifications-menu-group .nav li {
+            width: 100%;
+            padding: 0; }
+            section.notifications-page > .row > .col-xl-2 .notifications-menu-group .nav li a {
+              display: block;
+              padding: 0 15px;
+              font-size: 14px;
+              line-height: 40px;
+              border: 0;
+              font-family: "Open Sans", sans-serif, Arial, Helvetica;
+              color: #010101; }
+              section.notifications-page > .row > .col-xl-2 .notifications-menu-group .nav li a.active {
+                color: #010101;
+                background-color: #fbfbfc; }
+              section.notifications-page > .row > .col-xl-2 .notifications-menu-group .nav li a:hover {
+                border-bottom: 0;
+                background-color: #fbfbfc; }
+    @media only screen and (max-width: 1199px) {
+      section.notifications-page > .row .col-xl-6 {
+        padding: 0; } }
+    section.notifications-page > .row .col-xl-6 .notifications-list {
+      min-height: 500px;
+      border: 1px solid #edf2f9;
+      background-color: #FFFFFF;
+      -webkit-box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+      box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+      border-radius: 4px; }
+      section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-heading {
+        padding: 15px;
+        font-size: 15px;
+        border-bottom: 1px solid rgba(65, 106, 166, 0.1);
+        font-family: "Open Sans", sans-serif, Arial, Helvetica;
+        color: #010101; }
+        section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-heading .next-button,
+        section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-heading .back-button {
+          outline: none;
+          width: 35px;
+          height: 35px;
+          margin-top: -5px;
+          right: 15px;
+          line-height: 9px;
+          position: absolute;
+          border: 1px solid #e3e8ed;
+          -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+          background: #FFFFFF; }
+          section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-heading .next-button.btn-disabled, section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-heading .next-button:hover,
+          section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-heading .back-button.btn-disabled,
+          section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-heading .back-button:hover {
+            color: rgba(65, 106, 166, 0.5); }
+          section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-heading .next-button i,
+          section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-heading .back-button i {
+            margin: 0;
+            line-height: 25px;
+            font-style: inherit; }
+        section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-heading .next-button.btn-disabled,
+        section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-heading .back-button.btn-disabled {
+          pointer-events: none; }
+        section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-heading .back-button {
+          right: 49px;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px; }
+          section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-heading .back-button i.arrow-left:after {
+            content: "\2039";
+            font-weight: 500;
+            font-size: 150%; }
+        section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-heading .next-button {
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+          margin-left: -1px; }
+          section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-heading .next-button i.arrow-right:after {
+            content: "\203A";
+            font-weight: 500;
+            font-size: 150%; }
+      section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body {
+        min-height: 600px;
+        padding-bottom: 20px; }
+        section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show {
+          margin: 0;
+          padding: 0; }
+          section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show li {
+            list-style: none;
+            border-bottom: 1px solid rgba(65, 106, 166, 0.05); }
+            section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show li:hover {
+              background-color: #fbfbfc; }
+            section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show li.no_results_found {
+              padding: 15px; }
+              section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show li.no_results_found:hover {
+                background-color: transparent; }
+            section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show li:last-child {
+              border-bottom: 0; }
+            section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show li a.show-notification {
+              margin: 0;
+              padding: 15px;
+              display: block;
+              font-size: 14px;
+              color: #827f9b;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+              font-family: "Open Sans", sans-serif, Arial, Helvetica; }
+              section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show li a.show-notification:hover {
+                border-bottom: 0; }
+              section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show li a.show-notification .icon-star {
+                content: "\2730";
+                font-weight: 500;
+                font-size: 100%; }
+            section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show li.unread-notification {
+              background-color: #fbfbfc; }
+              section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show li.unread-notification a.show-notification {
+                color: #010101; }
+                section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show li.unread-notification a.show-notification .icon-star {
+                  font-weight: 700; }
+            section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show li .btn-group {
+              float: right; }
+              section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show li .btn-group .btn-default {
+                padding: 15px;
+                border: 0;
+                background-color: transparent; }
+                section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show li .btn-group .btn-default i {
+                  font-size: 18px;
+                  color: #000031; }
+                section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show li .btn-group .btn-default::after {
+                  display: none; }
+                section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show li .btn-group .btn-default:hover, section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show li .btn-group .btn-default:active, section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show li .btn-group .btn-default:focus {
+                  background-color: transparent !important;
+                  box-shadow: none !important; }
+              section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show li .btn-group .dropdown-menu {
+                margin-top: -15px;
+                padding: 0;
+                right: 0px;
+                border-radius: 0;
+                border: 0;
+                left: auto !important;
+                font-size: 14px; }
+                section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show li .btn-group .dropdown-menu a {
+                  display: block;
+                  text-align: left;
+                  line-height: 23px;
+                  padding: 7px 10px 6px;
+                  margin-top: 4px;
+                  border: 1px solid #dddddd;
+                  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+                  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+                  background-color: #FFFFFF;
+                  color: #343a40; }
+                  section.notifications-page > .row .col-xl-6 .notifications-list .panel .panel-body .notifications-list-show li .btn-group .dropdown-menu a:hover {
+                    background-color: #fbfbfc; }
+    section.notifications-page > .row .col-xl-6 .notification-single {
+      min-height: 500px;
+      border: 1px solid #edf2f9;
+      background-color: #FFFFFF;
+      -webkit-box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+      box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+      border-radius: 4px; }
+      section.notifications-page > .row .col-xl-6 .notification-single .panel .panel-heading {
+        padding: 15px;
+        font-size: 16px;
+        border-bottom: 1px solid rgba(65, 106, 166, 0.1);
+        font-family: "Open Sans", sans-serif, Arial, Helvetica;
+        color: #827f9b; }
+      section.notifications-page > .row .col-xl-6 .notification-single .panel .panel-body {
+        padding: 15px 15px 50px;
+        color: #4F5D6B;
+        font-size: 16px;
+        line-height: 26px; }
+
+/*# sourceMappingURL=styles.css.map */

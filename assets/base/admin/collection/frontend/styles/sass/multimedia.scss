@@ -1,0 +1,180 @@
+/*******************************
+IMPORT FONTS
+********************************/
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans|Open+Sans:400,600|Montserrat:400,500,600');
+
+/*******************************
+MIDRUB GLOBAL VARIABLES
+********************************/
+$primary-black: #343a40;
+$primary-green: #00a28a;
+$primary-red: #ea6759;
+$primary-blue: #0f96e6;
+$primary-yellow: #f7c46c;
+$primary-border-black: rgba(187,201,213,.6);
+$primary-shadow-black: 0 1px 1px rgba(0,0,0,.05);
+
+/*******************************
+MIDRUB ELEMENTS STYLES
+********************************/
+
+
+
+/*******************************
+MODAL STYLES
+********************************/
+#multimedia-manager {
+
+    .modal-content {
+        border-radius: 0;
+
+        .modal-header {
+            padding: 0;
+            border: 0;
+
+            .close {
+                margin: 15px;
+
+                &:hover,
+                &:focus {
+                    outline: none;
+                    box-shadow: none;
+                    opacity: 0.7;
+                }
+
+            }
+
+            .nav {
+                width: 100%;
+                margin-bottom: 15px;
+                -webkit-box-shadow: 0 0 33px 0 rgba(144, 163, 171, 0.15);
+                box-shadow: 0 0 33px 0 rgba(144, 163, 171, 0.15);
+                border-bottom: 1px solid rgba(65, 106, 166, 0.1);
+
+                li {
+                    display: inline-block;
+                    width: auto;
+                    
+                    a {
+                        color: #999999;
+                        font-size: 16px;
+                        padding: 18px 25px;
+                        border-color: transparent;
+                    }
+
+                    &.active,
+                    &:hover {
+
+                        a {
+                            background-color: transparent;
+                            border: 1px solid transparent;
+                            border-bottom: 1px solid #2e5f9b;
+                            color: #2e5f9b;
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        .modal-body {
+            min-height: 500px;
+
+            #multimedia-gallery {
+
+                .col-lg-3 {
+                    margin-bottom: 20px;
+
+                    a.delete-media-item {
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        right: 15px;
+                        padding: 5px;
+                        background-color: #FFFFFF;
+
+                        &:hover {
+                            text-decoration: none;
+                            opacity: 0.7;
+                        }
+
+                    }
+    
+                    img {
+                        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+                        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+                        object-fit: cover;
+                    }
+    
+                }
+    
+            }
+
+            #multimedia-upload {
+
+                .drag-and-drop-files {
+                    height: 450px;
+                    width: 100%;
+                    padding: 10px;
+                    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.1);
+                    box-shadow: 0 1px 1px rgba(0,0,0,.1);
+                    
+                    & > div {
+                        border: 2px dashed #D1D7DD;
+                        width: 100%;
+                        height: 430px;
+                        color: #4FB2F9;
+                        text-align: center;
+                        font-size: 18px;
+                        
+                        i {
+                            font-size: 70px;
+                            margin-top: 120px;
+                            display: block;
+                            color: #D1D7DD;
+                            transition: margin 700ms;
+                            
+                            &.drag-upload-active {
+                                margin-top: 100x;
+                                margin-bottom: 10px;
+                            }
+                            
+                        }
+                        
+                        a {
+                            color: #4FB2F9;
+                            text-decoration: none;
+                            border-bottom: 1px solid #4FB2F9;
+                            
+                            &:hover {
+                                border-bottom: 0;
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                    &.drag-active {
+                        
+                        & > div {
+                            border: 2px dashed #4FB2F9;
+                        }
+                        
+                    }
+                    
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+/*******************************
+CSS ANIMATIONS
+********************************/

@@ -1,0 +1,7 @@
+{
+    "require": {
+        "paragonie/random_compat": "^9.99",
+        "cache/filesystem-adapter": "^1.0",
+        "symfony/dependency-injection": "^4.2"
+    }
+}

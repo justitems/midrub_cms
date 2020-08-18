@@ -1,0 +1,21 @@
+{
+    "files": [
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/settings\/backup\/application\/base\/user\/components\/collection\/settings\/main.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/settings\/backup\/application\/base\/user\/components\/collection\/settings\/controllers\/user.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/settings\/backup\/application\/base\/user\/components\/collection\/settings\/helpers\/options_templates.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/settings\/backup\/application\/base\/user\/components\/collection\/settings\/helpers\/settings.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/settings\/backup\/application\/base\/user\/components\/collection\/settings\/inc\/admin.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/settings\/backup\/application\/base\/user\/components\/collection\/settings\/inc\/settings.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/settings\/backup\/application\/base\/user\/components\/collection\/settings\/inc\/functions.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/settings\/backup\/application\/base\/user\/components\/collection\/settings\/language\/english\/settings_user_lang.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/settings\/backup\/application\/base\/user\/components\/collection\/settings\/views\/main.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/settings\/backup\/application\/base\/user\/components\/collection\/settings\/views\/menu.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/settings\/backup\/application\/base\/user\/components\/collection\/settings\/views\/templates\/advanced.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/settings\/backup\/application\/base\/user\/components\/collection\/settings\/views\/templates\/general.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/settings\/backup\/application\/base\/user\/components\/collection\/settings\/views\/templates\/invoices.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/settings\/backup\/application\/base\/user\/components\/collection\/settings\/views\/templates\/plan_usage.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/settings\/backup\/application\/base\/user\/components\/collection\/settings\/views\/templates\/referrals.php",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/settings\/backup\/assets\/base\/user\/components\/collection\/settings\/js\/main.js",
+        "C:\\xampp\\htdocs\\dev\\application\\base\/user\/components\/collection\/settings\/backup\/assets\/base\/user\/components\/collection\/settings\/styles\/css\/settings.css"
+    ]
+}

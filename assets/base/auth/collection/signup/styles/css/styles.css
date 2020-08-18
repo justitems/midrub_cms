@@ -1,0 +1,198 @@
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200&display=swap");
+/*******************************
+GENERAL STYLES
+********************************/
+.alerts-status .alert {
+  border: 0; }
+  .alerts-status .alert .alert-primary {
+    color: #ffffff;
+    background-color: #6cd7ec; }
+  .alerts-status .alert .alert-danger {
+    color: #ffffff;
+    background-color: #f1706f; }
+
+/*******************************
+MEMBERS ACCESS STYLES
+********************************/
+.form-content {
+  padding: 0;
+  width: calc(100% - 30px);
+  font-family: 'Lato', 'Nunito', sans-serif; }
+  .form-content.has-slider {
+    width: calc(100% - 350px); }
+  @media (max-width: 992px) {
+    .form-content {
+      width: 100% !important; } }
+  .form-content > div {
+    margin: 0; }
+    .form-content > div > div {
+      padding: 0; }
+      @media (max-width: 992px) {
+        .form-content > div > div > div {
+          margin: 0; } }
+      .form-content > div > div > div .logo {
+        margin: 20px; }
+        @media (max-width: 992px) {
+          .form-content > div > div > div .logo {
+            display: flex;
+            margin: 70px auto 0; } }
+      .form-content > div > div > div .form-signup {
+        margin: auto;
+        padding: 100px 0;
+        max-width: 400px; }
+        @media (max-width: 992px) {
+          .form-content > div > div > div .form-signup {
+            padding: 50px 30px; } }
+        .form-content > div > div > div .form-signup h1 {
+          margin-bottom: 25px;
+          font-family: 'Nunito', sans-serif;
+          font-weight: 600;
+          font-size: 35px; }
+        .form-content > div > div > div .form-signup a {
+          padding-bottom: 2px;
+          border-bottom: 1px solid #565b73;
+          color: #565b73; }
+          .form-content > div > div > div .form-signup a:hover, .form-content > div > div > div .form-signup a:active, .form-content > div > div > div .form-signup a:focus {
+            border: 0;
+            text-decoration: none; }
+        .form-content > div > div > div .form-signup p {
+          font-size: 15px;
+          color: #565b73; }
+          .form-content > div > div > div .form-signup p.or-social {
+            margin: 40px 0;
+            height: 0;
+            border-top: 1px solid #ededed; }
+            .form-content > div > div > div .form-signup p.or-social span {
+              position: absolute;
+              display: block;
+              left: 50%;
+              margin: -14px 0 0 -15px;
+              width: 30px;
+              text-align: center;
+              background-color: #FFFFFF; }
+        .form-content > div > div > div .form-signup label {
+          font-size: 13px; }
+        .form-content > div > div > div .form-signup input[type="text"],
+        .form-content > div > div > div .form-signup input[type="password"],
+        .form-content > div > div > div .form-signup input[type="email"] {
+          height: 45px;
+          border: 1px solid #B8B8B8;
+          border-radius: 3px;
+          font-size: 14px; }
+          .form-content > div > div > div .form-signup input[type="text"]:active, .form-content > div > div > div .form-signup input[type="text"]:focus,
+          .form-content > div > div > div .form-signup input[type="password"]:active,
+          .form-content > div > div > div .form-signup input[type="password"]:focus,
+          .form-content > div > div > div .form-signup input[type="email"]:active,
+          .form-content > div > div > div .form-signup input[type="email"]:focus {
+            border: 1px solid #3469b3;
+            border-radius: 3px;
+            box-shadow: none;
+            outline: 2px solid #3469b3;
+            outline-style: auto; }
+          .form-content > div > div > div .form-signup input[type="text"]:valid, .form-content > div > div > div .form-signup input[type="text"]:-webkit-autofill, .form-content > div > div > div .form-signup input[type="text"]:-webkit-autofill:hover, .form-content > div > div > div .form-signup input[type="text"]:-webkit-autofill:focus, .form-content > div > div > div .form-signup input[type="text"]:-webkit-autofill:active,
+          .form-content > div > div > div .form-signup input[type="password"]:valid,
+          .form-content > div > div > div .form-signup input[type="password"]:-webkit-autofill,
+          .form-content > div > div > div .form-signup input[type="password"]:-webkit-autofill:hover,
+          .form-content > div > div > div .form-signup input[type="password"]:-webkit-autofill:focus,
+          .form-content > div > div > div .form-signup input[type="password"]:-webkit-autofill:active,
+          .form-content > div > div > div .form-signup input[type="email"]:valid,
+          .form-content > div > div > div .form-signup input[type="email"]:-webkit-autofill,
+          .form-content > div > div > div .form-signup input[type="email"]:-webkit-autofill:hover,
+          .form-content > div > div > div .form-signup input[type="email"]:-webkit-autofill:focus,
+          .form-content > div > div > div .form-signup input[type="email"]:-webkit-autofill:active {
+            border: 1px solid #B8B8B8;
+            -webkit-box-shadow: 0 0 0 30px white inset !important;
+            box-shadow: 0 0 0 30px white inset !important; }
+        .form-content > div > div > div .form-signup .btn-primary {
+          padding: .5rem 1rem;
+          line-height: 25px;
+          font-size: 14px;
+          border-color: #b0b0bf;
+          background-color: #b0b0bf;
+          pointer-events: none; }
+          .form-content > div > div > div .form-signup .btn-primary.is-ready {
+            border-color: #54bd9d;
+            background-color: #54bd9d;
+            pointer-events: initial; }
+          .form-content > div > div > div .form-signup .btn-primary:hover, .form-content > div > div > div .form-signup .btn-primary:active, .form-content > div > div > div .form-signup .btn-primary:focus {
+            opacity: 0.7;
+            box-shadow: none !important;
+            outline: none !important; }
+        .form-content > div > div > div .form-signup .checkbox {
+          position: relative;
+          padding: 10px 30px;
+          font-size: 13px;
+          color: #b8b5c3; }
+          .form-content > div > div > div .form-signup .checkbox .checkmark {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            height: 18px;
+            width: 18px;
+            background-color: #fff;
+            border: 2px solid #b0b0bf;
+            cursor: pointer; }
+          .form-content > div > div > div .form-signup .checkbox input {
+            display: none; }
+          .form-content > div > div > div .form-signup .checkbox input:checked ~ .checkmark {
+            background-color: transparent; }
+          .form-content > div > div > div .form-signup .checkbox .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none; }
+          .form-content > div > div > div .form-signup .checkbox input:checked ~ .checkmark:after {
+            display: block; }
+          .form-content > div > div > div .form-signup .checkbox .checkmark:after {
+            content: '\2713\0020';
+            position: absolute;
+            top: 1px;
+            left: 2px;
+            font-size: 1.1em;
+            line-height: 0.8;
+            color: #252442;
+            transition: all .2s; }
+        .form-content > div > div > div .form-signup .sign-up-btn {
+          display: inline-block;
+          margin: 0 0 15px 0;
+          padding: .5rem 1rem;
+          width: 100%;
+          border: none;
+          border-radius: .3rem;
+          line-height: 25px;
+          font-size: 14px;
+          font-weight: 400;
+          text-decoration: none;
+          text-align: center;
+          color: white;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+          .form-content > div > div > div .form-signup .sign-up-btn:hover, .form-content > div > div > div .form-signup .sign-up-btn:active, .form-content > div > div > div .form-signup .sign-up-btn:focus {
+            opacity: 0.7;
+            box-shadow: none !important;
+            outline: none !important; }
+          .form-content > div > div > div .form-signup .sign-up-btn i {
+            position: absolute;
+            top: 10px;
+            left: 30px;
+            font-size: 19px; }
+
+.carousel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100vh; }
+  @media (max-width: 992px) {
+    .carousel {
+      display: none; } }
+  .carousel .carousel-indicators li {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%; }
+  .carousel .carousel-inner .carousel-item img {
+    height: 100vh; }
+
+/*# sourceMappingURL=styles.css.map */

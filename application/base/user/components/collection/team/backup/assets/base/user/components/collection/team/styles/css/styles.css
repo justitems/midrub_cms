@@ -1,0 +1,741 @@
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600");
+/*******************************
+MIDRUB GLOBAL VARIABLES
+********************************/
+/*******************************
+MIDRUB ELEMENTS STYLES
+********************************/
+/*******************************
+TEAMS STYLES
+********************************/
+section.teams-page {
+  padding: 30px; }
+  section.teams-page .tab-pane {
+    padding: 0; }
+  section.teams-page .page-title {
+    margin-bottom: 40px;
+    margin-left: -15px;
+    font-size: 23px;
+    font-weight: 400; }
+    @media screen and (max-width: 1199px) {
+      section.teams-page .page-title {
+        margin-left: 0; } }
+  section.teams-page > .row > .col-xl-2 {
+    display: inline-table;
+    margin-bottom: 20px;
+    padding: 0 15px 0 0;
+    min-height: 100px;
+    background-color: #FFFFFF; }
+    @media screen and (max-width: 1199px) {
+      section.teams-page > .row > .col-xl-2 {
+        padding: 15px; } }
+    section.teams-page > .row > .col-xl-2 .team-menu-group {
+      margin-bottom: 40px;
+      width: 100%; }
+      section.teams-page > .row > .col-xl-2 .team-menu-group:last-child {
+        margin-bottom: 0; }
+      section.teams-page > .row > .col-xl-2 .team-menu-group .team-menu-header {
+        margin-top: 25px;
+        margin-bottom: 20px;
+        font-size: 15px;
+        font-weight: 400; }
+      section.teams-page > .row > .col-xl-2 .team-menu-group .nav {
+        width: 100%;
+        border-bottom: 0; }
+        section.teams-page > .row > .col-xl-2 .team-menu-group .nav li {
+          padding: 0;
+          width: 100%; }
+          section.teams-page > .row > .col-xl-2 .team-menu-group .nav li:first-child .team-menu-header {
+            margin-top: 0; }
+          section.teams-page > .row > .col-xl-2 .team-menu-group .nav li a {
+            display: block;
+            padding: 0 15px;
+            border: 0;
+            line-height: 40px;
+            font-family: "Open Sans", sans-serif, Arial, Helvetica;
+            font-size: 13px;
+            color: #4a6177;
+            cursor: pointer; }
+            section.teams-page > .row > .col-xl-2 .team-menu-group .nav li a:hover, section.teams-page > .row > .col-xl-2 .team-menu-group .nav li a.active {
+              border-bottom: 0;
+              background-color: #f9fafb; }
+  @media only screen and (max-width: 1199px) {
+    section.teams-page > .row .col-xl-6 {
+      padding: 0; } }
+  section.teams-page > .row .col-xl-6 .team-list {
+    margin-bottom: 50px;
+    min-height: 500px;
+    border-radius: 4px;
+    background-color: #FFFFFF; }
+    section.teams-page > .row .col-xl-6 .team-list label {
+      width: 50px; }
+      section.teams-page > .row .col-xl-6 .team-list label input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0; }
+      section.teams-page > .row .col-xl-6 .team-list label .checkmark {
+        position: absolute;
+        top: 6px;
+        left: 15px;
+        height: 25px;
+        width: 25px;
+        background-color: #fff;
+        border: 1px solid #dbdbdb;
+        cursor: pointer; }
+      section.teams-page > .row .col-xl-6 .team-list label input:checked ~ .checkmark {
+        background-color: transparent; }
+      section.teams-page > .row .col-xl-6 .team-list label .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none; }
+      section.teams-page > .row .col-xl-6 .team-list label input:checked ~ .checkmark:after {
+        display: block; }
+      section.teams-page > .row .col-xl-6 .team-list label .checkmark:after {
+        content: '\2713\0020';
+        position: absolute;
+        top: .20em;
+        left: 3px;
+        font-size: 1.3em;
+        line-height: 0.8;
+        color: #252442;
+        transition: all .2s; }
+    section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading {
+      padding: 15px;
+      font-size: 15px; }
+      section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .members-header,
+      section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .roles-header {
+        padding: 15px 15px 10px;
+        width: 100%;
+        border: 1px solid #e9edf3;
+        border-radius: 6px; }
+        section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .members-header label,
+        section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .roles-header label {
+          width: 42px; }
+          section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .members-header label .checkmark,
+          section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .roles-header label .checkmark {
+            top: 0; }
+        section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .members-header .dropdown,
+        section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .roles-header .dropdown {
+          display: inline-block; }
+          section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .members-header .dropdown .dropdown-menu,
+          section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .roles-header .dropdown .dropdown-menu {
+            padding: 0;
+            border-color: #edf2f9;
+            box-shadow: 0 0.73rem 1.4rem rgba(18, 38, 63, 0.03); }
+            section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .members-header .dropdown .dropdown-menu a,
+            section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .roles-header .dropdown .dropdown-menu a {
+              line-height: 29px;
+              font-size: 15px;
+              color: #495057; }
+              section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .members-header .dropdown .dropdown-menu a:focus, section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .members-header .dropdown .dropdown-menu a:hover, section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .members-header .dropdown .dropdown-menu a:active,
+              section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .roles-header .dropdown .dropdown-menu a:focus,
+              section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .roles-header .dropdown .dropdown-menu a:hover,
+              section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .roles-header .dropdown .dropdown-menu a:active {
+                border: 0;
+                color: #495057;
+                background-color: transparent !important; }
+        section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .members-header .btn-secondary,
+        section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .roles-header .btn-secondary {
+          margin: -4px 15px 0 0;
+          padding: 0.375rem 0.75rem;
+          height: 34px;
+          line-height: 1.5;
+          border: 1px solid #ced4da;
+          border-radius: 0.25rem;
+          font-size: 14px;
+          font-weight: 400;
+          color: #495057;
+          background-color: #fff;
+          background-clip: padding-box; }
+          section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .members-header .btn-secondary .bi-chevron-down,
+          section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .roles-header .btn-secondary .bi-chevron-down {
+            vertical-align: inherit;
+            margin-left: 5px; }
+          section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .members-header .btn-secondary.new-member, section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .members-header .btn-secondary.new-role,
+          section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .roles-header .btn-secondary.new-member,
+          section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .roles-header .btn-secondary.new-role {
+            margin-right: 0;
+            border: 0;
+            color: #FFFFFF;
+            background-color: #0dbd86; }
+            section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .members-header .btn-secondary.new-member .bi-person-plus,
+            section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .members-header .btn-secondary.new-member .bi-person-check, section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .members-header .btn-secondary.new-role .bi-person-plus,
+            section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .members-header .btn-secondary.new-role .bi-person-check,
+            section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .roles-header .btn-secondary.new-member .bi-person-plus,
+            section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .roles-header .btn-secondary.new-member .bi-person-check,
+            section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .roles-header .btn-secondary.new-role .bi-person-plus,
+            section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .roles-header .btn-secondary.new-role .bi-person-check {
+              vertical-align: text-top;
+              margin-right: 5px;
+              font-size: 16px; }
+          section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .members-header .btn-secondary::after,
+          section.teams-page > .row .col-xl-6 .team-list .panel .panel-heading .roles-header .btn-secondary::after {
+            display: none; }
+    section.teams-page > .row .col-xl-6 .team-list .panel .panel-body {
+      min-height: 600px;
+      padding-bottom: 20px; }
+      section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list,
+      section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .roles-list {
+        padding: 0 15px; }
+        section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list .no-members-found,
+        section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list .no-roles-found,
+        section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .roles-list .no-members-found,
+        section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .roles-list .no-roles-found {
+          padding: 15px;
+          min-height: 30px;
+          border-radius: 3px;
+          font-size: 14px;
+          -webkit-box-shadow: 2px 2px 0 rgba(99, 134, 238, 0.1);
+          box-shadow: 2px 2px 0 rgba(99, 134, 238, 0.1); }
+        section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list .member-single,
+        section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .roles-list .member-single {
+          margin-bottom: -1px;
+          padding: 15px;
+          min-height: 60px;
+          border: 1px solid rgba(99, 134, 238, 0.1);
+          border-radius: 3px; }
+          section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list .member-single .col-xl-10 img,
+          section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .roles-list .member-single .col-xl-10 img {
+            max-width: 45px; }
+          section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list .member-single .col-xl-10 .media-body,
+          section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .roles-list .member-single .col-xl-10 .media-body {
+            height: 40px; }
+            section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list .member-single .col-xl-10 .media-body h5,
+            section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .roles-list .member-single .col-xl-10 .media-body h5 {
+              margin-bottom: 10px;
+              font-size: 14px;
+              font-weight: 500; }
+              section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list .member-single .col-xl-10 .media-body h5 a,
+              section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .roles-list .member-single .col-xl-10 .media-body h5 a {
+                color: #050038; }
+                section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list .member-single .col-xl-10 .media-body h5 a:hover,
+                section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .roles-list .member-single .col-xl-10 .media-body h5 a:hover {
+                  padding-bottom: 0;
+                  border-bottom: 1px solid #050038;
+                  text-decoration: none; }
+            section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list .member-single .col-xl-10 .media-body p,
+            section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .roles-list .member-single .col-xl-10 .media-body p {
+              font-size: 12px;
+              color: #888c9b; }
+              section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list .member-single .col-xl-10 .media-body p .bi,
+              section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .roles-list .member-single .col-xl-10 .media-body p .bi {
+                vertical-align: text-bottom;
+                margin-left: 20px;
+                margin-right: 5px;
+                font-size: 16px; }
+                section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list .member-single .col-xl-10 .media-body p .bi.bi-person-plus,
+                section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .roles-list .member-single .col-xl-10 .media-body p .bi.bi-person-plus {
+                  margin-left: 0; }
+          section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list .member-single .col-xl-2,
+          section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .roles-list .member-single .col-xl-2 {
+            border-left: 1px solid rgba(99, 134, 238, 0.1); }
+            section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list .member-single .col-xl-2 div:first-child,
+            section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .roles-list .member-single .col-xl-2 div:first-child {
+              margin: -5px 0 5x; }
+            section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list .member-single .col-xl-2 .btn-secondary,
+            section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .roles-list .member-single .col-xl-2 .btn-secondary {
+              display: inline-block;
+              padding: 0;
+              border: 0;
+              font-size: 13px;
+              color: #4c5866;
+              background-color: transparent;
+              pointer-events: none; }
+              section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list .member-single .col-xl-2 .btn-secondary.dropdown-toggle,
+              section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .roles-list .member-single .col-xl-2 .btn-secondary.dropdown-toggle {
+                pointer-events: inherit; }
+              section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list .member-single .col-xl-2 .btn-secondary svg,
+              section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .roles-list .member-single .col-xl-2 .btn-secondary svg {
+                float: left;
+                margin: 1px 10px 0 0;
+                font-size: 16px;
+                color: #7f8da0; }
+              section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list .member-single .col-xl-2 .btn-secondary::after,
+              section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .roles-list .member-single .col-xl-2 .btn-secondary::after {
+                display: none; }
+            @media screen and (max-width: 991px) {
+              section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list .member-single .col-xl-2,
+              section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .roles-list .member-single .col-xl-2 {
+                padding-top: 25px;
+                text-align: right; }
+                section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list .member-single .col-xl-2 > div,
+                section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .roles-list .member-single .col-xl-2 > div {
+                  display: inline-block;
+                  margin-left: 15px; }
+                  section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list .member-single .col-xl-2 > div .bi,
+                  section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .roles-list .member-single .col-xl-2 > div .bi {
+                    vertical-align: sub;
+                    margin: 0 10px 0 0;
+                    font-size: 16px;
+                    color: #7f8da0; } }
+      section.teams-page > .row .col-xl-6 .team-list .panel .panel-body .members-list .checkmark {
+        top: 10px; }
+    section.teams-page > .row .col-xl-6 .team-list .panel .panel-footer {
+      padding: 0 15px 15px; }
+      section.teams-page > .row .col-xl-6 .team-list .panel .panel-footer .pagination-area {
+        padding: 10px;
+        width: 100%;
+        border: 1px solid #e9edf3;
+        border-radius: 6px; }
+        section.teams-page > .row .col-xl-6 .team-list .panel .panel-footer .pagination-area h6 {
+          margin: 0;
+          padding: 0;
+          line-height: 35px;
+          font-size: 14px;
+          font-weight: 400;
+          color: #3c4858; }
+        section.teams-page > .row .col-xl-6 .team-list .panel .panel-footer .pagination-area nav {
+          display: block;
+          position: inherit;
+          float: right;
+          width: auto; }
+          section.teams-page > .row .col-xl-6 .team-list .panel .panel-footer .pagination-area nav ul {
+            margin: 0; }
+            section.teams-page > .row .col-xl-6 .team-list .panel .panel-footer .pagination-area nav ul li a span {
+              height: 1em;
+              line-height: 1em;
+              font-size: 1em;
+              font-family: "Courier New", monospace, Courier;
+              -webkit-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              user-select: none; }
+            section.teams-page > .row .col-xl-6 .team-list .panel .panel-footer .pagination-area nav ul li:first-child a span {
+              position: relative;
+              top: -.05em;
+              margin: 0 .2em;
+              vertical-align: middle; }
+              section.teams-page > .row .col-xl-6 .team-list .panel .panel-footer .pagination-area nav ul li:first-child a span::after {
+                content: "\2039";
+                font-weight: 700;
+                font-size: 200%;
+                top: -7%; }
+            section.teams-page > .row .col-xl-6 .team-list .panel .panel-footer .pagination-area nav ul li:last-child a span {
+              position: relative;
+              top: -.05em;
+              margin: 0 .2em;
+              vertical-align: middle; }
+              section.teams-page > .row .col-xl-6 .team-list .panel .panel-footer .pagination-area nav ul li:last-child a span::after {
+                content: "\203A";
+                font-weight: 700;
+                font-size: 200%;
+                top: -7%; }
+  section.teams-page > .row .col-xl-6 .create-member,
+  section.teams-page > .row .col-xl-6 .member,
+  section.teams-page > .row .col-xl-6 .create-role,
+  section.teams-page > .row .col-xl-6 .role {
+    margin-bottom: 50px;
+    min-height: 500px;
+    border-radius: 4px;
+    background-color: #FFFFFF; }
+    section.teams-page > .row .col-xl-6 .create-member .panel .panel-body,
+    section.teams-page > .row .col-xl-6 .member .panel .panel-body,
+    section.teams-page > .row .col-xl-6 .create-role .panel .panel-body,
+    section.teams-page > .row .col-xl-6 .role .panel .panel-body {
+      min-height: 600px;
+      padding: 15px; }
+      section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .dropdown,
+      section.teams-page > .row .col-xl-6 .member .panel .panel-body .dropdown,
+      section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .dropdown,
+      section.teams-page > .row .col-xl-6 .role .panel .panel-body .dropdown {
+        display: inline-block;
+        width: 100%; }
+        section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .dropdown .btn-secondary,
+        section.teams-page > .row .col-xl-6 .member .panel .panel-body .dropdown .btn-secondary,
+        section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .dropdown .btn-secondary,
+        section.teams-page > .row .col-xl-6 .role .panel .panel-body .dropdown .btn-secondary {
+          margin-top: 1px;
+          width: 100%;
+          text-align: left; }
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .dropdown .btn-secondary .bi-chevron-down,
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .dropdown .btn-secondary .bi-chevron-down,
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .dropdown .btn-secondary .bi-chevron-down,
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .dropdown .btn-secondary .bi-chevron-down {
+            float: right;
+            margin-top: 5px; }
+        section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .dropdown .dropdown-menu,
+        section.teams-page > .row .col-xl-6 .member .panel .panel-body .dropdown .dropdown-menu,
+        section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .dropdown .dropdown-menu,
+        section.teams-page > .row .col-xl-6 .role .panel .panel-body .dropdown .dropdown-menu {
+          padding: 0;
+          width: 100%;
+          border-color: #edf2f9;
+          box-shadow: 0 0.73rem 1.4rem rgba(18, 38, 63, 0.03); }
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .dropdown .dropdown-menu [type="text"],
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .dropdown .dropdown-menu [type="text"],
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .dropdown .dropdown-menu [type="text"],
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .dropdown .dropdown-menu [type="text"] {
+            height: 40px;
+            border: 0;
+            border-bottom: 1px solid #c9d0e6;
+            font-size: 14px; }
+            section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .dropdown .dropdown-menu [type="text"]:focus, section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .dropdown .dropdown-menu [type="text"]:active, section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .dropdown .dropdown-menu [type="text"]:hover,
+            section.teams-page > .row .col-xl-6 .member .panel .panel-body .dropdown .dropdown-menu [type="text"]:focus,
+            section.teams-page > .row .col-xl-6 .member .panel .panel-body .dropdown .dropdown-menu [type="text"]:active,
+            section.teams-page > .row .col-xl-6 .member .panel .panel-body .dropdown .dropdown-menu [type="text"]:hover,
+            section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .dropdown .dropdown-menu [type="text"]:focus,
+            section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .dropdown .dropdown-menu [type="text"]:active,
+            section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .dropdown .dropdown-menu [type="text"]:hover,
+            section.teams-page > .row .col-xl-6 .role .panel .panel-body .dropdown .dropdown-menu [type="text"]:focus,
+            section.teams-page > .row .col-xl-6 .role .panel .panel-body .dropdown .dropdown-menu [type="text"]:active,
+            section.teams-page > .row .col-xl-6 .role .panel .panel-body .dropdown .dropdown-menu [type="text"]:hover {
+              box-shadow: none;
+              outline: none; }
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .dropdown .dropdown-menu a,
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .dropdown .dropdown-menu a,
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .dropdown .dropdown-menu a,
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .dropdown .dropdown-menu a {
+            padding: .25rem 1rem;
+            line-height: 35px;
+            font-size: 14px; }
+            section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .dropdown .dropdown-menu a:hover, section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .dropdown .dropdown-menu a:active, section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .dropdown .dropdown-menu a:focus,
+            section.teams-page > .row .col-xl-6 .member .panel .panel-body .dropdown .dropdown-menu a:hover,
+            section.teams-page > .row .col-xl-6 .member .panel .panel-body .dropdown .dropdown-menu a:active,
+            section.teams-page > .row .col-xl-6 .member .panel .panel-body .dropdown .dropdown-menu a:focus,
+            section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .dropdown .dropdown-menu a:hover,
+            section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .dropdown .dropdown-menu a:active,
+            section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .dropdown .dropdown-menu a:focus,
+            section.teams-page > .row .col-xl-6 .role .panel .panel-body .dropdown .dropdown-menu a:hover,
+            section.teams-page > .row .col-xl-6 .role .panel .panel-body .dropdown .dropdown-menu a:active,
+            section.teams-page > .row .col-xl-6 .role .panel .panel-body .dropdown .dropdown-menu a:focus {
+              border: 0;
+              text-decoration: none;
+              color: #495057;
+              background-color: #f1eff1; }
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .dropdown .dropdown-menu p,
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .dropdown .dropdown-menu p,
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .dropdown .dropdown-menu p,
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .dropdown .dropdown-menu p {
+            margin: 0;
+            padding: .25rem 1rem;
+            line-height: 35px;
+            font-size: 14px; }
+      section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .new-member-role-create,
+      section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .member-role-create,
+      section.teams-page > .row .col-xl-6 .member .panel .panel-body .new-member-role-create,
+      section.teams-page > .row .col-xl-6 .member .panel .panel-body .member-role-create,
+      section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .new-member-role-create,
+      section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .member-role-create,
+      section.teams-page > .row .col-xl-6 .role .panel .panel-body .new-member-role-create,
+      section.teams-page > .row .col-xl-6 .role .panel .panel-body .member-role-create {
+        display: none; }
+      section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .btn-secondary,
+      section.teams-page > .row .col-xl-6 .member .panel .panel-body .btn-secondary,
+      section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .btn-secondary,
+      section.teams-page > .row .col-xl-6 .role .panel .panel-body .btn-secondary {
+        margin: -4px 15px 0 0;
+        padding: 0.375rem 0.75rem;
+        height: 40px;
+        line-height: 27px;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        font-size: 14px;
+        font-weight: 400;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box; }
+        section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .btn-secondary i,
+        section.teams-page > .row .col-xl-6 .member .panel .panel-body .btn-secondary i,
+        section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .btn-secondary i,
+        section.teams-page > .row .col-xl-6 .role .panel .panel-body .btn-secondary i {
+          margin-right: 5px; }
+        section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .btn-secondary.new-role,
+        section.teams-page > .row .col-xl-6 .member .panel .panel-body .btn-secondary.new-role,
+        section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .btn-secondary.new-role,
+        section.teams-page > .row .col-xl-6 .role .panel .panel-body .btn-secondary.new-role {
+          margin: 1px 0 0;
+          border: 0;
+          color: #FFFFFF;
+          background-color: #0dbd86; }
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .btn-secondary.new-role .bi-person-square,
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .btn-secondary.new-role .bi-person-square,
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .btn-secondary.new-role .bi-person-square,
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .btn-secondary.new-role .bi-person-square {
+            margin-right: 5px;
+            margin-top: 5px;
+            font-size: 16px; }
+        section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .btn-secondary::after,
+        section.teams-page > .row .col-xl-6 .member .panel .panel-body .btn-secondary::after,
+        section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .btn-secondary::after,
+        section.teams-page > .row .col-xl-6 .role .panel .panel-body .btn-secondary::after {
+          display: none; }
+      section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group,
+      section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group,
+      section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group,
+      section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group {
+        padding: 15px;
+        width: 100%;
+        border: 1px solid #e9edf3;
+        border-radius: 6px; }
+        section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group .input-group .dropdown,
+        section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group .input-group .dropdown,
+        section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group .input-group .dropdown,
+        section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group .input-group .dropdown {
+          width: calc(100% - 7em); }
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group .input-group .dropdown .btn-secondary,
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group .input-group .dropdown .btn-secondary,
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group .input-group .dropdown .btn-secondary,
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group .input-group .dropdown .btn-secondary {
+            width: calc(100% - 15px); }
+        section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group label,
+        section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group label,
+        section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group label,
+        section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group label {
+          display: block;
+          margin: -7px 0 7px;
+          font-size: 13px;
+          color: #212529; }
+        section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group input[type="text"],
+        section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group input[type="email"],
+        section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group input[type="password"],
+        section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group textarea,
+        section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group input[type="text"],
+        section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group input[type="email"],
+        section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group input[type="password"],
+        section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group textarea,
+        section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group input[type="text"],
+        section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group input[type="email"],
+        section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group input[type="password"],
+        section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group textarea,
+        section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group input[type="text"],
+        section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group input[type="email"],
+        section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group input[type="password"],
+        section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group textarea {
+          height: 40px;
+          border: 1px solid #ced4da;
+          font-size: 14px;
+          font-weight: 400;
+          color: #495057; }
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group input[type="text"]:active, section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group input[type="text"]:focus,
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group input[type="email"]:active,
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group input[type="email"]:focus,
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group input[type="password"]:active,
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group input[type="password"]:focus,
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group textarea:active,
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group textarea:focus,
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group input[type="text"]:active,
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group input[type="text"]:focus,
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group input[type="email"]:active,
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group input[type="email"]:focus,
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group input[type="password"]:active,
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group input[type="password"]:focus,
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group textarea:active,
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group textarea:focus,
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group input[type="text"]:active,
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group input[type="text"]:focus,
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group input[type="email"]:active,
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group input[type="email"]:focus,
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group input[type="password"]:active,
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group input[type="password"]:focus,
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group textarea:active,
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group textarea:focus,
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group input[type="text"]:active,
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group input[type="text"]:focus,
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group input[type="email"]:active,
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group input[type="email"]:focus,
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group input[type="password"]:active,
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group input[type="password"]:focus,
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group textarea:active,
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group textarea:focus {
+            box-shadow: none;
+            outline: none; }
+        section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group textarea,
+        section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group textarea,
+        section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group textarea,
+        section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group textarea {
+          height: 120px;
+          resize: none; }
+        section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group p,
+        section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group p,
+        section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group p,
+        section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group p {
+          margin: 0;
+          font-size: 14px;
+          color: #212529; }
+        section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group .checkbox-option,
+        section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group .checkbox-option,
+        section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group .checkbox-option,
+        section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group .checkbox-option {
+          width: 100%;
+          text-align: right; }
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group .checkbox-option input[type=checkbox],
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group .checkbox-option input[type=checkbox],
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group .checkbox-option input[type=checkbox],
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group .checkbox-option input[type=checkbox] {
+            display: none; }
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group .checkbox-option input[type=text],
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group .checkbox-option input[type=text],
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group .checkbox-option input[type=text],
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group .checkbox-option input[type=text] {
+            height: 35px;
+            line-height: 35px;
+            width: 100%;
+            padding: 0 7px;
+            border: 1px solid #c1c7cd;
+            color: #1b2733;
+            margin-top: 2px; }
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group .checkbox-option label,
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group .checkbox-option label,
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group .checkbox-option label,
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group .checkbox-option label {
+            cursor: pointer;
+            position: relative;
+            display: inline-block !important;
+            margin: 20px 0 0;
+            width: 40px; }
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group .checkbox-option label::before,
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group .checkbox-option label::before,
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group .checkbox-option label::before,
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group .checkbox-option label::before {
+            content: '';
+            margin: -6px 0 0 -45px;
+            position: absolute;
+            width: 40px;
+            height: 20px;
+            border: 1px solid #bbc1e1;
+            border-radius: 8px;
+            transition: all 0.5s ease-in-out;
+            opacity: 0.3; }
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group .checkbox-option label::after,
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group .checkbox-option label::after,
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group .checkbox-option label::after,
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group .checkbox-option label::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -3px;
+            width: 16px;
+            height: 16px;
+            border-radius: 16px;
+            background-color: #bfcbd6;
+            transition: all 0.3s ease-in-out; }
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group .checkbox-option input[type=checkbox]:checked + label::after,
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group .checkbox-option input[type=checkbox]:checked + label::after,
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group .checkbox-option input[type=checkbox]:checked + label::after,
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group .checkbox-option input[type=checkbox]:checked + label::after {
+            left: 17px;
+            background-color: #6086bf;
+            box-shadow: none; }
+        section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group .textarea-option,
+        section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group .textarea-option,
+        section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group .textarea-option,
+        section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group .textarea-option {
+          width: 100%;
+          text-align: right; }
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group .textarea-option input,
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group .textarea-option input,
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group .textarea-option input,
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group .textarea-option input {
+            width: 100%;
+            padding: 6px 10px;
+            border: 1px solid #fbfbfb;
+            border-radius: 3px;
+            font-size: 14px;
+            background-color: #fbfbfb;
+            outline: 0;
+            resize: none; }
+            section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group .textarea-option input:focus,
+            section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group .textarea-option input:focus,
+            section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group .textarea-option input:focus,
+            section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group .textarea-option input:focus {
+              border: 1px solid #e6ecf0;
+              background-color: #FFFFFF; }
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group .textarea-option .btn,
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group .textarea-option .btn,
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group .textarea-option .btn,
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group .textarea-option .btn {
+            display: none; }
+        section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group .checkbox-option,
+        section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group .checkbox-option,
+        section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group .checkbox-option,
+        section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group .checkbox-option {
+          margin-top: -13px; }
+        section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group button[type="submit"],
+        section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group button[type="submit"],
+        section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group button[type="submit"],
+        section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group button[type="submit"] {
+          height: 40px;
+          border: 0;
+          font-size: 14px;
+          color: #FFFFFF;
+          cursor: pointer; }
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group button[type="submit"] .bi,
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group button[type="submit"] .bi,
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group button[type="submit"] .bi,
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group button[type="submit"] .bi {
+            vertical-align: text-top;
+            margin: -1px 5px 0 0;
+            font-size: 17px; }
+        section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group button[type="button"],
+        section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group button[type="button"],
+        section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group button[type="button"],
+        section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group button[type="button"] {
+          margin-top: 15px;
+          width: 100%;
+          height: 40px;
+          border: 0;
+          font-size: 14px;
+          color: #FFFFFF;
+          cursor: pointer; }
+          section.teams-page > .row .col-xl-6 .create-member .panel .panel-body .form-group button[type="button"] .bi,
+          section.teams-page > .row .col-xl-6 .member .panel .panel-body .form-group button[type="button"] .bi,
+          section.teams-page > .row .col-xl-6 .create-role .panel .panel-body .form-group button[type="button"] .bi,
+          section.teams-page > .row .col-xl-6 .role .panel .panel-body .form-group button[type="button"] .bi {
+            vertical-align: text-top;
+            margin: 1px 5px 0 0; }
+  section.teams-page > .row .col-xl-6 .role .card {
+    margin-bottom: 15px;
+    padding: 0;
+    border: 0;
+    line-height: 23px;
+    background-color: #FFFFFF; }
+    section.teams-page > .row .col-xl-6 .role .card .card-body {
+      padding: 0; }
+      section.teams-page > .row .col-xl-6 .role .card .card-body .nav-pills .nav-link {
+        margin-bottom: 5px;
+        font-size: 14px;
+        color: #818a91; }
+        section.teams-page > .row .col-xl-6 .role .card .card-body .nav-pills .nav-link i {
+          color: #818a91; }
+        section.teams-page > .row .col-xl-6 .role .card .card-body .nav-pills .nav-link.active {
+          color: #343a40;
+          background-color: #fbfbfb; }
+          section.teams-page > .row .col-xl-6 .role .card .card-body .nav-pills .nav-link.active i {
+            color: #343a40; }
+        section.teams-page > .row .col-xl-6 .role .card .card-body .nav-pills .nav-link:hover {
+          border-bottom: 0; }
+      section.teams-page > .row .col-xl-6 .role .card .card-body .list-permissions {
+        margin: 0;
+        padding: 0; }
+        section.teams-page > .row .col-xl-6 .role .card .card-body .list-permissions li {
+          padding: 15px;
+          border-bottom: 1px solid rgba(65, 106, 166, 0.05);
+          list-style: none; }
+          section.teams-page > .row .col-xl-6 .role .card .card-body .list-permissions li:last-child {
+            border-bottom: 0; }
+          section.teams-page > .row .col-xl-6 .role .card .card-body .list-permissions li label {
+            font-weight: 400;
+            font-size: 15px;
+            color: #212529; }
+          section.teams-page > .row .col-xl-6 .role .card .card-body .list-permissions li p {
+            font-size: 13px;
+            color: #343a40; }
+          section.teams-page > .row .col-xl-6 .role .card .card-body .list-permissions li a {
+            display: block;
+            margin-top: 4px;
+            padding: 7px 10px 6px;
+            border: 1px solid #dddddd;
+            line-height: 23px;
+            text-align: center;
+            color: #343a40;
+            background-color: #FFFFFF;
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); }
+
+/*# sourceMappingURL=styles.css.map */
