@@ -10,7 +10,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Frontend\Classes;
+namespace CmsBase\Frontend\Classes;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -35,19 +35,19 @@ class Breadcrumb {
         $list = array();
         
         // Verify if classification has parent
-        if ( md_the_component_variable('classification_item_parent') ) {
+        if ( md_the_data('classification_item_parent') ) {
 
             // Set classification's id
-            $classification_id = md_the_component_variable('classification_item_id');
+            $classification_id = md_the_data('classification_item_id');
 
             if ( $classification_id ) {
 
                 for ( $e = 0; $e < 100; $e++ ) {
 
                     // Get classification's item
-                    $item = the_db_request(
+                    $item = md_the_db_request(
                         'classifications',
-                        'classifications.classification_id, classifications.parent, classifications_meta.meta_slug, classifications_meta.meta_value as name',
+                        'classifications.classification_id, classifications.classification_parent, classifications_meta.meta_slug, classifications_meta.meta_value as name',
                         array(
                             'classifications.classification_id' => $classification_id,
                             'classifications_meta.meta_name' => 'name'
@@ -67,7 +67,7 @@ class Breadcrumb {
 
                     if ( $item ) {
 
-                        if ( $classification_id === md_the_component_variable('classification_item_id') ) {
+                        if ( $classification_id === md_the_data('classification_item_id') ) {
                                 
                             $list[$e] = array(
                                 'name' => $item[0]['name']
@@ -77,14 +77,14 @@ class Breadcrumb {
 
                             $list[$e] = array(
                                 'name' => $item[0]['name'],
-                                'url' => site_url(md_the_component_variable('classification_slug') . '/' . $item[0]['meta_slug'])
+                                'url' => site_url(md_the_data('classification_slug') . '/' . $item[0]['meta_slug'])
                             );
 
                         }
                         
-                        if ( $item[0]['parent'] > 0 ) {
+                        if ( $item[0]['classification_parent'] > 0 ) {
 
-                            $classification_id = $item[0]['parent'];
+                            $classification_id = $item[0]['classification_parent'];
 
                         } else {
 
@@ -105,7 +105,7 @@ class Breadcrumb {
         } else {
 
             $list[] = array(
-                'name' => md_the_component_variable('classification_item_name')
+                'name' => md_the_data('classification_item_name')
             );
 
         }
@@ -115,3 +115,5 @@ class Breadcrumb {
     }
 
 }
+
+/* End of file breadcrumb.php */

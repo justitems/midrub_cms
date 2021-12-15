@@ -3,7 +3,7 @@
         <div class="col-12">
             <div class="row">
                 <div class="col-lg-2 col-md-12">
-                    <?php echo get_option('auth_logo')?'<img src="' . get_option('auth_logo') . '" class="logo">':''; ?>
+                    <?php echo md_the_option('auth_logo')?'<img src="' . md_the_option('auth_logo') . '" class="logo">':''; ?>
                 </div>
                 <div class="col-lg-4 offset-lg-2 col-md-12 offset-lg-0">
                     <?php echo form_open('', array('class' => 'form-reset', 'autocomplete' => 'off', 'data-csrf' => $this->security->get_csrf_token_name())) ?>
@@ -14,7 +14,7 @@
                             <p>
                                 <?php
                                     echo (md_the_single_content_meta('auth_reset_details_under_title'))?md_the_single_content_meta('auth_reset_details_under_title'):$this->lang->line('auth_reset_page_under_title');
-                                    $sign_in = the_url_by_page_role('sign_in') ? the_url_by_page_role('sign_in') : site_url('auth/signin');
+                                    $sign_in = md_the_url_by_page_role('sign_in') ? md_the_url_by_page_role('sign_in') : site_url('auth/signin');
                                 ?>                    
                                 <a href="<?php echo $sign_in; ?>">
                                     <?php echo $this->lang->line('auth_reset_signin_link'); ?>

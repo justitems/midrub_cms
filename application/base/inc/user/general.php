@@ -36,7 +36,7 @@ if ( !function_exists('md_delete_user') ) {
 
             // Create an array
             $array = array(
-                'MidrubBase',
+                'CmsBase',
                 'User',
                 'Apps',
                 'Collection',
@@ -60,7 +60,7 @@ if ( !function_exists('md_delete_user') ) {
 
             // Create an array
             $array = array(
-                'MidrubBase',
+                'CmsBase',
                 'User',
                 'Components',
                 'Collection',
@@ -100,14 +100,14 @@ if ( !function_exists('md_delete_user') ) {
         // Delete tickets
         $CI->tickets->delete_tickets($args['user_id']);
 
-        // Load Referrals model
-        $CI->load->model('referrals');
+        // Load Referrals Model
+        $this->CI->load->ext_model( CMS_BASE_PATH . 'models/', 'Base_referrals', 'base_referrals' );
 
         // Delete referrals
-        $CI->referrals->delete_referrals($args['user_id']);
+        $CI->base_referrals->delete_referrals($args['user_id']);
         
         // Load Media Model
-        $CI->load->model('media');
+        $CI->load->model('medias');
         
         // Get all user medias
         $getmedias = $CI->media->get_user_medias($args['user_id'], 0, 1000000);

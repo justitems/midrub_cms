@@ -10,7 +10,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Classes\Plans;
+namespace CmsBase\Classes\Plans;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -33,19 +33,19 @@ class Options {
     /**
      * The public method set_options adds a collection with options to the list
      * 
-     * @param array $args contains the page's arguments
+     * @param array $params contains the page's arguments
      * 
      * @since 0.0.7.9
      * 
      * @return void
      */
-    public function set_options($args) {
+    public function set_options($params) {
 
         // Verify if collection with options is valid
-        if ( isset($args['name']) && isset($args['slug']) && isset($args['icon']) && isset($args['fields']) ) {
+        if ( isset($params['name']) && isset($params['slug']) && isset($params['icon']) && isset($params['fields']) ) {
 
             // Add options to the list
-            self::$the_options[] = $args;
+            self::$the_options[] = $params;
 
         }
 

@@ -1,0 +1,176 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../admin/default/styles/default_colors.scss";
+@import "../../../../../../admin/default/styles/default_fonts.scss";
+
+/*******************************
+EMAIL TEMPLATES STYLES
+********************************/
+
+.notifications-view {
+
+    .theme-list {
+
+        .card-header {
+
+            h6 {
+                display: -webkit-inline-box;
+                margin: 6.5px 0 0;
+                padding: 0.4rem 0 3px;
+                font-family: $default-font-2;
+                font-size: 14px;
+                font-weight: 400;
+                color: $default-color-black;
+                overflow: hidden;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+            }
+
+        }
+
+    }
+
+    .notifications-new-email-template,
+    .notifications-email-template {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        
+        & > form > .row > .col-lg-3 {
+            
+            & > div {
+                
+                & > div {
+
+                    hr {
+                        margin: 0;
+                        border-top: 1px solid #d8e0e0;
+                    }
+
+                    .theme-select {
+                        width: 130px;
+                        height: 36px;
+                    }
+
+                    .theme-button-2 {
+                        width: 130px;
+                        height: 36px; 
+                        text-align: center;                               
+                        color: #FFFFFF;
+                        background-color: $default-color-new;
+                        box-shadow: none !important;
+        
+                        &:hover {
+                            background-color: $default-color-blue;
+                        }
+        
+                    }
+                    
+                    .notifications-email-templates {
+                        border: 0;
+                        min-height: 100px;
+                        box-shadow: none;
+
+                        & > .panel-heading {
+                            padding-bottom: 0;
+                            margin-top: 0px;                                    
+                            line-height: 50px;
+                            border-bottom: 1px solid #e3eaef;
+                            font-family: Open Sans,sans-serif;
+                            font-weight: 400;
+                            color: #212529;
+                            background-color: transparent;
+                        }
+
+                        & > .panel-body {
+
+                            .form-group {
+
+                                label {
+                                    font-weight: 400;
+                                    font-size: 14px;
+                                    color: $default-color-black;
+                                    margin-top: 0;
+                                }
+                                
+                                select {
+                                    display: block;
+                                    width: 100%;
+                                    font-size: 16px;
+                                    font-weight: 400;
+                                    line-height: 1.5;
+                                    color: #343a40;
+                                    background-color: #fff;
+                                    border: 1px solid rgba(0, 0, 0, 0.07);
+                                    height: 40px;
+                                    outline: transparent !important;
+                                    box-shadow: none;
+                                    border-radius: 0;
+                                    margin: 0;
+
+                                    &:disabled {
+                                        pointer-events: none;
+                                        background-color: #f5f7fa;
+                                    }
+
+                                }
+                                
+                            }
+
+                        }                        
+
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+        & > form > .row > .col-lg-9 {
+            border-right: 1px solid $default-border-color;
+
+            .notifications-emails-template-placeholders-area {
+                border: 0;
+                border-radius: 0;
+                min-height: 100px;
+
+                & > .panel-heading {
+                    border-bottom: 1px solid #e3eaef;
+                    font-family: Open Sans,sans-serif;
+                    font-weight: 400;
+                    color: #212529;
+                    padding-bottom: 0;
+                }
+
+                & > .panel-body {
+
+                    .notifications-emails-template-placeholders {
+                        margin: 5px 0;
+                        padding: 0;
+
+                        li {
+                            margin-bottom: 20px;
+                            list-style: none;
+
+                            .notifications-emails-template-placeholder {
+                                margin-right: 15px;
+                                padding: 5px;
+                                font-size: 12px;
+                                color: #000031;
+                                background-color: #F8F8FC;
+                            }                                    
+
+                        }
+
+                    }
+
+                }                        
+
+            }
+            
+        }
+        
+    }
+
+}

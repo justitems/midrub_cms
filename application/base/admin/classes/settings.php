@@ -11,7 +11,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Admin\Classes;
+namespace CmsBase\Admin\Classes;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -55,6 +55,12 @@ class Settings {
                     $all_options .= $this->text( $option );
                     
                     break;
+
+                case 'storage_dropdown':
+                
+                    $all_options .= $this->storage_dropdown( $option );
+                    
+                    break;
                 
             }
             
@@ -83,7 +89,7 @@ class Settings {
         $checked = '';
 
         // Verify if the option is enabled
-        if ( get_option($option['name']) ) {
+        if ( md_the_option($option['name']) ) {
             $checked = 'checked';
         }
         
@@ -124,10 +130,10 @@ class Settings {
         $value = '';
         
         // Verify if the option is enabled
-        if ( get_option( $option['name'] ) ) {
+        if ( md_the_option( $option['name'] ) ) {
 
             // Set option's value
-            $value = get_option( $option['name'] );
+            $value = md_the_option( $option['name'] );
 
         } else if ( isset($option['default_value']) ) {
 
@@ -165,6 +171,51 @@ class Settings {
                         . '<div class="col-lg-4 col-md-4 col-xs-4">'
                             . '<div class="input-option">'
                                 . '<input id="' . $option['name'] . '" name="' . $option['name'] . '" value="' . $value . '" class="settings-option-input" type="' . $type . '"' . $maxlength . '>'
+                            . '</div>'
+                        . '</div>'
+                    . '</div>'
+                . '</li>';
+        
+    }  
+
+    /**
+     * The protected method storage_dropdown shows the storage's locations
+     * 
+     * @param array $option contains the option's information
+     * 
+     * @since 0.0.8.4
+     * 
+     * @return string with processed data
+     */ 
+    protected function storage_dropdown( $option ) {
+        
+        // Verify if option has correct format
+        if ( ( @$option['name'] == '') || ( @$option['title'] == '') || ( @$option['description'] == '') ) {
+            return '';
+        }        
+        
+        // Return html
+        return '<li>'
+                    . '<div class="row">'
+                        . '<div class="col-lg-8 col-md-8 col-xs-8">'
+                            . '<h4>' . $option['title'] . '</h4>'
+                            . '<p>' . $option['description'] . '</p>'
+                        . '</div>'
+                        . '<div class="col-lg-4 col-md-4 col-xs-4 text-right">'
+                            . '<div class="dropdown" data-option="' . $option['name'] . '">'
+                                . '<button class="btn btn-secondary settings-dropdown-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">'
+                                . '</button>'
+                                . '<div class="dropdown-menu" aria-labelledby="dropdown-items">'
+                                    . '<div class="card">'
+                                        . '<div class="card-head">'
+                                            . '<input type="text" class="search-dropdown-items settings-dropdown-search-input settings-storage-locations-search" placeholder="' . get_instance()->lang->line('settings_search_for_locations') . '" />'
+                                        . '</div>'
+                                        . '<div class="card-body">'
+                                            . '<ul class="list-group upload_locations_list settings-dropdown-list-ul">'
+                                            . '</ul>'
+                                        . '</div>'
+                                    . '</div>'
+                                . '</div>'
                             . '</div>'
                         . '</div>'
                     . '</div>'

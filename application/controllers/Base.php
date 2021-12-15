@@ -2,7 +2,7 @@
 /**
  * Base Controller
  *
- * PHP Version 7.0
+ * PHP Version 7.3
  *
  * Base will load soon all Midrub's content
  *
@@ -12,9 +12,12 @@
  * @license  https://www.gnu.org/licenses/gpl-2.0.html GNU General Public License
  * @link     https://www.midrub.com/
  */
-if ( !defined('BASEPATH') ) {
-    exit('No direct script access allowed');
-}
+
+// Define the constants
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+// Require the General Inc
+require_once APPPATH . 'base/inc/general.php';
 
 /**
  * Base class - loads the Midrub's content
@@ -25,7 +28,7 @@ if ( !defined('BASEPATH') ) {
  * @license  https://www.gnu.org/licenses/gpl-2.0.html GNU General Public License
  * @link     https://www.midrub.com/
  */
-class Base extends MY_Controller {
+class Base extends CI_Controller {
     
     /**
      * Class variables
@@ -53,22 +56,7 @@ class Base extends MY_Controller {
         // Verify if the database is configured
         if ( empty($this->db->database) ) {
             $this->install();
-        }
-
-        // Load Main Helper
-        $this->load->helper('main_helper');
-
-        // Load User Model
-        $this->load->model('user');
-
-        // Load Plans Model
-        $this->load->model('plans');
-
-        // Load SMTP
-        $config = smtp();
-        
-        // Load Sending Email Class
-        $this->load->library('email', $config);
+        }     
         
     }
     
@@ -96,14 +84,17 @@ class Base extends MY_Controller {
         // Require the base class
         $this->load->file(APPPATH . '/base/main.php');
 
+        $this->load->ext_model( APPPATH . 'base/models/', 'Base_model', 'base_model' );        
+
         // Verify if static or dynamic slug is ajax
-        if ( ($static_slug === 'theme-ajax')||
-            ($dynamic_slug === 'theme-ajax') ||          
+        if ( ($static_slug === 'theme-ajax')|| 
+            ($dynamic_slug === 'theme-ajax') || 
             ($static_slug === 'ajax') || 
             ($dynamic_slug === 'ajax') || 
             ($dynamic_slug === 'app-ajax') || 
             ($dynamic_slug === 'component-ajax') || 
-            ($dynamic_slug === 'payment-ajax') ) {
+            ($dynamic_slug === 'payment-ajax') || 
+            ($static_slug === 'plugin-ajax') ) {
 
             $this->ajax($static_slug, $dynamic_slug, $additional_slug);
 
@@ -114,7 +105,7 @@ class Base extends MY_Controller {
         } else if ($static_slug === 'guest') {
 
             // Call the section class
-            $base = new MidrubBase\MidrubBase('user_init', $static_slug, $dynamic_slug);
+            $base = new CmsBase\CmsBase('user_init', $static_slug, $dynamic_slug);
 
             if ( !$dynamic_slug ) {
 
@@ -166,7 +157,7 @@ class Base extends MY_Controller {
             }
 
             // Call the section class
-            $base = new MidrubBase\MidrubBase($section . '_init', $static_slug, $dynamic_slug);
+            $base = new CmsBase\CmsBase($section . '_init', $static_slug, $dynamic_slug);
 
             // Call the base's init
             $base->init($section, $static_slug, $dynamic_slug);
@@ -197,8 +188,10 @@ class Base extends MY_Controller {
 
         } else if ( ($dynamic_slug === 'component-ajax') || ($dynamic_slug === 'app-ajax' ) ) {
             $section = 'user';
-        } else if ( ($dynamic_slug === 'payment-ajax' ) ) {
+        } else if ( $dynamic_slug === 'payment-ajax'  ) {
             $section = 'payments';
+        } else if ( $static_slug === 'plugin-ajax' ) {
+            $section = 'plugins';
         }
 
         if ( $static_slug === 'theme-ajax' ) {
@@ -221,7 +214,7 @@ class Base extends MY_Controller {
         }
 
         // Call the section class
-        $base = new MidrubBase\MidrubBase($section . '_init', $component);
+        $base = new CmsBase\CmsBase($section . '_init', $component);
 
         // Call the base's ajax
         $base->ajax_init($section, $component);
@@ -242,7 +235,7 @@ class Base extends MY_Controller {
     public function rest($static_slug=NULL, $dynamic_slug=NULL, $additional_slug=NULL) {
 
         // Call the section class
-        $base = new MidrubBase\MidrubBase('rest_init');
+        $base = new CmsBase\CmsBase('rest_init');
 
         // Call the base's rest
         $base->rest_init($static_slug, $dynamic_slug, $additional_slug);
@@ -261,8 +254,12 @@ class Base extends MY_Controller {
         $this->session->unset_userdata('member');
         $this->session->unset_userdata('autodelete');
         
-        // Delete all user's sessions from database
-        $this->user->delete_all_sessions();
+        // Get current user IP
+        $ip = $this->input->ip_address();
+        
+        // Delete all user sessions
+        $this->db->delete('ci_sessions', array('ip_address' => $ip));
+
         redirect('/');
         
     }
@@ -275,7 +272,7 @@ class Base extends MY_Controller {
     public function check_referrer() {
 
         // Verify if Referrals section is enabled
-        if ( get_option('enable_referral') ) {
+        if ( md_the_option('enable_referral') ) {
         
             // Get referrer
             $referrer = $this->input->get('ref', true);
@@ -302,7 +299,7 @@ class Base extends MY_Controller {
         // Require the base class
         $this->load->file(APPPATH . '/base/main.php');
 
-        (new MidrubBase\Install\Main)->init();
+        (new CmsBase\Install\Main)->init();
 
         
     }

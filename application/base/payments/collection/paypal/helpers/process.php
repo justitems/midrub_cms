@@ -13,7 +13,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Payments\Collection\Paypal\Helpers;
+namespace CmsBase\Payments\Collection\Paypal\Helpers;
 
 // Constats
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -114,7 +114,7 @@ class Process {
                 if ( isset($data['subscriptionID']) ) {
 
                     // Verify if the subscribtion exists
-                    $subscription = $this->CI->base_model->get_data_where('subscriptions', '*', array(
+                    $subscription = $this->CI->base_model->the_data_where('subscriptions', '*', array(
                         'net_id' => $data['subscriptionID'],
                         'gateway' => 'paypal'
                     ));
@@ -171,7 +171,7 @@ class Process {
                         }
 
                         // We need to delete the previous subscription
-                        $subscriptions = $this->CI->base_model->get_data_where('subscriptions', '*', array(
+                        $subscriptions = $this->CI->base_model->the_data_where('subscriptions', '*', array(
                             'user_id' => $this->CI->user_id
                         ));
 
@@ -183,7 +183,7 @@ class Process {
                                 
                                 // Create an array
                                 $array = array(
-                                    'MidrubBase',
+                                    'CmsBase',
                                     'Payments',
                                     'Collection',
                                     ucfirst($subscription['gateway']),
@@ -238,7 +238,7 @@ class Process {
                     CURLOPT_TIMEOUT => 30,
                     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                     CURLOPT_CUSTOMREQUEST => 'POST',
-                    CURLOPT_USERPWD => get_option('paypal_client_id') . ':' . get_option('paypal_client_secret'),
+                    CURLOPT_USERPWD => md_the_option('paypal_client_id') . ':' . md_the_option('paypal_client_secret'),
                     CURLOPT_POSTFIELDS => 'grant_type=client_credentials',
                     CURLOPT_HTTPHEADER => array(
                             'Accept: application/json',

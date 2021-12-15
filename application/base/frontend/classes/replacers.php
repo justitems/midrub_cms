@@ -10,7 +10,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Frontend\Classes;
+namespace CmsBase\Frontend\Classes;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -35,7 +35,7 @@ class Replacers {
     public function the_replacers($content) {
      
         // Get replacers
-        $replacers = md_the_component_variable('content_replacer');
+        $replacers = md_the_data('content_replacer');
 
         // Get placeholders
         preg_match_all("/{[^}]*}/", $content, $placeholders);

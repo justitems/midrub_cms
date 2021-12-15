@@ -1,0 +1,44 @@
+/*******************************
+PROFILE STYLES
+********************************/
+
+.profile-page {
+
+    .col-sm-2 {
+
+        @media only screen and (max-width: 1300px) {
+            flex: 0 0 auto !important;
+            margin-left: 0 !important;
+            width: 30% !important;
+        }  
+
+        .theme-panel {
+
+            .theme-panel-body {   
+                padding: 0;
+            }
+
+        }
+        
+    }
+    
+    .col-sm-6 {  
+     
+        @media only screen and (max-width: 1300px) {
+            flex: 0 0 auto !important;
+            width: 70% !important;
+        }     
+        
+    }
+
+    .col-sm-2,
+    .col-sm-6 {  
+     
+        @media only screen and (max-width: 930px) {
+            flex: 0 0 auto !important;
+            width: 100% !important;
+        }     
+        
+    }
+
+}

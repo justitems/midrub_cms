@@ -10,11 +10,11 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Install;
+namespace CmsBase\Install;
 
 // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
-defined('MIDRUB_BASE_INSTALL') OR define('MIDRUB_BASE_INSTALL', APPPATH . 'base/install/');
+defined('CMS_BASE_INSTALL') OR define('CMS_BASE_INSTALL', APPPATH . 'base/install/');
 
 /*
  * Main is the rest's base loader
@@ -54,7 +54,7 @@ class Main {
     public function init() {
 
         // Require the General Inc
-        require_once MIDRUB_BASE_INSTALL . 'inc/general.php';
+        require_once CMS_BASE_INSTALL . 'inc/general.php';
 
         // Load the view
         switch ( $this->CI->input->get('action') ) {
@@ -62,7 +62,7 @@ class Main {
             case 'enter-information':
 
                 // Require the Information View
-                require_once MIDRUB_BASE_INSTALL . 'views/information.php';
+                require_once CMS_BASE_INSTALL . 'views/information.php';
 
                 break;
 
@@ -93,10 +93,10 @@ class Main {
                     } else {
 
                         // Verify if the file exists
-                        if ( file_exists(MIDRUB_BASE_INSTALL . 'templates/config.txt') ) {
+                        if ( file_exists(CMS_BASE_INSTALL . 'templates/config.txt') ) {
 
                             // Open the file to get existing content
-                            $template = file_get_contents(MIDRUB_BASE_INSTALL . 'templates/config.txt');
+                            $template = file_get_contents(CMS_BASE_INSTALL . 'templates/config.txt');
 
                             // Set the website url
                             $template = str_replace('[url]', md_the_url(), $template);
@@ -127,10 +127,10 @@ class Main {
                             }
 
                             // Write the contents to the file
-                            file_put_contents(MIDRUB_BASE_INSTALL . 'temp/config.php', $template);
+                            file_put_contents(CMS_BASE_INSTALL . 'temp/config.php', $template);
 
                             // Verify if the file was saved
-                            if ( !file_exists(MIDRUB_BASE_INSTALL . 'temp/config.php') ) {
+                            if ( !file_exists(CMS_BASE_INSTALL . 'temp/config.php') ) {
 
                                 // Set the error
                                 $error = 'The config.php was not created.';        
@@ -160,12 +160,12 @@ class Main {
                     define('ERROR_MESSAGE', $error);
 
                     // Require the Error View
-                    require_once MIDRUB_BASE_INSTALL . 'views/error.php';
+                    require_once CMS_BASE_INSTALL . 'views/error.php';
 
                 } else {
 
                     // Require the Database View
-                    require_once MIDRUB_BASE_INSTALL . 'views/database.php';
+                    require_once CMS_BASE_INSTALL . 'views/database.php';
 
                 }
 
@@ -200,10 +200,10 @@ class Main {
                     } else {
 
                         // Verify if the file exists
-                        if ( file_exists(MIDRUB_BASE_INSTALL . 'templates/database.txt') ) {
+                        if ( file_exists(CMS_BASE_INSTALL . 'templates/database.txt') ) {
 
                             // Open the file to get existing content
-                            $template = file_get_contents(MIDRUB_BASE_INSTALL . 'templates/database.txt');
+                            $template = file_get_contents(CMS_BASE_INSTALL . 'templates/database.txt');
 
                             // Set the database name
                             $template = str_replace('[db_host]', $db_host, $template);
@@ -243,10 +243,10 @@ class Main {
                                 } else {
 
                                     // Write the contents to the file
-                                    file_put_contents(MIDRUB_BASE_INSTALL . 'temp/database.php', $template);
+                                    file_put_contents(CMS_BASE_INSTALL . 'temp/database.php', $template);
 
                                     // Verify if the file was saved
-                                    if ( !file_exists(MIDRUB_BASE_INSTALL . 'temp/database.php') ) {
+                                    if ( !file_exists(CMS_BASE_INSTALL . 'temp/database.php') ) {
 
                                         // Set the error
                                         $error = 'The database.php was not created.';        
@@ -280,12 +280,12 @@ class Main {
                     define('ERROR_MESSAGE', $error);
 
                     // Require the Error View
-                    require_once MIDRUB_BASE_INSTALL . 'views/error.php';
+                    require_once CMS_BASE_INSTALL . 'views/error.php';
 
                 } else {
 
                     // Select the midrub.sql file
-                    $sqltbs = file(MIDRUB_BASE_INSTALL . 'templates/midrub.sql');
+                    $sqltbs = file(CMS_BASE_INSTALL . 'templates/midrub.sql');
 
                     // Tb Error
                     $tb_error = '';
@@ -308,7 +308,7 @@ class Main {
                     }
 
                     // Try to copy the config.php
-                    if ( !copy(MIDRUB_BASE_INSTALL . 'temp/config.php', FCPATH . 'application/config/config.php') ) {
+                    if ( !copy(CMS_BASE_INSTALL . 'temp/config.php', FCPATH . 'application/config/config.php') ) {
 
                         // Set the error
                         $error = 'The file config.php was not copied successfully.';    
@@ -316,7 +316,7 @@ class Main {
                     }
 
                     // Try to copy the database.php
-                    if ( !copy(MIDRUB_BASE_INSTALL . 'temp/database.php', FCPATH . 'application/config/database.php') ) {
+                    if ( !copy(CMS_BASE_INSTALL . 'temp/database.php', FCPATH . 'application/config/database.php') ) {
 
                         // Set the error
                         $error = 'The file database.php was not copied successfully.';    
@@ -324,7 +324,7 @@ class Main {
                     }
 
                     // Try to copy the autoload.php
-                    if ( !copy(MIDRUB_BASE_INSTALL . 'temp/autoload.php', FCPATH . 'application/config/autoload.php') ) {
+                    if ( !copy(CMS_BASE_INSTALL . 'temp/autoload.php', FCPATH . 'application/config/autoload.php') ) {
 
                         // Set the error
                         $error = 'The file autoload.php was not copied successfully.';    
@@ -338,12 +338,12 @@ class Main {
                         define('ERROR_MESSAGE', $error);
 
                         // Require the Error View
-                        require_once MIDRUB_BASE_INSTALL . 'views/error.php';
+                        require_once CMS_BASE_INSTALL . 'views/error.php';
 
                     } else {                    
 
                         // Require the Finish View
-                        require_once MIDRUB_BASE_INSTALL . 'views/finish.php';
+                        require_once CMS_BASE_INSTALL . 'views/finish.php';
 
                     }
 
@@ -354,7 +354,7 @@ class Main {
             default:
 
                 // Require the Install View
-                require_once MIDRUB_BASE_INSTALL . 'views/install.php';            
+                require_once CMS_BASE_INSTALL . 'views/install.php';            
 
                 break;
 

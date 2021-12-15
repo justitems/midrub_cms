@@ -1,0 +1,86 @@
+/*******************************
+DEFAULT FORM MIXING
+********************************/
+
+@mixin default-form {
+
+    input[type="text"] {
+        padding: 10px;
+        font-family: $default-font-4;
+        font-size: 14px;
+    }
+
+    textarea {
+        padding: 10px;
+        border: 0;
+        border-radius: 4px;
+        font-family: $default-font-4;
+        font-size: 14px;
+        color: $default-color-black;
+        background-color: $default-color-grey-light !important;
+        resize: none;
+
+        &::placeholder {
+            color: $default-color-black;
+        }
+            
+        &:-ms-input-placeholder {
+            color: $default-color-black;
+        }
+            
+        &::-ms-input-placeholder {
+            color: $default-color-black;
+        }
+
+        &:focus,
+        &:active {
+            outline: none !important;
+        }
+
+    }
+
+    .theme-color-input-btn {
+        margin-top: 3px;
+        width: 35px;
+        height: 35px;
+        border: 0;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+        cursor: pointer;
+
+        &:hover,
+        &:focus,
+        &:active {
+            outline: none !important;
+        }
+
+    }  
+    
+    .theme-image-input-btn {
+        margin-top: 3px;
+        width: 35px;
+        height: 35px;
+        border: 0;
+        border-radius: 4px;
+        background-color: #FFFFFF;
+        -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: $default-background-color;
+            outline: none !important;
+        }
+
+        img {
+            object-fit: none;
+            max-width: 100%;
+        }
+
+    }
+
+}

@@ -10,17 +10,17 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Rest;
+namespace CmsBase\Rest;
 
 // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
-defined('MIDRUB_BASE_REST') OR define('MIDRUB_BASE_REST', APPPATH . 'base/rest/');
+defined('CMS_BASE_REST') OR define('CMS_BASE_REST', APPPATH . 'base/rest/');
 
 // Define the namespaces to use
-use MidrubBase\Rest\Classes as MidrubBaseRestClasses;
+use CmsBase\Rest\Classes as CmsBaseRestClasses;
 
 // Require the general inc file
-require_once MIDRUB_BASE_REST . 'inc/general.php';
+require_once CMS_BASE_REST . 'inc/general.php';
 
 /*
  * Main is the rest's base loader
@@ -49,10 +49,10 @@ class Main {
         $this->CI =& get_instance();
 
         // Load the rest language file
-        $this->CI->lang->load('base_rest', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_REST);
+        $this->CI->lang->load('base_rest', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_REST);
 
         // Load Base Rest Model
-        $this->CI->load->ext_model(MIDRUB_BASE_PATH . 'models/', 'Base_rest', 'base_rest');
+        $this->CI->load->ext_model(CMS_BASE_PATH . 'models/', 'Base_rest', 'base_rest');
 
     }
     
@@ -74,17 +74,17 @@ class Main {
         if ( ( $static_slug === 'oauth2' ) && ( $dynamic_slug === 'authorize' ) ) {
 
             // Load the REST's authorize class 
-            (new MidrubBaseRestClasses\Authorize())->init();            
+            (new CmsBaseRestClasses\Authorize())->init();            
 
         } else if ( ( $static_slug === 'oauth2' ) && ( $dynamic_slug === 'token' ) ) {
 
             // Load the REST's token class 
-            (new MidrubBaseRestClasses\Token())->init();
+            (new CmsBaseRestClasses\Token())->init();
 
         }  else if ( ( $static_slug === 'rest-app' ) && !empty($dynamic_slug) && !empty($additional_slug) ) {
 
             // Load the App REST's method class 
-            (new MidrubBaseRestClasses\App_rest())->init($dynamic_slug, $additional_slug);
+            (new CmsBaseRestClasses\App_rest())->init($dynamic_slug, $additional_slug);
 
         } else {
 

@@ -1,0 +1,229 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+DEFAULT GLOBAL COLORS
+********************************/
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Inter:wght@200;300;400;500;600&display=swap");
+/*******************************
+DEFAULT GLOBAL FONTS
+********************************/
+/*******************************
+DASHBOARD STYLES
+********************************/
+section {
+  padding-top: 50px; }
+  section.dashboard-page .dashboard-events-card {
+    border: 0;
+    background-color: transparent; }
+    section.dashboard-page .dashboard-events-card > .card-header {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background-color: transparent; }
+      section.dashboard-page .dashboard-events-card > .card-header h3 {
+        margin: 0;
+        padding: 0;
+        line-height: 18px;
+        font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        color: #292F4C; }
+        section.dashboard-page .dashboard-events-card > .card-header h3 i,
+        section.dashboard-page .dashboard-events-card > .card-header h3 svg {
+          vertical-align: middle;
+          margin-top: -3px;
+          margin-right: 5px;
+          width: 24px;
+          height: 24px;
+          color: #292F4C; }
+      section.dashboard-page .dashboard-events-card > .card-header .btn-group .dashboard-events-list-btn {
+        padding: 5px 15px !important;
+        height: 29px;
+        border-radius: 0.25rem;
+        line-height: 17px !important;
+        font-size: 13px; }
+        section.dashboard-page .dashboard-events-card > .card-header .btn-group .dashboard-events-list-btn .theme-events-view-icon {
+          vertical-align: middle;
+          margin-top: -7px;
+          margin-right: 5px;
+          width: 18px;
+          height: 16px; }
+        section.dashboard-page .dashboard-events-card > .card-header .btn-group .dashboard-events-list-btn span {
+          width: auto; }
+        section.dashboard-page .dashboard-events-card > .card-header .btn-group .dashboard-events-list-btn .theme-dropdown-arrow-icon {
+          vertical-align: middle;
+          margin-top: -12px !important; }
+        section.dashboard-page .dashboard-events-card > .card-header .btn-group .dashboard-events-list-btn.show .theme-dropdown-arrow-icon {
+          margin-top: -7px !important; }
+        section.dashboard-page .dashboard-events-card > .card-header .btn-group .dashboard-events-list-btn::after {
+          display: none; }
+      section.dashboard-page .dashboard-events-card > .card-header .btn-group .dashboard-events-old-btn,
+      section.dashboard-page .dashboard-events-card > .card-header .btn-group .dashboard-events-new-btn {
+        padding: 5px 15px !important;
+        height: 29px;
+        line-height: 17px !important;
+        font-size: 13px; }
+        section.dashboard-page .dashboard-events-card > .card-header .btn-group .dashboard-events-old-btn i,
+        section.dashboard-page .dashboard-events-card > .card-header .btn-group .dashboard-events-old-btn svg,
+        section.dashboard-page .dashboard-events-card > .card-header .btn-group .dashboard-events-new-btn i,
+        section.dashboard-page .dashboard-events-card > .card-header .btn-group .dashboard-events-new-btn svg {
+          vertical-align: middle;
+          margin-top: -5px;
+          width: 12px;
+          height: 12px;
+          color: #292F4C; }
+        section.dashboard-page .dashboard-events-card > .card-header .btn-group .dashboard-events-old-btn:hover i,
+        section.dashboard-page .dashboard-events-card > .card-header .btn-group .dashboard-events-old-btn:hover svg,
+        section.dashboard-page .dashboard-events-card > .card-header .btn-group .dashboard-events-new-btn:hover i,
+        section.dashboard-page .dashboard-events-card > .card-header .btn-group .dashboard-events-new-btn:hover svg {
+          color: #2E92FA; }
+      section.dashboard-page .dashboard-events-card > .card-header .btn-group .dashboard-events-old-btn {
+        border-radius: 3px 0 0 3px !important; }
+    section.dashboard-page .dashboard-events-card > .card-body {
+      padding: 20px 0; }
+      section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion {
+        border: 0 !important;
+        box-shadow: none !important; }
+        section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item {
+          margin-bottom: 15px;
+          border: 0 !important;
+          border-radius: 6px !important;
+          background-color: #FFFFFF !important;
+          box-shadow: none !important;
+          overflow: hidden; }
+          section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-header .accordion-button {
+            padding: 1rem 15px !important;
+            font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+            font-size: 14px;
+            color: #4D476B;
+            background-color: transparent !important;
+            box-shadow: none !important; }
+            section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-header .accordion-button:hover, section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-header .accordion-button:focus, section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-header .accordion-button:active, section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-header .accordion-button:not(.collapsed) {
+              color: #292F4C;
+              background-color: transparent !important;
+              box-shadow: none !important;
+              outline: none; }
+            section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-header .accordion-button::after {
+              display: none; }
+            section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-header .accordion-button svg {
+              display: inline-block;
+              vertical-align: middle;
+              margin: -4px 10px 0 0;
+              width: 20px;
+              height: 20px; }
+              section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-header .accordion-button svg[data-icon="fluent:alert-urgent-20-regular"] {
+                margin-top: -7px;
+                margin-right: 0;
+                margin-left: auto;
+                width: 20px;
+                height: 20px; }
+            section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-header .accordion-button div {
+              display: inline-block;
+              min-width: 20px;
+              text-align: right; }
+          section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-body {
+            padding: 0 15px 20px;
+            background-color: transparent !important; }
+            section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-body .dashboard-events-list {
+              margin: 0;
+              padding: 0; }
+              section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-body .dashboard-events-list li {
+                margin: 0 0 15px 0;
+                padding: 0;
+                border: 1px solid #5c7fbc;
+                border-radius: 10px;
+                list-style: none;
+                background-color: #FFFFFF; }
+                section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-body .dashboard-events-list li.dashboard-no-events-found {
+                  padding: 7px 15px;
+                  border: 0;
+                  border-radius: 0;
+                  font-size: 14px;
+                  background-color: #fafbfd;
+                  box-shadow: none !important; }
+                  section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-body .dashboard-events-list li.dashboard-no-events-found p {
+                    margin: 0; }
+                section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-body .dashboard-events-list li:last-child {
+                  margin: 0; }
+                section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-body .dashboard-events-list li .alert {
+                  margin: 0;
+                  padding: 10px;
+                  border-radius: 10px; }
+                  section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-body .dashboard-events-list li .alert > img {
+                    vertical-align: middle;
+                    margin-top: -3px;
+                    margin-right: 15px;
+                    border-radius: 50%; }
+                  section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-body .dashboard-events-list li .alert > i, section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-body .dashboard-events-list li .alert > svg {
+                    vertical-align: middle;
+                    margin-top: -3px;
+                    margin-right: 15px;
+                    width: 32px;
+                    height: 32px; }
+                  section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-body .dashboard-events-list li .alert > div {
+                    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                    font-size: 13px;
+                    color: #292F4C; }
+                section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-body .dashboard-events-list li[data-type="member-join"] .alert > svg {
+                  color: #00C6C1; }
+  section.dashboard-page .dashboard-widgets-list {
+    position: relative; }
+    section.dashboard-page .dashboard-widgets-list .dashboard-widget {
+      margin-bottom: 15px; }
+      section.dashboard-page .dashboard-widgets-list .dashboard-widget .card-header {
+        border: 0;
+        border-bottom: 1px solid #ededed;
+        background-color: transparent;
+        cursor: move; }
+        section.dashboard-page .dashboard-widgets-list .dashboard-widget .card-header h3 {
+          margin: 0;
+          padding: 0;
+          line-height: 35px;
+          font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+          font-size: 14px;
+          font-weight: 400;
+          color: #292F4C; }
+          section.dashboard-page .dashboard-widgets-list .dashboard-widget .card-header h3 i,
+          section.dashboard-page .dashboard-widgets-list .dashboard-widget .card-header h3 svg {
+            vertical-align: middle;
+            margin-top: -5px;
+            margin-right: 5px;
+            width: 20px;
+            height: 20px;
+            font-size: 20px; }
+      section.dashboard-page .dashboard-widgets-list .dashboard-widget::before, section.dashboard-page .dashboard-widgets-list .dashboard-widget::after {
+        content: "";
+        height: 0;
+        line-height: 0;
+        transition: all .5s ease-in-out; }
+      section.dashboard-page .dashboard-widgets-list .dashboard-widget.card-drag-over-top::before {
+        content: attr(data-content);
+        display: block;
+        margin-top: 0;
+        margin-bottom: 15px;
+        width: 100%;
+        height: 300px;
+        border: 3px dashed #A0B0D4;
+        line-height: 300px;
+        text-align: center;
+        font-size: 33px;
+        color: #A0B0D4;
+        -webkit-box-shadow: 0 4px 2px -2px #fafbfd;
+        box-shadow: 0 15px 25px -2px #fafbfd; }
+      section.dashboard-page .dashboard-widgets-list .dashboard-widget.card-drag-over-bottom::after {
+        content: attr(data-content);
+        display: block;
+        margin-top: 15px;
+        width: 100%;
+        height: 300px;
+        border: 3px dashed #A0B0D4;
+        line-height: 300px;
+        text-align: center;
+        font-size: 33px;
+        color: #A0B0D4; }
+
+/*# sourceMappingURL=styles.css.map */

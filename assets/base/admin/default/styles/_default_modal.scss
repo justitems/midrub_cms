@@ -1,0 +1,343 @@
+/*******************************
+DEFAULT MODAL MIXING
+********************************/
+
+@mixin default-modal {
+
+    .modal-content {
+        margin: auto;
+        border: 0;
+        overflow-x: hidden;
+
+        .modal-header {
+            border-bottom: 1px solid $default-border-color;
+
+            .modal-title {
+                line-height: 25px;
+                font-size: 16px;
+                font-weight: 500;
+
+                i {
+                    vertical-align: bottom;
+                    margin-right: 5px;
+                    font-size: 20px;
+                }
+
+            }
+
+            .btn-close {
+                margin-top: -8px;
+                padding-top: 2px;
+                border: 0;
+                font-size: 15px;
+                color: #808080;
+                background-color: transparent;
+
+                &:hover,
+                &:active,
+                &:focus {
+                    color: $default-color-black;
+                    box-shadow: none !important;
+                    outline: none !important;
+                }
+
+            }
+
+        }
+
+        .modal-body {
+
+            .default-modal-quick-list {
+
+                .default-modal-quick-list-items {
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+
+                    li {
+                        margin: 0;
+                        padding: 0;
+                        border: 0;
+
+                        &.default-modal-quick-list-no-results-found div {
+                            padding: 15px 20px;
+                            font-size: 14px;
+                        }
+
+                        .media {
+
+                            & > i {
+                                vertical-align: middle;
+                                margin-top: 9px;
+                                margin-right: 5px;
+                            }
+
+                            & > img {
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 50%;
+                            }
+        
+                            .media-body {
+                                display: table;
+                                height: 40px;
+        
+                                h6 {
+                                    display: table-cell;
+                                    vertical-align: middle;
+                                    margin: 0 0 6.1px 0;
+                                    padding: 0;
+                                    height: 40px;
+                                    font-size: 13px;
+                                    font-weight: 500;
+                                }
+        
+                            }    
+    
+                        }
+
+                        .btn-danger {
+                            padding: 0;
+                            height: 33px;
+                            border: 0;
+                            border-radius: 6px;
+                            line-height: 10px;
+                            font-size: 18px;
+                            color: $default-color-black;
+                            background-color: transparent;          
+                        }
+
+                    }
+
+                }
+
+                .theme-modal-input-area {
+
+                    .btn-secondary {
+                        margin: 0;
+                        width: 100%;
+                        height: 39px;
+                        border: 0;
+                        font-size: 14px;
+                        color: #FFFFFF;
+
+                        svg,
+                        i {
+                            vertical-align: middle;
+                            margin-right: 5px;
+                            font-size: 19px;
+                            color: #FFFFFF;
+                        }
+                        
+                    }
+
+                    .default-modal-quick-list-collapse {
+
+                        .form-group {
+                            margin-top: 15px;
+                            margin-bottom: 0;
+                            margin-left: -15px;
+                            width: calc(100% + 30px);
+                            border-top: 1px solid $default-input-border-color;
+        
+                            .dropdown {
+                                margin: 15px;
+                                padding: 0;
+                                height: 40px;
+                                border: 1px solid $default-input-border-color;
+                                border-radius: 2px;
+                                font-size: 14px;
+                        
+                                .btn-primary {
+                                    width: 100%;
+                                    height: 41px;
+                                    border: 0;
+                                    line-height: 28px;
+                                    text-align: left;
+                                    font-size: 14px;
+                                    background-color: transparent;
+                        
+                                    &::after {
+                                        display: none;
+                                    }
+                        
+                                    &:hover,
+                                    &:active,
+                                    &:focus {
+                                        background-color: transparent;
+                                        box-shadow: none;
+                                        outline: none;
+                                    }
+                        
+                                    i {
+                                        display: inline-block;
+                                        vertical-align: middle;
+                                        float: inherit;
+                                        margin-top: -4px;
+                                        margin-right: 5px;
+                                        font-size: 19px;
+                        
+                                        &.ri-arrow-down-s-line {
+                                            vertical-align: bottom;
+                                            float: right;
+                                            margin-top: 1px;
+                                            margin-right: 0;
+                                        }
+                        
+                                    }
+        
+                                    img {
+                                        vertical-align: sub;
+                                        max-width: 20px;
+                                        border-radius: 50%;
+                                    }
+                        
+                                }
+                        
+                                .dropdown-menu {
+                                    position: absolute;
+                                    top: 100%;
+                                    left: 0;                                        
+                                    padding: 0 !important;
+                                    -webkit-backface-visibility: hidden;
+                                    backface-visibility: hidden;
+                                    width: 100%;
+                                    min-width: 200px;                                       
+                                    border: 1px solid #ebf4ff;
+                                    border-radius: 3px;
+                                    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+                                    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+                                    opacity: 1 !important;
+                        
+                                    input[type="text"] {
+                                        margin: 0;
+                                        padding: 0 15px;
+                                        width: 100%;
+                                        height: 40px;
+                                        border: 0;
+                                        border-bottom: 1px solid $default-input-border-color;
+                                        font-size: 14px;
+                                    }
+                        
+                                    .dropdown-item {
+                                        display: flex;
+                                        align-items: center;
+                                        padding: 9px 15px;
+                                        font-size: 14px !important;
+                        
+                                        &:hover,
+                                        &:active,
+                                        &:focus {
+                                            border: 0;
+                                            background-color: #f7f9fc;
+                                        }
+                        
+                                        i {
+                                            margin-right: 5px;
+                                            font-size: 16px;
+                                        }
+        
+                                        img {
+                                            max-width: 20px;
+                                            border-radius: 50%;
+                                        }
+                        
+                                    }
+                        
+                                }
+            
+                            }
+
+                            input[type="text"] {
+                                margin: 15px;
+                                width: calc(100% - 30px);
+                            }
+            
+                            .btn-success {
+                                margin: 0 15px;
+                                width: calc(100% - 30px);
+                                height: 39px;
+                                border: 0;
+                                font-size: 14px;
+                                color: #FFFFFF;
+            
+                                svg,
+                                i {
+                                    display: inline-block;
+                                    vertical-align: sub;
+                                    margin-top: -2px;
+                                    margin-right: 5px;
+                                    font-size: 18px;
+                                }
+                
+                                &:hover {
+                                    opacity: 0.7;
+                                }
+            
+                            }
+        
+                        }
+        
+                    }
+
+                }
+
+            }
+
+        }
+
+        .modal-footer {
+            border-top: 1px solid $default-border-color;
+
+            h6 {
+                margin: 0;
+                padding: 0;
+                line-height: 35px;
+                font-size: 14px;
+                font-weight: 400;
+                color: $default-color-black;
+            }
+
+            .btn-secondary,
+            .btn-primary {
+                margin-left: 10px;
+                padding: 0.375rem 20px;
+                height: calc(1.5em + 0.75rem + 2px);
+                line-height: 1.5;
+                border: 0;
+                font-size: 0.88rem;
+                font-weight: 400;
+                color: #FFFFFF;
+                background-clip: padding-box;
+                opacity: 1;
+
+                i {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-top: -1px;
+                    margin-right: 5px;
+                    line-height: 16px;
+                    font-size: 22px;
+                    
+                    &.ri-folder-upload-line {
+                        margin-top: -2px;
+                    }
+
+                }
+
+                &:hover {
+                    opacity: 0.7;
+                }
+
+            }
+
+            .btn-primary {
+                color: #FFFFFF;
+                background-color: $default-color-blue;
+            }
+
+        }
+
+    }
+
+}

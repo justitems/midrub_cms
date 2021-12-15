@@ -1,0 +1,26 @@
+/*******************************
+DEFAULT MIXINGS FOR SCROLLBAR
+********************************/
+
+@mixin theme-default-scrollbar {
+    padding-right: 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        border: 3px solid transparent;
+        width: 8px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        border: 3px solid transparent;
+        border-radius: 6px;
+        background-color: #F9FAFC;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        border-radius: 6px;
+        background-color: #dee2ea;
+    }
+
+}

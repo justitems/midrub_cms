@@ -1,0 +1,12 @@
+/*******************************
+MEMBERS STYLES
+********************************/
+section {
+  padding-top: 50px; }
+  section .container-fluid {
+    padding: 0; }
+    section .container-fluid .theme-tabs .nav-tabs .nav-item .nav-link svg {
+      margin-top: -3px;
+      font-size: 22px; }
+
+/*# sourceMappingURL=styles.css.map */

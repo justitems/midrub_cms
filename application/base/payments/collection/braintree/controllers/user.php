@@ -10,13 +10,13 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Payments\Collection\Braintree\Controllers;
+namespace CmsBase\Payments\Collection\Braintree\Controllers;
 
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Require the Braintree class
-require_once MIDRUB_BASE_PAYMENTS_BRAINTREE . 'vendor/braintree/braintree_php/lib/Braintree.php';
+require_once CMS_BASE_PAYMENTS_BRAINTREE . 'vendor/braintree/braintree_php/lib/Braintree.php';
 
 /*
  * User class loads the Storage app loader
@@ -45,7 +45,7 @@ class User {
         $this->CI =& get_instance();
 
         // Load language
-        $this->CI->lang->load( 'braintree_user', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_PAYMENTS_BRAINTREE );
+        $this->CI->lang->load( 'braintree_user', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_PAYMENTS_BRAINTREE );
         
     }
     
@@ -65,7 +65,7 @@ class User {
         set_css_urls(array('stylesheet', '//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', 'text/css', 'all'));
 
         // Set Braintree's styles
-        set_css_urls(array('stylesheet', base_url('assets/base/payments/collection/braintree/styles/css/styles.css?ver=' . MIDRUB_BASE_PAYMENTS_BRAINTREE_VERSION), 'text/css', 'all'));
+        set_css_urls(array('stylesheet', base_url('assets/base/payments/collection/braintree/styles/css/styles.css?ver=' . CMS_BASE_PAYMENTS_BRAINTREE_VERSION), 'text/css', 'all'));
 
         // Simple Line Icons
         set_css_urls(array('stylesheet', '//cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css', 'text/css', 'all'));
@@ -88,7 +88,7 @@ class User {
         set_js_urls(array('//js.braintreegateway.com/web/3.29.0/js/hosted-fields.js'));    
         
         // Set Braintree JS
-        set_js_urls(array(base_url('assets/base/payments/collection/braintree/js/main.js?ver=' . MIDRUB_BASE_PAYMENTS_BRAINTREE_VERSION)));
+        set_js_urls(array(base_url('assets/base/payments/collection/braintree/js/main.js?ver=' . CMS_BASE_PAYMENTS_BRAINTREE_VERSION)));
 
         // Get the incomplete transaction
         $incomplete_transaction = the_incomplete_transaction();
@@ -128,9 +128,9 @@ class User {
                 // Set the Braintree configuration
                 $config = new \Braintree_Configuration([
                     'environment' => 'production',
-                    'merchantId' => get_option('braintree_merchant_id'),
-                    'publicKey' => get_option('braintree_public_key'),
-                    'privateKey' => get_option('braintree_private_key')
+                    'merchantId' => md_the_option('braintree_merchant_id'),
+                    'publicKey' => md_the_option('braintree_public_key'),
+                    'privateKey' => md_the_option('braintree_private_key')
                 ]);
 
                 // Get the gateway
@@ -138,7 +138,7 @@ class User {
 
                 // Get token
                 $clientToken = $gateway->clientToken()->generate(array(
-                    'merchantAccountId' => get_option('braintree_merchant_account_id')
+                    'merchantAccountId' => md_the_option('braintree_merchant_account_id')
                 ));
 
                 // Verify if token exists
@@ -152,7 +152,7 @@ class User {
                 // Set views params
                 set_payment_view(
                     $this->CI->load->ext_view(
-                        MIDRUB_BASE_PAYMENTS_BRAINTREE . 'views',
+                        CMS_BASE_PAYMENTS_BRAINTREE . 'views',
                         'main',
                         $params,
                         true
@@ -165,7 +165,7 @@ class User {
                 // Set views params
                 set_payment_view(
                     $this->CI->load->ext_view(
-                        MIDRUB_BASE_PAYMENTS_BRAINTREE . 'views',
+                        CMS_BASE_PAYMENTS_BRAINTREE . 'views',
                         'error',
                         array(
                             'error' => $ex->getMessage()
@@ -182,7 +182,7 @@ class User {
             // Set views params
             set_payment_view(
                 $this->CI->load->ext_view(
-                    MIDRUB_BASE_PAYMENTS_BRAINTREE . 'views',
+                    CMS_BASE_PAYMENTS_BRAINTREE . 'views',
                     'expired',
                     array(),
                     true

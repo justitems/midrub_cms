@@ -11,7 +11,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Signin\Helpers;
+namespace CmsBase\Auth\Collection\Signin\Helpers;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -80,7 +80,7 @@ class User {
             } else {
 
                 // Require the signin functions file
-                require_once MIDRUB_BASE_AUTH . 'inc/signin/signin.php';
+                require_once CMS_BASE_AUTH . 'inc/signin/signin.php';
 
                 // Prepare data to send
                 $args = array(

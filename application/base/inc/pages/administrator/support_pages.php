@@ -13,7 +13,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Classes\Pages as MidrubBaseClassesPages;
+use CmsBase\Classes\Pages as CmsBaseClassesPages;
 
 if ( !function_exists('md_set_support_page') ) {
     
@@ -30,7 +30,7 @@ if ( !function_exists('md_set_support_page') ) {
     function md_set_support_page($page_slug, $args) {
         
         // Call the support_pages class
-        $support_pages = (new MidrubBaseClassesPages\Main);
+        $support_pages = (new CmsBaseClassesPages\Main);
 
         // Set support page in the queue
         $support_pages->set_page($page_slug, $args);
@@ -51,7 +51,7 @@ if ( !function_exists('md_the_support_pages') ) {
     function md_the_support_pages() {
         
         // Call the support_pages class
-        $support_pages = (new MidrubBaseClassesPages\Main);
+        $support_pages = (new CmsBaseClassesPages\Main);
 
         // Return support pages
         return $support_pages->load_pages();
@@ -74,7 +74,7 @@ if ( !function_exists('md_get_the_support_page_content') ) {
     function md_get_the_support_page_content($page) {
         
         // Call the support_pages class
-        $support_pages = (new MidrubBaseClassesPages\Main);
+        $support_pages = (new CmsBaseClassesPages\Main);
 
         // List all pages
         foreach ( $support_pages::$the_pages as $the_support_page ) {

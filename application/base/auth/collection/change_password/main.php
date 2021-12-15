@@ -10,19 +10,19 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Change_password;
+namespace CmsBase\Auth\Collection\Change_password;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Auth\Interfaces as MidrubBaseAuthInterfaces;
-use MidrubBase\Auth\Collection\Change_password\Controllers as MidrubBaseAuthCollectionChangePasswordControllers;
+use CmsBase\Auth\Interfaces as CmsBaseAuthInterfaces;
+use CmsBase\Auth\Collection\Change_password\Controllers as CmsBaseAuthCollectionChangePasswordControllers;
 
 // Define the component's path
-defined('MIDRUB_BASE_AUTH_CHANGE_PASSWORD') OR define('MIDRUB_BASE_AUTH_CHANGE_PASSWORD', APPPATH . 'base/auth/collection/change_password');
+defined('CMS_BASE_AUTH_CHANGE_PASSWORD') OR define('CMS_BASE_AUTH_CHANGE_PASSWORD', APPPATH . 'base/auth/collection/change_password');
 
 // Define the component's version
-defined('MIDRUB_BASE_AUTH_CHANGE_PASSWORD_VERSION') OR define('MIDRUB_BASE_AUTH_CHANGE_PASSWORD_VERSION', '0.0.2');
+defined('CMS_BASE_AUTH_CHANGE_PASSWORD_VERSION') OR define('CMS_BASE_AUTH_CHANGE_PASSWORD_VERSION', '0.0.2');
 
 /*
  * Main class loads the Change Password Auth's component
@@ -31,7 +31,7 @@ defined('MIDRUB_BASE_AUTH_CHANGE_PASSWORD_VERSION') OR define('MIDRUB_BASE_AUTH_
  * @package Midrub
  * @since 0.0.7.8
  */
-class Main implements MidrubBaseAuthInterfaces\Auth {
+class Main implements CmsBaseAuthInterfaces\Auth {
     
     /**
      * Class variables
@@ -63,7 +63,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
     public function init() {
 
         // Instantiate the class
-        (new MidrubBaseAuthCollectionChangePasswordControllers\Init)->view();
+        (new CmsBaseAuthCollectionChangePasswordControllers\Init)->view();
         
     }
     
@@ -86,7 +86,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
         try {
 
             // Call method if exists
-            (new MidrubBaseAuthCollectionChangePasswordControllers\Ajax)->$action();
+            (new CmsBaseAuthCollectionChangePasswordControllers\Ajax)->$action();
 
         } catch (Exception $ex) {
 
@@ -113,8 +113,8 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
     public function load_hooks($category) {
 
         // Load the component's language files
-        if ( file_exists( MIDRUB_BASE_AUTH_CHANGE_PASSWORD . '/language/' . $this->CI->config->item('language') . '/auth_change_password_lang.php' ) ) {
-            $this->CI->lang->load( 'auth_change_password', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_AUTH_CHANGE_PASSWORD . '/' );
+        if ( file_exists( CMS_BASE_AUTH_CHANGE_PASSWORD . '/language/' . $this->CI->config->item('language') . '/auth_change_password_lang.php' ) ) {
+            $this->CI->lang->load( 'auth_change_password', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_CHANGE_PASSWORD . '/' );
         }
 
         // Load hooks by category
@@ -123,10 +123,10 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
             case 'admin_init':
 
                 // Verify if user has opened the frontend component
-                if ( (md_the_component_variable('component') === 'frontend') && ($this->CI->input->get('component', true) === 'change_password') ) {
+                if ( (md_the_data('component') === 'frontend') && ($this->CI->input->get('component', true) === 'change_password') ) {
 
                     // Require the contents_categories file
-                    require_once MIDRUB_BASE_AUTH_CHANGE_PASSWORD . '/inc/contents_categories.php';
+                    require_once CMS_BASE_AUTH_CHANGE_PASSWORD . '/inc/contents_categories.php';
 
                 }
 
@@ -168,8 +168,8 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
     public function component_info() {
         
         // Load the component's language files
-        if ( file_exists( MIDRUB_BASE_AUTH_CHANGE_PASSWORD . '/language/' . $this->CI->config->item('language') . '/admin_change_password_lang.php' ) ) {
-            $this->CI->lang->load( 'admin_change_password', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_AUTH_CHANGE_PASSWORD . '/' );
+        if ( file_exists( CMS_BASE_AUTH_CHANGE_PASSWORD . '/language/' . $this->CI->config->item('language') . '/admin_change_password_lang.php' ) ) {
+            $this->CI->lang->load( 'admin_change_password', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_CHANGE_PASSWORD . '/' );
         }
         
         // Return component information
@@ -178,7 +178,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
             'display_component_name' => $this->CI->lang->line('auth_change_password'),
             'component_slug' => 'change_password',
             'component_icon' => '<i class="fas fa-window-restore"></i>',
-            'version' => MIDRUB_BASE_AUTH_CHANGE_PASSWORD_VERSION,
+            'version' => CMS_BASE_AUTH_CHANGE_PASSWORD_VERSION,
             'required_version' => '0.0.7.8'
         );
         

@@ -1,0 +1,124 @@
+/*******************************
+MIXINGS FOR SIDEBAR
+********************************/
+
+@mixin default-sidebar {
+    padding: 15px 15px 100px;
+    min-height: 100vh;
+    border-right: 1px solid $default-border-color;
+    background-color: transparent;
+
+    @media screen and (max-width: 1443px) {
+
+        & {
+            -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+            max-width: 25%;
+        }
+
+    }
+
+    @media screen and (max-width: 992px) {
+
+        & {
+            -ms-flex: 0 0 99%;
+            flex: 0 0 99%;
+            max-width: 99%;
+            border-right: 0;
+        }
+
+    }
+
+    @media screen and (max-width: 767px) {
+
+        & {
+            padding: 15px 0 30px;
+            height: auto;
+        }
+
+    }
+
+    & > .row {
+        margin: 0 0 10px;
+
+        .list-group {
+            margin: 0 0 10px 0;
+            padding: 0 0 20px 0;
+            border: 0;
+            border-bottom: 1px solid $default-border-color;
+            border-radius: 0;
+            background-color: transparent;
+
+            .default-sidebar-no-data-found {
+                height: 36.5px;
+                font-size: 14px;
+                font-weight: 400;
+                color: #6c757d;
+            }
+
+            .list-group-item {
+                margin: 0;
+                padding: 7px 0;
+                border: 0;
+                border-radius: 0;
+                background-color: transparent;
+
+                &.theme-sidebar-selected-item,
+                &:hover {
+                    margin-left: -15px !important;
+                    width: calc(100% + 30px) !important;
+                    background-color: $default-color-grey-light-active !important;
+                    border-left: 15px solid $default-color-grey-light-active !important;
+                    border-right: 15px solid $default-color-grey-light-active !important;
+                }
+
+                .mb-3 {
+                    margin-bottom: 11px !important;
+                }
+
+                i {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-top: -4px;
+                    margin-right: 10px;
+                    font-size: 16px;
+                }
+
+                svg {
+                    vertical-align: middle;
+                    margin-top: -4px;
+                    margin-right: 10px;
+                    width: 20px;
+                    height: 22px;
+                }
+                
+                a {
+                    white-space: nowrap;
+                    text-decoration: none;
+                    text-overflow: ellipsis;
+                    font-family: $default-font-1;
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: $default-color-black;
+                    overflow: hidden;
+                }
+
+                .theme-sidebar-label {
+                    margin-top: 1px;
+                    padding: 2px 8px;
+                    height: 19px;
+                    min-width: 50px;
+                    border-radius: 3px;
+                    line-height: 15px;
+                    word-spacing: 3px;
+                    font-family: $default-font-3;
+                    font-size: 11px;
+                }
+
+            }
+
+        }
+
+    }
+
+}

@@ -1,0 +1,44 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+DEFAULT GLOBAL COLORS
+********************************/
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Inter:wght@200;300;400;500;600&display=swap");
+/*******************************
+DEFAULT GLOBAL FONTS
+********************************/
+/*******************************
+SUPPORT STYLES STYLES
+********************************/
+section {
+  padding-top: 50px; }
+  section .container-fluid {
+    padding: 0; }
+    section .container-fluid .theme-navbar-1 .theme-dropdown-1 .dropdown-menu {
+      right: 0;
+      left: inherit; }
+    section .container-fluid .ticket-body .theme-card-box .card-header .btn-link svg {
+      vertical-align: middle;
+      margin-top: -2px; }
+    section .container-fluid .ticket-body .theme-card-box .card-body p {
+      color: #292F4C; }
+    section .container-fluid .support-ticket-replies .support-no-replies-found {
+      margin: 0;
+      padding: 15px 20px;
+      font-size: 14px; }
+    section .container-fluid .support-ticket-replies .card-reply .card-header .btn-link img {
+      margin-top: -4px;
+      margin-right: 10px;
+      width: 20px;
+      height: 20px;
+      border-radius: 3px; }
+    section .container-fluid .support-ticket-replies .card-reply .card-header .btn-link span {
+      color: #A9AABC; }
+    section .container-fluid .support-ticket-replies .card-reply .card-body .theme-card-box-article p {
+      color: #292F4C; }
+
+/*# sourceMappingURL=tickets.css.map */

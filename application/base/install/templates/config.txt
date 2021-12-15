@@ -24,33 +24,6 @@
 $config['base_url'] = '[url]';
 /*
 |--------------------------------------------------------------------------
-| Enter Login Url
-|--------------------------------------------------------------------------
-| It is necessary to replace notification's placeholders.
-| 
-*/
-$config['login_url'] = '[url]';
-/*
-|--------------------------------------------------------------------------
-| The Catcha Secret Key
-|--------------------------------------------------------------------------
-| Please add catcha secret key before enable the Report a Bug page
-| https://www.google.com/recaptcha/admin#list 
-|
-*/
-$config['captcha_site_key'] = '';
-$config['captcha_secret_key'] = '';
-/*
-  |--------------------------------------------------------------------------
-  | Gshorter Credientials
-  |--------------------------------------------------------------------------
-  | If you want allow users to short their URLs, please add the Google api key and your domain bellow
-  |
- */
-$config['google_api_key'] = '';
-$config['domain'] = '';
-/*
-|--------------------------------------------------------------------------
 | Website Name
 |--------------------------------------------------------------------------
 | Add website name. It is necessary.

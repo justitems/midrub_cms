@@ -10,8 +10,9 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Classes;
+namespace CmsBase\Classes;
 
+// Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
@@ -74,3 +75,5 @@ class Properties {
     }  
 
 }
+
+/* End of file properties.php */

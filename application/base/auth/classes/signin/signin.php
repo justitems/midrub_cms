@@ -10,10 +10,13 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Classes\Signin;
+namespace CmsBase\Auth\Classes\Signin;
 
 // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+// Require the User General Inc
+require_once CMS_BASE_USER . 'inc/general.php';
 
 /*
  * Signin class loads the properties and methods for signin process
@@ -42,10 +45,10 @@ class Signin {
         $this->CI =& get_instance();
 
         // Load the Base Users Model
-        $this->CI->load->ext_model( MIDRUB_BASE_PATH . 'models/', 'Base_users', 'base_users' );
+        $this->CI->load->ext_model( CMS_BASE_PATH . 'models/', 'Base_users', 'base_users' );
 
         // Load Base Plans Model
-        $this->CI->load->ext_model( MIDRUB_BASE_PATH . 'models/', 'Base_plans', 'base_plans' );
+        $this->CI->load->ext_model( CMS_BASE_PATH . 'models/', 'Base_plans', 'base_plans' );
 
         // Load the bcrypt library
         $this->CI->load->library('bcrypt');
@@ -65,9 +68,6 @@ class Signin {
 
         // Check if user was blocked
         $this->check_block();
-        
-        // Load Team Model
-        $this->CI->load->model('team');
 
         // Verify if data is correct
         if ( !isset($args['email']) || !isset($args['password']) ) {
@@ -87,7 +87,7 @@ class Signin {
         if ( preg_match('/@/i', $args['email']) ) {
 
             // Get username by email
-            $user = $this->CI->base_model->get_data_where('users', 'user_id, username, status, role', array('email' => strtolower($args['email'])));
+            $user = $this->CI->base_model->the_data_where('users', 'user_id, username, status, role', array('email' => strtolower($args['email'])));
 
             // Verify if the email was found in our system
             if ($user) {
@@ -133,11 +133,11 @@ class Signin {
 
                             // Set redirect
                             $redirect = $this->get_plan_redirect($user[0]['user_id']);                            
-    
+
                         } else {
 
                             // Set admin redirect
-                            $redirect = base_url('admin/home');
+                            $redirect = base_url('admin/dashboard');
 
                         }
 
@@ -168,10 +168,10 @@ class Signin {
 
                 }
 
-            } else if ( $this->CI->base_model->get_data_where('teams', 'user_id', array('member_email' => strtolower($args['email']))) ) {
+            } else if ( $this->CI->base_model->the_data_where('teams', 'user_id', array('member_email' => strtolower($args['email']))) ) {
 
                 // Get member
-                $team_owner = $this->CI->base_model->get_data_where(
+                $team_owner = $this->CI->base_model->the_data_where(
                     'teams',
                     '*',
                     array(
@@ -186,7 +186,7 @@ class Signin {
                     if ( password_verify($args['password'], $team_owner[0]['member_password'] ) ) {
 
                         // Get user data
-                        $user_data = $this->CI->base_model->get_data_where('users', '*', array(
+                        $user_data = $this->CI->base_model->the_data_where('users', '*', array(
                             'user_id' => $team_owner[0]['user_id']
                         ));
 
@@ -252,7 +252,7 @@ class Signin {
                                 } else {
 
                                     // Set admin redirect
-                                    $redirect = base_url('admin/home');
+                                    $redirect = base_url('admin/dashboard');
 
                                 }
 
@@ -470,7 +470,7 @@ class Signin {
                     } else {
 
                         // Set admin redirect
-                        $redirect = base_url('admin/home');
+                        $redirect = base_url('admin/dashboard');
 
                     }
 
@@ -630,7 +630,7 @@ class Signin {
     private function check_plan($user_id) {
         
         // Get the user's plan
-        $user_plan = get_user_option('plan', $user_id);
+        $user_plan = md_the_user_option($user_id, 'plan');
 
         // Verify if user has a plan, if no add default plan
         if ( !$user_plan ) {
@@ -664,22 +664,25 @@ class Signin {
         }
         
         // Get the user's plan
-        $plan_id = get_user_option('plan', $user_id);
+        $plan_id = md_the_user_option($user_id, 'plan');
+
+        // Set global user
+        $this->CI->user_id = $user_id;
 
         // Redirect url
         $redirect_url = base_url('user/app/dashboard');
 
         // Verify if the plan has a selected user_redirect
-        if ( plan_feature( 'user_redirect', $plan_id ) ) {
+        if ( md_the_plan_feature( 'user_redirect', $plan_id ) ) {
 
             // Get user_redirect
-            $user_redirect = plan_feature( 'user_redirect', $plan_id );
+            $user_redirect = md_the_plan_feature( 'user_redirect', $plan_id );
 
             // Verify if the redirect is a component
-            if ( is_dir(MIDRUB_BASE_USER . 'components/collection/' . $user_redirect . '/') ) {
+            if ( is_dir(CMS_BASE_USER . 'components/collection/' . $user_redirect . '/') ) {
                 
                 // Get the component
-                $cl = implode('\\', array('MidrubBase', 'User', 'Components', 'Collection', ucfirst($user_redirect), 'Main'));
+                $cl = implode('\\', array('CmsBase', 'User', 'Components', 'Collection', ucfirst($user_redirect), 'Main'));
 
                 // Verify if the component is available
                 if ( (new $cl())->check_availability() ) {
@@ -689,10 +692,10 @@ class Signin {
 
                 }
 
-            } else if ( is_dir(MIDRUB_BASE_USER . 'apps/collection/' . $user_redirect . '/') ) {
+            } else if ( is_dir(CMS_BASE_USER . 'apps/collection/' . $user_redirect . '/') ) {
 
                 // Get the app
-                $cl = implode('\\', array('MidrubBase', 'User', 'Apps', 'Collection', ucfirst($user_redirect), 'Main'));
+                $cl = implode('\\', array('CmsBase', 'User', 'Apps', 'Collection', ucfirst($user_redirect), 'Main'));
 
                 // Verify if the app is available
                 if ( (new $cl())->check_availability() ) {

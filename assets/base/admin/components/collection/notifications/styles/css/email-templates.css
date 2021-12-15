@@ -1,0 +1,122 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+DEFAULT GLOBAL COLORS
+********************************/
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Inter:wght@200;300;400;500;600&display=swap");
+/*******************************
+DEFAULT GLOBAL FONTS
+********************************/
+/*******************************
+EMAIL TEMPLATES STYLES
+********************************/
+.notifications-view .theme-list .card-header h6 {
+  display: -webkit-inline-box;
+  margin: 6.5px 0 0;
+  padding: 0.4rem 0 3px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #292F4C;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical; }
+.notifications-view .notifications-new-email-template,
+.notifications-view .notifications-email-template {
+  padding-top: 15px;
+  padding-bottom: 15px; }
+  .notifications-view .notifications-new-email-template > form > .row > .col-lg-3 > div > div hr,
+  .notifications-view .notifications-email-template > form > .row > .col-lg-3 > div > div hr {
+    margin: 0;
+    border-top: 1px solid #d8e0e0; }
+  .notifications-view .notifications-new-email-template > form > .row > .col-lg-3 > div > div .theme-select,
+  .notifications-view .notifications-email-template > form > .row > .col-lg-3 > div > div .theme-select {
+    width: 130px;
+    height: 36px; }
+  .notifications-view .notifications-new-email-template > form > .row > .col-lg-3 > div > div .theme-button-2,
+  .notifications-view .notifications-email-template > form > .row > .col-lg-3 > div > div .theme-button-2 {
+    width: 130px;
+    height: 36px;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #4e9ef4;
+    box-shadow: none !important; }
+    .notifications-view .notifications-new-email-template > form > .row > .col-lg-3 > div > div .theme-button-2:hover,
+    .notifications-view .notifications-email-template > form > .row > .col-lg-3 > div > div .theme-button-2:hover {
+      background-color: #2E92FA; }
+  .notifications-view .notifications-new-email-template > form > .row > .col-lg-3 > div > div .notifications-email-templates,
+  .notifications-view .notifications-email-template > form > .row > .col-lg-3 > div > div .notifications-email-templates {
+    border: 0;
+    min-height: 100px;
+    box-shadow: none; }
+    .notifications-view .notifications-new-email-template > form > .row > .col-lg-3 > div > div .notifications-email-templates > .panel-heading,
+    .notifications-view .notifications-email-template > form > .row > .col-lg-3 > div > div .notifications-email-templates > .panel-heading {
+      padding-bottom: 0;
+      margin-top: 0px;
+      line-height: 50px;
+      border-bottom: 1px solid #e3eaef;
+      font-family: Open Sans,sans-serif;
+      font-weight: 400;
+      color: #212529;
+      background-color: transparent; }
+    .notifications-view .notifications-new-email-template > form > .row > .col-lg-3 > div > div .notifications-email-templates > .panel-body .form-group label,
+    .notifications-view .notifications-email-template > form > .row > .col-lg-3 > div > div .notifications-email-templates > .panel-body .form-group label {
+      font-weight: 400;
+      font-size: 14px;
+      color: #292F4C;
+      margin-top: 0; }
+    .notifications-view .notifications-new-email-template > form > .row > .col-lg-3 > div > div .notifications-email-templates > .panel-body .form-group select,
+    .notifications-view .notifications-email-template > form > .row > .col-lg-3 > div > div .notifications-email-templates > .panel-body .form-group select {
+      display: block;
+      width: 100%;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #343a40;
+      background-color: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      height: 40px;
+      outline: transparent !important;
+      box-shadow: none;
+      border-radius: 0;
+      margin: 0; }
+      .notifications-view .notifications-new-email-template > form > .row > .col-lg-3 > div > div .notifications-email-templates > .panel-body .form-group select:disabled,
+      .notifications-view .notifications-email-template > form > .row > .col-lg-3 > div > div .notifications-email-templates > .panel-body .form-group select:disabled {
+        pointer-events: none;
+        background-color: #f5f7fa; }
+  .notifications-view .notifications-new-email-template > form > .row > .col-lg-9,
+  .notifications-view .notifications-email-template > form > .row > .col-lg-9 {
+    border-right: 1px solid #dde3ee; }
+    .notifications-view .notifications-new-email-template > form > .row > .col-lg-9 .notifications-emails-template-placeholders-area,
+    .notifications-view .notifications-email-template > form > .row > .col-lg-9 .notifications-emails-template-placeholders-area {
+      border: 0;
+      border-radius: 0;
+      min-height: 100px; }
+      .notifications-view .notifications-new-email-template > form > .row > .col-lg-9 .notifications-emails-template-placeholders-area > .panel-heading,
+      .notifications-view .notifications-email-template > form > .row > .col-lg-9 .notifications-emails-template-placeholders-area > .panel-heading {
+        border-bottom: 1px solid #e3eaef;
+        font-family: Open Sans,sans-serif;
+        font-weight: 400;
+        color: #212529;
+        padding-bottom: 0; }
+      .notifications-view .notifications-new-email-template > form > .row > .col-lg-9 .notifications-emails-template-placeholders-area > .panel-body .notifications-emails-template-placeholders,
+      .notifications-view .notifications-email-template > form > .row > .col-lg-9 .notifications-emails-template-placeholders-area > .panel-body .notifications-emails-template-placeholders {
+        margin: 5px 0;
+        padding: 0; }
+        .notifications-view .notifications-new-email-template > form > .row > .col-lg-9 .notifications-emails-template-placeholders-area > .panel-body .notifications-emails-template-placeholders li,
+        .notifications-view .notifications-email-template > form > .row > .col-lg-9 .notifications-emails-template-placeholders-area > .panel-body .notifications-emails-template-placeholders li {
+          margin-bottom: 20px;
+          list-style: none; }
+          .notifications-view .notifications-new-email-template > form > .row > .col-lg-9 .notifications-emails-template-placeholders-area > .panel-body .notifications-emails-template-placeholders li .notifications-emails-template-placeholder,
+          .notifications-view .notifications-email-template > form > .row > .col-lg-9 .notifications-emails-template-placeholders-area > .panel-body .notifications-emails-template-placeholders li .notifications-emails-template-placeholder {
+            margin-right: 15px;
+            padding: 5px;
+            font-size: 12px;
+            color: #000031;
+            background-color: #F8F8FC; }
+
+/*# sourceMappingURL=email-templates.css.map */

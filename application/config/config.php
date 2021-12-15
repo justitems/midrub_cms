@@ -21,34 +21,7 @@
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://www.examle.com/';
-/*
-|--------------------------------------------------------------------------
-| Enter Login Url
-|--------------------------------------------------------------------------
-| It is necessary to replace notification's placeholders.
-| 
-*/
-$config['login_url'] = 'http://www.examle.com/';
-/*
-|--------------------------------------------------------------------------
-| The Catcha Secret Key
-|--------------------------------------------------------------------------
-| Please add catcha secret key before enable the Report a Bug page
-| https://www.google.com/recaptcha/admin#list 
-|
-*/
-$config['captcha_site_key'] = '';
-$config['captcha_secret_key'] = '';
-/*
-  |--------------------------------------------------------------------------
-  | Gshorter Credientials
-  |--------------------------------------------------------------------------
-  | If you want allow users to short their URLs, please add the Google api key and your domain bellow
-  |
- */
-$config['google_api_key'] = '';
-$config['domain'] = '';
+$config['base_url'] = '';
 /*
 |--------------------------------------------------------------------------
 | Website Name
@@ -56,7 +29,7 @@ $config['domain'] = '';
 | Add website name. It is necessary.
 | 
 */
-$config['site_name'] = 'Midrub';
+$config['site_name'] = '';
 /*
 |--------------------------------------------------------------------------
 | Contact Email
@@ -322,7 +295,7 @@ $config['sess_regenerate_destroy'] = FALSE;
 |
 */
 $config['cookie_prefix']	= "";
-$config['cookie_domain']	= ".examle.com"; // Please don't use .examle.com/ or .sub.examle.com
+$config['cookie_domain']	= ""; // Please don't use .examle.com/ or .sub.examle.com
 $config['cookie_path']		= "/";
 $config['cookie_secure']	= FALSE;
 
@@ -349,7 +322,7 @@ $config['global_xss_filtering'] = TRUE;
 | 'csrf_cookie_name' = The cookie name
 | 'csrf_expire' = The number in seconds the token should expire.
 */
-$config['csrf_protection'] = FALSE;
+$config['csrf_protection'] = TRUE;
 $config['csrf_token_name'] = 'csrf_test_name';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
 $config['csrf_expire'] = 7200;

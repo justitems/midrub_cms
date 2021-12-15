@@ -10,7 +10,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Classes\Payments;
+namespace CmsBase\Classes\Payments;
 
 // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -43,7 +43,7 @@ class Gateways_options_templates {
         $checked = '';
 
         // Get input's value
-        $get_value = get_option($option['slug']);
+        $get_value = md_the_option($option['slug']);
 
         // Verify if the checkbox is checked
         if ( $get_value ) {
@@ -93,8 +93,8 @@ class Gateways_options_templates {
         // Verify if the option is enabled
         $value = '';
         
-        if ( get_option( $option['slug'] ) ) {
-            $value = get_option( $option['slug'] );
+        if ( md_the_option( $option['slug'] ) ) {
+            $value = md_the_option( $option['slug'] );
         }
 
         return '<li>'

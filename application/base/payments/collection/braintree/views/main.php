@@ -101,7 +101,7 @@
 </div>
 
 <!-- Authorization -->
-<div class="modal fade" id="load-authorization" tabindex="-1" role="dialog" aria-boostledby="load-authorization" aria-hidden="true">
+<div class="modal fade theme-modal" id="load-authorization" tabindex="-1" role="dialog" aria-boostledby="load-authorization" aria-hidden="true">
     <div class="modal-dialog modal-md modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">

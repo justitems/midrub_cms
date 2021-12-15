@@ -13,7 +13,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Classes\Components as MidrubBaseClassesComponents;
+use CmsBase\Classes\Components as CmsBaseClassesComponents;
 
 if ( !function_exists('md_set_admin_component_options') ) {
     
@@ -29,7 +29,7 @@ if ( !function_exists('md_set_admin_component_options') ) {
     function md_set_admin_component_options($args) {
         
         // Call the admin_options class
-        $admin_options = (new MidrubBaseClassesComponents\Admin_options);
+        $admin_options = (new CmsBaseClassesComponents\Admin_options);
 
         // Set component's options in the queue
         $admin_options->set_options($args);
@@ -50,7 +50,7 @@ if ( !function_exists('md_the_admin_component_options') ) {
     function md_the_admin_component_options() {
 
         // Call the admin_options class
-        $admin_options = (new MidrubBaseClassesComponents\Admin_options);
+        $admin_options = (new CmsBaseClassesComponents\Admin_options);
 
         // Return component's options
         return $admin_options->load_options();
@@ -80,13 +80,13 @@ if ( !function_exists('md_get_admin_component_options') ) {
             foreach ( $component_options as $component_option ) {
 
                 // Verify if class has the method
-                if ( method_exists((new MidrubBaseClassesComponents\Admin_options_templates), $component_option['type']) ) {
+                if ( method_exists((new CmsBaseClassesComponents\Admin_options_templates), $component_option['type']) ) {
 
                     // Set the method to call
                     $method = $component_option['type'];
 
                     // Display input
-                    echo (new MidrubBaseClassesComponents\Admin_options_templates)->$method($component_option);
+                    echo (new CmsBaseClassesComponents\Admin_options_templates)->$method($component_option);
                     
                 }
 

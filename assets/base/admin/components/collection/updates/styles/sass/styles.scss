@@ -1,0 +1,52 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../admin/default/styles/default_colors.scss";
+@import "../../../../../../admin/default/styles/default_fonts.scss";
+
+/*******************************
+UPDATES STYLES
+********************************/
+.updates-page {
+    padding-top: 50px;
+    
+    .container-fluid {
+        padding: 0;
+
+        .updates-no-updates-were-found {
+            padding: 15px 20px;
+            font-size: 14px;
+        }
+
+        .admin-update-field {
+            margin: -9px 0;
+
+            .card-header {
+
+                .btn {
+                    font-family: $default-font-2;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: $default-color-black;
+                }
+
+            }
+
+            .card-body {
+                min-height: 100px;
+                line-height: 22px;
+                font-family: $default-font-2;
+                font-size: 14px;
+                color: $default-color-black;
+
+                p {
+                    margin-bottom: 15px;
+                }
+
+            }
+
+        }
+
+    }
+    
+}

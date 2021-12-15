@@ -13,7 +13,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Auth\Classes\Reset as MidrubBaseAuthClassesReset;
+use CmsBase\Auth\Classes\Reset as CmsBaseAuthClassesReset;
 
 if ( !function_exists('md_auth_reset_password') ) {
     
@@ -29,7 +29,7 @@ if ( !function_exists('md_auth_reset_password') ) {
     function md_auth_reset_password($email) {
         
         // Call the reset class
-        $reset = (new MidrubBaseAuthClassesReset\Reset);
+        $reset = (new CmsBaseAuthClassesReset\Reset);
 
         // Try to reset the password
         $reset->reset_password($email);

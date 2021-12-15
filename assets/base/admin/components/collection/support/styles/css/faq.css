@@ -1,0 +1,227 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+DEFAULT GLOBAL COLORS
+********************************/
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Inter:wght@200;300;400;500;600&display=swap");
+/*******************************
+DEFAULT GLOBAL FONTS
+********************************/
+/*******************************
+DEFAULT MIXINGS FOR EDITOR
+********************************/
+/*******************************
+DEFAULT MIXINGS FOR BUTTONS
+********************************/
+/*******************************
+FRONTEND STYLES
+********************************/
+section {
+  padding-top: 50px; }
+  section .container-fluid {
+    padding: 0; }
+    section .container-fluid .support-view .create-new-faq-article {
+      padding-top: 15px;
+      padding-bottom: 15px; }
+      section .container-fluid .support-view .create-new-faq-article .note-editor.note-frame .note-editing-area {
+        border-radius: 3px;
+        min-height: 500px;
+        background-color: #fff;
+        overflow: hidden; }
+      section .container-fluid .support-view .create-new-faq-article .note-btn {
+        border: 0;
+        line-height: 21px;
+        -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.07);
+        box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.07); }
+      section .container-fluid .support-view .create-new-faq-article .note-editor.note-frame {
+        border: 0 !important; }
+        section .container-fluid .support-view .create-new-faq-article .note-editor.note-frame .note-toolbar {
+          position: initial;
+          z-index: 1;
+          border: 0;
+          background-color: transparent; }
+          section .container-fluid .support-view .create-new-faq-article .note-editor.note-frame .note-toolbar .dropdown-toggle::after {
+            display: none; }
+      section .container-fluid .support-view .create-new-faq-article .note-statusbar {
+        display: none; }
+      section .container-fluid .support-view .create-new-faq-article .note-editor.note-frame .note-status-output {
+        border: 0; }
+      section .container-fluid .support-view .create-new-faq-article .note-editor.note-frame .note-status-output:empty {
+        display: none; }
+      section .container-fluid .support-view .create-new-faq-article .note-statusbar {
+        display: none; }
+      section .container-fluid .support-view .create-new-faq-article .default-editor-title-input {
+        height: 55px;
+        margin-bottom: 15px;
+        font-size: 15px;
+        box-shadow: none !important;
+        border: 0 !important; }
+      section .container-fluid .support-view .create-new-faq-article .article-body {
+        display: none; }
+      section .container-fluid .support-view .create-new-faq-article > .row > .col-lg-3 > div > div {
+        margin-bottom: 20px; }
+        section .container-fluid .support-view .create-new-faq-article > .row > .col-lg-3 > div > div hr {
+          margin: 0;
+          border-top: 1px solid #d8e0e0; }
+        section .container-fluid .support-view .create-new-faq-article > .row > .col-lg-3 > div > div .theme-select {
+          width: 130px;
+          height: 36px; }
+        section .container-fluid .support-view .create-new-faq-article > .row > .col-lg-3 > div > div .theme-button-2 {
+          width: 130px;
+          height: 36px;
+          text-align: center;
+          color: #FFFFFF;
+          background-color: #4e9ef4;
+          box-shadow: none !important; }
+          section .container-fluid .support-view .create-new-faq-article > .row > .col-lg-3 > div > div .theme-button-2:hover {
+            background-color: #2E92FA; }
+        section .container-fluid .support-view .create-new-faq-article > .row > .col-lg-3 > div > div .card.theme-card-box .card-body {
+          min-height: 200px; }
+          section .container-fluid .support-view .create-new-faq-article > .row > .col-lg-3 > div > div .card.theme-card-box .card-body ul {
+            margin: 0;
+            padding: 0; }
+            section .container-fluid .support-view .create-new-faq-article > .row > .col-lg-3 > div > div .card.theme-card-box .card-body ul li {
+              list-style: none;
+              margin-bottom: 10px; }
+              section .container-fluid .support-view .create-new-faq-article > .row > .col-lg-3 > div > div .card.theme-card-box .card-body ul li.support-no-results-found {
+                margin: 0;
+                border-radius: 3px;
+                border: 0;
+                line-height: 30px;
+                font-weight: 400;
+                font-size: 14px;
+                background-color: #ffffff;
+                box-shadow: 0 1px 2px 0 #ced9e0; }
+              section .container-fluid .support-view .create-new-faq-article > .row > .col-lg-3 > div > div .card.theme-card-box .card-body ul li ul {
+                margin: 15px 0 0 15px;
+                padding-left: 15px; }
+              section .container-fluid .support-view .create-new-faq-article > .row > .col-lg-3 > div > div .card.theme-card-box .card-body ul li > .row {
+                position: relative;
+                margin: 0;
+                border-radius: 3px;
+                line-height: 30px;
+                font-weight: 400;
+                font-size: 14px;
+                background-color: #ffffff;
+                box-shadow: 0 1px 2px 0 #ced9e0; }
+              section .container-fluid .support-view .create-new-faq-article > .row > .col-lg-3 > div > div .card.theme-card-box .card-body ul li .theme-checkbox-input-1 .theme-checkbox-checkmark {
+                top: 9px; }
+                section .container-fluid .support-view .create-new-faq-article > .row > .col-lg-3 > div > div .card.theme-card-box .card-body ul li .theme-checkbox-input-1 .theme-checkbox-checkmark::after {
+                  font-size: 1.3em; }
+              section .container-fluid .support-view .create-new-faq-article > .row > .col-lg-3 > div > div .card.theme-card-box .card-body ul li .support-category-name {
+                display: block;
+                padding: 7px 15px 7px 40px;
+                color: #292F4C; }
+      section .container-fluid .support-view .create-new-faq-article .row > .col-lg-9 {
+        border-right: 1px solid #dde3ee; }
+        section .container-fluid .support-view .create-new-faq-article .row > .col-lg-9 .tab-pane > .row:last-child {
+          margin-bottom: 0 !important; }
+
+/*******************************
+MODAL STYLES
+********************************/
+#support-categories-popup-manager .modal-content .modal-body {
+  height: 500px;
+  overflow-y: scroll;
+  background-color: #f5f7fa; }
+  #support-categories-popup-manager .modal-content .modal-body .checkbox-option-select {
+    padding: 0;
+    display: inline-block;
+    margin-right: 10px; }
+    #support-categories-popup-manager .modal-content .modal-body .checkbox-option-select label::before {
+      margin-top: -6px;
+      border: 1px solid #cdcde6;
+      background-color: #f5f9fd; }
+  #support-categories-popup-manager .modal-content .modal-body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px #f5f7fa;
+    background-color: #F5F5F5; }
+  #support-categories-popup-manager .modal-content .modal-body::-webkit-scrollbar {
+    width: 7px;
+    background-color: #615f5c; }
+  #support-categories-popup-manager .modal-content .modal-body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #1a1a46;
+    border: 1px solid #F5F5F5; }
+  #support-categories-popup-manager .modal-content .modal-body ul {
+    margin: 0;
+    padding: 0; }
+    #support-categories-popup-manager .modal-content .modal-body ul li {
+      list-style: none;
+      margin-bottom: 10px; }
+      #support-categories-popup-manager .modal-content .modal-body ul li.support-no-results-found {
+        margin: 0;
+        border-radius: 3px;
+        border: 0;
+        line-height: 30px;
+        font-weight: 400;
+        font-size: 14px;
+        background-color: #ffffff;
+        box-shadow: 0 1px 2px 0 #ced9e0; }
+        #support-categories-popup-manager .modal-content .modal-body ul li.support-no-results-found p {
+          margin-bottom: 0;
+          padding: 7px 10px;
+          line-height: 30px;
+          font-size: 14px;
+          color: #292F4C; }
+      #support-categories-popup-manager .modal-content .modal-body ul li ul {
+        margin: 15px 0 0 15px;
+        padding-left: 15px; }
+      #support-categories-popup-manager .modal-content .modal-body ul li > .row {
+        margin: 0;
+        border-radius: 3px;
+        background-color: #ffffff;
+        box-shadow: 0 1px 2px 0 #ced9e0; }
+        #support-categories-popup-manager .modal-content .modal-body ul li > .row h3 {
+          margin-bottom: 0;
+          padding: 7px 10px;
+          line-height: 30px;
+          font-weight: 400;
+          font-size: 14px;
+          color: #292F4C; }
+        #support-categories-popup-manager .modal-content .modal-body ul li > .row .support-delete-category {
+          display: block;
+          margin-top: -2px;
+          padding: 7px 10px;
+          line-height: 30px;
+          color: #292F4C; }
+          #support-categories-popup-manager .modal-content .modal-body ul li > .row .support-delete-category svg {
+            width: 20px;
+            height: 22px; }
+#support-categories-popup-manager .modal-content .modal-footer {
+  padding: 15px 0; }
+  #support-categories-popup-manager .modal-content .modal-footer .support-new-category-link {
+    border-bottom: 1px solid transparent;
+    text-decoration: none;
+    color: #292F4C; }
+    #support-categories-popup-manager .modal-content .modal-footer .support-new-category-link:hover {
+      border-bottom: 1px solid #292F4C; }
+    #support-categories-popup-manager .modal-content .modal-footer .support-new-category-link:focus, #support-categories-popup-manager .modal-content .modal-footer .support-new-category-link:active {
+      border-bottom: 0;
+      text-decoration: none; }
+  #support-categories-popup-manager .modal-content .modal-footer form .support-save-category {
+    margin: 0;
+    padding: 0 12px;
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    line-height: 36px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px;
+    border-color: #2E92FA;
+    color: #FFFFFF;
+    background-color: #2E92FA;
+    box-shadow: inset 0 32px 0 rgba(0, 0, 0, 0);
+    overflow: hidden; }
+  #support-categories-popup-manager .modal-content .modal-footer form .dropdown .btn-secondary {
+    width: 100%;
+    text-align: left; }
+    #support-categories-popup-manager .modal-content .modal-footer form .dropdown .btn-secondary::after {
+      float: right;
+      margin-top: 8px; }
+
+/*# sourceMappingURL=faq.css.map */

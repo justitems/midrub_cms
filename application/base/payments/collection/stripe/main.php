@@ -10,16 +10,16 @@
  */
 
 // Define the namespace
-namespace MidrubBase\Payments\Collection\Stripe;
+namespace CmsBase\Payments\Collection\Stripe;
 
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
-defined('MIDRUB_BASE_PAYMENTS_STRIPE') OR define('MIDRUB_BASE_PAYMENTS_STRIPE', MIDRUB_BASE_PAYMENTS . 'collection/stripe/');
-defined('MIDRUB_BASE_PAYMENTS_STRIPE_VERSION') OR define('MIDRUB_BASE_PAYMENTS_STRIPE_VERSION', '0.0.1999997');
+defined('CMS_BASE_PAYMENTS_STRIPE') OR define('CMS_BASE_PAYMENTS_STRIPE', CMS_BASE_PAYMENTS . 'collection/stripe/');
+defined('CMS_BASE_PAYMENTS_STRIPE_VERSION') OR define('CMS_BASE_PAYMENTS_STRIPE_VERSION', '0.0.2');
 
 // Define the namespaces to use
-use MidrubBase\Payments\Interfaces as MidrubBasePaymentsInterfaces;
-use MidrubBase\Payments\Collection\Stripe\Controllers as MidrubBasePaymentsCollectionStripeControllers;
+use CmsBase\Payments\Interfaces as CmsBasePaymentsInterfaces;
+use CmsBase\Payments\Collection\Stripe\Controllers as CmsBasePaymentsCollectionStripeControllers;
 
 
 /*
@@ -29,7 +29,7 @@ use MidrubBase\Payments\Collection\Stripe\Controllers as MidrubBasePaymentsColle
  * @package Midrub
  * @since 0.0.8.0
  */
-class Main implements MidrubBasePaymentsInterfaces\Payments {
+class Main implements CmsBasePaymentsInterfaces\Payments {
     
     /**
      * Class variables
@@ -92,10 +92,10 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
     public function pay() {
 
         // Verify if the gateway is enabled
-        if ( get_option('stripe') ) {
+        if ( md_the_option('stripe') ) {
 
             // Instantiate the class
-            (new MidrubBasePaymentsCollectionStripeControllers\User)->view();
+            (new CmsBasePaymentsCollectionStripeControllers\User)->view();
         
         } else {
 
@@ -125,7 +125,7 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
         try {
             
             // Call method if exists
-            (new MidrubBasePaymentsCollectionStripeControllers\Ajax)->$action();
+            (new CmsBasePaymentsCollectionStripeControllers\Ajax)->$action();
             
         } catch (Exception $ex) {
             
@@ -150,7 +150,7 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
     public function cron_jobs() {
 
         // Process the subscriptions
-        (new MidrubBasePaymentsCollectionStripeControllers\Cron)->subscriptions();        
+        (new CmsBasePaymentsCollectionStripeControllers\Cron)->subscriptions();        
         
     }
     
@@ -166,7 +166,7 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
     public function load_hooks($category) {
 
         // Load the admin's language files
-        $this->CI->lang->load( 'stripe_admin', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_PAYMENTS_STRIPE );
+        $this->CI->lang->load( 'stripe_admin', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_PAYMENTS_STRIPE );
 
         // Load hooks by category
         switch ($category) {
@@ -175,10 +175,10 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
             case 'admin_init':
 
                 // Verify if admin has opened the settings component
-                if ( ( md_the_component_variable('component') === 'settings' ) || ( md_the_component_variable('component') === 'plans' ) || ( md_the_component_variable('component') === 'upgrade' ) ) {
+                if ( ( md_the_data('component') === 'settings' ) || ( md_the_data('component') === 'plans' ) || ( md_the_data('component') === 'upgrade' ) ) {
 
                     // Require the admin file
-                    require_once MIDRUB_BASE_PAYMENTS_STRIPE . '/inc/admin.php';
+                    require_once CMS_BASE_PAYMENTS_STRIPE . '/inc/admin.php';
 
                 }
 
@@ -197,13 +197,11 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
      */
     public function guest() {
 
-        
-
         // Request the Stripe's vendor
-        require_once MIDRUB_BASE_PAYMENTS_STRIPE . 'vendor/autoload.php';
+        require_once CMS_BASE_PAYMENTS_STRIPE . 'vendor/autoload.php';
 
         // Set the configuration's parameters
-        \Stripe\Stripe::setApiKey(get_option('stripe_secret_key'));
+        \Stripe\Stripe::setApiKey(md_the_option('stripe_secret_key'));
 
         // Get payload
         $payload = json_decode(file_get_contents('php://input'), true);
@@ -217,7 +215,7 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
                 case 'customer.subscription.updated':
 
                     // Get the subscribtion saved in the database
-                    $subscription = $this->CI->base_model->get_data_where('subscriptions', '*', array(
+                    $subscription = $this->CI->base_model->the_data_where('subscriptions', '*', array(
                         'net_id' => $payload['data']['object']['id'],
                         'gateway' => 'stripe'
                     ));
@@ -226,13 +224,13 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
                     if ( $subscription ) {
 
                         // Get the first transaction by subscribtion
-                        $transaction = $this->CI->base_model->get_data_where('transactions', '*', array(
+                        $transaction = $this->CI->base_model->the_data_where('transactions', '*', array(
                             'net_id' => $payload['data']['object']['id'],
                             'gateway' => 'stripe'
                         ));
 
                         // Get the transaction by transaction's id
-                        $verify_transaction = $this->CI->base_model->get_data_where('transactions', '*', array(
+                        $verify_transaction = $this->CI->base_model->the_data_where('transactions', '*', array(
                             'net_id' => $payload['data']['object']['id'],
                             'gateway' => 'stripe'
                         ));
@@ -261,7 +259,7 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
                                 if ( $transaction_id ) {
 
                                     // Get all fields
-                                    $fields = $this->CI->base_model->get_data_where('transactions_fields', '*', array(
+                                    $fields = $this->CI->base_model->the_data_where('transactions_fields', '*', array(
                                         'transaction_id' => $transaction[0]['transaction_id']
                                     ));
 
@@ -286,7 +284,7 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
                                     }
                                     
                                     // Get all options
-                                    $options = $this->CI->base_model->get_data_where('transactions_options', '*', array(
+                                    $options = $this->CI->base_model->the_data_where('transactions_options', '*', array(
                                         'transaction_id' => $transaction[0]['transaction_id']
                                     ));
 
@@ -323,10 +321,13 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
                 case 'customer.subscription.deleted':
 
                     // Get the subscribtion saved in the database
-                    $subscription = $this->CI->base_model->get_data_where('subscriptions', '*', array(
+                    $subscription = $this->CI->base_model->the_data_where('subscriptions', '*', array(
                         'net_id' => $payload['data']['object']['id'],
                         'gateway' => 'stripe'
                     ));
+
+                    // Delete subscription's mark
+                    delete_user_option($subscription[0]['user_id'], 'subscription');
 
                     // Verify if subscribtion exists
                     if ( $subscription ) {
@@ -341,7 +342,7 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
                         if ( $transaction ) {
                                 
                             // Get all options
-                            $options = $this->CI->base_model->get_data_where('transactions_options', '*', array(
+                            $options = $this->CI->base_model->the_data_where('transactions_options', '*', array(
                                 'transaction_id' => $transaction[0]['transaction_id']
                             ));
 
@@ -396,11 +397,14 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
         // Verify if the subscription's id exists
         if ( isset($subscription['net_id']) ) {
 
+            // Delete subscription's mark
+            delete_user_option($subscription['user_id'], 'subscription');
+
             // Request the Stripe's vendor
-            require_once MIDRUB_BASE_PAYMENTS_STRIPE . 'vendor/autoload.php';
+            require_once CMS_BASE_PAYMENTS_STRIPE . 'vendor/autoload.php';
 
             // Set the configuration's parameters
-            \Stripe\Stripe::setApiKey(get_option('stripe_secret_key'));
+            \Stripe\Stripe::setApiKey(md_the_option('stripe_secret_key'));
 
             // Get the subscription
             $get_subscription = \Stripe\Subscription::retrieve(
@@ -424,11 +428,11 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
     public function gateway_info() {
 
         // Load language
-        $this->CI->lang->load( 'stripe_admin', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_PAYMENTS_STRIPE );
+        $this->CI->lang->load( 'stripe_admin', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_PAYMENTS_STRIPE );
 
         // Create and return array
         return array(
-            'gateway' => $this->CI->lang->line('Stripe'),
+            'gateway' => 'Stripe',
             'configuration' => array(
                 array(
                     'type' => 'text_input',
@@ -451,3 +455,5 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
     }
 
 }
+
+/* End of file main.php */

@@ -1,0 +1,7 @@
+{
+    "version": "0.1",
+    "required": "0.0.8.4",
+    "php": "php.zip",
+    "assets": "assets.zip",
+    "type": "plugins"
+}

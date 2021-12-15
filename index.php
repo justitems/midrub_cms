@@ -66,7 +66,7 @@ switch (ENVIRONMENT)
 {
 	case 'development':
 		error_reporting(E_ALL);
-		ini_set('display_errors', 0);
+		ini_set('display_errors', 1);
 	break;
 
 	case 'testing':
@@ -307,7 +307,7 @@ switch (ENVIRONMENT)
  * DEFINE MIDRUB VERSION
  * --------------------------------------------------------------------
  */
-define('MD_VER', '0.0.8.3b3');        
+define('MD_VER', '0.0.8.5999999997');        
 /*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE

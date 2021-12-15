@@ -14,7 +14,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Payments\Interfaces;
+namespace CmsBase\Payments\Interfaces;
 
 // Define the Constants
 defined('BASEPATH') OR exit('No direct script access allowed');

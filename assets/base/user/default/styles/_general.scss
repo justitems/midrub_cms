@@ -1,0 +1,19 @@
+/*******************************
+GENERAL MIXINGS
+********************************/
+
+@mixin crm-placeholder {
+
+    &::placeholder {
+        color: #8D8D8D;
+    }
+      
+    &:-ms-input-placeholder {
+        color: #8D8D8D;
+    }
+      
+    &::-ms-input-placeholder {
+        color: #8D8D8D;
+    }
+
+}

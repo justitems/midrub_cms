@@ -1,0 +1,11 @@
+/*******************************
+MENU STYLES
+********************************/
+.user-menu-page .navbar .navbar-header .theme-button-2 {
+  display: none; }
+.user-menu-page .user-delete-menu-item {
+  line-height: 28px; }
+  .user-menu-page .user-delete-menu-item svg {
+    margin-top: -4px; }
+
+/*# sourceMappingURL=menu.css.map */

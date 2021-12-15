@@ -10,20 +10,20 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth;
+namespace CmsBase\Auth;
 
 // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
-defined('MIDRUB_BASE_AUTH') OR define('MIDRUB_BASE_AUTH', APPPATH . 'base/auth/');
+defined('CMS_BASE_AUTH') OR define('CMS_BASE_AUTH', APPPATH . 'base/auth/');
 
 // Require the contents_read function file
 require_once APPPATH . 'base/inc/contents/contents_read.php';
 
 // Require the auth contents functions file
-require_once MIDRUB_BASE_PATH . 'auth/inc/contents/contents.php';
+require_once CMS_BASE_PATH . 'auth/inc/contents/contents.php';
 
 // Require the auth general functions file
-require_once MIDRUB_BASE_PATH . 'auth/inc/general.php';
+require_once CMS_BASE_PATH . 'auth/inc/general.php';
 
 /*
  * Main is the auth's base loader
@@ -52,8 +52,8 @@ class Main {
         $this->CI =& get_instance();
 
         // Load the language files
-        if ( file_exists( MIDRUB_BASE_AUTH . '/language/' . $this->CI->config->item('language') . '/auth_lang.php' ) ) {
-            $this->CI->lang->load( 'auth', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_AUTH . '/' );
+        if ( file_exists( CMS_BASE_AUTH . '/language/' . $this->CI->config->item('language') . '/auth_lang.php' ) ) {
+            $this->CI->lang->load( 'auth', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH . '/' );
         }
         
     }
@@ -80,7 +80,7 @@ class Main {
         $component = $dynamic_slug;
 
         // Get page component by page slug
-        $get_component = $this->CI->base_model->get_data_where('contents', 'content_id, contents_component', array('contents_slug' => 'auth/' . $component));
+        $get_component = $this->CI->base_model->the_data_where('contents', 'content_id, contents_component', array('contents_slug' => 'auth/' . $component));
 
         // Verify if the component was found
         if ( $get_component ) {
@@ -102,7 +102,7 @@ class Main {
         }
 
         // Set current component
-        md_set_component_variable('component', $component);
+        md_set_data('component', $component);
 
         // Verify which component we have
         switch ( $component ) {
@@ -225,14 +225,14 @@ class Main {
     public function load_hooks($category) {
 
         // Register all auth components hooks
-        foreach (glob(MIDRUB_BASE_PATH . 'auth/collection/*', GLOB_ONLYDIR) as $dir) {
+        foreach (glob(CMS_BASE_PATH . 'auth/collection/*', GLOB_ONLYDIR) as $dir) {
 
             // Get the dir name
             $com_dir = trim(basename($dir) . PHP_EOL);
 
             // Create an array
             $array = array(
-                'MidrubBase',
+                'CmsBase',
                 'Auth',
                 'Collection',
                 ucfirst($com_dir),
@@ -283,7 +283,7 @@ class Main {
 
         // Create an array
         $array = array(
-            'MidrubBase',
+            'CmsBase',
             'Auth',
             'Collection',
             ucfirst($component),
@@ -328,7 +328,7 @@ class Main {
 
         // Create an array
         $array = array(
-            'MidrubBase',
+            'CmsBase',
             'Auth',
             'Collection',
             ucfirst($component),

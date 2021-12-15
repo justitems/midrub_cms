@@ -33,31 +33,73 @@ md_set_gateway(
         'gateway_color' => '#202020',
         'fields' => array (
 
-            array (
-                'type' => 'checkbox_input',
-                'slug' => 'braintree',
-                'label' => $CI->lang->line('braintree_enable'),
-                'label_description' => $CI->lang->line('braintree_enable_description')
-            ), array (
-                'type' => 'text_input',
-                'slug' => 'braintree_merchant_id',
-                'label' => $CI->lang->line('braintree_merchant_id'),
-                'label_description' => $CI->lang->line('braintree_merchant_id_description')
-            ), array (
-                'type' => 'text_input',
-                'slug' => 'braintree_merchant_account_id',
-                'label' => $CI->lang->line('braintree_merchant_account_id'),
-                'label_description' => $CI->lang->line('braintree_merchant_account_id_description')
-            ), array (
-                'type' => 'text_input',
-                'slug' => 'braintree_public_key',
-                'label' => $CI->lang->line('braintree_public_key'),
-                'label_description' => $CI->lang->line('braintree_public_key_description')
-            ), array (
-                'type' => 'text_input',
-                'slug' => 'braintree_private_key',
-                'label' => $CI->lang->line('braintree_private_key'),
-                'label_description' => $CI->lang->line('braintree_private_key_description')
+            array(
+                'field_slug' => 'gateway_braintree_enabled',
+                'field_type' => 'checkbox',
+                'field_words' => array(
+                    'field_title' => $CI->lang->line('braintree_enable'),
+                    'field_description' => $CI->lang->line('braintree_enable_description')
+                ),
+                'field_params' => array(
+                    'checked' => md_the_option('gateway_braintree_enabled')?md_the_option('gateway_braintree_enabled'):0
+                )
+
+            ),
+            array(
+                'field_slug' => 'braintree_merchant_id',
+                'field_type' => 'text',
+                'field_words' => array(
+                    'field_title' => $CI->lang->line('braintree_merchant_id'),
+                    'field_description' => $CI->lang->line('braintree_merchant_id_description')
+                ),
+                'field_params' => array(
+                    'placeholder' => $CI->lang->line('braintree_enter_merchant'),
+                    'value' => md_the_option('braintree_merchant_id')?md_the_option('braintree_merchant_id'):'',
+                    'disabled' => false
+                )
+
+            ),
+            array(
+                'field_slug' => 'braintree_merchant_account_id',
+                'field_type' => 'text',
+                'field_words' => array(
+                    'field_title' => $CI->lang->line('braintree_merchant_account_id'),
+                    'field_description' => $CI->lang->line('braintree_merchant_account_id_description')
+                ),
+                'field_params' => array(
+                    'placeholder' => $CI->lang->line('braintree_enter_merchant_account_id'),
+                    'value' => md_the_option('braintree_merchant_account_id')?md_the_option('braintree_merchant_account_id'):'',
+                    'disabled' => false
+                )
+
+            ),            
+            array(
+                'field_slug' => 'braintree_public_key',
+                'field_type' => 'text',
+                'field_words' => array(
+                    'field_title' => $CI->lang->line('braintree_public_key'),
+                    'field_description' => $CI->lang->line('braintree_public_key_description')
+                ),
+                'field_params' => array(
+                    'placeholder' => $CI->lang->line('braintree_enter_api_key'),
+                    'value' => md_the_option('braintree_public_key')?md_the_option('braintree_public_key'):'',
+                    'disabled' => false
+                )
+
+            ),
+            array(
+                'field_slug' => 'braintree_private_key',
+                'field_type' => 'text',
+                'field_words' => array(
+                    'field_title' => $CI->lang->line('braintree_private_key'),
+                    'field_description' => $CI->lang->line('braintree_private_key_description')
+                ),
+                'field_params' => array(
+                    'placeholder' => $CI->lang->line('braintree_enter_api_private_key'),
+                    'value' => md_the_option('braintree_private_key')?md_the_option('braintree_private_key'):'',
+                    'disabled' => false
+                )
+
             )
             
         )

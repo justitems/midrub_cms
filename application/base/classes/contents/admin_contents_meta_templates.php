@@ -10,12 +10,12 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Classes\Contents;
+namespace CmsBase\Classes\Contents;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Classes\Contents as MidrubBaseClassesContents;
+use CmsBase\Classes\Contents as CmsBaseClassesContents;
 
 /*
  * Admin_contents_meta_templates class loads the methods to generates meta templates for contents meta fields
@@ -50,7 +50,7 @@ class Admin_contents_meta_templates {
         // Verify if the label's description isn't empty
         if ( isset($field['label_description']) ) {
 
-            $label_description = '<small class="form-text text-muted">'
+            $label_description = '<small class="form-text text-muted theme-small">'
                                     . $field['label_description']
                                 . '</small>';
 
@@ -81,9 +81,9 @@ class Admin_contents_meta_templates {
 
         }
 
-        return '<div class="form-group">'
-                    . '<label for="contents-meta-field-' . $field['slug'] . '">' . $field['label'] . '</label>'
-                    . '<input type="text" class="form-control contents-meta-text-input" id="contents-meta-field-' . $field['slug'] . '"' . $input_placeholder . $value . ' data-slug="' . $field['slug'] . '" data-meta="' . $field['meta_slug'] . '">'
+        return '<div class="form-group mb-3">'
+                    . '<label class="theme-label" for="contents-meta-field-' . $field['slug'] . '">' . $field['label'] . '</label>'
+                    . '<input type="text" name="contents-meta-text-input-' . time() . '" class="form-control theme-text-input-1 contents-meta-text-input" id="contents-meta-field-' . $field['slug'] . '"' . $input_placeholder . $value . ' data-slug="' . $field['slug'] . '" data-meta="' . $field['meta_slug'] . '">'
                     . $label_description
                 . '</div>';
 
@@ -117,15 +117,15 @@ class Admin_contents_meta_templates {
         return '<div class="form-group">'
                     . '<div class="row">'
                         . '<div class="col-lg-8 col-md-8 col-xs-12">'
-                            . '<h4>'
+                            . '<label class="theme-label" for="checkbox_' . $field['slug'] . '_' . $language . '">'
                                 . $field['label']
-                            . '</h4>'
-                            . '<p>'
+                            . '</label>'
+                            . '<small class="form-text text-muted theme-small">'
                                 . $field['label_description']
-                            . '</p>'
+                            . '</small>'
                         . '</div>'
-                        . '<div class="col-lg-4 col-md-4 col-xs-12 text-right">'
-                            . '<div class="checkbox-option pull-right">'
+                        . '<div class="col-lg-4 col-md-4 col-xs-12 text-end">'
+                            . '<div class="checkbox-option theme-checkbox-input-2">'
                                 . '<input id="checkbox_' . $field['slug'] . '_' . $language . '" name="checkbox_' . $field['slug'] . '_' . $language . '" class="contents-meta-checkbox-input" type="checkbox" data-slug="' . $field['slug'] . '" data-meta="' . $field['meta_slug'] . '"' . $checked . '>'
                                 . '<label for="checkbox_' . $field['slug'] . '_' . $language . '"></label>'
                             . '</div>'
@@ -153,7 +153,7 @@ class Admin_contents_meta_templates {
         // Verify if the label's description isn't empty
         if ( isset($field['label_description']) ) {
 
-            $label_description = '<small class="form-text text-muted">'
+            $label_description = '<small class="form-text text-muted theme-small">'
                                     . $field['label_description']
                                 . '</small>';
 
@@ -184,15 +184,13 @@ class Admin_contents_meta_templates {
 
         }
 
-        return '<div class="form-group">'
-                    . '<label for="contents-meta-field-' . $field['slug'] . '">' . $field['label'] . '</label>'
-                    . '<div class="input-group">'
-                        . '<input type="text" class="form-control contents-meta-text-input" id="contents-meta-field-' . $field['slug'] . '"' . $input_placeholder . $value . ' data-slug="' . $field['slug'] . '" data-meta="' . $field['meta_slug'] . '">'
-                        . '<div class="input-group-addon">'
-                            . '<button type="button" class="input-group-append multimedia-manager-btn btn-default" data-toggle="modal" data-target="#multimedia-manager">'
-                                . '<i class="fas fa-photo-video"></i>'
-                            . '</button>'
-                        . '</div>'
+        return '<div class="form-group mb-3">'
+                    . '<label class="theme-label" for="contents-meta-field-' . $field['slug'] . '">' . $field['label'] . '</label>'
+                    . '<div class="input-group theme-input-group-2">'
+                        . '<input type="text" name="contents-meta-text-input-' . time() . '" class="form-control theme-text-input-1 contents-meta-text-input" id="contents-meta-field-' . $field['slug'] . '"' . $input_placeholder . $value . ' data-slug="' . $field['slug'] . '" data-meta="' . $field['meta_slug'] . '">'                       
+                        . '<button type="button" class="input-group-append multimedia-manager-btn btn" data-bs-toggle="modal" data-bs-target="#theme-upload-media-modal">'
+                            . md_the_admin_icon(array('icon' => 'medias'))
+                        . '</button>'
                     . '</div>'
                     . $label_description
                 . '</div>';
@@ -218,7 +216,7 @@ class Admin_contents_meta_templates {
         $selected = '';
 
         // Call the contents_read class
-        $contents_read = (new MidrubBaseClassesContents\Contents_read);
+        $contents_read = (new CmsBaseClassesContents\Contents_read);
 
         // Verify if content exists
         if ($contents_read::$the_single_content) {
@@ -235,37 +233,49 @@ class Admin_contents_meta_templates {
         }
 
 
-        $search_input = '<div class="card-head">'
-            . '<input type="text" class="search-dropdown-items editor-dropdown-search-input ' . $field['slug'] . '_search" placeholder="' . $CI->lang->line('frontend_search_pages') . '">'
-        . '</div>';
+        $search_input = '<input type="text" class="search-dropdown-items editor-dropdown-search-input ' . $field['slug'] . '_search" placeholder="' . $CI->lang->line('frontend_search_pages') . '">';
+
+        $label_description = '';
+
+        // Verify if the label's description isn't empty
+        if ( isset($field['label_description']) ) {
+
+            $label_description = '<small class="form-text text-muted theme-small">'
+                                    . $field['label_description']
+                                . '</small>';
+
+        }
 
         return '<div class="form-group">'
                     . '<div class="row">'
-                        . '<div class="col-lg-8 col-md-8 col-xs-12">'
-                            . '<h4>'
-                                . $field['label']
-                            . '</h4>'
-                            . '<p>'
-                                . $field['label_description']
-                            . '</p>'
+                        . '<div class="col-12">'
+                            . '<label class="theme-label" for="contents-meta-field-' . $field['slug'] . '">' . $field['label'] . '</label>'
                         . '</div>'
-                        . '<div class="col-lg-4 col-md-4 col-xs-12 text-right">'
-                            . '<div class="dropdown" data-option="' . $field['slug'] . '">'
-                                . '<button class="btn btn-secondary meta-dropdown-btn dropdown-toggle ' . $field['slug'] . '" type="button" data-toggle="dropdown" data-meta="selected_page"' . $selected . '>'
-                                    . $CI->lang->line('frontend_settings_select_page')
+                    . '</div>'
+                    . '<div class="row">'             
+                        . '<div class="col-12">'
+                            . '<div class="dropdown theme-dropdown-1" data-option="' . $field['slug'] . '">'
+                                . '<button type="button" class="btn btn-secondary meta-dropdown-btn dropdown-toggle ' . $field['slug'] . ' d-flex justify-content-between" aria-expanded="false" data-bs-toggle="dropdown" data-meta="selected_page"' . $selected . '>'
+                                    . '<span>'
+                                        . $CI->lang->line('frontend_settings_select_page')
+                                    . '</span>'
+                                    . md_the_admin_icon(array('icon' => 'arrow_down', 'class' => 'theme-dropdown-arrow-icon'))
                                 . '</button>'
                                 . '<div class="dropdown-menu" aria-labelledby="dropdown-items">'
-                                    . '<div class="card">'
-                                        . $search_input
-                                        . '<div class="card-body">'
-                                            . '<ul class="list-group ' . $field['slug'] . '_list meta-dropdown-list-ul">'
-                                            . '</ul>'
-                                        . '</div>'
+                                    . $search_input
+                                    . '<div>'
+                                        . '<ul class="list-group ' . $field['slug'] . '_list meta-dropdown-list-ul">'
+                                        . '</ul>'
                                     . '</div>'
                                 . '</div>'
                             . '</div>'
                         . '</div>'
                     . '</div>'
+                    . '<div class="row">'
+                        . '<div class="col-12">'
+                            . $label_description
+                        . '</div>'
+                    . '</div>'                    
                 . '</div>';
                 
 
@@ -287,9 +297,9 @@ class Admin_contents_meta_templates {
         // Verify if the label's description isn't empty
         if ( isset($field['label_description']) ) {
 
-            $label_description = '<p>'
+            $label_description = '<small class="form-text text-muted theme-small">'
                                     . $field['label_description']
-                                . '</p>';
+                                . '</small>';
 
         }
 
@@ -309,13 +319,13 @@ class Admin_contents_meta_templates {
 
         }
 
-        return '<div class="form-group summer-area">'
-                . '<label for="contents-meta-field-' . $field['slug'] . '">' . $field['label'] . '</label>'
-                    . $label_description
+        return '<div class="form-group summer-area mb-3">'
+                . '<label class="theme-label" for="contents-meta-field-' . $field['slug'] . '">' . $field['label'] . '</label>'
+                . $label_description
                 . '<div class="row">'
                     . '<div class="col-lg-12">'
                         . '<div class="summernote-editor body-' . $field['slug'] . '" data-dir="body-' . $field['slug'] . '"></div>'
-                        . '<textarea class="editor-body editor-body-' . $field['slug'] . ' hidden" data-slug="' . $field['slug'] . '" data-meta="' . $field['meta_slug'] . '">' . $value . '</textarea>'
+                        . '<textarea class="editor-body editor-body-' . $field['slug'] . ' d-none" data-slug="' . $field['slug'] . '" data-meta="' . $field['meta_slug'] . '">' . $value . '</textarea>'
                     . '</div>'
                 . '</div>'
             . '</div>';

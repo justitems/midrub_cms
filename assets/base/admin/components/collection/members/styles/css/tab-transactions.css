@@ -1,0 +1,71 @@
+/*******************************
+MEMBERS TRANSACTIONS STYLES
+********************************/
+.members-page .panel .panel-body #members-member-tab-transactions .list-transactions {
+  margin: 0;
+  padding: 0; }
+  .members-page .panel .panel-body #members-member-tab-transactions .list-transactions li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: #FFFFFF;
+    border-radius: 2px;
+    border: 0;
+    padding: 15px;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+    border-bottom: 1px solid #f5f5f5;
+    font-family: Open Sans,sans-serif;
+    font-weight: 400; }
+    .members-page .panel .panel-body #members-member-tab-transactions .list-transactions li:last-child {
+      border-bottom: 0; }
+    .members-page .panel .panel-body #members-member-tab-transactions .list-transactions li .col-lg-10 i {
+      font-size: 18px;
+      float: left;
+      margin-right: 5px; }
+    .members-page .panel .panel-body #members-member-tab-transactions .list-transactions li a {
+      color: #000031; }
+      .members-page .panel .panel-body #members-member-tab-transactions .list-transactions li a:hover {
+        text-decoration: none;
+        border-bottom: 1px solid #000031; }
+    .members-page .panel .panel-body #members-member-tab-transactions .list-transactions li .label-default {
+      background-color: #F8F8FC;
+      color: #000031; }
+    .members-page .panel .panel-body #members-member-tab-transactions .list-transactions li .label-primary {
+      background-color: #eaeef8;
+      color: #000031; }
+    .members-page .panel .panel-body #members-member-tab-transactions .list-transactions li .label-danger {
+      background-color: #f3ebed;
+      color: #000031; }
+.members-page .panel .panel-body #members-member-tab-transactions .pagination-area {
+  margin-top: 20px;
+  background-color: #FFFFFF;
+  border-radius: 2px;
+  border: 0;
+  padding: 10px 10px 10px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+  display: none; }
+  .members-page .panel .panel-body #members-member-tab-transactions .pagination-area .pagination {
+    margin: 5px 5px 0;
+    border: 1px solid #cdcde6;
+    font-family: Open Sans,sans-serif;
+    font-weight: 400; }
+    .members-page .panel .panel-body #members-member-tab-transactions .pagination-area .pagination li a,
+    .members-page .panel .panel-body #members-member-tab-transactions .pagination-area .pagination li span {
+      line-height: 22px;
+      border: 0;
+      color: #6c757d;
+      background-color: #f5f9fd; }
+      .members-page .panel .panel-body #members-member-tab-transactions .pagination-area .pagination li a:hover,
+      .members-page .panel .panel-body #members-member-tab-transactions .pagination-area .pagination li span:hover {
+        text-decoration: none;
+        opacity: 0.7; }
+    .members-page .panel .panel-body #members-member-tab-transactions .pagination-area .pagination li.pagehide, .members-page .panel .panel-body #members-member-tab-transactions .pagination-area .pagination li.active {
+      pointer-events: none; }
+      .members-page .panel .panel-body #members-member-tab-transactions .pagination-area .pagination li.pagehide a, .members-page .panel .panel-body #members-member-tab-transactions .pagination-area .pagination li.active a {
+        background-color: #FFFFFF !important; }
+  .members-page .panel .panel-body #members-member-tab-transactions .pagination-area p {
+    padding: 12px 10px 0; }
+
+/*# sourceMappingURL=tab-transactions.css.map */

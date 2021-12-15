@@ -10,13 +10,16 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Classes\Signup;
+namespace CmsBase\Auth\Classes\Signup;
 
 // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// Require the User General Inc
+require_once CMS_BASE_USER . 'inc/general.php';
+
 // Define the namespaces to use
-use MidrubBase\Classes\Email as MidrubBaseClassesEmail;
+use CmsBase\Classes\Email as CmsBaseClassesEmail;
 
 /*
  * Signup class loads the properties and methods for signup process
@@ -45,13 +48,10 @@ class Signup {
         $this->CI =& get_instance();
 
         // Load the Base Users Model
-        $this->CI->load->ext_model( MIDRUB_BASE_PATH . 'models/', 'Base_users', 'base_users' );
+        $this->CI->load->ext_model( CMS_BASE_PATH . 'models/', 'Base_users', 'base_users' );
 
         // Load Base Plans Model
-        $this->CI->load->ext_model( MIDRUB_BASE_PATH . 'models/', 'Base_plans', 'base_plans' );
-
-        // Load Plans Model
-        $this->CI->load->model('plans');
+        $this->CI->load->ext_model( CMS_BASE_PATH . 'models/', 'Base_plans', 'base_plans' );
 
         // Load the bcrypt library
         $this->CI->load->library('bcrypt');
@@ -179,7 +179,7 @@ class Signup {
             }
 
             // Verify if user should confirm his signup
-            if ( get_option('signup_confirm') AND !isset($args['status']) ) {
+            if ( md_the_option('signup_confirm') AND !isset($args['status']) ) {
             
                 // Set the status
                 $user_args['status'] = 0;
@@ -219,7 +219,7 @@ class Signup {
                         $plan_id = $args['plan_id'];
 
                         // Set the user plan
-                        $this->CI->plans->change_plan($plan_id, $user_id);
+                        $this->CI->base_plans->change_plan($plan_id, $user_id);
 
                     }
 
@@ -234,7 +234,7 @@ class Signup {
                 if ( (int)$plan_data[0]['plan_price'] && !$plan_data[0]['trial'] ) {
 
                     // Set non paid data for the user
-                    update_user_option($user_id, 'nonpaid', 1);
+                    md_update_user_option($user_id, 'nonpaid', 1);
 
                 }
 
@@ -247,11 +247,11 @@ class Signup {
                     // Verify if referrer is valid
                     if ( is_numeric( $referrer ) ) {
                         
-                        // Load Referrals model
-                        $this->CI->load->model('referrals');
+                        // Load Referrals Model
+                        $this->CI->load->ext_model( CMS_BASE_PATH . 'models/', 'Base_referrals', 'base_referrals' );
                         
                         // Save referral
-                        $this->CI->referrals->save_referrals($referrer, $user_id, $plan_id);
+                        $this->CI->base_referrals->save_referrals($referrer, $user_id, $plan_id);
                         
                         // Delete session
                         $this->CI->session->unset_userdata('referrer');
@@ -260,40 +260,58 @@ class Signup {
                     
                 }
 
-                // Load Notifications Model
-                $this->CI->load->model('notifications');
+                // Set first name
+                $first_name = isset($args['first_name'])?$args['first_name']:'';
+    
+                // Set last name
+                $last_name = isset($args['last_name'])?$args['last_name']:'';                
 
                 // Verify if the administrator wants to receive a notification about new users
-                if ( get_option('enable_new_user_notification') ) {
+                if ( md_the_option('enable_new_user_notification') ) {
 
-                    // Get the new-user-notification notification template and send it
-                    $notification_args = array(
-                        '[username]' => $args['username'],
-                        '[site_name]' => '<a href="' . base_url() . '">' . $this->CI->config->item('site_name') . '</a>',
-                        '[login_address]' => '<a href="' . $this->CI->config->item('login_url') . '">' . $this->CI->config->item('login_url') . '</a>',
-                        '[site_url]' => '<a href="' . base_url() . '">' . base_url() . '</a>'
+                    // Placeholders
+                    $placeholders = array('[username]', '[first_name]', '[last_name]', '[login_url]');
+
+                    // Replacers
+                    $replacers = array(
+                        $args['username'],
+                        $first_name,
+                        $last_name,
+                        md_the_url_by_page_role('sign_in') ? md_the_url_by_page_role('sign_in') : site_url('auth/signin')
                     );
 
-                    // Get template
-                    $template = $this->CI->notifications->get_template('new-user-notification', $notification_args);
+                    // Default subject
+                    $subject = $this->CI->lang->line('auth_signup_new_user_notification_title');
 
-                    // Verify if template exists
-                    if ($template) {
+                    // Default body
+                    $body = $this->CI->lang->line('auth_signup_new_user_notification_content');
 
-                        // Create email
-                        $email_args = array(
-                            'from_name' => $this->CI->config->item('site_name'),
-                            'from_email' => $this->CI->config->item('contact_mail'),
-                            'to_email' => $this->CI->config->item('notification_mail'),
-                            'subject' => $template['title'],
-                            'body' => $template['body']
-                        );
+                    // Get welcome template
+                    $reset_template = the_admin_notifications_email_template('signup_new_user_notification', $this->CI->config->item('language'));
 
-                        // Send template
-                        (new MidrubBaseClassesEmail\Send())->send_mail($email_args);
+                    // Verify if $reset_template exists
+                    if ( $reset_template ) {
 
+                        // New subject
+                        $subject = $reset_template[0]['template_title'];
+
+                        // New body
+                        $body = $reset_template[0]['template_body'];
 
                     }
+
+                    // Create email
+                    $email_args = array(
+                        'from_name' => $this->CI->config->item('site_name'),
+                        'from_email' => $this->CI->config->item('contact_mail'),
+                        'to_email' => $this->CI->config->item('notification_mail'),
+                        'subject' => str_replace($placeholders, $replacers, $subject),
+                        'body' => str_replace($placeholders, $replacers, $body)
+                    );
+
+                    // Send notification template
+                    (new CmsBaseClassesEmail\Send())->send_mail($email_args);
+
                 }
 
                 // Verify if user has provided social account
@@ -312,8 +330,34 @@ class Signup {
 
                 }
 
+                // Metas container
+                $metas = array(
+                    array(
+                        'meta_name' => 'event_scope',
+                        'meta_value' => $user_id
+                    ),
+                    array(
+                        'meta_name' => 'title',
+                        'meta_value' => $first_name . ' ' . $last_name . ' ' . $this->CI->lang->line('auth_has_been_joined')
+                    ),
+                    array(
+                        'meta_name' => 'font_icon',
+                        'meta_value' => 'member_add'
+                    )
+                    
+                );
+
+                // Create the event
+                md_create_admin_dashboard_event(
+                    array(
+                        'event_type' => 'new_member',
+                        'metas' => $metas
+                    )
+
+                );
+
                 // Check if sign up need confirm
-                if ( get_option('signup_confirm') ) {
+                if ( md_the_option('signup_confirm') ) {
 
                     // Create activation code
                     $activate = time();
@@ -321,56 +365,80 @@ class Signup {
                     // Save activation code in user's data from database
                     $add_activate = $this->CI->base_model->update( 'users', array('email' => $args['email']), array('activate' => $activate) );
 
-                    // Prepare notification
-                    $notification_args = array(
-                        '[username]' => $args['username'],
-                        '[site_name]' => $this->CI->config->item('site_name'),
-                        '[confirmation_link]' => '<a href="' .base_url() . 'auth/confirmation?code=' . $activate . '&f=' . $user_id . '">' . base_url() . 'auth/confirmation?code=' . $activate . '&f=' . $user_id . '</a>',
-                        '[login_address]' => '<a href="' . $this->CI->config->item('login_url') . '">' . $this->CI->config->item('login_url') . '</a>',
-                        '[site_url]' => '<a href="' . base_url() . '">' . base_url() . '</a>'
-                    );
+                    // Verify if the activation code was saved
+                    if ( !$add_activate ) {
 
-                    // Get the welcome-message-with-confirmation notification template
-                    $template = $this->CI->notifications->get_template('welcome-message-with-confirmation', $notification_args);
-
-                    // Verify if notification's template exists
-                    if ($template) {
-
-                        // Create email
-                        $email_args = array(
-                            'from_name' => $this->CI->config->item('site_name'),
-                            'from_email' => $this->CI->config->item('contact_mail'),
-                            'to_email' => $args['email'],
-                            'subject' => $template['title'],
-                            'body' => $template['body']
+                        // Display error message
+                        $data = array(
+                            'success' => FALSE,
+                            'message' => $this->CI->lang->line('auth_signup_success_but_no_confirmation_sent')
                         );
 
-                        // Send notification template
-                        if ( (new MidrubBaseClassesEmail\Send())->send_mail($email_args) ) {
+                        echo json_encode($data);
+                        exit();
 
-                            // Default redirect
-                            $redirect = $this->get_plan_redirect($user_id);
+                    }
 
-                            // Display success message
-                            $data = array(
-                                'success' => TRUE,
-                                'message' => $this->CI->lang->line('auth_signup_success_signup_confirmation'),
-                                'redirect' => $redirect
-                            );
+                    // Placeholders
+                    $placeholders = array('[username]', '[first_name]', '[last_name]', '[website_name]', '[confirmation_url]', '[login_url]', '[website_url]');
 
-                            echo json_encode($data);
+                    // Get the confirmation url
+                    $confirmation = md_the_url_by_page_role('confirmation') ? md_the_url_by_page_role('confirmation') : site_url('auth/confirmation');
 
-                        } else {
+                    // Replacers
+                    $replacers = array(
+                        $args['username'],
+                        $first_name,
+                        $last_name,
+                        $this->CI->config->item('site_name'),
+                        $confirmation . '?code=' . $activate . '&f=' . $user_id,
+                        md_the_url_by_page_role('sign_in') ? md_the_url_by_page_role('sign_in') : site_url('auth/signin'),
+                        site_url()
+                    );
 
-                            // Display error message
-                            $data = array(
-                                'success' => FALSE,
-                                'message' => $this->CI->lang->line('auth_signup_success_but_no_confirmation_sent')
-                            );
+                    // Default subject
+                    $subject = $this->CI->lang->line('auth_welcome_confirmation_title');
 
-                            echo json_encode($data);
+                    // Default body
+                    $body = $this->CI->lang->line('auth_welcome_confirmation_content');
 
-                        }
+                    // Get welcome template
+                    $reset_template = the_admin_notifications_email_template('signup_welcome_confirmation', $this->CI->config->item('language'));
+
+                    // Verify if $reset_template exists
+                    if ( $reset_template ) {
+
+                        // New subject
+                        $subject = $reset_template[0]['template_title'];
+
+                        // New body
+                        $body = $reset_template[0]['template_body'];
+
+                    }
+
+                    // Create email
+                    $email_args = array(
+                        'from_name' => $this->CI->config->item('site_name'),
+                        'from_email' => $this->CI->config->item('contact_mail'),
+                        'to_email' => $args['email'],
+                        'subject' => str_replace($placeholders, $replacers, $subject),
+                        'body' => str_replace($placeholders, $replacers, $body)
+                    );
+
+                    // Send notification template
+                    if ( (new CmsBaseClassesEmail\Send())->send_mail($email_args) ) {
+
+                        // Default redirect
+                        $redirect = $this->get_plan_redirect($user_id);
+
+                        // Display success message
+                        $data = array(
+                            'success' => TRUE,
+                            'message' => $this->CI->lang->line('auth_signup_success_signup_confirmation'),
+                            'redirect' => $redirect
+                        );
+
+                        echo json_encode($data);
 
                     } else {
 
@@ -389,42 +457,60 @@ class Signup {
                     // Default redirect
                     $redirect = $this->get_plan_redirect($user_id);
 
-                    // Display success message
+                    // Prepare the success message
                     $data = array(
                         'success' => TRUE,
                         'message' => $this->CI->lang->line('auth_signup_success_signup'),
                         'redirect' => $redirect
                     );
 
+                    // Display the success message
                     echo json_encode($data);
 
-                    // Prepare notification
-                    $notification_args = array(
-                        '[username]' => $args['username'],
-                        '[site_name]' => $this->CI->config->item('site_name'),
-                        '[login_address]' => '<a href="' . $this->CI->config->item('login_url') . '">' . $this->CI->config->item('login_url') . '</a>',
-                        '[site_url]' => '<a href="' . base_url() . '">' . base_url() . '</a>'
+                    // Placeholders
+                    $placeholders = array('[username]', '[first_name]', '[last_name]', '[website_name]', '[login_url]', '[website_url]');
+
+                    // Replacers
+                    $replacers = array(
+                        $args['username'],
+                        $first_name,
+                        $last_name,
+                        $this->CI->config->item('site_name'),
+                        md_the_url_by_page_role('sign_in') ? md_the_url_by_page_role('sign_in') : site_url('auth/signin'),
+                        site_url()
                     );
 
-                    // Get the welcome-message-no-confirmation notification template
-                    $template = $this->CI->notifications->get_template('welcome-message-no-confirmation', $notification_args);
+                    // Default subject
+                    $subject = $this->CI->lang->line('auth_welcome_no_confirmation_title');
 
-                    // Verify if template exists
-                    if ($template) {
+                    // Default body
+                    $body = $this->CI->lang->line('auth_welcome_no_confirmation_content');
 
-                        // Create email
-                        $email_args = array(
-                            'from_name' => $this->CI->config->item('site_name'),
-                            'from_email' => $this->CI->config->item('contact_mail'),
-                            'to_email' => $args['email'],
-                            'subject' => $template['title'],
-                            'body' => $template['body']
-                        );
+                    // Get welcome template
+                    $reset_template = the_admin_notifications_email_template('signup_welcome_no_confirmation', $this->CI->config->item('language'));
 
-                        // Send notification template
-                        (new MidrubBaseClassesEmail\Send())->send_mail($email_args);
-                        
+                    // Verify if $reset_template exists
+                    if ( $reset_template ) {
+
+                        // New subject
+                        $subject = $reset_template[0]['template_title'];
+
+                        // New body
+                        $body = $reset_template[0]['template_body'];
+
                     }
+
+                    // Create email
+                    $email_args = array(
+                        'from_name' => $this->CI->config->item('site_name'),
+                        'from_email' => $this->CI->config->item('contact_mail'),
+                        'to_email' => $args['email'],
+                        'subject' => str_replace($placeholders, $replacers, $subject),
+                        'body' => str_replace($placeholders, $replacers, $body)
+                    );
+
+                    // Send notification template
+                    (new CmsBaseClassesEmail\Send())->send_mail($email_args);
 
                 }
 
@@ -456,7 +542,7 @@ class Signup {
     private function get_plan_redirect($user_id) {
 
         // Redirect url
-        $redirect_url = the_url_by_page_role('sign_in') ? the_url_by_page_role('sign_in') : site_url('auth/signin');
+        $redirect_url = md_the_url_by_page_role('sign_in') ? md_the_url_by_page_role('sign_in') : site_url('auth/signin');
 
         // Return the redirect
         return $redirect_url;

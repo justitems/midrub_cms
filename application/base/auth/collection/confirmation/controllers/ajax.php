@@ -10,12 +10,12 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Confirmation\Controllers;
+namespace CmsBase\Auth\Collection\Confirmation\Controllers;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Auth\Collection\Confirmation\Helpers as MidrubBaseAuthCollectionConfirmationHelpers;
+use CmsBase\Auth\Collection\Confirmation\Helpers as CmsBaseAuthCollectionConfirmationHelpers;
 
 /*
  * Ajax class processes the admin component's ajax calls
@@ -55,7 +55,7 @@ class Ajax {
     public function resend_confirmation_code() {
 
         // Resend confirmation code password
-        (new MidrubBaseAuthCollectionConfirmationHelpers\User)->resend_confirmation_code();
+        (new CmsBaseAuthCollectionConfirmationHelpers\User)->resend_confirmation_code();
         
     }
 
@@ -69,7 +69,7 @@ class Ajax {
     public function change_email() {
 
         // Change email address
-        (new MidrubBaseAuthCollectionConfirmationHelpers\User)->change_email();
+        (new CmsBaseAuthCollectionConfirmationHelpers\User)->change_email();
         
     }
  

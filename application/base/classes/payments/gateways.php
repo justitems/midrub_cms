@@ -10,7 +10,7 @@
  */
 
 // Define the namespaces to use
-namespace MidrubBase\Classes\Payments;
+namespace CmsBase\Classes\Payments;
 
 // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');

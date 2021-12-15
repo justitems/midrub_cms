@@ -46,7 +46,7 @@ if ( !function_exists('verify_team_role_permission') ) {
         } else {
 
             // Get role's permissions
-            $permissions = $CI->base_model->get_data_where(
+            $permissions = $CI->base_model->the_data_where(
                 'teams_roles_permission',
                 'teams_roles_permission.permission_id, teams_roles_permission.permission',
                 array(

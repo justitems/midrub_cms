@@ -11,7 +11,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Upgrade\Helpers; 
+namespace CmsBase\Auth\Collection\Upgrade\Helpers; 
 
 // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -75,7 +75,7 @@ class Code {
             } else {
                 
                 // Get coupon code
-                $coupon_code = $this->CI->base_model->get_data_where('coupons', '*', array('code' => $code));
+                $coupon_code = $this->CI->base_model->the_data_where('coupons', '*', array('code' => $code));
                 
                 // Verify if the coupon code exists
                 if ( $coupon_code ) {

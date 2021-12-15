@@ -1,0 +1,27 @@
+/*******************************
+THEME ANIMATIONS ZOOM
+********************************/
+
+@-webkit-keyframes zoom {
+
+    0% {
+        transform: scale(0.7);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+@keyframes zoom {
+
+    0% {
+        transform: scale(0.7);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}

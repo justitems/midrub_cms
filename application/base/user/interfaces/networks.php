@@ -2,7 +2,7 @@
 /**
  * Networks
  *
- * PHP Version 5.6
+ * PHP Version 7.4
  *
  * Networks Interface for Midrub's User Networks
  *
@@ -14,7 +14,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\User\Interfaces;
+namespace CmsBase\User\Interfaces;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -30,53 +30,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 interface Networks {
     
     /**
-     * The public method check_availability checks if the network api is configured correctly.
+     * The public method availability checks if the network api is configured correctly
      *
      * @return boolean true or false
      */
-    public function check_availability();
+    public function availability();
 
     /**
-     * The public method connect will redirect user to network login page.
-     * 
+     * The public method connect requests the access token
+     *
      * @return void
      */
-    public function connect();
-
+    public function connect();  
+    
     /**
-     * The public method save will get access token.
+     * The public method callback generates the access token
      *
      * @param string $token contains the token for some social networks
      * 
      * @return void
      */
-    public function save($token = null);
-
+    public function callback($token = null);
+    
     /**
-     * The public method post publishes posts on network
+     * The public method actions executes the actions
      *
-     * @param $args contains the post data.
-     * @param $user_id is the ID of the current user
+     * @param string $action contains the action's name
+     * @param array $params contains the request's params
      * 
-     * @return boolean true if post was published
+     * @return array with response
      */
-    public function post($args, $user_id = NULL);
+    public function actions($action, $params);    
 
     /**
-     * The public method get_info displays information about this class.
+     * The public method info provides information about this class
      * 
-     * @return object with network's data
+     * @return array with network's data
      */
-    public function get_info();
-
-    /**
-     * The public preview generates a preview for network
-     *
-     * @param $args contains the img or url.
-     * 
-     * @return array with html content
-     */
-    public function preview($args);
+    public function info();
  
 }
 

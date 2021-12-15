@@ -126,7 +126,7 @@ class Base_model extends CI_MODEL {
     }
 
     /**
-     * The public method get_data_where gets data where parameters meets the request
+     * The public method the_data_where gets data where parameters meets the request
      *
      * @param string $table contains the database's table
      * @param string $select contains ceils to select
@@ -138,7 +138,7 @@ class Base_model extends CI_MODEL {
      * 
      * @return array with data or boolean false
      */
-    public function get_data_where( $table, $select, $where=array(), $where_in=array(), $like=array(), $joins = array(), $order_limit = array() ) {
+    public function the_data_where( $table, $select, $where=array(), $where_in=array(), $like=array(), $joins = array(), $order_limit = array() ) {
         
         $this->db->select($select);
         $this->db->from($table);
@@ -175,9 +175,9 @@ class Base_model extends CI_MODEL {
 
         }        
 
-        if ( !empty($order_limit['order']) ) {
+        if ( !empty($order_limit['order_by']) ) {
 
-            $this->db->order_by($order_limit['order'][0], $order_limit['order'][1]);
+            $this->db->order_by($order_limit['order_by'][0], $order_limit['order_by'][1]);
 
         }
 

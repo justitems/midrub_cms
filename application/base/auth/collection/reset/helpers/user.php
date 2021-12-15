@@ -11,8 +11,9 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Reset\Helpers;
+namespace CmsBase\Auth\Collection\Reset\Helpers;
 
+// Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
@@ -76,7 +77,7 @@ class User {
             } else {
 
                 // Require the reset functions file
-                require_once MIDRUB_BASE_AUTH . 'inc/reset/reset.php';
+                require_once CMS_BASE_AUTH . 'inc/reset/reset.php';
 
                 // Try to reset the password
                 md_auth_reset_password($email);

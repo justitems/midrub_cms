@@ -14,7 +14,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Interfaces;
+namespace CmsBase\Auth\Interfaces;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 

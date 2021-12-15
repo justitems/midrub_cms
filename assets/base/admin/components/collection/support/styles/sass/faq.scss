@@ -1,0 +1,330 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../admin/default/styles/default_colors.scss";
+@import "../../../../../../admin/default/styles/default_fonts.scss";
+@import "../../../../../../admin/default/styles/default_editor.scss";
+
+/*******************************
+SUPPORT FAQ STYLES
+********************************/
+section {
+    padding-top: 50px;
+    
+    .container-fluid {
+        padding: 0;
+
+        .support-view {
+
+            .create-new-faq-article {
+                padding-top: 15px;
+                padding-bottom: 15px;
+
+                @include default-editor();
+                
+                & > .row > .col-lg-3 {
+                    
+                    & > div {
+                        
+                        & > div {
+                            margin-bottom: 20px;
+                            
+                            hr {
+                                margin: 0;
+                                border-top: 1px solid #d8e0e0;
+                            }
+
+                            .theme-select {
+                                width: 130px;
+                                height: 36px;
+                            }
+
+                            .theme-button-2 {
+                                width: 130px;
+                                height: 36px; 
+                                text-align: center;                               
+                                color: #FFFFFF;
+                                background-color: $default-color-new;
+                                box-shadow: none !important;
+                
+                                &:hover {
+                                    background-color: $default-color-blue;
+                                }
+                
+                            }
+
+                            .card.theme-card-box {
+
+                                .card-body {
+                                    min-height: 200px;
+
+                                    ul {
+                                        margin: 0;
+                                        padding: 0;
+                                        
+                                        li {
+                                            list-style: none;
+                                            margin-bottom: 10px;
+                        
+                                            &.support-no-results-found {
+                                                margin: 0;
+                                                border-radius: 3px;
+                                                border: 0;
+                                                line-height: 30px;
+                                                font-weight: 400;
+                                                font-size: 14px;
+                                                background-color: #ffffff;
+                                                box-shadow: 0 1px 2px 0 #ced9e0;                        
+                                            }
+                        
+                                            ul {
+                                                margin: 15px 0 0 15px;
+                                                padding-left: 15px;
+                                            }
+                                            
+                                            & > .row {
+                                                position: relative;
+                                                margin: 0;
+                                                border-radius: 3px;
+                                                line-height: 30px;
+                                                font-weight: 400;
+                                                font-size: 14px;
+                                                background-color: #ffffff;
+                                                box-shadow: 0 1px 2px 0 #ced9e0;
+                                            }
+
+                                            .theme-checkbox-input-1 {
+
+                                                .theme-checkbox-checkmark {
+                                                    top: 9px;
+                        
+                                                    &::after {
+                                                        font-size: 1.3em;
+                                                    }
+                        
+                                                }
+                        
+                                            }
+                        
+                                            .support-category-name {
+                                                display: block;
+                                                padding: 7px 15px 7px 40px;
+                                                color: $default-color-black;
+                                            }
+                        
+                                        }
+
+                                    }
+
+                                }
+
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+                & .row > .col-lg-9 {
+                    border-right: 1px solid $default-border-color;
+
+                    .tab-pane {
+
+                        & > .row {
+
+                            &:last-child {
+                                margin-bottom: 0 !important;
+                            }
+
+                        }
+
+                    }
+                    
+                }
+                
+            }
+
+        }
+        
+    }
+    
+}
+
+/*******************************
+MODAL STYLES
+********************************/
+
+#support-categories-popup-manager {
+
+    .modal-content {
+
+        .modal-body {
+            height: 500px;
+            overflow-y: scroll;
+            background-color: #f5f7fa;
+
+            .checkbox-option-select {
+                padding: 0;
+                display: inline-block;
+                margin-right: 10px;
+
+                label {
+
+                    &::before {
+                        margin-top: -6px;
+                        border: 1px solid #cdcde6;
+                        background-color: #f5f9fd;
+                    }                                       
+
+                }
+
+            }
+
+            &::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 6px #f5f7fa;
+                background-color: #F5F5F5;
+            }
+            
+            &::-webkit-scrollbar {
+                width: 7px;
+                background-color: #615f5c;
+            }
+            
+            &::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                background-color: #1a1a46;
+                border: 1px solid #F5F5F5;
+            }
+
+            ul {
+                margin: 0;
+                padding: 0;
+
+                li {
+                    list-style: none;
+                    margin-bottom: 10px;
+
+                    &.support-no-results-found {
+                        margin: 0;
+                        border-radius: 3px;
+                        border: 0;
+                        line-height: 30px;
+                        font-weight: 400;
+                        font-size: 14px;
+                        background-color: #ffffff;
+                        box-shadow: 0 1px 2px 0 #ced9e0;  
+                        
+                        p {
+                            margin-bottom: 0;
+                            padding: 7px 10px;
+                            line-height: 30px;
+                            font-size: 14px;
+                            color: $default-color-black;                            
+                        }
+
+                    }
+
+                    ul {
+                        margin: 15px 0 0 15px;
+                        padding-left: 15px;
+                    }
+                    
+                    & > .row {
+                        margin: 0;
+                        border-radius: 3px;
+                        background-color: #ffffff;
+                        box-shadow: 0 1px 2px 0 #ced9e0;
+
+                        h3 {
+                            margin-bottom: 0;
+                            padding: 7px 10px;
+                            line-height: 30px;
+                            font-weight: 400;
+                            font-size: 14px;
+                            color: $default-color-black;
+                        }
+
+                        .support-delete-category {
+                            display: block;
+                            margin-top: -2px;
+                            padding: 7px 10px;
+                            line-height: 30px;
+                            color: $default-color-black;                            
+
+                            svg {
+                                width: 20px;
+                                height: 22px;
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        .modal-footer {
+            padding: 15px 0;
+
+            .support-new-category-link {
+                border-bottom: 1px solid transparent;
+                text-decoration: none;
+                color: $default-color-black;
+
+                &:hover {
+                    border-bottom: 1px solid $default-color-black;
+                }
+
+                &:focus,
+                &:active {
+                    border-bottom: 0;
+                    text-decoration: none;
+                }
+
+            }
+
+            form {
+
+                .support-save-category {
+                    margin: 0;
+                    padding: 0 12px;
+                    width: 100%;
+                    height: 40px;
+                    border-radius: 4px;
+                    line-height: 36px;
+                    text-align: center;
+                    text-decoration: none;
+                    font-size: 13px;
+                    border-color: $default-color-blue;
+                    color: #FFFFFF;
+                    background-color: $default-color-blue;
+                    box-shadow: inset 0 32px 0 rgba(0,0,0,0);
+                    overflow: hidden;
+                }
+
+                .dropdown {
+
+                    .btn-secondary {
+                        width: 100%;
+                        text-align: left;
+
+                        &::after {
+                            float: right;
+                            margin-top: 8px;
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+    
+}

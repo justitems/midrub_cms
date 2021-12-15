@@ -1,0 +1,55 @@
+/*******************************
+DEFAULT TEXT EDITORS
+********************************/
+
+@mixin default-minimal-text-editor {
+
+    & {
+        margin-top: 10px;
+        border: 0;
+        
+        .card-header {
+            padding: 0;
+            height: 35px;
+            border: 0;
+            background-color: transparent;
+
+            .btn-light {
+                margin: 0 15px;
+                padding: 0;
+                border: 0;
+                background-color: transparent;
+
+                i {
+                    vertical-align: middle;
+                    margin-top: -6px;
+                    font-size: 12px;
+                }
+
+            }
+
+        }
+
+        .card-body {
+            padding: 0;
+            border-top: 1px solid #e9edf3;
+            line-height: 25px;
+            font-size: 15px;
+            color: rgb(33, 34, 66);
+            background: transparent;
+
+            .theme-minimal-text-editor {
+                padding: 10px;
+                min-height: 400px;
+
+                &:focus {
+                    outline: none;
+                }
+
+            }
+
+        }
+
+    }
+
+}

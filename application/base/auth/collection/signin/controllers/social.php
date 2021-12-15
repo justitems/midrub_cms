@@ -10,7 +10,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Signin\Controllers;
+namespace CmsBase\Auth\Collection\Signin\Controllers;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -41,10 +41,10 @@ class Social {
         $this->CI =& get_instance();
         
         // Load the component's language files
-        $this->CI->lang->load( 'auth_signin', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_AUTH_SIGNIN );
+        $this->CI->lang->load( 'auth_signin', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_SIGNIN );
 
         // Load Base Contents Model
-        $this->CI->load->ext_model(MIDRUB_BASE_PATH . 'models/', 'Base_auth_social', 'base_auth_social');
+        $this->CI->load->ext_model(CMS_BASE_PATH . 'models/', 'Base_auth_social', 'base_auth_social');
         
     }
     
@@ -60,7 +60,7 @@ class Social {
     public function connect($network) {
 
         // Verify if network exists
-        if ( !file_exists(MIDRUB_BASE_AUTH . 'social/' . $network . '.php') ) {
+        if ( !file_exists(CMS_BASE_AUTH . 'social/' . $network . '.php') ) {
 
             echo str_replace('(network)', ucfirst($network), $this->CI->lang->line('auth_signin_network_not_available'));
             exit();
@@ -68,7 +68,7 @@ class Social {
         }
 
         // Verify if option is enabled
-        if ( !get_option('enable_auth_' . strtolower($network)) ) {
+        if ( !md_the_option('enable_auth_' . strtolower($network)) ) {
             
             echo str_replace('(network)', ucfirst($network), $this->CI->lang->line('auth_signin_network_not_enabled'));
             exit();
@@ -76,11 +76,11 @@ class Social {
         }
 
         // Require network
-        require_once MIDRUB_BASE_AUTH . 'social/' . $network . '.php';
+        require_once CMS_BASE_AUTH . 'social/' . $network . '.php';
 
         // Create an array
         $array = array(
-            'MidrubBase',
+            'CmsBase',
             'Auth',
             'Social',
             ucfirst($network)
@@ -98,7 +98,7 @@ class Social {
         }
 
         // Set the sign in page
-        $sign_in = the_url_by_page_role('sign_in') ? the_url_by_page_role('sign_in') : site_url('auth/signin');
+        $sign_in = md_the_url_by_page_role('sign_in') ? md_the_url_by_page_role('sign_in') : site_url('auth/signin');
 
         // Redirect user
         (new $cl())->connect($sign_in . '/' . $network);
@@ -117,7 +117,7 @@ class Social {
     public function login($network) {
 
         // Verify if network exists
-        if ( !file_exists(MIDRUB_BASE_AUTH . 'social/' . $network . '.php') ) {
+        if ( !file_exists(CMS_BASE_AUTH . 'social/' . $network . '.php') ) {
 
             echo str_replace('(network)', ucfirst($network), $this->CI->lang->line('auth_signin_network_not_available'));
             exit();
@@ -125,7 +125,7 @@ class Social {
         }
 
         // Verify if option is enabled
-        if ( !get_option('enable_auth_' . strtolower($network)) ) {
+        if ( !md_the_option('enable_auth_' . strtolower($network)) ) {
             
             echo str_replace('(network)', ucfirst($network), $this->CI->lang->line('auth_signin_network_not_enabled'));
             exit();
@@ -133,11 +133,11 @@ class Social {
         }
 
         // Require network
-        require_once MIDRUB_BASE_AUTH . 'social/' . $network . '.php';
+        require_once CMS_BASE_AUTH . 'social/' . $network . '.php';
 
         // Create an array
         $array = array(
-            'MidrubBase',
+            'CmsBase',
             'Auth',
             'Social',
             ucfirst($network)
@@ -158,7 +158,7 @@ class Social {
         $params = array();
 
         // Set the sign in page
-        $sign_in = the_url_by_page_role('sign_in') ? the_url_by_page_role('sign_in') : site_url('auth/signin');
+        $sign_in = md_the_url_by_page_role('sign_in') ? md_the_url_by_page_role('sign_in') : site_url('auth/signin');
 
         // Try to login
         $user_data = (new $cl())->login($sign_in . '/' . $network);
@@ -173,7 +173,7 @@ class Social {
                 if ( isset($user_data['data']['id']) ) {
 
                     // Get user
-                    $get_user = $this->CI->base_model->get_data_where(
+                    $get_user = $this->CI->base_model->the_data_where(
                         'users_social',
                         'users.user_id, users.username',
                         array(
@@ -196,13 +196,13 @@ class Social {
                         $this->CI->session->set_userdata('username', $get_user[0]['username']);
 
                         // Load Base Model
-                        $this->CI->load->ext_model(MIDRUB_BASE_PATH . 'models/', 'Base_users', 'base_users');
+                        $this->CI->load->ext_model(CMS_BASE_PATH . 'models/', 'Base_users', 'base_users');
 
                         // Get user data
                         $user_data = $this->CI->base_users->get_user_data_by_username($this->CI->session->userdata['username']);
 
                         // Get the user's plan
-                        $user_plan = get_user_option('plan', $get_user[0]['user_id']);
+                        $user_plan = md_the_user_option($get_user[0]['user_id'], 'plan');
 
                         // Verify if user has a plan, if no add default plan
                         if (!$user_plan) {
@@ -243,13 +243,13 @@ class Social {
             md_set_the_title($title);
 
             // Set styles
-            md_set_css_urls(array('stylesheet', base_url('assets/base/auth/collection/signin/styles/css/styles.css?ver=' . MIDRUB_BASE_AUTH_SIGNIN_VERSION), 'text/css', 'all'));
+            md_set_css_urls(array('stylesheet', base_url('assets/base/auth/collection/signin/styles/css/styles.css?ver=' . CMS_BASE_AUTH_SIGNIN_VERSION), 'text/css', 'all'));
 
             // Set Font Awesome
             md_set_css_urls(array('stylesheet', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css', 'text/css', 'all'));
 
             // Set javascript links
-            md_set_js_urls(array(base_url('assets/base/auth/collection/signin/js/main.js?ver=' . MIDRUB_BASE_AUTH_SIGNIN_VERSION)));
+            md_set_js_urls(array(base_url('assets/base/auth/collection/signin/js/main.js?ver=' . CMS_BASE_AUTH_SIGNIN_VERSION)));
 
             // Verify if meta description exists
             if ( md_the_single_content_meta('quick_seo_meta_description') ) {
@@ -268,16 +268,16 @@ class Social {
             }
 
             /**
-             * The public method md_add_hook registers a hook
+             * The public method md_set_hook registers a hook
              * 
              * @since 0.0.7.8
              */
-            md_add_hook(
+            md_set_hook(
                 'the_frontend_header',
                 function () {
 
                     // Get header code
-                    $header = get_option('frontend_header_code');
+                    $header = md_the_option('frontend_header_code');
 
                     // Verify if header code exists
                     if ( $header ) {
@@ -294,16 +294,16 @@ class Social {
             );
 
             /**
-             * The public method md_add_hook registers a hook
+             * The public method md_set_hook registers a hook
              * 
              * @since 0.0.7.8
              */
-            md_add_hook(
+            md_set_hook(
                 'the_frontend_footer',
                 function () {
 
                     // Get footer code
-                    $footer = get_option('frontend_footer_code');
+                    $footer = md_the_option('frontend_footer_code');
 
                     // Verify if footer code exists
                     if ( $footer ) {
@@ -323,14 +323,14 @@ class Social {
             );
 
             // Making temlate and send data to view.
-            $this->CI->template['header'] = $this->CI->load->ext_view(MIDRUB_BASE_AUTH_SIGNIN .  'views/layout', 'header', array(), true);
-            $this->CI->template['body'] = $this->CI->load->ext_view(MIDRUB_BASE_AUTH_SIGNIN .  'views', 'main', $params, true);
-            $this->CI->template['footer'] = $this->CI->load->ext_view(MIDRUB_BASE_AUTH_SIGNIN .  'views/layout', 'footer', array(), true);
-            $this->CI->load->ext_view(MIDRUB_BASE_AUTH_SIGNIN . 'views/layout', 'index', $this->CI->template);
+            $this->CI->template['header'] = $this->CI->load->ext_view(CMS_BASE_AUTH_SIGNIN .  'views/layout', 'header', array(), true);
+            $this->CI->template['body'] = $this->CI->load->ext_view(CMS_BASE_AUTH_SIGNIN .  'views', 'main', $params, true);
+            $this->CI->template['footer'] = $this->CI->load->ext_view(CMS_BASE_AUTH_SIGNIN .  'views/layout', 'footer', array(), true);
+            $this->CI->load->ext_view(CMS_BASE_AUTH_SIGNIN . 'views/layout', 'index', $this->CI->template);
 
         } else {
 
-            return $login;
+            return $user_data;
 
         }
         
@@ -361,22 +361,22 @@ class Social {
         }
         
         // Get the user's plan
-        $plan_id = get_user_option('plan', $user_id);
+        $plan_id = md_the_user_option($user_id, 'plan');
 
         // Redirect url
         $redirect_url = base_url('user/app/dashboard');
 
         // Verify if the plan has a selected user_redirect
-        if ( plan_feature( 'user_redirect', $plan_id ) ) {
+        if ( md_the_plan_feature( 'user_redirect', $plan_id ) ) {
 
             // Get user_redirect
-            $user_redirect = plan_feature( 'user_redirect', $plan_id );
+            $user_redirect = md_the_plan_feature( 'user_redirect', $plan_id );
 
             // Verify if the redirect is a component
-            if ( is_dir(MIDRUB_BASE_USER . 'components/collection/' . $user_redirect . '/') ) {
+            if ( is_dir(CMS_BASE_USER . 'components/collection/' . $user_redirect . '/') ) {
                 
                 // Get the component
-                $cl = implode('\\', array('MidrubBase', 'User', 'Components', 'Collection', ucfirst($user_redirect), 'Main'));
+                $cl = implode('\\', array('CmsBase', 'User', 'Components', 'Collection', ucfirst($user_redirect), 'Main'));
 
                 // Verify if the component is available
                 if ( (new $cl())->check_availability() ) {
@@ -386,10 +386,10 @@ class Social {
 
                 }
 
-            } else if ( is_dir(MIDRUB_BASE_USER . 'apps/collection/' . $user_redirect . '/') ) {
+            } else if ( is_dir(CMS_BASE_USER . 'apps/collection/' . $user_redirect . '/') ) {
 
                 // Get the app
-                $cl = implode('\\', array('MidrubBase', 'User', 'Apps', 'Collection', ucfirst($user_redirect), 'Main'));
+                $cl = implode('\\', array('CmsBase', 'User', 'Apps', 'Collection', ucfirst($user_redirect), 'Main'));
 
                 // Verify if the app is available
                 if ( (new $cl())->check_availability() ) {

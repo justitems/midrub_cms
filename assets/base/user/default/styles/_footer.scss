@@ -1,0 +1,64 @@
+/*******************************
+LIST FOOTER MIXING
+********************************/
+
+@mixin default-list-footer {
+
+    @media screen and (max-width: 1443px) and (min-width: 1291px) {
+    
+        & {
+            margin-top: 0;
+        }
+
+        .col-md-5 {
+            display: none;
+        }
+
+        .col-md-7 {
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+
+            .pagination {
+                display: flex;
+                margin-left: -15px;
+            }
+
+        }
+
+    }
+
+    @media screen and (max-width: 767px) {
+
+        & {
+            margin-top: 0;
+        }
+
+        .col-md-5 {
+            display: none;
+        }
+
+        .col-md-7 {
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+
+            .pagination {
+                display: flex;
+                margin-left: -15px;
+            }
+
+        }
+
+    }
+
+    h6 {
+        margin: 0;
+        padding: 0;
+        line-height: 35px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #324362;
+    }
+
+}

@@ -11,12 +11,12 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Payments\Collection\Braintree\Controllers;
+namespace CmsBase\Payments\Collection\Braintree\Controllers;
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Payments\Collection\Braintree\Helpers as MidrubBasePaymentsCollectionBraintreeHelpers;
+use CmsBase\Payments\Collection\Braintree\Helpers as CmsBasePaymentsCollectionBraintreeHelpers;
 
 /*
  * Ajax class processes the gateway's ajax calls
@@ -47,7 +47,7 @@ class Ajax
         $this->CI = &get_instance();
 
         // Load language
-        $this->CI->lang->load( 'braintree_user', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_PAYMENTS_BRAINTREE );
+        $this->CI->lang->load( 'braintree_user', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_PAYMENTS_BRAINTREE );
 
     }
 
@@ -61,7 +61,7 @@ class Ajax
     public function process_payment() {
 
         // Saves a suggestions group
-        (new MidrubBasePaymentsCollectionBraintreeHelpers\Process)->prepare();
+        (new CmsBasePaymentsCollectionBraintreeHelpers\Process)->prepare();
 
     }
 

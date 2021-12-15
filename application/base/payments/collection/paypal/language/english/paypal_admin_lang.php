@@ -6,3 +6,5 @@ $lang["paypal_client_id"] = "Client ID";
 $lang["paypal_client_id_description"] = "Enter the PayPal Client ID.";
 $lang["paypal_client_secret"] = "Client Secret";
 $lang["paypal_client_secret_description"] = "Enter the PayPal Client Secret.";
+$lang["braintree_enter_client_id"] = "Enter the client id ...";
+$lang["braintree_enter_client_secret"] = "Enter the client secret ...";

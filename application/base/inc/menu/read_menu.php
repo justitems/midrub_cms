@@ -29,7 +29,7 @@ if ( !function_exists('md_the_theme_menu') ) {
         $CI =& get_instance();
 
         // Load Base Classifications Model
-        $CI->load->ext_model( MIDRUB_BASE_PATH . 'models/', 'Base_classifications', 'base_classifications' );
+        $CI->load->ext_model( CMS_BASE_PATH . 'models/', 'Base_classifications', 'base_classifications' );
 
         // Get menu's items
         $items = $CI->base_classifications->get_menu_items($args);
@@ -49,10 +49,10 @@ if ( !function_exists('md_the_theme_menu') ) {
     
 }
 
-if ( !function_exists('md_the_classification') ) {
+if ( !function_exists('md_the_contents_classification') ) {
     
     /**
-     * The function md_the_classification gets a classification's items
+     * The function md_the_contents_classification gets a classification's items
      * 
      * @param array $args contains the query arguments
      * 
@@ -60,19 +60,19 @@ if ( !function_exists('md_the_classification') ) {
      * 
      * @return array with classification items or boolean false 
      */
-    function md_the_classification($args) {
+    function md_the_contents_classification($args) {
         
         // Get codeigniter object instance
         $CI =& get_instance();
 
         // Load Base Classifications Model
-        $CI->load->ext_model( MIDRUB_BASE_PATH . 'models/', 'Base_classifications', 'base_classifications' );
+        $CI->load->ext_model( CMS_BASE_PATH . 'models/', 'Base_classifications', 'base_classifications' );
 
         // Set type
-        $args['type'] = 'contents_classification';
+        $args['classification_type'] = 'contents_classification';
 
-        // Get classification's items
-        $items = $CI->base_classifications->get_classifications_by_slug( $args );
+        // Get classification_classification's items
+        $items = $CI->base_classifications->the_classifications_by_slug( $args );
 
         // Verify if the classification has items
         if ( $items ) {
@@ -88,3 +88,5 @@ if ( !function_exists('md_the_classification') ) {
     }
     
 }
+
+/* End of file read_menu.php */

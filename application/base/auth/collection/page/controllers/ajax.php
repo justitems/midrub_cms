@@ -10,12 +10,12 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Page\Controllers;
+namespace CmsBase\Auth\Collection\Page\Controllers;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Auth\Collection\Page\Helpers as MidrubBaseAuthCollectionPageHelpers;
+use CmsBase\Auth\Collection\Page\Helpers as CmsBaseAuthCollectionPageHelpers;
 
 /*
  * Ajax class processes the admin component's ajax calls
@@ -55,7 +55,7 @@ class Ajax {
     public function save_new_user() {
 
         // Create a new user
-        (new MidrubBaseAuthCollectionPageHelpers\User)->save_new_user();
+        (new CmsBaseAuthCollectionPageHelpers\User)->save_new_user();
         
     }
  

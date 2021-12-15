@@ -26,7 +26,7 @@ if ( !function_exists('md_the_user_themes') ) {
         $all_themes = array();
 
         // List all themes
-        foreach (glob(APPPATH . 'base/user/themes/*', GLOB_ONLYDIR) as $dir) {
+        foreach (glob(APPPATH . 'base/user/themes/collection/*', GLOB_ONLYDIR) as $dir) {
 
             // Get directory name
             $theme = str_replace('_', '-', trim(basename($dir) . PHP_EOL));
@@ -44,10 +44,10 @@ if ( !function_exists('md_the_user_themes') ) {
                     $screenshot = '';
 
                     // Verify if the theme has screenshot
-                    if ( file_exists(FCPATH . 'assets/base/user/themes/' . $theme . '/screenshot.png') ) {
+                    if ( file_exists(FCPATH . 'assets/base/user/themes/collection/' . $theme . '/screenshot.png') ) {
                         
                         // Set screenshot
-                        $screenshot = base_url('assets/base/user/themes/' . $theme . '/screenshot.png');
+                        $screenshot = base_url('assets/base/user/themes/collection/' . $theme . '/screenshot.png');
 
                     }
 

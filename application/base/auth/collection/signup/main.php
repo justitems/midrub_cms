@@ -10,19 +10,19 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Signup;
+namespace CmsBase\Auth\Collection\Signup;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Auth\Interfaces as MidrubBaseAuthInterfaces;
-use MidrubBase\Auth\Collection\Signup\Controllers as MidrubBaseAuthCollectionSignupControllers;
+use CmsBase\Auth\Interfaces as CmsBaseAuthInterfaces;
+use CmsBase\Auth\Collection\Signup\Controllers as CmsBaseAuthCollectionSignupControllers;
 
 // Define the component's path
-defined('MIDRUB_BASE_AUTH_SIGNUP') OR define('MIDRUB_BASE_AUTH_SIGNUP', APPPATH . 'base/auth/collection/signup/');
+defined('CMS_BASE_AUTH_SIGNUP') OR define('CMS_BASE_AUTH_SIGNUP', APPPATH . 'base/auth/collection/signup/');
 
 // Define the component's version
-defined('MIDRUB_BASE_AUTH_SIGNUP_VERSION') OR define('MIDRUB_BASE_AUTH_SIGNUP_VERSION', '0.0.3');
+defined('CMS_BASE_AUTH_SIGNUP_VERSION') OR define('CMS_BASE_AUTH_SIGNUP_VERSION', '0.0.3');
 
 /*
  * Main class loads the Signup Auth's component
@@ -31,7 +31,7 @@ defined('MIDRUB_BASE_AUTH_SIGNUP_VERSION') OR define('MIDRUB_BASE_AUTH_SIGNUP_VE
  * @package Midrub
  * @since 0.0.7.8
  */
-class Main implements MidrubBaseAuthInterfaces\Auth {
+class Main implements CmsBaseAuthInterfaces\Auth {
     
     /**
      * Class variables
@@ -63,7 +63,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
     public function init() {
 
         // Verify if signup is disabled
-        if ( !get_option('enable_registration') ) {
+        if ( !md_the_option('enable_registration') ) {
 
             // Display 404 page
             show_404();
@@ -74,26 +74,26 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
         if ( $this->CI->uri->segment('3') && !$this->CI->input->server('QUERY_STRING') ) {
 
             // Redirect user to network
-            (new MidrubBaseAuthCollectionSignupControllers\Social)->connect($this->CI->uri->segment('3'));
+            (new CmsBaseAuthCollectionSignupControllers\Social)->connect($this->CI->uri->segment('3'));
 
         } else {
 
             if ( $this->CI->uri->segment('3') ) {
 
                 // Get access token
-                $response = (new MidrubBaseAuthCollectionSignupControllers\Social)->login($this->CI->uri->segment('3'));
+                $response = (new CmsBaseAuthCollectionSignupControllers\Social)->login($this->CI->uri->segment('3'));
 
                 if ( $response ) {
 
                     // Set auth error
-                    md_set_component_variable('auth_error', $response['message']);
+                    md_set_data('auth_error', $response['message']);
 
                 }
 
             } else {
 
                 // Instantiate the class
-                (new MidrubBaseAuthCollectionSignupControllers\Init)->view();
+                (new CmsBaseAuthCollectionSignupControllers\Init)->view();
 
             }
 
@@ -120,7 +120,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
         try {
 
             // Call method if exists
-            (new MidrubBaseAuthCollectionSignupControllers\Ajax)->$action();
+            (new CmsBaseAuthCollectionSignupControllers\Ajax)->$action();
 
         } catch (Exception $ex) {
 
@@ -152,19 +152,27 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
             case 'admin_init':
 
                 // Register the hooks for administrator
-                add_hook(
+                md_set_hook(
                     'admin_init',
                     function ($args) {
 
                         // Verify if user has opened the frontend component
-                        if ( (the_global_variable('component') === 'frontend') && ($this->CI->input->get('component', true) === 'signup') ) {
+                        if ( (md_the_data('component') === 'frontend') && ($this->CI->input->get('component', true) === 'signup') ) {
 
                             // Load the component's language files
-                            $this->CI->lang->load( 'admin_signup', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_AUTH_SIGNUP);
+                            $this->CI->lang->load( 'admin_signup', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_SIGNUP);
 
                             // Require the contents_categories file
-                            require_once MIDRUB_BASE_AUTH_SIGNUP . '/inc/contents_categories.php';
+                            require_once CMS_BASE_AUTH_SIGNUP . '/inc/contents_categories.php';
 
+                        } else if (md_the_data('component') === 'notifications') {
+
+                            // Load the component's language files
+                            $this->CI->lang->load( 'admin_signup', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_SIGNUP);
+        
+                            // Require the email_templates file
+                            require_once CMS_BASE_AUTH_SIGNUP . 'inc/email_templates.php';
+        
                         }
 
                     }
@@ -209,7 +217,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
     public function component_info() {
         
         // Load the component's language files
-        $this->CI->lang->load( 'admin_signup', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_AUTH_SIGNUP . '/' );
+        $this->CI->lang->load( 'admin_signup', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_SIGNUP . '/' );
         
         // Return component information
         return array(
@@ -217,7 +225,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
             'display_component_name' => $this->CI->lang->line('signup'),
             'component_slug' => 'signup',
             'component_icon' => '<i class="fas fa-user-plus"></i>',
-            'version' => MIDRUB_BASE_AUTH_SIGNUP_VERSION,
+            'version' => CMS_BASE_AUTH_SIGNUP_VERSION,
             'required_version' => '0.0.7.8'
         );
         

@@ -30,7 +30,7 @@ if ( !function_exists('the_user_component_option') ) {
      */
     function the_user_component_options() {
 
-        require_once MIDRUB_BASE_PATH . 'inc/components/user_options.php';
+        require_once CMS_BASE_PATH . 'inc/components/user_options.php';
 
         return md_the_user_component_options();
         
@@ -51,7 +51,7 @@ if ( !function_exists('the_member_permissions') ) {
      */
     function the_member_permissions($role_id) {
 
-        require_once MIDRUB_BASE_PATH . 'inc/team/permissions.php';
+        require_once CMS_BASE_PATH . 'inc/team/permissions.php';
 
         return md_the_member_permissions($role_id);
         
@@ -70,7 +70,7 @@ if ( !function_exists('the_plans_usage') ) {
      */
     function the_plans_usage() {
 
-        require_once MIDRUB_BASE_PATH . 'inc/plans/usage.php';
+        require_once CMS_BASE_PATH . 'inc/plans/usage.php';
 
         return md_the_plans_usage();
         
@@ -87,7 +87,7 @@ if ( !function_exists('the_plans_usage') ) {
 if ( !function_exists('get_user_component_options') ) {
     
     /**
-     * The function get_menu generates a menu
+     * The function md_get_menu generates a menu
      * 
      * @param array $option contains an array with option
      * 
@@ -97,7 +97,7 @@ if ( !function_exists('get_user_component_options') ) {
      */
     function get_user_component_options($option) {
 
-        require_once MIDRUB_BASE_PATH . 'inc/components/user_options.php';
+        require_once CMS_BASE_PATH . 'inc/components/user_options.php';
 
         md_get_user_component_options($option);
         
@@ -124,7 +124,7 @@ if ( !function_exists('set_user_component_options') ) {
      */
     function set_user_component_options($args) {
 
-        require_once MIDRUB_BASE_PATH . 'inc/components/user_options.php';
+        require_once CMS_BASE_PATH . 'inc/components/user_options.php';
 
         md_set_user_component_options($args);
         
@@ -145,49 +145,9 @@ if ( !function_exists('set_user_settings_options') ) {
      */
     function set_user_settings_options($args) {
 
-        require_once MIDRUB_BASE_PATH . 'inc/components/user_options.php';
+        require_once CMS_BASE_PATH . 'inc/components/user_options.php';
 
         md_set_user_component_options($args);
-        
-    }
-    
-}
-
-if ( !function_exists('set_plans_options') ) {
-    
-    /**
-     * The function set_plans_options registers plans options
-     * 
-     * @param array $args contains the array with options
-     * 
-     * @since 0.0.7.9
-     * 
-     * @return void
-     */
-    function set_plans_options($args) {
-
-        md_set_plans_options($args);
-        
-    }
-    
-}
-
-if ( !function_exists('set_member_permissions') ) {
-    
-    /**
-     * The function set_member_permissions registers team's permissions
-     * 
-     * @param array $args contains the array with permissions
-     * 
-     * @since 0.0.7.9
-     * 
-     * @return void
-     */
-    function set_member_permissions($args) {
-
-        require_once MIDRUB_BASE_PATH . 'inc/team/permissions.php';
-
-        md_set_member_permissions($args);
         
     }
     
@@ -206,7 +166,7 @@ if ( !function_exists('set_plans_usage') ) {
      */
     function set_plans_usage($args) {
 
-        require_once MIDRUB_BASE_PATH . 'inc/plans/usage.php';
+        require_once CMS_BASE_PATH . 'inc/plans/usage.php';
 
         md_set_plans_usage($args);
         

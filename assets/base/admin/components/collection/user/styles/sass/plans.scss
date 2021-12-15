@@ -1,0 +1,146 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../admin/default/styles/default_colors.scss";
+
+/*******************************
+USER STYLES
+********************************/
+
+.theme-list {
+
+    .card-body {
+
+        .card-plan {
+
+            .card-header {
+
+                .theme-checkbox-checkmark {
+                    top: 10px;
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+.theme-panel {
+
+    .theme-panel-body {
+
+        .nav-tabs {
+            border-bottom: 0;
+
+            li {
+
+                a {
+
+                    svg {
+                        margin-top: 2px;
+                        margin-right: 10px;
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+/*******************************
+MODALS STYLES
+********************************/
+
+#new-plan {
+
+    .modal-content {
+        overflow: inherit !important;
+
+        .modal-body {
+
+            .input-group {
+    
+                .theme-dropdown-1 {
+                    width: calc(100% - 55px);
+    
+                    button {
+                        border-top-right-radius: 0;
+                        border-bottom-right-radius: 0;
+                    }
+    
+                }
+    
+            }
+    
+            .theme-card-box-list {
+    
+                li {
+    
+                    span {
+                        line-height: 36px;
+                        font-weight: 400 !important;                    
+                    }
+    
+                    .btn-delete-plan-group {
+                        color: $default-color-red;
+                    }
+    
+    
+                }
+    
+            }
+    
+            .card-footer {
+                padding: 15px 0;
+    
+                .theme-pagination {
+                    margin: 0;
+                    padding: 0;
+                }
+    
+            }
+    
+        }
+
+    }
+
+}
+
+#user-plan-manage-text {
+
+    .modal-content {
+        overflow: inherit !important;
+
+        .modal-body {
+    
+            .theme-card-box-list {
+    
+                li {
+    
+                    span {
+                        line-height: 36px;
+                        font-weight: 400 !important;                    
+                    }
+    
+                    .btn-delete-plan-feature {
+                        color: $default-color-red;
+                    }
+    
+    
+                }
+    
+            }
+    
+        }
+
+    }
+
+}

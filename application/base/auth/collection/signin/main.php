@@ -10,19 +10,19 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Signin;
+namespace CmsBase\Auth\Collection\Signin;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Auth\Interfaces as MidrubBaseAuthInterfaces;
-use MidrubBase\Auth\Collection\Signin\Controllers as MidrubBaseAuthCollectionSigninControllers;
+use CmsBase\Auth\Interfaces as CmsBaseAuthInterfaces;
+use CmsBase\Auth\Collection\Signin\Controllers as CmsBaseAuthCollectionSigninControllers;
 
 // Define the component's path
-defined('MIDRUB_BASE_AUTH_SIGNIN') OR define('MIDRUB_BASE_AUTH_SIGNIN', APPPATH . 'base/auth/collection/signin/');
+defined('CMS_BASE_AUTH_SIGNIN') OR define('CMS_BASE_AUTH_SIGNIN', APPPATH . 'base/auth/collection/signin/');
 
 // Define the component's version
-defined('MIDRUB_BASE_AUTH_SIGNIN_VERSION') OR define('MIDRUB_BASE_AUTH_SIGNIN_VERSION', '0.0.3');
+defined('CMS_BASE_AUTH_SIGNIN_VERSION') OR define('CMS_BASE_AUTH_SIGNIN_VERSION', '0.0.3');
 
 /*
  * Main class loads the Signin Auth's component
@@ -31,7 +31,7 @@ defined('MIDRUB_BASE_AUTH_SIGNIN_VERSION') OR define('MIDRUB_BASE_AUTH_SIGNIN_VE
  * @package Midrub
  * @since 0.0.7.8
  */
-class Main implements MidrubBaseAuthInterfaces\Auth {
+class Main implements CmsBaseAuthInterfaces\Auth {
     
     /**
      * Class variables
@@ -66,26 +66,26 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
         if ( $this->CI->uri->segment('3') && !$this->CI->input->server('QUERY_STRING') ) {
 
             // Redirect user to network
-            (new MidrubBaseAuthCollectionSigninControllers\Social)->connect($this->CI->uri->segment('3'));
+            (new CmsBaseAuthCollectionSigninControllers\Social)->connect($this->CI->uri->segment('3'));
 
         } else {
 
             if ( $this->CI->uri->segment('3') ) {
 
                 // Get access token
-                $response = (new MidrubBaseAuthCollectionSigninControllers\Social)->login($this->CI->uri->segment('3'));
+                $response = (new CmsBaseAuthCollectionSigninControllers\Social)->login($this->CI->uri->segment('3'));
 
                 if ( $response ) {
 
                     // Set auth error
-                    md_set_component_variable('auth_error', $response['message']);
+                    md_set_data('auth_error', $response['message']);
 
                 }
 
             } else {
 
                 // Instantiate the class
-                (new MidrubBaseAuthCollectionSigninControllers\Init)->view();
+                (new CmsBaseAuthCollectionSigninControllers\Init)->view();
 
             }
 
@@ -112,7 +112,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
         try {
 
             // Call method if exists
-            (new MidrubBaseAuthCollectionSigninControllers\Ajax)->$action();
+            (new CmsBaseAuthCollectionSigninControllers\Ajax)->$action();
 
         } catch (Exception $ex) {
 
@@ -144,18 +144,18 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
             case 'admin_init':
 
                 // Register the hooks for administrator
-                add_hook(
+                md_set_hook(
                     'admin_init',
                     function ($args) {
 
                         // Verify if user has opened the frontend component
-                        if ( (the_global_variable('component') === 'frontend') && ($this->CI->input->get('component', true) === 'signin') ) {
+                        if ( (md_the_data('component') === 'frontend') && ($this->CI->input->get('component', true) === 'signin') ) {
 
                             // Load the component's language files
-                            $this->CI->lang->load( 'admin_signin', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_AUTH_SIGNIN );
+                            $this->CI->lang->load( 'admin_signin', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_SIGNIN );
 
                             // Require the contents_categories file
-                            require_once MIDRUB_BASE_AUTH_SIGNIN . 'inc/contents_categories.php';
+                            require_once CMS_BASE_AUTH_SIGNIN . 'inc/contents_categories.php';
 
                         }
 
@@ -201,7 +201,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
     public function component_info() {
         
         // Load the component's language files
-        $this->CI->lang->load( 'admin_signin', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_AUTH_SIGNIN );
+        $this->CI->lang->load( 'admin_signin', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_SIGNIN );
         
         // Return component information
         return array(
@@ -209,7 +209,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
             'display_component_name' => $this->CI->lang->line('auth_signin'),
             'component_slug' => 'signin',
             'component_icon' => '<i class="fas fa-sign-in-alt"></i>',
-            'version' => MIDRUB_BASE_AUTH_SIGNIN_VERSION,
+            'version' => CMS_BASE_AUTH_SIGNIN_VERSION,
             'required_version' => '0.0.7.8'
         );
         

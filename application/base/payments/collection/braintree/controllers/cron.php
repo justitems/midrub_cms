@@ -11,7 +11,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Payments\Collection\Braintree\Controllers;
+namespace CmsBase\Payments\Collection\Braintree\Controllers;
 
 // Constants
 defined('BASEPATH') or exit('No direct script access allowed');
@@ -45,7 +45,7 @@ class Cron
         $this->CI = &get_instance();
 
         // Load language
-        $this->CI->lang->load( 'braintree_user', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_PAYMENTS_BRAINTREE );
+        $this->CI->lang->load( 'braintree_user', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_PAYMENTS_BRAINTREE );
 
     }
 
@@ -59,10 +59,10 @@ class Cron
     public function subscriptions() {
 
         // Require the Braintree class
-        require_once MIDRUB_BASE_PAYMENTS_BRAINTREE . 'vendor/braintree/braintree_php/lib/Braintree.php';
+        require_once CMS_BASE_PAYMENTS_BRAINTREE . 'vendor/braintree/braintree_php/lib/Braintree.php';
 
         // Get subscriptions with base model
-        $subscriptions = $this->CI->base_model->get_data_where('subscriptions', '*', array(
+        $subscriptions = $this->CI->base_model->the_data_where('subscriptions', '*', array(
             'gateway' => 'braintree',
             'last_update !=' => date('Y-m-d')
         ));
@@ -72,9 +72,9 @@ class Cron
 
             $config = new \Braintree_Configuration([
                 'environment' => 'production',
-                'merchantId' => get_option('braintree_merchant_id'),
-                'publicKey' => get_option('braintree_public_key'),
-                'privateKey' => get_option('braintree_private_key')
+                'merchantId' => md_the_option('braintree_merchant_id'),
+                'publicKey' => md_the_option('braintree_public_key'),
+                'privateKey' => md_the_option('braintree_private_key')
             ]);
 
             $gateway = new \Braintree\Gateway($config);

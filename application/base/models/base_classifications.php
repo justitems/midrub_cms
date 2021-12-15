@@ -46,9 +46,9 @@ class Base_classifications extends CI_MODEL {
             
             $this->db->query('CREATE TABLE IF NOT EXISTS `classifications` (
                               `classification_id` bigint(20) AUTO_INCREMENT PRIMARY KEY,
-                              `slug` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-                              `type` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-                              `parent` bigint(20) NOT NULL
+                              `classification_slug` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+                              `classification_type` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+                              `classification_parent` bigint(20) NOT NULL
                             ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;');
             
         }
@@ -93,7 +93,7 @@ class Base_classifications extends CI_MODEL {
 
         // Verify if menu slug's exists
         if ( isset($args['slug']) ) {
-            $where['classifications.slug'] = $args['slug'];
+            $where['classifications.classification_slug'] = $args['slug'];
         }
 
         if ( isset($args['fields']) ) {
@@ -123,7 +123,7 @@ class Base_classifications extends CI_MODEL {
             $where['classifications_meta.language'] = $language;
         }        
         
-        $this->db->select('classifications_meta.*, classifications.parent');
+        $this->db->select('classifications_meta.*, classifications.classification_parent');
         $this->db->from($this->table);
         $this->db->join('classifications_meta', 'classifications.classification_id=classifications_meta.classification_id', 'left');
 
@@ -159,13 +159,13 @@ class Base_classifications extends CI_MODEL {
     }
 
     /**
-     * The public method get_classifications_by_slug gets classifications by slug
+     * The public method the_classifications_by_slug gets classifications by slug
      * 
      * @param array $args contains the query arguments
      * 
      * @return object with items or boolean false
      */
-    public function get_classifications_by_slug($args) {
+    public function the_classifications_by_slug($args) {
         
         // Set language
         $language = $this->config->item('language');
@@ -175,20 +175,20 @@ class Base_classifications extends CI_MODEL {
             'classifications_meta.meta_name' => 'name'
         );
 
-        if ( isset($args['slug']) ) {
-            $where['classifications.slug'] = $args['slug'];
+        if ( isset($args['classification_slug']) ) {
+            $where['classifications.classification_slug'] = $args['classification_slug'];
         }
 
-        if ( isset($args['type']) ) {
-            $where['classifications.type'] = $args['type'];
+        if ( isset($args['classification_type']) ) {
+            $where['classifications.classification_type'] = $args['classification_type'];
         }
 
         if ( empty($args['subclassifications']) && !isset($args['item_id']) && !isset($args['content_id']) ) {
-            $where['classifications.parent'] = '0';
+            $where['classifications.classification_parent'] = '0';
         }
         
         if ( isset($args['item_id']) ) {
-            $where['classifications.parent'] = $args['item_id'];
+            $where['classifications.classification_parent'] = $args['item_id'];
         }
 
         if ( isset($args['content_id']) ) {
@@ -222,7 +222,7 @@ class Base_classifications extends CI_MODEL {
             $where['classifications_meta.language'] = $language;
         }
         
-        $this->db->select('classifications.classification_id, classifications_meta.meta_slug AS item_slug, classifications_meta.meta_value AS name, classifications.parent');
+        $this->db->select('classifications.classification_id, classifications_meta.meta_slug AS item_slug, classifications_meta.meta_value AS classification_name, classifications.classification_parent');
 
         if ( isset($args['content_id']) ) {
             $this->db->from('contents_classifications');
@@ -281,7 +281,7 @@ class Base_classifications extends CI_MODEL {
         }        
 
         if ( isset($args['type']) ) {
-            $where['classifications.type'] = $args['type'];
+            $where['classifications.classification_type'] = $args['type'];
         }
         
         $this->db->select('classifications.classification_id');

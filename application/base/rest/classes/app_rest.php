@@ -11,7 +11,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Rest\Classes;
+namespace CmsBase\Rest\Classes;
 
 // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -60,10 +60,10 @@ class App_rest {
         $app = str_replace('-', '_', $app);
 
         // Verify if the app exists
-        if ( is_dir( MIDRUB_BASE_PATH . 'user/apps/collection/' . $app . '/' ) ) {
+        if ( is_dir( CMS_BASE_PATH . 'user/apps/collection/' . $app . '/' ) ) {
             
             // Verify if the app is enabled
-            if ( !get_option('app_' . $app . '_enable') ) {
+            if ( !md_the_option('app_' . $app . '_enabled') ) {
                 
                 echo json_encode(array(
                     'status' => FALSE,
@@ -76,7 +76,7 @@ class App_rest {
 
             // Create an array
             $array = array(
-                'MidrubBase',
+                'CmsBase',
                 'User',
                 'Apps',
                 'Collection',

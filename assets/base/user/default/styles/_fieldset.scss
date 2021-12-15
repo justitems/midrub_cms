@@ -1,0 +1,35 @@
+/*******************************
+DEFAULT FIELDSET MIXINGS
+********************************/
+
+@mixin default-fieldset {
+
+    & {
+        margin: 0 0 15px;
+        padding: 10px;
+        position: relative;
+        width: 100%; 
+        border-radius: 4px;
+        border: 1px solid #ebebeb;
+
+        legend {
+            margin-bottom: 0px;
+            padding: 5px 10px 5px 10px;
+            width: auto;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-size: 12px;
+            color: $default-color-grey;
+            background-color: #ffffff;
+        }
+
+        input[type="text"] {
+            margin-top: -5px;
+            padding: 0 .75rem !important;
+            border: 0;
+            font-size: 14px;
+        }
+
+    }
+
+}

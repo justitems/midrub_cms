@@ -1,0 +1,132 @@
+/*******************************
+MEMBERS TRANSACTIONS STYLES
+********************************/
+
+.members-page {
+
+    .panel {
+
+        .panel-body {
+
+            #members-member-tab-transactions {
+
+                .list-transactions {
+                    margin: 0;
+                    padding: 0;
+
+                    li {
+                        margin: 0;
+                        padding: 0;
+                        list-style: none;
+                        background-color: #FFFFFF;
+                        border-radius: 2px;
+                        border: 0;
+                        padding: 15px;
+                        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+                        box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+                        border-bottom: 1px solid #f5f5f5;
+                        font-family: Open Sans,sans-serif;
+                        font-weight: 400;
+
+                        &:last-child {
+                            border-bottom: 0;
+                        }
+
+                        .col-lg-10 {
+
+                            i {
+                                font-size: 18px;
+                                float: left;
+                                margin-right: 5px;
+                            }
+
+                        }
+
+                        a {
+                            color: #000031;
+
+                            &:hover {
+                                text-decoration: none;
+                                border-bottom: 1px solid #000031;
+                            }
+
+                        }
+
+                        .label-default {
+                            background-color: #F8F8FC;
+                            color: #000031;
+                        }
+
+                        .label-primary {
+                            background-color: #eaeef8;
+                            color: #000031;
+                        }
+
+                        .label-danger {
+                            background-color: #f3ebed;
+                            color: #000031;
+                        }
+
+                    }
+
+                }
+
+                .pagination-area {
+                    margin-top: 20px;
+                    background-color: #FFFFFF;
+                    border-radius: 2px;
+                    border: 0;
+                    padding: 10px 10px 10px;
+                    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+                    box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+                    display: none;
+
+                    .pagination {
+                        margin: 5px 5px 0;
+                        border: 1px solid #cdcde6;
+                        font-family: Open Sans,sans-serif;
+                        font-weight: 400;
+                        
+                        li {
+                            
+                            a,
+                            span {
+                                line-height: 22px;
+                                border: 0;
+                                color: #6c757d;
+                                background-color: #f5f9fd;
+
+                                &:hover {
+                                    text-decoration: none;
+                                    opacity: 0.7;
+                                }
+
+                            }
+
+                            &.pagehide,
+                            &.active {
+                                pointer-events: none;
+                                
+                                a {
+                                    background-color: #FFFFFF !important;
+                                }
+                                
+                            }
+                            
+                        } 
+                        
+                    }
+
+                    p {
+                        padding: 12px 10px 0;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

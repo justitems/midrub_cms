@@ -13,7 +13,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Classes\Contents as MidrubBaseClassesContents;
+use CmsBase\Classes\Contents as CmsBaseClassesContents;
 
 if ( !function_exists('md_set_contents_category') ) {
     
@@ -30,7 +30,7 @@ if ( !function_exists('md_set_contents_category') ) {
     function md_set_contents_category($category_slug, $args) {
 
         // Call the contents_categories class
-        $contents_categories = (new MidrubBaseClassesContents\Contents_categories);
+        $contents_categories = (new CmsBaseClassesContents\Contents_categories);
 
         // Set contents category in the queue
         $contents_categories->set_contents_category($category_slug, $args);
@@ -51,7 +51,7 @@ if ( !function_exists('md_the_contents_categories') ) {
     function md_the_contents_categories() {
         
         // Call the contents_categories class
-        $contents_categories = (new MidrubBaseClassesContents\Contents_categories);
+        $contents_categories = (new CmsBaseClassesContents\Contents_categories);
 
         // Return contents categories
         return $contents_categories->load_contents_categories();
@@ -84,7 +84,7 @@ if ( !function_exists('md_set_contents_category_meta') ) {
             if ( $CI->input->get('template', true) === $args["template"] ) {
 
                 // Call the contents_categories class
-                $contents_categories = (new MidrubBaseClassesContents\Contents_categories);
+                $contents_categories = (new CmsBaseClassesContents\Contents_categories);
 
                 // Set contents category meta in the queue
                 $contents_categories->set_contents_category_meta($category_slug, $args);
@@ -94,7 +94,7 @@ if ( !function_exists('md_set_contents_category_meta') ) {
         } else {
 
             // Call the contents_categories class
-            $contents_categories = (new MidrubBaseClassesContents\Contents_categories);
+            $contents_categories = (new CmsBaseClassesContents\Contents_categories);
 
             // Set contents category meta in the queue
             $contents_categories->set_contents_category_meta($category_slug, $args);
@@ -119,7 +119,7 @@ if ( !function_exists('md_the_contents_categories_metas') ) {
     function md_the_contents_categories_metas($category_slug) {
         
         // Call the contents_categories class
-        $contents_categories = (new MidrubBaseClassesContents\Contents_categories);
+        $contents_categories = (new CmsBaseClassesContents\Contents_categories);
 
         // Return contents category metas
         return $contents_categories->load_contents_categories_metas($category_slug);
@@ -144,7 +144,7 @@ if ( !function_exists('md_set_contents_meta_fields') ) {
     function md_set_contents_meta_fields($meta_name, $meta_slug, $args) {
 
         // Call the contents_categories class
-        $contents_categories = (new MidrubBaseClassesContents\Contents_categories);
+        $contents_categories = (new CmsBaseClassesContents\Contents_categories);
 
         // Adds contents category meta fields in the queue
         $contents_categories->set_contents_meta_fields($meta_name, $meta_slug, $args);
@@ -168,7 +168,7 @@ if ( !function_exists('md_set_contents_meta_field') ) {
     function md_set_contents_meta_field($method, $function) {
 
         // Call the contents_categories class
-        $contents_categories = (new MidrubBaseClassesContents\Admin_contents_meta_templates);
+        $contents_categories = (new CmsBaseClassesContents\Admin_contents_meta_templates);
 
         // Set the method
         $contents_categories->$method = $function;
@@ -194,7 +194,7 @@ if ( !function_exists('md_get_all_contents_categories_metas') ) {
         $CI = &get_instance();
         
         // Call the contents_categories class
-        $contents_categories = (new MidrubBaseClassesContents\Contents_categories);
+        $contents_categories = (new CmsBaseClassesContents\Contents_categories);
 
         // Verify if meta's fields exists
         if ( $contents_categories::$the_contents_meta_fields ) {
@@ -202,13 +202,16 @@ if ( !function_exists('md_get_all_contents_categories_metas') ) {
             // Lista all meta's fields
             foreach ( $contents_categories::$the_contents_meta_fields as $fields ) {
 
-                $content = '<div class="row">'
+                $content = '<div class="row mb-3">'
                                 . '<div class="col-lg-12">'
-                                    . '<div class="panel panel-default contents-meta-area">'
-                                        . '<div class="panel-heading">'
-                                            . $fields['meta_name']
-                                        . '</div>'
-                                        . '<div class="panel-body">';
+                                    . '<div class="theme-box-1">'
+                                        . '<div class="card theme-card-box contents-meta-area">'
+                                            . '<div class="card-header">'
+                                                . '<button class="btn btn-link">'
+                                                    . $fields['meta_name']
+                                                . '</button>'
+                                            . '</div>'
+                                            . '<div class="card-body">';
 
                 // Verify if meta has fields
                 if ( $fields['fields'] ) {
@@ -219,101 +222,44 @@ if ( !function_exists('md_get_all_contents_categories_metas') ) {
                         if ( $field['type'] === 'list_items' ) {
 
                             // Set HTML content
-                            $content .=  '<div class="form-group list-area" data-slug="' . $field['slug'] . '">'
+                            $content .=  '<div class="form-group list-area pl-3 pr-3" data-slug="' . $field['slug'] . '">'
                                     . '<div class="row">'
                                         . '<div class="col-lg-12">'
-                                            . '<div class="panel panel-default">'
-                                                . '<div class="panel-heading">'
-                                                    . '<div class="row">'
-                                                        . '<div class="col-lg-8 col-xs-6">'
-                                                            . '<h3>'
-                                                                . $field['label']
-                                                            . '</h3>'
-                                                        . '</div>'
-                                                        . '<div class="col-lg-4 col-xs-6 text-right">'
-                                                            . '<a href="#" class="btn-option btn-new-list-item" data-type="list_item_' . str_replace('-', '_', $field['slug']) . '">'
-                                                                . $field['words']['new_item_text']
-                                                            . '</a>'
+                                            . '<div class="theme-box-1">'
+                                                . '<div class="card theme-card-box pl-0 pr-0">'
+                                                    . '<div class="card-header">'
+                                                        . '<div class="row">'
+                                                            . '<div class="col-lg-8 col-xs-6">'
+                                                                . '<label class="theme-label">'
+                                                                    . $field['label']
+                                                                . '</label>'
+                                                            . '</div>'
+                                                            . '<div class="col-lg-4 col-xs-6 text-end">'
+                                                                . '<a href="#" class="btn-option btn-new-list-item theme-button-1" data-type="list_item_' . str_replace('-', '_', $field['slug']) . '">'
+                                                                    . $field['words']['new_item_text']
+                                                                . '</a>'
+                                                            . '</div>'
                                                         . '</div>'
                                                     . '</div>'
-                                                . '</div>'
-                                                . '<div class="panel-body">';
+                                                    . '<div class="card-body">';
 
-                            $fields_data = array();
+                                $fields_data = array();
 
-                            if ( isset($field['fields']) ) {
+                                if ( isset($field['fields']) ) {
 
-                                $item_fields = array(); 
+                                    $item_fields = array(); 
 
-                                foreach ( $field['fields'] as $nfield ) {
-
-                                    try {
-
-                                        $fields_data[$nfield['slug']] = $nfield;
-
-                                        $method = $nfield['type'];
-
-                                        $nfield['meta_slug'] = $fields['meta_slug'];
-
-                                        $item_fields[] = (new MidrubBaseClassesContents\Admin_contents_meta_templates)->$method($nfield, $language);
-            
-                                    } catch(Exception $e) {
-            
-                                        continue;
-            
-                                    }
-
-                                }
-
-                                $item_fields[] = '<div class="form-group clean">'
-                                    . '<a href="#" class="delete-item">'
-                                        . $CI->lang->line('frontend_delete')
-                                    . '</a>'
-                                . '</div>';
-
-                                if ( $item_fields ) {
-
-                                    $content .= '<script language="javascript">'
-                                            . 'var list_item_' . str_replace('-', '_', $field['slug']) . ' = ' . json_encode($item_fields)
-                                        . '</script>';
-
-                                }
-
-                            }
-
-                            $content .= '<ul class="list-items-ul">'; 
-                            
-                            // Get input's value
-                            $get_value = md_the_single_content_meta($field['slug'], $language);
-
-                            if ( $get_value ) {
-
-                                if ($fields_data) {
-
-                                    $values = unserialize($get_value);
-                                    
-                                    $content .= '<li>';
-
-                                    $a = 0;
-
-                                    foreach ($values as $meta) {
-
-                                        if ( count($fields_data) <= $a ) {
-                                            $a = 0;
-                                            $content .= '</li><li>';
-                                        }
+                                    foreach ( $field['fields'] as $nfield ) {
 
                                         try {
-                                            
-                                            $method = $fields_data[$meta['meta']]['type'];
 
-                                            $fields_data[$meta['meta']]['meta_slug'] = $fields_data[$meta['meta']]['slug'];
+                                            $fields_data[$nfield['slug']] = $nfield;
 
-                                            if ( $meta['value'] ) {
-                                                $fields_data[$meta['meta']]['value'] = $meta['value'];
-                                            }
+                                            $method = $nfield['type'];
 
-                                            $content .= (new MidrubBaseClassesContents\Admin_contents_meta_templates)->$method($fields_data[$meta['meta']], $language);
+                                            $nfield['meta_slug'] = $fields['meta_slug'];
+
+                                            $item_fields[] = (new CmsBaseClassesContents\Admin_contents_meta_templates)->$method($nfield, $language);
                 
                                         } catch(Exception $e) {
                 
@@ -321,29 +267,88 @@ if ( !function_exists('md_get_all_contents_categories_metas') ) {
                 
                                         }
 
-                                        $a++;
+                                    }
 
-                                        if ( count($fields_data) === $a ) {
+                                    $item_fields[] = '<div class="form-group">'
+                                        . '<a href="#" class="delete-item theme-button-1">'
+                                            . $CI->lang->line('frontend_delete')
+                                        . '</a>'
+                                    . '</div>';
 
-                                            $content .= '<div class="form-group clean">'
-                                                    . '<a href="#" class="delete-item">'
+                                    if ( $item_fields ) {
+
+                                        $content .= '<script language="javascript">'
+                                                . 'var list_item_' . str_replace('-', '_', $field['slug']) . ' = ' . json_encode($item_fields)
+                                            . '</script>';
+
+                                    }
+
+                                }
+
+                                $content .= '<ul class="list-items-ul">'; 
+                                
+                                // Get input's value
+                                $get_value = md_the_single_content_meta($field['slug'], $language);
+
+                                if ( $get_value ) {
+
+                                    if ($fields_data) {
+
+                                        $values = unserialize($get_value);
+                                        
+                                        $content .= '<li>';
+
+                                        $a = 0;
+
+                                        foreach ($values as $meta) {
+
+                                            if ( count($fields_data) <= $a ) {
+                                                $a = 0;
+                                                $content .= '</li><li>';
+                                            }
+
+                                            try {
+                                                
+                                                $method = $fields_data[$meta['meta']]['type'];
+
+                                                $fields_data[$meta['meta']]['meta_slug'] = $fields_data[$meta['meta']]['slug'];
+
+                                                if ( $meta['value'] ) {
+                                                    $fields_data[$meta['meta']]['value'] = $meta['value'];
+                                                }
+
+                                                $content .= (new CmsBaseClassesContents\Admin_contents_meta_templates)->$method($fields_data[$meta['meta']], $language);
+                    
+                                            } catch(Exception $e) {
+                    
+                                                continue;
+                    
+                                            }
+
+                                            $a++;
+
+                                            if ( count($fields_data) === $a ) {
+
+                                                $content .= '<div class="form-group">'
+                                                    . '<a href="#" class="delete-item theme-button-1">'
                                                         . $CI->lang->line('frontend_delete')
                                                     . '</a>'
                                                 . '</div>';
 
+                                            }
+
                                         }
+                                        
+                                        $content .= '</li>';
 
                                     }
-                                    
-                                    $content .= '</li>';
 
                                 }
 
-                            }
+                                $content .= '</ul>';
 
-                            $content .= '</ul>';
-
-                            $content .= '</div>'
+                                $content .= '</div>'
+                                            . '</div>'
                                             . '</div>'
                                         . '</div>'
                                     . '</div>'
@@ -360,7 +365,7 @@ if ( !function_exists('md_get_all_contents_categories_metas') ) {
                                 $field['meta_slug'] = $fields['meta_slug'];
 
                                 // Set HTML content
-                                $content .= (new MidrubBaseClassesContents\Admin_contents_meta_templates)->$method($field, $language);
+                                $content .= (new CmsBaseClassesContents\Admin_contents_meta_templates)->$method($field, $language);
     
                             } catch(Exception $e) {
     
@@ -375,6 +380,7 @@ if ( !function_exists('md_get_all_contents_categories_metas') ) {
                 }
 
                 $content .= '</div>'
+                    . '</div>'
                     . '</div>'
                     . '</div>'
                 . '</div>';
@@ -404,7 +410,7 @@ if ( !function_exists('md_set_contents_category_option') ) {
     function md_set_contents_category_option($category_slug, $args) {
 
         // Call the contents_categories class
-        $contents_categories = (new MidrubBaseClassesContents\Contents_categories);
+        $contents_categories = (new CmsBaseClassesContents\Contents_categories);
 
         // Set contents category option in the queue
         $contents_categories->set_contents_category_option($category_slug, $args);
@@ -427,7 +433,7 @@ if ( !function_exists('md_the_contents_categories_options') ) {
     function md_the_contents_categories_options($category_slug) {
 
         // Call the contents_categories class
-        $contents_categories = (new MidrubBaseClassesContents\Contents_categories);
+        $contents_categories = (new CmsBaseClassesContents\Contents_categories);
 
         // Return contents category options
         return $contents_categories->load_contents_categories_options($category_slug);
@@ -452,7 +458,7 @@ if ( !function_exists('md_set_contents_option_fields') ) {
     function md_set_contents_option_fields($option_name, $option_slug, $args) {
 
         // Call the contents_categories class
-        $contents_categories = (new MidrubBaseClassesContents\Contents_categories);
+        $contents_categories = (new CmsBaseClassesContents\Contents_categories);
 
         // Adds contents category option fields in the queue
         $contents_categories->set_contents_option_fields($option_name, $option_slug, $args);
@@ -473,7 +479,7 @@ if ( !function_exists('md_get_all_contents_categories_options') ) {
     function md_get_all_contents_categories_options() {
         
         // Call the contents_categories class
-        $contents_categories = (new MidrubBaseClassesContents\Contents_categories);
+        $contents_categories = (new CmsBaseClassesContents\Contents_categories);
 
         // Verify if options fields exists
         if ( $contents_categories::$the_contents_options_fields ) {
@@ -481,13 +487,16 @@ if ( !function_exists('md_get_all_contents_categories_options') ) {
             // Lista all options fields
             foreach ( $contents_categories::$the_contents_options_fields as $fields ) {
 
-                $content = '<div class="row">'
+                $content = '<div class="row mb-3">'
                                 . '<div class="col-lg-12">'
-                                    . '<div class="panel panel-default contents-option-area">'
-                                        . '<div class="panel-heading">'
-                                            . $fields['option_name']
-                                        . '</div>'
-                                        . '<div class="panel-body">';
+                                    . '<div class="theme-box-1">'
+                                        . '<div class="card theme-card-box contents-option-area">'
+                                            . '<div class="card-header">'
+                                                . '<button class="btn btn-link">'
+                                                    . $fields['option_name']
+                                                . '</button>'
+                                            . '</div>'
+                                            . '<div class="card-body">';
 
                 // Verify if option has fields
                 if ( $fields['fields'] ) {
@@ -504,7 +513,7 @@ if ( !function_exists('md_get_all_contents_categories_options') ) {
                             $field['option_slug'] = $fields['option_slug'];
 
                             // Set HTML content
-                            $content .= (new MidrubBaseClassesContents\Admin_contents_option_templates)->$method($field);
+                            $content .= (new CmsBaseClassesContents\Admin_contents_option_templates)->$method($field);
 
                         } catch(Exception $e) {
 
@@ -518,6 +527,7 @@ if ( !function_exists('md_get_all_contents_categories_options') ) {
                 }
 
                 $content .= '</div>'
+                    . '</div>'
                     . '</div>'
                     . '</div>'
                 . '</div>';

@@ -11,7 +11,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Change_password\Helpers;
+namespace CmsBase\Auth\Collection\Change_password\Helpers;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -85,7 +85,7 @@ class User {
                 } else {
 
                     // Require the change functions file
-                    require_once MIDRUB_BASE_AUTH . 'inc/change/change.php';
+                    require_once CMS_BASE_AUTH . 'inc/change/change.php';
 
                     // Try to change the password
                     md_auth_change_password($user_id, $reset_code, $new_password);

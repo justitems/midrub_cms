@@ -1,0 +1,202 @@
+/*******************************
+QUICK GUIDE MIXING
+********************************/
+
+@mixin default-quick-guide {
+
+    & {
+        position: fixed;
+        z-index: 5;
+        top: 0;
+        right: -400px;
+        bottom: 0;
+        padding: 15px;
+        width: 400px;
+        background-color: #FFFFFF;
+        transition: right .5s;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            position: absolute;
+            padding-top: 15px;
+            width: 8px;
+        }
+         
+        &::-webkit-scrollbar-track {
+            border-radius: 6px;
+            background-color: #F9FAFC;
+        }
+         
+        &::-webkit-scrollbar-thumb {
+            border-radius: 6px;
+            background-color: #dee2ea;
+        }
+
+        &.theme-quick-guide-show {
+            right: 0;
+        }
+
+        .theme-toggle-quick-guide {
+            display: grid;
+            position: fixed;
+            margin-top: 15px;
+            margin-left: -55px;
+            padding: 5px;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px 0 0 5px;
+            text-align: center;
+            font-size: 22px;
+            color: $default-color-black;
+            background-color: #ffffff;
+
+            &:hover,
+            &:active,
+            &:focus {
+                border: none;
+                text-decoration: none;
+            }
+
+            .ri-information-line {
+                display: block;
+            }
+
+            .ri-close-fill {
+                display: none;
+            }  
+
+        }
+
+        &.theme-quick-guide-show {
+            
+            .theme-toggle-quick-guide {
+
+                .ri-information-line {
+                    display: none;
+                }
+
+                .ri-close-fill {
+                    display: block;
+                }                    
+
+            }
+            
+        }            
+
+        .theme-quick-guide-header {
+            margin: 6px 0 7px;
+            padding: 0;
+            font-size: 22px;
+        }
+
+        .theme-quick-guide-go-back {
+            display: none;
+            margin: 0;
+            padding: 2px 0 0;
+            line-height: 33px;
+            text-align: center;
+            font-size: 22px;
+            color: $default-color-black;
+            background-color: #f7f9fc;
+
+            &:hover,
+            &:active,
+            &:hover {
+                text-decoration: none;
+                color: $default-color-black;
+                background-color: #D6D8E0;
+            }
+
+        }
+
+        .theme-quick-guide-categories {
+            margin-top: 15px;
+            overflow-y: auto;
+
+            a {
+                margin-bottom: 15px;
+                padding: 1rem 45px 1rem 15px;
+                border: 1px solid #d4dadf;
+                border-radius: .25rem;
+                -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
+                box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
+
+                &.active,
+                &:hover,
+                &:active,
+                &:hover {
+                    color: $default-color-black;
+                    background-color: #f7f9fc;
+                }
+
+                i {
+                    vertical-align: middle;
+                    margin-right: 5px;
+                    padding: 5px;
+                    border-radius: 3px;
+                    font-size: 18px;
+                    background-color: #f7f9fc;
+                }
+
+                small {
+                    float: right;
+                    margin-right: -40px;
+
+                    i {
+                        background-color: transparent;
+                    }
+
+                }
+
+            }
+
+        }
+
+        .theme-quick-guide-articles {
+            margin: 0;
+            overflow-y: auto;
+
+            .list-group-item {
+                margin-bottom: 15px;
+                padding: 1rem 15px;
+                border: 1px solid #d4dadf;
+                border-radius: 0;
+                -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
+                box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
+
+                &:hover,
+                &:active,
+                &:hover {
+                    background-color: transparent;
+                }
+
+                .article-title {
+                    margin-bottom: 15px;
+                    padding: 0;
+                    line-height: 28px;
+                    font-family: $default-font-1;
+                    font-size: 17px;
+                    font-weight: 400;
+                    color: $default-color-black;
+                    background-color: #ffffff;
+                }
+
+                .article-content {
+                    line-height: 24px;
+                    font-family: $default-font-1;
+                    font-size: 14px;
+                    color: $default-color-black;
+                    
+                    img {
+                        max-width: 100%;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

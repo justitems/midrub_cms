@@ -133,15 +133,15 @@ if ( !function_exists('get_invoices_option') ) {
         $CI = &get_instance();
 
         // Load Base Invoices Model
-        $CI->load->ext_model(MIDRUB_BASE_PATH . 'models/', 'Base_invoices', 'base_invoices');
+        $CI->load->ext_model(CMS_BASE_PATH . 'models/', 'Base_invoices', 'base_invoices');
 
         // Try to find the option's value
-        $get_option = $CI->base_invoices->get_invoices_option($option_name, $template_slug);
+        $md_the_option = $CI->base_invoices->get_invoices_option($option_name, $template_slug);
 
         // Verify if option exists
-        if ( $get_option ) {
+        if ( $md_the_option ) {
 
-            return $get_option;
+            return $md_the_option;
 
         } else {
 
@@ -169,7 +169,7 @@ if ( !function_exists('get_template_field') ) {
         $CI = &get_instance();
 
         // Load Base Invoices Model
-        $CI->load->ext_model(MIDRUB_BASE_PATH . 'models/', 'Base_invoices', 'base_invoices');
+        $CI->load->ext_model(CMS_BASE_PATH . 'models/', 'Base_invoices', 'base_invoices');
 
         // Try to find the field
         $get_field = $CI->base_invoices->get_template_field($template_field, $template_slug);
@@ -259,7 +259,7 @@ if ( !function_exists('save_complete_transaction') ) {
                 $template_title = str_replace('[date]', date('d/m/Y'), $template_title);
 
                 // Use the base model to get the user's data
-                $get_user_data = $CI->base_model->get_data_where(
+                $get_user_data = $CI->base_model->the_data_where(
                     'users',
                     "users.*,
                     (SELECT meta_value FROM users_meta WHERE `meta_name`='country' AND `user_id` = '$user_id') country,
@@ -291,8 +291,37 @@ if ( !function_exists('save_complete_transaction') ) {
 
                 }
 
+                // Use the base model for a simply sql query
+                $the_transaction_plan = $CI->base_model->the_data_where(
+                    'transactions_options',
+                    'plans.*',
+                    array(
+                        'transactions_options.option_name' => 'plan_id'
+                    ),
+                    array(),
+                    array(),
+                    array(array(
+                        'table' => 'plans',
+                        'condition' => 'transactions_options.option_value=plans.plan_id',
+                        'join_from' => 'LEFT'
+                    ))
+                );
+
+                // Verify if the transaction's plan exists
+                if ( $the_transaction_plan ) {
+
+                    // Now should be replaced the placeholders
+                    $invoice = str_replace('[plan_name]', $the_transaction_plan[0]['plan_name'], $invoice);
+                    $invoice = str_replace('[plan_price]', $the_transaction_plan[0]['plan_price'], $invoice);
+                    $invoice = str_replace('[currency_code]', $the_transaction_plan[0]['currency_code'], $invoice);
+                    $template_title = str_replace('[plan_name]', $the_transaction_plan[0]['plan_name'], $template_title); 
+                    $template_title = str_replace('[plan_price]', $the_transaction_plan[0]['plan_price'], $template_title);
+                    $template_title = str_replace('[currency_code]', $the_transaction_plan[0]['currency_code'], $template_title);               
+
+                }
+
                 // Try to find the transaction's fields
-                $fields = $CI->base_model->get_data_where('transactions_fields', '*', array('transaction_id' => $transaction_id));
+                $fields = $CI->base_model->the_data_where('transactions_fields', '*', array('transaction_id' => $transaction_id));
                 
                 // Verify if the transaction has fields
                 if ( $fields ) {
@@ -309,7 +338,7 @@ if ( !function_exists('save_complete_transaction') ) {
                 }
 
                 // Try to find the transaction
-                $get_transaction = $CI->base_model->get_data_where('transactions', 'transactions.*', array('transactions.transaction_id' => $transaction_id));
+                $get_transaction = $CI->base_model->the_data_where('transactions', 'transactions.*', array('transactions.transaction_id' => $transaction_id));
 
                 // Verify if the transaction exists
                 if ( $get_transaction ) {
@@ -346,7 +375,7 @@ if ( !function_exists('save_complete_transaction') ) {
                 }
 
                 // Get all user's options
-                $user_options = $CI->base_model->get_data_where('users_meta', '*', array('user_id' => $user_id));
+                $user_options = $CI->base_model->the_data_where('users_meta', '*', array('user_id' => $user_id));
 
                 // Verify if options exists
                 if ( $user_options ) {
@@ -409,6 +438,9 @@ if ( !function_exists('create_subscription') ) {
         // Get codeigniter object instance
         $CI = &get_instance();
 
+        // Save user subscription
+        md_update_user_option($subscription['user_id'], 'subscription', 1);
+
         // Try to save the subscription
         if ( $CI->base_model->insert('subscriptions', $subscription) ) {
 
@@ -447,23 +479,6 @@ if ( !function_exists('get_the_js_urls') ) {
     
 }
 
-if ( !function_exists('get_the_title') ) {
-    
-    /**
-     * The functionget_the_title gets the page's title
-     * 
-     * @since 0.0.8.0
-     * 
-     * @return void
-     */
-    function get_the_title() {
-
-        md_get_the_title();
-        
-    }
-    
-}
-
 if ( !function_exists('get_payment_view') ) {
     
     /**
@@ -476,10 +491,10 @@ if ( !function_exists('get_payment_view') ) {
     function get_payment_view() {
 
         // Verify if view exists
-        if ( md_the_component_variable('payment_content_view') ) {
+        if ( md_the_data('payment_content_view') ) {
 
             // Display view
-            echo md_the_component_variable('payment_content_view');
+            echo md_the_data('payment_content_view');
 
         }
         
@@ -504,29 +519,10 @@ if ( !function_exists('get_the_css_urls') ) {
     
 }
 
-if ( !function_exists('get_the_file') ) {
+if ( !function_exists('md_set_hook') ) {
     
     /**
-     * The function get_the_file gets a file
-     * 
-     * @param string $file_path contains the file's path
-     * 
-     * @since 0.0.8.0
-     * 
-     * @return void
-     */
-    function get_the_file($file_path) {
-
-        md_include_component_file($file_path);
-
-    }
-    
-}
-
-if ( !function_exists('add_hook') ) {
-    
-    /**
-     * The function add_hook registers a hook
+     * The function md_set_hook registers a hook
      * 
      * @param string $hook_name contains the hook's name
      * @param function $function contains the function to call
@@ -535,9 +531,9 @@ if ( !function_exists('add_hook') ) {
      * 
      * @return void
      */
-    function add_hook($hook, $function) {
+    function md_set_hook($hook, $function) {
 
-        md_add_hook($hook, $function);
+        md_set_hook($hook, $function);
 
     }
     
@@ -641,7 +637,7 @@ if ( !function_exists('set_payment_view') ) {
     function set_payment_view($view) {
 
         // Set content view
-        md_set_component_variable('payment_content_view', $view);
+        md_set_data('payment_content_view', $view);
         
     }
     

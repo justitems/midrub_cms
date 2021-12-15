@@ -10,7 +10,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Classes\Components;
+namespace CmsBase\Classes\Components;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -37,7 +37,7 @@ class Admin_options_templates {
         $checked = '';
 
         // Get input's value
-        $get_value = get_option($component_option['slug']);
+        $get_value = md_the_option($component_option['slug']);
 
         // Verify if the checkbox is checked
         if ( $get_value ) {

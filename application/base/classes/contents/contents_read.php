@@ -10,7 +10,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Classes\Contents;
+namespace CmsBase\Classes\Contents;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -45,7 +45,7 @@ class Contents_read {
 
         foreach ( $content as $meta ) {
 
-            $metas[$meta['language']][$meta['meta_name']] = $meta['meta_value']; 
+            $metas[$meta['language']][key($meta)] = $meta[key($meta)]; 
 
         }
 

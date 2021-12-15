@@ -1,0 +1,31 @@
+/*******************************
+DEFAULT MIXINGS FOR BADGE
+********************************/
+
+@mixin default-badge-1 {
+    padding-bottom: 6px;
+    font-family: $default-font-2;
+    font-size: 12px;
+    font-weight: 400;
+
+    &.bg-primary {
+        color: #FFFFFF !important;
+        background-color: $default-color-violet !important;
+    }  
+    
+    &.bg-light {
+        color: #FFFFFF !important;
+        background-color: $default-color-grey !important;
+    }  
+
+    &.bg-danger {
+        color: #FFFFFF !important;
+        background-color: $default-color-red !important;
+    } 
+
+    &.bg-info {
+        color: #FFFFFF !important;
+        background-color: $default-color-new !important;
+    }     
+    
+}

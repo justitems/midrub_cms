@@ -1,0 +1,676 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../admin/default/styles/default_colors.scss";
+@import "../../../../../../admin/default/styles/default_fonts.scss";
+@import "../../../../../../admin/default/styles/default_editor.scss";
+@import "../../../../../../admin/default/styles/default_buttons.scss";
+
+/*******************************
+FRONTEND STYLES
+********************************/
+section {
+    padding-top: 50px;
+    
+    .container-fluid {
+        padding: 0;
+
+        .frontend-view {
+
+            .form-editor {
+                padding-top: 15px;
+                padding-bottom: 15px;
+
+                @include default-editor();
+                
+                & > .row > .col-lg-3 {
+                    
+                    & > div {
+                        
+                        & > div {
+                            margin-bottom: 20px;
+                            
+                            hr {
+                                margin: 0;
+                                border-top: 1px solid #d8e0e0;
+                            }
+
+                            .theme-select {
+                                width: 130px;
+                                height: 36px;
+                            }
+
+                            .theme-button-2 {
+                                width: 130px;
+                                height: 36px; 
+                                text-align: center;                               
+                                color: #FFFFFF;
+                                background-color: $default-color-new;
+                                box-shadow: none !important;
+                
+                                &:hover {
+                                    background-color: $default-color-blue;
+                                }
+                
+                            }
+
+                            .contents-option-area {
+                                border: 0;
+                                min-height: 100px;
+                                box-shadow: none;
+        
+                                & > .card-header {
+                                    padding-bottom: 0;
+                                    margin-top: 0px;                                    
+                                    line-height: 50px;
+                                    border-bottom: 1px solid #e3eaef;
+                                    font-weight: 400;
+                                    color: #212529;
+                                    background-color: transparent;
+                                }
+        
+                                & > .card-body {
+        
+                                    .form-group {
+
+                                        .card {
+
+                                            .card-body {
+                                                min-height: 200px;
+
+                                                ul.classification-selected-list {
+                                                    margin: 0;
+                                                    padding: 0;
+                                                    
+                                                    li {
+                                                        list-style: none;
+                                                        margin-bottom: 10px;
+                                    
+                                                        &.no-results-found {
+                                                            margin: 0;
+                                                            border-radius: 3px;
+                                                            border: 0;
+                                                            line-height: 30px;
+                                                            font-weight: 400;
+                                                            font-size: 14px;
+                                                            background-color: #ffffff;
+                                                            box-shadow: 0 1px 2px 0 #ced9e0;                        
+                                                        }
+                                    
+                                                        ul {
+                                                            margin: 15px 0 0 15px;
+                                                            padding-left: 15px;
+                                                        }
+                                                        
+                                                        & > .row {
+                                                            margin: 0;
+                                                            border-radius: 3px;
+                                                            line-height: 30px;
+                                                            font-weight: 400;
+                                                            font-size: 14px;
+                                                            background-color: #ffffff;
+                                                            box-shadow: 0 1px 2px 0 #ced9e0;
+                                                        }
+
+                                                        .theme-checkbox-input-1 {
+
+                                                            .theme-checkbox-checkmark {
+                                                                top: 9px;
+                                    
+                                                                &::after {
+                                                                    font-size: 1.3em;
+                                                                }
+                                    
+                                                            }
+                                    
+                                                        }
+                                    
+                                                        a {
+                                                            padding: 7px 15px;
+                                                            color: $default-color-black;
+
+                                                            .theme-dropdown-arrow-icon {
+                                                                display: none;
+                                                                margin-top: 7px !important;
+                                                                margin-right: 0 !important;
+                                                                margin-left: 10px !important;
+                                                                width: 13px !important;
+                                                                height: 13px !important;                                        
+                                                                -webkit-transform: rotate(90deg) !important;
+                                                                transform: rotate(90deg) !important;
+                                                                -webkit-transition-duration: 0.5s !important;
+                                                                transition-duration: 0.5s !important;
+                                                                -webkit-transition-property: all !important;
+                                                                transition-property: transform !important;
+                                                            }
+                                    
+                                                            &[aria-expanded="false"],
+                                                            &[aria-expanded="true"] {
+                                    
+                                                                .theme-dropdown-arrow-icon {
+                                                                    display: block;
+                                                                }
+                                    
+                                                            } 
+                                    
+                                                            &.delete-classification-single {
+                                    
+                                                                svg {
+                                                                    width: 20px;
+                                                                    height: 22px;
+                                                                }
+                                    
+                                                            }
+                                    
+                                                            &::after {
+                                                                display: none;
+                                                            }
+                                    
+                                                            &[aria-expanded="true"] {
+                                    
+                                                                .theme-dropdown-arrow-icon {
+                                                                    margin-top: 6px !important;
+                                                                    -webkit-transform: rotate(270deg) !important;
+                                                                    transform: rotate(270deg) !important;
+                                                                }
+                                        
+                                                                &:hover {
+                                                                    text-decoration: none;
+                                                                }
+                                    
+                                                            }
+                                    
+                                                        }
+                                    
+                                                    }
+                                        
+                                                    .collapse {
+                                        
+                                                        a {
+                                                            padding: 7px 15px;
+                                                            color: $default-color-black;
+
+                                                            .theme-dropdown-arrow-icon {
+                                                                display: none;
+                                                                margin-top: 7px !important;
+                                                                margin-right: 0 !important;
+                                                                margin-left: 10px !important;
+                                                                width: 13px !important;
+                                                                height: 13px !important;                                        
+                                                                -webkit-transform: rotate(90deg) !important;
+                                                                transform: rotate(90deg) !important;
+                                                                -webkit-transition-duration: 0.5s !important;
+                                                                transition-duration: 0.5s !important;
+                                                                -webkit-transition-property: all !important;
+                                                                transition-property: transform !important;
+                                                            }
+                                    
+                                                            &[aria-expanded="false"],
+                                                            &[aria-expanded="true"] {
+                                    
+                                                                .theme-dropdown-arrow-icon {
+                                                                    display: block;
+                                                                }
+                                    
+                                                            } 
+                                    
+                                                            &.delete-classification-single {
+                                    
+                                                                svg {
+                                                                    width: 20px;
+                                                                    height: 22px;
+                                                                }
+                                    
+                                                            }
+                                    
+                                                            &::after {
+                                                                display: none;
+                                                            }
+                                    
+                                                            &[aria-expanded="true"] {
+                                    
+                                                                .theme-dropdown-arrow-icon {
+                                                                    margin-top: 6px !important;
+                                                                    -webkit-transform: rotate(270deg) !important;
+                                                                    transform: rotate(270deg) !important;
+                                                                }
+                                        
+                                                                &:hover {
+                                                                    text-decoration: none;
+                                                                }
+                                    
+                                                            }
+                                        
+                                                        }
+                                        
+                                                        &.show {
+                                                            box-shadow: none;
+                                        
+                                                            & > a {
+                                                                margin-bottom: 15px;
+                                                                background-color: #ffffff;
+                                                                box-shadow: 0 0.9px 1.2px 0 #ced9e0;
+                                                                border: 0;
+                                                                
+                                                                &:after {
+                                                                    content: "\e607";
+                                                                }
+                                        
+                                                            }
+                                        
+                                                        }
+                                        
+                                                    }
+
+                                                }
+
+                                            }
+
+                                        }
+        
+                                    }
+        
+                                }                        
+        
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+                & .row > .col-lg-9 {
+                    border-right: 1px solid $default-border-color;
+
+                    .tab-pane {
+
+                        & > .row {
+
+                            &:last-child {
+                                margin-bottom: 0 !important;
+                            }
+
+                        }
+
+                    }
+
+                    .frontend-compose-url {
+                        position: absolute;
+                        z-index: 10;
+                        right: 5px;
+                        margin-top: -65px;
+                        height: 40px;
+                        border: 0;
+                        background: transparent;
+
+                        &:focus {
+                            box-shadow: none;
+                            outline: none;
+                        }
+
+                        svg {
+                            width: 22px;
+                            height: 22px;
+                        }
+
+                    }
+
+                    .contents-meta-area {
+                        border: 0;
+                        min-height: 100px;
+
+                        & > .card-header {
+                            border-bottom: 1px solid #e3eaef;
+                            font-weight: 400;
+                            color: #212529;
+                            padding-bottom: 0;
+                        }
+
+                        & > .card-body {
+
+                            .form-group {
+
+                                &.list-area {                                  
+
+                                    .card {
+                                        margin: 0;
+                                        padding: 0;
+                                        border: 0;
+                                        background-color: transparent;
+                                        box-shadow: none;
+
+                                        .card-header {
+                                            margin: 0;
+                                            padding: 10px 15px 8px;
+                                            line-height: 25px;
+                                        }
+
+                                        .card-body {
+                                            margin: 0;
+                                            padding: 15px;
+                                            min-height: 250px;
+                                            background-color: transparent;
+                                            
+                                            .list-items-ul {
+                                                margin: 0;
+                                                padding: 0;
+                                                
+                                                li {
+                                                    margin-bottom: 20px;
+                                                    padding: 15px;
+                                                    border-radius: 6px;
+                                                    list-style: none;
+                                                    background-color: $default-color-grey-light;
+                                                }
+
+                                            }
+
+                                        }
+
+                                    }
+
+                                }
+
+                            }
+
+                        }                        
+
+                    }
+                    
+                }
+                
+            }
+
+        }
+        
+    }
+    
+}
+
+/*******************************
+MODAL STYLES
+********************************/
+#theme-templates-selector,
+#default-components-selector,
+#page-url-composer {
+
+    .modal-content {
+
+        .modal-body {
+            min-height: auto;
+
+            .input-group-btn {
+
+                button {
+                    margin: 0;
+                    height: 40px;
+                    border-radius: 0;
+                    border: 1px solid rgba(0, 0, 0, 0.07);
+                    margin-left: -1px;
+                }
+
+            }
+
+            .theme-select {
+                height: 38px;
+            }
+
+            .url-preview {
+                margin-top: 15px;
+                padding: 8px 15px;
+                width: 100%;
+                font-size: 14px;
+                color: $default-color-black;           
+                background-color: $default-color-grey-light;
+            }
+
+        }
+
+    }
+
+}
+
+#classification-popup-manager {
+
+    .modal-content {
+
+        .modal-header {
+
+            .theme-text-input-1 {
+                height: 25px;
+                font-size: 15px;
+            }
+
+        }
+
+        .modal-body {
+            height: 500px;
+            overflow-y: scroll;
+            background-color: #f5f7fa;
+
+            .checkbox-option-select {
+                padding: 0;
+                display: inline-block;
+                margin-right: 10px;
+
+                label {
+
+                    &::before {
+                        margin-top: -6px;
+                        border: 1px solid #cdcde6;
+                        background-color: #f5f9fd;
+                    }                                       
+
+                }
+
+            }
+
+            &::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 6px #f5f7fa;
+                background-color: #F5F5F5;
+            }
+            
+            &::-webkit-scrollbar {
+                width: 7px;
+                background-color: #615f5c;
+            }
+            
+            &::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                background-color: #1a1a46;
+                border: 1px solid #F5F5F5;
+            }
+
+            ul {
+                margin: 0;
+                padding: 0;
+
+                li {
+                    list-style: none;
+                    margin-bottom: 10px;
+
+                    &.no-results-found {
+                        margin: 0;
+                        border-radius: 3px;
+                        border: 0;
+                        line-height: 30px;
+                        font-weight: 400;
+                        font-size: 14px;
+                        background-color: #ffffff;
+                        box-shadow: 0 1px 2px 0 #ced9e0;                        
+                    }
+
+                    ul {
+                        margin: 15px 0 0 15px;
+                        padding-left: 15px;
+                    }
+                    
+                    & > .row {
+                        margin: 0;
+                        border-radius: 3px;
+                        line-height: 30px;
+                        font-weight: 400;
+                        font-size: 14px;
+                        background-color: #ffffff;
+                        box-shadow: 0 1px 2px 0 #ced9e0;
+                    }
+
+                    .theme-checkbox-input-1 {
+
+                        .theme-checkbox-checkmark {
+                            top: 9px;
+
+                            &::after {
+                                font-size: 1.3em;
+                            }
+
+                        }
+
+                    }
+
+                    a {
+                        padding: 7px 10px;
+                        color: $default-color-black;
+
+                        .theme-dropdown-arrow-icon {
+                            display: none;
+                            margin-top: 7px !important;
+                            margin-right: 0 !important;
+                            margin-left: 10px !important;
+                            width: 13px !important;
+                            height: 13px !important;                                        
+                            -webkit-transform: rotate(90deg) !important;
+                            transform: rotate(90deg) !important;
+                            -webkit-transition-duration: 0.5s !important;
+                            transition-duration: 0.5s !important;
+                            -webkit-transition-property: all !important;
+                            transition-property: transform !important;
+                        }
+
+                        &[aria-expanded="false"],
+                        &[aria-expanded="true"] {
+
+                            .theme-dropdown-arrow-icon {
+                                display: block;
+                            }
+
+                        } 
+
+                        &.delete-classification-single {
+
+                            svg {
+                                width: 20px;
+                                height: 22px;
+                            }
+
+                        }
+
+                        &::after {
+                            display: none;
+                        }
+
+                        &[aria-expanded="true"] {
+
+                            .theme-dropdown-arrow-icon {
+                                margin-top: 6px !important;
+                                -webkit-transform: rotate(270deg) !important;
+                                transform: rotate(270deg) !important;
+                            }
+    
+                            &:hover {
+                                text-decoration: none;
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            .collapse {
+
+                &.show {
+                    box-shadow: none;
+
+                    & > a {
+                        margin-bottom: 15px;
+                        background-color: #ffffff;
+                        box-shadow: 0 0.9px 1.2px 0 #ced9e0;
+                        border: 0;
+                        
+                        &:after {
+                            content: "\e607";
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        .modal-footer {
+            padding: 15px 0;
+
+            .new-classification-link {
+                border-bottom: 1px solid transparent;
+                text-decoration: none;
+                color: $default-color-black;
+
+                &:hover {
+                    border-bottom: 1px solid $default-color-black;
+                }
+
+                &:focus,
+                &:active {
+                    border-bottom: 0;
+                    text-decoration: none;
+                }
+
+            }
+
+            form {
+
+                .save-content {
+                    margin: 0;
+                    padding: 0 12px;
+                    width: 100%;
+                    height: 40px;
+                    border-radius: 4px;
+                    line-height: 36px;
+                    text-align: center;
+                    text-decoration: none;
+                    font-size: 13px;
+                    border-color: $default-color-blue;
+                    color: #FFFFFF;
+                    background-color: $default-color-blue;
+                    box-shadow: inset 0 32px 0 rgba(0,0,0,0);
+                    overflow: hidden;
+                }
+
+                .dropdown {
+
+                    .btn-secondary {
+                        width: 100%;
+                        text-align: left;
+
+                        &::after {
+                            float: right;
+                            margin-top: 8px;
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+    
+}

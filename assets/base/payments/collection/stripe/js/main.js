@@ -26,7 +26,7 @@ jQuery(document).ready( function ($) {
         var data = {
             action: 'process_payment',
             full_name: $('.payment-container .process-payment').find('.card-input-first-name').val(),
-            card_number: $('.payment-container .process-payment').find('.card-input-number').val(),
+            card_number: $('.payment-container .process-payment').find('.card-input-number').val().trim(),
             expiration: $('.payment-container .process-payment').find('.card-input-expiration').val(),
             cvv: $('.payment-container .process-payment').find('.card-input-security').val()
         };
@@ -231,7 +231,8 @@ jQuery(document).ready( function ($) {
             var cardSource = response.id;
 
             // Get amount
-            var amount = parseInt($('.payment-container .card-input-amount').val());
+            var amount = parseFloat($('.payment-container .card-input-amount').val().replace(/,/g, ".")
+            ).toFixed(2);
 
             // Get currency
             var currency = $('.payment-container .card-input-currency').val();
@@ -308,7 +309,7 @@ jQuery(document).ready( function ($) {
     }
         
     function stripe3DSStatusChangedHandler(status, source) {
-console.log([status, source]);
+
         if (source.status == 'chargeable') {
             
             $.featherlight.current().close();
@@ -362,14 +363,37 @@ console.log([status, source]);
         // Set the publishable key
         Stripe.setPublishableKey(words.public_key);
 
+        // Month 
+        var month = 0;
+
+        // Year
+        var year = 0;
+
+        // Get expiration
+        var expiration = $(this).find('.card-input-expiration').val();
+
+        // Verify if expiration exists
+        if ( expiration ) {
+
+            // Split
+            let split = expiration.split('/');
+
+            // Set month
+            month = split[0];
+
+            // Set year
+            year = split[1];
+
+        }
+
         // Create a source
         Stripe.source.create({
             type: 'card',
             card: {
-                number: $(this).find('.card-input-number').val(),
+                number: $(this).find('.card-input-number').val().trim(),
                 cvc: $(this).find('.card-input-security').val(),
-                exp_month: 10,
-                exp_year: 20
+                exp_month: month,
+                exp_year: year
             }
         }, stripeCardSourceResponseHandler);
 

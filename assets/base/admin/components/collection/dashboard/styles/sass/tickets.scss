@@ -1,0 +1,84 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../admin/default/styles/default_colors.scss";
+@import "../../../../../../admin/default/styles/default_fonts.scss";
+
+/*******************************
+TICKETS WIDGET STYLES
+********************************/
+
+.dashboard-widget-tickets-list {
+    margin: 0;
+    padding: 0;
+
+    li {
+        padding: 10px 15px;
+        width: 100%;
+        border: 1px solid #F5F5FB;
+        border-radius: 6px;
+        list-style: none;
+        
+        & > div {
+
+            .theme-profile-photo {
+                margin-top: 2px;
+            }
+
+            & > div {
+                width: 100%;
+
+                h5 {
+                    margin: 0;
+                    padding: 0;
+                    width: 100%;
+
+                    a {
+                        border-bottom: 1px solid transparent;
+                        text-decoration: none;
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: $default-color-black;
+
+                        &:hover,
+                        &:active,
+                        &:focus {
+                            text-decoration: none;
+                            border-bottom: 1px solid $default-color-black;
+                        }
+
+                    } 
+
+                    .dashboard-widget-ticket-time {
+                        text-transform: uppercase;
+                        font-family: $default-font-2;
+                        font-size: 12px;
+                        font-weight: 600;
+                        color: $default-color-grey; 
+                        
+                        svg {
+                            vertical-align: middle;
+                            margin-top: -3px;
+                            margin-right: 5px;
+                            width: 20px;
+                            height: 20px;
+                        }
+
+                    }                                        
+
+                }
+
+                p {
+                    margin: -3px 0 0;
+                    font-family: $default-font-2;
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+
+            }
+
+        }
+
+    }
+
+}

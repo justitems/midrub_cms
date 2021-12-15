@@ -10,7 +10,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Payments\Collection\Stripe\Controllers;
+namespace CmsBase\Payments\Collection\Stripe\Controllers;
 
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -42,7 +42,7 @@ class User {
         $this->CI =& get_instance();
 
         // Load language
-        $this->CI->lang->load( 'stripe_user', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_PAYMENTS_STRIPE );
+        $this->CI->lang->load( 'stripe_user', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_PAYMENTS_STRIPE );
         
     }
     
@@ -88,7 +88,7 @@ class User {
         set_js_urls(array('//cdnjs.cloudflare.com/ajax/libs/featherlight/1.7.0/featherlight.min.js'));            
         
         // Set Stripe App JS
-        set_js_urls(array(base_url('assets/base/payments/collection/stripe/js/main.js?ver=' . MIDRUB_BASE_PAYMENTS_STRIPE_VERSION)));
+        set_js_urls(array(base_url('assets/base/payments/collection/stripe/js/main.js?ver=' . CMS_BASE_PAYMENTS_STRIPE_VERSION)));
 
         // Get the incomplete transaction
         $incomplete_transaction = the_incomplete_transaction();
@@ -102,7 +102,7 @@ class User {
         if ( is_numeric($transaction) ) {
             
             // Get transaction
-            $get_transaction = $this->CI->base_model->get_data_where('transactions', '*', array(
+            $get_transaction = $this->CI->base_model->the_data_where('transactions', '*', array(
                 'transaction_id' => $transaction,
                 'user_id' => $this->CI->user_id,
                 'status <' => 1
@@ -118,7 +118,7 @@ class User {
                 $options = array();
 
                 // Try to find the transaction's fields
-                $get_fields = $this->CI->base_model->get_data_where('transactions_fields', '*', array('transaction_id' => $transaction));
+                $get_fields = $this->CI->base_model->the_data_where('transactions_fields', '*', array('transaction_id' => $transaction));
                 
                 // Verify if the transaction has fields
                 if ( $get_fields ) {
@@ -134,7 +134,7 @@ class User {
                 }
 
                 // Try to find the transaction's options
-                $get_options = $this->CI->base_model->get_data_where('transactions_options', '*', array('transaction_id' => $transaction));
+                $get_options = $this->CI->base_model->the_data_where('transactions_options', '*', array('transaction_id' => $transaction));
                 
                 // Verify if the transaction has options
                 if ( $get_options ) {
@@ -202,7 +202,7 @@ class User {
             // Set views params
             set_payment_view(
                 $this->CI->load->ext_view(
-                    MIDRUB_BASE_PAYMENTS_STRIPE . 'views',
+                    CMS_BASE_PAYMENTS_STRIPE . 'views',
                     'main',
                     $params,
                     true
@@ -215,7 +215,7 @@ class User {
             // Set views params
             set_payment_view(
                 $this->CI->load->ext_view(
-                    MIDRUB_BASE_PAYMENTS_STRIPE . 'views',
+                    CMS_BASE_PAYMENTS_STRIPE . 'views',
                     'expired',
                     array(),
                     true

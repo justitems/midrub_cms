@@ -1,0 +1,70 @@
+/*******************************
+CRM SETTINGS OPTIONS MIXING
+********************************/
+
+@mixin default-settings-options {
+
+    & {
+        margin: 0;
+        padding: 0 0 15px;
+
+        & > li {
+            margin-bottom: 15px;
+            padding: 15px;
+            list-style: none;
+            border: 1px solid #A4ABBD;
+            border-radius: 4px;
+            -webkit-transition: background-color 0.5s ease;
+            -moz-transition: background-color 0.5s ease;
+            -o-transition: background-color 0.5s ease;
+            transition: background-color 0.5s ease;
+
+            &.theme-settings-option-category {
+                padding: 15px 0;
+                border: 0;
+                border-bottom: 1px solid rgba(65, 106, 166, 0.05);
+                border-radius: 0;
+            }
+
+            &.theme-settings-option-active {
+                background-color: #f7f9fc;
+            }
+
+            h2 {
+                margin: 20px 0 0;
+                padding: 0;
+                text-transform: uppercase;
+                font-size: 13px;
+                font-weight: 500;
+                color: $default-color-black;
+            }
+
+            &:first-child {
+
+                h2 {
+                    margin: 0;
+                }
+
+            }
+
+            h4 {
+                font-size: 14px;
+                font-weight: 400;
+                color: $default-color-black;
+            }
+
+            p {
+                margin-bottom: 0;
+                font-size: 13px;
+                color: $default-color-grey;
+            }
+
+            label {
+                margin-right: -5px !important;
+            }
+
+        }
+            
+    }
+
+}

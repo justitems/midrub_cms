@@ -1,9 +1,9 @@
-<div class="form-content<?php echo the_content_meta('auth_signup_slider_enable')?' has-slider':''; ?>">
+<div class="form-content<?php echo md_the_content_meta('auth_signup_slider_enable')?' has-slider':''; ?>">
     <div class="row">
         <div class="col-12">
             <div class="row">
                 <div class="col-lg-2 col-md-12">
-                    <?php echo get_option('auth_logo')?'<img src="' . get_option('auth_logo') . '" class="logo">':''; ?>
+                    <?php echo md_the_option('auth_logo')?'<img src="' . md_the_option('auth_logo') . '" class="logo">':''; ?>
                 </div>
                 <div class="col-lg-4 offset-lg-2 col-md-12 offset-lg-0">
                     <?php echo form_open('', array('class' => 'form-signup', 'data-csrf' => $this->security->get_csrf_token_name())) ?>
@@ -14,7 +14,7 @@
                             <p>
                                 <?php
                                 echo (md_the_single_content_meta('auth_signup_details_under_title')) ? md_the_single_content_meta('auth_signup_details_under_title') : $this->lang->line('auth_signup_page_under_title');
-                                $sign_in = the_url_by_page_role('sign_in') ? the_url_by_page_role('sign_in') : site_url('auth/signin');
+                                $sign_in = md_the_url_by_page_role('sign_in') ? md_the_url_by_page_role('sign_in') : site_url('auth/signin');
                                 ?>
                                 <a href="<?php echo $sign_in; ?>">
                                     <?php echo $this->lang->line('auth_signup_signin_link'); ?>
@@ -36,7 +36,7 @@
                                 <input type="text" class="form-control last-name" id="last-name"<?php if ( isset($last_name) ): echo ' value="' . $last_name . '"'; endif; ?> placeholder="<?php echo $this->lang->line('auth_signup_enter_last_name'); ?>" autocomplete="last-name" required />
                             </div>
                         </div>
-                        <?php if ( get_option('auth_enable_username_input') ) { ?>
+                        <?php if ( md_the_option('auth_enable_username_input') ) { ?>
                         <div class="form-group">
                             <label for="username">
                                 <?php echo $this->lang->line('auth_signup_user_name'); ?>
@@ -69,13 +69,13 @@
                                 echo (md_the_single_content_meta('auth_signup_details_accept_terms')) ? md_the_single_content_meta('auth_signup_details_accept_terms') : $this->lang->line('auth_signup_page_approve_terms');
 
                                 // Verify and display the terms and condition link
-                                if ( the_url_by_page_role('terms_and_conditions') ) {
-                                    echo ' <a href="' . the_url_by_page_role('terms_and_conditions') . '">' . $this->lang->line('auth_signup_terms_of_service') . '</a>';
+                                if ( md_the_url_by_page_role('terms_and_conditions') ) {
+                                    echo ' <a href="' . md_the_url_by_page_role('terms_and_conditions') . '">' . $this->lang->line('auth_signup_terms_of_service') . '</a>';
                                 }
 
                                 // Verify and display the privacy policy link
-                                if ( the_url_by_page_role('privacy_policy') ) {
-                                    echo ' ' . $this->lang->line('auth_signup_and') . ' <a href="' . the_url_by_page_role('privacy_policy') . '">' . $this->lang->line('auth_signup_privacy_policy') . '</a>';
+                                if ( md_the_url_by_page_role('privacy_policy') ) {
+                                    echo ' ' . $this->lang->line('auth_signup_and') . ' <a href="' . md_the_url_by_page_role('privacy_policy') . '">' . $this->lang->line('auth_signup_privacy_policy') . '</a>';
                                 }                
 
                                 ?>
@@ -123,7 +123,7 @@
                                 . '<div class="form-group">';
 
                             // Set the sign up page
-                            $sign_up = the_url_by_page_role('sign_up')?the_url_by_page_role('sign_up'):site_url('auth/signup');
+                            $sign_up = md_the_url_by_page_role('sign_up')?md_the_url_by_page_role('sign_up'):site_url('auth/signup');
 
                             // List available signup options
                             foreach (md_auth_social_access_options() as $option) {
@@ -152,12 +152,12 @@
 </div>
 
 
-<?php if ( the_content_meta('auth_signup_slider_enable') ) { ?>
+<?php if ( md_the_content_meta('auth_signup_slider_enable') ) { ?>
 <div id="carousel-signin" class="carousel slide" data-ride="carousel">
     <?php 
 
     // Get the slider's items
-    $slider_items = the_content_meta_list('auth_signup_slider_items');
+    $slider_items = md_the_content_meta_list('auth_signup_slider_items');
 
     // Verify if the slider has items
     if ( $slider_items ) {

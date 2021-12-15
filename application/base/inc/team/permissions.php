@@ -13,7 +13,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Classes\Team as MidrubBaseClassesTeam;
+use CmsBase\Classes\Team as CmsBaseClassesTeam;
 
 if ( !function_exists('md_set_member_permissions') ) {
     
@@ -29,7 +29,7 @@ if ( !function_exists('md_set_member_permissions') ) {
     function md_set_member_permissions($args) {
 
         // Call the permissions class
-        $team_permissions = (new MidrubBaseClassesTeam\Permissions);
+        $team_permissions = (new CmsBaseClassesTeam\Permissions);
 
         // Set permissions in the queue
         $team_permissions->set_permissions($args);
@@ -52,7 +52,7 @@ if ( !function_exists('md_the_member_permissions') ) {
     function md_the_member_permissions($role_id) {
 
         // Call the permissions class
-        $team_permissions = (new MidrubBaseClassesTeam\Permissions);
+        $team_permissions = (new CmsBaseClassesTeam\Permissions);
 
         // Get member's permissions
         $member_permissions = $team_permissions->load_permissions();
@@ -116,13 +116,13 @@ if ( !function_exists('md_the_member_permissions') ) {
                         }
 
                         // Verify if class has the method
-                        if (method_exists((new MidrubBaseClassesTeam\Permissions_templates), $field['type'])) {
+                        if (method_exists((new CmsBaseClassesTeam\Permissions_templates), $field['type'])) {
 
                             // Set the method to call
                             $method = $field['type'];
 
                             // Display input
-                            $permissions .= (new MidrubBaseClassesTeam\Permissions_templates)->$method($field, $role_id);
+                            $permissions .= (new CmsBaseClassesTeam\Permissions_templates)->$method($field, $role_id);
                         }
 
                     }
