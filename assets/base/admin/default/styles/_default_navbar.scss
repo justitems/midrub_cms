@@ -1,0 +1,71 @@
+/*******************************
+DEFAULT MIXINGS FOR NAVBARS
+********************************/
+
+@mixin default-navbar-1() {
+
+    & {
+        display: block;
+        padding-bottom: calc(.5rem - 1px);
+        width: 100%;
+
+        .navbar-header {
+
+            .theme-dropdown-1 {
+                
+                button {    
+                    padding: 7px 15px 8px !important;
+                    width: auto !important;
+                    height: 33px;
+                    line-height: 19px !important;
+
+                    svg {
+                        margin-top: 1px;
+                    }
+
+                }
+
+                .dropdown-menu {
+                    width: auto !important;
+                }
+
+            }
+
+            .theme-button-2 {
+                color: #FFFFFF;
+                background-color: $default-color-new;
+
+                &:hover {
+                    background-color: $default-color-blue;
+                }
+
+            }
+
+            .navbar-header-title {
+                display: inline-block;
+                padding-bottom: 2px;
+                border-bottom: 1px solid transparent;
+                line-height: 25px;
+                font-family: $default-font-3;
+                font-size: 14px;
+                color: $default-color-black;
+
+                &:hover {
+                    border-bottom: 1px solid $default-color-black;
+                }
+
+                svg {
+                    vertical-align: middle;
+                    margin-top: -2px;
+                    margin-right: 5px;
+                    width: 20px;
+                    height: 20px;
+                }
+
+            }
+
+        }
+
+    }
+    
+}

@@ -10,12 +10,12 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Signin\Controllers;
+namespace CmsBase\Auth\Collection\Signin\Controllers;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Auth\Collection\Signin\Helpers as MidrubBaseAuthCollectionSigninHelpers;
+use CmsBase\Auth\Collection\Signin\Helpers as CmsBaseAuthCollectionSigninHelpers;
 
 /*
  * Ajax class processes the admin component's ajax calls
@@ -55,7 +55,7 @@ class Ajax {
     public function sign_in() {
 
         // Sign In
-        (new MidrubBaseAuthCollectionSigninHelpers\User)->sign_in();
+        (new CmsBaseAuthCollectionSigninHelpers\User)->sign_in();
         
     }
  

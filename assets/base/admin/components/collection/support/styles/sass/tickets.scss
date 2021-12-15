@@ -1,0 +1,106 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../admin/default/styles/default_colors.scss";
+@import "../../../../../../admin/default/styles/default_fonts.scss";
+
+/*******************************
+SUPPORT STYLES STYLES
+********************************/
+section {
+    padding-top: 50px;
+    
+    .container-fluid {
+        padding: 0;
+
+        .theme-navbar-1 {
+
+            .theme-dropdown-1 {
+
+                .dropdown-menu {
+                    right: 0;
+                    left: inherit;                    
+                }
+
+            }
+
+        }
+
+        .ticket-body {
+
+            .theme-card-box {
+
+                .card-header {
+
+                    .btn-link {
+
+                        svg {
+                            vertical-align: middle;
+                            margin-top: -2px;
+                        }
+
+                    }
+
+                }
+
+                .card-body {
+
+                    p {
+                        color: $default-color-black;
+                    }
+
+                }
+
+            }
+
+        }
+
+        .support-ticket-replies {
+
+            .support-no-replies-found {
+                margin: 0;
+                padding: 15px 20px;
+                font-size: 14px;
+            }
+
+            .card-reply {
+
+                .card-header {
+
+                    .btn-link {
+
+                        img {
+                            margin-top: -4px;
+                            margin-right: 10px;
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 3px;
+                        }
+
+                        span {
+                            color: $default-color-grey;
+                        }
+
+                    }
+
+                }
+
+                .card-body {
+
+                    .theme-card-box-article {
+
+                        p {
+                            color: $default-color-black;
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

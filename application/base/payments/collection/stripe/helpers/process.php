@@ -13,7 +13,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Payments\Collection\Stripe\Helpers;
+namespace CmsBase\Payments\Collection\Stripe\Helpers;
 
 use Exception;
 
@@ -47,7 +47,7 @@ class Process {
         $this->CI =& get_instance();
 
         // Request the Stripe's vendor
-        require_once MIDRUB_BASE_PAYMENTS_STRIPE . 'vendor/autoload.php';
+        require_once CMS_BASE_PAYMENTS_STRIPE . 'vendor/autoload.php';
         
     }
 
@@ -65,7 +65,7 @@ class Process {
     public function prepare() {
 
         // Set the configuration's parameters
-        \Stripe\Stripe::setApiKey(get_option('stripe_secret_key'));
+        \Stripe\Stripe::setApiKey(md_the_option('stripe_secret_key'));
 
         // Get incomplete transaction
         $transaction = $this->CI->session->flashdata('incomplete_transaction_saved');
@@ -127,7 +127,7 @@ class Process {
             } else {
 
                 // Get the user's email
-                $get_user = $this->CI->base_model->get_data_where('users', '*', array(
+                $get_user = $this->CI->base_model->the_data_where('users', '*', array(
                     'user_id' => $this->CI->user_id
                 ));
 
@@ -139,13 +139,34 @@ class Process {
 
                     try {
 
-                        // Create a Customer:
-                        $customer = \Stripe\Customer::create(
-                            array(
-                                'source' => $source_id,
-                                'email' => $get_user[0]['email']
-                            )
-                        );
+                        // Verify if the user has the country and address
+                        if ( md_the_user_option($this->CI->user_id, 'country') && md_the_user_option($this->CI->user_id, 'state') && md_the_user_option($this->CI->user_id, 'city') && md_the_user_option($this->CI->user_id, 'postal_code') && md_the_user_option($this->CI->user_id, 'street_number') ) {
+
+                            // Create a Customer:
+                            $customer = \Stripe\Customer::create(
+                                array(
+                                    'name' => md_the_user_option($this->CI->user_id, 'first_name') . ' ' . md_the_user_option($this->CI->user_id, 'last_name'),
+                                    'address' => array(
+                                    'line1' => md_the_user_option($this->CI->user_id, 'street_number'),
+                                    'postal_code' => md_the_user_option($this->CI->user_id, 'postal_code'),
+                                    'city' => md_the_user_option($this->CI->user_id, 'city'),
+                                    'state' => md_the_user_option($this->CI->user_id, 'state'),
+                                    'country' => md_the_user_option($this->CI->user_id, 'country')
+                                    )
+                                )
+                            );
+
+                        } else {
+
+                            // Create a Customer:
+                            $customer = \Stripe\Customer::create(
+                                array(
+                                    'source' => $source_id,
+                                    'email' => $get_user[0]['email']
+                                ), 
+                            );
+
+                        }
 
                     } catch (Exception $ex) {
 
@@ -226,7 +247,7 @@ class Process {
                     if ( $subscription->id ) {
 
                         // We need to delete the previous subscription
-                        $get_subscriptions = $this->CI->base_model->get_data_where('subscriptions', '*', array(
+                        $get_subscriptions = $this->CI->base_model->the_data_where('subscriptions', '*', array(
                             'user_id' => $this->CI->user_id
                         ));
 
@@ -238,7 +259,7 @@ class Process {
                                 
                                 // Create an array
                                 $array = array(
-                                    'MidrubBase',
+                                    'CmsBase',
                                     'Payments',
                                     'Collection',
                                     ucfirst($get_subscription['gateway']),
@@ -332,13 +353,34 @@ class Process {
 
                     try {
 
-                        // Create a Customer:
-                        $customer = \Stripe\Customer::create(
-                            array(
-                                'source' => $source_id,
-                                'email' => $get_user[0]['email']
-                            )
-                        );
+                        // Verify if the user has the country and address
+                        if ( md_the_user_option($this->CI->user_id, 'country') && md_the_user_option($this->CI->user_id, 'state') && md_the_user_option($this->CI->user_id, 'city') && md_the_user_option($this->CI->user_id, 'postal_code') && md_the_user_option($this->CI->user_id, 'street_number') ) {
+
+                            // Create a Customer:
+                            $customer = \Stripe\Customer::create(
+                                array(
+                                    'name' => md_the_user_option($this->CI->user_id, 'first_name') . ' ' . md_the_user_option($this->CI->user_id, 'last_name'),
+                                    'address' => array(
+                                        'line1' => md_the_user_option($this->CI->user_id, 'street_number'),
+                                        'postal_code' => md_the_user_option($this->CI->user_id, 'postal_code'),
+                                        'city' => md_the_user_option($this->CI->user_id, 'city'),
+                                        'state' => md_the_user_option($this->CI->user_id, 'state'),
+                                        'country' => md_the_user_option($this->CI->user_id, 'country')
+                                    )
+                                )
+                            );
+
+                        } else {
+
+                            // Create a Customer:
+                            $customer = \Stripe\Customer::create(
+                                array(
+                                    'source' => $source_id,
+                                    'email' => $get_user[0]['email']
+                                ), 
+                            );
+
+                        }
 
                     } catch (Exception $ex) {
 
@@ -358,7 +400,18 @@ class Process {
                     $charge = array(
                         'amount' => ($transaction['pay']['amount'] * 100),
                         'currency' => $transaction['pay']['currency'],
-                        'customer' => $customer->id
+                        'customer' => $customer->id,
+                        'shipping' => array(
+                            'name' => md_the_user_option($this->CI->user_id, 'first_name') . ' ' . md_the_user_option($this->CI->user_id, 'last_name'),
+                            'address' => array(
+                                'line1' => md_the_user_option($this->CI->user_id, 'street_number'),
+                                'postal_code' => md_the_user_option($this->CI->user_id, 'postal_code'),
+                                'city' => md_the_user_option($this->CI->user_id, 'city'),
+                                'state' => md_the_user_option($this->CI->user_id, 'state'),
+                                'country' => md_the_user_option($this->CI->user_id, 'country')
+                            ),
+                        ),
+                        'description' => 'Plan Upgrade'
                     );
 
                     
@@ -419,7 +472,7 @@ class Process {
                     if ( $response->id ) {
 
                         // We need to delete the previous subscription
-                        $subscriptions = $this->CI->base_model->get_data_where('subscriptions', '*', array(
+                        $subscriptions = $this->CI->base_model->the_data_where('subscriptions', '*', array(
                             'user_id' => $this->CI->user_id
                         ));
 
@@ -431,7 +484,7 @@ class Process {
                                 
                                 // Create an array
                                 $array = array(
-                                    'MidrubBase',
+                                    'CmsBase',
                                     'Payments',
                                     'Collection',
                                     ucfirst($subscription['gateway']),

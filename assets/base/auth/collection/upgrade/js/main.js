@@ -98,6 +98,14 @@ jQuery(document).ready( function ($) {
     /*******************************
     FORMS
     ********************************/
+
+    /*
+     * Detect when the coupon code is submitted
+     * 
+     * @param object e with global object
+     * 
+     * @since   0.0.8.0
+     */
     $('.main .verify-coupon-code').submit(function (e) {
         e.preventDefault();
         
@@ -116,6 +124,5 @@ jQuery(document).ready( function ($) {
         Main.ajax_call(url + 'auth/ajax/upgrade', 'POST', data, 'verify_coupon');
         
     });
-
  
 });

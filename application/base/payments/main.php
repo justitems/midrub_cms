@@ -10,18 +10,18 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Payments;
+namespace CmsBase\Payments;
 
 // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
-defined('MIDRUB_BASE_PAYMENTS') OR define('MIDRUB_BASE_PAYMENTS', APPPATH . 'base/payments/');
+defined('CMS_BASE_PAYMENTS') OR define('CMS_BASE_PAYMENTS', APPPATH . 'base/payments/');
 
 // Require the general Inc file
-require_once MIDRUB_BASE_PAYMENTS . 'inc/general.php';
+require_once CMS_BASE_PAYMENTS . 'inc/general.php';
 
 // Define the namespaces to use
 use Exception;
-use MidrubBase\Payments\Classes as MidrubBasePaymentsClasses;
+use CmsBase\Payments\Classes as CmsBasePaymentsClasses;
 
 /*
  * Main is the Payments's base loader
@@ -89,13 +89,13 @@ class Main {
         } else {
 
             // Verify if $dynamic_slug exists
-            if ( file_exists(MIDRUB_BASE_PAYMENTS . 'collection/' . $static_slug . '/main.php' ) ) {
+            if ( file_exists(CMS_BASE_PAYMENTS . 'collection/' . $static_slug . '/main.php' ) ) {
 
                 try {
 
                     // Create an array
                     $array = array(
-                        'MidrubBase',
+                        'CmsBase',
                         'Payments',
                         'Collection',
                         ucfirst($static_slug),
@@ -142,11 +142,11 @@ class Main {
     public function ajax_init($gateway) {
 
         // Verify if gateway exists
-        if ( file_exists(MIDRUB_BASE_PAYMENTS . 'collection/' . $gateway . '/main.php') ) {
+        if ( file_exists(CMS_BASE_PAYMENTS . 'collection/' . $gateway . '/main.php') ) {
 
             // Create an array
             $array = array(
-                'MidrubBase',
+                'CmsBase',
                 'Payments',
                 'Collection',
                 ucfirst($gateway),
@@ -173,14 +173,14 @@ class Main {
     public function cron_jobs() {
 
         // List all payments gateways
-        foreach (glob(MIDRUB_BASE_PAYMENTS . 'collection/*', GLOB_ONLYDIR) as $gateway) {
+        foreach (glob(CMS_BASE_PAYMENTS . 'collection/*', GLOB_ONLYDIR) as $gateway) {
 
             // Get the gateway's name
             $gateway = trim(basename($gateway) . PHP_EOL);
 
             // Create an array
             $array = array(
-                'MidrubBase',
+                'CmsBase',
                 'Payments',
                 'Collection',
                 ucfirst($gateway),
@@ -207,7 +207,7 @@ class Main {
     public function load_view() {
 
         // Load the theme
-        md_include_component_file(MIDRUB_BASE_PAYMENTS . 'themes/default/main.php');
+        md_include_component_file(CMS_BASE_PAYMENTS . 'themes/default/main.php');
         
     }
 

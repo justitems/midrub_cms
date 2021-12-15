@@ -1,0 +1,116 @@
+/*******************************
+DEFAULT MIXINGS FOR PANEL
+********************************/
+
+@mixin default-panel {
+
+    & {
+        margin: 0 0 20px;
+        width: 100%;
+
+        .theme-panel-header {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(235, 235, 239, 1);
+            box-sizing: border-box;
+
+            h2 {
+                margin: 0;
+                padding: 0;
+                font-family: $default-font-2;
+                font-size: 16px;
+                font-weight: 600;
+
+                svg {
+                    vertical-align: middle;
+                    margin-top: -3px;
+                    margin-right: 5px;
+                    width: 20px;
+                    height: 20px;
+                }
+
+            }         
+
+            h3 {
+                margin: 0;
+                padding: 0;
+                font-family: $default-font-4;
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+        }
+
+        .theme-panel-body {
+            padding: 20px 0;
+            min-height: 50px;
+            
+            .theme-panel-menu-list {
+                margin: 0;
+                padding: 0;
+
+                & > li {
+                    margin: 0 0 5px;
+                    padding: 0;
+                    list-style: none;
+
+                    & > a {
+                        display: block;
+                        padding: 7px 15px;
+                        border-radius: 7px;
+                        line-height: 25px;
+                        text-decoration: none;
+                        font-family: $default-font-4;
+                        font-size: 13px;
+                        font-weight: 600;
+                        color: $default-color-black;
+
+                        &.active {
+                            background-color: $default-color-grey-light-active;
+                        }
+
+                        svg {
+                            vertical-align: middle;
+                            margin-top: -3px;
+                            margin-right: 5px;
+                            width: 22px;
+                            height: 22px;
+                            color: $default-color-black;
+                        }
+
+                    }
+
+                    &:hover,
+                    &.theme-menu-item-active {
+
+                        a {
+                            background-color: $default-color-grey-light-active;
+                        }
+
+                    }
+
+                }
+
+            }
+
+            .theme-dropdown-1 {
+
+                .btn-secondary {
+                    @include default-buttons('default-button-1');
+                }
+
+                .dropdown-menu > ul {
+                    max-height: 195px;
+                    overflow-y: auto;
+                    overflow-x: hidden;  
+                    
+                    @include theme-default-scrollbar();
+                    
+                }
+
+            }
+
+        }
+
+    }
+    
+}

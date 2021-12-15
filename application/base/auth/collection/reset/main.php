@@ -10,19 +10,19 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Reset;
+namespace CmsBase\Auth\Collection\Reset;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Auth\Interfaces as MidrubBaseAuthInterfaces;
-use MidrubBase\Auth\Collection\Reset\Controllers as MidrubBaseAuthCollectionResetControllers;
+use CmsBase\Auth\Interfaces as CmsBaseAuthInterfaces;
+use CmsBase\Auth\Collection\Reset\Controllers as CmsBaseAuthCollectionResetControllers;
 
 // Define the component's path
-defined('MIDRUB_BASE_AUTH_RESET') OR define('MIDRUB_BASE_AUTH_RESET', APPPATH . 'base/auth/collection/reset');
+defined('CMS_BASE_AUTH_RESET') OR define('CMS_BASE_AUTH_RESET', APPPATH . 'base/auth/collection/reset/');
 
 // Define the component's version
-defined('MIDRUB_BASE_AUTH_RESET_VERSION') OR define('MIDRUB_BASE_AUTH_RESET_VERSION', '0.0.3');
+defined('CMS_BASE_AUTH_RESET_VERSION') OR define('CMS_BASE_AUTH_RESET_VERSION', '0.0.3');
 
 /*
  * Main class loads the Reset Auth's component
@@ -31,7 +31,7 @@ defined('MIDRUB_BASE_AUTH_RESET_VERSION') OR define('MIDRUB_BASE_AUTH_RESET_VERS
  * @package Midrub
  * @since 0.0.7.8
  */
-class Main implements MidrubBaseAuthInterfaces\Auth {
+class Main implements CmsBaseAuthInterfaces\Auth {
     
     /**
      * Class variables
@@ -63,7 +63,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
     public function init() {
 
         // Instantiate the class
-        (new MidrubBaseAuthCollectionResetControllers\Init)->view();
+        (new CmsBaseAuthCollectionResetControllers\Init)->view();
         
     }
     
@@ -86,7 +86,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
         try {
 
             // Call method if exists
-            (new MidrubBaseAuthCollectionResetControllers\Ajax)->$action();
+            (new CmsBaseAuthCollectionResetControllers\Ajax)->$action();
 
         } catch (Exception $ex) {
 
@@ -112,10 +112,8 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
      */
     public function load_hooks($category) {
 
-        // Load the component's language files
-        if ( file_exists( MIDRUB_BASE_AUTH_RESET . '/language/' . $this->CI->config->item('language') . '/auth_reset_lang.php' ) ) {
-            $this->CI->lang->load( 'auth_reset', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_AUTH_RESET . '/' );
-        }
+        // Load the Auth Reset laguage file
+        $this->CI->lang->load( 'auth_reset', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_RESET );
 
         // Load hooks by category
         switch ($category) {
@@ -123,10 +121,18 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
             case 'admin_init':
 
                 // Verify if user has opened the frontend component
-                if ( (md_the_component_variable('component') === 'frontend') && ($this->CI->input->get('component', true) === 'reset') ) {
+                if ( (md_the_data('component') === 'frontend') && ($this->CI->input->get('component', true) === 'reset') ) {
 
                     // Require the contents_categories file
-                    require_once MIDRUB_BASE_AUTH_RESET . '/inc/contents_categories.php';
+                    require_once CMS_BASE_AUTH_RESET . 'inc/contents_categories.php';
+
+                } else if (md_the_data('component') === 'notifications') {
+
+                    // Load the component's language files
+                    $this->CI->lang->load( 'admin_reset', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_RESET );
+
+                    // Require the email_templates file
+                    require_once CMS_BASE_AUTH_RESET . 'inc/email_templates.php';
 
                 }
 
@@ -168,9 +174,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
     public function component_info() {
         
         // Load the component's language files
-        if ( file_exists( MIDRUB_BASE_AUTH_RESET . '/language/' . $this->CI->config->item('language') . '/admin_reset_lang.php' ) ) {
-            $this->CI->lang->load( 'admin_reset', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_AUTH_RESET . '/' );
-        }
+        $this->CI->lang->load( 'admin_reset', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_RESET );
         
         // Return component information
         return array(
@@ -178,7 +182,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
             'display_component_name' => $this->CI->lang->line('reset'),
             'component_slug' => 'reset',
             'component_icon' => '<i class="fas fa-window-restore"></i>',
-            'version' => MIDRUB_BASE_AUTH_RESET_VERSION,
+            'version' => CMS_BASE_AUTH_RESET_VERSION,
             'required_version' => '0.0.7.8'
         );
         

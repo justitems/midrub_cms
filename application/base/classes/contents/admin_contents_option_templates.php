@@ -10,7 +10,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Classes\Contents;
+namespace CmsBase\Classes\Contents;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -35,7 +35,7 @@ class Admin_contents_option_templates {
     public function auth_components($field) {
 
         // Get selected auth component variable
-        $auth_component = md_the_component_variable('auth_component');
+        $auth_component = md_the_data('auth_component');
 
         $options = '';
 
@@ -46,8 +46,8 @@ class Admin_contents_option_templates {
         }
         
         return '<div class="form-group">'
-                    . '<label for="contents-option-field-' . $field['slug'] . '">' . $field['label'] . '</label>'
-                    . '<select class="form-control auth-components-selected-component" id="contents-option-field-' . $field['slug'] . '" disabled>'
+                    . '<label class="theme-label" for="contents-option-field-' . $field['slug'] . '">' . $field['label'] . '</label>'
+                    . '<select class="form-control w-100 auth-components-selected-component theme-select" id="contents-option-field-' . $field['slug'] . '" disabled>'
                         . $options
                     . '</select>'
                 . '</div>';
@@ -66,7 +66,7 @@ class Admin_contents_option_templates {
     public function theme_templates($field) {
 
         // Get selected theme's template variable
-        $theme_template = md_the_component_variable('theme_template');
+        $theme_template = md_the_data('theme_template');
 
         $options = '';
 
@@ -77,8 +77,8 @@ class Admin_contents_option_templates {
         }
         
         return '<div class="form-group">'
-                    . '<label for="contents-option-field-' . $field['slug'] . '">' . $field['label'] . '</label>'
-                    . '<select class="form-control theme-templates-selected-template" id="contents-option-field-' . $field['slug'] . '" disabled>'
+                    . '<label class="theme-label" for="contents-option-field-' . $field['slug'] . '">' . $field['label'] . '</label>'
+                    . '<select class="form-control w-100 theme-templates-selected-template theme-select" id="contents-option-field-' . $field['slug'] . '" disabled>'
                         . $options
                     . '</select>'
                 . '</div>';
@@ -109,25 +109,29 @@ class Admin_contents_option_templates {
         $CI =& get_instance();
 
         return '<div class="form-group">'
-                    . '<div class="panel panel-default panel-classification">'
-                        . '<div class="panel-heading">'
-                            . '<div class="row">'
-                                . '<div class="col-xs-10">'
-                                    . $field['label']
-                                . '</div>'
-                                . '<div class="col-xs-2 text-right">'
-                                    . '<button type="button" class="btn btn-light btn-classification-popup-manager" data-classification-slug="' . $field['slug'] . '">'
-                                        . '<i class="icon-plus"></i>'
-                                    . '</button>'
+                    . '<div class="theme-box-1">'
+                        . '<div class="card theme-card-box">'
+                            . '<div class="card-header">'
+                                . '<div class="row">'
+                                    . '<div class="col-8">'
+                                        . '<button class="btn btn-link">'
+                                            . $field['label']
+                                        . '</button>'
+                                    . '</div>'
+                                    . '<div class="col-4 text-end">'
+                                        . '<button type="button" class="btn mt-2 me-3 ps-2 pe-2 btn-classification-popup-manager theme-button-1" data-classification-slug="' . $field['slug'] . '">'
+                                            . md_the_admin_icon(array('icon' => 'plus', 'class' => 'me-0'))
+                                        . '</button>'
+                                    . '</div>'
                                 . '</div>'
                             . '</div>'
-                        . '</div>'
-                        . '<div class="panel-body">'
-                            . '<ul class="classification-selected-list classification-selected-list-' . $field['slug'] . '">'
-                                . '<li class="list-group-item no-results-found">'
-                                    . $CI->lang->line('frontend_no_data_found_to_show')
-                                . '</li>'
-                            . '</ul>'
+                            . '<div class="card-body">'
+                                . '<ul class="classification-selected-list classification-selected-list-' . $field['slug'] . '">'
+                                    . '<li class="list-group-item no-results-found">'
+                                        . $CI->lang->line('frontend_no_data_found_to_show')
+                                    . '</li>'
+                                . '</ul>'
+                            . '</div>'
                         . '</div>'
                     . '</div>'
                 . '</div>';

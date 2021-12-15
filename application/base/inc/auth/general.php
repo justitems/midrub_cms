@@ -24,7 +24,7 @@ if ( !function_exists('md_get_the_frontend_header') ) {
     function md_get_the_frontend_header() {
 
         // Call the properties class
-        $hooks = (new MidrubBase\Classes\Hooks);
+        $hooks = (new CmsBase\Classes\Hooks);
 
         // Runs a hook based on hook's name
         $hooks->run_hook('the_frontend_header', array());
@@ -45,7 +45,7 @@ if ( !function_exists('md_get_the_frontend_footer') ) {
     function md_get_the_frontend_footer() {
 
         // Call the properties class
-        $hooks = (new MidrubBase\Classes\Hooks);
+        $hooks = (new CmsBase\Classes\Hooks);
 
         // Runs a hook based on hook's name
         $hooks->run_hook('the_frontend_footer', array());

@@ -1,0 +1,67 @@
+/*******************************
+DEFAULT MIXINGS FOR EDITOR
+********************************/
+
+@mixin default-editor {
+
+    .note-editor.note-frame .note-editing-area {
+        border-radius: 3px;
+        min-height: 500px;
+        font-size: 14px;
+        background-color: #fff;
+        overflow: hidden;
+    }
+
+    .note-btn {
+        border: 0;
+        line-height: 21px;
+        -webkit-box-shadow: 0px 1px 0px rgba(0,0,0,0.07);
+        box-shadow: 0px 1px 0px rgba(0,0,0,0.07);
+    }
+    
+    .note-editor.note-frame {
+        border: 0 !important;
+
+        .note-toolbar {
+            position: initial;
+            z-index: 1;
+            border: 0;
+            background-color: transparent;
+
+            .dropdown-toggle::after {
+                display: none;
+            }
+
+        }
+
+    }
+    
+    .note-statusbar {
+        display: none;
+    }
+
+    .note-editor.note-frame .note-status-output {
+        border: 0;
+    }
+
+    .note-editor.note-frame .note-status-output:empty {
+        display: none;
+    }
+    
+    .note-statusbar {
+        display: none;
+    }
+
+    .default-editor-title-input {
+        height: 55px;
+        margin-bottom: 15px;
+        font-size: 15px;
+        box-shadow: none !important;
+        border: 0 !important;
+    }
+
+    .article-body {
+        display: none;
+    }
+    
+}

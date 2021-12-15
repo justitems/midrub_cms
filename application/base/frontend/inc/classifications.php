@@ -31,10 +31,10 @@ if ( !function_exists('the_classification_meta') ) {
      */
     function the_classification_meta($meta) {
         
-        if ( md_the_component_variable('single_classification') ) {
+        if ( md_the_data('single_classification') ) {
 
-            if ( isset(md_the_component_variable('single_classification')[$meta]) ) {
-                return md_the_component_variable('single_classification')[$meta];
+            if ( isset(md_the_data('single_classification')[$meta]) ) {
+                return md_the_data('single_classification')[$meta];
             }
 
         }
@@ -56,10 +56,10 @@ if ( !function_exists('the_classification_url') ) {
      */
     function the_classification_url() {
         
-        if ( md_the_component_variable('single_classification') ) {
+        if ( md_the_data('single_classification') ) {
 
-            if ( isset(md_the_component_variable('single_classification')['item_slug']) ) {
-                return site_url(md_the_component_variable('classification_slug') . '/' . md_the_component_variable('single_classification')['item_slug']);
+            if ( isset(md_the_data('single_classification')['item_slug']) ) {
+                return site_url(md_the_data('classification_slug') . '/' . md_the_data('single_classification')['item_slug']);
             }
 
         }
@@ -96,8 +96,10 @@ if ( !function_exists('set_single_classification') ) {
     function set_single_classification($content) {
 
         // Set the classification's ID
-        md_set_component_variable('single_classification', $content);
+        md_set_data('single_classification', $content);
         
     }
     
 }
+
+/* End of file classifications.php */

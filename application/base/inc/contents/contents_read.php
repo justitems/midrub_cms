@@ -13,7 +13,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Classes\Contents as MidrubBaseClassesContents;
+use CmsBase\Classes\Contents as CmsBaseClassesContents;
 
 if ( !function_exists('md_the_single_content') ) {
     
@@ -33,10 +33,10 @@ if ( !function_exists('md_the_single_content') ) {
         $CI =& get_instance();
 
         // Load Base Contents Model
-        $CI->load->ext_model( MIDRUB_BASE_PATH . 'models/', 'Base_contents', 'base_contents' );
+        $CI->load->ext_model( CMS_BASE_PATH . 'models/', 'Base_contents', 'base_contents' );
 
         // Get content by content_id
-        $content = $CI->base_contents->get_content($content_id, $contents_slug);
+        $content = $CI->base_contents->the_content($content_id, $contents_slug);
 
         // Verify if content exists
         if ( $content ) {
@@ -67,7 +67,7 @@ if ( !function_exists('md_set_single_content') ) {
     function md_set_single_content($content) {
 
         // Call the contents_read class
-        $contents_read = (new MidrubBaseClassesContents\Contents_read);
+        $contents_read = (new CmsBaseClassesContents\Contents_read);
 
         // Set content in the queue
         $contents_read->set_single_content($content);
@@ -102,7 +102,7 @@ if ( !function_exists('md_the_single_content_meta') ) {
         }
         
         // Call the contents_read class
-        $contents_read = (new MidrubBaseClassesContents\Contents_read);
+        $contents_read = (new CmsBaseClassesContents\Contents_read);
 
         // Verify if content exists
         if ( $contents_read::$the_single_content ) {
@@ -111,9 +111,17 @@ if ( !function_exists('md_the_single_content_meta') ) {
 
             foreach ( $contents_read::$the_single_content as $meta ) {
 
-                if ( ($meta['meta_name'] === $meta_name) && ($meta['language'] === $language) ) {
+                if ( isset($meta['meta_name']) ) {
 
-                    $value = $meta['meta_value'];
+                    if ( ($meta['meta_name'] === $meta_name) && ($meta['language'] === $language) ) {
+
+                        $value = $meta['meta_value'];
+
+                    }
+
+                } else if ( isset($meta[$meta_name]) && ($meta['language'] === $language) ) {
+
+                    $value = $meta[$meta_name];
 
                 }
 
@@ -122,6 +130,57 @@ if ( !function_exists('md_the_single_content_meta') ) {
             if ( $value ) {
 
                 return $value;
+
+            } else {
+
+                return false;
+
+            }
+
+        } else {
+
+            return false;
+
+        }
+        
+    }
+    
+}
+
+if ( !function_exists('md_the_single_content_info') ) {
+    
+    /**
+     * The function md_the_single_content_info gets content's info based on field
+     * 
+     * @param string $field_name contains the field's name
+     * @param string $language contains the language
+     * 
+     * @since 0.0.8.5
+     * 
+     * @return string with info or boolean false
+     */
+    function md_the_single_content_info($field_name, $language = NULL) {
+
+        // Verify if language missing
+        if ( !$language ) {
+
+            // Get codeigniter object instance
+            $CI = &get_instance();
+
+            // Set language
+            $language = $CI->config->item('language');
+
+        }
+        
+        // Call the contents_read class
+        $contents_read = (new CmsBaseClassesContents\Contents_read);
+
+        // Verify if content exists
+        if ( !empty($contents_read::$the_single_content) ) {
+
+            if ( isset($contents_read::$the_single_content[0][$field_name]) ) {
+
+                return $contents_read::$the_single_content[0][$field_name];
 
             } else {
 
@@ -165,3 +224,5 @@ if ( !function_exists('md_get_single_content_meta') ) {
     }
     
 }
+
+/* End of file contents_read.php */

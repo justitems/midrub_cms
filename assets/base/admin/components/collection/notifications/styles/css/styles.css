@@ -1,0 +1,12 @@
+/*******************************
+NOTIFICATIONS STYLES
+********************************/
+section {
+  padding-top: 50px; }
+  section .container-fluid {
+    padding: 0; }
+    @media screen and (max-width: 767px) {
+      section .container-fluid {
+        display: initial; } }
+
+/*# sourceMappingURL=styles.css.map */

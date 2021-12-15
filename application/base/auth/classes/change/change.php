@@ -10,12 +10,16 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Classes\Change;
+namespace CmsBase\Auth\Classes\Change;
 
+// Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// Require the User General Inc
+require_once CMS_BASE_USER . 'inc/general.php';
+
 // Define the namespaces to use
-use MidrubBase\Classes\Email as MidrubBaseClassesEmail;
+use CmsBase\Classes\Email as CmsBaseClassesEmail;
 
 /*
  * Change class loads the properties and methods for change password process
@@ -134,22 +138,22 @@ class Change {
     private function get_plan_redirect($user_id) {
         
         // Get the user's plan
-        $plan_id = get_user_option('plan', $user_id);
+        $plan_id = md_the_user_option($user_id, 'plan');
 
         // Redirect url
         $redirect_url = base_url('user/app/dashboard');
 
         // Verify if the plan has a selected user_redirect
-        if ( plan_feature( 'user_redirect', $plan_id ) ) {
+        if ( md_the_plan_feature( 'user_redirect', $plan_id ) ) {
 
             // Get user_redirect
-            $user_redirect = plan_feature( 'user_redirect', $plan_id );
+            $user_redirect = md_the_plan_feature( 'user_redirect', $plan_id );
 
             // Verify if the redirect is a component
-            if ( is_dir(MIDRUB_BASE_USER . 'components/collection/' . $user_redirect . '/') ) {
+            if ( is_dir(CMS_BASE_USER . 'components/collection/' . $user_redirect . '/') ) {
                 
                 // Get the component
-                $cl = implode('\\', array('MidrubBase', 'User', 'Components', 'Collection', ucfirst($user_redirect), 'Main'));
+                $cl = implode('\\', array('CmsBase', 'User', 'Components', 'Collection', ucfirst($user_redirect), 'Main'));
 
                 // Verify if the component is available
                 if ( (new $cl())->check_availability() ) {
@@ -159,10 +163,10 @@ class Change {
 
                 }
 
-            } else if ( is_dir(MIDRUB_BASE_USER . 'apps/collection/' . $user_redirect . '/') ) {
+            } else if ( is_dir(CMS_BASE_USER . 'apps/collection/' . $user_redirect . '/') ) {
 
                 // Get the app
-                $cl = implode('\\', array('MidrubBase', 'User', 'Apps', 'Collection', ucfirst($user_redirect), 'Main'));
+                $cl = implode('\\', array('CmsBase', 'User', 'Apps', 'Collection', ucfirst($user_redirect), 'Main'));
 
                 // Verify if the app is available
                 if ( (new $cl())->check_availability() ) {

@@ -10,12 +10,12 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Upgrade\Controllers;
+namespace CmsBase\Auth\Collection\Upgrade\Controllers;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Auth\Collection\Upgrade\Helpers as MidrubBaseAuthCollectionUpgradeHelpers;
+use CmsBase\Auth\Collection\Upgrade\Helpers as CmsBaseAuthCollectionUpgradeHelpers;
 
 /*
  * Ajax class processes the admin component's ajax calls
@@ -44,7 +44,7 @@ class Ajax {
         $this->CI =& get_instance();
 
         // Load the component's language files
-        $this->CI->lang->load( 'auth_upgrade', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_AUTH_UPGRADE );
+        $this->CI->lang->load( 'auth_upgrade', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_UPGRADE );
         
     }
 
@@ -58,7 +58,7 @@ class Ajax {
     public function verify_coupon() {
 
         // Verify if Coupon Code is correct
-        (new MidrubBaseAuthCollectionUpgradeHelpers\Code)->verify_coupon();
+        (new CmsBaseAuthCollectionUpgradeHelpers\Code)->verify_coupon();
         
     } 
  

@@ -1,0 +1,15 @@
+/*******************************
+DEFAULT SHADOWS MIXING
+********************************/
+
+@mixin default_shadows($model) {
+
+    @if $model == 0 {
+        border: 0;
+        border-radius: 4px;
+        background-color: #FFFFFF;
+        -webkit-box-shadow: 0 3px 0px 0 rgba(60, 66, 87, 0), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+        box-shadow: 0 3px 0px 0 rgba(60, 66, 87, 0), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+    }
+
+}

@@ -2,7 +2,7 @@
 /**
  * Base Plans Model
  *
- * PHP Version 7.2
+ * PHP Version 7.3
  *
  * Base_plans file contains the Base Plans Model
  *
@@ -17,7 +17,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Base Plans class - operates the base_plans table.
+ * Base Plans class - operates the plans table.
  *
  * @category Social
  * @package  Midrub
@@ -52,72 +52,11 @@ class Base_plans extends CI_MODEL {
      */
     public function update_plan_meta($plan_id, $plan_metas) {
         
-        $count = 0;
-        
-        // Verify if plans metas exists
-        if ( $plan_metas ) {
-            
-            foreach ( $plan_metas as $name => $value ) {
-                
-                if ( !$name ) {
-                    continue;
-                }
-                
-                $this->db->select('*');
-                $this->db->from('plans_meta');
-                $this->db->where(array(
-                    'plan_id' => $plan_id,
-                    'meta_name' => trim($name)
-                    )
-                );
-                
-                $this->db->limit(1);
-                $query = $this->db->get();
-                
-                if ($query->num_rows() > 0) {
-                    
-                    $data = array(
-                        'meta_value' => trim($value)
-                    );                    
+        // Load Base Plans Update Model
+        $this->load->ext_model( CMS_BASE_PATH . 'models/parts/plans/', 'Base_plans_update', 'base_plans_update' );  
 
-                    $this->db->set($data);
-                    $this->db->where(array(
-                            'plan_id' => $plan_id,
-                            'meta_name' => trim($name)
-                        )
-                    );
-                    
-                    $this->db->update('plans_meta');
-
-                    if ($this->db->affected_rows()) {
-
-                        $count++;
-
-                    }
-                    
-                } else {
-
-                    $data = array(
-                        'plan_id' => $plan_id,
-                        'meta_name' => trim($name),
-                        'meta_value' => trim($value)
-                    );
-
-                    $this->db->insert('plans_meta', $data);
-
-                    if ($this->db->affected_rows()) {
-
-                        $count++;
-
-                    }
-                    
-                }
-                
-            }
-            
-        }
-        
-        return $count;
+        // Try to update data
+        return $this->base_plans_update->update_plan_meta($plan_id, $plan_metas);
 
     }
 
@@ -160,6 +99,130 @@ class Base_plans extends CI_MODEL {
         if ( $query->num_rows() > 0 ) {
             
             return $query->result_array();
+            
+        } else {
+            
+            return false;
+            
+        }
+        
+    }
+
+    /**
+     * The public method the_public_plans gets the plans which are public
+     * 
+     * @return array with data or boolean false
+     */
+    public function the_public_plans() {
+
+        // Get selected groups plans
+        $get_groups = $this->base_model->the_data_where(
+            'plans_meta',
+            'plan_id',
+            array(
+                'meta_name' => 'plans_group'
+            )
+        );
+
+        // Ids array
+        $ids = array();
+        
+        // Verify if selected groups plans exists
+        if ( $get_groups ) {
+
+            // List all groups
+            foreach ( $get_groups as $get_group ) {
+
+                // Set id
+                $ids[] = $get_group['plan_id'];
+
+            }
+
+        }
+
+        // If ids is not empty
+        if ( $ids ) {
+
+            // Select columns
+            $this->db->select('plans.*, plans_meta.meta_value AS plans_group, plans_groups.group_name');
+
+            // From plans table
+            $this->db->from('plans');
+
+            // Set where
+            $this->db->where(array(
+                'plans.hidden' => 0,
+                'plans_meta.meta_name' => 'plans_group'
+            ));            
+
+            // Set where in
+            $this->db->where_in('plans.plan_id', $ids);
+
+            // Set join
+            $this->db->join('plans_meta', 'plans.plan_id=plans_meta.plan_id', 'LEFT');
+            $this->db->join('plans_groups', 'plans_meta.meta_value=plans_groups.group_id', 'LEFT');
+
+            // Set order
+            $this->db->order_by('plans_groups.group_id', 'ASC');
+
+        } else {
+
+            // Select columns
+            $this->db->select('plans.*');
+
+            // From plans table
+            $this->db->from('plans');
+
+            // Set where
+            $this->db->where('plans.hidden', 0);
+
+            // Set order
+            $this->db->order_by('plans.plan_id', 'ASC');
+
+        }
+        
+        // Get data
+        $query = $this->db->get();
+        
+        // Verify if data exists
+        if ( $query->num_rows() > 0 ) {
+
+            // If ids is not empty
+            if ( $ids ) {
+
+                // Get response
+                $response = $query->result_array();
+
+                // Groups array
+                $groups = array();
+
+                // List all plans
+                foreach ( $response as $plan ) {
+
+                    // Verify if group already exists
+                    if ( !isset($groups[$plan['plans_group']]) ) {
+                        $groups[$plan['plans_group']] = array(
+                            'group_id' => $plan['plans_group'],
+                            'group_name' => $plan['group_name'],
+                            'plans' => array()
+                        );
+                    }
+
+                    // Set plan
+                    $groups[$plan['plans_group']]['plans'][] = $plan;
+
+                }
+
+                // Return groups
+                return array_values($groups);
+
+            } else {
+
+                // Return data
+                return $query->result_array();
+
+            }
+
             
         } else {
             
@@ -217,6 +280,23 @@ class Base_plans extends CI_MODEL {
             
         }
         
+    }
+
+    /**
+     * The function change_plan changes the user's plan
+     *
+     * @param array $params contains the data
+     * 
+     * @return boolean true of the plan was changed or false
+     */
+    public function change_plan($params) {
+        
+        // Load Base Plans Update Model
+        $this->load->ext_model( CMS_BASE_PATH . 'models/parts/plans/', 'Base_plans_update', 'base_plans_update' );  
+
+        // Try to change the plan
+        return $this->base_plans_update->change_plan($params);
+    
     }
     
 }

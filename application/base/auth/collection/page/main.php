@@ -10,20 +10,20 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Page;
+namespace CmsBase\Auth\Collection\Page;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Auth\Classes as MidrubBaseAuthClasses;
-use MidrubBase\Auth\Interfaces as MidrubBaseAuthInterfaces;
-use MidrubBase\Auth\Collection\Page\Controllers as MidrubBaseAuthCollectionPageControllers;
+use CmsBase\Auth\Classes as CmsBaseAuthClasses;
+use CmsBase\Auth\Interfaces as CmsBaseAuthInterfaces;
+use CmsBase\Auth\Collection\Page\Controllers as CmsBaseAuthCollectionPageControllers;
 
 // Define the component's path
-defined('MIDRUB_BASE_AUTH_PAGE') OR define('MIDRUB_BASE_AUTH_PAGE', APPPATH . 'base/auth/collection/page');
+defined('CMS_BASE_AUTH_PAGE') OR define('CMS_BASE_AUTH_PAGE', APPPATH . 'base/auth/collection/page');
 
 // Define the component's version
-defined('MIDRUB_BASE_AUTH_PAGE_VERSION') OR define('MIDRUB_BASE_AUTH_PAGE_VERSION', '0.0.1');
+defined('CMS_BASE_AUTH_PAGE_VERSION') OR define('CMS_BASE_AUTH_PAGE_VERSION', '0.0.1');
 
 /*
  * Main class loads the Page Auth's component
@@ -32,7 +32,7 @@ defined('MIDRUB_BASE_AUTH_PAGE_VERSION') OR define('MIDRUB_BASE_AUTH_PAGE_VERSIO
  * @package Midrub
  * @since 0.0.7.8
  */
-class Main implements MidrubBaseAuthInterfaces\Auth {
+class Main implements CmsBaseAuthInterfaces\Auth {
     
     /**
      * Class variables
@@ -64,7 +64,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
     public function init() {
 
         // Instantiate the class
-        (new MidrubBaseAuthCollectionPageControllers\Init)->view();
+        (new CmsBaseAuthCollectionPageControllers\Init)->view();
         
     }
     
@@ -87,7 +87,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
         try {
 
             // Call method if exists
-            (new MidrubBaseAuthCollectionPageControllers\Ajax)->$action();
+            (new CmsBaseAuthCollectionPageControllers\Ajax)->$action();
 
         } catch (Exception $ex) {
 
@@ -147,8 +147,8 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
     public function component_info() {
         
         // Load the component's language files
-        if ( file_exists( MIDRUB_BASE_AUTH_PAGE . '/language/' . $this->CI->config->item('language') . '/admin_page_lang.php' ) ) {
-            $this->CI->lang->load( 'admin_page', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_AUTH_PAGE . '/' );
+        if ( file_exists( CMS_BASE_AUTH_PAGE . '/language/' . $this->CI->config->item('language') . '/admin_page_lang.php' ) ) {
+            $this->CI->lang->load( 'admin_page', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_PAGE . '/' );
         }
         
         // Return component information
@@ -157,7 +157,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
             'display_component_name' => $this->CI->lang->line('auth_page'),
             'component_slug' => 'page',
             'component_icon' => '<i class="fas fa-user-plus"></i>',
-            'version' => MIDRUB_BASE_AUTH_PAGE_VERSION,
+            'version' => CMS_BASE_AUTH_PAGE_VERSION,
             'required_version' => '0.0.7.8'
         );
         

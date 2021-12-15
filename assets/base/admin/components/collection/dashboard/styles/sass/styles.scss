@@ -1,0 +1,362 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../admin/default/styles/default_colors.scss";
+@import "../../../../../../admin/default/styles/default_fonts.scss";
+
+/*******************************
+DASHBOARD STYLES
+********************************/
+section {
+    padding-top: 50px;
+    
+    &.dashboard-page {
+
+        .dashboard-events-card {
+            border: 0;
+            background-color: transparent;
+
+            & > .card-header {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                background-color: transparent;
+
+                h3 {
+                    margin: 0;
+                    padding: 0;
+                    line-height: 18px;
+                    font-family: $default-font-1;
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: $default-color-black;
+
+                    i,
+                    svg {
+                        vertical-align: middle;
+                        margin-top: -3px;
+                        margin-right: 5px;
+                        width: 24px;
+                        height: 24px;
+                        color: $default-color-black;
+                    }
+
+                }
+
+                .btn-group {
+
+                    .dashboard-events-list-btn {
+                        padding: 5px 15px !important;
+                        height: 29px;
+                        border-radius: 0.25rem;
+                        line-height: 17px !important;
+                        font-size: 13px;
+                        
+                        .theme-events-view-icon {
+                            vertical-align: middle;
+                            margin-top: -7px;
+                            margin-right: 5px;
+                            width: 18px;
+                            height: 16px;
+                        }
+
+                        span {
+                            width: auto;
+                        }
+                        
+                        .theme-dropdown-arrow-icon {
+                            vertical-align: middle;
+                            margin-top: -12px !important;
+                        }
+
+                        &.show {
+
+                            .theme-dropdown-arrow-icon {
+                                margin-top: -7px !important;
+                            }
+                            
+                        }
+                        
+                        &::after {
+                            display: none;
+                        }
+
+                    }
+
+                    .dashboard-events-old-btn,
+                    .dashboard-events-new-btn {
+                        padding: 5px 15px !important;
+                        height: 29px;
+                        line-height: 17px !important;
+                        font-size: 13px;                        
+
+                        i,
+                        svg {
+                            vertical-align: middle;
+                            margin-top: -5px;                                  
+                            width: 12px;
+                            height: 12px;
+                            color: $default-color-black;
+                        }
+                        
+                        &:hover {
+                            
+                            i,
+                            svg {
+                                color: $default-color-blue;
+                            }
+
+                        }
+
+                    }                            
+
+                    .dashboard-events-old-btn {
+                        border-radius: 3px 0 0 3px !important;
+                    }
+
+                }
+
+            }
+
+            & > .card-body {
+                padding: 20px 0;
+
+                #dashboard-events-accordion {
+                    border: 0 !important;
+                    box-shadow: none !important;                            
+
+                    .accordion-item {
+                        margin-bottom: 15px;
+                        border: 0 !important;
+                        border-radius: 6px !important;
+                        background-color: #FFFFFF !important;
+                        box-shadow: none !important;  
+                        overflow: hidden;
+                        
+                        .accordion-header {
+
+                            .accordion-button {
+                                padding: 1rem 15px !important;
+                                font-family: $default-font-1;
+                                font-size: 14px;
+                                color: $default-color-black-light;
+                                background-color: transparent !important;
+                                box-shadow: none !important;                                          
+
+                                &:hover,
+                                &:focus,
+                                &:active,
+                                &:not(.collapsed) {
+                                    color: $default-color-black;
+                                    background-color: transparent !important;
+                                    box-shadow: none !important;
+                                    outline: none;
+                                }
+
+                                &::after {
+                                    display: none;
+                                }
+
+                                svg {
+                                    display: inline-block;
+                                    vertical-align: middle;
+                                    margin: -4px 10px 0 0;
+                                    width: 20px;
+                                    height: 20px;
+
+                                    &[data-icon="fluent:alert-urgent-20-regular"] {
+                                        margin-top: -7px;
+                                        margin-right: 0;
+                                        margin-left: auto;
+                                        width: 20px;
+                                        height: 20px;
+                                    }
+
+                                }
+
+                                div {
+                                    display: inline-block;
+                                    min-width: 20px;
+                                    text-align: right;                                    
+                                }
+
+                            }
+
+                        }
+
+                        .accordion-body {
+                            padding: 0 15px 20px;
+                            background-color: transparent !important;
+
+                            .dashboard-events-list {
+                                margin: 0;
+                                padding: 0;
+
+                                li {
+                                    margin: 0 0 15px 0;
+                                    padding: 0;
+                                    border: 1px solid #5c7fbc;
+                                    border-radius: 10px;                      
+                                    list-style: none;
+                                    background-color: #FFFFFF;
+
+                                    &.dashboard-no-events-found {
+                                        padding: 7px 15px;
+                                        border: 0;
+                                        border-radius: 0;
+                                        font-size: 14px;
+                                        background-color: $default-color-grey-light;
+                                        box-shadow: none !important;
+
+                                        p {
+                                            margin: 0;
+                                        }
+
+                                    }
+
+                                    &:last-child {
+                                        margin: 0;
+                                    }
+
+                                    .alert {
+                                        margin: 0;
+                                        padding: 10px;
+                                        border-radius: 10px; 
+
+                                        & > img {
+                                            vertical-align: middle;
+                                            margin-top: -3px;
+                                            margin-right: 15px;
+                                            border-radius: 50%;
+                                        }
+
+                                        & > i,
+                                        & > svg {
+                                            vertical-align: middle;
+                                            margin-top: -3px;
+                                            margin-right: 15px;
+                                            width: 32px;
+                                            height: 32px;
+                                        }
+
+                                        & > div {
+                                            font-family: $default-font-5;
+                                            font-size: 13px;
+                                            color: $default-color-black;
+                                        }
+
+                                    }
+
+                                    &[data-type="member-join"] {
+
+                                        .alert {
+
+                                            & > svg {
+                                                color: $default-color-green;
+                                            }
+                                            
+                                        }
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+                                   
+            }                  
+
+        }
+
+        .dashboard-widgets-list {
+            position: relative;
+
+            .dashboard-widget {
+                margin-bottom: 15px;
+    
+                .card-header {
+                    border: 0;
+                    border-bottom: 1px solid #ededed;
+                    background-color: transparent;
+                    cursor: move;
+    
+                    h3 {
+                        margin: 0;
+                        padding: 0;
+                        line-height: 35px;
+                        font-family: $default-font-1;
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: $default-color-black;
+    
+                        i,
+                        svg {
+                            vertical-align: middle;
+                            margin-top: -5px;
+                            margin-right: 5px;
+                            width: 20px;
+                            height: 20px;
+                            font-size: 20px;
+                        }
+    
+                    }
+    
+                }
+                
+                &::before,
+                &::after {
+                    content: "";
+                    height: 0;
+                    line-height: 0;
+                    transition: all .5s ease-in-out;
+                }
+            
+                &.card-drag-over-top {
+            
+                    &::before {
+                        content: attr(data-content);
+                        display: block;
+                        margin-top: 0;
+                        margin-bottom: 15px;
+                        width: 100%;
+                        height: 300px;
+                        border: 3px dashed #A0B0D4;
+                        line-height: 300px;
+                        text-align: center;
+                        font-size: 33px;
+                        color: #A0B0D4;
+                        -webkit-box-shadow: 0 4px 2px -2px $default-color-grey-light;
+                        box-shadow: 0 15px 25px -2px $default-color-grey-light;
+                    }
+            
+                }
+            
+                &.card-drag-over-bottom {
+            
+                    &::after {
+                        content: attr(data-content);
+                        display: block;
+                        margin-top: 15px;
+                        width: 100%;
+                        height: 300px;
+                        border: 3px dashed #A0B0D4;
+                        line-height: 300px;
+                        text-align: center;
+                        font-size: 33px;
+                        color: #A0B0D4;
+                    }
+            
+                }
+    
+            }
+
+        }
+
+    }
+
+}

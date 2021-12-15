@@ -10,12 +10,12 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Change_password\Controllers;
+namespace CmsBase\Auth\Collection\Change_password\Controllers;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Auth\Collection\Change_password\Helpers as MidrubBaseAuthCollectionChange_passwordHelpers;
+use CmsBase\Auth\Collection\Change_password\Helpers as CmsBaseAuthCollectionChange_passwordHelpers;
 
 /*
  * Ajax class processes the admin component's ajax calls
@@ -55,7 +55,7 @@ class Ajax {
     public function change_password() {
 
         // Change password
-        (new MidrubBaseAuthCollectionChange_passwordHelpers\User)->change_password();
+        (new CmsBaseAuthCollectionChange_passwordHelpers\User)->change_password();
         
     }
  

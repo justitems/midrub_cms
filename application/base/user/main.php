@@ -10,15 +10,18 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\User;
+namespace CmsBase\User;
+
+// Require the Team Permissions Inc
+require_once CMS_BASE_PATH . 'inc/team/permissions.php';
+
+// Require the General Inc
+require_once CMS_BASE_PATH . 'user/inc/general.php';
 
 // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
-defined('MIDRUB_BASE_USER') OR define('MIDRUB_BASE_USER', APPPATH . 'base/user/');
-defined('MIDRUB_BASE_USER_VERSION') OR define('MIDRUB_BASE_USER_VERSION', '0.1');
-
-// Require the general functions file
-require_once MIDRUB_BASE_USER . 'inc/general.php';
+defined('CMS_BASE_USER') OR define('CMS_BASE_USER', APPPATH . 'base/user/');
+defined('CMS_BASE_USER_VERSION') OR define('CMS_BASE_USER_VERSION', '0.1');
 
 /*
  * Main is the user's base loader
@@ -46,8 +49,8 @@ class Main {
         // Get codeigniter object instance
         $this->CI =& get_instance();
 
-        // Get activated user theme's slug
-        $this->user_theme = str_replace('-', '_', get_option('themes_activated_user_theme'));
+        // Get enabled user theme's slug
+        $this->user_theme = str_replace('-', '_', md_the_option('themes_enabled_user_theme'));
 
     }
     
@@ -66,13 +69,15 @@ class Main {
 
         // Verify if session exists
         if ( !md_the_user_session() || $this->CI->user_role === '1' ) {
-            redirect('/admin/home');
+            redirect('/admin/dashboard');
         } else if (!$this->user_theme) {
             redirect('/error/no-user-theme');
-        } else if ( get_user_option('nonpaid') ) {
+        } else if ( md_the_user_option($this->CI->user_id, 'nonpaid') ) {
             redirect('/auth/upgrade');
         } else if ( $this->CI->user_status !== '1' ) {
             redirect('/auth/confirmation');
+        } else if ( (strtotime(md_the_user_option($this->CI->user_id, 'plan_end')) + 86400) < time() ) {
+            redirect('/error/subscription-expired');            
         }
 
         // Verify if is required an application
@@ -82,13 +87,13 @@ class Main {
             $dynamic_slug = str_replace('-', '_', $dynamic_slug);
 
             // Verify if app exists
-            if ( file_exists( MIDRUB_BASE_USER . 'apps/collection/' . $dynamic_slug . '/main.php' ) ) {
+            if ( file_exists( CMS_BASE_USER . 'apps/collection/' . $dynamic_slug . '/main.php' ) ) {
 
                 // Load Guest
                 $this->load_component_apps('Apps', ucfirst($dynamic_slug), 'user');
 
                 // Set url's slug
-                md_set_component_variable('url_slug', $dynamic_slug); 
+                md_set_data('url_slug', $dynamic_slug); 
 
             } else {
 
@@ -103,13 +108,13 @@ class Main {
             $static_slug = str_replace('-', '_', $static_slug);
 
             // Verify if component exists
-            if ( file_exists( MIDRUB_BASE_USER . 'components/collection/' . $static_slug . '/main.php' ) ) {
+            if ( file_exists( CMS_BASE_USER . 'components/collection/' . $static_slug . '/main.php' ) ) {
 
                 // Load Guest
                 $this->load_component_apps('Components', ucfirst($static_slug), 'user');
 
                 // Set url's slug
-                md_set_component_variable('url_slug', $static_slug); 
+                md_set_data('url_slug', $static_slug); 
 
             } else {
 
@@ -139,7 +144,7 @@ class Main {
         // Verify if user is user
         if ( !md_the_user_session() || $this->CI->user_role === '1' || !$this->user_theme || $this->CI->user_status !== '1' ) {
             exit();
-        } else if ( get_user_option('nonpaid') ) {
+        } else if ( md_the_user_option($this->CI->user_id, 'nonpaid') ) {
             exit();
         }
 
@@ -150,17 +155,17 @@ class Main {
         $component = str_replace('-', '_', $component);
 
         // Verify if app exists
-        if ( file_exists(MIDRUB_BASE_USER . 'apps/collection/' . $component . '/main.php') ) {
+        if ( file_exists(CMS_BASE_USER . 'apps/collection/' . $component . '/main.php') ) {
             $type = 'apps';
-        } else if ( file_exists(MIDRUB_BASE_USER . 'components/collection/' . $component . '/main.php') ) {
+        } else if ( file_exists(CMS_BASE_USER . 'components/collection/' . $component . '/main.php') ) {
             $type = 'components';
         } else if ( $component === 'theme_ajax' ) {
 
             // Verify if ajax directory exists
-            if ( is_dir(MIDRUB_BASE_USER . 'themes/' . $this->user_theme . '/core/ajax/') ) {
+            if ( is_dir(CMS_BASE_USER . 'themes/collection/' . $this->user_theme . '/core/ajax/') ) {
 
                 // List ajax files
-                foreach (glob(MIDRUB_BASE_USER . 'themes/' . $this->user_theme . '/core/ajax/' . '*.php') as $filename) {
+                foreach (glob(CMS_BASE_USER . 'themes/collection/' . $this->user_theme . '/core/ajax/' . '*.php') as $filename) {
                     require_once $filename;
                 }
 
@@ -211,22 +216,19 @@ class Main {
      */
     public function load_hooks($category) {
 
-        // Require the hooks Inc file
-        require_once MIDRUB_BASE_USER . 'inc/admin.php';
-
         // Load the create menu inc file
-        md_include_component_file(MIDRUB_BASE_PATH . 'inc/menu/create_menu.php');
+        md_include_component_file(CMS_BASE_PATH . 'inc/menu/create_menu.php');
 
         // Verify if a user's theme is enabled
         if ($this->user_theme) {
 
             // Verify if the theme has language files
-            if (is_dir(MIDRUB_BASE_USER . 'themes/' . $this->user_theme . '/language/' . $this->CI->config->item('language') . '/')) {
+            if (is_dir(CMS_BASE_USER . 'themes/collection/' . $this->user_theme . '/language/' . $this->CI->config->item('language') . '/')) {
 
                 // Load all language files
-                foreach (glob(MIDRUB_BASE_USER . 'themes/' . $this->user_theme . '/language/' . $this->CI->config->item('language') . '/' . '*.php') as $filename) {
+                foreach (glob(CMS_BASE_USER . 'themes/collection/' . $this->user_theme . '/language/' . $this->CI->config->item('language') . '/' . '*.php') as $filename) {
 
-                    $this->CI->lang->load(str_replace(array(MIDRUB_BASE_USER . 'themes/' . $this->user_theme . '/language/' . $this->CI->config->item('language') . '/', '_lang.php'), '', $filename), $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_USER . 'themes/' . $this->user_theme . '/');
+                    $this->CI->lang->load(str_replace(array(CMS_BASE_USER . 'themes/collection/' . $this->user_theme . '/language/' . $this->CI->config->item('language') . '/', '_lang.php'), '', $filename), $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_USER . 'themes/collection/' . $this->user_theme . '/');
 
                 }
 
@@ -236,9 +238,9 @@ class Main {
             switch ($category) {
 
                 case 'admin_init':
-                
-                    if (file_exists(MIDRUB_BASE_USER . 'themes/' . $this->user_theme . '/core/hooks/admin_init.php')) {
-                        md_include_component_file(MIDRUB_BASE_USER . 'themes/' . $this->user_theme . '/core/hooks/admin_init.php');
+
+                    if (file_exists(CMS_BASE_USER . 'themes/collection/' . $this->user_theme . '/core/hooks/admin_init.php')) {
+                        md_include_component_file(CMS_BASE_USER . 'themes/collection/' . $this->user_theme . '/core/hooks/admin_init.php');
                     }
 
                     break;
@@ -286,7 +288,7 @@ class Main {
         $dynamic_slug = str_replace('-', '_', $dynamic_slug);
 
         // Verify if app exists
-        if ( file_exists(MIDRUB_BASE_USER . 'apps/collection/' . $dynamic_slug . '/main.php') ) {
+        if ( file_exists(CMS_BASE_USER . 'apps/collection/' . $dynamic_slug . '/main.php') ) {
 
             // Load Guest
             $this->load_component_apps('Apps', ucfirst($dynamic_slug), 'guest');
@@ -316,7 +318,7 @@ class Main {
 
         // Create an array
         $array = array(
-            'MidrubBase',
+            'CmsBase',
             'User',
             ucfirst($type),
             'Collection',
@@ -342,16 +344,16 @@ class Main {
     public function load_view() {
 
         // Load theme's inc files
-        if ( is_dir(MIDRUB_BASE_USER . 'themes/' . $this->user_theme . '/core/inc/') ) {
+        if ( is_dir(CMS_BASE_USER . 'themes/collection/' . $this->user_theme . '/core/inc/') ) {
 
-            foreach ( glob(MIDRUB_BASE_USER . 'themes/' . $this->user_theme . '/core/inc/*.php') as $filename ) {
+            foreach ( glob(CMS_BASE_USER . 'themes/collection/' . $this->user_theme . '/core/inc/*.php') as $filename ) {
                 require_once $filename;
             }
             
         }
 
         // Load the theme
-        md_include_component_file(MIDRUB_BASE_USER . 'themes/' . $this->user_theme . '/main.php');
+        md_include_component_file(CMS_BASE_USER . 'themes/collection/' . $this->user_theme . '/main.php');
         
     }    
     

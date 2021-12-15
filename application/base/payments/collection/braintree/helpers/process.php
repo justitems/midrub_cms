@@ -13,13 +13,13 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Payments\Collection\Braintree\Helpers;
+namespace CmsBase\Payments\Collection\Braintree\Helpers;
 
 // Constats
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Require the Braintree class
-require_once MIDRUB_BASE_PAYMENTS_BRAINTREE . 'vendor/braintree/braintree_php/lib/Braintree.php';
+require_once CMS_BASE_PAYMENTS_BRAINTREE . 'vendor/braintree/braintree_php/lib/Braintree.php';
 
 /*
  * Process class provides the methods to process the payments
@@ -64,9 +64,9 @@ class Process {
 
         // Set the configuration's parameters
         \Braintree_Configuration::environment('production');
-        \Braintree_Configuration::merchantId(get_option('braintree_merchant_id'));
-        \Braintree_Configuration::publicKey(get_option('braintree_public_key'));
-        \Braintree_Configuration::privateKey(get_option('braintree_private_key'));
+        \Braintree_Configuration::merchantId(md_the_option('braintree_merchant_id'));
+        \Braintree_Configuration::publicKey(md_the_option('braintree_public_key'));
+        \Braintree_Configuration::privateKey(md_the_option('braintree_private_key'));
 
         // Get incomplete transaction
         $transaction = $this->CI->session->flashdata('incomplete_transaction_saved');
@@ -120,7 +120,7 @@ class Process {
             } else {
 
                 // Get the user's email
-                $get_user = $this->CI->base_model->get_data_where('users', '*', array(
+                $get_user = $this->CI->base_model->the_data_where('users', '*', array(
                     'user_id' => $this->CI->user_id
                 ));
 
@@ -206,7 +206,7 @@ class Process {
                         }
 
                         // We need to delete the previous subscription
-                        $subscriptions = $this->CI->base_model->get_data_where('subscriptions', '*', array(
+                        $subscriptions = $this->CI->base_model->the_data_where('subscriptions', '*', array(
                             'user_id' => $this->CI->user_id
                         ));
 
@@ -218,7 +218,7 @@ class Process {
                                 
                                 // Create an array
                                 $array = array(
-                                    'MidrubBase',
+                                    'CmsBase',
                                     'Payments',
                                     'Collection',
                                     ucfirst($subscription['gateway']),
@@ -314,7 +314,7 @@ class Process {
                     if ( $response->success ) {
 
                         // We need to delete the previous subscription
-                        $subscriptions = $this->CI->base_model->get_data_where('subscriptions', '*', array(
+                        $subscriptions = $this->CI->base_model->the_data_where('subscriptions', '*', array(
                             'user_id' => $this->CI->user_id
                         ));
 
@@ -326,7 +326,7 @@ class Process {
                                 
                                 // Create an array
                                 $array = array(
-                                    'MidrubBase',
+                                    'CmsBase',
                                     'Payments',
                                     'Collection',
                                     ucfirst($subscription['gateway']),

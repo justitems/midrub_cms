@@ -1,0 +1,197 @@
+/*******************************
+THEME MIXING FOR QUICK GUIDE
+********************************/
+
+@mixin default-quick-guide {
+
+    .theme-quick-guide {
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        right: -400px;
+        bottom: 0;
+        padding: 15px;
+        width: 400px;
+        border-left: 1px solid rgba(224, 228, 229, 0.65);
+        background-color: #FFFFFF;
+        transition: right .5s;
+
+        &.theme-quick-guide-show {
+            right: 0;
+        }
+
+        .theme-toggle-quick-guide {
+            display: grid;
+            margin-top: 15px;
+            margin-left: -55px;
+            padding: 5px;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(224, 228, 229, 0.65) !important;
+            border-right: 0;
+            border-radius: 5px 0 0 5px;
+            text-align: center;
+            font-size: 22px;
+            color: #324362;
+            background-color: #ffffff;
+
+            &:hover,
+            &:active,
+            &:focus {
+                text-decoration: none;
+            }
+
+            svg {
+                margin: auto;
+            }
+
+            [data-icon="fluent:chat-help-20-regular"] {
+                display: block;
+            }
+
+            [data-icon="fluent:pane-close-16-regular"] {
+                display: none;
+            }  
+
+        }
+
+        &.theme-quick-guide-show {
+            
+            .theme-toggle-quick-guide {
+
+                [data-icon="fluent:chat-help-20-regular"] {
+                    display: none;
+                }
+
+                [data-icon="fluent:pane-close-16-regular"] {
+                    display: block;
+                }                    
+
+            }
+            
+        }            
+
+        .theme-quick-guide-header {
+            margin: -31px 0 0;
+            padding: 0;
+            font-size: 22px;
+        }
+
+        .theme-quick-guide-go-back {
+            display: none;
+            margin: -39px 0 0;
+            padding: 2px 0 0;
+            line-height: 33px;
+            text-align: center;
+            font-size: 22px;
+            color: $default-color-black;
+            background-color: #f7f9fc;
+
+            &:hover,
+            &:active,
+            &:hover {
+                border: 0 !important;
+                text-decoration: none !important;
+                color: $default-color-black;
+                background-color: #D6D8E0;
+            }
+
+            i,
+            svg {
+                padding: 5px;
+                border-radius: 3px;
+                font-size: 34px;            
+            }
+
+        }
+
+        .theme-quick-guide-categories {
+            margin-top: 15px;
+
+            i,
+            svg {
+                vertical-align: middle;
+                margin-top: -2px;
+                margin-right: 10px;
+                padding: 5px;
+                border-radius: 3px;
+                font-size: 31px;
+                background-color: #f7f9fc;
+            }            
+
+            a {
+                padding: 10px 45px 10px 15px;
+                border: 1px solid #e8edf5;
+                border-radius: .25rem;
+                font-family: $default-font-2;
+                font-size: 14px;
+
+                &.active,
+                &:hover,
+                &:hover {
+                    color: #324362;
+                    background-color: #f7f9fc;
+                }
+
+                small {
+                    float: right;
+                    margin-right: -40px;
+
+                    i,
+                    svg {
+                        margin-top: 0px;
+                        font-size: 26px;
+                        background-color: transparent;
+                    }
+
+                }
+
+            }
+
+        }
+
+        .theme-quick-guide-articles {
+            margin-top: 15px;
+
+            .list-group-item {
+                padding: .5rem 0;
+                border: 0;
+                border-bottom: 1px solid #e8edf5;
+                border-radius: 0;
+
+                &:last-child {
+                    border: 0;
+                }
+
+                &:hover,
+                &:active,
+                &:hover {
+                    background-color: transparent;
+                }
+
+                .theme-quick-guide-article-title {
+                    margin-bottom: 15px;
+                    padding: 0;
+                    font-size: 16px;
+                    color: #324362;
+                    background-color: #ffffff;
+                }
+
+                .theme-quick-guide-article-content {
+                    line-height: 24px;
+                    font-size: 14px;
+                    color: #324362;
+                    
+                    img {
+                        max-width: 100%;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+    
+}

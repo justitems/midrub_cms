@@ -10,7 +10,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Classes\Apps;
+namespace CmsBase\Classes\Apps;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 

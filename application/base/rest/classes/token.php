@@ -11,7 +11,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Rest\Classes;
+namespace CmsBase\Rest\Classes;
 
 // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -175,7 +175,7 @@ class Token {
                                         }
 
                                         // Verify if user has a unpaid invoice
-                                        if (get_user_option('nonpaid', $user_id)) {
+                                        if (md_the_user_option($user_id, 'nonpaid')) {
 
                                             echo json_encode(array(
                                                 'status' => FALSE,
@@ -188,7 +188,7 @@ class Token {
 
                                         // Save settings about installed mobile app
                                         if ($mobile_installed) {
-                                            update_user_option($user_id, 'mobile_installed', 1);
+                                            md_update_user_option($user_id, 'mobile_installed', 1);
                                         }
 
                                         // Generate access token token
@@ -233,16 +233,16 @@ class Token {
 
                                     }
 
-                                } else if ( $this->CI->base_model->get_data_where('teams', 'user_id', array('member_email' => strtolower($username))) ) {
+                                } else if ( $this->CI->base_model->the_data_where('teams', 'user_id', array('member_email' => strtolower($username))) ) {
 
                                     // Get member
-                                    $team_owner = $this->CI->base_model->get_data_where('teams', '*', array('member_email' => strtolower($username)));
+                                    $team_owner = $this->CI->base_model->the_data_where('teams', '*', array('member_email' => strtolower($username)));
 
                                     // Verify if Team's owner exists
                                     if ( $team_owner ) {
 
                                         // Get user data
-                                        $user_data = $this->CI->base_model->get_data_where('users', '*', array(
+                                        $user_data = $this->CI->base_model->the_data_where('users', '*', array(
                                             'user_id' => $team_owner[0]['user_id']
                                         ));
                         
@@ -286,7 +286,7 @@ class Token {
                                                 }                                
 
                                                 // Verify if user has a unpaid invoice
-                                                if ( get_user_option('nonpaid', $user_id) ) {
+                                                if ( md_the_user_option($user_id, 'nonpaid') ) {
                             
                                                     echo json_encode(array(
                                                         'status' => FALSE,
@@ -311,7 +311,7 @@ class Token {
 
                                                 // Save settings about installed mobile app
                                                 if ( $mobile_installed ) {
-                                                    update_user_option($user_id, 'mobile_installed', 1);
+                                                    md_update_user_option($user_id, 'mobile_installed', 1);
                                                 }
 
                                                 // Generate access token token
@@ -441,7 +441,7 @@ class Token {
                                 }                                
 
                                 // Verify if user has a unpaid invoice
-                                if ( get_user_option('nonpaid', $user_id) ) {
+                                if ( md_the_user_option($user_id, 'nonpaid') ) {
             
                                     echo json_encode(array(
                                         'status' => FALSE,
@@ -466,7 +466,7 @@ class Token {
 
                                 // Save settings about installed mobile app
                                 if ( $mobile_installed ) {
-                                    update_user_option($user_id, 'mobile_installed', 1);
+                                    md_update_user_option($user_id, 'mobile_installed', 1);
                                 }
 
                                 // Generate access token token
@@ -562,7 +562,7 @@ class Token {
                                     }
 
                                     // Verify if user has a unpaid invoice
-                                    if (get_user_option('nonpaid', $user_id)) {
+                                    if (md_the_user_option($user_id, 'nonpaid')) {
 
                                         echo json_encode(array(
                                             'status' => FALSE,
@@ -575,7 +575,7 @@ class Token {
 
                                     // Save settings about installed mobile app
                                     if ($mobile_installed) {
-                                        update_user_option($user_id, 'mobile_installed', 1);
+                                        md_update_user_option($user_id, 'mobile_installed', 1);
                                     }
 
                                     // Generate access token token

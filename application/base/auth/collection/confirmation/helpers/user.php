@@ -11,12 +11,12 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Confirmation\Helpers;
+namespace CmsBase\Auth\Collection\Confirmation\Helpers;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Classes\Email as MidrubBaseClassesEmail;
+use CmsBase\Classes\Email as CmsBaseClassesEmail;
 
 /*
  * User class provides the methods to manage the user confirmation methods
@@ -97,7 +97,7 @@ class User {
                     } else {
 
                         // Get user's email
-                        $get_email = $this->CI->base_model->get_data_where(
+                        $get_email = $this->CI->base_model->the_data_where(
 
                             'users',
                             'email',
@@ -122,11 +122,9 @@ class User {
                         }
 
                         // Get member's email
-                        $get_member_email = $this->CI->base_model->get_data_where(
-
+                        $get_member_email = $this->CI->base_model->the_data_where(
                             'teams',
                             'member_email',
-
                             array(
                                 'member_email' => $email
                             )
@@ -149,64 +147,104 @@ class User {
                         // Try to save email
                         $save_email = $this->CI->base_model->update_ceil('users', array('user_id' => $user_session['user_id']), array('email' => $email));
 
+                        // Verify if email was changed
                         if ( $save_email ) {
-
-                            // Load Notifications Model
-                            $this->CI->load->model('notifications');
 
                             // Create activation code
                             $activate = time();
 
                             // Save activation code in user's data from database
-                            $add_activate = $this->CI->base_model->update_ceil('users', array('user_id' => $user_session['user_id']), array('activate' => $activate));
+                            $add_activate = $this->CI->base_model->update( 'users', array('user_id' => $user_session['user_id']), array('activate' => $activate) );
 
-                            // Prepare notification
-                            $notification_args = array(
-                                '[username]' => $user_session['username'],
-                                '[site_name]' => $this->CI->config->item('site_name'),
-                                '[confirmation_link]' => '<a href="' . base_url() . 'auth/confirmation?code=' . $activate . '&f=' . $user_session['user_id'] . '">' . base_url() . 'auth/confirmation?code=' . $activate . '&f=' . $user_session['user_id'] . '</a>'
-                            );
+                            // Verify if the activation code was saved
+                            if ( !$add_activate ) {
 
-                            // Get the welcome-message-with-confirmation notification template
-                            $template = $this->CI->notifications->get_template('welcome-message-with-confirmation', $notification_args);
-
-                            // Verify if notification's template exists
-                            if ($template) {
-
-                                // Create email
-                                $email_args = array(
-                                    'from_name' => $this->CI->config->item('site_name'),
-                                    'from_email' => $this->CI->config->item('contact_mail'),
-                                    'to_email' => $email,
-                                    'subject' => $template['title'],
-                                    'body' => $template['body']
+                                // Display error message
+                                $data = array(
+                                    'success' => FALSE,
+                                    'message' => $this->CI->lang->line('auth_confirmation_the_email_was_changed_but_no_confirmation')
                                 );
 
-                                // Send notification template
-                                if ((new MidrubBaseClassesEmail\Send())->send_mail($email_args)) {
-
-                                    // Display success message
-                                    $data = array(
-                                        'success' => TRUE,
-                                        'message' => $this->CI->lang->line('auth_confirmation_the_email_was_changed')
-                                    );
-
-                                    echo json_encode($data);
-
-                                } else {
-
-                                    // Display error message
-                                    $data = array(
-                                        'success' => FALSE,
-                                        'message' => $this->CI->lang->line('auth_confirmation_the_email_was_changed_but_no_confirmation')
-                                    );
-
-                                    echo json_encode($data);
-                                }
-
+                                echo json_encode($data);
                                 exit();
 
                             }
+
+                            // Placeholders
+                            $placeholders = array('[username]', '[first_name]', '[last_name]', '[website_name]', '[confirmation_url]', '[login_url]', '[website_url]');
+
+                            // Get the confirmation url
+                            $confirmation = md_the_url_by_page_role('confirmation') ? md_the_url_by_page_role('confirmation') : site_url('auth/confirmation');
+
+                            // Set first name
+                            $first_name = isset($user_session['first_name'])?$user_session['first_name']:'';
+
+                            // Set last name
+                            $last_name = isset($user_session['last_name'])?$user_session['last_name']:'';
+
+                            // Replacers
+                            $replacers = array(
+                                $user_session['username'],
+                                $first_name,
+                                $last_name,
+                                $this->CI->config->item('site_name'),
+                                $confirmation . '?code=' . $activate . '&f=' . $user_session['user_id'],
+                                md_the_url_by_page_role('sign_in') ? md_the_url_by_page_role('sign_in') : site_url('auth/signin'),
+                                site_url()
+                            );
+
+                            // Default subject
+                            $subject = $this->CI->lang->line('auth_welcome_confirmation_title');
+
+                            // Default body
+                            $body = $this->CI->lang->line('auth_welcome_confirmation_content');
+
+                            // Get welcome template
+                            $reset_template = the_admin_notifications_email_template('signup_welcome_confirmation', $this->CI->config->item('language'));
+
+                            // Verify if $reset_template exists
+                            if ( $reset_template ) {
+
+                                // New subject
+                                $subject = $reset_template[0]['template_title'];
+
+                                // New body
+                                $body = $reset_template[0]['template_body'];
+
+                            }
+
+                            // Create email
+                            $email_args = array(
+                                'from_name' => $this->CI->config->item('site_name'),
+                                'from_email' => $this->CI->config->item('contact_mail'),
+                                'to_email' => $email,
+                                'subject' => str_replace($placeholders, $replacers, $subject),
+                                'body' => str_replace($placeholders, $replacers, $body)
+                            );
+
+                            // Send notification template
+                            if ((new CmsBaseClassesEmail\Send())->send_mail($email_args)) {
+
+                                // Display success message
+                                $data = array(
+                                    'success' => TRUE,
+                                    'message' => $this->CI->lang->line('auth_confirmation_the_email_was_changed')
+                                );
+
+                                echo json_encode($data);
+
+                            } else {
+
+                                // Display error message
+                                $data = array(
+                                    'success' => FALSE,
+                                    'message' => $this->CI->lang->line('auth_confirmation_the_email_was_changed_but_no_confirmation')
+                                );
+
+                                echo json_encode($data);
+                            }
+
+                            exit();
 
                         } else {
 
@@ -255,9 +293,6 @@ class User {
         // Verify if session exists
         if ( isset($user_session['user_id']) ) {
 
-            // Load Notifications Model
-            $this->CI->load->model('notifications');
-
             // Create activation code
             $activate = time();
 
@@ -281,50 +316,92 @@ class User {
             // Save activation code in user's data from database
             $add_activate = $this->CI->base_model->update_ceil('users', array('user_id' => $user_session['user_id']), array('activate' => $activate));
 
-            // Prepare notification
-            $notification_args = array(
-                '[username]' => $user_session['username'],
-                '[site_name]' => $this->CI->config->item('site_name'),
-                '[confirmation_link]' => '<a href="' . base_url() . 'auth/confirmation?code=' . $activate . '&f=' . $user_session['user_id'] . '">' . base_url() . 'auth/confirmation?code=' . $activate . '&f=' . $user_session['user_id'] . '</a>'
-            );
+            // Verify if the activation code was saved
+            if ( !$add_activate ) {
 
-            // Get the welcome-message-with-confirmation notification template
-            $template = $this->CI->notifications->get_template('welcome-message-with-confirmation', $notification_args);
-
-            // Verify if notification's template exists
-            if ($template) {
-
-                // Create email
-                $email_args = array(
-                    'from_name' => $this->CI->config->item('site_name'),
-                    'from_email' => $this->CI->config->item('contact_mail'),
-                    'to_email' => $user_session['email'],
-                    'subject' => $template['title'],
-                    'body' => $template['body']
+                // Display error message
+                $data = array(
+                    'success' => FALSE,
+                    'message' => $this->CI->lang->line('auth_confirmation_the_confirmation_code_was_not_sent')
                 );
 
-                // Send notification template
-                if ((new MidrubBaseClassesEmail\Send())->send_mail($email_args)) {
+                echo json_encode($data);
+                exit();
 
-                    // Display success message
-                    $data = array(
-                        'success' => TRUE,
-                        'message' => $this->CI->lang->line('auth_confirmation_the_confirmation_code_was_sent')
-                    );
+            }
 
-                    echo json_encode($data);
-                    
-                } else {
+            // Placeholders
+            $placeholders = array('[username]', '[first_name]', '[last_name]', '[website_name]', '[confirmation_url]', '[login_url]', '[website_url]');
 
-                    // Display error message
-                    $data = array(
-                        'success' => FALSE,
-                        'message' => $this->CI->lang->line('auth_confirmation_the_confirmation_code_was_not_sent')
-                    );
+            // Get the confirmation url
+            $confirmation = md_the_url_by_page_role('confirmation') ? md_the_url_by_page_role('confirmation') : site_url('auth/confirmation');
 
-                    echo json_encode($data);
+            // Set first name
+            $first_name = isset($user_session['first_name'])?$user_session['first_name']:'';
 
-                }
+            // Set last name
+            $last_name = isset($user_session['last_name'])?$user_session['last_name']:'';
+
+            // Replacers
+            $replacers = array(
+                $user_session['username'],
+                $first_name,
+                $last_name,
+                $this->CI->config->item('site_name'),
+                $confirmation . '?code=' . $activate . '&f=' . $user_session['user_id'],
+                md_the_url_by_page_role('sign_in') ? md_the_url_by_page_role('sign_in') : site_url('auth/signin'),
+                site_url()
+            );
+
+            // Default subject
+            $subject = $this->CI->lang->line('auth_welcome_confirmation_title');
+
+            // Default body
+            $body = $this->CI->lang->line('auth_welcome_confirmation_content');
+
+            // Get welcome template
+            $reset_template = the_admin_notifications_email_template('signup_welcome_confirmation', $this->CI->config->item('language'));
+
+            // Verify if $reset_template exists
+            if ( $reset_template ) {
+
+                // New subject
+                $subject = $reset_template[0]['template_title'];
+
+                // New body
+                $body = $reset_template[0]['template_body'];
+
+            }
+
+            // Create email
+            $email_args = array(
+                'from_name' => $this->CI->config->item('site_name'),
+                'from_email' => $this->CI->config->item('contact_mail'),
+                'to_email' => $user_session['email'],
+                'subject' => str_replace($placeholders, $replacers, $subject),
+                'body' => str_replace($placeholders, $replacers, $body)
+            );
+
+            // Send notification template
+            if ((new CmsBaseClassesEmail\Send())->send_mail($email_args)) {
+
+                // Display success message
+                $data = array(
+                    'success' => TRUE,
+                    'message' => $this->CI->lang->line('auth_confirmation_the_confirmation_code_was_sent')
+                );
+
+                echo json_encode($data);
+                
+            } else {
+
+                // Display error message
+                $data = array(
+                    'success' => FALSE,
+                    'message' => $this->CI->lang->line('auth_confirmation_the_confirmation_code_was_not_sent')
+                );
+
+                echo json_encode($data);
 
             }
 

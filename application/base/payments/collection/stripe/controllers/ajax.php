@@ -11,12 +11,12 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Payments\Collection\Stripe\Controllers;
+namespace CmsBase\Payments\Collection\Stripe\Controllers;
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Payments\Collection\Stripe\Helpers as MidrubBasePaymentsCollectionStripeHelpers;
+use CmsBase\Payments\Collection\Stripe\Helpers as CmsBasePaymentsCollectionStripeHelpers;
 
 /*
  * Ajax class processes the gateway's ajax calls
@@ -47,7 +47,7 @@ class Ajax
         $this->CI = &get_instance();
 
         // Load language
-        $this->CI->lang->load( 'stripe_user', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_PAYMENTS_STRIPE );
+        $this->CI->lang->load( 'stripe_user', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_PAYMENTS_STRIPE );
 
     }
 
@@ -61,7 +61,7 @@ class Ajax
     public function process_payment() {
 
         // Saves a suggestions group
-        (new MidrubBasePaymentsCollectionStripeHelpers\Process)->prepare();
+        (new CmsBasePaymentsCollectionStripeHelpers\Process)->prepare();
 
     }
 

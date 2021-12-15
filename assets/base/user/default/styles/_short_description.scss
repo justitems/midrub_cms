@@ -1,0 +1,42 @@
+/*******************************
+DEFAULT SHORT DESCRIPTION MIXING
+********************************/
+
+@mixin default-short-description {
+
+    & {
+        padding: 10px;
+        font-family: $default-font-1;
+        font-weight: 400;
+        font-size: 14px;                                                        
+        color: $default-color-black !important;                        
+        background-color: $default-color-blue-light;
+
+        p {
+            margin: 0 0 15px;
+            line-height: 25px;
+            font-size: 14px;
+            color: $default-color-black;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+
+            li {
+                margin: 0 0 20px 30px;
+                padding: 0 0 0 5px;
+                list-style: inherit;
+                color: $default-color-black;
+            }
+
+        }
+
+    }
+
+}

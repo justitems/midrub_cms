@@ -1,0 +1,385 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../admin/default/styles/default_colors.scss";
+@import "../../../../../../admin/default/styles/default_fonts.scss";
+
+/*******************************
+MIXINGS
+********************************/
+
+@mixin checkbox-option-select() {
+    
+    .checkbox-option-select {
+
+        input[type="checkbox"]:not(:checked),
+        input[type="checkbox"]:checked {
+            position: absolute;
+            left: -9999px;
+        }
+        
+        input[type="checkbox"]:not(:checked) + label,
+        input[type="checkbox"]:checked + label {
+            position: relative;
+            padding-left: 1.95em;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"]:not(:checked) + label:before,
+        input[type="checkbox"]:checked + label:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 25px;
+            height: 25px;
+            border: 1px solid #dddddd;
+            background: #fff;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+        }
+        
+        input[type="checkbox"]:not(:checked) + label:after,
+        input[type="checkbox"]:checked + label:after {
+            content: '\2713\0020';
+            position: absolute;
+            top: .15em; left: .22em;
+            font-size: 1.3em;
+            line-height: 0.8;
+            color: #09ad7e;
+            transition: all .2s;
+        }
+        
+        input[type="checkbox"]:not(:checked) + label:after {
+            opacity: 0;
+            transform: scale(0);
+        }
+        
+        input[type="checkbox"]:checked + label:after {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        input[type="checkbox"]:disabled:not(:checked) + label:before,
+        input[type="checkbox"]:disabled:checked + label:before {
+            box-shadow: none;
+            border-color: #bbb;
+            background-color: #ddd;
+        }
+        
+        input[type="checkbox"]:disabled:checked + label:after {
+            color: #999;
+        }
+        
+        input[type="checkbox"]:disabled + label {
+            color: #aaa;
+        }
+
+    }
+        
+}
+
+/*******************************
+SETTINGS STYLES
+********************************/
+section {
+    padding-top: 50px;
+    
+    .container-fluid {
+        padding: 0;
+
+        .settings-view {
+
+            & > .row {
+
+                & > .col-md-6:first-child {
+                    border-right: 1px solid $default-border-color;
+                }
+
+            }
+
+        }
+
+        .settings-application-author {
+            line-height: 45px;
+            font-family: $default-font-4;
+            font-size: 12px;
+            font-weight: 400;
+            color: $default-color-grey;
+
+            svg {
+                vertical-align: middle;
+                margin-top: -3px;
+                margin-right: 5px;
+                width: 20px;
+                height: 20px;
+                color: $default-color-grey;
+            }
+
+            &:hover {
+                color: $default-color-blue;
+
+                svg {
+                    color: $default-color-blue;
+                }
+
+            }
+
+        }
+
+        .card-code {
+            
+            h5,
+            span {
+                margin: 0;
+                line-height: 25px;
+                font-size: 14px;
+            }
+
+            span {
+                display: block;
+                padding-top: 6px;
+            }
+
+        }
+
+        .settings-affiliates-reports {
+            padding: 0;
+            
+            .table {
+                margin: 15px;
+                width: calc(100% - 30px);
+                border: 1px solid $default-border-color;
+                
+                thead {
+                    min-height: 67px;
+                    padding: 12px 15px;
+                    padding: 15px;
+                    margin-bottom: 18px;
+                    background-color: $default-color-violet-light;
+
+                    tr {
+                        border-bottom: 1px solid rgba(0,0,0,0.1);
+
+                        th {
+                            padding: 0 0 0 10px;
+                            border-bottom: 0;
+                            line-height: 55px;
+
+                            input[type="text"],
+                            button {
+                                margin-right: 15px;
+                                padding: 7px 15px 6px;
+                                border: 0;
+                                border-radius: .25rem;
+                                line-height: 23px;
+                                font-weight: 400;
+                                font-size: 14px;
+                                color: $default-color-black;
+                                background-color: #FFFFFF;
+                                box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.07);
+
+                                &:hover,
+                                &:focus {
+                                    opacity: 0.7;
+                                    text-decoration: none;
+                                    border: 0 !important;
+                                }
+                                
+                                i {
+                                    margin-right: 5px;
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                tbody {
+
+                    tr {
+                        border-top: 1px solid $default-border-color;
+
+                        td {
+                            padding: 0 0 0 10px;
+                            border-top: 1px solid $default-border-color;
+                            border-bottom: 0;
+                            line-height: 55px;
+                            font-size: 14px;
+
+                            &:first-child {
+                                width: 10%;
+                            }
+
+                            &:nth-child(2) {
+                                width: 60%;
+                            } 
+
+                            &:nth-child(3) {
+                                width: 30%;
+                            }
+
+                            a {
+                                color: #333333;
+                                display: block;
+
+                                @media only screen and (max-width: 600px) {
+
+                                    & {
+                                        width: 100px;
+                                    }
+
+                                }
+
+                            }
+
+                            span {
+                                margin-right: 15px;
+                                display: inline-block;
+                                margin-top: 12px;
+                                height: 22px;
+                                width: 84px;
+                                text-align: center;
+                                line-height: 24px;
+                                font-size: 11px;
+                            }
+
+                            .span-active {
+                                background-color: #f0f8ff;
+                            }
+
+                            .span-unactive {
+                                background-color: #f7f7f7;
+                            } 
+
+                            .span-closed {
+                                background-color: #fff4f4;
+                            } 
+                            
+                            a.referral-pay-gains {
+                                color: #FFFFFF;
+                                background-color: #00a28a;
+                                border-color: #00a28a;
+                                padding: 3px 15px;
+                                margin-right: 15px;
+                                display: initial;
+                                border-radius: 3px;
+                                
+                                &:hover {
+                                    opacity: 0.7;
+                                    text-decoration: none;
+                                }
+                                
+                            }
+
+                            p {
+                                white-space: nowrap;
+                                overflow: hidden !important;
+                                text-overflow: ellipsis;
+                                color: #adb5bd;
+                                margin-bottom: 0;
+                                display: table-caption;
+                                width: 60%;
+                            }
+
+                            @include checkbox-option-select();
+
+                            .checkbox-option-select {
+                                float: left;
+                                padding: 0;
+                                width: 100%;
+
+                                label {
+
+                                    &::before {
+                                        margin-top: -11px;
+                                        border: 0 !important;
+                                        box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important;
+                                        -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important;
+                                    }
+
+                                    &::after {
+                                        margin-top: -8px;
+                                    } 
+
+                                }
+
+                            }
+
+
+                        }
+
+                    }
+
+                }
+
+                tfoot {
+
+                    tr {
+
+                        td {
+                            border-top: 1px solid $default-border-color;
+
+                        }
+
+                    }
+
+                }
+                
+            }
+            
+        }
+
+    }
+
+}
+
+/*******************************
+MODALS STYLES
+********************************/
+
+#settings-new-application,
+#settings-update-application {
+
+    .settings-application-list-permissions {
+        margin: 0;
+        padding: 0;
+        
+        li {
+            list-style: none;
+            margin-bottom: 15px;
+            display: inline-block;
+            margin-right: 15px;
+            
+            .btn-default {
+                padding: 2px 17px 3px;
+                font-weight: 400;
+                color: $default-color-blue;
+                background-color: $default-color-blue-light;
+                
+                &:hover {
+                    color: $default-color-blue-light;
+                    background-color: $default-color-blue;
+                }  
+                
+            }
+            
+            .btn-success {
+                color: $default-color-blue-light;
+                background-color: $default-color-blue;
+                
+                &:hover {
+                    color: $default-color-blue;
+                    background-color: $default-color-blue-light;
+                }                        
+                
+            }                    
+            
+        }
+        
+    }
+
+}

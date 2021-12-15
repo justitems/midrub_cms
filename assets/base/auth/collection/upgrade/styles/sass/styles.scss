@@ -10,12 +10,12 @@ MIDRUB GLOBAL VARIABLES
 ********************************/
 $open-sans: 'Open Sans', sans-serif;
 $nunito-sans: 'Nunito Sans', sans-serif;
-$primary-black: #212529;
-$primary-green: #01a28b;
-$primary-red: #ea6759;
-$primary-blue: #2e5f9b;
-$primary-yellow: #f7c48c;
-$primary-border-black: rgba(65, 106, 166, 0.1);
+$default-color-black: #212529;
+$default-color-green: #01a28b;
+$default-color-red: #ea6759;
+$default-color-blue: #2e5f9b;
+$default-color-yellow: #f7c48c;
+$default-border-black: rgba(65, 106, 166, 0.1);
 
 /*******************************
 GENERAL STYLES
@@ -117,13 +117,13 @@ p {
 .btn {
 
     &.btn-success {
-        background-color: $primary-green;
-        border-color: $primary-green;
+        background-color: $default-color-green;
+        border-color: $default-color-green;
     }
     
     &.btn-danger {
-        background-color: $primary-red;
-        border-color: $primary-red;
+        background-color: $default-color-red;
+        border-color: $default-color-red;
     }    
     
     &:hover {
@@ -209,22 +209,22 @@ p {
                                     width: 100%;
                                     height: 60px;
                                     padding: 0 15px;
-                                    border-bottom: 1px solid $primary-border-black;
+                                    border-bottom: 1px solid $default-border-black;
 
                                     h3 {
                                         line-height: 60px;
                                         font-size: 17px;
-                                        color: $primary-black;
+                                        color: $default-color-black;
 
                                         .plan-price {
                                             font-size: 19px;
                                             font-weight: 600;
-                                            color: $primary-black;
+                                            color: $default-color-black;
                                         }
 
                                         .discount-price {
                                             margin-right: 10px;
-                                            color: $primary-green;
+                                            color: $default-color-green;
                                         }
 
                                     }
@@ -268,8 +268,8 @@ p {
                                     .btn-primary {
                                         height: 40px;
                                         color: #fff;
-                                        background-color: $primary-yellow;
-                                        border-color: $primary-yellow;
+                                        background-color: $default-color-yellow;
+                                        border-color: $default-color-yellow;
                                         
                                         &:hover {
                                             opacity: 0.7;
@@ -319,7 +319,7 @@ p {
                                             font-size: 17px;
                                             font-weight: 400;
                                             font-family: $open-sans, 'Arimo';
-                                            color: $primary-black;
+                                            color: $default-color-black;
                                         }
 
                                         .pay-now {
@@ -347,12 +347,12 @@ p {
                                 padding: 0 15px;
                                 width: 100%;
                                 height: 60px;
-                                border-top: 1px solid $primary-border-black;
+                                border-top: 1px solid $default-border-black;
 
                                 .btn-primary {
                                     float: right;
                                     margin-top: 10px;
-                                    color: $primary-black;
+                                    color: $default-color-black;
                                     border-color: #f5f5f5;
                                     background-color: #f5f5f5;
 

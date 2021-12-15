@@ -13,7 +13,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Auth\Classes\Signup as MidrubBaseAuthClassesSignup;
+use CmsBase\Auth\Classes\Signup as CmsBaseAuthClassesSignup;
 
 if ( !function_exists('md_auth_save_user_data') ) {
     
@@ -29,7 +29,7 @@ if ( !function_exists('md_auth_save_user_data') ) {
     function md_auth_save_user_data($args) {
         
         // Call the signup class
-        $signup = (new MidrubBaseAuthClassesSignup\Signup);
+        $signup = (new CmsBaseAuthClassesSignup\Signup);
 
         // Try to register
         $signup->save_user_data($args);

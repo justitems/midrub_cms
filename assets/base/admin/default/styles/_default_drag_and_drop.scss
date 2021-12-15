@@ -1,0 +1,215 @@
+/*******************************
+DEFAULT MIXINGS FOR DRAG AND DROP
+********************************/
+
+@mixin default-drag-and-drop-files {
+
+    .theme-drag-and-drop-files {
+        display: table;
+        margin: 7px 0;
+        width: 100%;
+        height: 300px;
+        border: 2px dashed #C7D7FD;
+        border-radius: 3px;
+        -webkit-transition: opacity 0.5s ease-in-out;
+        -moz-transition: opacity 0.5s ease-in-out;
+        -ms-transition: opacity 0.5s ease-in-out;
+        -o-transition: opacity 0.5s ease-in-out;
+        transition: opacity 0.5s ease-in-out;
+        
+        & > div.theme-upload-main {
+            display: table-cell;
+            position: absolute;
+            z-index: 3;
+            vertical-align: middle;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            opacity: 1;
+            -webkit-transition: opacity 0.4s ease-in-out;
+            -moz-transition: opacity 0.4s ease-in-out;
+            -ms-transition: opacity 0.4s ease-in-out;
+            -o-transition: opacity 0.4s ease-in-out;
+            transition: opacity 0.4s ease-in-out;
+
+            .theme-upload-icon {
+                display: block;
+                margin-top: 70px;
+                margin-bottom: 30px;
+
+                i,
+                svg {
+                    margin-top: -10px;
+                    font-size: 60px;
+                    color: #6F65A7;
+                }
+
+            }
+
+            .theme-upload-text {
+
+                h2 {
+                    margin: 0 0 10px;
+                    font-size: 19px;
+                    color: #707788;
+                }
+
+                p {
+                    margin: 0;
+                    font-size: 14px;
+                    color: #A4ABBD;
+                }
+
+            }
+
+            .theme-upload-btn {
+
+                a {
+                    display: inline-table;
+                    margin-top: 22px;
+                    margin-bottom: -15px;
+                    padding: 7px 15px;
+                    height: calc(1.5em + 0.75rem + 2px);
+                    line-height: 1.5;
+                    border: 0;
+                    border-radius: .25rem;
+                    text-decoration: none;
+                    font-size: 0.88rem;
+                    font-weight: 400;
+                    color: #344564;
+                    background-color: #f7f9fc;
+                    background-clip: padding-box;
+
+                    &:hover {
+                        text-decoration: none;
+                        color: #344564;
+                        background-color: #edf0f5;
+                    }
+
+                    &:active,
+                    &:focus {
+                        text-decoration: none;
+                    }
+                    
+                }
+
+            }                            
+
+        }
+
+        & > div.theme-upload-over {
+            display: table-cell;
+            position: absolute;
+            z-index: 2;
+            vertical-align: middle;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            opacity: 0;
+            -webkit-transition: opacity 0.5s ease-in-out;
+            -moz-transition: opacity 0.5s ease-in-out;
+            -ms-transition: opacity 0.5s ease-in-out;
+            -o-transition: opacity 0.5s ease-in-out;
+            transition: opacity 0.5s ease-in-out;
+            transition-duration: 0.7s, 1.2s;
+            transition-delay: 0s, 0.7s;
+
+            .theme-upload-icon {
+                margin-top: 100px;
+
+                i,
+                svg {
+                    display: block;
+                    margin: auto;
+                    font-size: 90px;
+                    color: #6F65A7;
+                }
+
+            }
+
+        }
+
+        & > div.theme-upload-drop {
+            display: table-cell;
+            position: absolute;
+            z-index: 1;
+            vertical-align: middle;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            opacity: 0;
+            -webkit-transition: opacity 0.5s ease-in-out;
+            -moz-transition: opacity 0.5s ease-in-out;
+            -ms-transition: opacity 0.5s ease-in-out;
+            -o-transition: opacity 0.5s ease-in-out;
+            transition: opacity 0.5s ease-in-out;
+            transition-duration: 0.5s, 1s;
+            transition-delay: 0s, 0.5s;
+
+            .theme-upload-progress {
+                padding: 0 100px;
+                margin-top: 120px;
+
+                p {
+                    font-size: 25px;
+                    color: #A99AFF;
+                }
+
+                .progress {
+                    height: 7px;
+                    background-color: #E5D7FF;
+
+                    .progress-bar {
+                        background-color: #6F65A7;
+                    }
+
+                }
+
+            }                            
+
+        }
+
+        &.theme-drag-and-drop-files-over-active {
+            border: 2px dashed #6F65A7;
+            background-color: #fdfcff;
+
+            & > div.theme-upload-main {
+                opacity: 0;
+            }
+
+            & > div.theme-upload-over {
+                opacity: 1;
+            }
+
+        }
+
+        &.theme-drag-and-drop-files-drop-active {
+            border: 2px dashed #6F65A7;
+            background-color: #fdfcff;
+
+            & > div.theme-upload-main {
+                opacity: 0;
+            }
+
+            & > div.theme-upload-over {
+                opacity: 0;
+            }
+
+            & > div.theme-upload-drop {
+                opacity: 1;
+            }
+
+        }                        
+
+    }
+
+}

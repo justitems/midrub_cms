@@ -10,7 +10,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Classes\Rest;
+namespace CmsBase\Classes\Rest;
 
 // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -34,20 +34,23 @@ class Permissions {
     /**
      * The public method set_permissions adds a collection with permissions to the list
      * 
-     * @param array $args contains the api's permissions
+     * @param array $params contains the api's permissions
      * 
      * @since 0.0.7.9
      * 
      * @return void
      */
-    public function set_permissions($args) {
+    public function set_permissions($params) {
 
         // Verify if options exists
-        if ( $args ) {
+        if ( $params ) {
+            
+            // Verify for required parameters
+            if ( !empty($params['permission_slug']) && !empty($params['permission_name']) && !empty($params['permission_description']) && !empty($params['permission_allow_text']) ) {
 
-            // List all options
-            foreach ( $args as $arg ) {
-                self::$the_permissions[] = $arg;
+                // Set permission
+                self::$the_permissions[] = $params;
+
             }
 
         }

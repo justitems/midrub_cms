@@ -1,0 +1,17 @@
+/*******************************
+MIXING FOR INPUT AUTOCOMPLETE
+********************************/
+
+@mixin default-reset-input-autocomplete($color) {
+
+    &:focus,
+    &:active,
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover, 
+    &:-webkit-autofill:focus, 
+    &:-webkit-autofill:active {
+
+        -webkit-box-shadow: 0 0 0 30px #{$color} inset !important;
+    }
+
+}

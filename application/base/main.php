@@ -10,32 +10,35 @@
  */
 
 // Define the page namespace
-namespace MidrubBase;
+namespace CmsBase;
 
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
-defined('MIDRUB_BASE_PATH') OR define('MIDRUB_BASE_PATH', APPPATH . 'base/');
+defined('CMS_BASE_PATH') OR define('CMS_BASE_PATH', APPPATH . 'base/');
 
 // Require the autoload's plugin file
-require_once MIDRUB_BASE_PATH . 'autoload.php';
+require_once CMS_BASE_PATH . 'autoload.php';
 
 // Require the General Inc
-require_once MIDRUB_BASE_PATH . 'inc/general.php';
+require_once CMS_BASE_PATH . 'inc/general.php';
 
 // Require the Additional Inc
-require_once MIDRUB_BASE_PATH . 'inc/additional.php';
+require_once CMS_BASE_PATH . 'inc/additional.php';
+
+// Require the api permissions inc file
+require_once CMS_BASE_PATH . 'inc/rest/api_permissions.php';
 
 // Define the namespaces to use
-use MidrubBase\User\Main as MidrubBaseUserMain;
+use CmsBase\User\Main as CmsBaseUserMain;
 
 /*
- * MidrubBase is the base loader
+ * CmsBase is the base loader
  * 
  * @author Scrisoft
  * @package Midrub
  * @since 0.0.7.8
  */
-class MidrubBase {
+class CmsBase {
 
     /**
      * Class variables
@@ -46,7 +49,8 @@ class MidrubBase {
         'admin',
         'user',
         'auth',
-        'frontend'
+        'frontend',
+        'plugins'
     );
 
     /**
@@ -63,17 +67,17 @@ class MidrubBase {
         // Get codeigniter object instance
         $this->CI =& get_instance();
 
-        // Load Base Model
-        $this->CI->load->ext_model( MIDRUB_BASE_PATH . 'models/', 'Base_model', 'base_model' );
-
         // Load Base Contents Model
-        $this->CI->load->ext_model(MIDRUB_BASE_PATH . 'models/', 'Base_contents', 'base_contents');
+        $this->CI->load->ext_model(CMS_BASE_PATH . 'models/', 'Base_contents', 'base_contents');
 
         // Verify if username exists
         if ( isset( $this->CI->session->userdata['username'] ) ) {
 
+            // Require the general functions file
+            require_once CMS_BASE_PATH . 'user/inc/general.php';
+
             // Load Base Model
-            $this->CI->load->ext_model(MIDRUB_BASE_PATH . 'models/', 'Base_users', 'base_users');
+            $this->CI->load->ext_model(CMS_BASE_PATH . 'models/', 'Base_users', 'base_users');
 
             // Get user data
             $user_data = $this->CI->base_users->get_user_data_by_username($this->CI->session->userdata['username']);
@@ -82,7 +86,7 @@ class MidrubBase {
             if ( $user_data ) {
 
                 // Set user data
-                md_set_component_variable('user_data', (array)$user_data[0]);
+                md_set_data('user_data', (array)$user_data[0]);
 
                 // Set user_id
                 $this->CI->user_id = $user_data[0]->user_id;
@@ -94,7 +98,7 @@ class MidrubBase {
                 $this->CI->user_status = $user_data[0]->status;
 
                 // Get user language
-                $user_lang = get_user_option('user_language');
+                $user_lang = md_the_user_option($this->CI->user_id, 'user_language');
 
                 // Verify if user has selected a language
                 if ($user_lang) {
@@ -113,15 +117,26 @@ class MidrubBase {
 
         }
 
+        // Load SMTP
+        $config = md_smtp();
+        
+        // Load Sending Email Class
+        $this->CI->load->library('email', $config);
+
+        // Load init hooks
+        $this->load_hooks('init');
+
         // Load hooks by category
         $this->load_hooks($category, $static_slug, $dynamic_slug);
 
-        // Get hooks category
-        if ( $category === "admin_init" ) {
+        // Load plugins hooks
+        $this->load_hooks('plugins_init');        
 
-            // Require the dashboard inc file
-            require_once APPPATH . 'base/inc/dashboard/general.php';
-
+        // Verify if flash data exists
+        if ( $this->CI->session->flashdata('incomplete_transaction') ) {
+       
+            $this->CI->session->keep_flashdata('incomplete_transaction');
+           
         }
         
     }
@@ -142,7 +157,7 @@ class MidrubBase {
 
         // Create an array
         $array = array(
-            'MidrubBase',
+            'CmsBase',
             ucfirst($static_slug),
             'Main'
         );
@@ -170,7 +185,7 @@ class MidrubBase {
 
         // Create an array
         $array = array(
-            'MidrubBase',
+            'CmsBase',
             ucfirst($type),
             'Main'
         );
@@ -198,7 +213,7 @@ class MidrubBase {
 
         // Create an array
         $array = array(
-            'MidrubBase',
+            'CmsBase',
             'Rest',
             'Main'
         );
@@ -239,7 +254,7 @@ class MidrubBase {
     public function guest($dynamic_slug) {
 
         // Load guest method
-        (new MidrubBaseUserMain())->guest($dynamic_slug);
+        (new CmsBaseUserMain())->guest($dynamic_slug);
 
     }
 
@@ -259,13 +274,21 @@ class MidrubBase {
         // Set component
         if ( $dynamic_slug ) {
 
+            // For user is app
+            if ( $category === 'user_init' ) {
+
+                // Set loaded app
+                md_set_data('loaded_app', $dynamic_slug);
+
+            }
+
             // Set current component
-            md_set_component_variable('component', $dynamic_slug);
+            md_set_data('component', $dynamic_slug);
 
         } else {
 
             // Set current component
-            md_set_component_variable('component', $static_slug);
+            md_set_data('component', $static_slug);
 
         }
 
@@ -280,7 +303,7 @@ class MidrubBase {
 
             // Create an array
             $array = array(
-                'MidrubBase',
+                'CmsBase',
                 ucfirst($section),
                 'Main'
             );

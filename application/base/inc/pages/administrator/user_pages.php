@@ -13,7 +13,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Classes\Pages as MidrubBaseClassesPages;
+use CmsBase\Classes\Pages as CmsBaseClassesPages;
 
 if ( !function_exists('md_set_user_page') ) {
     
@@ -30,7 +30,7 @@ if ( !function_exists('md_set_user_page') ) {
     function md_set_user_page($page_slug, $args) {
         
         // Call the user_pages class
-        $user_pages = (new MidrubBaseClassesPages\Main);
+        $user_pages = (new CmsBaseClassesPages\Main);
 
         // Set user page in the queue
         $user_pages->set_page($page_slug, $args);
@@ -51,7 +51,7 @@ if ( !function_exists('md_the_user_pages') ) {
     function md_the_user_pages() {
         
         // Call the user_pages class
-        $user_pages = (new MidrubBaseClassesPages\Main);
+        $user_pages = (new CmsBaseClassesPages\Main);
 
         // Return user pages
         return $user_pages->load_pages();
@@ -74,7 +74,7 @@ if ( !function_exists('md_get_the_user_page_content') ) {
     function md_get_the_user_page_content($page) {
         
         // Call the user_pages class
-        $user_pages = (new MidrubBaseClassesPages\Main);
+        $user_pages = (new CmsBaseClassesPages\Main);
 
         // List all pages
         foreach ( $user_pages::$the_pages as $the_user_page ) {

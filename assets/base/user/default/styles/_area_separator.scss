@@ -1,0 +1,38 @@
+/*******************************
+DEFAULT AREA SEPARATOR MIXING
+********************************/
+
+@mixin default-area-separator {
+
+    & {
+        display: table;
+        margin: 15px auto;
+        padding: 5px 15px;
+        font-size: 13px;
+        background-color: $default-background-color;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 2%;
+            z-index: 0;
+            top: 43px;
+            width: 96%;
+            border-top: 1px solid $default-background-color;
+        }
+
+        i {
+            vertical-align: text-bottom;
+            margin-right: 5px;
+            font-size: 16px;            
+        }
+
+        svg {
+            vertical-align: text-bottom;
+            margin-right: 5px;
+            font-size: 16px;
+        }
+
+    }
+
+}

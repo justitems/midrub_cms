@@ -6,9 +6,9 @@
  * Create the main object
  */
 var Main = new Object({
+    methods: {},
     translation: {},
-    pagination: {},
-    methods: {}
+    pagination: {}
 });
 
 jQuery(document).ready( function ($) {
@@ -34,7 +34,7 @@ jQuery(document).ready( function ($) {
      * 
      * @since   0.0.0.1
      */
-    Main.ajax_call = function (url, method, data, fun) {
+    Main.ajax_call = function (url, method, data, fun, progress_fun) {
 
         // Send ajax request
         $.ajax({
@@ -50,6 +50,29 @@ jQuery(document).ready( function ($) {
             
             // Pass data
             data: data,
+
+            // Get progress
+            xhr: function () {
+
+                var xhr = $.ajaxSettings.xhr();
+
+                xhr.upload.onprogress = function (e) {
+
+                    if (e.lengthComputable) {
+                        
+                        if ( typeof progress_fun !== 'undefined' ) {
+
+                            Main.methods[progress_fun](e.loaded, e.total);
+
+                        }
+
+                    }
+
+                };
+
+                return xhr;
+
+            },
             
             success: function (data, textStatus, XMLHttpRequest) {
 

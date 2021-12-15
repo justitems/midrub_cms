@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="shortcut icon" href="<?php
-        $favicon = get_option('favicon');
+        $favicon = md_the_option('favicon');
         if ($favicon): echo $favicon;
         else: echo '/assets/img/favicon.png';
         endif;
@@ -35,7 +35,7 @@
                     <div class="col-12 text-center">
                         <a class="home-page-link" href="<?php echo base_url(); ?>">
                             <img src="<?php
-                            $main_logo = get_option('main-logo');
+                            $main_logo = md_the_option('main_logo');
                             if ($main_logo) {
                                 echo $main_logo;
                             } else {

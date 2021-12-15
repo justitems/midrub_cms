@@ -1,0 +1,309 @@
+/*******************************
+DEFAULT MIXINGS FOR DROPDOWNS
+********************************/
+
+@mixin default-dropdown-1() {
+
+    button {
+        padding: 6px 15px 7px !important;
+        width: 100% !important;
+        line-height: 24px !important;
+
+        @include default-buttons('default-button-1');
+
+        span {
+            display: block;
+            margin-top: -1px;
+            width: calc(100% - 10%);
+            white-space: nowrap;
+            text-align: left;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        
+        svg {
+            margin-right: 5px;
+
+            &.theme-dropdown-arrow-icon {
+                margin-top: 3px !important;
+                margin-right: 0 !important;
+                margin-left: 10px !important;
+                width: 13px !important;
+                height: 13px !important;                                        
+                -webkit-transform: rotate(90deg) !important;
+                transform: rotate(90deg) !important;
+                -webkit-transition-duration: 0.5s !important;
+                transition-duration: 0.5s !important;
+                -webkit-transition-property: all !important;
+                transition-property: transform !important;
+            }
+
+        }
+        
+        &::after {
+            display: none;
+        }
+
+        &[aria-expanded="true"] {
+
+            svg {
+                    
+                &.theme-dropdown-arrow-icon {
+                    margin-top: 4px !important;
+                    -webkit-transform: rotate(270deg) !important;
+                    transform: rotate(270deg) !important;
+                }
+
+            }
+
+        }
+
+    }
+
+    .dropdown-menu {
+        margin-top: 2px !important;
+        padding: 5px;
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+        background-color: #FFFFFF;
+        -webkit-box-shadow: 0px 2px 8px 0px rgba(35, 47, 53, 0.10);
+        box-shadow: 0px 2px 8px 0px rgba(35, 47, 53, 0.10);
+        transition: all 0.3s ease;
+
+        li {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            border: 0;
+            background-color: transparent;
+
+            p {
+                display: block;
+                margin: 0;
+                padding: 5px 15px;
+                width: auto;
+                min-width: auto;
+                line-height: 30px;
+                text-align: left;
+                text-decoration: none;
+                font-family: $default-font-1;
+                font-size: 14px;
+                font-weight: 400;
+                color: $default-color-black;                  
+            }
+
+            a {
+                display: block;
+                margin: 0;
+                padding: 5px 15px;
+                width: auto;
+                min-width: auto;
+                line-height: 30px;
+                text-align: left;
+                text-decoration: none;
+                font-family: $default-font-1;
+                font-size: 14px;
+                font-weight: 400;
+                color: $default-color-black;
+                background-color: #FFFFFF;
+                -webkit-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
+
+                svg,
+                i {
+                    vertical-align: middle;
+                    margin-top: -4px;
+                    margin-right: 10px;
+                    width: 22px;
+                    height: 22px;
+                    font-size: 22px;
+                    color: $default-color-black;
+                    pointer-events: none;
+                }
+
+                span {
+                    display: initial;
+                    pointer-events: none;
+                }
+
+                &:hover,
+                &:focus {
+                    border-radius: 4px;
+                    text-decoration: none;
+                    background-color: $default-color-grey-light;
+                }
+
+            }
+            
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        input[type="text"] {
+            margin: 0 0 5px;
+            padding: 0 15px;
+            width: 100%;
+            height: 40px;
+            border: 0;
+            border-bottom: 1px solid #dee2ed;
+            font-size: 14px;
+        }
+
+        & > div {
+            max-height: 400px;
+            overflow: auto;
+        }
+                
+    }
+    
+}
+
+@mixin default-dropdown-2() {
+    width: 100%;
+
+    button {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        width: 23px;
+        height: auto;
+        line-height: inherit;
+        background-color: transparent;
+
+        span {
+            display: block;
+            margin-top: -1px;
+            width: calc(100% - 10%);
+            white-space: nowrap;
+            text-align: left;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        i {
+            margin-right: 5px;
+            font-size: 23px;
+            color: #6c757d;
+        }
+        
+        svg {
+            width: 27px;
+            height: 28px;
+        }
+        
+        &::after {
+            display: none;
+        }
+
+    }
+
+    .dropdown-menu {
+        right: 0 !important;
+        margin-top: 2px !important;
+        padding: 5px;
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+        background-color: #FFFFFF;
+        -webkit-box-shadow: 0px 2px 8px 0px rgba(35, 47, 53, 0.10);
+        box-shadow: 0px 2px 8px 0px rgba(35, 47, 53, 0.10);
+        transition: all 0.3s ease;
+        transform: translate(-58px, 0);
+
+        @media screen and (max-width: 767px) {
+            transform: translate(-120px, 0);
+        }
+
+        &.show {
+            left: initial !important;
+            right: initial !important;
+        }
+
+        li {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            background-color: transparent;
+
+            p {
+                display: block;
+                margin: 0;
+                padding: 5px 15px;
+                width: auto;
+                min-width: auto;
+                line-height: 30px;
+                text-align: left;
+                text-decoration: none;
+                font-family: $default-font-1;
+                font-size: 14px;
+                font-weight: 400;
+                color: $default-color-black;                  
+            }
+
+            a {
+                display: block;
+                margin: 0;
+                padding: 5px 15px;
+                width: auto;
+                min-width: auto;
+                line-height: 30px;
+                text-align: left;
+                text-decoration: none;
+                font-family: $default-font-1;
+                font-size: 14px;
+                font-weight: 400;
+                color: $default-color-black;
+                background-color: #FFFFFF;
+                -webkit-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
+
+                svg,
+                i {
+                    vertical-align: middle;
+                    margin-top: -4px;
+                    margin-right: 10px;
+                    width: 22px;
+                    height: 22px;
+                    font-size: 22px;
+                    color: $default-color-black;
+                    pointer-events: none;
+                }
+
+                span {
+                    display: initial;
+                    pointer-events: none;
+                }
+
+                &:hover,
+                &:focus {
+                    border-radius: 4px;
+                    text-decoration: none;
+                    background-color: $default-color-grey-light;
+                }
+
+            }
+            
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        input[type="text"] {
+            margin: 0 0 5px;
+            padding: 0 15px;
+            width: 100%;
+            height: 40px;
+            border: 0;
+            border-bottom: 1px solid #dee2ed;
+            font-size: 14px;
+        }
+                
+    }
+    
+}

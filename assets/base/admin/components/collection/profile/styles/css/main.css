@@ -1,0 +1,21 @@
+/*******************************
+PROFILE STYLES
+********************************/
+@media only screen and (max-width: 1300px) {
+  .profile-page .col-sm-2 {
+    flex: 0 0 auto !important;
+    margin-left: 0 !important;
+    width: 30% !important; } }
+.profile-page .col-sm-2 .theme-panel .theme-panel-body {
+  padding: 0; }
+@media only screen and (max-width: 1300px) {
+  .profile-page .col-sm-6 {
+    flex: 0 0 auto !important;
+    width: 70% !important; } }
+@media only screen and (max-width: 930px) {
+  .profile-page .col-sm-2,
+  .profile-page .col-sm-6 {
+    flex: 0 0 auto !important;
+    width: 100% !important; } }
+
+/*# sourceMappingURL=main.css.map */

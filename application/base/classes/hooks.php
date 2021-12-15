@@ -10,8 +10,9 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Classes;
+namespace CmsBase\Classes;
 
+// Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
@@ -31,7 +32,7 @@ class Hooks {
     public static $hooks = array();    
 
     /**
-     * The public method add_hook adds a hook in the queue
+     * The public method md_set_hook adds a hook in the queue
      * 
      * @param string $hook_name contains the hook's name
      * @param function $function contains the function to call
@@ -40,7 +41,7 @@ class Hooks {
      * 
      * @return void
      */
-    public function add_hook($hook_name, $function) {
+    public function md_set_hook($hook_name, $function) {
 
         self::$hooks[$hook_name][] = $function;
 
@@ -84,3 +85,5 @@ class Hooks {
     }    
 
 }
+
+/* End of file hooks.php */

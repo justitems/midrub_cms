@@ -1,9 +1,9 @@
-<div class="form-content<?php echo the_content_meta('auth_signin_slider_enable')?' has-slider':''; ?>">
+<div class="form-content<?php echo md_the_content_meta('auth_signin_slider_enable')?' has-slider':''; ?>">
     <div class="row">
         <div class="col-12">
             <div class="row">
                 <div class="col-lg-2 col-md-12">
-                    <?php echo get_option('auth_logo')?'<img src="' . get_option('auth_logo') . '" class="logo">':''; ?>
+                    <?php echo md_the_option('auth_logo')?'<img src="' . md_the_option('auth_logo') . '" class="logo">':''; ?>
                 </div>
                 <div class="col-lg-4 offset-lg-2 col-md-12 offset-lg-0">
                     <?php echo form_open('', array('class' => 'form-signin', 'autocomplete' => 'off', 'data-csrf' => $this->security->get_csrf_token_name())) ?>
@@ -22,7 +22,7 @@
                                 </a>
                             </p>
                         </div>
-                        <?php if ( get_option('auth_enable_username_input') ) { ?>
+                        <?php if ( md_the_option('auth_enable_username_input') ) { ?>
                         <div class="form-group">
                             <label for="email-address">
                                 <?php echo $this->lang->line('auth_signin_email_or_username'); ?>
@@ -58,10 +58,10 @@
                                 <div class="col-6 text-right">
                                 <?php
                                 // Verify if signup is disabled
-                                if (get_option('enable_registration')) {
+                                if (md_the_option('enable_registration')) {
 
                                     // Get the Sign Up url
-                                    $url = the_url_by_page_role('sign_up') ? the_url_by_page_role('sign_up') : site_url('auth/signup');
+                                    $url = md_the_url_by_page_role('sign_up') ? md_the_url_by_page_role('sign_up') : site_url('auth/signup');
 
                                     // Display the link
                                     echo '<p class="m-0 mt-1">'
@@ -109,7 +109,7 @@
                                 . '<div class="form-group">';
 
                             // Set the sign in page
-                            $sign_in = the_url_by_page_role('sign_in') ? the_url_by_page_role('sign_in') : site_url('auth/signin');
+                            $sign_in = md_the_url_by_page_role('sign_in') ? md_the_url_by_page_role('sign_in') : site_url('auth/signin');
 
                             // List available sign in options
                             foreach (md_auth_social_access_options() as $option) {
@@ -133,12 +133,12 @@
     </div>
 </div>
 
-<?php if ( the_content_meta('auth_signin_slider_enable') ) { ?>
+<?php if ( md_the_content_meta('auth_signin_slider_enable') ) { ?>
 <div id="carousel-signin" class="carousel slide" data-ride="carousel">
     <?php 
 
     // Get the slider's items
-    $slider_items = the_content_meta_list('auth_signin_slider_items');
+    $slider_items = md_the_content_meta_list('auth_signin_slider_items');
 
     // Verify if the slider has items
     if ( $slider_items ) {

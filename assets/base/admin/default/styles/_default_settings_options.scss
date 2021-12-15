@@ -1,0 +1,72 @@
+/*******************************
+DEFAULT MIXINGS FOR SETTINGS OPTIONS
+********************************/
+
+@mixin default-settings-options {
+
+    & {
+        margin: 0;
+        padding: 0;
+
+        & > li {
+            margin: 0 0 20px !important;
+            padding: 10px 5px !important;
+            border: 0 !important;
+            border-radius: 6px !important;
+
+            @media only screen and (max-width: 1300px) {
+                display: block !important;
+            }            
+
+            & > div {
+
+                @media only screen and (max-width: 1300px) {
+                    margin-bottom: 15px;
+                    margin-left: 0 !important;
+                    padding: 0 15px !important;
+                    width: 100%;
+                }
+
+            }
+
+            .me-auto {
+                font-family: $default-font-3;
+                font-size: 13px;
+                font-weight: 400;
+                color: $default-color-grey;
+
+                .fw-bold {
+                    margin-bottom: 5px;
+                    font-size: 14px;
+                    font-weight: 400 !important;
+                    color: $default-color-black;
+                }
+
+            }
+
+            .theme-text-input-1,
+            .theme-password-input-1,
+            .theme-textarea-1,
+            .theme-button-1,
+            .theme-image-field,
+            .theme-dropdown-1 {
+                min-width: 250px;
+            }
+
+            .theme-button-1 {
+                margin-top: 7px;
+            }
+
+            .theme-checkbox-2 {
+                margin-top: 2px;
+            }
+
+            .theme-dropdown-1 {
+                margin-top: 5px;
+            }
+
+        }
+
+    }
+    
+}

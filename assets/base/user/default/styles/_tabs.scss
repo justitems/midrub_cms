@@ -1,0 +1,382 @@
+/*******************************
+TABS MIXING
+********************************/
+
+@mixin default-tabs {
+
+    .nav-tabs {
+        margin-top: 15px;
+        border: 0;
+        border-bottom: 1px solid #e1e7f1;
+
+        .nav-item {
+            
+            .nav-link {
+                padding: 7px 25px;
+                border: 0;
+                border-bottom: 2px solid transparent;
+                font-size: 14px;
+                font-weight: 500;
+                color: #a2a8b1;
+                background-color: transparent;
+
+                @media screen and (max-width: 1443px) {
+
+                    & {
+                        padding: 7px 10px;
+                    }
+
+                }
+
+                @media screen and (max-width: 1291px) {
+
+                    & {
+                        padding: 7px 25px;
+                    }
+
+                }
+
+                &.active {
+                    border-bottom: 2px solid #2E92FA;
+                    color: #2E92FA;
+                }
+
+                i {
+                    vertical-align: middle;
+                    margin-right: 5px;
+                    font-size: 19px;
+                }
+
+            }
+
+        }
+
+    }
+
+    .tab-content {
+
+        .tab-pane {
+    
+            .card-list {
+                margin-top: 15px;
+                margin-bottom: 40px;
+                border: 0;
+                background-color: transparent;
+            
+                .card-header {
+                    padding: 0;
+                    border: 0;
+                    background-color: transparent;
+            
+                    .default-button-new {
+                        width: 100%;
+    
+                        .btn {
+                            margin: 0;
+                            line-height: 41px;
+
+                            i {
+                                margin-top: -4px;
+                                font-size: 22px;
+                            }
+
+                        }
+    
+                    }    
+            
+                }
+            
+                .card-body {
+                    padding: 15px 0 0;
+            
+                    .theme-no-results-found {
+                        padding: 15px 20px;
+                        font-size: 14px;
+                    }
+            
+                    & > .card {
+                        margin-bottom: 15px;
+                        border: 0;
+            
+                        & > .card-header {
+                            padding: 0.5rem 1.25rem 0.2rem;
+                            width: 100%;
+                            text-align: left;
+                            color: $default-color-black;
+                            opacity: 1 !important;
+            
+                            &:hover,
+                            &:focus,
+                            &:active {
+                                text-decoration: none;
+                            }
+            
+                            .media {
+            
+                                .card-list-item-icon {
+                                    vertical-align: middle;
+                                    margin-top: 1px;
+                                    box-sizing: border-box;
+                                    width: 40px;
+                                    height: 40px;
+                                    border-radius: 3px;
+                                    border-style: none;
+                                    line-height: 42px;
+                                    text-align: center;
+                                    font-size: 15px;
+                                    color: $default-color-black;
+                                    background-color: #F6F9FF;
+
+                                    i {
+                                        vertical-align: middle;
+                                        margin-top: -5px;
+                                        margin-left: 0;
+                                        font-size: 22px;
+                                    }
+
+                                }
+            
+                                .media-body {
+            
+                                    h5 {
+                                        margin: 0;
+                                        padding: 0.4rem 0 0.4rem;
+            
+                                        a {
+                                            display: -webkit-inline-box;
+                                            margin-top: 6.5px;
+                                            padding-bottom: 3px;
+                                            border-bottom: 1px solid #FFFFFF;
+                                            font-family: $default-font-2;
+                                            font-size: 14px;
+                                            font-weight: 500;
+                                            color: #324362;
+                                            overflow: hidden;
+                                            -webkit-line-clamp: 1;
+                                            -webkit-box-orient: vertical;
+            
+                                            &:hover,
+                                            &:active,
+                                            &:focus {
+                                                text-decoration: none;
+                                                border-bottom: 1px solid #6c757d;
+                                            }
+            
+                                        }
+            
+                                    }
+
+                                    h6 {
+                                        margin: 0;
+                                        font-size: 15px;
+    
+                                        a {
+                                            padding-bottom: 3px;
+                                            font-family: $default-font-2;
+                                            font-size: 14px;
+                                            font-weight: 500;
+                                            color: #324362;
+                                            border-bottom: 1px solid #FFFFFF;
+            
+                                            &:hover,
+                                            &:active,
+                                            &:focus {
+                                                text-decoration: none;
+                                                border-bottom: 1px solid #6c757d;
+                                            }
+    
+                                        }
+    
+                                        i {
+                                            vertical-align: middle;
+                                            margin-left: 5px;
+                                            font-size: 17px;
+                                            color: $default-color-grey-light;
+                                            transition: all .2s;
+                                        }
+    
+                                    }
+    
+                                    p {
+                                        margin: 0 0 5px;
+                                        font-size: 13px;
+                                        color: $default-color-grey;
+                                    }
+            
+                                }
+            
+                            }
+            
+                            .btn-group {
+                                display: flow-root;
+                                margin-top: -4px;
+
+                                .btn {
+                                    padding: 5px;
+                                    height: auto;
+                                    border: 0;
+                                    background-color: transparent;
+
+                                    &.btn-primary {
+                                        padding: 0;
+                                        line-height: 40px;
+                                        opacity: 0.5;
+
+                                        i {
+                                            vertical-align: middle;
+                                            margin-right: 0;
+                                            font-size: 22px;
+                                        }
+
+                                        &:hover {
+                                            opacity: 1.0;
+                                        }
+                                    
+                                    }
+
+                                    &.btn-success {
+                                        margin-left: 15px;
+                                        padding: 0;
+                                        line-height: 40px;
+                                        pointer-events: none;
+
+                                        i {
+                                            vertical-align: middle;
+                                            margin-right: 0;
+                                            font-size: 18px;
+                                        }
+                                    
+                                    }
+
+                                }
+
+                            }
+
+                            .dropdown {
+                                height: auto;
+
+                                .btn-secondary {
+                                    margin: 0;
+                                    padding: 3px 0 0 0;
+                                    border: 0;
+                                    width: 23px;
+                                    height: auto;
+                                    line-height: 40px;
+                                    background-color: transparent;
+    
+                                    &::after {
+                                        display: none;
+                                    }
+    
+                                    i {
+                                        font-size: 23px;
+                                        color: #6c757d;
+                                    }
+    
+                                }
+    
+                                .dropdown-menu {
+                                    position: absolute;
+                                    top: 100%;
+                                    right: 0 !important;
+                                    left: inherit !important;
+                                    margin-left: -135px;                                      
+                                    padding: 0 !important;
+                                    -webkit-backface-visibility: hidden;
+                                    backface-visibility: hidden;
+                                    min-width: 200px;                                       
+                                    border: 1px solid #ebf4ff;
+                                    border-radius: 3px;
+                                    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+                                    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+                                    opacity: 1 !important;
+                                    transform: translate3d(22px, 49px, 0px) !important;
+        
+                                    .dropdown-item {
+                                        display: flex;
+                                        align-items: center;
+                                        padding: 9px 15px;
+                                        font-size: 14px !important;
+        
+                                        &:hover,
+                                        &:active,
+                                        &:focus {
+                                            border: 0;
+                                            background-color: #f7f9fc;
+                                        }
+        
+                                        i {
+                                            margin-right: 5px;
+                                            font-size: 16px;
+                                        }
+        
+                                    }
+        
+                                }
+
+                            }  
+                            
+                            .card-list-item-status {
+                                line-height: 39px;
+                                font-size: 13px;
+                                font-weight: 400;
+                                color: $default-color-grey;
+    
+                                span {
+                                    vertical-align: middle;
+                                    margin-top: -1px;
+                                    margin-left: 5px;
+                                    padding: 3px 10px 5px;
+                                    font-size: 12px;
+                                    font-weight: 400;
+                                    color: $default-color-black;
+                                    background-color: $default-color-grey-light;
+                                    transition: all .2s;
+                                }
+    
+                                &.card-list-item-status-active {
+                                    
+                                    span {
+                                        color: #FFFFFF;
+                                        background-color: $default-color-blue;
+                                    }
+    
+                                }
+
+                                &.card-list-item-status-inactive {
+                                    
+                                    span {
+                                        color: $default-color-black;
+                                        background-color: $default-color-grey-light;
+                                    }
+    
+                                } 
+                                
+                                &.card-list-item-status-blocked {
+                                    
+                                    span {
+                                        color: #FFFFFF;
+                                        background-color: $default-color-red;
+                                    }
+    
+                                }                                     
+    
+                            }
+            
+                        }
+            
+                    }
+            
+                }
+            
+                .card-footer {
+                    border: 0;
+                }
+            
+            }
+    
+        }
+    
+    }
+
+}

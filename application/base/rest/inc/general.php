@@ -27,7 +27,7 @@ if ( !function_exists('rest_verify_token') ) {
     function rest_verify_token( $permissions ) {
 
         // Verify if access token is valid
-        return (new MidrubBase\Rest\Classes\Security())->verify_token($permissions);
+        return (new CmsBase\Rest\Classes\Security())->verify_token($permissions);
         
     }
     

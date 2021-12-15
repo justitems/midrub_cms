@@ -262,13 +262,13 @@ class Base_contents extends CI_MODEL {
     }
 
     /**
-     * The public method get_contents gets contents
+     * The public method the_contents gets contents
      * 
-     * @param array $args contains the arguments to request
+     * @param array $params contains the arguments to request
      * 
      * @return object with contents or false
      */
-    public function get_contents($args) {
+    public function the_contents($params) {
         
         // Set language
         $language = $this->config->item('language');
@@ -278,56 +278,72 @@ class Base_contents extends CI_MODEL {
             'contents_meta.meta_name' => 'content_title'      
         );
 
-        // If $args has contents_category
-        if ( isset($args['contents_category'] ) ) {
-            $where['contents.contents_category'] = $args['contents_category'];
+        // If $params has contents_category
+        if ( isset($params['contents_category'] ) ) {
+            $where['contents.contents_category'] = $params['contents_category'];
         }
 
-        // If $args has classification_value
-        if ( isset($args['classification_value'] ) ) {
+        // If $params has classification_value
+        if ( isset($params['classification_value'] ) ) {
 
-            $where['contents_classifications.classification_value'] = $args['classification_value'];
+            $where['contents_classifications.classification_value'] = $params['classification_value'];
 
             $this->db->select('contents_classifications.classification_slug as classification_slug, classifications_meta.meta_slug AS classification_meta_slug');
 
+        } else if ( isset($params['classification_slug']) ) {
+
+            $where['contents_classifications.classification_slug'] = $params['classification_slug'];
+
+            $this->db->select('contents_classifications.classification_slug as classification_slug, classifications_meta.meta_slug AS classification_meta_slug');            
+
+        }
+
+        // If contents_category exists
+        if ( isset($params['contents_category'] ) ) {
+
+            $where['contents.contents_category'] = $params['contents_category'];
+
         }
         
-        $this->db->select('contents_meta.*, contents.contents_category, contents.contents_component, contents.contents_theme, contents.contents_template, contents.contents_slug, contents.status, users.user_id, users.first_name, users.last_name, users.username');
+        $this->db->select('contents_meta.meta_value AS content_title, contents_meta.language, contents.content_id, contents.contents_category, contents.contents_component, contents.contents_theme, contents.contents_template, contents.contents_slug, contents.status, contents.created, users.user_id, users.first_name, users.last_name, users.username');
         $this->db->from($this->table);
 
-        // If $args has classification_slug
-        if ( isset($args['classification_value'] ) ) {
+        // If $params has classification_slug
+        if ( isset($params['classification_value'] ) || isset($params['classification_slug']) ) {
             $this->db->join('contents_classifications', 'contents.content_id=contents_classifications.content_id', 'left');
             $this->db->join('classifications_meta', 'contents_classifications.classification_value=classifications_meta.classification_id', 'left');
         }         
 
         $this->db->join('users', 'users.user_id=contents.user_id', 'left');
         $this->db->join('contents_meta', 'contents.content_id=contents_meta.content_id', 'left');
+
+        // Verify if content's body is required
+        if ( isset($params['content_body']) ) {
+
+            $this->db->select('content.meta_value AS content_body');
+            $this->db->join('contents_meta content', "contents.content_id=content.content_id AND content.meta_name='content_body'", 'left');
+
+        }   
+
+        // If $params has content_metas
+        if ( !empty($params['content_metas']) ) { 
+            
+            // List content_metas
+            foreach ( $params['content_metas'] as $meta ) {
+
+                $this->db->select(trim($meta) . '_meta.meta_value AS ' . trim($meta)); 
+                $this->db->join('contents_meta ' . trim($meta) . '_meta', "contents.content_id=" . trim($meta) . "_meta.content_id AND " . trim($meta) . "_meta.meta_name='" . trim($meta) . "'", 'left');
+
+            }
+            
+        }        
+
         $this->db->where($where);
 
-        // If contents category is null
-        if ( !empty($args['contents_category']) ) {
-            
-            $categories = array();
-            $contents_categories = md_the_contents_categories();
-            
-            if ( $contents_categories ) {
-                foreach ( $contents_categories as $contents_category ) {
-                    $category_slug = array_keys($contents_category);
-                    $categories[] = $category_slug[0];
-                }
-            }
-
-            if ( $categories ) {
-                $this->db->where_in('contents_category', $categories);
-            }
-
-        }
-
         // Verify if search key exists
-        if ( !empty($args['key']) ) {
+        if ( !empty($params['key']) ) {
 
-            $keys = explode('-', $this->db->escape_like_str($args['key']));
+            $keys = explode('-', $this->db->escape_like_str($params['key']));
 
             if ( count($keys) > 0 ) {
 
@@ -350,9 +366,9 @@ class Base_contents extends CI_MODEL {
         $this->db->group_by('contents.content_id');
 
         // Verify if search key exists
-        if ( !empty($args['key']) ) {
+        if ( !empty($params['key']) ) {
 
-            $keys = explode('-', $this->db->escape_like_str($args['key']));
+            $keys = explode('-', $this->db->escape_like_str($params['key']));
 
             $string = '';
 
@@ -375,16 +391,16 @@ class Base_contents extends CI_MODEL {
         }
         
         // Verify if pagination exists
-        if ( isset($args['limit']) && isset($args['start']) ) {
+        if ( isset($params['limit']) && isset($params['start']) ) {
             
-            $this->db->limit($args['limit'], $args['start']);
+            $this->db->limit($params['limit'], $params['start']);
             
         }
         
         $query = $this->db->get();
         
-        // If $args has limit
-        if ( !isset($args['limit']) ) {
+        // If $params has limit
+        if ( !isset($params['limit']) ) {
             
             return $query->num_rows();
             
@@ -403,7 +419,7 @@ class Base_contents extends CI_MODEL {
     }
 
     /**
-     * The public method get_content gets content by content's id
+     * The public method the_content gets content by content's id
      * 
      * @param integer $content_id contains the content's ID
      * @param string $contents_slug contains the content's slug
@@ -411,7 +427,7 @@ class Base_contents extends CI_MODEL {
      * 
      * @return object with content or false
      */
-    public function get_content($content_id=NULL, $contents_slug=NULL, $lang=TRUE) {
+    public function the_content($content_id=NULL, $contents_slug=NULL, $lang=TRUE) {
         
         // Set language
         $language = $this->config->item('language');
@@ -431,7 +447,7 @@ class Base_contents extends CI_MODEL {
             $where['contents_meta.language'] = $language;
         }
         
-        $this->db->select('contents_meta.*, contents.contents_category, contents.contents_component, contents.contents_theme, contents.contents_template, contents.contents_slug, contents.status, users.user_id, users.first_name, users.last_name, users.username');
+        $this->db->select('contents_meta.*, contents.contents_category, contents.contents_component, contents.contents_theme, contents.contents_template, contents.contents_slug, contents.status, contents.created, users.user_id, users.first_name, users.last_name, users.username');
         $this->db->from('contents_meta');
         $this->db->join('contents', 'contents.content_id=contents_meta.content_id', 'left');   
         $this->db->join('users', 'users.user_id=contents.user_id', 'left');
@@ -452,14 +468,14 @@ class Base_contents extends CI_MODEL {
     }
 
     /**
-     * The public method get_contents_by_meta_name gets contents by meta
+     * The public method the_contents_by_meta_name gets contents by meta
      * 
      * @param string $meta_name contains the meta's name
      * @param string $meta_value contains the meta's value
      * 
      * @return object with contents or false
      */
-    public function get_contents_by_meta_name($meta_name, $meta_value=NULL) {
+    public function the_contents_by_meta_name($meta_name, $meta_value=NULL) {
         
         // Set where variables
         $where = array(
@@ -539,17 +555,17 @@ class Base_contents extends CI_MODEL {
      */
     public function delete_content_meta( $content_id=0, $meta_name ) {
 
-        $args = array(
+        $params = array(
             'meta_name' => $meta_name
         );
 
         if ( $content_id ) {
-            $args['content_id'] = $content_id;
+            $params['content_id'] = $content_id;
         }
 
         $this->db->delete(
             'contents_meta',
-            $args
+            $params
         );
         
         if ( $this->db->affected_rows() ) {

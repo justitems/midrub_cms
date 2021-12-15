@@ -11,7 +11,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Rest\Classes;
+namespace CmsBase\Rest\Classes;
 
 // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');

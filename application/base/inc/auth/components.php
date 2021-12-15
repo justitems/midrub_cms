@@ -35,7 +35,7 @@ if ( !function_exists('md_the_auth_components') ) {
 
             // Create an array
             $array = array(
-                'MidrubBase',
+                'CmsBase',
                 'Auth',
                 'Collection',
                 ucfirst($component_dir),

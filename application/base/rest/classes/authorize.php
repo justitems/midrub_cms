@@ -11,7 +11,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Rest\Classes;
+namespace CmsBase\Rest\Classes;
 
 // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -252,10 +252,10 @@ class Authorize {
     private function the_api_permissions() {
 
         // Require the Rest Permissions Inc
-        require_once MIDRUB_BASE_PATH . 'inc/rest/api_permissions.php';
+        require_once CMS_BASE_PATH . 'inc/rest/api_permissions.php';
 
         // List all user's components
-        foreach ( glob(MIDRUB_BASE_PATH . 'user/components/collection/*', GLOB_ONLYDIR) as $directory ) {
+        foreach ( glob(CMS_BASE_PATH . 'user/components/collection/*', GLOB_ONLYDIR) as $directory ) {
 
             // Get the directory's name
             $app = trim(basename($directory) . PHP_EOL);
@@ -266,7 +266,7 @@ class Authorize {
         }
 
         // List all user's apps
-        foreach ( glob(MIDRUB_BASE_PATH . 'user/apps/collection/*', GLOB_ONLYDIR) as $directory ) {
+        foreach ( glob(CMS_BASE_PATH . 'user/apps/collection/*', GLOB_ONLYDIR) as $directory ) {
 
             // Get the directory's name
             $app = trim(basename($directory) . PHP_EOL);
@@ -303,7 +303,7 @@ class Authorize {
 
         // Create an array
         $array = array(
-            'MidrubBase',
+            'CmsBase',
             'User',
             ucfirst($type),
             'Collection',
@@ -330,7 +330,7 @@ class Authorize {
         if ($this->CI->user_role < 1) {
 
             // Verify if user has unpaid invoice
-            if (get_user_option('nonpaid')) {
+            if (md_the_user_option($this->CI->user_id, 'nonpaid')) {
                 redirect('/upgrade');
             }
 
@@ -350,7 +350,7 @@ class Authorize {
     }
     
     /**
-     * The public method _check_session verifies if the session exists and if session is empty will redirect to home page
+     * The public method _check_session verifies if the session exists and if session is empty will redirect to dashboard page
      * 
      * @param integer $role contains the user role
      * @param integer $is contains the allowed user id
@@ -366,14 +366,14 @@ class Authorize {
             $this->CI->session->set_userdata('required_redirect', '/oauth2/authorize');
             
             // Set the sign in page
-            $sign_in = the_url_by_page_role('sign_in') ? the_url_by_page_role('sign_in') : site_url('auth/signin');
+            $sign_in = md_the_url_by_page_role('sign_in') ? md_the_url_by_page_role('sign_in') : site_url('auth/signin');
 
             // Redirect the login page
             redirect($sign_in);
             
         } elseif ( ( $is === 0 ) AND ( $role != $is) ) {
 
-            redirect('/admin/home');
+            redirect('/admin/dashboard');
             
         }
         

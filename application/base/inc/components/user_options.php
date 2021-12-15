@@ -13,7 +13,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Classes\Components as MidrubBaseClassesComponents;
+use CmsBase\Classes\Components as CmsBaseClassesComponents;
 
 if ( !function_exists('md_set_user_component_options') ) {
     
@@ -30,7 +30,7 @@ if ( !function_exists('md_set_user_component_options') ) {
     function md_set_user_component_options($component_slug, $args=array()) {
         
         // Call the user_options class
-        $user_options = (new MidrubBaseClassesComponents\User_options);
+        $user_options = (new CmsBaseClassesComponents\User_options);
 
         // Get codeigniter object instance
         $CI =& get_instance();
@@ -62,49 +62,10 @@ if ( !function_exists('md_the_user_component_options') ) {
     function md_the_user_component_options() {
 
         // Call the user_options class
-        $user_options = (new MidrubBaseClassesComponents\User_options);
+        $user_options = (new CmsBaseClassesComponents\User_options);
 
         // Return component's options
         return $user_options->load_options();
-        
-    }
-    
-}
-
-if ( !function_exists('md_get_user_component_options') ) {
-    
-    /**
-     * The function md_get_user_component_options generates component's options
-     * 
-     * @since 0.0.7.9
-     * 
-     * @return void
-     */
-    function md_get_user_component_options() {
-
-        // Get component's options
-        $component_options = md_the_user_component_options();
-
-        // Verify if component's options exists
-        if ( $component_options ) {
-
-            // Lista all options
-            foreach ( $component_options as $component_option ) {
-
-                // Verify if class has the method
-                if ( method_exists((new MidrubBaseClassesComponents\User_options_templates), $component_option['type']) ) {
-
-                    // Set the method to call
-                    $method = $component_option['type'];
-
-                    // Display input
-                    echo (new MidrubBaseClassesComponents\User_options_templates)->$method($component_option);
-                    
-                }
-
-            }
-
-        }
         
     }
     

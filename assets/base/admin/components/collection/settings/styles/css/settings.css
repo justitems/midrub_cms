@@ -1,0 +1,236 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+DEFAULT GLOBAL COLORS
+********************************/
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Inter:wght@200;300;400;500;600&display=swap");
+/*******************************
+DEFAULT GLOBAL FONTS
+********************************/
+/*******************************
+MIXINGS
+********************************/
+/*******************************
+SETTINGS STYLES
+********************************/
+section {
+  padding-top: 50px; }
+  section .container-fluid {
+    padding: 0; }
+    section .container-fluid .settings-view > .row > .col-md-6:first-child {
+      border-right: 1px solid #dde3ee; }
+    section .container-fluid .settings-application-author {
+      line-height: 45px;
+      font-family: "Open Sans", sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      color: #A9AABC; }
+      section .container-fluid .settings-application-author svg {
+        vertical-align: middle;
+        margin-top: -3px;
+        margin-right: 5px;
+        width: 20px;
+        height: 20px;
+        color: #A9AABC; }
+      section .container-fluid .settings-application-author:hover {
+        color: #2E92FA; }
+        section .container-fluid .settings-application-author:hover svg {
+          color: #2E92FA; }
+    section .container-fluid .card-code h5,
+    section .container-fluid .card-code span {
+      margin: 0;
+      line-height: 25px;
+      font-size: 14px; }
+    section .container-fluid .card-code span {
+      display: block;
+      padding-top: 6px; }
+    section .container-fluid .settings-affiliates-reports {
+      padding: 0; }
+      section .container-fluid .settings-affiliates-reports .table {
+        margin: 15px;
+        width: calc(100% - 30px);
+        border: 1px solid #dde3ee; }
+        section .container-fluid .settings-affiliates-reports .table thead {
+          min-height: 67px;
+          padding: 12px 15px;
+          padding: 15px;
+          margin-bottom: 18px;
+          background-color: #F7F8FF; }
+          section .container-fluid .settings-affiliates-reports .table thead tr {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+            section .container-fluid .settings-affiliates-reports .table thead tr th {
+              padding: 0 0 0 10px;
+              border-bottom: 0;
+              line-height: 55px; }
+              section .container-fluid .settings-affiliates-reports .table thead tr th input[type="text"],
+              section .container-fluid .settings-affiliates-reports .table thead tr th button {
+                margin-right: 15px;
+                padding: 7px 15px 6px;
+                border: 0;
+                border-radius: .25rem;
+                line-height: 23px;
+                font-weight: 400;
+                font-size: 14px;
+                color: #292F4C;
+                background-color: #FFFFFF;
+                box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.07); }
+                section .container-fluid .settings-affiliates-reports .table thead tr th input[type="text"]:hover, section .container-fluid .settings-affiliates-reports .table thead tr th input[type="text"]:focus,
+                section .container-fluid .settings-affiliates-reports .table thead tr th button:hover,
+                section .container-fluid .settings-affiliates-reports .table thead tr th button:focus {
+                  opacity: 0.7;
+                  text-decoration: none;
+                  border: 0 !important; }
+                section .container-fluid .settings-affiliates-reports .table thead tr th input[type="text"] i,
+                section .container-fluid .settings-affiliates-reports .table thead tr th button i {
+                  margin-right: 5px; }
+        section .container-fluid .settings-affiliates-reports .table tbody tr {
+          border-top: 1px solid #dde3ee; }
+          section .container-fluid .settings-affiliates-reports .table tbody tr td {
+            padding: 0 0 0 10px;
+            border-top: 1px solid #dde3ee;
+            border-bottom: 0;
+            line-height: 55px;
+            font-size: 14px; }
+            section .container-fluid .settings-affiliates-reports .table tbody tr td:first-child {
+              width: 10%; }
+            section .container-fluid .settings-affiliates-reports .table tbody tr td:nth-child(2) {
+              width: 60%; }
+            section .container-fluid .settings-affiliates-reports .table tbody tr td:nth-child(3) {
+              width: 30%; }
+            section .container-fluid .settings-affiliates-reports .table tbody tr td a {
+              color: #333333;
+              display: block; }
+              @media only screen and (max-width: 600px) {
+                section .container-fluid .settings-affiliates-reports .table tbody tr td a {
+                  width: 100px; } }
+            section .container-fluid .settings-affiliates-reports .table tbody tr td span {
+              margin-right: 15px;
+              display: inline-block;
+              margin-top: 12px;
+              height: 22px;
+              width: 84px;
+              text-align: center;
+              line-height: 24px;
+              font-size: 11px; }
+            section .container-fluid .settings-affiliates-reports .table tbody tr td .span-active {
+              background-color: #f0f8ff; }
+            section .container-fluid .settings-affiliates-reports .table tbody tr td .span-unactive {
+              background-color: #f7f7f7; }
+            section .container-fluid .settings-affiliates-reports .table tbody tr td .span-closed {
+              background-color: #fff4f4; }
+            section .container-fluid .settings-affiliates-reports .table tbody tr td a.referral-pay-gains {
+              color: #FFFFFF;
+              background-color: #00a28a;
+              border-color: #00a28a;
+              padding: 3px 15px;
+              margin-right: 15px;
+              display: initial;
+              border-radius: 3px; }
+              section .container-fluid .settings-affiliates-reports .table tbody tr td a.referral-pay-gains:hover {
+                opacity: 0.7;
+                text-decoration: none; }
+            section .container-fluid .settings-affiliates-reports .table tbody tr td p {
+              white-space: nowrap;
+              overflow: hidden !important;
+              text-overflow: ellipsis;
+              color: #adb5bd;
+              margin-bottom: 0;
+              display: table-caption;
+              width: 60%; }
+            section .container-fluid .settings-affiliates-reports .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked),
+            section .container-fluid .settings-affiliates-reports .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked {
+              position: absolute;
+              left: -9999px; }
+            section .container-fluid .settings-affiliates-reports .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label,
+            section .container-fluid .settings-affiliates-reports .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label {
+              position: relative;
+              padding-left: 1.95em;
+              cursor: pointer; }
+            section .container-fluid .settings-affiliates-reports .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label:before,
+            section .container-fluid .settings-affiliates-reports .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label:before {
+              content: '';
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 25px;
+              height: 25px;
+              border: 1px solid #dddddd;
+              background: #fff;
+              border-radius: 4px;
+              box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); }
+            section .container-fluid .settings-affiliates-reports .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after,
+            section .container-fluid .settings-affiliates-reports .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label:after {
+              content: '\2713\0020';
+              position: absolute;
+              top: .15em;
+              left: .22em;
+              font-size: 1.3em;
+              line-height: 0.8;
+              color: #09ad7e;
+              transition: all .2s; }
+            section .container-fluid .settings-affiliates-reports .table tbody tr td .checkbox-option-select input[type="checkbox"]:not(:checked) + label:after {
+              opacity: 0;
+              transform: scale(0); }
+            section .container-fluid .settings-affiliates-reports .table tbody tr td .checkbox-option-select input[type="checkbox"]:checked + label:after {
+              opacity: 1;
+              transform: scale(1); }
+            section .container-fluid .settings-affiliates-reports .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled:not(:checked) + label:before,
+            section .container-fluid .settings-affiliates-reports .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled:checked + label:before {
+              box-shadow: none;
+              border-color: #bbb;
+              background-color: #ddd; }
+            section .container-fluid .settings-affiliates-reports .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled:checked + label:after {
+              color: #999; }
+            section .container-fluid .settings-affiliates-reports .table tbody tr td .checkbox-option-select input[type="checkbox"]:disabled + label {
+              color: #aaa; }
+            section .container-fluid .settings-affiliates-reports .table tbody tr td .checkbox-option-select {
+              float: left;
+              padding: 0;
+              width: 100%; }
+              section .container-fluid .settings-affiliates-reports .table tbody tr td .checkbox-option-select label::before {
+                margin-top: -11px;
+                border: 0 !important;
+                box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important;
+                -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px !important; }
+              section .container-fluid .settings-affiliates-reports .table tbody tr td .checkbox-option-select label::after {
+                margin-top: -8px; }
+        section .container-fluid .settings-affiliates-reports .table tfoot tr td {
+          border-top: 1px solid #dde3ee; }
+
+/*******************************
+MODALS STYLES
+********************************/
+#settings-new-application .settings-application-list-permissions,
+#settings-update-application .settings-application-list-permissions {
+  margin: 0;
+  padding: 0; }
+  #settings-new-application .settings-application-list-permissions li,
+  #settings-update-application .settings-application-list-permissions li {
+    list-style: none;
+    margin-bottom: 15px;
+    display: inline-block;
+    margin-right: 15px; }
+    #settings-new-application .settings-application-list-permissions li .btn-default,
+    #settings-update-application .settings-application-list-permissions li .btn-default {
+      padding: 2px 17px 3px;
+      font-weight: 400;
+      color: #2E92FA;
+      background-color: #e5f4ff; }
+      #settings-new-application .settings-application-list-permissions li .btn-default:hover,
+      #settings-update-application .settings-application-list-permissions li .btn-default:hover {
+        color: #e5f4ff;
+        background-color: #2E92FA; }
+    #settings-new-application .settings-application-list-permissions li .btn-success,
+    #settings-update-application .settings-application-list-permissions li .btn-success {
+      color: #e5f4ff;
+      background-color: #2E92FA; }
+      #settings-new-application .settings-application-list-permissions li .btn-success:hover,
+      #settings-update-application .settings-application-list-permissions li .btn-success:hover {
+        color: #2E92FA;
+        background-color: #e5f4ff; }
+
+/*# sourceMappingURL=settings.css.map */

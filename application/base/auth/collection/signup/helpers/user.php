@@ -11,7 +11,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Signup\Helpers;
+namespace CmsBase\Auth\Collection\Signup\Helpers;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -42,10 +42,10 @@ class User {
         $this->CI =& get_instance();
 
         // Load the component's language files
-        $this->CI->lang->load( 'auth_signup', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_AUTH_SIGNUP);
+        $this->CI->lang->load( 'auth_signup', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_SIGNUP);
 
         // Load Base Auth Social Model
-        $this->CI->load->ext_model(MIDRUB_BASE_PATH . 'models/', 'Base_auth_social', 'base_auth_social');
+        $this->CI->load->ext_model(CMS_BASE_PATH . 'models/', 'Base_auth_social', 'base_auth_social');
         
     }
     
@@ -64,7 +64,7 @@ class User {
             // Add form validation
             $this->CI->form_validation->set_rules('first_name', 'First Name', 'trim|required');
             $this->CI->form_validation->set_rules('last_name', 'Last Name', 'trim|required');
-            if ( get_option('auth_enable_username_input') ) {
+            if ( md_the_option('auth_enable_username_input') ) {
                 $this->CI->form_validation->set_rules('username', 'Username', 'trim|required|alpha_dash');
             } else {
                 $this->CI->form_validation->set_rules('username', 'Username', 'trim');
@@ -98,7 +98,7 @@ class User {
                 if ($this->CI->session->userdata('social_account') && $this->CI->session->userdata('social_network')) {
 
                     // Get user
-                    $get_user = $this->CI->base_model->get_data_where(
+                    $get_user = $this->CI->base_model->the_data_where(
                         'users_social',
                         '*',
                         array(
@@ -125,7 +125,7 @@ class User {
                 }
 
                 // Verify if username is not required
-                if ( !get_option('auth_enable_username_input') ) {
+                if ( !md_the_option('auth_enable_username_input') ) {
 
                     // Set email as username
                     $username = $email;
@@ -133,7 +133,7 @@ class User {
                 }
 
                 // Require the signup functions file
-                require_once MIDRUB_BASE_AUTH . 'inc/signup/signup.php';
+                require_once CMS_BASE_AUTH . 'inc/signup/signup.php';
 
                 // Prepare data to send
                 $args = array(
@@ -148,7 +148,7 @@ class User {
                 if ($this->CI->session->userdata('selected_plan')) {
 
                     // Verify if the plan exists and it is public
-                    if ( $this->CI->base_model->get_data_where('plans', 'plan_id', array('plan_id' => $this->CI->session->userdata('selected_plan'), 'visible <' => 1)) ) {
+                    if ( $this->CI->base_model->the_data_where('plans', 'plan_id', array('plan_id' => $this->CI->session->userdata('selected_plan'), 'hidden <' => 1)) ) {
 
                         // Set Plan's ID
                         $args['plan_id'] = $this->CI->session->userdata('selected_plan');

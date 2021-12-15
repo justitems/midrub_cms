@@ -1,0 +1,33 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../user/default/styles/colors";
+@import "../../../../user/default/styles/fonts";
+
+/*******************************
+STATIC MESSAGES STYLES
+********************************/
+
+.cms-error-message {
+    margin: 5%;
+    padding: 10px 15px 12px;
+    width: 90%;
+    border-radius: 6px;
+    text-align: center;
+    font-family: $default-font-2;
+    font-size: 14px;
+    color: #FFFFFF;
+    background-color: $default-color-red;
+}
+
+.cms-success-message {
+    margin: 5%;
+    padding: 10px 15px 12px;
+    width: 90%;
+    border-radius: 6px;
+    text-align: center;
+    font-family: $default-font-2;
+    font-size: 14px;
+    color: #FFFFFF;
+    background-color: $default-color-green;
+}

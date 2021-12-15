@@ -10,7 +10,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Confirmation\Controllers;
+namespace CmsBase\Auth\Collection\Confirmation\Controllers;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -41,12 +41,10 @@ class Init {
         $this->CI =& get_instance();
         
         // Load the component's language files
-        if ( file_exists( MIDRUB_BASE_AUTH_CONFIRMATION . '/language/' . $this->CI->config->item('language') . '/auth_confirmation_lang.php' ) ) {
-            $this->CI->lang->load( 'auth_confirmation', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_AUTH_CONFIRMATION . '/' );
-        }
+        $this->CI->lang->load( 'auth_confirmation', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_CONFIRMATION );
 
         // Load the Base Users Model
-        $this->CI->load->ext_model( MIDRUB_BASE_PATH . 'models/', 'Base_users', 'base_users' );
+        $this->CI->load->ext_model( CMS_BASE_PATH . 'models/', 'Base_users', 'base_users' );
         
     }
     
@@ -65,7 +63,7 @@ class Init {
             if ( is_numeric($this->CI->input->get('code', true)) AND is_numeric($this->CI->input->get('f', true)) ) {
             
                 // Check if activation code is valid
-                if ( !$this->CI->base_model->get_data_where(
+                if ( !$this->CI->base_model->the_data_where(
                     'users',
                     'user_id',
                     array(
@@ -83,14 +81,14 @@ class Init {
                     $this->CI->base_model->update_ceil('users', array('user_id' => $this->CI->input->get('f', true)), array('status' => 1));
 
                     // Verify if the account was activated
-                    if ( $this->CI->base_model->get_data_where( 'users', 'user_id', array( 'user_id' => $this->CI->input->get('f', true), 'status' => 1 ) ) ) {
+                    if ( $this->CI->base_model->the_data_where( 'users', 'user_id', array( 'user_id' => $this->CI->input->get('f', true), 'status' => 1 ) ) ) {
                         
                         // Check if user session exists
                         if ( isset($this->CI->session->userdata['username']) ) {
 
                             echo $this->CI->lang->line('auth_confirmation_congratulations_account_activated');
 
-                            $login_page = the_url_by_page_role('sign_in')?the_url_by_page_role('sign_in'):site_url('auth/signin');
+                            $login_page = md_the_url_by_page_role('sign_in')?md_the_url_by_page_role('sign_in'):site_url('auth/signin');
 
                             // Redirect to the login page
                             echo '<meta http-equiv="refresh" content="3;url=' . $login_page . '" />';
@@ -109,7 +107,7 @@ class Init {
 
                             echo $this->CI->lang->line('auth_confirmation_congratulations_account_activated');
 
-                            $login_page = the_url_by_page_role('sign_in')?the_url_by_page_role('sign_in'):site_url('auth/signin');
+                            $login_page = md_the_url_by_page_role('sign_in')?md_the_url_by_page_role('sign_in'):site_url('auth/signin');
 
                             // Redirect to the login page
                             echo '<meta http-equiv="refresh" content="3;url=' . $login_page . '" />';
@@ -118,7 +116,7 @@ class Init {
                             
                             echo $this->CI->lang->line('auth_confirmation_congratulations_account_please_sign_in');
 
-                            $login_page = the_url_by_page_role('sign_in')?the_url_by_page_role('sign_in'):site_url('auth/signin');
+                            $login_page = md_the_url_by_page_role('sign_in')?md_the_url_by_page_role('sign_in'):site_url('auth/signin');
 
                             // Redirect to the login page
                             echo '<meta http-equiv="refresh" content="3;url=' . $login_page . '" />';                        
@@ -156,10 +154,10 @@ class Init {
         md_set_the_title($title);
 
         // Set styles
-        md_set_css_urls(array('stylesheet', base_url('assets/base/auth/collection/confirmation/styles/css/styles.css?ver=' . MIDRUB_BASE_AUTH_CONFIRMATION_VERSION), 'text/css', 'all'));
+        md_set_css_urls(array('stylesheet', base_url('assets/base/auth/collection/confirmation/styles/css/styles.css?ver=' . CMS_BASE_AUTH_CONFIRMATION_VERSION), 'text/css', 'all'));
 
         // Set javascript links
-        md_set_js_urls(array(base_url('assets/base/auth/collection/confirmation/js/main.js?ver=' . MIDRUB_BASE_AUTH_CONFIRMATION_VERSION)));
+        md_set_js_urls(array(base_url('assets/base/auth/collection/confirmation/js/main.js?ver=' . CMS_BASE_AUTH_CONFIRMATION_VERSION)));
 
         // Verify if meta description exists
         if ( md_the_single_content_meta('quick_seo_meta_description') ) {
@@ -178,16 +176,16 @@ class Init {
         }
 
         /**
-         * The public method md_add_hook registers a hook
+         * The public method md_set_hook registers a hook
          * 
          * @since 0.0.7.8
          */
-        md_add_hook(
+        md_set_hook(
             'the_frontend_header',
             function () {
 
                 // Get header code
-                $header = get_option('frontend_header_code');
+                $header = md_the_option('frontend_header_code');
 
                 // Verify if header code exists
                 if ( $header ) {
@@ -204,16 +202,16 @@ class Init {
         );
 
         /**
-         * The public method md_add_hook registers a hook
+         * The public method md_set_hook registers a hook
          * 
          * @since 0.0.7.8
          */
-        md_add_hook(
+        md_set_hook(
             'the_frontend_footer',
             function () {
 
                 // Get footer code
-                $footer = get_option('frontend_footer_code');
+                $footer = md_the_option('frontend_footer_code');
 
                 // Verify if footer code exists
                 if ( $footer ) {
@@ -233,10 +231,10 @@ class Init {
         );
 
         // Making temlate and send data to view.
-        $this->CI->template['header'] = $this->CI->load->ext_view(MIDRUB_BASE_AUTH_CONFIRMATION .  '/views/layout', 'header', array(), true);
-        $this->CI->template['body'] = $this->CI->load->ext_view(MIDRUB_BASE_AUTH_CONFIRMATION .  '/views', 'main', array(), true);
-        $this->CI->template['footer'] = $this->CI->load->ext_view(MIDRUB_BASE_AUTH_CONFIRMATION .  '/views/layout', 'footer', array(), true);
-        $this->CI->load->ext_view(MIDRUB_BASE_AUTH_CONFIRMATION . '/views/layout', 'index', $this->CI->template);
+        $this->CI->template['header'] = $this->CI->load->ext_view(CMS_BASE_AUTH_CONFIRMATION .  '/views/layout', 'header', array(), true);
+        $this->CI->template['body'] = $this->CI->load->ext_view(CMS_BASE_AUTH_CONFIRMATION .  '/views', 'main', array(), true);
+        $this->CI->template['footer'] = $this->CI->load->ext_view(CMS_BASE_AUTH_CONFIRMATION .  '/views/layout', 'footer', array(), true);
+        $this->CI->load->ext_view(CMS_BASE_AUTH_CONFIRMATION . '/views/layout', 'index', $this->CI->template);
         
     }
 

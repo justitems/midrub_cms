@@ -1,0 +1,58 @@
+/*******************************
+DEFAULT MIXINGS FOR CHECKBOX INPUTS
+********************************/
+
+@mixin default-checkbox-input-1 {
+
+    label {
+        display: table-cell;
+        width: 25px;
+
+        input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        
+        .theme-checkbox-checkmark {
+            position: absolute;
+            top: 5px;
+            left: 15px;
+            height: 25px;
+            width: 25px;
+            border: 1px solid $default-border-color;
+            border-radius: 4px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        
+        input:checked ~ .theme-checkbox-checkmark {
+            background-color: transparent;
+        }
+        
+        .theme-checkbox-checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        
+        input:checked ~ .theme-checkbox-checkmark:after {
+            display: block;
+        }
+        
+        .theme-checkbox-checkmark:after {
+            content: '\2713\0020';
+            position: absolute;
+            top: .27em;
+            left: 5px;
+            font-size: 1.1em;
+            line-height: 0.8;
+            color: $default-color-black;
+            transition: all .2s;
+        }
+
+    }
+
+}

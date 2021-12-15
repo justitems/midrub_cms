@@ -1,0 +1,61 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+DEFAULT GLOBAL COLORS
+********************************/
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Inter:wght@200;300;400;500;600&display=swap");
+/*******************************
+DEFAULT GLOBAL FONTS
+********************************/
+/*******************************
+TICKETS WIDGET STYLES
+********************************/
+.dashboard-widget-tickets-list {
+  margin: 0;
+  padding: 0; }
+  .dashboard-widget-tickets-list li {
+    padding: 10px 15px;
+    width: 100%;
+    border: 1px solid #F5F5FB;
+    border-radius: 6px;
+    list-style: none; }
+    .dashboard-widget-tickets-list li > div .theme-profile-photo {
+      margin-top: 2px; }
+    .dashboard-widget-tickets-list li > div > div {
+      width: 100%; }
+      .dashboard-widget-tickets-list li > div > div h5 {
+        margin: 0;
+        padding: 0;
+        width: 100%; }
+        .dashboard-widget-tickets-list li > div > div h5 a {
+          border-bottom: 1px solid transparent;
+          text-decoration: none;
+          font-size: 14px;
+          font-weight: 400;
+          color: #292F4C; }
+          .dashboard-widget-tickets-list li > div > div h5 a:hover, .dashboard-widget-tickets-list li > div > div h5 a:active, .dashboard-widget-tickets-list li > div > div h5 a:focus {
+            text-decoration: none;
+            border-bottom: 1px solid #292F4C; }
+        .dashboard-widget-tickets-list li > div > div h5 .dashboard-widget-ticket-time {
+          text-transform: uppercase;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 12px;
+          font-weight: 600;
+          color: #A9AABC; }
+          .dashboard-widget-tickets-list li > div > div h5 .dashboard-widget-ticket-time svg {
+            vertical-align: middle;
+            margin-top: -3px;
+            margin-right: 5px;
+            width: 20px;
+            height: 20px; }
+      .dashboard-widget-tickets-list li > div > div p {
+        margin: -3px 0 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 600; }
+
+/*# sourceMappingURL=tickets.css.map */

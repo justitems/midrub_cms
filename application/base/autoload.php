@@ -31,7 +31,7 @@ function midrub_base_autoload_classes( $class ) {
             
             str_replace(
                     array(
-                        'MidrubBase\\',
+                        'CmsBase\\',
                         '\\'
                     ),
                     array(

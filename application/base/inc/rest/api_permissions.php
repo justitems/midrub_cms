@@ -14,7 +14,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Classes\Rest as MidrubBaseClassesRest;
+use CmsBase\Classes\Rest as CmsBaseClassesRest;
 
 if ( !function_exists('md_set_admin_api_permissions') ) {
     
@@ -30,7 +30,7 @@ if ( !function_exists('md_set_admin_api_permissions') ) {
     function md_set_admin_api_permissions($args) {
 
         // Call the permissions class
-        $permissions = (new MidrubBaseClassesRest\Permissions);
+        $permissions = (new CmsBaseClassesRest\Permissions);
 
         // Set app's permissions in the queue
         $permissions->set_permissions($args);
@@ -51,7 +51,7 @@ if ( !function_exists('md_the_admin_api_permissions') ) {
     function md_the_admin_api_permissions() {
 
         // Call the permissions class
-        $permissions = (new MidrubBaseClassesRest\Permissions);
+        $permissions = (new CmsBaseClassesRest\Permissions);
 
         // Return app's permissions
         return $permissions->load_permissions();

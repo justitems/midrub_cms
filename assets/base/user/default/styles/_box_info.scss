@@ -1,0 +1,70 @@
+/*******************************
+DEFAULT BOX INFO MIXING
+********************************/
+
+@mixin default-box-info {
+
+    & {
+        border: 0;
+        background-color: transparent;
+
+        .card-body {
+
+            .list-group {
+
+                .list-group-item {
+                    margin-bottom: 15px;
+                    border: 1px dashed #cfd2d7;
+
+                    &:hover {
+                        background-color: transparent;
+                    }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    h5 {
+                        font-size: 13px;
+                        font-weight: 500;
+                    }
+
+                    p {
+                        margin-bottom: 0;
+                        font-size: 14px;
+                        font-weight: 400;
+                    }
+
+                    a {
+                        padding: 0;
+                        font-size: 13px;
+                        color: #2E92FA;
+                        background-color: transparent;
+
+                        &:hover,
+                        &:active,
+                        &:focus {
+                            border-bottom: 1px solid #2E92FA;
+                            border-radius: 0;
+                            text-decoration: none;
+                            color: #2E92FA;
+                            box-shadow: none;
+                            outline: none;
+                        }
+
+                        i {
+                            vertical-align: sub;
+                            font-size: 18px;
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

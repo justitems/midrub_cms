@@ -10,16 +10,16 @@
  */
 
 // Define the namespace
-namespace MidrubBase\Payments\Collection\Braintree;
+namespace CmsBase\Payments\Collection\Braintree;
 
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
-defined('MIDRUB_BASE_PAYMENTS_BRAINTREE') OR define('MIDRUB_BASE_PAYMENTS_BRAINTREE', MIDRUB_BASE_PAYMENTS . 'collection/braintree/');
-defined('MIDRUB_BASE_PAYMENTS_BRAINTREE_VERSION') OR define('MIDRUB_BASE_PAYMENTS_BRAINTREE_VERSION', '0.0.1999999996');
+defined('CMS_BASE_PAYMENTS_BRAINTREE') OR define('CMS_BASE_PAYMENTS_BRAINTREE', CMS_BASE_PAYMENTS . 'collection/braintree/');
+defined('CMS_BASE_PAYMENTS_BRAINTREE_VERSION') OR define('CMS_BASE_PAYMENTS_BRAINTREE_VERSION', '0.0.2');
 
 // Define the namespaces to use
-use MidrubBase\Payments\Interfaces as MidrubBasePaymentsInterfaces;
-use MidrubBase\Payments\Collection\Braintree\Controllers as MidrubBasePaymentsCollectionBraintreeControllers;
+use CmsBase\Payments\Interfaces as CmsBasePaymentsInterfaces;
+use CmsBase\Payments\Collection\Braintree\Controllers as CmsBasePaymentsCollectionBraintreeControllers;
 
 
 /*
@@ -29,7 +29,7 @@ use MidrubBase\Payments\Collection\Braintree\Controllers as MidrubBasePaymentsCo
  * @package Midrub
  * @since 0.0.8.0
  */
-class Main implements MidrubBasePaymentsInterfaces\Payments {
+class Main implements CmsBasePaymentsInterfaces\Payments {
     
     /**
      * Class variables
@@ -92,10 +92,10 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
     public function pay() {
 
         // Verify if the gateway is enabled
-        if ( get_option('braintree') ) {
+        if ( md_the_option('braintree') ) {
 
             // Instantiate the class
-            (new MidrubBasePaymentsCollectionBraintreeControllers\User)->view();
+            (new CmsBasePaymentsCollectionBraintreeControllers\User)->view();
         
         } else {
 
@@ -125,7 +125,7 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
         try {
             
             // Call method if exists
-            (new MidrubBasePaymentsCollectionBraintreeControllers\Ajax)->$action();
+            (new CmsBasePaymentsCollectionBraintreeControllers\Ajax)->$action();
             
         } catch (Exception $ex) {
             
@@ -150,7 +150,7 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
     public function cron_jobs() {
 
         // Process the subscriptions
-        (new MidrubBasePaymentsCollectionBraintreeControllers\Cron)->subscriptions();        
+        (new CmsBasePaymentsCollectionBraintreeControllers\Cron)->subscriptions();        
         
     }
     
@@ -166,7 +166,7 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
     public function load_hooks($category) {
 
         // Load the admin's language files
-        $this->CI->lang->load( 'braintree_admin', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_PAYMENTS_BRAINTREE );
+        $this->CI->lang->load( 'braintree_admin', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_PAYMENTS_BRAINTREE );
 
         // Load hooks by category
         switch ($category) {
@@ -175,10 +175,10 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
             case 'admin_init':
 
                 // Verify if admin has opened the settings component
-                if ( ( md_the_component_variable('component') === 'settings' ) || ( md_the_component_variable('component') === 'plans' ) || ( md_the_component_variable('component') === 'upgrade' ) ) {
+                if ( ( md_the_data('component') === 'settings' ) || ( md_the_data('component') === 'plans' ) || ( md_the_data('component') === 'upgrade' ) ) {
 
                     // Require the admin file
-                    require_once MIDRUB_BASE_PAYMENTS_BRAINTREE . '/inc/admin.php';
+                    require_once CMS_BASE_PAYMENTS_BRAINTREE . '/inc/admin.php';
 
                 }
 
@@ -200,14 +200,14 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
         if ( $this->CI->input->post('bt_signature', TRUE) && $this->CI->input->post('bt_payload', TRUE) ) {
 
             // Require the Braintree class
-            require_once MIDRUB_BASE_PAYMENTS_BRAINTREE . 'vendor/braintree/braintree_php/lib/Braintree.php';
+            require_once CMS_BASE_PAYMENTS_BRAINTREE . 'vendor/braintree/braintree_php/lib/Braintree.php';
 
             // Set the Braintree configuration
             $config = new \Braintree_Configuration([
                 'environment' => 'production',
-                'merchantId' => get_option('braintree_merchant_id'),
-                'publicKey' => get_option('braintree_public_key'),
-                'privateKey' => get_option('braintree_private_key')
+                'merchantId' => md_the_option('braintree_merchant_id'),
+                'publicKey' => md_the_option('braintree_public_key'),
+                'privateKey' => md_the_option('braintree_private_key')
             ]);
 
             // Get the gateway
@@ -225,7 +225,7 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
                 $subscription_id = $webhookNotification->subscription->id;
 
                 // Get the subscription saved in the database
-                $subscription = $this->CI->base_model->get_data_where('subscriptions', '*', array(
+                $subscription = $this->CI->base_model->the_data_where('subscriptions', '*', array(
                     'net_id' => $subscription_id,
                     'gateway' => 'braintree'
                 ));
@@ -234,7 +234,7 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
                 if ( $subscription ) {
 
                     // Get the first transaction by subscription
-                    $transaction = $this->CI->base_model->get_data_where('transactions', '*', array(
+                    $transaction = $this->CI->base_model->the_data_where('transactions', '*', array(
                         'net_id' => $subscription_id,
                         'gateway' => 'braintree'
                     ));
@@ -243,7 +243,7 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
                     if ( $webhookNotification->kind === 'subscription_charged_successfully' ) {
 
                         // Get the transaction by transaction's id
-                        $verify_transaction = $this->CI->base_model->get_data_where('transactions', '*', array(
+                        $verify_transaction = $this->CI->base_model->the_data_where('transactions', '*', array(
                             'net_id' => $webhookNotification->subscription->transactions[0]->id,
                             'gateway' => 'braintree'
                         ));
@@ -272,7 +272,7 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
                                 if ( $transaction_id ) {
 
                                     // Get all fields
-                                    $fields = $this->CI->base_model->get_data_where('transactions_fields', '*', array(
+                                    $fields = $this->CI->base_model->the_data_where('transactions_fields', '*', array(
                                         'transaction_id' => $transaction[0]['transaction_id']
                                     ));
 
@@ -297,7 +297,7 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
                                     }
                                     
                                     // Get all options
-                                    $options = $this->CI->base_model->get_data_where('transactions_options', '*', array(
+                                    $options = $this->CI->base_model->the_data_where('transactions_options', '*', array(
                                         'transaction_id' => $transaction[0]['transaction_id']
                                     ));
 
@@ -321,6 +321,17 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
 
                                     }
 
+                                    // Save transaction success
+                                    save_complete_transaction(
+                                        $transaction_id,
+                                        $transaction[0]['user_id'],
+                                        array(
+                                            'net_id' => $webhookNotification->subscription->transactions[0]->id,
+                                            'gateway' => 'Braintree',
+                                            'status' => 1
+                                        )
+                                    );
+
                                 }
 
                             }
@@ -335,11 +346,14 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
                             'gateway' => 'braintree'
                         ) );
 
+                        // Delete subscription's mark
+                        md_delete_user_option($subscription[0]['user_id'], 'subscription');     
+
                         // Verify if transaction exists
                         if ( $transaction ) {
                                 
                             // Get all options
-                            $options = $this->CI->base_model->get_data_where('transactions_options', '*', array(
+                            $options = $this->CI->base_model->the_data_where('transactions_options', '*', array(
                                 'transaction_id' => $transaction[0]['transaction_id']
                             ));
 
@@ -394,15 +408,18 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
         // Verify if the subscription's id exists
         if ( isset($subscription['net_id']) ) {
 
+            // Delete subscription's mark
+            md_delete_user_option($subscription['user_id'], 'subscription');
+
             // Require the Braintree class
-            require_once MIDRUB_BASE_PAYMENTS_BRAINTREE . 'vendor/braintree/braintree_php/lib/Braintree.php';
+            require_once CMS_BASE_PAYMENTS_BRAINTREE . 'vendor/braintree/braintree_php/lib/Braintree.php';
 
             // Set the Braintree configuration
             $config = new \Braintree_Configuration([
                 'environment' => 'production',
-                'merchantId' => get_option('braintree_merchant_id'),
-                'publicKey' => get_option('braintree_public_key'),
-                'privateKey' => get_option('braintree_private_key')
+                'merchantId' => md_the_option('braintree_merchant_id'),
+                'publicKey' => md_the_option('braintree_public_key'),
+                'privateKey' => md_the_option('braintree_private_key')
             ]);
 
             // Get the gateway
@@ -425,7 +442,7 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
     public function gateway_info() {
 
         // Load language
-        $this->CI->lang->load( 'braintree_admin', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_PAYMENTS_BRAINTREE );
+        $this->CI->lang->load( 'braintree_admin', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_PAYMENTS_BRAINTREE );
 
         // Create and return array
         return array(

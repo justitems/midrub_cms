@@ -236,7 +236,7 @@ class Base_teams extends CI_MODEL {
     public function get_members( $user_id, $start = NULL , $limit = NULL ) {
         
         // Get team's members
-        $this->db->select('teams.member_id,teams.member_username,teams.member_email,teams.status,teams.date_joined,teams.last_access,teams_roles.role');
+        $this->db->select('teams.member_id,teams.member_username,teams.member_email,teams.status,teams.date_joined,teams.last_access,teams_roles.role_name');
         $this->db->from($this->table);
         $this->db->join('teams_roles', 'teams.role_id=teams_roles.role_id', 'left');
         $this->db->where( array(
@@ -285,7 +285,7 @@ class Base_teams extends CI_MODEL {
      */
     public function get_member( $user_id, $member_id, $member_username=NULL ) {
 
-        $this->db->select('teams.member_id, teams.member_username, teams.member_email, teams_roles.role_id, teams_roles.role, teams.status, teams.about_member, UNIX_TIMESTAMP(teams.date_joined) AS date_joined,UNIX_TIMESTAMP(teams.last_access) AS last_access');
+        $this->db->select('teams.member_id, teams.member_username, teams.member_email, teams_roles.role_id, teams_roles.role_name, teams.status, teams.about_member, UNIX_TIMESTAMP(teams.date_joined) AS date_joined,UNIX_TIMESTAMP(teams.last_access) AS last_access');
         $this->db->join('teams_roles', 'teams.role_id=teams_roles.role_id', 'left');
         $this->db->from($this->table);
         

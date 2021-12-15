@@ -10,20 +10,20 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Upgrade;
+namespace CmsBase\Auth\Collection\Upgrade;
 
 // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Auth\Interfaces as MidrubBaseAuthInterfaces;
-use MidrubBase\Auth\Collection\Upgrade\Controllers as MidrubBaseAuthCollectionUpgradeControllers;
+use CmsBase\Auth\Interfaces as CmsBaseAuthInterfaces;
+use CmsBase\Auth\Collection\Upgrade\Controllers as CmsBaseAuthCollectionUpgradeControllers;
 
 // Define the component's path
-defined('MIDRUB_BASE_AUTH_UPGRADE') OR define('MIDRUB_BASE_AUTH_UPGRADE', APPPATH . 'base/auth/collection/upgrade/');
+defined('CMS_BASE_AUTH_UPGRADE') OR define('CMS_BASE_AUTH_UPGRADE', APPPATH . 'base/auth/collection/upgrade/');
 
 // Define the component's version
-defined('MIDRUB_BASE_AUTH_UPGRADE_VERSION') OR define('MIDRUB_BASE_AUTH_UPGRADE_VERSION', '0.0.3');
+defined('CMS_BASE_AUTH_UPGRADE_VERSION') OR define('CMS_BASE_AUTH_UPGRADE_VERSION', '0.0.3');
 
 /*
  * Main class loads the Upgrade Auth's component
@@ -32,7 +32,7 @@ defined('MIDRUB_BASE_AUTH_UPGRADE_VERSION') OR define('MIDRUB_BASE_AUTH_UPGRADE_
  * @package Midrub
  * @since 0.0.7.8
  */
-class Main implements MidrubBaseAuthInterfaces\Auth {
+class Main implements CmsBaseAuthInterfaces\Auth {
     
     /**
      * Class variables
@@ -64,7 +64,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
     public function init() {
 
         // Instantiate the class
-        (new MidrubBaseAuthCollectionUpgradeControllers\Init)->view();
+        (new CmsBaseAuthCollectionUpgradeControllers\Init)->view();
         
     }
     
@@ -87,7 +87,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
         try {
 
             // Call method if exists
-            (new MidrubBaseAuthCollectionUpgradeControllers\Ajax)->$action();
+            (new CmsBaseAuthCollectionUpgradeControllers\Ajax)->$action();
 
         } catch (Exception $ex) {
 
@@ -147,15 +147,15 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
     public function component_info() {
         
         // Load the component's language files
-        $this->CI->lang->load( 'auth_upgrade', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_AUTH_UPGRADE);
+        $this->CI->lang->load( 'auth_upgrade', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_UPGRADE);
         
         // Return component information
         return array(
-            'component_info' => $this->CI->lang->line('auth_upgrade'),
+            'component_info' => 'Upgrade',
             'display_component_name' => $this->CI->lang->line('auth_upgrade'),
             'component_slug' => 'upgrade',
             'component_icon' => '<i class="fas fa-sign-in-alt"></i>',
-            'version' => MIDRUB_BASE_AUTH_UPGRADE_VERSION,
+            'version' => CMS_BASE_AUTH_UPGRADE_VERSION,
             'required_version' => '0.0.7.8'
         );
         

@@ -11,7 +11,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Signup\Helpers;
+namespace CmsBase\Auth\Collection\Signup\Helpers;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -84,7 +84,7 @@ class User {
             } else {
 
                 // Require the signup functions file
-                require_once MIDRUB_BASE_AUTH . 'inc/signup/signup.php';
+                require_once CMS_BASE_AUTH . 'inc/signup/signup.php';
 
                 // Prepare data to send
                 $args = array(

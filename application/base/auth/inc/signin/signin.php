@@ -13,7 +13,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Auth\Classes\Signin as MidrubBaseAuthClassesSignin;
+use CmsBase\Auth\Classes\Signin as CmsBaseAuthClassesSignin;
 
 if ( !function_exists('md_auth_authenticate_user') ) {
     
@@ -29,7 +29,7 @@ if ( !function_exists('md_auth_authenticate_user') ) {
     function md_auth_authenticate_user($args) {
         
         // Call the sign class
-        $signin = (new MidrubBaseAuthClassesSignin\Signin);
+        $signin = (new CmsBaseAuthClassesSignin\Signin);
 
         // Try to authenticate
         $signin->authenticate_user($args);

@@ -66,7 +66,7 @@ if ( !function_exists('the_complete_transaction') ) {
                 if ( is_numeric($transaction['transaction_id']) ) {
 
                     // Try to find the transaction
-                    $get_transaction = $CI->base_model->get_data_where('transactions', 'transactions.*, users.username', array('transactions.transaction_id' => $transaction['transaction_id'], 'transactions.user_id' => $CI->user_id),
+                    $get_transaction = $CI->base_model->the_data_where('transactions', 'transactions.*, users.username', array('transactions.transaction_id' => $transaction['transaction_id'], 'transactions.user_id' => $CI->user_id),
                         array(),
                         array(),
                         array(array(
@@ -93,7 +93,7 @@ if ( !function_exists('the_complete_transaction') ) {
                         );
 
                         // Try to find the transaction's fields
-                        $fields = $CI->base_model->get_data_where('transactions_fields', '*', array('transaction_id' => $transaction['transaction_id']));
+                        $fields = $CI->base_model->the_data_where('transactions_fields', '*', array('transaction_id' => $transaction['transaction_id']));
                         
                         // Verify if the transaction has fields
                         if ( $fields ) {
@@ -115,7 +115,7 @@ if ( !function_exists('the_complete_transaction') ) {
                         }
 
                         // Try to find the transaction's options
-                        $options = $CI->base_model->get_data_where('transactions_options', '*', array('transaction_id' => $transaction['transaction_id']));
+                        $options = $CI->base_model->the_data_where('transactions_options', '*', array('transaction_id' => $transaction['transaction_id']));
                         
                         // Verify if the transaction has options
                         if ( $options ) {

@@ -10,7 +10,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Classes\Plans;
+namespace CmsBase\Classes\Plans;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -54,7 +54,7 @@ class Read {
     public function get_plans($args=array()) {
 
         // Get all plans
-        $plans = $this->CI->base_model->get_data_where('plans', '*');
+        $plans = $this->CI->base_model->the_data_where('plans', '*');
 
         // All plans
         $all_plans = array();
@@ -65,10 +65,10 @@ class Read {
             // List all plans
             foreach ( $plans as $plan ) {
 
-                // Verify if visible filter exists
-                if ( isset($args['visible']) ) {
+                // Verify if hidden filter exists
+                if ( isset($args['hidden']) ) {
 
-                    if ((int)$plan['visible'] !== $args['visible']) {
+                    if ((int)$plan['hidden'] !== $args['hidden']) {
                         continue;
                     }
 

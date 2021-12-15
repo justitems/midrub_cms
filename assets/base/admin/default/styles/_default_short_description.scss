@@ -1,0 +1,46 @@
+/*******************************
+DEFAULT SHORT DESCRIPTION MIXING
+********************************/
+
+@mixin theme-short-description {
+
+    .theme-short-description {
+        padding: 10px;
+        font-family: $default-font-2;
+        font-weight: 400;
+        font-size: 14px;                                                        
+        color: $default-color-black !important;                        
+        background-color: $default-color-grey-light-active;
+
+        p {
+            margin: 0 0 15px;
+            line-height: 25px;
+            font-size: 14px;
+            color: $default-color-black;
+
+            &:first-child {
+                margin-bottom: 0;
+            }
+
+        }
+
+        ul {
+            margin: 0 0 0 30px;
+            padding: 0;
+
+            li {
+                margin: 0 0 10px 0;
+                list-style: inherit;
+                color: $default-color-black;
+
+                strong {
+                    font-weight: 500;
+                }
+
+            }
+
+        }
+
+    }
+
+}

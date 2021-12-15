@@ -33,21 +33,45 @@ md_set_gateway(
         'gateway_color' => '#0070ba',
         'fields' => array (
 
-            array (
-                'type' => 'checkbox_input',
-                'slug' => 'paypal',
-                'label' => $CI->lang->line('paypal_enable'),
-                'label_description' => $CI->lang->line('paypal_enable_description')
-            ), array (
-                'type' => 'text_input',
-                'slug' => 'paypal_client_id',
-                'label' => $CI->lang->line('paypal_client_id'),
-                'label_description' => $CI->lang->line('paypal_client_id_description')
-            ), array (
-                'type' => 'text_input',
-                'slug' => 'paypal_client_secret',
-                'label' => $CI->lang->line('paypal_client_secret'),
-                'label_description' => $CI->lang->line('paypal_client_secret_description')
+            array(
+                'field_slug' => 'gateway_paypal_enabled',
+                'field_type' => 'checkbox',
+                'field_words' => array(
+                    'field_title' => $CI->lang->line('paypal_enable'),
+                    'field_description' => $CI->lang->line('paypal_enable_description')
+                ),
+                'field_params' => array(
+                    'checked' => md_the_option('gateway_paypal_enabled')?md_the_option('gateway_paypal_enabled'):0
+                )
+
+            ),
+            array(
+                'field_slug' => 'paypal_client_id',
+                'field_type' => 'text',
+                'field_words' => array(
+                    'field_title' => $CI->lang->line('paypal_client_id'),
+                    'field_description' => $CI->lang->line('paypal_client_id_description')
+                ),
+                'field_params' => array(
+                    'placeholder' => $CI->lang->line('braintree_enter_client_id'),
+                    'value' => md_the_option('paypal_client_id')?md_the_option('paypal_client_id'):'',
+                    'disabled' => false
+                )
+
+            ),
+            array(
+                'field_slug' => 'paypal_client_secret',
+                'field_type' => 'text',
+                'field_words' => array(
+                    'field_title' => $CI->lang->line('paypal_client_secret'),
+                    'field_description' => $CI->lang->line('paypal_client_secret_description')
+                ),
+                'field_params' => array(
+                    'placeholder' => $CI->lang->line('braintree_enter_client_secret'),
+                    'value' => md_the_option('paypal_client_secret')?md_the_option('paypal_client_secret'):'',
+                    'disabled' => false
+                )
+
             )
             
         )

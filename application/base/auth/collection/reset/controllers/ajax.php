@@ -10,12 +10,12 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Reset\Controllers;
+namespace CmsBase\Auth\Collection\Reset\Controllers;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Auth\Collection\Reset\Helpers as MidrubBaseAuthCollectionResetHelpers;
+use CmsBase\Auth\Collection\Reset\Helpers as CmsBaseAuthCollectionResetHelpers;
 
 /*
  * Ajax class processes the admin component's ajax calls
@@ -55,7 +55,7 @@ class Ajax {
     public function reset_password() {
 
         // Reset password
-        (new MidrubBaseAuthCollectionResetHelpers\User)->reset_password();
+        (new CmsBaseAuthCollectionResetHelpers\User)->reset_password();
         
     }
  

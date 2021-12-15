@@ -10,19 +10,19 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Auth\Collection\Confirmation;
+namespace CmsBase\Auth\Collection\Confirmation;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Auth\Interfaces as MidrubBaseAuthInterfaces;
-use MidrubBase\Auth\Collection\Confirmation\Controllers as MidrubBaseAuthCollectionConfirmationControllers;
+use CmsBase\Auth\Interfaces as CmsBaseAuthInterfaces;
+use CmsBase\Auth\Collection\Confirmation\Controllers as CmsBaseAuthCollectionConfirmationControllers;
 
 // Define the component's path
-defined('MIDRUB_BASE_AUTH_CONFIRMATION') OR define('MIDRUB_BASE_AUTH_CONFIRMATION', APPPATH . 'base/auth/collection/confirmation');
+defined('CMS_BASE_AUTH_CONFIRMATION') OR define('CMS_BASE_AUTH_CONFIRMATION', APPPATH . 'base/auth/collection/confirmation');
 
 // Define the component's version
-defined('MIDRUB_BASE_AUTH_CONFIRMATION_VERSION') OR define('MIDRUB_BASE_AUTH_CONFIRMATION_VERSION', '0.0.2');
+defined('CMS_BASE_AUTH_CONFIRMATION_VERSION') OR define('CMS_BASE_AUTH_CONFIRMATION_VERSION', '0.0.2');
 
 /*
  * Main class loads the Confirmation Auth's component
@@ -31,7 +31,7 @@ defined('MIDRUB_BASE_AUTH_CONFIRMATION_VERSION') OR define('MIDRUB_BASE_AUTH_CON
  * @package Midrub
  * @since 0.0.7.8
  */
-class Main implements MidrubBaseAuthInterfaces\Auth {
+class Main implements CmsBaseAuthInterfaces\Auth {
     
     /**
      * Class variables
@@ -63,7 +63,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
     public function init() {
 
         // Instantiate the class
-        (new MidrubBaseAuthCollectionConfirmationControllers\Init)->view();
+        (new CmsBaseAuthCollectionConfirmationControllers\Init)->view();
         
     }
     
@@ -86,7 +86,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
         try {
 
             // Call method if exists
-            (new MidrubBaseAuthCollectionConfirmationControllers\Ajax)->$action();
+            (new CmsBaseAuthCollectionConfirmationControllers\Ajax)->$action();
 
         } catch (Exception $ex) {
 
@@ -113,8 +113,8 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
     public function load_hooks($category) {
 
         // Load the component's language files
-        if ( file_exists( MIDRUB_BASE_AUTH_CONFIRMATION . '/language/' . $this->CI->config->item('language') . '/auth_confirmation_lang.php' ) ) {
-            $this->CI->lang->load( 'auth_confirmation', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_AUTH_CONFIRMATION . '/' );
+        if ( file_exists( CMS_BASE_AUTH_CONFIRMATION . '/language/' . $this->CI->config->item('language') . '/auth_confirmation_lang.php' ) ) {
+            $this->CI->lang->load( 'auth_confirmation', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_CONFIRMATION . '/' );
         }
 
         // Load hooks by category
@@ -123,10 +123,10 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
             case 'admin_init':
 
                 // Verify if user has opened the frontend component
-                if ( (md_the_component_variable('component') === 'frontend') && ($this->CI->input->get('component', true) === 'confirmation') ) {
+                if ( (md_the_data('component') === 'frontend') && ($this->CI->input->get('component', true) === 'confirmation') ) {
 
                     // Require the contents_categories file
-                    require_once MIDRUB_BASE_AUTH_CONFIRMATION . '/inc/contents_categories.php';
+                    require_once CMS_BASE_AUTH_CONFIRMATION . '/inc/contents_categories.php';
 
                 }
 
@@ -168,8 +168,8 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
     public function component_info() {
         
         // Load the component's language files
-        if ( file_exists( MIDRUB_BASE_AUTH_CONFIRMATION . '/language/' . $this->CI->config->item('language') . '/admin_confirmation_lang.php' ) ) {
-            $this->CI->lang->load( 'admin_confirmation', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_AUTH_CONFIRMATION . '/' );
+        if ( file_exists( CMS_BASE_AUTH_CONFIRMATION . '/language/' . $this->CI->config->item('language') . '/admin_confirmation_lang.php' ) ) {
+            $this->CI->lang->load( 'admin_confirmation', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_CONFIRMATION . '/' );
         }
         
         // Return component information
@@ -178,7 +178,7 @@ class Main implements MidrubBaseAuthInterfaces\Auth {
             'display_component_name' => $this->CI->lang->line('confirmation'),
             'component_slug' => 'confirmation',
             'component_icon' => '<i class="fas fa-window-restore"></i>',
-            'version' => MIDRUB_BASE_AUTH_CONFIRMATION_VERSION,
+            'version' => CMS_BASE_AUTH_CONFIRMATION_VERSION,
             'required_version' => '0.0.7.8'
         );
         

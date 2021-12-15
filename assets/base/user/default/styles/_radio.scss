@@ -1,0 +1,57 @@
+/*******************************
+RADIO MIXING
+********************************/
+
+@mixin crm-radio {
+
+    label {
+        width: 50px;
+
+        input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        
+        .crm-radio {
+            position: absolute;
+            top: 7px;
+            left: 15px;
+            height: 25px;
+            width: 25px;
+            border: 1px solid #dbdbdb;
+            border-radius: 50%;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        
+        input:checked ~ .crm-radio {
+            background-color: transparent;
+        }
+        
+        .crm-radio:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        
+        input:checked ~ .crm-radio:after {
+            display: block;
+        }
+        
+        .crm-radio:after {
+            content: '\2713\0020';
+            position: absolute;
+            top: .20em;
+            left: 3px;
+            font-size: 1.5em;
+            line-height: 0.8;
+            color: #252442;
+            transition: all .2s;
+        }
+
+    }
+
+}

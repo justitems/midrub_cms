@@ -38,3 +38,4 @@ $lang["auth_signup_enter_username"] = "Enter the username ...";
 $lang["auth_signup_invalid_user_data"] = "Please fill in all required fields.";
 $lang["auth_signup_fill_in_all_required_fields"] = "We have saved your social account's data. Please fill the empty fields and click on the Sign Up button.";
 $lang["auth_signup_social_account_was_found"] = "The social account was found in our database. Please sign in or reset your password.";
+$lang["auth_has_been_joined"] = "has been joined";

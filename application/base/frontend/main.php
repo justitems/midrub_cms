@@ -10,17 +10,17 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Frontend;
+namespace CmsBase\Frontend;
 
 // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
-defined('MIDRUB_BASE_FRONTEND') OR define('MIDRUB_BASE_FRONTEND', APPPATH . 'base/frontend/');
+defined('CMS_BASE_FRONTEND') OR define('CMS_BASE_FRONTEND', APPPATH . 'base/frontend/');
 
 // Require the General Themes Inc file
-require_once MIDRUB_BASE_FRONTEND . 'inc/general.php';
+require_once CMS_BASE_FRONTEND . 'inc/general.php';
 
 // Require the General Frontend Inc file
-require_once MIDRUB_BASE_PATH . 'inc/auth/general.php';
+require_once CMS_BASE_PATH . 'inc/auth/general.php';
 
 /*
  * Main is the frontend's base loader
@@ -64,9 +64,9 @@ class Main {
     public function init($static_slug=NULL, $dynamic_slug=NULL) {
 
         // Load the component's language files
-        $this->CI->lang->load( 'user', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_FRONTEND );
+        $this->CI->lang->load( 'frontend_default', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_FRONTEND );
 
-        if ( $static_slug && md_the_component_variable('theme_path') ) {
+        if ( $static_slug && md_the_data('theme_path') ) {
 
             // Verify if $dynamic_slug is not null
             if ( $dynamic_slug ) {
@@ -77,14 +77,14 @@ class Main {
             }
 
             // Return content by content's ID
-            $content = $this->CI->base_contents->get_content('', $url_slug);
+            $content = $this->CI->base_contents->the_content('', $url_slug);
 
             if ($content) {
 
-                if ( get_option('settings_home_page') !== $content[0]['content_id'] ) {
+                if ( md_the_option('settings_home_page') !== $content[0]['content_id'] ) {
 
                     // Set the content's ID
-                    md_set_component_variable('content_id', $content[0]['content_id']); 
+                    md_set_data('content_id', $content[0]['content_id']); 
 
                     // Load template
                     $this->load_template($content, 'templates');
@@ -105,13 +105,13 @@ class Main {
 
                     $contents_category = str_replace('search-', '', $static_slug);
 
-                    if ( file_exists(md_the_component_variable('theme_path') . 'contents/' . $contents_category . '/search.php') ) {
+                    if ( file_exists(md_the_data('theme_path') . 'contents/' . $contents_category . '/search.php') ) {
         
                         // Set the content's category
-                        md_set_component_variable('contents_category', $contents_category);
+                        md_set_data('contents_category', $contents_category);
 
                         // Set the search's key
-                        md_set_component_variable('search_key', $this->CI->security->xss_clean($dynamic_slug));
+                        md_set_data('search_key', $this->CI->security->xss_clean($dynamic_slug));
 
                         // Get contents by page
                         $this->load_template('', 'search');
@@ -120,19 +120,19 @@ class Main {
 
                 }
                 
-            } else if ( file_exists(md_the_component_variable('theme_path') . 'contents/classifications/' . $static_slug . '.php') ) {
+            } else if ( file_exists(md_the_data('theme_path') . 'contents/classifications/' . $static_slug . '.php') ) {
 
                 // Load Base Classification Model
-                $this->CI->load->ext_model(MIDRUB_BASE_PATH . 'models/', 'Base_classifications', 'base_classifications');
+                $this->CI->load->ext_model(CMS_BASE_PATH . 'models/', 'Base_classifications', 'base_classifications');
 
                 // Get classification's item
-                $item = the_db_request(
+                $item = md_the_db_request(
                     'classifications',
-                    'classifications.classification_id, classifications.parent, classifications_meta.meta_value as name',
+                    'classifications.classification_id, classifications.classification_parent, classifications_meta.meta_value as name',
                     array(
                         'classifications_meta.meta_slug' => $dynamic_slug,
                         'classifications_meta.meta_name' => 'name',
-                        'classifications.type' => 'contents_classification'
+                        'classifications.classification_type' => 'contents_classification'
                     ),
                     array(),
                     array(),
@@ -146,24 +146,24 @@ class Main {
                 );
 
                 // Require the Classifications Themes Inc file
-                require_once MIDRUB_BASE_FRONTEND . 'inc/classifications.php';
+                require_once CMS_BASE_FRONTEND . 'inc/classifications.php';
 
                 if ($item) {
 
                     // Set the static's slug
-                    md_set_component_variable('classification_slug', $static_slug);
+                    md_set_data('classification_slug', $static_slug);
 
                     // Set the item's slug
-                    md_set_component_variable('classification_item_slug', $dynamic_slug);
+                    md_set_data('classification_item_slug', $dynamic_slug);
 
                     // Set the item's id
-                    md_set_component_variable('classification_item_id', $item[0]['classification_id']);
+                    md_set_data('classification_item_id', $item[0]['classification_id']);
 
                     // Set the item's parent
-                    md_set_component_variable('classification_item_name', $item[0]['name']);
+                    md_set_data('classification_item_name', $item[0]['name']);
 
                     // Set the item's parent
-                    md_set_component_variable('classification_item_parent', $item[0]['parent']);
+                    md_set_data('classification_item_parent', $item[0]['classification_parent']);
 
                     // Get contents by page
                     $this->load_template('', 'classifications');
@@ -175,18 +175,18 @@ class Main {
         } else {
 
             // Get selected page by role
-            $selected_page = $this->CI->base_contents->get_contents_by_meta_name('selected_page_role', 'settings_home_page');
+            $selected_page = $this->CI->base_contents->the_contents_by_meta_name('selected_page_role', 'settings_home_page');
 
             // Verify if page exists
-            if ($selected_page && md_the_component_variable('theme_path') ) {
+            if ($selected_page && md_the_data('theme_path') ) {
 
                 // Return content by content's ID
-                $content = $this->CI->base_contents->get_content($selected_page[0]['content_id']);
+                $content = $this->CI->base_contents->the_content($selected_page[0]['content_id']);
 
                 if ($content) {
 
                     // Set the content's ID
-                    md_set_component_variable('content_id', $content[0]['content_id']); 
+                    md_set_data('content_id', $content[0]['content_id']); 
 
                     // Load template
                     $this->load_template($content, 'templates');
@@ -196,7 +196,7 @@ class Main {
             } else {
 
                 // Redirect to sign in page
-                redirect(the_url_by_page_role('sign_in')?the_url_by_page_role('sign_in'):site_url('auth/signin'));
+                redirect(md_the_url_by_page_role('sign_in')?md_the_url_by_page_role('sign_in'):site_url('auth/signin'));
 
             }
 
@@ -218,20 +218,17 @@ class Main {
      */
     public function ajax_init($component) {
 
-        // Load the component's language files
-        $this->CI->lang->load( 'user', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_FRONTEND );
-
         // Get activated theme's slug
-        $theme_slug = str_replace('-', '_', get_option('themes_activated_theme'));
+        $theme_slug = str_replace('-', '_', md_the_option('themes_enabled_theme'));
 
         // Verify if a theme is enabled
         if ($theme_slug) {
 
             // Verify if theme's ajax
-            if ( is_dir(MIDRUB_BASE_FRONTEND . 'themes/' . $theme_slug . '/core/ajax/') ) {
+            if ( is_dir(CMS_BASE_FRONTEND . 'themes/collection/' . $theme_slug . '/core/ajax/') ) {
 
                 // Require the theme's ajax
-                foreach (glob(MIDRUB_BASE_FRONTEND . 'themes/' . $theme_slug . '/core/ajax/' . '*.php') as $filename) {
+                foreach (glob(CMS_BASE_FRONTEND . 'themes/collection/' . $theme_slug . '/core/ajax/' . '*.php') as $filename) {
                     require_once $filename;
                 }
 
@@ -276,24 +273,24 @@ class Main {
     public function load_hooks($category) {
 
         // Load the create menu inc file
-        require_once MIDRUB_BASE_PATH . 'inc/menu/create_menu.php';        
+        require_once CMS_BASE_PATH . 'inc/menu/create_menu.php';        
 
         // Get activated theme's slug
-        $theme_slug = str_replace('-', '_', get_option('themes_activated_theme'));
+        $theme_slug = str_replace('-', '_', md_the_option('themes_enabled_theme'));
 
         // Verify if a theme is enabled
         if ($theme_slug) {
 
             // Set the theme's path
-            md_set_component_variable('theme_path', MIDRUB_BASE_FRONTEND . 'themes/' . $theme_slug . '/'); 
+            md_set_data('theme_path', CMS_BASE_FRONTEND . 'themes/collection/' . $theme_slug . '/'); 
 
             // Verify if the theme has language files
-            if (is_dir(MIDRUB_BASE_FRONTEND . 'themes/' . $theme_slug . '/language/' . $this->CI->config->item('language') . '/')) {
+            if (is_dir(CMS_BASE_FRONTEND . 'themes/collection/' . $theme_slug . '/language/' . $this->CI->config->item('language') . '/')) {
 
                 // Load all language files
-                foreach (glob(MIDRUB_BASE_FRONTEND . 'themes/' . $theme_slug . '/language/' . $this->CI->config->item('language') . '/' . '*.php') as $filename) {
+                foreach (glob(CMS_BASE_FRONTEND . 'themes/collection/' . $theme_slug . '/language/' . $this->CI->config->item('language') . '/' . '*.php') as $filename) {
 
-                    $this->CI->lang->load( str_replace(array(MIDRUB_BASE_FRONTEND . 'themes/' . $theme_slug . '/language/' . $this->CI->config->item('language') . '/', '_lang.php'), '', $filename), $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_FRONTEND . 'themes/' . $theme_slug . '/' );
+                    $this->CI->lang->load( str_replace(array(CMS_BASE_FRONTEND . 'themes/collection/' . $theme_slug . '/language/' . $this->CI->config->item('language') . '/', '_lang.php'), '', $filename), $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_FRONTEND . 'themes/collection/' . $theme_slug . '/' );
 
                 }
 
@@ -304,10 +301,10 @@ class Main {
 
                 case 'admin_init':
 
-                    if (file_exists(MIDRUB_BASE_FRONTEND . 'themes/' . $theme_slug . '/core/hooks/admin_init.php')) {
+                    if (file_exists(CMS_BASE_FRONTEND . 'themes/collection/' . $theme_slug . '/core/hooks/admin_init.php')) {
 
                         // Require the admin's hooks file
-                        require_once MIDRUB_BASE_FRONTEND . 'themes/' . $theme_slug . '/core/hooks/admin_init.php';
+                        require_once CMS_BASE_FRONTEND . 'themes/collection/' . $theme_slug . '/core/hooks/admin_init.php';
                     }
 
                     break;
@@ -330,14 +327,17 @@ class Main {
      */
     public function load_template($content, $type) {
 
+        // Require the Menu Inc file
+        require_once CMS_BASE_FRONTEND . 'inc/menu.php';
+
         if ( $type === 'templates' ) {
             md_set_single_content($content);
         }
 
         // Load theme's inc files
-        if ( is_dir(md_the_component_variable('theme_path') . 'core/inc/') ) {
+        if ( is_dir(md_the_data('theme_path') . 'core/inc/') ) {
 
-            foreach ( glob(md_the_component_variable('theme_path') . 'core/inc/*.php') as $filename ) {
+            foreach ( glob(md_the_data('theme_path') . 'core/inc/*.php') as $filename ) {
                 require_once $filename;
             }
             
@@ -348,10 +348,10 @@ class Main {
             case 'search':
 
                 // Set the title
-                md_set_the_title(str_replace('-', ' ', md_the_component_variable('search_key')));
+                md_set_the_title(str_replace('-', ' ', md_the_data('search_key')));
 
                 // Load search's template
-                $template_path = the_theme_template_load('contents/' . md_the_component_variable('contents_category') . '/search');
+                $template_path = md_the_theme_template_load('contents/' . md_the_data('contents_category') . '/search');
 
                 if ( $template_path ) {
 
@@ -365,7 +365,7 @@ class Main {
             case 'templates':
 
                 // Load theme template
-                $template_path = the_theme_template_load('contents/' . $this->templates_dir . '/' . $content[0]['contents_template']);
+                $template_path = md_the_theme_template_load('contents/' . $this->templates_dir . '/' . $content[0]['contents_template']);
 
                 if ($template_path) {
 
@@ -379,7 +379,7 @@ class Main {
             case 'classifications':
 
                 // Load classification's template
-                $template_path = the_theme_template_load('contents/classifications/' . md_the_component_variable('classification_slug'));
+                $template_path = md_the_theme_template_load('contents/classifications/' . md_the_data('classification_slug'));
 
                 if ($template_path) {
 

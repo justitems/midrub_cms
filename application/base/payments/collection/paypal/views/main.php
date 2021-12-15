@@ -15,7 +15,7 @@
                 </div>
                 <input class="input-amount" type="hidden" value="<?php echo $amount; ?>">
                 <input class="input-currency" type="hidden" value="<?php echo $currency; ?>">
-                <input class="input-client-id" type="hidden" value="<?php echo get_option('paypal_client_id'); ?>">
+                <input class="input-client-id" type="hidden" value="<?php echo md_the_option('paypal_client_id'); ?>">
                 <?php if (isset($recurring_payments)) { ?>
                 <input class="input-plan" type="hidden" value="<?php echo $plan_id; ?>">
                 <?php } ?>
@@ -33,4 +33,4 @@
     </div>
 </div>
 
-<script src="https://www.paypal.com/sdk/js?client-id=<?php echo get_option('paypal_client_id'); ?>&vault=true" data-namespace="paypal_sdk"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=<?php echo md_the_option('paypal_client_id'); ?>&vault=true" data-namespace="paypal_sdk"></script>

@@ -1,0 +1,39 @@
+/*******************************
+THEME ANIMATIONS LOAD NOTIFICATIONS
+********************************/
+ 
+@-webkit-keyframes load-notification {
+
+    0% {
+        -webkit-transform: translate3d(0, -200px, 0) scale3d(0.1, 0.1, 0.1);
+        transform: translate3d(0, -200px, 0) scale3d(0.1, 0.1, 0.1);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-animation-timing-function: cubic-bezier(0.47, 0, 0.74, 0.71);
+        animation-timing-function: cubic-bezier(0.47, 0, 0.74, 0.71);
+        -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    }
+
+}
+
+@keyframes load-notification {
+
+    0% {
+        -webkit-transform: translate3d(0, -200px, 0) scale3d(0.1, 0.1, 0.1);
+        transform: translate3d(0, -200px, 0) scale3d(0.1, 0.1, 0.1);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-animation-timing-function: cubic-bezier(0.47, 0, 0.74, 0.71);
+        animation-timing-function: cubic-bezier(0.47, 0, 0.74, 0.71);
+        -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    }
+
+}

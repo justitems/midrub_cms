@@ -10,7 +10,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Frontend\Classes;
+namespace CmsBase\Frontend\Classes;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -23,27 +23,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Pagination {
 
+    /**
+     * Class variables
+     *
+     * @since 0.0.8.5
+     */
+    protected $CI;
 
     /**
-     * The public method get_pagination provides the information to generate the pagination
+     * Initialise the Class
+     *
+     * @since 0.0.8.5
+     */
+    public function __construct() {
+
+        // Get codeigniter object instance
+        $this->CI =& get_instance();
+
+    }
+
+    /**
+     * The public method the_pagination provides the information to generate the pagination
+     * 
+     * @param array $params contains the parameters
      * 
      * @since 0.0.8.1
      * 
      * @return array with pagination's data
      */
-    public function the_pagination() {
+    public function the_pagination($params) {
      
         // Set current page
-        $current = md_the_component_variable('page')?md_the_component_variable('page'):1;
+        $current = md_the_data('page')?md_the_data('page'):1;
 
         // Limit variable
-        $limit = md_the_component_variable('contents_display_limit');
+        $limit = md_the_data('contents_display_limit');
 
         // Total
-        $total = md_the_component_variable('contents_display_total');
+        $total = md_the_data('contents_display_total');
 
         // Url
-        $url = md_the_component_variable('contents_pagination_url');
+        $url = !empty($params['contents_pagination_url'])?$params['contents_pagination_url']:md_the_data('contents_pagination_url');
 
         if ( $total > $limit ) {
 
@@ -65,14 +85,16 @@ class Pagination {
     /**
      * The public method get_pagination displays the pagination
      * 
+     * @param array $params contains the parameters
+     * 
      * @since 0.0.8.1
      * 
      * @return void
      */
-    public function get_pagination() {
+    public function get_pagination($params) {
 
         // Get the pagination
-        $pagination = $this->the_pagination();
+        $pagination = $this->the_pagination($params);
 
         // Verify if pagination exists
         if ( $pagination ) {
@@ -98,7 +120,7 @@ class Pagination {
                 // Set previous
                 $pages = '<li>'
                             . '<a href="' . $url . $previous . '">'
-                                . 'Prev'
+                                . $this->CI->lang->line('frontend_prev')
                             . '</a>'
                         . '</li>';
 
@@ -107,7 +129,7 @@ class Pagination {
                 // Set previous
                 $pages = '<li class="pagehide">'
                             . '<a href="#">'
-                                . 'Prev'
+                                . $this->CI->lang->line('frontend_prev')
                             . '</a>'
                         . '</li>';
 
@@ -187,7 +209,7 @@ class Pagination {
                         . $pages
                         . '<li>'
                             . '<a href="' . $url . $next . '">'
-                                . 'Next'
+                                . $this->CI->lang->line('frontend_next')
                             . '</a>'
                         . '</li>'
                     . '</ul>';
@@ -199,7 +221,7 @@ class Pagination {
                         . $pages
                         . '<li class="pagehide">'
                             . '<a href="#">'
-                                . 'Next'
+                                . $this->CI->lang->line('frontend_next')
                             . '</a>'
                         . '</li>'
                     . '</ul>';
@@ -211,3 +233,5 @@ class Pagination {
     }
 
 }
+
+/* End of file pagination.php */

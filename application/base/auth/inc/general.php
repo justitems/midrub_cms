@@ -28,26 +28,26 @@ if ( !function_exists('md_auth_social_access_options') ) {
         $options = array();
 
         // Verify if social access is enabled
-        if ( !get_option('enable_auth_social_access') ) {
+        if ( !md_the_option('enable_auth_social_access') ) {
 
             return $options;
 
         }
 
         // List auth social classes
-        foreach (glob(MIDRUB_BASE_AUTH . 'social/*.php') as $filename) {
+        foreach (glob(CMS_BASE_AUTH . 'social/*.php') as $filename) {
 
             // Call the class
-            $className = str_replace(array(MIDRUB_BASE_AUTH . 'social/', '.php'), '', $filename);
+            $className = str_replace(array(CMS_BASE_AUTH . 'social/', '.php'), '', $filename);
 
             // Verify if option is enabled
-            if (!get_option('enable_auth_' . strtolower($className))) {
+            if (!md_the_option('enable_auth_' . strtolower($className))) {
                 continue;
             }
 
             // Create an array
             $array = array(
-                'MidrubBase',
+                'CmsBase',
                 'Auth',
                 'Social',
                 ucfirst($className)

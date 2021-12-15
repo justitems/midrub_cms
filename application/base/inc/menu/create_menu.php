@@ -13,7 +13,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Define the namespaces to use
-use MidrubBase\Classes\Menu as MidrubBaseClassesMenu;
+use CmsBase\Classes\Menu as CmsBaseClassesMenu;
 
 if ( !function_exists('md_set_frontend_menu') ) {
     
@@ -30,7 +30,7 @@ if ( !function_exists('md_set_frontend_menu') ) {
     function md_set_frontend_menu($menu_slug, $args) {
         
         // Call the create_menu class
-        $create_menu = (new MidrubBaseClassesMenu\Create_menu);
+        $create_menu = (new CmsBaseClassesMenu\Create_menu);
 
         // Set frontend's menu in the queue
         $create_menu->set_menu('frontend', $menu_slug, $args);
@@ -51,7 +51,7 @@ if ( !function_exists('md_the_frontend_menu_list') ) {
     function md_the_frontend_menu_list() {
 
         // Call the create_menu class
-        $create_menu = (new MidrubBaseClassesMenu\Create_menu);        
+        $create_menu = (new CmsBaseClassesMenu\Create_menu);        
         
         // Verify if menu exists
         if ( $create_menu::$the_frontend_menu ) {
@@ -83,7 +83,7 @@ if ( !function_exists('md_set_user_menu') ) {
     function md_set_user_menu($menu_slug, $args) {
 
         // Call the create_menu class
-        $create_menu = (new MidrubBaseClassesMenu\Create_menu);
+        $create_menu = (new CmsBaseClassesMenu\Create_menu);
 
         // Set user's menu in the queue
         $create_menu->set_menu('user', $menu_slug, $args);
@@ -104,7 +104,7 @@ if ( !function_exists('md_the_user_menu_list') ) {
     function md_the_user_menu_list() {
 
         // Call the create_menu class
-        $create_menu = (new MidrubBaseClassesMenu\Create_menu);        
+        $create_menu = (new CmsBaseClassesMenu\Create_menu);        
         
         // Verify if menu exists
         if ( $create_menu::$the_user_menu ) {

@@ -103,6 +103,66 @@ class Base_users extends CI_MODEL {
     }
 
     /**
+     * The public method the_members_list gets the members from the database
+     *
+     * @param array $args contains the array with parameters
+     * 
+     * @return array with data, integer with total rows or boolean false
+     */
+    public function the_members_list( $args ) {
+        
+        // Select members
+        $this->db->select('*');
+
+        // From
+        $this->db->from($this->table);
+        
+        // Where like
+        $this->db->like('username', $args['key']);
+
+        // Or like
+        $this->db->or_like('first_name', $args['key']);
+
+        // Or like
+        $this->db->or_like('last_name', $args['key']);
+
+        // Set prder
+        $this->db->order_by('user_id', 'DESC');
+
+        // Verify if limit exists
+        if ( !empty($args['limit']) ) {
+
+            // Set limit
+            $this->db->limit($args['limit'], $args['start']);      
+            
+            // Get members
+            $query = $this->db->get();
+
+        } else {
+
+            // Get members
+            $query = $this->db->get();            
+
+            return $query->num_rows();
+
+        }
+        
+        
+        // Verify if data exists
+        if ( $query->num_rows() > 0 ) {
+            
+            // Return data
+            return $query->result_array();
+            
+        } else {
+            
+            return false;
+            
+        }
+        
+    }
+
+    /**
      * The public method check_user will check if username and password exists
      *
      * @param string $username contains the user's username
@@ -214,8 +274,12 @@ class Base_users extends CI_MODEL {
             // Delete user's data from notifications_stats
             $this->db->delete('notifications_stats', array('user_id' => $user_id));
 
-            // Delete the user's auth networks
-            $this->db->delete('users_social', array('user_id' => $user_id));
+            if ($this->db->table_exists('users_social') ) {
+
+                // Delete the user's auth networks
+                $this->db->delete('users_social', array('user_id' => $user_id));
+
+            }
             
             return true;
             

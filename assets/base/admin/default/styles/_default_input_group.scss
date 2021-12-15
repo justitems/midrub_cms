@@ -1,0 +1,36 @@
+/*******************************
+DEFAULT MIXINGS FOR INPUT GROUP
+********************************/
+
+@mixin default-input-group-1 {
+
+    & {
+
+        .btn {
+
+            @include default-buttons('default-button-1');
+
+        }
+
+    }
+    
+}
+
+@mixin default-input-group-2 {
+
+    & {
+
+        .btn {
+            
+            @include default-buttons('default-button-1');
+
+            svg {
+                width: 22px;
+                height: 20px;
+            }
+
+        }
+
+    }
+    
+}

@@ -10,7 +10,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Frontend\Classes;
+namespace CmsBase\Frontend\Classes;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Menu {
 
     /**
-     * The public method get_menu generates a menu
+     * The public method md_get_menu generates a menu
      * 
      * @param string $menu_slug contains the menu's slug
      * @param array $args contains the menu's arguments
@@ -33,7 +33,7 @@ class Menu {
      * 
      * @return void
      */
-    public function get_menu($menu_slug, $args) {
+    public function md_get_menu($menu_slug, $args) {
      
         // Require the Read Menu Inc file
         require_once APPPATH . 'base/inc/menu/read_menu.php';
@@ -60,26 +60,103 @@ class Menu {
             }
 
             // List all menu items
-            foreach ( $menu_items as $menu_item ) {
+            for ( $m = 0; $m < count($menu_items); $m++ ) {
 
-                // Default permalink
-                $permalink = base_url($menu_item['selected_page']);
+                $classification_id = $menu_items[$m]['classification_id'];
 
-                if ( $menu_item['permalink'] ) {
-                    $permalink = $menu_item['permalink'];
+                $permalink = base_url($menu_items[$m]['selected_page']);
+
+                if ( !empty($menu_items[$m]['permalink']) ) {
+                    $permalink = $menu_items[$m]['permalink'];
                 }
 
                 $class = '';
 
-                if ( $menu_item['class'] ) {
-                    $class = ' ' . $menu_item['class'];
+                if ( $menu_items[$m]['class'] ) {
+                    $class = $menu_items[$m]['class'];
+                }
+
+                $active = '';
+
+                if ( $permalink === current_url() ) {
+                    $active = ' nav-active';
                 }
 
                 if ( isset($args['before_single_item']) ) {
-                    echo str_replace(array('[class]', '[url]'), array($class, $permalink), $args['before_single_item']);
+
+                    $before_single_item = $args['before_single_item'];
+
+                    if ( isset($menu_items[($m + 1)]) ) {
+
+                        if ( $menu_items[($m + 1)]['classification_parent'] === $classification_id ) {
+
+                            $before_single_item = isset($args['before_single_item_with_submenu'])?$args['before_single_item_with_submenu']:$args['before_single_item'];
+
+                        }
+                        
+                    }
+
+                    echo str_replace(array('[class]', '[url]', '[active]', '[text]', '[unique_id]'), array($class, $permalink, $active, $menu_items[$m]['meta_value'], uniqid()), $before_single_item);
+
                 }
 
-                echo $menu_item['meta_value'];
+                if ( isset($menu_items[($m + 1)]) ) {
+
+                    if ( $menu_items[($m + 1)]['classification_parent'] === $classification_id ) {
+
+                        if ( isset($args['before_submenu']) ) {
+                            echo str_replace(array('[unique_id]'), array(uniqid()), $args['before_submenu']);
+                        }
+
+                        $fs = ($m + 1);
+
+                        for ( $m2 = $fs; $m2 < count($menu_items); $m2++ ) {
+
+                            if ( $menu_items[$m2]['classification_parent'] !== $classification_id ) {
+                                break;
+                            }
+
+                            $permalink = base_url($menu_items[$m2]['selected_page']);
+
+                            if ( !empty($menu_items[$m2]['permalink']) ) {
+                                $permalink = $menu_items[$m2]['permalink'];
+                            }
+            
+                            $class = '';
+            
+                            if ( $menu_items[$m2]['class'] ) {
+                                $class = $menu_items[$m2]['class'];
+                            }
+            
+                            $active = '';
+            
+                            if ( $permalink === current_url() ) {
+                                $active = ' nav-active';
+                            }
+            
+                            if ( isset($args['before_single_item']) ) {
+
+                                $before_submenu_single_item = isset($args['before_submenu_single_item'])?$args['before_submenu_single_item']:$args['before_single_item'];
+
+                                echo str_replace(array('[class]', '[url]', '[active]', '[text]', '[unique_id]'), array($class, $permalink, $active, $menu_items[$m2]['meta_value'], uniqid()), $before_submenu_single_item);
+                                
+                            }
+
+                            if ( isset($args['after_single_item']) ) {
+                                echo isset($args['after_submenu_single_item'])?$args['after_submenu_single_item']:$args['after_single_item'];
+                            }
+                            
+                            $m++;
+
+                        }
+
+                        if ( isset($args['after_submenu']) ) {
+                            echo $args['after_submenu'];
+                        }
+                    
+                    }
+
+                }
 
                 if ( isset($args['after_single_item']) ) {
                     echo $args['after_single_item'];
@@ -96,3 +173,5 @@ class Menu {
     }
 
 }
+
+/* End of file menu.php */

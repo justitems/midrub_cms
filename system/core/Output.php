@@ -729,7 +729,7 @@ class CI_Output {
 	 * @param	string	$uri	URI string
 	 * @return	bool
 	 */
-	public function delete_cache($uri = '')
+	public function md_delete_cache($uri = '')
 	{
 		$CI =& get_instance();
 		$cache_path = $CI->config->item('cache_path');

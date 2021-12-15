@@ -10,16 +10,16 @@
  */
 
 // Define the namespace
-namespace MidrubBase\Payments\Collection\Paypal;
+namespace CmsBase\Payments\Collection\Paypal;
 
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
-defined('MIDRUB_BASE_PAYMENTS_PAYPAL') OR define('MIDRUB_BASE_PAYMENTS_PAYPAL', MIDRUB_BASE_PAYMENTS . 'collection/paypal/');
-defined('MIDRUB_BASE_PAYMENTS_PAYPAL_VERSION') OR define('MIDRUB_BASE_PAYMENTS_PAYPAL_VERSION', '0.0.1');
+defined('CMS_BASE_PAYMENTS_PAYPAL') OR define('CMS_BASE_PAYMENTS_PAYPAL', CMS_BASE_PAYMENTS . 'collection/paypal/');
+defined('CMS_BASE_PAYMENTS_PAYPAL_VERSION') OR define('CMS_BASE_PAYMENTS_PAYPAL_VERSION', '0.0.1');
 
 // Define the namespaces to use
-use MidrubBase\Payments\Interfaces as MidrubBasePaymentsInterfaces;
-use MidrubBase\Payments\Collection\Paypal\Controllers as MidrubBasePaymentsCollectionPaypalControllers;
+use CmsBase\Payments\Interfaces as CmsBasePaymentsInterfaces;
+use CmsBase\Payments\Collection\Paypal\Controllers as CmsBasePaymentsCollectionPaypalControllers;
 
 
 /*
@@ -29,7 +29,7 @@ use MidrubBase\Payments\Collection\Paypal\Controllers as MidrubBasePaymentsColle
  * @package Midrub
  * @since 0.0.8.1
  */
-class Main implements MidrubBasePaymentsInterfaces\Payments {
+class Main implements CmsBasePaymentsInterfaces\Payments {
     
     /**
      * Class variables
@@ -92,10 +92,10 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
     public function pay() {
 
         // Verify if the gateway is enabled
-        if ( get_option('paypal') ) {
+        if ( md_the_option('paypal') ) {
 
             // Instantiate the class
-            (new MidrubBasePaymentsCollectionPaypalControllers\User)->view();
+            (new CmsBasePaymentsCollectionPaypalControllers\User)->view();
         
         } else {
 
@@ -125,7 +125,7 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
         try {
             
             // Call method if exists
-            (new MidrubBasePaymentsCollectionPaypalControllers\Ajax)->$action();
+            (new CmsBasePaymentsCollectionPaypalControllers\Ajax)->$action();
             
         } catch (Exception $ex) {
             
@@ -150,7 +150,7 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
     public function cron_jobs() {
 
         // Process the subscriptions
-        (new MidrubBasePaymentsCollectionPaypalControllers\Cron)->subscriptions();        
+        (new CmsBasePaymentsCollectionPaypalControllers\Cron)->subscriptions();        
         
     }
     
@@ -166,7 +166,7 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
     public function load_hooks($category) {
 
         // Load the admin's language files
-        $this->CI->lang->load( 'paypal_admin', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_PAYMENTS_PAYPAL );
+        $this->CI->lang->load( 'paypal_admin', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_PAYMENTS_PAYPAL );
 
         // Load hooks by category
         switch ($category) {
@@ -175,10 +175,10 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
             case 'admin_init':
 
                 // Verify if admin has opened the settings component
-                if ( ( md_the_component_variable('component') === 'settings' ) || ( md_the_component_variable('component') === 'plans' ) || ( md_the_component_variable('component') === 'upgrade' ) ) {
+                if ( ( md_the_data('component') === 'settings' ) || ( md_the_data('component') === 'plans' ) || ( md_the_data('component') === 'upgrade' ) ) {
 
                     // Require the admin file
-                    require_once MIDRUB_BASE_PAYMENTS_PAYPAL . '/inc/admin.php';
+                    require_once CMS_BASE_PAYMENTS_PAYPAL . '/inc/admin.php';
 
                 }
 
@@ -197,14 +197,14 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
      */
     public function guest() {
 
-        if ( get_option('paypal_client_id') && get_option('paypal_client_secret') ) {
+        if ( md_the_option('paypal_client_id') && md_the_option('paypal_client_secret') ) {
 
             $raw_post_data = json_decode(file_get_contents('php://input'), true);
 
             if ( isset($raw_post_data['event_type']) ) {
 
                 // Get the subscription saved in the database
-                $subscription = $this->CI->base_model->get_data_where('subscriptions', '*', array(
+                $subscription = $this->CI->base_model->the_data_where('subscriptions', '*', array(
                     'net_id' => $raw_post_data['resource']['id'],
                     'gateway' => 'paypal'
                 ));
@@ -213,14 +213,15 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
                 if ( $subscription ) {
 
                     // Get the first transaction by subscription
-                    $transaction = $this->CI->base_model->get_data_where('transactions', '*', array(
-                        'net_id' => $raw_post_data['resource']['id'],
-                        'gateway' => 'braintree'
+                    $transaction = $this->CI->base_model->the_data_where('transactions', '*', array(
+                        'user_id' => $subscription[0]['user_id'],
+                        'gateway' => 'paypal',
+                        'status' => 1
                     ));
 
                     switch( $raw_post_data['event_type'] ) {
 
-                        case 'BILLING.SUBSCRIPTION.CANCELLED' || 'BILLING.SUBSCRIPTION.CANCELLED':
+                        case 'BILLING.SUBSCRIPTION.CANCELLED':
 
                             // Delete the subscription from the database
                             $this->CI->base_model->delete('subscriptions', array(
@@ -228,125 +229,93 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
                                 'gateway' => 'paypal'
                             ) );
 
-                            // Verify if transaction exists
-                            if ( $transaction ) {
-                                    
-                                // Get all options
-                                $options = $this->CI->base_model->get_data_where('transactions_options', '*', array(
-                                    'transaction_id' => $transaction[0]['transaction_id']
-                                ));
-
-                                // If options exists should be copied
-                                if ( $options ) {
-                                    
-                                    // List all options
-                                    foreach ( $options as $option ) {
-
-                                        // It's a temporary solution but will be improved in future
-                                        if ( $option['option_name'] === 'plan_id' ) {
-
-                                            // Reset the plan
-                                            $this->CI->base_model->update('users_meta', array(
-                                                'user_id' => $subscription[0]['user_id'],
-                                                'meta_name' => 'plan'
-                                            ), array(
-                                                'meta_value' => 1
-                                            ));
-
-                                            break;
-                                            
-                                        }
-
-                                    }
-
-                                }
-
-                            }
+                            // Delete subscription's mark
+                            md_delete_user_option($subscription[0]['user_id'], 'subscription');
 
                             break;
 
-                        case 'BILLING.SUBSCRIPTION.UPDATED':
+                        case 'BILLING.SUBSCRIPTION.RENEWED':
 
-                            // Get the transaction by transaction's id
-                            $verify_transaction = $this->CI->base_model->get_data_where('transactions', '*', array(
-                                'net_id' => $raw_post_data['id'],
-                                'gateway' => 'paypal'
-                            ));
+                            // Verify if transaction exists
+                            if ( $transaction ) {
 
-                            // Verify if transaction exists and is not dupplicate
-                            if ( $transaction && ($verify_transaction === FALSE) ) {
+                                // Now we have to clone the transaction
+                                $tran_array = array(
+                                    'user_id' => $transaction[0]['user_id'],
+                                    'net_id' => $raw_post_data['id'],
+                                    'amount' => $transaction[0]['amount'],
+                                    'currency' => $transaction[0]['currency'],
+                                    'gateway' => $transaction[0]['gateway'],
+                                    'status' => $transaction[0]['status'],
+                                    'created' => time()
+                                );
 
-                                // Only if is not today created subscription will be saved
-                                if ( $subscription[0]['last_update'] !== date('Y-m-d') ) {
+                                // Save the transaction
+                                $transaction_id = $this->CI->base_model->insert('transactions', $tran_array);
 
-                                    // Now we have to clone the transaction
-                                    $tran_array = array(
-                                        'user_id' => $transaction[0]['user_id'],
-                                        'net_id' => $raw_post_data['id'],
-                                        'amount' => $transaction[0]['amount'],
-                                        'currency' => $transaction[0]['currency'],
-                                        'gateway' => $transaction[0]['gateway'],
-                                        'status' => $transaction[0]['status'],
-                                        'created' => time()
-                                    );
+                                // Verify if transaction ID exists
+                                if ( $transaction_id ) {
 
-                                    // Save the transaction
-                                    $transaction_id = $this->CI->base_model->insert('transactions', $tran_array);
+                                    // Get all fields
+                                    $fields = $this->CI->base_model->the_data_where('transactions_fields', '*', array(
+                                        'transaction_id' => $transaction[0]['transaction_id']
+                                    ));
 
-                                    // Verify if transaction ID exists
-                                    if ( $transaction_id ) {
-
-                                        // Get all fields
-                                        $fields = $this->CI->base_model->get_data_where('transactions_fields', '*', array(
-                                            'transaction_id' => $transaction[0]['transaction_id']
-                                        ));
-
-                                        // If fields exists should be copied
-                                        if ( $fields ) {
-                                            
-                                            // List all fields
-                                            foreach ( $fields as $field ) {
-
-                                                // Now we have to clone the fields
-                                                $field_array = array(
-                                                    'transaction_id' => $transaction_id,
-                                                    'field_name' => $field['field_name'],
-                                                    'field_value' => $field['field_value']
-                                                );
-
-                                                // Save the transaction's field
-                                                $this->CI->base_model->insert('transactions_fields', $field_array);                                        
-
-                                            }
-
-                                        }
+                                    // If fields exists should be copied
+                                    if ( $fields ) {
                                         
-                                        // Get all options
-                                        $options = $this->CI->base_model->get_data_where('transactions_options', '*', array(
-                                            'transaction_id' => $transaction[0]['transaction_id']
-                                        ));
+                                        // List all fields
+                                        foreach ( $fields as $field ) {
 
-                                        // If options exists should be copied
-                                        if ( $options ) {
-                                            
-                                            // List all options
-                                            foreach ( $options as $option ) {
+                                            // Now we have to clone the fields
+                                            $field_array = array(
+                                                'transaction_id' => $transaction_id,
+                                                'field_name' => $field['field_name'],
+                                                'field_value' => $field['field_value']
+                                            );
 
-                                                // Now we have to clone the options
-                                                $option_array = array(
-                                                    'transaction_id' => $transaction_id,
-                                                    'option_name' => $option['option_name'],
-                                                    'option_value' => $option['option_value']
-                                                );
-
-                                                // Save the transaction's option
-                                                $this->CI->base_model->insert('transactions_options', $option_array);                                        
-
-                                            }
+                                            // Save the transaction's field
+                                            $this->CI->base_model->insert('transactions_fields', $field_array);                                        
 
                                         }
 
                                     }
+                                    
+                                    // Get all options
+                                    $options = $this->CI->base_model->the_data_where('transactions_options', '*', array(
+                                        'transaction_id' => $transaction[0]['transaction_id']
+                                    ));
+
+                                    // If options exists should be copied
+                                    if ( $options ) {
+                                        
+                                        // List all options
+                                        foreach ( $options as $option ) {
+
+                                            // Now we have to clone the options
+                                            $option_array = array(
+                                                'transaction_id' => $transaction_id,
+                                                'option_name' => $option['option_name'],
+                                                'option_value' => $option['option_value']
+                                            );
+
+                                            // Save the transaction's option
+                                            $this->CI->base_model->insert('transactions_options', $option_array);                                        
+
+                                        }
+
+                                    }
+                                    
+                                    // Save transaction success
+                                    save_complete_transaction(
+                                        $transaction_id,
+                                        $transaction[0]['user_id'],
+                                        array(
+                                            'net_id' => $raw_post_data['id'],
+                                            'gateway' => 'PayPal',
+                                            'status' => 1
+                                        )
+                                    );
 
                                 }
 
@@ -378,7 +347,10 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
         // Verify if the subscription's id exists
         if ( isset($subscription['net_id']) ) {
 
-            if ( get_option('paypal_client_id') && get_option('paypal_client_secret') ) {
+            // Delete subscription's mark
+            md_delete_user_option($subscription['user_id'], 'subscription');
+
+            if ( md_the_option('paypal_client_id') && md_the_option('paypal_client_secret') ) {
 
                 // First get the token
                 $curl = curl_init();
@@ -390,7 +362,7 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
                 CURLOPT_TIMEOUT => 30,
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                 CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_USERPWD => get_option('paypal_client_id') . ':' . get_option('paypal_client_secret'),
+                CURLOPT_USERPWD => md_the_option('paypal_client_id') . ':' . md_the_option('paypal_client_secret'),
                 CURLOPT_POSTFIELDS => 'grant_type=client_credentials',
                 CURLOPT_HTTPHEADER => array(
                         'Accept: application/json',
@@ -443,7 +415,7 @@ class Main implements MidrubBasePaymentsInterfaces\Payments {
     public function gateway_info() {
 
         // Load language
-        $this->CI->lang->load( 'paypal_admin', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_PAYMENTS_PAYPAL );
+        $this->CI->lang->load( 'paypal_admin', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_PAYMENTS_PAYPAL );
 
         // Create and return array
         return array(

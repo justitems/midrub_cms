@@ -10,7 +10,7 @@
  */
 
 // Define the page namespace
-namespace MidrubBase\Payments\Collection\Paypal\Controllers;
+namespace CmsBase\Payments\Collection\Paypal\Controllers;
 
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -42,7 +42,7 @@ class User {
         $this->CI =& get_instance();
 
         // Load language
-        $this->CI->lang->load( 'paypal_user', $this->CI->config->item('language'), FALSE, TRUE, MIDRUB_BASE_PAYMENTS_PAYPAL );
+        $this->CI->lang->load( 'paypal_user', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_PAYMENTS_PAYPAL );
         
     }
     
@@ -62,7 +62,7 @@ class User {
         set_css_urls(array('stylesheet', '//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', 'text/css', 'all'));
 
         // Set PayPal's styles
-        set_css_urls(array('stylesheet', base_url('assets/base/payments/collection/paypal/styles/css/styles.css?ver=' . MIDRUB_BASE_PAYMENTS_PAYPAL_VERSION), 'text/css', 'all'));
+        set_css_urls(array('stylesheet', base_url('assets/base/payments/collection/paypal/styles/css/styles.css?ver=' . CMS_BASE_PAYMENTS_PAYPAL_VERSION), 'text/css', 'all'));
 
         // Simple Line Icons
         set_css_urls(array('stylesheet', '//cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css', 'text/css', 'all'));
@@ -85,7 +85,7 @@ class User {
         set_js_urls(array('//js.braintreegateway.com/web/3.33.0/js/paypal-checkout.min.js'));    
         
         // Set PayPal JS
-        set_js_urls(array(base_url('assets/base/payments/collection/paypal/js/main.js?ver=' . MIDRUB_BASE_PAYMENTS_PAYPAL_VERSION)));
+        set_js_urls(array(base_url('assets/base/payments/collection/paypal/js/main.js?ver=' . CMS_BASE_PAYMENTS_PAYPAL_VERSION)));
 
         // Get the incomplete transaction
         $incomplete_transaction = the_incomplete_transaction();
@@ -126,7 +126,7 @@ class User {
                         CURLOPT_TIMEOUT => 30,
                         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                         CURLOPT_CUSTOMREQUEST => 'POST',
-                        CURLOPT_USERPWD => get_option('paypal_client_id') . ':' . get_option('paypal_client_secret'),
+                        CURLOPT_USERPWD => md_the_option('paypal_client_id') . ':' . md_the_option('paypal_client_secret'),
                         CURLOPT_POSTFIELDS => 'grant_type=client_credentials',
                         CURLOPT_HTTPHEADER => array(
                                 'Accept: application/json',
@@ -255,7 +255,7 @@ class User {
                 // Set views params
                 set_payment_view(
                     $this->CI->load->ext_view(
-                        MIDRUB_BASE_PAYMENTS_PAYPAL . 'views',
+                        CMS_BASE_PAYMENTS_PAYPAL . 'views',
                         'main',
                         $params,
                         true
@@ -268,7 +268,7 @@ class User {
                 // Set views params
                 set_payment_view(
                     $this->CI->load->ext_view(
-                        MIDRUB_BASE_PAYMENTS_PAYPAL . 'views',
+                        CMS_BASE_PAYMENTS_PAYPAL . 'views',
                         'error',
                         array(
                             'error' => $ex->getMessage()
@@ -285,7 +285,7 @@ class User {
             // Set views params
             set_payment_view(
                 $this->CI->load->ext_view(
-                    MIDRUB_BASE_PAYMENTS_PAYPAL . 'views',
+                    CMS_BASE_PAYMENTS_PAYPAL . 'views',
                     'expired',
                     array(),
                     true

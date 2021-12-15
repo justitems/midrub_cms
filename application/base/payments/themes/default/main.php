@@ -9,7 +9,7 @@
     <meta name="url" content="<?php echo site_url(); ?>">
 
     <!-- Title -->
-    <title><?php get_the_title(); ?></title>
+    <title><?php md_get_the_title(); ?></title>
 
     <!-- Styles -->
     <?php get_the_css_urls(); ?>
