@@ -1000,18 +1000,6 @@ ALTER TABLE `administrator_dashboard_widgets`
   ADD PRIMARY KEY (`widget_id`);
 
 --
--- Indexes for table `campaigns`
---
-ALTER TABLE `campaigns`
-  ADD PRIMARY KEY (`campaign_id`);
-
---
--- Indexes for table `campaigns_meta`
---
-ALTER TABLE `campaigns_meta`
-  ADD PRIMARY KEY (`meta_id`);
-
---
 -- Indexes for table `classifications`
 --
 ALTER TABLE `classifications`
@@ -1410,18 +1398,6 @@ ALTER TABLE `users_social`
 --
 ALTER TABLE `administrator_dashboard_widgets`
   MODIFY `widget_id` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `campaigns`
---
-ALTER TABLE `campaigns`
-  MODIFY `campaign_id` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `campaigns_meta`
---
-ALTER TABLE `campaigns_meta`
-  MODIFY `meta_id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `classifications`
