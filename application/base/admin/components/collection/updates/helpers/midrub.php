@@ -16,6 +16,9 @@ namespace CmsBase\Admin\Components\Collection\Updates\Helpers;
 // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// Require the Curl GET Inc
+require_once APPPATH . 'base/inc/curl/get.php';
+
 /*
  * Midrub class provides the methods to manage the Midrub's updates
  * 
@@ -52,72 +55,15 @@ class Midrub {
      * @return void
      */ 
     public function verify() {
-        
-        // Check if data was submitted
-        if ( $this->CI->input->post() ) {
 
-            // Add form validation
-            $this->CI->form_validation->set_rules('code', 'Code', 'trim|required');
-            
-            // Get received data
-            $code = $this->CI->input->post('code');
-           
-            // Check form validation
-            if ($this->CI->form_validation->run() === false ) {
-
-                // Prepare error message 
-                $data = array(
-                    'success' => FALSE,
-                    'message' => $this->CI->lang->line('updates_code_missing')
-                );
-
-                // Display error message
-                echo json_encode($data);                
-                exit();
-
-            } else {
-
-                // Verify if the updates code is valid
-                $updates_check = get('https://access-codes.midrub.com/?l=' . $code);
-
-                // Verify if the updates code is valid
-                if ( $updates_check ) {
-
-                    // Prepare success response
-                    $data = array(
-                        'success' => TRUE,
-                        'message' => $this->CI->lang->line('updates_downloading')
-                    );
-
-                    // Display success response
-                    echo json_encode($data);    
-
-                } else {
-
-                    // Prepare error message 
-                    $data = array(
-                        'success' => FALSE,
-                        'message' => $this->CI->lang->line('updates_code_wrong')
-                    );
-                    
-                    // Display error message
-                    echo json_encode($data);
-
-                }
-
-                exit();
-                
-            }
-            
-        }
-
-        // Display error message
+        // Prepare error message 
         $data = array(
             'success' => FALSE,
-            'message' => $this->CI->lang->line('updates_error_occurred')
+            'message' => $this->CI->lang->line('updates_code_missing')
         );
 
-        echo json_encode($data);
+        // Display error message
+        echo json_encode($data);     
         
     }
 
@@ -133,142 +79,96 @@ class Midrub {
         // Check if data was submitted
         if ( $this->CI->input->post() ) {
 
-            // Add form validation
-            $this->CI->form_validation->set_rules('code', 'Code', 'trim|required');
-            
-            // Get received data
-            $code = $this->CI->input->post('code');
-           
-            // Check form validation
-            if ($this->CI->form_validation->run() === false ) {
+            // Get the updates
+            $get_updates = json_decode(md_the_get('https://raw.githubusercontent.com/midrub_cms/blob/master/midrub-cms-update.json'), true);
 
-                // Prepare error message 
-                $data = array(
-                    'success' => FALSE,
-                    'message' => $this->CI->lang->line('updates_code_missing')
-                );
+            // Verify if url exists
+            if ( isset($get_updates['url']) ) {
 
-                // Display error message
-                echo json_encode($data);                
-                exit();
+                // New Zip name
+                $new_zip = 'download.zip';                        
 
-            } else {
+                // If download.zip exists, delete
+                if ( file_exists(FCPATH . $new_zip) ) {
 
-                // Verify if the updates code is valid
-                $updates_check = get('http://access-codes.midrub.com/?l=' . $code);
+                    // Delete
+                    unlink(FCPATH . $new_zip);
 
-                // Verify if the updates code is valid
-                if ( $updates_check ) {
+                }
 
-                    // Get the updates
-                    $get_updates = json_decode(get('https://updates.midrub.com/0-0-8-4/?l=' . $code), true);
-
-                    // Verify if url exists
-                    if ( isset($get_updates['url']) ) {
-
-                        // New Zip name
-                        $new_zip = 'download.zip';                        
-
-                        // If download.zip exists, delete
-                        if ( file_exists(FCPATH . $new_zip) ) {
-
-                            // Delete
-                            unlink(FCPATH . $new_zip);
-
-                        }
-
-                        // Verify again if the zip was deleted, otherwise error
-                        if ( file_exists(FCPATH . $new_zip) ) {
-
-                            // Prepare error message 
-                            $data = array(
-                                'success' => FALSE,
-                                'message' => $this->CI->lang->line('updates_zip_not_deleted')
-                            );
-                            
-                            // Display error message
-                            echo json_encode($data);
-                            exit();
-
-                        }
-
-                        // Try to download the zip
-                        file_put_contents($new_zip, fopen($get_updates['url'], 'r'));
-
-                        // Verify if the zip was dpwloaded
-                        if ( !file_exists(FCPATH . $new_zip) ) {
-
-                            // Prepare error message 
-                            $data = array(
-                                'success' => FALSE,
-                                'message' => $this->CI->lang->line('updates_updates_not_downloaded')
-                            );
-                            
-                            // Display error message
-                            echo json_encode($data);
-                            exit();
-
-                        }
-                        
-                        // If the temp directory doesn't exists, create one
-                        if ( !is_dir('temp') ) {
-                        
-                            // Create
-                            if ( !mkdir('temp', 0755, true) ) {
-
-                                // Prepare error message 
-                                $data = array(
-                                    'success' => FALSE,
-                                    'message' => $this->CI->lang->line('updates_failed_to_create_directory')
-                                );
-                                
-                                // Display error message
-                                echo json_encode($data);
-                                exit();                                
-
-                            }    
-                        
-                        }
-
-                        // Prepare success response
-                        $data = array(
-                            'success' => TRUE,
-                            'message' => $this->CI->lang->line('updates_unzipping')
-                        );
-
-                        // Display success response
-                        echo json_encode($data);  
-
-                    } else {
-
-                        // Prepare error message 
-                        $data = array(
-                            'success' => FALSE,
-                            'message' => $this->CI->lang->line('updates_code_wrong')
-                        );
-
-                        // Display error message
-                        echo json_encode($data);
-
-                    }
-
-
-
-                } else {
+                // Verify again if the zip was deleted, otherwise error
+                if ( file_exists(FCPATH . $new_zip) ) {
 
                     // Prepare error message 
                     $data = array(
                         'success' => FALSE,
-                        'message' => $this->CI->lang->line('updates_code_wrong')
+                        'message' => $this->CI->lang->line('updates_zip_not_deleted')
                     );
                     
                     // Display error message
                     echo json_encode($data);
+                    exit();
 
                 }
 
-                exit();
+                // Try to download the zip
+                file_put_contents($new_zip, fopen($get_updates['url'], 'r'));
+
+                // Verify if the zip was dpwloaded
+                if ( !file_exists(FCPATH . $new_zip) ) {
+
+                    // Prepare error message 
+                    $data = array(
+                        'success' => FALSE,
+                        'message' => $this->CI->lang->line('updates_updates_not_downloaded')
+                    );
+                    
+                    // Display error message
+                    echo json_encode($data);
+                    exit();
+
+                }
                 
+                // If the temp directory doesn't exists, create one
+                if ( !is_dir('temp') ) {
+                
+                    // Create
+                    if ( !mkdir('temp', 0755, true) ) {
+
+                        // Prepare error message 
+                        $data = array(
+                            'success' => FALSE,
+                            'message' => $this->CI->lang->line('updates_failed_to_create_directory')
+                        );
+                        
+                        // Display error message
+                        echo json_encode($data);
+                        exit();                                
+
+                    }    
+                
+                }
+
+                // Prepare success response
+                $data = array(
+                    'success' => TRUE,
+                    'message' => $this->CI->lang->line('updates_unzipping')
+                );
+
+                // Display success response
+                echo json_encode($data);  
+
+            } else {
+
+                // Prepare error message 
+                $data = array(
+                    'success' => FALSE,
+                    'message' => $this->CI->lang->line('updates_update_cannot_be_downloaded')
+                );
+
+                // Display error message
+                echo json_encode($data);
+
             }
             
         }

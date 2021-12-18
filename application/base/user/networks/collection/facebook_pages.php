@@ -86,17 +86,9 @@ class Facebook_pages implements CmsBaseUserInterfaces\Networks {
 
         // Permissions to request
         $permissions = array(
-            'pages_read_engagement',
-            'pages_manage_posts',
-            'pages_manage_engagement',
-            'pages_read_user_content',
-            'pages_show_list',
-            'read_insights'
+            'pages_show_list'
         );
 
-        $permissions[] = 'pages_messaging';
-        $permissions[] = 'pages_manage_metadata';
-        
         // Verify if additional permissions exists
         if ( md_the_option('network_facebook_pages_permissions') ) {
 
@@ -106,10 +98,15 @@ class Facebook_pages implements CmsBaseUserInterfaces\Networks {
             if ( count(explode(',', $the_permissions)) > 0 ) {
 
                 // List the permissions
-                foreach ( count(explode(',', $the_permissions)) as $permission ) {
+                foreach ( explode(',', $the_permissions) as $permission ) {
 
                     // Verify if permission is valid
                     if ( !empty($permission) ) {
+
+                        // Verify if permission exists in the list
+                        if ( in_array(trim($permission), $permissions) ) {
+                            continue;
+                        }
 
                         // Set permission
                         $permissions[] = trim($permission);

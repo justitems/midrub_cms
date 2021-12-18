@@ -591,7 +591,7 @@ jQuery(document).ready( function ($) {
                             + '</div>'
                             + '<div class="row">'
                                 + '<div class="col-lg-12">'
-                                    + '<input type="text" placeholder="' + data.words.enter_item_name + '" value="' + name + '" class="form-control menu-item-text-input.theme-text-input-1" id="menu-item-text-input" data-slug="menu_item_name">'
+                                    + '<input type="text" placeholder="' + data.words.enter_item_name + '" value="' + name + '" class="form-control menu-item-text-input theme-text-input-1" id="menu-item-text-input" data-slug="menu_item_name">'
                                     + '<small class="form-text text-muted theme-small">'
                                         + data.words.enter_item_name_description
                                     + '</small>'
@@ -625,7 +625,7 @@ jQuery(document).ready( function ($) {
                                     + '</div>'
                                 + '</div>'
                                 + '<div class="col-lg-6">'
-                                    + '<input type="text" placeholder="' + data.words.item_enter_url + '" value="' + permalink + '" class="form-control menu-item-text-input menu-item-permalink.theme-text-input-1" id="menu-item-permalink">'
+                                    + '<input type="text" placeholder="' + data.words.item_enter_url + '" value="' + permalink + '" class="form-control menu-item-text-input menu-item-permalink theme-text-input-1" id="menu-item-permalink">'
                                 + '</div>'
                             + '</div>'
                             + '<div class="row">'
@@ -648,7 +648,7 @@ jQuery(document).ready( function ($) {
                                                     + '</div>'
                                                     + '<div class="row">'
                                                         + '<div class="col-lg-12">'
-                                                            + '<input type="text" placeholder="' + data.words.enter_item_description + '" value="' + description + '" class="form-control menu-item-description menu-item-text-input.theme-text-input-1" id="menu-item-description">'
+                                                            + '<input type="text" placeholder="' + data.words.enter_item_description + '" value="' + description + '" class="form-control menu-item-description menu-item-text-input theme-text-input-1" id="menu-item-description">'
                                                             + '<small class="form-text text-muted theme-small">'
                                                                 + data.words.item_description_info
                                                             + '</small>'
@@ -664,7 +664,7 @@ jQuery(document).ready( function ($) {
                                                         + '</div>'
                                                         + '<div class="row">'
                                                             + '<div class="col-lg-12">'
-                                                                + '<input type="text" placeholder="' + data.words.enter_item_class + '" value="' + iclass + '" class="form-control menu-item-class menu-item-text-input.theme-text-input-1" id="menu-item-class">'
+                                                                + '<input type="text" placeholder="' + data.words.enter_item_class + '" value="' + iclass + '" class="form-control menu-item-class menu-item-text-input theme-text-input-1" id="menu-item-class">'
                                                                 + '<small class="form-text text-muted theme-small">'
                                                                     + data.words.item_class_description
                                                                 + '</small>'
@@ -900,7 +900,7 @@ jQuery(document).ready( function ($) {
                             + '</div>'
                             + '<div class="row">'
                                 + '<div class="col-lg-12">'
-                                + '<input type="text" placeholder="' + Main.menu_item_words.enter_item_name + '" class="form-control menu-item-text-input.theme-text-input-1" id="menu-item-text-input" data-slug="menu_item_name">'
+                                + '<input type="text" placeholder="' + Main.menu_item_words.enter_item_name + '" class="form-control menu-item-text-input theme-text-input-1" id="menu-item-text-input" data-slug="menu_item_name">'
                                 + '<small class="form-text text-muted theme-small">'
                                     + Main.menu_item_words.enter_item_name_description
                                 + '</small>'
@@ -934,7 +934,7 @@ jQuery(document).ready( function ($) {
                                 + '</div>'
                             + '</div>'
                         + '<div class="col-lg-6">'
-                            + '<input type="text" placeholder="' + Main.menu_item_words.item_enter_url + '" class="form-control menu-item-text-input menu-item-permalink.theme-text-input-1" id="menu-item-permalink">'
+                            + '<input type="text" placeholder="' + Main.menu_item_words.item_enter_url + '" class="form-control menu-item-text-input menu-item-permalink theme-text-input-1" id="menu-item-permalink">'
                         + '</div>'
                     + '</div>'
                     + '<div class="row">'
@@ -957,7 +957,7 @@ jQuery(document).ready( function ($) {
                                             + '</div>'
                                             + '<div class="row">'
                                                 + '<div class="col-lg-12">'
-                                                    + '<input type="text" placeholder="' + Main.menu_item_words.enter_item_description + '" class="form-control menu-item-description menu-item-text-input.theme-text-input-1" id="menu-item-description">'
+                                                    + '<input type="text" placeholder="' + Main.menu_item_words.enter_item_description + '" class="form-control menu-item-description menu-item-text-input theme-text-input-1" id="menu-item-description">'
                                                     + '<small class="form-text text-muted theme-small">'
                                                         + Main.menu_item_words.item_description_info
                                                     + '</small>'
@@ -974,7 +974,7 @@ jQuery(document).ready( function ($) {
                                         + '</div>'
                                         + '<div class="row">'
                                             + '<div class="col-lg-12">'
-                                                + '<input type="text" placeholder="' + Main.menu_item_words.enter_item_class + '" class="form-control menu-item-class menu-item-text-input.theme-text-input-1" id="menu-item-class">'
+                                                + '<input type="text" placeholder="' + Main.menu_item_words.enter_item_class + '" class="form-control menu-item-class menu-item-text-input theme-text-input-1" id="menu-item-class">'
                                                 + '<small class="form-text text-muted theme-small">'
                                                     + Main.menu_item_words.item_class_description
                                                 + '</small>'
