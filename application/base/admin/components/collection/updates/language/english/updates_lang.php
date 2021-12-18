@@ -47,3 +47,4 @@ $lang["updates_theme_was_updatesd"] = "The theme was updatesd successfully.";
 $lang["updates_plugins"] = "Plugins";
 $lang["updates_plugin_can_not_be_updatesd"] = "The plugin can't be updatesd.";
 $lang["updates_plugin_was_updatesd"] = "The plugin was updatesd successfully.";
+$lang["updates_update_cannot_be_downloaded"] = "The update can't be downloaded.";

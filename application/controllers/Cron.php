@@ -9,7 +9,7 @@
  * @category Social
  * @package  Midrub
  * @author   Scrisoft <asksyn@gmail.com>
- * @license  https://www.gnu.org/licenses/gpl-2.0.html GNU General Public License
+ * @license  https://github.com/scrisoft/midrub_cms/blob/master/license
  * @link     https://www.midrub.com/
  */
 
@@ -17,13 +17,16 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 defined('CMS_BASE_USER') OR define('CMS_BASE_USER', APPPATH . 'base/user/');
 
+// Require the Curl GET Inc
+require_once APPPATH . 'base/inc/curl/get.php';
+
 /**
  * Cron class - runs all Midrub's cron jobs commands
  *
  * @category Social
  * @package  Midrub
  * @author   Scrisoft <asksyn@gmail.com>
- * @license  https://www.gnu.org/licenses/gpl-2.0.html GNU General Public License
+ * @license  https://github.com/scrisoft/midrub_cms/blob/master/license
  * @link     https://www.midrub.com/
  */
 class Cron extends CI_Controller {
@@ -378,7 +381,7 @@ class Cron extends CI_Controller {
                 }
                 
                 // Get update
-                $update_down = json_decode(md_get($info['update_url']), TRUE);
+                $update_down = json_decode(md_the_get($info['update_url']), TRUE);
 
                 // New version variable
                 $new_version = '';
@@ -467,7 +470,7 @@ class Cron extends CI_Controller {
                 }
                 
                 // Get update
-                $update_down = json_decode(md_get($info['update_url']), TRUE);
+                $update_down = json_decode(md_the_get($info['update_url']), TRUE);
 
                 // New version variable
                 $new_version = '';
@@ -543,7 +546,7 @@ class Cron extends CI_Controller {
                 }
                 
                 // Get update
-                $update_down = json_decode(md_get($info['update_url']), TRUE);
+                $update_down = json_decode(md_the_get($info['update_url']), TRUE);
 
                 // New version variable
                 $new_version = '';
@@ -605,7 +608,7 @@ class Cron extends CI_Controller {
             }
             
             // Get update
-            $update_down = json_decode(md_get('https://update.midrub.com/0-0-8-4-b/'), TRUE);
+            $update_down = json_decode(md_the_get('https://raw.githubusercontent.com/midrub_cms/blob/master/midrub-cms-update.json'), TRUE);
 
             // New version variable
             $new_version = '';
@@ -694,7 +697,7 @@ class Cron extends CI_Controller {
                     }
                     
                     // Get update
-                    $update_down = json_decode(md_get($info['update_url']), TRUE);
+                    $update_down = json_decode(md_the_get($info['update_url']), TRUE);
 
                     // New version variable
                     $new_version = '';
