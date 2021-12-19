@@ -381,7 +381,7 @@ class Cron extends CI_Controller {
                 }
                 
                 // Get update
-                $update_down = json_decode(md_the_get($info['update_url']), TRUE);
+                $update_down = json_decode(md_the_get(array('url' => $info['update_url'])), TRUE);
 
                 // New version variable
                 $new_version = '';
@@ -470,7 +470,7 @@ class Cron extends CI_Controller {
                 }
                 
                 // Get update
-                $update_down = json_decode(md_the_get($info['update_url']), TRUE);
+                $update_down = json_decode(md_the_get(array('url' => $info['update_url'])), TRUE);
 
                 // New version variable
                 $new_version = '';
@@ -546,7 +546,7 @@ class Cron extends CI_Controller {
                 }
                 
                 // Get update
-                $update_down = json_decode(md_the_get($info['update_url']), TRUE);
+                $update_down = json_decode(md_the_get(array('url' => $info['update_url'])), TRUE);
 
                 // New version variable
                 $new_version = '';
@@ -608,7 +608,9 @@ class Cron extends CI_Controller {
             }
             
             // Get update
-            $update_down = json_decode(md_the_get('https://raw.githubusercontent.com/midrub_cms/blob/master/midrub-cms-update.json'), TRUE);
+            $update_down = json_decode(md_the_get(array(
+                'url' => 'https://raw.githubusercontent.com/scrisoft/midrub_cms/master/midrub-cms-update'
+            )), TRUE);
 
             // New version variable
             $new_version = '';
