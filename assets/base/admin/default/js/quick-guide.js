@@ -138,7 +138,6 @@ jQuery(document).ready( function ($) {
             } else {
 
                 function get_guide_contents(contents, category_slug, parent_level) {
-                    console.log(category_slug);
 
                     // List all quick guides contents
                     for ( var g = 0; g < contents.length; g++ ) {

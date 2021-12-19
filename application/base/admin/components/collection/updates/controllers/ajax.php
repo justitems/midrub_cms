@@ -57,7 +57,7 @@ class Ajax {
      */
     public function updates_midrub() {
         
-        // Verify if Midrub can be updatesd
+        // Verify if Midrub can be updates
         (new CmsBaseAdminCollectionUpdatesHelpers\Midrub)->verify();
         
     }
@@ -119,7 +119,7 @@ class Ajax {
     }
 
     /**
-     * The public method updates_midrub_app verifies if the app can be updatesd
+     * The public method updates_midrub_app verifies if the app can be updates
      * 
      * @since 0.0.8.1
      * 
@@ -127,7 +127,7 @@ class Ajax {
      */
     public function updates_midrub_app() {
         
-        // Verify if the Midrub's app can be updatesd
+        // Verify if the Midrub's app can be updates
         (new CmsBaseAdminCollectionUpdatesHelpers\Apps)->verify();
         
     }
@@ -175,7 +175,7 @@ class Ajax {
     }
 
     /**
-     * The public method updates_midrub_user_component verifies if the user's component can be updatesd
+     * The public method updates_midrub_user_component verifies if the user's component can be updates
      * 
      * @since 0.0.8.4
      * 
@@ -183,7 +183,7 @@ class Ajax {
      */
     public function updates_midrub_user_component() {
         
-        // Verify if the Midrub's user component can be updatesd
+        // Verify if the Midrub's user component can be updates
         (new CmsBaseAdminCollectionUpdatesHelpers\User_components)->verify();
         
     }
@@ -231,7 +231,7 @@ class Ajax {
     }
 
     /**
-     * The public method updates_midrub_frontend_theme verifies if the frontend theme can be updatesd
+     * The public method updates_midrub_frontend_theme verifies if the frontend theme can be updates
      * 
      * @since 0.0.8.3
      * 
@@ -239,7 +239,7 @@ class Ajax {
      */
     public function updates_midrub_frontend_theme() {
         
-        // Verify if the frontend theme can be updatesd
+        // Verify if the frontend theme can be updates
         (new CmsBaseAdminCollectionUpdatesHelpers\Frontend_themes)->verify();
         
     }
@@ -287,7 +287,7 @@ class Ajax {
     }
 
     /**
-     * The public method updates_midrub_plugin verifies if the plugin can be updatesd
+     * The public method updates_midrub_plugin verifies if the plugin can be updates
      * 
      * @since 0.0.8.4
      * 
@@ -295,7 +295,7 @@ class Ajax {
      */
     public function updates_midrub_plugin() {
         
-        // Verify if the Midrub's plugin can be updatesd
+        // Verify if the Midrub's plugin can be updates
         (new CmsBaseAdminCollectionUpdatesHelpers\Plugins)->verify();
         
     }

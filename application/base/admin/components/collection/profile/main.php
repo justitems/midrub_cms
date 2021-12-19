@@ -15,7 +15,7 @@ namespace CmsBase\Admin\Components\Collection\Profile;
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 defined('CMS_BASE_ADMIN_COMPONENTS_PROFILE') OR define('CMS_BASE_ADMIN_COMPONENTS_PROFILE', CMS_BASE_PATH . 'admin/components/collection/profile/');
-defined('CMS_BASE_ADMIN_COMPONENTS_PROFILE_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_PROFILE_VERSION', '0.18');
+defined('CMS_BASE_ADMIN_COMPONENTS_PROFILE_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_PROFILE_VERSION', '0.2');
 
 // Define the namespaces to use
 use CmsBase\Admin\Interfaces as CmsBaseAdminInterfaces;

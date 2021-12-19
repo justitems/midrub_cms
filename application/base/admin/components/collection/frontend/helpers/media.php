@@ -171,6 +171,164 @@ class Media {
         
     }
 
+    /**
+     * The public method frontend_change_auth_logo changes the logo for the auth's section
+     * 
+     * @since 0.0.8.5
+     * 
+     * @return void
+     */
+    public function frontend_change_auth_logo() {
+
+        // Check if data was submitted
+        if ($this->CI->input->post()) {
+
+            // Verify if the file was uploaded
+            if ( empty($_FILES['files']) ) {
+
+                // Prepare the error response
+                $data = array(
+                    'success' => FALSE,
+                    'message' => $this->CI->lang->line('frontend_error_occurred_request')
+                );
+
+                // Display the error response
+                echo json_encode($data);
+                exit();                    
+
+            }
+
+            // Verify if the uploaded file is an image
+            if ( !in_array($_FILES['files']['type'][0], array('image/jpeg', 'image/jpg', 'image/png')) ) {
+
+                // Set cover
+                $cover = file_get_contents($_FILES['files']['tmp_name'][0]);                    
+
+            } else {
+
+                // Set default cover
+                $cover = file_get_contents(base_url('assets/img/no-image.png'));
+
+            }
+
+            // Set file's data
+            $_FILES['file']['name'] = $_FILES['files']['name'][0];
+            $_FILES['file']['type'] = $_FILES['files']['type'][0];
+            $_FILES['file']['tmp_name'] = $_FILES['files']['tmp_name'][0];
+            $_FILES['file']['error'] = $_FILES['files']['error'][0];
+            $_FILES['file']['size'] = $_FILES['files']['size'][0];
+
+            // Upload media
+            $response = (new CmsBaseClassesMedia\Upload)->upload_to_admin(array(
+                'cover' => $cover,
+                'allowed_extensions' => array('image/png', 'image/jpg', 'image/jpeg', 'image/gif')
+            ), true);
+
+            // Verify if the file was uploaded
+            if ( !empty($response['success']) ) {
+
+                // Change the auth's logo
+                md_update_option('auth_logo', $response['media_id']);
+
+                // Get file type
+                $get_type = explode('/', $_FILES['file']['type']);
+
+                // Get the file url
+                $file_url = $this->CI->base_model->the_data_where(
+                'medias',
+                '*',
+                array(
+                    'media_id' => $response['media_id']
+                ));
+
+                // Prepare response
+                $message = array(
+                    'success' => TRUE,
+                    'message' => $this->CI->lang->line('frontend_logo_was_changed'),
+                    'media_id' => $response['media_id'],
+                    'file_url' => $file_url?$file_url[0]['body']:base_url('assets/img/no-image.png')                    
+                );
+
+                // Display the response
+                echo json_encode($message);
+
+            } else {
+
+                // Display error
+                echo json_encode(array(
+                    'success' => FALSE,
+                    'message' => !empty($response['message'])?$response['message']:$this->CI->lang->line('frontend_logo_was_not_changed')
+                ));
+
+            }
+
+            exit();
+
+        }
+        
+        // Prepare response
+        $data = array(
+            'success' => FALSE,
+            'message' => $this->CI->lang->line('frontend_logo_was_not_changed')
+        );
+
+        // Prepare response
+        echo json_encode($data);
+        
+    }
+
+    /**
+     * The public method frontend_remove_auth_logo removes the logo for the auth's section
+     * 
+     * @since 0.0.8.5
+     * 
+     * @return void
+     */
+    public function frontend_remove_auth_logo() {
+
+        // Check if data was submitted
+        if ($this->CI->input->post()) {
+
+            // Try to delete the auth's logo
+            if ( md_delete_option('auth_logo') ) {
+
+                // Prepare response
+                $message = array(
+                    'success' => TRUE,
+                    'message' => $this->CI->lang->line('frontend_logo_was_removed')                 
+                );
+
+                // Display the response
+                echo json_encode($message);
+
+            } else {
+
+                // Prepare response
+                $data = array(
+                    'success' => FALSE,
+                    'message' => $this->CI->lang->line('frontend_logo_was_not_removed')
+                );
+
+                // Prepare response
+                echo json_encode($data);
+
+            }
+
+            exit();
+
+        }
+        
+        // Prepare response
+        $data = array(
+            'success' => FALSE,
+            'message' => $this->CI->lang->line('frontend_error_occurred_request')
+        );
+
+        // Prepare response
+        echo json_encode($data);
+        
+    }
+
 }
 
 /* End of file media.php */

@@ -183,7 +183,7 @@ class Frontend_themes {
                     // Prepare error message 
                     $data = array(
                         'success' => FALSE,
-                        'message' => $this->CI->lang->line('updates_theme_can_not_be_updatesd')
+                        'message' => $this->CI->lang->line('updates_theme_can_not_be_updates')
                     );
 
                     // Display error message
@@ -407,7 +407,7 @@ class Frontend_themes {
                     // Prepare error message 
                     $data = array(
                         'success' => FALSE,
-                        'message' => $this->CI->lang->line('updates_theme_can_not_be_updatesd')
+                        'message' => $this->CI->lang->line('updates_theme_can_not_be_updates')
                     );
 
                     // Display error message
@@ -758,7 +758,7 @@ class Frontend_themes {
                             // Prepare success response
                             $data = array(
                                 'success' => TRUE,
-                                'message' => $this->CI->lang->line('updates_theme_was_updatesd')
+                                'message' => $this->CI->lang->line('updates_theme_was_updates')
                             );
 
                             // Display success response

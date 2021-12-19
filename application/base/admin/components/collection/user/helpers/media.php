@@ -74,22 +74,6 @@ class Media {
 
             }
 
-            // Get upload limit
-            $upload_limit = md_the_option('upload_limit');
-            
-            // Verify for upload limit
-            if ( !$upload_limit ) {
-
-                // Set default limit
-                $upload_limit = 6291456;
-
-            } else {
-
-                // Set wanted limit
-                $upload_limit = $upload_limit * 1048576;
-
-            }
-
             // Verify if the uploaded file is an image
             if ( !in_array($_FILES['files']['type'][0], array('image/jpeg', 'image/jpg', 'image/png')) ) {
 

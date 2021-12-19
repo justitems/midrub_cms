@@ -25,7 +25,12 @@
             )
 
         )); ?>        
-        <?php md_get_admin_fields(array(
+        <?php
+        
+        // Get the auth's logo
+        $auth_logo = md_the_option('auth_logo')?$this->base_model->the_data_where('medias', '*', array('media_id' => md_the_option('auth_logo'))):'';
+        
+        md_get_admin_fields(array(
             'header' => array(
                 'title' => md_the_admin_icon(array('icon' => 'door'))
                 . $this->lang->line('frontend_members_access')
@@ -96,9 +101,8 @@
                         'field_description' => $this->lang->line('frontend_logo_for_sign_in_description')
                     ),
                     'field_params' => array(
-                        'button_text' => $this->lang->line('frontend_settings_select_page'),
-                        'button_value' => 0,
-                        'placeholder' => $this->lang->line('frontend_settings_search_page')
+                        'modal' => '#frontend-upload-auth-logo-modal',
+                        'src' => $auth_logo?$auth_logo[0]['body']:''
                     )
 
                 ),

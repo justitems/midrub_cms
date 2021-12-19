@@ -15,7 +15,7 @@ namespace CmsBase\Admin\Components\Collection\Frontend;
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 defined('CMS_BASE_ADMIN_COMPONENTS_FRONTEND') OR define('CMS_BASE_ADMIN_COMPONENTS_FRONTEND', APPPATH . 'base/admin/components/collection/frontend/');
-defined('CMS_BASE_ADMIN_COMPONENTS_FRONTEND_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_FRONTEND_VERSION', '0.0.59999999999999999995');
+defined('CMS_BASE_ADMIN_COMPONENTS_FRONTEND_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_FRONTEND_VERSION', '0.0.6');
 
 // Define the namespaces to use
 use CmsBase\Admin\Interfaces as CmsBaseAdminInterfaces;
