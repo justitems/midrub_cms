@@ -177,11 +177,14 @@ class Apps {
                                 // Try to open the zip
                                 if ($zip->open(CMS_BASE_ADMIN_COMPONENTS_USER . 'temp/' . $installation['php']) === TRUE) {
 
+                                    // Set app's dir
+                                    $app_php_dir = dirname($zip->getNameIndex(0));
+
                                     // First verify if files exists
                                     if ( $zip->numFiles > 0 ) {
 
                                         // Verify if the app is already installed
-                                        if ( is_dir(CMS_BASE_PATH . 'user/apps/collection/' . $zip->getNameIndex(0)) ) {
+                                        if ( is_dir(CMS_BASE_PATH . 'user/apps/collection/' . $app_php_dir) ) {
 
                                             // Prepare the error message
                                             $data = array(
@@ -202,23 +205,23 @@ class Apps {
                                             $zip->extractTo(CMS_BASE_PATH . 'user/apps/collection/');
 
                                             // Verify if models directory exists
-                                            if ( is_dir(CMS_BASE_PATH . 'user/apps/collection/' . $zip->getNameIndex(0) . '/models/') ) {
+                                            if ( is_dir(CMS_BASE_PATH . 'user/apps/collection/' . $app_php_dir . '/models/') ) {
 
                                                 // List all available models
-                                                foreach ( glob(CMS_BASE_PATH . 'user/apps/collection/' . $zip->getNameIndex(0) . '/models/*.php') as $filename ) {
+                                                foreach ( glob(CMS_BASE_PATH . 'user/apps/collection/' . $app_php_dir . '/models/*.php') as $filename ) {
 
                                                     // Get the class's name
-                                                    $className = str_replace(array(CMS_BASE_PATH . 'user/apps/collection/' . $zip->getNameIndex(0) . '/models/', '.php'), '', $filename);
+                                                    $className = str_replace(array(CMS_BASE_PATH . 'user/apps/collection/' . $app_php_dir . '/models/', '.php'), '', $filename);
 
                                                     // Load the model
-                                                    $this->CI->load->ext_model(CMS_BASE_PATH . 'user/apps/collection/' . $zip->getNameIndex(0) . '/models/', ucfirst($className), $className );
+                                                    $this->CI->load->ext_model(CMS_BASE_PATH . 'user/apps/collection/' . $app_php_dir . '/models/', ucfirst($className), $className );
 
                                                 }
 
                                             }
 
                                             // Verify if the app is installed
-                                            if ( is_dir(CMS_BASE_PATH . 'user/apps/collection/' . $zip->getNameIndex(0)) ) {
+                                            if ( is_dir(CMS_BASE_PATH . 'user/apps/collection/' . $app_php_dir) ) {
 
                                                 // Verify if the assets file exists
                                                 if ( isset($installation['assets']) ) {
@@ -235,8 +238,11 @@ class Apps {
                                                             // First verify if files exists
                                                             if ( $zip->numFiles > 0 ) {
 
+                                                                // Set app's dir
+                                                                $app_assets_dir = dirname($zip->getNameIndex(0));
+
                                                                 // Verify if the app is already installed
-                                                                if ( is_dir(FCPATH . 'assets/base/user/apps/collection/' . $zip->getNameIndex(0)) ) {
+                                                                if ( is_dir(FCPATH . 'assets/base/user/apps/collection/' . $app_assets_dir) ) {
 
                                                                     // Prepare the error message
                                                                     $data = array(
@@ -257,7 +263,7 @@ class Apps {
                                                                     $zip->extractTo(FCPATH . 'assets/base/user/apps/collection/');
 
                                                                     // Verify if the assets were installed
-                                                                    if ( !is_dir(FCPATH . 'assets/base/user/apps/collection/' . $zip->getNameIndex(0)) ) {
+                                                                    if ( !is_dir(FCPATH . 'assets/base/user/apps/collection/' . $app_assets_dir) ) {
 
                                                                         // Prepare the error message
                                                                         $data = array(
