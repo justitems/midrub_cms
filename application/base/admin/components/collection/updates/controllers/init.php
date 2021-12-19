@@ -597,6 +597,7 @@ class Init {
 
                     // System array
                     $system = array(
+                        'name' => 'Midrub CMS',
                         'version' => $updates[0]['version'],
                         'body' => $updates[0]['body'],
                         'created' => $updates[0]['created']
