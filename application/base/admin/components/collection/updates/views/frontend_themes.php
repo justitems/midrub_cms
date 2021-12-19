@@ -25,8 +25,8 @@
                             ),
                             'field_params' => array(
                                 'update_form' => TRUE,
-                                'update_code' => !empty($updates['updates_code'])?$updates['updates_code']:FALSE,
-                                'update_button_code' => !empty($updates['updates_code_url'])?$updates['updates_code_url']:FALSE
+                                'update_code' => !empty($updates['update_code'])?$updates['update_code']:FALSE,
+                                'update_button_code' => !empty($updates['update_code_url'])?$updates['update_code_url']:FALSE
                             )
 
                         );

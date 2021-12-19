@@ -56,14 +56,14 @@ class Midrub {
      */ 
     public function verify() {
 
-        // Prepare error message 
+        // Prepare success response
         $data = array(
-            'success' => FALSE,
-            'message' => $this->CI->lang->line('updates_code_missing')
+            'success' => TRUE,
+            'message' => $this->CI->lang->line('updates_downloading')
         );
 
-        // Display error message
-        echo json_encode($data);     
+        // Display success response
+        echo json_encode($data);       
         
     }
 
@@ -80,7 +80,9 @@ class Midrub {
         if ( $this->CI->input->post() ) {
 
             // Get the updates
-            $get_updates = json_decode(md_the_get('https://raw.githubusercontent.com/midrub_cms/blob/master/midrub-cms-update.json'), true);
+            $get_updates = json_decode(md_the_get(array(
+                'url' => 'https://raw.githubusercontent.com/scrisoft/midrub_cms/master/midrub-cms-update'
+            )), TRUE);
 
             // Verify if url exists
             if ( isset($get_updates['url']) ) {
@@ -156,7 +158,8 @@ class Midrub {
                 );
 
                 // Display success response
-                echo json_encode($data);  
+                echo json_encode($data);
+                exit(); 
 
             } else {
 
@@ -168,6 +171,7 @@ class Midrub {
 
                 // Display error message
                 echo json_encode($data);
+                exit(); 
 
             }
             
@@ -237,11 +241,11 @@ class Midrub {
             // Close the ZipArchive class
             $zip->close();
 
-            // Verify if the updates.json exists
-            if ( file_exists('temp/updates.json') ) {
+            // Verify if the update.json exists
+            if ( file_exists('temp/update.json') ) {
 
                 // Get files to updates
-                $updates = json_decode(file_get_contents('temp/updates.json'), true);
+                $updates = json_decode(file_get_contents('temp/update.json'), true);
 
                 // Verify if the updates has files
                 if ( isset($updates['files']) ) {
@@ -375,11 +379,11 @@ class Midrub {
             
         }
 
-            // Verify if the updates.json exists
-            if ( file_exists('temp/updates.json') ) {
+            // Verify if the update.json exists
+            if ( file_exists('temp/update.json') ) {
 
                 // Get files to updates
-                $updates = json_decode(file_get_contents('temp/updates.json'), true);
+                $updates = json_decode(file_get_contents('temp/update.json'), true);
 
                 // Verify if the updates has files
                 if ( isset($updates['files']) ) {
@@ -444,7 +448,7 @@ class Midrub {
                     // Prepare success response
                     $data = array(
                         'success' => TRUE,
-                        'message' => $this->CI->lang->line('updates_midrub_was_updatesd')
+                        'message' => $this->CI->lang->line('updates_midrub_was_updates')
                     );
 
                     // Display success response
@@ -453,18 +457,18 @@ class Midrub {
                     // Delete the updates record
                     $this->CI->base_model->delete('updates', array('slug' => 'midrub'));
 
-                    // Verify if old updates.json exists
-                    if ( file_exists('updates.json') ) {
+                    // Verify if old update.json exists
+                    if ( file_exists('update.json') ) {
 
-                        // Delete the existing updates.json
-                        unlink('updates.json');
+                        // Delete the existing update.json
+                        unlink('update.json');
 
                     }
 
-                    // Copy the updates.json in the main directory
-                    copy('temp/updates.json', 'updates.json');
+                    // Copy the update.json in the main directory
+                    copy('temp/update.json', 'update.json');
 
-                    // Create the updates.json in the backup directory
+                    // Create the update.json in the backup directory
                     file_put_contents('backup/backup.json', json_encode(array(
                         'files' => $this->copied
                     ), JSON_PRETTY_PRINT));
@@ -626,11 +630,11 @@ class Midrub {
         
                     rmdir('backup');
 
-                    // Verify if old updates.json exists
-                    if ( file_exists('updates.json') ) {
+                    // Verify if old update.json exists
+                    if ( file_exists('update.json') ) {
 
-                        // Delete the existing updates.json
-                        unlink('updates.json');
+                        // Delete the existing update.json
+                        unlink('update.json');
 
                     }
 

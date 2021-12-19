@@ -88,7 +88,7 @@ class Main implements CmsBaseAdminInterfaces\Fields {
 
             }
 
-            $update_button_left = $update_code?' ms-3':'';
+            $update_button_left = $update_code?' ms-3':' w-100';
 
             // Set form
             $footer = '<div class="card-footer">'

@@ -195,7 +195,7 @@ class User_components {
                     // Prepare error message 
                     $data = array(
                         'success' => FALSE,
-                        'message' => $this->CI->lang->line('updates_component_can_not_be_updatesd')
+                        'message' => $this->CI->lang->line('updates_component_can_not_be_updates')
                     );
 
                     // Display error message
@@ -432,7 +432,7 @@ class User_components {
                     // Prepare error message 
                     $data = array(
                         'success' => FALSE,
-                        'message' => $this->CI->lang->line('updates_component_can_not_be_updatesd')
+                        'message' => $this->CI->lang->line('updates_component_can_not_be_updates')
                     );
 
                     // Display error message
@@ -783,7 +783,7 @@ class User_components {
                             // Prepare success response
                             $data = array(
                                 'success' => TRUE,
-                                'message' => $this->CI->lang->line('updates_component_was_updatesd')
+                                'message' => $this->CI->lang->line('updates_component_was_updates')
                             );
 
                             // Display success response

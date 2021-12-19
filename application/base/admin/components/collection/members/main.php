@@ -19,7 +19,7 @@ namespace CmsBase\Admin\Components\Collection\Members;
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 defined('CMS_BASE_ADMIN_COMPONENTS_MEMBERS') OR define('CMS_BASE_ADMIN_COMPONENTS_MEMBERS', CMS_BASE_PATH . 'admin/components/collection/members/');
-defined('CMS_BASE_ADMIN_COMPONENTS_MEMBERS_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_MEMBERS_VERSION', '0.0.4995');
+defined('CMS_BASE_ADMIN_COMPONENTS_MEMBERS_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_MEMBERS_VERSION', '0.0.5');
 
 // Define the namespaces to use
 use CmsBase\Admin\Interfaces as CmsBaseAdminInterfaces;

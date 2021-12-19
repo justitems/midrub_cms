@@ -21,17 +21,13 @@ jQuery(document).ready( function ($) {
      */    
     Main.start_download = function () {
 
-        // Get the updates's code
-        var code = $('.updates-midrub .code-input').val();
-
         // Prepare data to send
         var data = {
-            action: 'download_midrub_updates',
-            code: code
+            action: 'download_midrub_updates'
         };
         
-        // Set the CSRF field
-        data[$('.updates-midrub').attr('data-csrf')] = $('input[name="' + $('.updates-midrub').attr('data-csrf') + '"]').val();
+		// Set CSRF
+        data[$('.main').attr('data-csrf')] = $('.main').attr('data-csrf-value');
 
         // Make ajax call
         Main.ajax_call(url + 'admin/ajax/updates', 'POST', data, 'download_midrub_updates');
@@ -77,22 +73,6 @@ jQuery(document).ready( function ($) {
     ********************************/
 
     /*
-     * Generate new updates code
-     * 
-     * @since   0.0.8.0
-     */
-    $( document ).on( 'click', '.generate-new-updates-code', function (e) {
-        e.preventDefault();
-
-        // Redirect
-        window.open(
-            'http://access-codes.midrub.com/',
-            '_blank'
-          );
-
-    });
-
-    /*
      * Restore backup
      * 
      * @since   0.0.8.0
@@ -106,10 +86,10 @@ jQuery(document).ready( function ($) {
         };
 
         // Make ajax call
-        Main.ajax_call(url + 'admin/ajax/updates', 'GET', data, 'restore_midrub_backup');
-        
-        // Show loading animation
-        $('.page-loading').fadeIn('slow');
+        Main.ajax_call(url + 'admin/ajax/updates', 'GET', data, 'restore_midrub_backup', 'ajax_onprogress');
+
+        // Set progress bar
+        Main.set_progress_bar();
 
     });
  
@@ -127,6 +107,9 @@ jQuery(document).ready( function ($) {
      * @since   0.0.8.0
      */
     Main.methods.updates_midrub = function ( status, data ) {
+
+        // Remove progress bar
+        Main.remove_progress_bar();
 
         // Verify if the success response exists
         if ( status === 'success' ) {
@@ -148,7 +131,7 @@ jQuery(document).ready( function ($) {
         } else {
             
             // Display alert
-            Main.popup_fon('sube', data.message, 1500, 2000);
+            Main.show_alert('error', data.message, 1500, 2000);
             
         }
 
@@ -181,7 +164,7 @@ jQuery(document).ready( function ($) {
         } else {
             
             // Display alert
-            Main.popup_fon('sube', data.message, 1500, 2000);
+            Main.show_alert('error', data.message, 1500, 2000);
 
             // Show the modal
             $('#updates-system').modal('hide');
@@ -217,7 +200,7 @@ jQuery(document).ready( function ($) {
         } else {
             
             // Display alert
-            Main.popup_fon('sube', data.message, 1500, 2000);
+            Main.show_alert('error', data.message, 1500, 2000);
 
             // Show the modal
             $('#updates-system').modal('hide');
@@ -245,7 +228,7 @@ jQuery(document).ready( function ($) {
             $('#updates-system .progress-bar-striped').text('100%');
 
             // Display alert
-            Main.popup_fon('subi', data.message, 1500, 2000);
+            Main.show_alert('success', data.message, 1500, 2000);
 
             // Refresh the page
             setTimeout(function() {
@@ -255,7 +238,7 @@ jQuery(document).ready( function ($) {
         } else {
             
             // Display alert
-            Main.popup_fon('sube', data.message, 1500, 2000);
+            Main.show_alert('error', data.message, 1500, 2000);
 
             // Show the modal
             $('#updates-system').modal('hide');
@@ -274,11 +257,14 @@ jQuery(document).ready( function ($) {
      */
     Main.methods.restore_midrub_backup = function ( status, data ) {
 
+        // Remove progress bar
+        Main.remove_progress_bar();
+
         // Verify if the success response exists
         if ( status === 'success' ) {
 
             // Display alert
-            Main.popup_fon('subi', data.message, 1500, 2000);
+            Main.show_alert('success', data.message, 1500, 2000);
 
             // Refresh the page
             setTimeout(function() {
@@ -288,7 +274,7 @@ jQuery(document).ready( function ($) {
         } else {
             
             // Display alert
-            Main.popup_fon('sube', data.message, 1500, 2000);
+            Main.show_alert('error', data.message, 1500, 2000);
             
         }
 
@@ -305,26 +291,22 @@ jQuery(document).ready( function ($) {
      * 
      * @since   0.0.8.0
      */
-    $('.updates-midrub').submit(function (e) {
+    $(document).on('submit', '.updates-page .update-midrub', function (e) {
         e.preventDefault();
-        
-        // Get the updates's code
-        var code = $(this).find('.code-input').val();
 
         // Prepare data to send
         var data = {
-            action: 'updates_midrub',
-            code: code
+            action: 'updates_midrub'
         };
 
-        // Set CSRF
-        data[$(this).attr('data-csrf')] = $('input[name="' + $(this).attr('data-csrf') + '"]').val();
+		// Set CSRF
+        data[$('.main').attr('data-csrf')] = $('.main').attr('data-csrf-value');
         
         // Make ajax call
-        Main.ajax_call(url + 'admin/ajax/updates', 'POST', data, 'updates_midrub');
+        Main.ajax_call(url + 'admin/ajax/updates', 'POST', data, 'updates_midrub', 'ajax_onprogress');
         
-        // Show loading animation
-        $('.page-loading').fadeIn('slow');
+        // Set progress bar
+        Main.set_progress_bar(); 
         
     });
     

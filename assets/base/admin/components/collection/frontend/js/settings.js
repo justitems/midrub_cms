@@ -208,6 +208,29 @@ jQuery(document).ready( function ($) {
         Main.set_progress_bar();
         
     });
+
+    /*
+     * Detect auth logo remove
+     * 
+     * @since   0.0.8.5
+     */ 
+    $( document ).on( 'click', '.frontend-page [data-field="auth_logo"] .admin-field-remove-image', function () {
+        
+        // Prepare data to send
+        var data = {
+            action: 'frontend_remove_auth_logo'
+        };
+
+		// Set CSRF
+        data[$('.main').attr('data-csrf')] = $('.main').attr('data-csrf-value');     
+        
+        // Make ajax call
+        Main.ajax_call(url + 'admin/ajax/frontend', 'POST', data, 'frontend_remove_auth_logo_response', 'ajax_onprogress');
+
+        // Set progress bar
+        Main.set_progress_bar();
+        
+    });
    
     /*******************************
     RESPONSES
@@ -238,7 +261,7 @@ jQuery(document).ready( function ($) {
                 // Add page to the list
                 pages += '<li class="list-group-item">'
                     + '<a href="#" data-id="' + data.pages[p].content_id + '">'
-                        + data.pages[p].meta_value
+                        + data.pages[p].content_title
                     + '</a>'
                 + '</li>';
 
@@ -328,6 +351,68 @@ jQuery(document).ready( function ($) {
 
             }
             
+        }
+        
+    };
+
+    /*
+     * Display the logo change for the auth section
+     * 
+     * @param string status contains the response status
+     * @param object data contains the response content
+     * 
+     * @since   0.0.8.5
+     */
+    Main.methods.frontend_change_auth_logo = function ( status, data ) {
+
+        // Verify if the success response exists
+        if ( status === 'success' ) {
+            
+            // Display alert
+            Main.show_alert('success', data.message, 1500, 2000);   
+
+            // Set the user image
+            $('.frontend-page .theme-image-field > .card-header').html('<img src="' + data.file_url + '" alt="Auth Logo" width="32">');
+
+            // Close modal
+            $('#frontend-upload-auth-logo-modal .btn-close').click();
+            
+        } else {
+            
+            // Display alert
+            Main.show_alert('error', data.message, 1500, 2000);
+            
+        }
+
+    };
+
+    /*
+     * Display the remove logo response
+     * 
+     * @param string status contains the response status
+     * @param object data contains the response content
+     * 
+     * @since   0.0.8.5
+     */
+    Main.methods.frontend_remove_auth_logo_response = function ( status, data ) {
+
+        // Remove progress bar
+        Main.remove_progress_bar();
+
+        // Verify if the success response exists
+        if ( status === 'success' ) {
+            
+            // Display alert
+            Main.show_alert('success', data.message, 1500, 2000);
+
+            // Reset the auth logo
+            Main.reset_field_image('.frontend-page [data-field="auth_logo"]');
+            
+        } else {
+            
+            // Display alert
+            Main.show_alert('error', data.message, 1500, 2000);
+
         }
         
     };

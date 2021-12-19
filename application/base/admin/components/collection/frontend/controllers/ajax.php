@@ -321,6 +321,34 @@ class Ajax {
     }
 
     /**
+     * The public method frontend_change_auth_logo changes the logo for the auth's section
+     * 
+     * @since 0.0.8.5
+     * 
+     * @return void
+     */
+    public function frontend_change_auth_logo() {
+        
+        // Change the auth's logo
+        (new CmsBaseAdminComponentsCollectionFrontendHelpers\Media)->frontend_change_auth_logo();
+        
+    }
+
+    /**
+     * The public method frontend_remove_auth_logo removes the logo for the auth's section
+     * 
+     * @since 0.0.8.5
+     * 
+     * @return void
+     */
+    public function frontend_remove_auth_logo() {
+        
+        // Remove the auth's logo
+        (new CmsBaseAdminComponentsCollectionFrontendHelpers\Media)->frontend_remove_auth_logo();
+        
+    }
+
+    /**
      * The public method get_classification_data gets classification's data
      * 
      * @since 0.0.7.9

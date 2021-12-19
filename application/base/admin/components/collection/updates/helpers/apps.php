@@ -16,6 +16,9 @@ namespace CmsBase\Admin\Components\Collection\Updates\Helpers;
 // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// Require the Curl GET Inc
+require_once APPPATH . 'base/inc/curl/get.php';
+
 /*
  * Apps class provides the methods to manage the apps updates
  * 
@@ -108,18 +111,18 @@ class Apps {
                     $updates_code = '';
 
                     // Verify if updates's code is required
-                    if (  isset($info['updates_code']) ) {
+                    if (  isset($info['update_code']) ) {
 
                         // Set updates's code requirements
-                        $app['updates_code'] = $info['updates_code'];
+                        $app['update_code'] = $info['update_code'];
 
                     } else {
 
                         // Set updates's code requirements
-                        $app['updates_code'] = false;
+                        $app['update_code'] = false;
                     }
 
-                    if ( !empty($app['updates_code']) && !$code ) {
+                    if ( !empty($app['update_code']) && !$code ) {
 
                         // Prepare error message 
                         $data = array(
@@ -131,7 +134,7 @@ class Apps {
                         echo json_encode($data);                
                         exit();
                         
-                    } else if ( !empty($app['updates_code']) && $code ) {
+                    } else if ( !empty($app['update_code']) && $code ) {
 
                         // Set updates code
                         $updates_code = $code;
@@ -139,10 +142,10 @@ class Apps {
                     }
 
                     // Verify if updates's url exists
-                    if (  isset($info['updates_url']) ) {
+                    if (  isset($info['update_url']) ) {
 
                         // Set updates url
-                        $app['updates_url'] = $info['updates_url'];
+                        $app['update_url'] = $info['update_url'];
 
                     } else {
 
@@ -159,10 +162,12 @@ class Apps {
                     }
 
                     // Prepare updates code
-                    $updates_code = strpos($app['updates_url'], '?')?'&l=' . $updates_code:'?l=' . $updates_code;
+                    $updates_code = strpos($app['update_url'], '?')?'&l=' . $updates_code:'?l=' . $updates_code;
 
                     // Get the updates
-                    $get_updates = json_decode(get($app['updates_url'] . $updates_code), true);
+                    $get_updates = json_decode(md_the_get(array(
+                        'url' => $app['update_url'] . $updates_code
+                    )), true);
 
                     // Verify if url exists
                     if ( isset($get_updates['url']) ) {
@@ -198,7 +203,7 @@ class Apps {
                     // Prepare error message 
                     $data = array(
                         'success' => FALSE,
-                        'message' => $this->CI->lang->line('updates_app_can_not_be_updatesd')
+                        'message' => $this->CI->lang->line('updates_app_can_not_be_updates')
                     );
 
                     // Display error message
@@ -285,18 +290,18 @@ class Apps {
                     $updates_code = '';
 
                     // Verify if updates's code is required
-                    if (  isset($info['updates_code']) ) {
+                    if (  isset($info['update_code']) ) {
 
                         // Set updates's code requirements
-                        $app['updates_code'] = $info['updates_code'];
+                        $app['update_code'] = $info['update_code'];
 
                     } else {
 
                         // Set updates's code requirements
-                        $app['updates_code'] = false;
+                        $app['update_code'] = false;
                     }
 
-                    if ( !empty($app['updates_code']) && !$code ) {
+                    if ( !empty($app['update_code']) && !$code ) {
 
                         // Prepare error message 
                         $data = array(
@@ -308,7 +313,7 @@ class Apps {
                         echo json_encode($data);                
                         exit();
                         
-                    } else if ( !empty($app['updates_code']) && $code ) {
+                    } else if ( !empty($app['update_code']) && $code ) {
 
                         // Set updates code
                         $updates_code = $code;
@@ -316,10 +321,10 @@ class Apps {
                     }
 
                     // Verify if updates's url exists
-                    if (  isset($info['updates_url']) ) {
+                    if (  isset($info['update_url']) ) {
 
                         // Set updates url
-                        $app['updates_url'] = $info['updates_url'];
+                        $app['update_url'] = $info['update_url'];
 
                     } else {
 
@@ -336,10 +341,12 @@ class Apps {
                     }
 
                     // Prepare updates code
-                    $updates_code = strpos($app['updates_url'], '?')?'&l=' . $updates_code:'?l=' . $updates_code;
+                    $updates_code = strpos($app['update_url'], '?')?'&l=' . $updates_code:'?l=' . $updates_code;
 
                     // Get the updates
-                    $get_updates = json_decode(get($app['updates_url'] . $updates_code), true);
+                    $get_updates = json_decode(md_the_get(array(
+                        'url' => $app['update_url'] . $updates_code
+                    )), true);
 
                     // Verify if url exists
                     if ( isset($get_updates['url']) ) {
@@ -438,7 +445,7 @@ class Apps {
                     // Prepare error message 
                     $data = array(
                         'success' => FALSE,
-                        'message' => $this->CI->lang->line('updates_app_can_not_be_updatesd')
+                        'message' => $this->CI->lang->line('updates_app_can_not_be_updates')
                     );
 
                     // Display error message
@@ -545,11 +552,11 @@ class Apps {
                         // Close the ZipArchive class
                         $zip->close();
 
-                        // Verify if the updates.json exists
-                        if ( file_exists($this->app_dir . '/temp/updates.json') ) {
+                        // Verify if the update.json exists
+                        if ( file_exists($this->app_dir . '/temp/update.json') ) {
 
                             // Get files to updates
-                            $updates = json_decode(file_get_contents($this->app_dir . '/temp/updates.json'), true);
+                            $updates = json_decode(file_get_contents($this->app_dir . '/temp/update.json'), true);
 
                             // Verify if the updates has files
                             if ( isset($updates['files']) ) {
@@ -720,11 +727,11 @@ class Apps {
                         
                     }
 
-                    // Verify if the updates.json exists
-                    if ( file_exists($this->app_dir . '/temp/updates.json') ) {
+                    // Verify if the update.json exists
+                    if ( file_exists($this->app_dir . '/temp/update.json') ) {
 
                         // Get files to updates
-                        $updates = json_decode(file_get_contents($this->app_dir . '/temp/updates.json'), true);
+                        $updates = json_decode(file_get_contents($this->app_dir . '/temp/update.json'), true);
 
                         // Verify if the updates has files
                         if ( isset($updates['files']) ) {
@@ -789,24 +796,24 @@ class Apps {
                             // Prepare success response
                             $data = array(
                                 'success' => TRUE,
-                                'message' => $this->CI->lang->line('updates_app_was_updatesd')
+                                'message' => $this->CI->lang->line('updates_app_was_updates')
                             );
 
                             // Display success response
                             echo json_encode($data);
 
-                            // Verify if old updates.json exists
-                            if ( file_exists($this->app_dir . '/updates.json') ) {
+                            // Verify if old update.json exists
+                            if ( file_exists($this->app_dir . '/update.json') ) {
 
-                                // Delete the existing updates.json
-                                unlink($this->app_dir . '/updates.json');
+                                // Delete the existing update.json
+                                unlink($this->app_dir . '/update.json');
 
                             }
 
-                            // Copy the updates.json in the main directory
-                            copy($this->app_dir . '/temp/updates.json', $this->app_dir . '/updates.json');
+                            // Copy the update.json in the main directory
+                            copy($this->app_dir . '/temp/update.json', $this->app_dir . '/update.json');
 
-                            // Create the updates.json in the backup directory
+                            // Create the update.json in the backup directory
                             file_put_contents($this->app_dir . '/backup/backup.json', json_encode(array(
                                 'files' => $this->copied
                             ), JSON_PRETTY_PRINT));
@@ -979,11 +986,11 @@ class Apps {
         
                     rmdir($app_dir . '/backup');
 
-                    // Verify if old updates.json exists
-                    if ( file_exists($app_dir . '/updates.json') ) {
+                    // Verify if old update.json exists
+                    if ( file_exists($app_dir . '/update.json') ) {
 
-                        // Delete the existing updates.json
-                        unlink($app_dir . '/updates.json');
+                        // Delete the existing update.json
+                        unlink($app_dir . '/update.json');
 
                     }
 

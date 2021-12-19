@@ -263,10 +263,10 @@ class Init {
                             $app['slug'] = $updates['slug'];
 
                             // Verify if updates's url exists
-                            if (  isset($info['updates_url']) ) {
+                            if (  isset($info['update_url']) ) {
 
                                 // Set updates url
-                                $app['updates_url'] = $info['updates_url'];
+                                $app['update_url'] = $info['update_url'];
 
                             } else {
 
@@ -275,22 +275,22 @@ class Init {
                             }
 
                             // Verify if updates's code is required
-                            if (  isset($info['updates_code']) ) {
+                            if (  isset($info['update_code']) ) {
 
                                 // Set updates's code requirements
-                                $app['updates_code'] = $info['updates_code'];
+                                $app['update_code'] = $info['update_code'];
 
                             } else {
 
                                 // Set updates's code requirements
-                                $app['updates_code'] = false;
+                                $app['update_code'] = false;
                             }
 
                             // Verify if updates's code url exists
-                            if (  isset($info['updates_code_url']) ) {
+                            if (  isset($info['update_code_url']) ) {
 
                                 // Set updates's code url
-                                $app['updates_code_url'] = $info['updates_code_url'];
+                                $app['update_code_url'] = $info['update_code_url'];
 
                             }
 
@@ -359,10 +359,10 @@ class Init {
                             $component['slug'] = $updates['slug'];
 
                             // Verify if updates's url exists
-                            if (  isset($info['updates_url']) ) {
+                            if (  isset($info['update_url']) ) {
 
                                 // Set updates url
-                                $component['updates_url'] = $info['updates_url'];
+                                $component['update_url'] = $info['update_url'];
 
                             } else {
 
@@ -371,22 +371,22 @@ class Init {
                             }
 
                             // Verify if updates's code is required
-                            if (  isset($info['updates_code']) ) {
+                            if (  isset($info['update_code']) ) {
 
                                 // Set updates's code requirements
-                                $component['updates_code'] = $info['updates_code'];
+                                $component['update_code'] = $info['update_code'];
 
                             } else {
 
                                 // Set updates's code requirements
-                                $component['updates_code'] = false;
+                                $component['update_code'] = false;
                             }
 
                             // Verify if updates's code url exists
-                            if (  isset($info['updates_code_url']) ) {
+                            if (  isset($info['update_code_url']) ) {
 
                                 // Set updates's code url
-                                $component['updates_code_url'] = $info['updates_code_url'];
+                                $component['update_code_url'] = $info['update_code_url'];
 
                             }
 
@@ -442,10 +442,10 @@ class Init {
                             $theme['slug'] = $updates['slug'];
 
                             // Verify if updates's url exists
-                            if (  isset($info['updates_url']) ) {
+                            if (  isset($info['update_url']) ) {
 
                                 // Set updates url
-                                $theme['updates_url'] = $info['updates_url'];
+                                $theme['update_url'] = $info['update_url'];
 
                             } else {
 
@@ -454,23 +454,23 @@ class Init {
                             }
 
                             // Verify if updates's code is required
-                            if (  !empty($info['updates_code']) ) {
+                            if (  !empty($info['update_code']) ) {
 
                                 // Set updates's code requirements
-                                $theme['updates_code'] = $info['updates_code'];
+                                $theme['update_code'] = $info['update_code'];
 
                             } else {
 
                                 // Set updates's code requirements
-                                $theme['updates_code'] = false;
+                                $theme['update_code'] = false;
 
                             }
 
                             // Verify if updates's code url exists
-                            if (  isset($info['updates_code_url']) ) {
+                            if (  isset($info['update_code_url']) ) {
 
                                 // Set updates's code url
-                                $theme['updates_code_url'] = $info['updates_code_url'];
+                                $theme['update_code_url'] = $info['update_code_url'];
 
                             }
 
@@ -538,10 +538,10 @@ class Init {
                             $plugin['slug'] = $updates['slug'];
                     
                             // Verify if updates's url exists
-                            if (  isset($info['updates_url']) ) {
+                            if (  isset($info['update_url']) ) {
                     
                                 // Set updates url
-                                $plugin['updates_url'] = $info['updates_url'];
+                                $plugin['update_url'] = $info['update_url'];
                     
                             } else {
                     
@@ -550,22 +550,22 @@ class Init {
                             }
                     
                             // Verify if updates's code is required
-                            if (  isset($info['updates_code']) ) {
+                            if (  isset($info['update_code']) ) {
                     
                                 // Set updates's code requirements
-                                $plugin['updates_code'] = $info['updates_code'];
+                                $plugin['update_code'] = $info['update_code'];
                     
                             } else {
                     
                                 // Set updates's code requirements
-                                $plugin['updates_code'] = false;
+                                $plugin['update_code'] = false;
                             }
                     
                             // Verify if updates's code url exists
-                            if (  isset($info['updates_code_url']) ) {
+                            if (  isset($info['update_code_url']) ) {
                     
                                 // Set updates's code url
-                                $plugin['updates_code_url'] = $info['updates_code_url'];
+                                $plugin['update_code_url'] = $info['update_code_url'];
                     
                             }
                     
@@ -601,18 +601,6 @@ class Init {
                         'body' => $updates[0]['body'],
                         'created' => $updates[0]['created']
                     );
-
-                    // Set the system's name
-                    $system['name'] = 'Midrub';
-
-                    // Set updates url
-                    $system['updates_url'] = 'https://updates.midrub.com/';
-
-                    // Set updates's code requirements
-                    $system['updates_code'] = true;
-
-                    // Set updates's code url
-                    $system['updates_code_url'] = 'https://access-codes.midrub.com/';
 
                     return $system;
 

@@ -15,7 +15,7 @@ namespace CmsBase\Admin\Components\Collection\Plugins;
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 defined('CMS_BASE_ADMIN_COMPONENTS_PLUGINS') OR define('CMS_BASE_ADMIN_COMPONENTS_PLUGINS', CMS_BASE_PATH . 'admin/components/collection/plugins/');
-defined('CMS_BASE_ADMIN_COMPONENTS_PLUGINS_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_PLUGINS_VERSION', '0.37');
+defined('CMS_BASE_ADMIN_COMPONENTS_PLUGINS_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_PLUGINS_VERSION', '0.4');
 
 // Define the namespaces to use
 use CmsBase\Admin\Interfaces as CmsBaseAdminInterfaces;
