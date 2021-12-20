@@ -26,7 +26,7 @@ if (!function_exists('md_update_user_option_from_parts')) {
      */
     function md_update_user_option_from_parts($user_id, $meta_name, $meta_value) {
 
-        if ( empty($meta_name) || empty($meta_value) ) {
+        if ( empty($meta_name) ) {
             return false;
         }
 
