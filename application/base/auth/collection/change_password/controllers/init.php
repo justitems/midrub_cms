@@ -155,9 +155,28 @@ class Init {
 
         );
 
+        // Params container
+        $params = array();
+
+        // Verify if auth's logo exists
+        if ( md_the_option('auth_logo') ) {
+
+            // Get the auth's logo
+            $auth_logo = $this->CI->base_model->the_data_where('medias', '*', array('media_id' => md_the_option('auth_logo')));
+
+            // Verify if the auth's logo exists
+            if ( $auth_logo ) {
+
+                // Set the auth_logo key
+                $params['auth_logo'] = $auth_logo[0]['body'];
+
+            }
+
+        }
+
         // Making temlate and send data to view.
         $this->CI->template['header'] = $this->CI->load->ext_view(CMS_BASE_AUTH_CHANGE_PASSWORD .  '/views/layout', 'header', array(), true);
-        $this->CI->template['body'] = $this->CI->load->ext_view(CMS_BASE_AUTH_CHANGE_PASSWORD .  '/views', 'main', array(), true);
+        $this->CI->template['body'] = $this->CI->load->ext_view(CMS_BASE_AUTH_CHANGE_PASSWORD .  '/views', 'main', $params, true);
         $this->CI->template['footer'] = $this->CI->load->ext_view(CMS_BASE_AUTH_CHANGE_PASSWORD .  '/views/layout', 'footer', array(), true);
         $this->CI->load->ext_view(CMS_BASE_AUTH_CHANGE_PASSWORD . '/views/layout', 'index', $this->CI->template);
         

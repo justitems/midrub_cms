@@ -3,7 +3,7 @@
         <div class="col-12">
             <div class="row">
                 <div class="col-lg-2 col-md-12">
-                    <?php echo md_the_option('auth_logo')?'<img src="' . md_the_option('auth_logo') . '" class="logo">':''; ?>
+                    <?php echo isset($auth_logo)?'<img src="' . $auth_logo . '" class="logo" alt="Auth Logo">':''; ?>
                 </div>
                 <div class="col-lg-4 offset-lg-2 col-md-12 offset-lg-0">
                     <?php echo form_open('', array('class' => 'form-signin', 'autocomplete' => 'off', 'data-csrf' => $this->security->get_csrf_token_name())) ?>
