@@ -402,17 +402,22 @@ jQuery(document).ready( function ($) {
      */ 
     $( document ).on( 'click', 'body .theme-save-changes .theme-save-changes-btn', function () {
         
-        // Get all dropdowns
-        var dropdowns = $('.members-page .theme-dynamic-dropdown').length;
+        // Get all dynamic dropdowns
+        let dynamic_dropdowns = $('.members-page .theme-dynamic-dropdown').length;
         
+        // All dropdown container
         var all_dropdowns = [];
 
-        if (dropdowns > 0) {
+        // Verify if dropdowns exists
+        if (dynamic_dropdowns > 0) {
 
-            for (var d = 0; d < dropdowns; d++) {
+            // List all dynamic dropdowns
+            for (var d = 0; d < dynamic_dropdowns; d++) {
 
+                // Verify if dynamic dropdown has selected item
                 if ($('.members-page .theme-dynamic-dropdown').eq(d).attr('data-id')) {
 
+                    // Set selected item
                     all_dropdowns[$('.members-page .theme-dynamic-dropdown').eq(d).closest('.list-group-item').attr('data-field')] = $('.members-page .theme-dynamic-dropdown').eq(d).attr('data-id');
 
                 }
@@ -421,15 +426,40 @@ jQuery(document).ready( function ($) {
 
         }
 
+        // Get all dropdowns
+        let dropdowns = $('.members-page .theme-dropdown-1').length;
+
+        // Verify if dropdowns exists
+        if (dropdowns > 0) {
+
+            // List all dropdowns
+            for (var d = 0; d < dropdowns; d++) {
+
+                // Verify if dropdown has selected item
+                if ($('.members-page .theme-dropdown-1 > .btn-secondary').eq(d).attr('data-id')) {
+
+                    // Set selected item
+                    all_dropdowns[$('.members-page .theme-dropdown-1 > .btn-secondary').eq(d).closest('.list-group-item').attr('data-field')] = $('.members-page .theme-dropdown-1 > .btn-secondary').eq(d).attr('data-id');
+
+                }
+
+            }
+
+        }
+
         // Get all text inputs
-        var text_inputs = $('.members-page .theme-text-input-1').length;
+        let text_inputs = $('.members-page .theme-text-input-1').length;
         
+        // All textareas container
         var all_textareas = [];
 
+        // Verify if text inputs exists
         if (text_inputs > 0) {
 
+            // List all text inputs
             for (var t = 0; t < text_inputs; t++) {
 
+                // Set text input
                 all_textareas[$('.members-page .theme-text-input-1').eq(t).closest('.list-group-item').attr('data-field')] = $('.members-page .theme-text-input-1').eq(t).val().replace(/</g,"&lt;").replace(/>/g,"&gt;");
 
             }
@@ -439,10 +469,13 @@ jQuery(document).ready( function ($) {
         // Get all password inputs
         var password_inputs = $('.members-page .theme-password-input-1').length;
 
+        // Verify if password exists
         if (password_inputs > 0) {
 
+            // List the password inputs
             for (var p = 0; p < password_inputs; p++) {
 
+                // Set password input
                 all_textareas[$('.members-page .theme-password-input-1').eq(p).closest('.list-group-item').attr('data-field')] = $('.members-page .theme-password-input-1').eq(p).val().replace(/</g,"&lt;").replace(/>/g,"&gt;");
 
             }
@@ -455,14 +488,18 @@ jQuery(document).ready( function ($) {
         // Verify if checkboxes exists
         if (checkboxes > 0) {
 
+            // List all checkboxes inputs
             for ( var c = 0; c < checkboxes; c++ ) {
 
+                // Verify if checkbox is checked
                 if ( $('.members-page .theme-field-checkbox').eq(c).is(':checked') ) {
                 
+                    // Set checkbox
                     all_textareas[$('.members-page .theme-field-checkbox').eq(c).closest('.list-group-item').attr('data-field')] = 1;
                     
                 } else {
                     
+                    // Set checkbox
                     all_textareas[$('.members-page .theme-field-checkbox').eq(c).closest('.list-group-item').attr('data-field')] = 0;
                     
                 }

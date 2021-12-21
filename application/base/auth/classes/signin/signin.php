@@ -634,7 +634,28 @@ class Signin {
 
         // Verify if user has a plan, if no add default plan
         if ( !$user_plan ) {
-            $this->CI->plans->change_plan(1, $user_id);
+
+            // Get the plan
+            $plan_data = $this->CI->base_model->the_data_where(
+                'plans',
+                '*',
+                array(
+                    'plan_id' => 1
+                )
+            );
+
+            // Verify if plan exists
+            if ( $plan_data ) {
+
+                // Change the plan
+                $this->CI->base_plans->change_plan(array(
+                    'plan_id' => 1,
+                    'user_id' => $user_id,
+                    'period' => $plan_data[0]['period']
+                ));
+
+            }
+
         }
         
     }

@@ -218,15 +218,51 @@ class Signup {
                         // Set selected plan_id
                         $plan_id = $args['plan_id'];
 
-                        // Set the user plan
-                        $this->CI->base_plans->change_plan($plan_id, $user_id);
+                    }
+
+                    // Get the plan
+                    $plan_data = $this->CI->base_model->the_data_where(
+                        'plans',
+                        '*',
+                        array(
+                            'plan_id' => $plan_id
+                        )
+                    );
+
+                    // Verify if plan exists
+                    if ( $plan_data ) {
+
+                        // Change the plan
+                        $this->CI->base_plans->change_plan(array(
+                            'plan_id' => $plan_id,
+                            'user_id' => $user_id,
+                            'period' => $plan_data[0]['period']
+                        ));
 
                     }
 
                 } else {
 
-                    // Get plan's data
-                    $plan_data = $this->CI->base_plans->get_plan($plan_id);
+                    // Get the plan
+                    $plan_data = $this->CI->base_model->the_data_where(
+                        'plans',
+                        '*',
+                        array(
+                            'plan_id' => $plan_id
+                        )
+                    );
+
+                    // Verify if plan exists
+                    if ( $plan_data ) {
+
+                        // Change the plan
+                        $this->CI->base_plans->change_plan(array(
+                            'plan_id' => $plan_id,
+                            'user_id' => $user_id,
+                            'period' => $plan_data[0]['period']
+                        ));
+
+                    }
 
                 }
 
