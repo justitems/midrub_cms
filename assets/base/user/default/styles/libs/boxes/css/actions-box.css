@@ -1,0 +1,43 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+THEME GLOBAL COLORS
+********************************/
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Inter:wght@200;300;400;500;600&display=swap");
+/*******************************
+THEME GLOBAL FONTS
+********************************/
+/*******************************
+ACTIONS BOX STYLES
+********************************/
+.default-actions-box .table {
+  margin: 0; }
+  .default-actions-box .table tbody tr td {
+    border: 0; }
+    .default-actions-box .table tbody tr td:first-child {
+      width: 20%; }
+    .default-actions-box .table tbody tr td:last-child {
+      width: 80%; }
+    @media only screen and (max-width: 1445px) {
+      .default-actions-box .table tbody tr td:first-child {
+        width: 40%; }
+      .default-actions-box .table tbody tr td:last-child {
+        width: 60%; } }
+    .default-actions-box .table tbody tr td label {
+      display: block;
+      margin-bottom: 0;
+      font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+      font-size: 13px;
+      color: #8F9EC2; }
+      .default-actions-box .table tbody tr td label svg {
+        vertical-align: middle;
+        margin-top: -3px;
+        margin-right: 5px;
+        width: 18px;
+        height: 18px; }
+
+/*# sourceMappingURL=actions-box.css.map */

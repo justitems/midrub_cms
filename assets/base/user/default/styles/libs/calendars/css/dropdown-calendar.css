@@ -1,0 +1,128 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+THEME GLOBAL COLORS
+********************************/
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Inter:wght@200;300;400;500;600&display=swap");
+/*******************************
+THEME GLOBAL FONTS
+********************************/
+/*******************************
+SCROLLBAR GLOBAL COLORS
+********************************/
+/*******************************
+DEFAULT MIXING FOR SCROLLING
+********************************/
+/*******************************
+DROPDOWN CALENDAR STYLES
+********************************/
+.default-dropdown-date-picker {
+  margin-top: -7px;
+  padding: 5px 10px;
+  width: 157px; }
+  .default-dropdown-date-picker .dropdown .btn-link {
+    padding: 0;
+    border: 0;
+    line-height: initial;
+    color: #8F9EC2; }
+    .default-dropdown-date-picker .dropdown .btn-link .theme-dropdown-arrow-icon {
+      vertical-align: middle;
+      margin-top: -2px;
+      font-size: 19px !important; }
+    .default-dropdown-date-picker .dropdown .btn-link:hover, .default-dropdown-date-picker .dropdown .btn-link:focus, .default-dropdown-date-picker .dropdown .btn-link:active {
+      border: 0;
+      text-decoration: none;
+      color: #344564; }
+  .default-dropdown-date-picker .dropdown .dropdown-menu {
+    width: 250px;
+    transform: translate3d(-212px, 28px, 0px) !important; }
+    .default-dropdown-date-picker .dropdown .dropdown-menu .card {
+      border: 0; }
+      .default-dropdown-date-picker .dropdown .dropdown-menu .card .card-body {
+        padding: 0;
+        border: 0; }
+        .default-dropdown-date-picker .dropdown .dropdown-menu .card .card-body > table thead tr th {
+          padding: 10px 10px;
+          width: 200px;
+          border: 0;
+          line-height: 29px;
+          text-align: center;
+          font-family: "Open Sans", sans-serif;
+          font-size: 14px;
+          font-weight: 400; }
+          .default-dropdown-date-picker .dropdown .dropdown-menu .card .card-body > table thead tr th:first-child {
+            width: 25px !important; }
+          .default-dropdown-date-picker .dropdown .dropdown-menu .card .card-body > table thead tr th:last-child {
+            width: 25px !important; }
+          .default-dropdown-date-picker .dropdown .dropdown-menu .card .card-body > table thead tr th .btn {
+            padding: 0 6px;
+            border: 0;
+            border-radius: 7px;
+            background-color: #736691;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.04); }
+            .default-dropdown-date-picker .dropdown .dropdown-menu .card .card-body > table thead tr th .btn i {
+              font-size: 18px;
+              color: #FFFFFF; }
+        .default-dropdown-date-picker .dropdown .dropdown-menu .card .card-body > table tbody > tr > td {
+          padding: 8px 5px; }
+          .default-dropdown-date-picker .dropdown .dropdown-menu .card .card-body > table tbody > tr > td table tbody tr:first-child {
+            margin-bottom: 5px; }
+            .default-dropdown-date-picker .dropdown .dropdown-menu .card .card-body > table tbody > tr > td table tbody tr:first-child td {
+              font-size: 13px;
+              font-weight: 500; }
+          .default-dropdown-date-picker .dropdown .dropdown-menu .card .card-body > table tbody > tr > td table tbody tr td {
+            padding: 0;
+            width: 35.71px !important;
+            text-align: center; }
+            .default-dropdown-date-picker .dropdown .dropdown-menu .card .card-body > table tbody > tr > td table tbody tr td a {
+              display: block;
+              border-radius: 7px;
+              line-height: 30px;
+              text-decoration: none;
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+              font-size: 13px;
+              color: #344564; }
+              .default-dropdown-date-picker .dropdown .dropdown-menu .card .card-body > table tbody > tr > td table tbody tr td a:hover {
+                background-color: #f7f9fc; }
+              .default-dropdown-date-picker .dropdown .dropdown-menu .card .card-body > table tbody > tr > td table tbody tr td a.default-dropdown-date-picker-calendar-selected-date {
+                background-color: #F4F9FF; }
+  .default-dropdown-date-picker .default-dropdown-date-picker-container {
+    margin-top: -1px;
+    width: 120px;
+    height: 24px;
+    text-align: center; }
+    .default-dropdown-date-picker .default-dropdown-date-picker-container .default-dropdown-date-picker-date,
+    .default-dropdown-date-picker .default-dropdown-date-picker-container .default-dropdown-date-picker-month,
+    .default-dropdown-date-picker .default-dropdown-date-picker-container .default-dropdown-date-picker-year,
+    .default-dropdown-date-picker .default-dropdown-date-picker-container .default-dropdown-date-picker-separator {
+      display: inline-block;
+      margin-top: 2px;
+      font-family: "Open Sans", sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #344564; }
+      .default-dropdown-date-picker .default-dropdown-date-picker-container .default-dropdown-date-picker-date[contenteditable=true],
+      .default-dropdown-date-picker .default-dropdown-date-picker-container .default-dropdown-date-picker-month[contenteditable=true],
+      .default-dropdown-date-picker .default-dropdown-date-picker-container .default-dropdown-date-picker-year[contenteditable=true],
+      .default-dropdown-date-picker .default-dropdown-date-picker-container .default-dropdown-date-picker-separator[contenteditable=true] {
+        outline: none !important; }
+        .default-dropdown-date-picker .default-dropdown-date-picker-container .default-dropdown-date-picker-date[contenteditable=true]:empty:after,
+        .default-dropdown-date-picker .default-dropdown-date-picker-container .default-dropdown-date-picker-month[contenteditable=true]:empty:after,
+        .default-dropdown-date-picker .default-dropdown-date-picker-container .default-dropdown-date-picker-year[contenteditable=true]:empty:after,
+        .default-dropdown-date-picker .default-dropdown-date-picker-container .default-dropdown-date-picker-separator[contenteditable=true]:empty:after {
+          content: attr(placeholder);
+          color: #8F9EC2; }
+    .default-dropdown-date-picker .default-dropdown-date-picker-container .default-dropdown-date-picker-date,
+    .default-dropdown-date-picker .default-dropdown-date-picker-container .default-dropdown-date-picker-month {
+      width: 15px; }
+    .default-dropdown-date-picker .default-dropdown-date-picker-container .default-dropdown-date-picker-year {
+      width: 30px; }
+    .default-dropdown-date-picker .default-dropdown-date-picker-container .default-dropdown-date-picker-separator {
+      width: 10px;
+      text-align: center; }
+
+/*# sourceMappingURL=dropdown-calendar.css.map */

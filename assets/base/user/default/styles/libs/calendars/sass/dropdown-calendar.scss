@@ -1,0 +1,212 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../user/default/styles/colors";
+@import "../../../../user/default/styles/fonts";
+@import "../../../../user/default/styles/scrollbar";
+
+/*******************************
+DROPDOWN CALENDAR STYLES
+********************************/
+
+.default-dropdown-date-picker {
+    margin-top: -7px;
+    padding: 5px 10px;
+    width: 157px;
+
+    .dropdown {
+
+        .btn-link {
+            padding: 0;
+            border: 0;
+            line-height: initial;
+            color: $default-color-grey;
+
+            .theme-dropdown-arrow-icon {
+                vertical-align: middle;
+                margin-top: -2px;
+                font-size: 19px !important;                                                    
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                border: 0;
+                text-decoration: none;
+                color: $default-color-black;
+            }
+
+        }
+
+        .dropdown-menu {
+            width: 250px;
+            transform: translate3d(-212px, 28px, 0px) !important;
+
+            .card {
+                border: 0;
+
+                .card-body {
+                    padding: 0;
+                    border: 0;
+
+                    & > table {
+
+                        thead {
+
+                            tr {
+
+                                th {
+                                    padding: 10px 10px;
+                                    width: 200px;
+                                    border: 0;
+                                    line-height: 29px;
+                                    text-align: center;
+                                    font-family: $default-font-4;
+                                    font-size: 14px;
+                                    font-weight: 400;
+
+                                    &:first-child {
+                                        width: 25px !important;
+                                    }
+
+                                    &:last-child {
+                                        width: 25px !important;
+                                    }
+
+                                    .btn {
+                                        padding: 0 6px;
+                                        border: 0;
+                                        border-radius: 7px;
+                                        background-color: $default-color-violet;
+                                        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.04);
+
+                                        i {
+                                            font-size: 18px;
+                                            color: #FFFFFF;
+                                        }
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                        tbody {
+
+                            & > tr {
+
+                                & > td {
+                                    padding: 8px 5px;
+
+                                    table {
+
+                                        tbody {
+
+                                            tr {
+
+                                                &:first-child {
+                                                    margin-bottom: 5px;
+
+                                                    td {
+                                                        font-size: 13px;
+                                                        font-weight: 500;
+                                                    }
+
+                                                }
+
+                                                td {
+                                                    padding: 0;
+                                                    width: 35.71px !important;
+                                                    text-align: center;
+
+                                                    a {
+                                                        display: block;
+                                                        border-radius: 7px;
+                                                        line-height: 30px;
+                                                        text-decoration: none;
+                                                        font-family: $default-font-2;
+                                                        font-size: 13px;
+                                                        color: $default-color-black;
+
+                                                        &:hover {
+                                                            background-color: $default-background-color;
+                                                        }
+
+                                                        &.default-dropdown-date-picker-calendar-selected-date {
+                                                            background-color: $default-color-grey-light;
+                                                        }
+
+                                                    }
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .default-dropdown-date-picker-container {
+        margin-top: -1px;
+        width: 120px;
+        height: 24px;
+        text-align: center;
+
+        .default-dropdown-date-picker-date,
+        .default-dropdown-date-picker-month,
+        .default-dropdown-date-picker-year,
+        .default-dropdown-date-picker-separator {
+            display: inline-block;
+            margin-top: 2px;
+            font-family: $default-font-4;
+            font-size: 13px;
+            font-weight: 600;
+            color: $default-color-black;
+
+            &[contenteditable=true] {
+                outline: none !important;
+
+                &:empty:after{
+                    content: attr(placeholder);
+                    color: $default-color-grey;
+                }
+
+            }
+
+        }
+
+        .default-dropdown-date-picker-date,
+        .default-dropdown-date-picker-month {
+            width: 15px;
+        }
+
+        .default-dropdown-date-picker-year {
+            width: 30px;
+        }
+
+        .default-dropdown-date-picker-separator {
+            width: 10px;
+            text-align: center;
+        }
+
+    }
+
+}

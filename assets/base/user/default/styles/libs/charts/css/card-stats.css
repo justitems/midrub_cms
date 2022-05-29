@@ -1,0 +1,28 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+THEME GLOBAL COLORS
+********************************/
+/*******************************
+CARD STATS STYLES
+********************************/
+.default-card-stats .card-body {
+  padding: 15px; }
+  .default-card-stats .card-body h5 {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #8F9EC2; }
+  .default-card-stats .card-body h2 {
+    margin-bottom: 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: #2E92FA; }
+  .default-card-stats .card-body .default-icon-stats {
+    font-size: 35px;
+    width: 35px;
+    height: 35px;
+    color: #dee2ed; }
+
+/*# sourceMappingURL=card-stats.css.map */

@@ -1,0 +1,35 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+THEME GLOBAL COLORS
+********************************/
+/*******************************
+SPINNER LOADING CONTENT STYLES
+********************************/
+.default-spinner-loading-content {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  transition-property: transform; }
+  .default-spinner-loading-content .btn-primary {
+    padding: 7px 0 8px;
+    width: 100%;
+    border: 0;
+    font-size: 14px;
+    color: #8F9EC2;
+    background-color: #F4F9FF; }
+    .default-spinner-loading-content .btn-primary .spinner-border {
+      vertical-align: middle;
+      margin-top: -2px;
+      margin-right: 10px; }
+
+/*# sourceMappingURL=spinner-loading-content.css.map */

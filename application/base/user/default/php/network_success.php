@@ -22,9 +22,19 @@
         <script language="javascript">
 
             // Close the Modal
-            setTimeout(function(){
-                window.opener.Main.reload_accounts();
+            setTimeout(function() {
+
+                // Verify if opener exists
+                if ( window.opener ) {
+
+                    // Reload accounts
+                    window.opener.Main.reload_accounts();
+
+                }
+                
+                // Close modal
                 window.close();
+
             }, 1500);
             
         </script>

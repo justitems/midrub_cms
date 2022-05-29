@@ -15,7 +15,7 @@ namespace CmsBase\Payments\Collection\Paypal;
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 defined('CMS_BASE_PAYMENTS_PAYPAL') OR define('CMS_BASE_PAYMENTS_PAYPAL', CMS_BASE_PAYMENTS . 'collection/paypal/');
-defined('CMS_BASE_PAYMENTS_PAYPAL_VERSION') OR define('CMS_BASE_PAYMENTS_PAYPAL_VERSION', '0.0.1');
+defined('CMS_BASE_PAYMENTS_PAYPAL_VERSION') OR define('CMS_BASE_PAYMENTS_PAYPAL_VERSION', '0.0.2');
 
 // Define the namespaces to use
 use CmsBase\Payments\Interfaces as CmsBasePaymentsInterfaces;
@@ -92,7 +92,7 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
     public function pay() {
 
         // Verify if the gateway is enabled
-        if ( md_the_option('paypal') ) {
+        if ( md_the_option('gateway_paypal_enabled') ) {
 
             // Instantiate the class
             (new CmsBasePaymentsCollectionPaypalControllers\User)->view();
@@ -147,12 +147,7 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
      * 
      * @return void
      */
-    public function cron_jobs() {
-
-        // Process the subscriptions
-        (new CmsBasePaymentsCollectionPaypalControllers\Cron)->subscriptions();        
-        
-    }
+    public function cron_jobs() {}
     
     /**
      * The public method hooks contains the gateway's hooks
@@ -175,7 +170,7 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
             case 'admin_init':
 
                 // Verify if admin has opened the settings component
-                if ( ( md_the_data('component') === 'settings' ) || ( md_the_data('component') === 'plans' ) || ( md_the_data('component') === 'upgrade' ) ) {
+                if ( md_the_data('hook') === 'payments' ) {
 
                     // Require the admin file
                     require_once CMS_BASE_PAYMENTS_PAYPAL . '/inc/admin.php';
@@ -352,10 +347,15 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
 
             if ( md_the_option('paypal_client_id') && md_the_option('paypal_client_secret') ) {
 
-                // First get the token
+                // Set api url
+                $api_url = md_the_option('paypal_sandbox_enabled')?'https://api-m.sandbox.paypal.com/v1/':'https://api.paypal.com/v1/';
+
+                // Init CURL
                 $curl = curl_init();
+
+                // Set CURL params
                 curl_setopt_array($curl, array(
-                CURLOPT_URL => 'https://api.paypal.com/v1/oauth2/token',
+                CURLOPT_URL => $api_url . 'oauth2/token',
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
                 CURLOPT_MAXREDIRS => 10,
@@ -370,7 +370,10 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
                     )
                 ));
 
+                // Get the token response
                 $token_response = json_decode(curl_exec($curl), true);
+
+                // Close the CURL session
                 curl_close($curl);
 
                 // Verify if access token exists
@@ -381,10 +384,19 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
                         'reason' => 'Item out of stock'
                     );
 
+                    // Init the CURL session
                     $curl = curl_init();
-                    curl_setopt($curl, CURLOPT_URL, 'https://api.paypal.com/v1/billing/subscriptions/' . $subscription['net_id'] . '/suspend');
+
+                    // Set URL
+                    curl_setopt($curl, CURLOPT_URL, $api_url . 'billing/subscriptions/' . $subscription['net_id'] . '/suspend');
+
+                    // Enable post
                     curl_setopt($curl, CURLOPT_POST, 1);
+
+                    // Set fields
                     curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($deletion_params));
+
+                    // Set header
                     curl_setopt(
                         $curl,
                         CURLOPT_HTTPHEADER,
@@ -393,8 +405,11 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
                             'Authorization: Bearer ' . $token_response['access_token']
                         )
                     );
-                    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+                    // Execute the request
                     curl_exec ($curl);
+
+                    // Close the CURL session
                     curl_close ($curl);
 
                 }
@@ -414,31 +429,9 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
      */
     public function gateway_info() {
 
-        // Load language
-        $this->CI->lang->load( 'paypal_admin', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_PAYMENTS_PAYPAL );
-
         // Create and return array
         return array(
-            'gateway' => $this->CI->lang->line('paypal'),
-            'configuration' => array(
-                array(
-                    'type' => 'text_input',
-                    'slug' => 'paypal_merchant_id',
-                    'label' => $this->CI->lang->line('paypal_merchant_id')
-                ),
-                array(
-                    'type' => 'text_input',
-                    'slug' => 'paypal_public_key',
-                    'label' => $this->CI->lang->line('paypal_public_key')
-                ),
-                array(
-                    'type' => 'text_input',
-                    'slug' => 'paypal_private_key',
-                    'label' => $this->CI->lang->line('paypal_private_key')
-                )
-
-            )
-            
+            'gateway' => 'PayPal'
         );
 
     }

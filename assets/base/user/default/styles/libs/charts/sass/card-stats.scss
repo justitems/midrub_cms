@@ -1,0 +1,38 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../user/default/styles/colors";
+
+/*******************************
+CARD STATS STYLES
+********************************/
+
+.default-card-stats {
+
+    .card-body {
+        padding: 15px;
+
+        h5 {
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 400;
+            color: $default-color-grey;
+        }
+
+        h2 {
+            margin-bottom: 0;
+            font-size: 22px;
+            font-weight: 600;
+            color: $default-color-blue;         
+        }
+
+        .default-icon-stats {
+            font-size: 35px;
+            width: 35px;
+            height: 35px;
+            color: $default-input-border-color;
+        }
+        
+    }
+
+}

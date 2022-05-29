@@ -4,12 +4,12 @@
  *
  * PHP Version 7.4
  *
- * Connect and Publish to Facebook Pages
+ * Connect Facebook Pages
  *
  * @category Social
  * @package  Midrub
  * @author   Scrisoft <asksyn@gmail.com>
- * @license  https://elements.envato.com/license-terms
+ * @license  https://github.com/scrisoft/midrub_cms/blob/master/license
  * @link     https://www.midrub.com/
  */
 
@@ -23,12 +23,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 use CmsBase\User\Interfaces as CmsBaseUserInterfaces;
 
 /**
- * Facebook_pages class - allows users to connect to their Facebook Pages and publish posts.
+ * Facebook_pages class - allows users to connect to their Facebook Pages
  *
  * @category Social
  * @package  Midrub
  * @author   Scrisoft <asksyn@gmail.com>
- * @license  https://elements.envato.com/license-terms
+ * @license  https://github.com/scrisoft/midrub_cms/blob/master/license
  * @link     https://www.midrub.com/
  */
 class Facebook_pages implements CmsBaseUserInterfaces\Networks {
@@ -36,7 +36,7 @@ class Facebook_pages implements CmsBaseUserInterfaces\Networks {
     /**
      * Class variables
      */
-    public $CI, $fb, $app_id, $app_secret, $api_version = 'v12.0';
+    public $CI, $app_id, $app_secret, $api_version = 'v12.0';
 
     /**
      * Load networks and user model.
@@ -171,7 +171,7 @@ class Facebook_pages implements CmsBaseUserInterfaces\Networks {
                     'network_id, net_id',
                     array(
                         'network_name' => 'facebook_pages',
-                        'user_id' => $this->CI->user_id
+                        'user_id' => md_the_user_id()
                     )
 
                 );
@@ -271,7 +271,7 @@ class Facebook_pages implements CmsBaseUserInterfaces\Networks {
                         $expires = '';
 
                         // Get the user's plan
-                        $user_plan = md_the_user_option( $this->CI->user_id, 'plan');
+                        $user_plan = md_the_user_option( md_the_user_id(), 'plan');
 
                         // Set network's accounts
                         $network_accounts = md_the_plan_feature('network_accounts', $user_plan)?md_the_plan_feature('network_accounts', $user_plan):0;
@@ -299,7 +299,7 @@ class Facebook_pages implements CmsBaseUserInterfaces\Networks {
                                     array(
                                         'network_name' => 'facebook_pages',
                                         'net_id' => $response['data'][$y]['id'],
-                                        'user_id' => $this->CI->user_id
+                                        'user_id' => md_the_user_id()
                                     ),
                                     array(
                                         'user_name' => $response['data'][$y]['name'],
@@ -316,7 +316,7 @@ class Facebook_pages implements CmsBaseUserInterfaces\Networks {
                                     array(
                                         'network_name' => 'facebook_pages',
                                         'net_id' => $response['data'][$y]['id'],
-                                        'user_id' => $this->CI->user_id,
+                                        'user_id' => md_the_user_id(),
                                         'user_name' => $response['data'][$y]['name'],
                                         'token' => $response['data'][$y]['access_token']
                                     )
@@ -350,6 +350,7 @@ class Facebook_pages implements CmsBaseUserInterfaces\Networks {
                         ),
                         TRUE
                     );
+                    exit();
                     
                 }
 
@@ -367,6 +368,7 @@ class Facebook_pages implements CmsBaseUserInterfaces\Networks {
                     ),
                     TRUE
                 );
+                exit();
                 
             } else {
                 
@@ -379,6 +381,7 @@ class Facebook_pages implements CmsBaseUserInterfaces\Networks {
                     ),
                     TRUE
                 );
+                exit();
                 
             }
 
@@ -453,7 +456,7 @@ class Facebook_pages implements CmsBaseUserInterfaces\Networks {
                     'net_id',
                     array(
                         'network_name' => 'facebook_pages',
-                        'user_id' => $this->CI->user_id
+                        'user_id' => md_the_user_id()
                     )
 
                 );
@@ -510,7 +513,7 @@ class Facebook_pages implements CmsBaseUserInterfaces\Networks {
                 );
 
                 // Get the user's plan
-                $user_plan = md_the_user_option( $this->CI->user_id, 'plan');
+                $user_plan = md_the_user_option( md_the_user_id(), 'plan');
         
                 // Set network's accounts
                 $params['network_accounts'] = md_the_plan_feature('network_accounts', $user_plan);
@@ -538,11 +541,22 @@ class Facebook_pages implements CmsBaseUserInterfaces\Networks {
                         'message' => $this->CI->lang->line('user_network_not_facebook_pages_found')
                     ),
                     TRUE
-                );  
+                );
+                exit();
                 
             }
 
         }
+
+        // Set view
+        echo $this->CI->load->ext_view(
+            CMS_BASE_PATH . 'user/default/php',
+            'network_error',
+            array(
+                'message' => $this->CI->lang->line('user_networks_an_error_occurred')
+            ),
+            TRUE
+        );
         
     }
 

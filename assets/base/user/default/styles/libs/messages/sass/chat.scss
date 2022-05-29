@@ -1,0 +1,1080 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../user/default/styles/colors";
+@import "../../../../../../user/default/styles/fonts";
+
+/*******************************
+CRM CHAT STYLES
+********************************/
+.crm-chat {
+
+    .card-message-content {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        width: 100%;
+        border: 0;
+
+        .card-header {
+            border: 0;
+            border-bottom: 1px solid #e8edf5;
+            background-color: transparent;
+
+            .crm-message-subject {
+                margin-top: 5px;
+                font-weight: 500;
+                font-size: 19px;
+            }
+
+            .crm-message-mark-as-closed {
+                padding: 0 15px;
+                height: 33px;
+                border: 0;
+                border-radius: 6px;
+                line-height: 10px;
+                font-size: 13px;
+                background-color: #F4F9FF;
+
+                &:hover {
+                    background-color: #ecf5ff;
+                    opacity: 1 !important;
+                }
+
+                i {
+                    vertical-align: middle;
+                    font-size: 19px;
+                }
+
+            }
+            
+            .crm-message-settings {
+                padding: 0 15px;
+                height: 33px;
+                border: 0;
+                border-radius: 6px;
+                line-height: 10px;
+                font-size: 17px;
+                background-color: #F4F9FF;
+
+                &:hover {
+                    background-color: #ecf5ff;
+                    opacity: 1 !important;
+                }
+
+            }
+
+            #crm-message-settings-collapse {
+                margin-top: 12px;
+                margin-bottom: -12px;
+                margin-left: -1.25rem;
+                padding: .75rem 1.25rem 0.30rem;
+                width: calc(100% + 2.50rem);
+                border-top: 1px solid #e8edf5;
+
+                hr {
+                    margin-top: 12px;
+                    margin-left: -1.25rem;
+                    width: calc(100% + 2.50rem);
+                    border-top: 1px solid #e8edf5;
+                }
+
+                .crm-message-author {
+
+                    & > img {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                    }
+
+                    .media-body {
+                        display: table;
+                        height: 40px;
+
+                        h6 {
+                            display: table-cell;
+                            vertical-align: middle;
+                            margin: 0 0 6.1px 0;
+                            padding: 0;
+                            height: 40px;
+                            font-size: 13px;
+                            
+                            a {
+                                display: initial;
+                                padding-bottom: 3px;
+                                font-size: 13px;
+                                font-weight: 500;
+                                overflow: hidden;
+                                -webkit-line-clamp: 1;
+                                -webkit-box-orient: vertical;
+
+                                &:hover,
+                                &:focus,
+                                &:active {
+                                    text-decoration: none;
+                                }
+
+                                &:hover {
+                                    padding-bottom: 2px;
+                                    border-bottom: 1px solid;
+                                }
+
+                            }    
+                            
+                            span {
+                                margin-left: 15px;
+                                font-size: 12px;
+                                font-weight: 300;
+                                color: #8aa3be;  
+                                
+                                &:before {
+                                    content: "\2212";
+                                    margin-left: -13px;
+                                }
+                                
+                            }
+                            
+                        }
+
+                    }
+
+                }
+
+                .crm-message-settings-actions {
+                    display: table;
+                    width: 100%;
+                    height: 40px;
+
+                    & > div {
+                        display: table-cell;
+                        vertical-align: middle;
+                        height: 40px;
+
+                        .crm-star-message,
+                        .crm-delete-message {
+                            margin-left: 20px;
+                            padding: 0;
+                            height: 33px;
+                            border: 0;
+                            border-radius: 6px;
+                            line-height: 10px;
+                            font-size: 20px;
+                            background-color: transparent;
+
+                            &:hover,
+                            &:focus,
+                            &:active {
+                                opacity: 1 !important;
+                            }
+
+                            i {
+                                color: #8697b1;
+                                -webkit-transition-duration: 0.5s;
+                                -moz-transition-duration: 0.5s;
+                                -o-transition-duration: 0.5s;
+                                transition-duration: 0.5s;
+                                -webkit-transition-property: -webkit-transform;
+                                -moz-transition-property: -moz-transform;
+                                -o-transition-property: -o-transform;
+                                transition-property: transform; 
+                            } 
+
+                        }
+
+                    }
+
+                }
+
+                .crm-message-receivers {
+
+                    .ri-group-line {
+                        margin-right: 15px;
+                    }
+
+                    .media-body {
+                        margin-top: -3px;
+
+                        & > span {
+                            display: inline-block;
+                            margin-right: 10px;
+                            margin-bottom: 10px;
+                            padding: 5px 10px;
+                            border-radius: 6px;
+                            font-size: 12px;
+                            font-weight: 400;
+                            background-color: #F4F9FF;
+                        }
+
+                        & > a {
+                            display: inline-block;
+                            padding: 5px 10px;
+                            border-radius: 6px;
+                            font-size: 12px;
+                            font-weight: 400;
+                            background-color: #F4F9FF;   
+                            
+                            &:hover {
+                                border: 0;
+                                text-decoration: none;
+                                background-color: #ecf5ff;
+                                opacity: 1 !important;
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        .card-body {
+            padding: 0;
+            padding-right: 15px;
+            width: 100%;
+            width: calc(100% + 15px);
+            height: calc(100vh - 230px);
+            border: 0;
+            background-color: transparent;
+            overflow-x: hidden;
+            overflow-y: auto;
+
+            &::-webkit-scrollbar {
+                border: 3px solid transparent;
+                width: 8px;
+            }
+             
+            &::-webkit-scrollbar-track {
+                border: 3px solid transparent;
+                border-radius: 6px;
+                background-color: #F9FAFC;
+            }
+             
+            &::-webkit-scrollbar-thumb {
+                border-radius: 6px;
+                background-color: #dee2ea;
+            }
+
+            &.crm-messages-model-1 {
+
+                .crm-message-replies-load-new {
+                    display: none;
+                    margin: 30px;
+                    padding: 10px;
+                    width: 100%;
+                    text-align: center;
+                    -webkit-transition-duration: 0.5s;
+                    -moz-transition-duration: 0.5s;
+                    -o-transition-duration: 0.5s;
+                    transition-duration: 0.5s;
+                    -webkit-transition-property: -webkit-transform;
+                    -moz-transition-property: -moz-transform;
+                    -o-transition-property: -o-transform;
+                    transition-property: transform; 
+                    
+                    .btn-primary {
+                        padding: .375rem 12rem .405rem;
+                        border: 0;
+                        font-size: 14px;
+                        color: #657597;
+                        background-color: #E1F1FF;
+    
+                        i {
+                            display: inline-block;
+                            vertical-align: middle;
+                            margin-top: -3px;
+                            margin-right: 5px;
+                            font-size: 16px;                  
+                        }
+    
+                    }
+    
+                }
+    
+                .crm-message-replies-loading-new {
+                    margin: 30px;
+                    padding: 10px;
+                    width: 100%;
+                    text-align: center;
+                    -webkit-transition-duration: 0.5s;
+                    -moz-transition-duration: 0.5s;
+                    -o-transition-duration: 0.5s;
+                    transition-duration: 0.5s;
+                    -webkit-transition-property: -webkit-transform;
+                    -moz-transition-property: -moz-transform;
+                    -o-transition-property: -o-transform;
+                    transition-property: transform; 
+                    
+                    .btn-primary {
+                        padding: .375rem 12rem .405rem;
+                        border: 0;
+                        font-size: 14px;
+                        color: #657597;
+                        background-color: #E1F1FF;
+    
+                        .spinner-border {
+                            vertical-align: middle;
+                            margin-top: -2px;
+                            margin-right: 10px;                    
+                        }
+    
+                    }
+    
+                }
+    
+                .crm-message-content {
+                    margin: 15px 0 0 0;
+                    padding: .95rem 1.25rem;
+                    width: 90%;
+                    border-radius: 6px;
+                    background-color: $default-color-grey-light;
+    
+                    &.crm-message-content-author {
+                        margin-left: 10%;
+                        background-color: $default-color-blue-light;
+                    }
+    
+                    .media {
+    
+                        & > img {
+                            max-width: 32px;
+                            height: 32px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                        }
+    
+                        .media-body {
+    
+                            .crm-message-reply-author {
+                                display: table-cell;
+                                vertical-align: middle;
+                                margin: 0 0 6.1px 0;
+                                padding: 0;
+                                height: 20px;
+                                font-family: $default-font-2;
+                                font-size: 14px;
+                                font-weight: 600;
+                                color: $default-color-black;
+    
+                                a {
+                                    display: initial;
+                                    padding-bottom: 3px;
+                                    font-size: 13px;
+                                    font-weight: 500;
+                                    overflow: hidden;
+                                    -webkit-line-clamp: 1;
+                                    -webkit-box-orient: vertical;
+    
+                                    &:hover,
+                                    &:focus,
+                                    &:active {
+                                        text-decoration: none;
+                                    }
+    
+                                    &:hover {
+                                        padding-bottom: 2px;
+                                        border-bottom: 1px solid;
+                                    }
+    
+                                }   
+    
+                            }
+    
+                            .crm-message-reply-time {
+                                display: block;
+                                text-transform: uppercase;
+                                font-size: 12px;
+                                color: #8aa3be;
+                            }
+    
+                            .crm-message-reply-content {
+                                padding: 15px 0 0;
+                                line-height: 24px;
+                                font-size: 15px;
+                                font-weight: 400;     
+                                
+                                p {
+                                    margin-bottom: 20px;
+                                    font-family: $default-font-2;
+                                    font-size: 14px;
+                                    font-weight: 400;
+                                    color: $default-color-black;
+                                }
+    
+                            }
+    
+                            .crm-message-reply-attached-files {
+                                margin: 0 0 15px;
+                                padding: 0;
+                                
+                                .card {
+                                    border: 0;
+    
+                                    .card-header {
+                                        padding: 0;
+                                        border: 0;
+                                        background-color: #f7f9fc;
+    
+                                        a {
+                                            padding: .75rem 1.25rem;
+                                            line-height: 23px;
+                                            font-size: 23px;
+                                            color: #657597;
+    
+                                            &:hover,
+                                            &:focus,
+                                            &:active {
+                                                text-decoration: none;
+                                            }
+    
+                                            span {
+                                                font-weight: 600;
+                                                font-size: 13px;
+                                            }
+    
+                                            i {
+                                                display: block;
+                                                -webkit-transition-duration: 0.5s;
+                                                -moz-transition-duration: 0.5s;
+                                                -o-transition-duration: 0.5s;
+                                                transition-duration: 0.5s;
+                                                -webkit-transition-property: -webkit-transform;
+                                                -moz-transition-property: -moz-transform;
+                                                -o-transition-property: -o-transform;
+                                                transition-property: transform;
+                                            }
+    
+                                            &[aria-expanded="true"] {
+                                                    
+                                                i {
+                                                    -webkit-transform: rotate(180deg);
+                                                    -moz-transform: rotate(180deg);
+                                                    -o-transform: rotate(180deg);
+                                                    transform: rotate(180deg);
+                                                }
+            
+                                            }
+    
+                                        }
+    
+                                    }
+    
+                                    .list-group {
+                                        padding: 15px;
+                                        border-top: 1px solid #e8edf5;
+                                        background-color: #f7f9fc;
+    
+                                        .list-group-item {
+                                            margin: 0 0 15px;
+                                            padding: 0;
+    
+                                            &:last-child {
+                                                margin: 0;
+                                            }
+    
+                                        }
+    
+                                    }
+    
+                                }
+    
+                            }
+    
+                            .crm-message-reply-actions {
+    
+                                .crm-message-reply-action-btn {
+                                    padding: 0;
+                                    padding-bottom: 3px;
+                                    border: 0;
+                                    border-radius: 0;
+                                    font-size: 13px;
+                                    font-weight: 500;
+                                    background-color: transparent !important;
+    
+                                    &:hover,
+                                    &:focus,
+                                    &:active {
+                                        text-decoration: none;
+                                    }
+    
+                                    &:hover {
+                                        padding-bottom: 2px;
+                                        border-bottom: 1px solid;
+                                        opacity: 1;
+                                    }
+    
+                                    .bi {
+                                        vertical-align: middle;
+                                        margin-top: -5px;
+                                        margin-right: 2px;
+                                        font-size: 19px;
+                                        -webkit-transform: scaleX(-1);
+                                        transform: scaleX(-1);
+                                    }
+    
+                                }
+    
+                            }
+    
+                        }
+    
+                    }
+    
+                }
+    
+                .crm-message-replies {
+                    margin: 0;
+                    padding: 0;
+                    width: var(--crm-message-replies);
+    
+                    li {
+                        margin: 0;
+                        padding: .95rem 1.25rem;
+                        border: 0;
+                        border-bottom: 1px solid #e8edf5;
+    
+                        &:first-child {
+                            border-top: 1px solid #e8edf5;
+                        }
+    
+                        &:last-child {
+                            border: 0;
+                        }
+    
+                        .media {
+    
+                            & > img {
+                                width: 24x;
+                                height: 24px;
+                                border-radius: 50%;
+                            }
+    
+                            .media-body {
+    
+                                .crm-message-reply-author {
+                                    display: table-cell;
+                                    vertical-align: middle;
+                                    margin: 0 0 6.1px 0;
+                                    padding: 0;
+                                    height: 20px;
+    
+                                    a {
+                                        display: initial;
+                                        padding-bottom: 3px;
+                                        font-size: 13px;
+                                        font-weight: 500;
+                                        overflow: hidden;
+                                        -webkit-line-clamp: 1;
+                                        -webkit-box-orient: vertical;
+        
+                                        &:hover,
+                                        &:focus,
+                                        &:active {
+                                            text-decoration: none;
+                                        }
+        
+                                        &:hover {
+                                            padding-bottom: 2px;
+                                            border-bottom: 1px solid;
+                                        }
+        
+                                    }   
+    
+                                }
+    
+                                .crm-message-reply-time {
+                                    display: block;
+                                    text-transform: uppercase;
+                                    font-size: 12px;
+                                    color: #8aa3be;
+                                }
+    
+                                .crm-message-reply-content {
+                                    padding: 25px 0 10px;
+                                    line-height: 24px;
+                                    font-size: 15px;
+                                    font-weight: 400;     
+                                    
+                                    p {
+                                        margin-bottom: 20px;
+                                    }
+    
+                                }
+    
+                                .crm-message-reply-attached-files {
+                                    margin: 0 0 15px;
+                                    padding: 0;
+                                    
+                                    .card {
+                                        border: 0;
+    
+                                        .card-header {
+                                            padding: 0;
+                                            border: 0;
+                                            background-color: #f7f9fc;
+    
+                                            a {
+                                                padding: .75rem 1.25rem;
+                                                line-height: 23px;
+                                                font-size: 23px;
+                                                color: #657597;
+    
+                                                &:hover,
+                                                &:focus,
+                                                &:active {
+                                                    text-decoration: none;
+                                                }
+    
+                                                span {
+                                                    font-weight: 600;
+                                                    font-size: 13px;
+                                                }
+    
+                                                i {
+                                                    display: block;
+                                                    -webkit-transition-duration: 0.5s;
+                                                    -moz-transition-duration: 0.5s;
+                                                    -o-transition-duration: 0.5s;
+                                                    transition-duration: 0.5s;
+                                                    -webkit-transition-property: -webkit-transform;
+                                                    -moz-transition-property: -moz-transform;
+                                                    -o-transition-property: -o-transform;
+                                                    transition-property: transform;
+                                                }
+    
+                                                &[aria-expanded="true"] {
+                                                        
+                                                    i {
+                                                        -webkit-transform: rotate(180deg);
+                                                        -moz-transform: rotate(180deg);
+                                                        -o-transform: rotate(180deg);
+                                                        transform: rotate(180deg);
+                                                    }
+                
+                                                }
+    
+                                            }
+    
+                                        }
+    
+                                        .list-group {
+                                            padding: 15px;
+                                            border-top: 1px solid #e8edf5;
+                                            background-color: #f7f9fc;
+    
+                                            .list-group-item {
+                                                margin: 0 0 15px;
+                                                padding: 0;
+    
+                                                &:last-child {
+                                                    margin: 0;
+                                                }
+    
+                                            }
+    
+                                        }
+    
+                                    }
+    
+                                }
+    
+                                .crm-message-reply-actions {
+    
+                                    .crm-message-reply-action-btn {
+                                        padding: 0;
+                                        padding-bottom: 3px;
+                                        border: 0;
+                                        border-radius: 0;
+                                        font-size: 13px;
+                                        font-weight: 500;
+                                        background-color: transparent !important;
+    
+                                        &:hover,
+                                        &:focus,
+                                        &:active {
+                                            text-decoration: none;
+                                        }
+    
+                                        &:hover {
+                                            padding-bottom: 2px;
+                                            border-bottom: 1px solid;
+                                            opacity: 1;
+                                        }
+    
+                                        .bi {
+                                            vertical-align: middle;
+                                            margin-top: -5px;
+                                            margin-right: 2px;
+                                            font-size: 19px;
+                                            -webkit-transform: scaleX(-1);
+                                            transform: scaleX(-1);
+                                        }
+    
+                                    }
+    
+                                }
+    
+                                .crm-message-reply-to-area {
+                                    margin-top: 10px;
+    
+                                    & > p {
+                                        font-size: 13px;
+    
+                                        a {
+                                            display: initial;
+                                            margin-left: 5px;
+                                            padding-bottom: 3px;
+                                            overflow: hidden;
+                                            -webkit-line-clamp: 1;
+                                            -webkit-box-orient: vertical;
+            
+                                            &:hover,
+                                            &:focus,
+                                            &:active {
+                                                text-decoration: none;
+                                            }
+            
+                                            &:hover {
+                                                padding-bottom: 2px;
+                                                border-bottom: 1px solid;
+                                            }
+    
+                                        }
+    
+                                    }
+    
+                                    .card.card-body {
+                                        padding: 15px;
+                                        height: auto;
+                                        background-color: #f8fbff;
+    
+                                        .crm-message-reply-attached-files {
+                                            
+                                            .card {
+            
+                                                .card-header {
+                                                    background-color: #FFFFFF;
+                                                }
+            
+                                                .list-group {
+                                                    border-top: 1px solid #e8edf5;
+                                                    background-color: #FFFFFF;
+                                                }
+    
+                                            }
+    
+                                        }
+    
+                                    }
+    
+                                }
+    
+                            }
+    
+                        }
+    
+                    }
+    
+                }
+
+            }
+
+        }
+
+        .card-alerts {
+
+            .crm-message-replies-new-notification {
+                display: none;
+                width: 100%;
+                height: 0;
+                text-align: center;
+                -webkit-transition-duration: 0.5s;
+                -moz-transition-duration: 0.5s;
+                -o-transition-duration: 0.5s;
+                transition-duration: 0.5s;
+                -webkit-transition-property: -webkit-transform;
+                -moz-transition-property: -moz-transform;
+                -o-transition-property: -o-transform;
+                transition-property: transform; 
+                
+                .btn-primary {
+                    margin-top: -90px;
+                    padding: .20rem 5rem;
+                    border: 0;
+                    font-size: 14px;
+                    color: #FFFFFF;
+                    opacity: 0.6;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+
+                    i {
+                        vertical-align: sub;
+                        margin-right: 5px;
+                        font-size: 18px;
+                    }
+
+                }
+
+            }
+
+        }
+
+        .card-footer {
+            min-height: 133px;
+            border: 0;
+            border-top: 1px solid #e8edf5;
+            border-bottom: 1px solid #e8edf5;
+            background-color: transparent;
+
+            &.crm-message-composer-model-1 {
+
+                .crm-message-reply-to {
+                    margin-bottom: 15px;
+                    padding: 5px 15px 7px;                
+                    width: 100%;
+                    font-size: 13px;
+                    font-weight: 600;
+                    background-color: #f7f9fc;
+                    -webkit-transition-duration: 0.5s;
+                    -moz-transition-duration: 0.5s;
+                    -o-transition-duration: 0.5s;
+                    transition-duration: 0.5s;
+                    -webkit-transition-property: -webkit-transform;
+                    -moz-transition-property: -moz-transform;
+                    -o-transition-property: -o-transform;
+                    transition-property: transform;
+    
+                    span {
+                        font-weight: 400;
+    
+                        strong {
+                            font-weight: 500;
+                        }
+    
+                        .bi {
+                            vertical-align: bottom;
+                            margin-right: 2px;
+                            font-size: 19px;
+                        }
+    
+                    }
+    
+                    .btn-secondary {
+                        margin: 0;
+                        padding: 0;
+                        border: 0;
+                        background-color: transparent;
+                    }
+    
+                }
+    
+                .crm-message-reply-attach-btn {
+                    display: inline-block;
+                    margin-top: 5px;
+                    margin-right: 15px;
+                    padding: 0;
+                    width: 22px;
+                    height: 22px;
+    
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        text-decoration: none;
+                    }
+    
+                    i {
+                        font-size: 18px;
+                        color: #adadad;
+                    }
+    
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        
+                        i {
+                            color: #969494;
+                        }
+    
+                    }                
+    
+                }
+                
+                .emojionearea.crm-message-reply {
+                    display: inline-block;
+                    width: calc(100% - 55px);
+                    height: 70px;
+                    border: 0;
+                    resize: none;
+                    box-shadow: none;
+    
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        border: 0 !important;
+                        opacity: 1 !important;
+                        outline: none !important;
+                    }
+    
+                    .emojionearea-editor {
+                        padding: 0;
+                        height: 70px;
+                        min-height: 70px;
+                        max-height: 70px;
+                    }
+    
+                    .emojionearea-button {
+                        top: 78px;
+                        left: 36px;
+                    }
+    
+                    .emojionearea-picker.emojionearea-picker-position-top {
+                        left: 0 !important;
+                    }
+    
+                }
+    
+                .crm-message-reply-send-btn {
+                    display: inline-block;
+                    vertical-align: top;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    color: #FFFFFF;
+    
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        text-decoration: none;
+                    }
+    
+                    i {
+                        font-size: 22px;
+                    }
+    
+                }
+    
+                #crm-message-reply-attachments {
+                    margin-top: 15px;
+                    margin-left: -1.25rem;
+                    padding: .75rem 1.25rem;
+                    width: calc(100% + 2.50rem);
+    
+                    .crm-reply-attached-files,
+                    .crm-reply-error-upload-files {
+                        padding: 15px;
+                        width: 100%;
+                        min-height: 50px;
+                        background-color: #f7f9fc;
+                
+                        .list-group {
+                            margin: 0;
+                            padding: 0;
+                            border: 0;
+                
+                            li {
+                                margin: 0 0 15px;
+                                padding: 0;
+                                width: 100%;
+                                min-height: 55px;
+                                border: 0; 
+                                background-color: #FFFFFF;  
+                                
+                                &:last-child {
+                                    margin: 0;
+                                }
+                
+                                .crm-reply-attached-file {
+                                    display: flex;
+                                    padding: 15px;
+                
+                                    .crm-reply-attached-file-icon {
+                                        display: inline-block;
+                                        width: 50px;
+                                        background-color: #F3FAFF;
+                
+                                        .crm-reply-attached-file-icon-top {
+                                            text-align: center;
+                                            font-size: 24px;
+                                            color: #545F6E;
+                                        }
+                
+                                        .crm-reply-attached-file-icon-bottom {
+                                            margin-top: -6px;
+                                            text-align: center;
+                                            text-transform: uppercase;
+                                            font-size: 11px;
+                                            font-weight: 500;
+                                            color: #545F6E;
+                                        }                                    
+                
+                                    }
+                
+                                    .crm-reply-attached-file-name {
+                                        display: inline-block;
+                                        padding: 10px 15px;
+                                        width: calc(100% - 95px);
+                
+                                        h3 {
+                                            margin: 0;
+                                            padding: 0;
+                                            font-size: 14px;
+                                        }
+                
+                                        h4 {
+                                            margin: 3px 0 0;
+                                            padding: 0;
+                                            text-transform: uppercase;
+                                            font-size: 13px;
+                                            font-weight: 400;
+                                        }
+                
+                                    }
+                
+                                    .crm-reply-attached-file-manage {
+                                        display: inline-block;
+                                        padding: 10px 15px;
+                                        width: 30px;
+                
+                                        a {
+                                            display: block;
+                                            width: 30px;
+                                            height: 30px;
+                                            line-height: 30px;
+                                            text-align: center;
+                                            background-color: #f7f9fc;
+                
+                                            &:hover,
+                                            &:focus,
+                                            &:active {
+                                                text-decoration: none;
+                                                background-color: #edf0f5;
+                                            }
+                
+                                            i {
+                                                font-size: 16px;
+                                            }
+                
+                                        }
+                
+                                    }                                
+                
+                                }
+                
+                            }
+                
+                        }
+                
+                    }
+    
+                }
+
+            }
+
+        }
+
+    }
+
+}

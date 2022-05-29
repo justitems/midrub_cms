@@ -1,0 +1,25 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../user/default/styles/colors";
+@import "../../../../../../user/default/styles/fonts";
+@import "../../../../../../user/default/styles/activities";
+
+/*******************************
+CRM CHATBOT ACTIVITIES STYLES
+********************************/
+section {
+        
+    @include default-activities();
+
+}
+
+/*******************************
+MODALS
+********************************/
+
+#crm-activity-modal {
+
+    @include default-activity();
+
+}

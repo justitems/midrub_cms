@@ -1,0 +1,340 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../user/default/styles/colors";
+@import "../../../../../../user/default/styles/fonts";
+
+/*******************************
+TIME PICKER STYLES
+********************************/
+.theme-time-picker {
+    display: flex;
+    margin: 10px 15px 5px 0;
+    width: 175px;
+    height: 36px;
+    border: 1px solid #dee2ed;
+    border-radius: 2px;
+
+    .theme-time-picker-selected-time {
+        display: inline-flex;
+        padding: 5px;
+        width: 150px;
+        height: 26px;
+        font-family: $default-font-2;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .theme-time-picker-btn {
+        display: inline-flex;
+        padding: 5px;
+        width: 27px;
+        text-align: right;
+        
+        a {
+            margin-top: -1px;
+            width: 100%;
+            text-align: right;
+
+            i {
+                font-size: 18px;
+            }
+
+        }
+        
+    }
+
+}
+
+.theme-time-picker-separator {
+    display: flex;
+    margin: 10px 15px 5px 0;
+    width: 18px;
+    height: 36px;
+    text-align: center;
+
+    i {
+        margin-top: 5px;
+        font-size: 18px;
+    }
+
+}
+
+#theme-open-time-picker-modal {
+    
+    .modal-content {
+        margin: auto;
+        max-width: 350px;
+        border: 0;
+
+        .modal-body {
+            padding: 0;
+            min-height: 391px;
+
+            .theme-time-picker-table {
+                width: 100%;
+
+                & > thead {
+                    color: #FFFFFF;
+                    background-color: #9776A4;
+
+                    tr {
+
+                        th {
+                            height: 70px;
+
+                            &:first-child {
+                                padding-left: 15px;
+                                width: 250px;
+                                text-align: left;
+                                font-weight: 400;
+                                font-size: 18px;
+                            }
+
+                            a {
+                                color: #FFFFFF;
+
+                                svg {
+                                    font-size: 24px;
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                & > tbody {
+
+                    & > tr {
+
+                        & > td {
+                            padding: 15px 10px 0;
+
+                            table {
+                                width: 100%;
+
+                                tbody {
+
+                                    tr {
+
+                                        &:first-child {
+
+                                            td {
+                                                line-height: 38px;
+                                            }
+
+                                        }
+
+                                        td {
+                                            text-align: center;
+
+                                            &:nth-child(1),
+                                            &:nth-child(7) {
+                                                background-color: #F4F9FF;
+                                            }
+
+                                            a {
+                                                display: block;
+                                                margin: 5px;
+                                                width: 32px;
+                                                height: 32px;
+                                                line-height: 32px;
+                                                font-size: 14px;
+                                                font-weight: 400;
+                                                color: #4D4351;
+
+                                                &.default-current-day {
+                                                    color: #CEAADB;
+                                                }
+
+                                                &.default-selected-date {
+                                                    border-radius: 50%;
+                                                    color: #FFFFFF;
+                                                    background-color: #8FAECE;
+                                                }
+
+                                                &:hover {
+                                                    border-radius: 50px;
+                                                    text-decoration: none;
+                                                    color: #4D4351;
+                                                    background-color: #CADEF5;
+                                                }
+
+                                            }
+
+                                        }
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                & > tfoot {
+
+                    .theme-time-picker-hours-minutes {
+                        margin-bottom: 10px;
+                        text-align: center;
+
+                        .btn {
+                            border: 0;
+                            letter-spacing: 1px;
+                            font-size: 15px;
+                            font-weight: 400;
+                            color: #4D4351;
+                            background-color: #f8f5f9;
+
+                            &::after {
+                                display: none;
+                            }
+
+                            i {
+                                vertical-align: text-top;
+                            }
+
+                        }
+
+                        .dropdown-menu {
+                            margin-left: -121px;
+                            padding: 15px;
+                            min-height: 150px;
+                            min-width: 360px;
+                            border: 1px solid #ebf4ff;
+                            border-radius: 3px;
+                            -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+                            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+
+                            .theme-time-picker-hour-24-format {
+                                display: initial;
+                            }
+                            
+                            .theme-time-picker-meridiem-fieldset {
+                                display: none;
+                            }                            
+
+                            & > .row {
+
+                                & > div {
+
+                                    fieldset {
+                                        margin: 0 0 30px;
+                                        padding: 10px;
+                                        position: relative;
+                                        width: 100%; 
+                                        border-radius: 4px;
+                                        border: 1px solid #ebebeb;
+                        
+                                        legend {
+                                            margin-bottom: 0px; 
+                                            padding: 5px 5px 5px 10px; 
+                                            width: auto; 
+                                            border-radius: 4px;
+                                            font-size: 14px;
+                                            color: #3d5154;
+                                            background-color: #ffffff;
+                                        }
+
+                                        .theme-time-picker-hour-select,
+                                        .theme-time-picker-minute-select {
+                                            display: block;
+                                            margin-bottom: 5px;
+                                            padding: 5px;
+                                            width: 25px;
+                                            height: 25px;
+                                            line-height: 14px;
+                                            text-align: center;
+                                            font-size: 13px;
+                                            font-weight: 400;
+                                            color: #4D4351;
+
+                                            &:hover,
+                                            &.theme-time-picker-hour-selected,
+                                            &.theme-time-picker-minute-selected {
+                                                border-radius: 50px;
+                                                text-decoration: none;
+                                                color: #FFFFFF;
+                                                background-color: #9776A4;
+                                            }
+
+                                        }
+
+                                        .theme-time-picker-meridiem {
+                                            margin: 0;
+                                            padding: 0;
+
+                                            .btn {
+                                                font-size: 12px;
+                                                color: #9776A4;
+                                                background-color: #FFF5FF;
+
+                                                &.theme-time-picker-meridiem-selected {
+                                                    color: #FFF5FF;
+                                                    background-color:#9776A4;                                                    
+                                                }
+
+                                            }
+
+                                        }
+
+                                    }
+
+                                }
+
+                            }
+
+                            &.theme-time-picker-show-meridiem {
+
+                                .theme-time-picker-hour-24-format {
+                                    display: none !important;
+                                }
+
+                                .theme-time-picker-meridiem-fieldset {
+                                    display: initial !important;
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        .modal-footer {
+            padding: 0 15px 15px 0;
+            border: 0;
+
+            .btn {
+                border: 0;
+                text-transform: uppercase;
+                font-size: 15px;
+                color: #9776A4;
+                background-color: transparent;
+            }
+
+        }
+
+    }
+
+    &[data-time="0"] {
+
+        .theme-time-picker-hours-minutes {
+            display: none;
+        }
+
+    }
+
+}

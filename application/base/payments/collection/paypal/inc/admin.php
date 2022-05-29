@@ -10,7 +10,7 @@
  * @category Social
  * @package  Midrub
  * @author   Scrisoft <asksyn@gmail.com>
- * @license  https://www.gnu.org/licenses/gpl-2.0.html GNU General Public License
+ * @license  https://github.com/scrisoft/midrub_cms/blob/master/license
  * @link     https://www.midrub.com/
  */
 
@@ -70,6 +70,18 @@ md_set_gateway(
                     'placeholder' => $CI->lang->line('braintree_enter_client_secret'),
                     'value' => md_the_option('paypal_client_secret')?md_the_option('paypal_client_secret'):'',
                     'disabled' => false
+                )
+
+            ),
+            array(
+                'field_slug' => 'paypal_sandbox_enabled',
+                'field_type' => 'checkbox',
+                'field_words' => array(
+                    'field_title' => $CI->lang->line('paypal_sandbox'),
+                    'field_description' => $CI->lang->line('paypal_sandbox_description')
+                ),
+                'field_params' => array(
+                    'checked' => md_the_option('paypal_sandbox_enabled')?md_the_option('paypal_sandbox_enabled'):0
                 )
 
             )

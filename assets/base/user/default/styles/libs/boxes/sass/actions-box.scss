@@ -1,0 +1,68 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../user/default/styles/colors";
+@import "../../../../user/default/styles/fonts";
+
+/*******************************
+ACTIONS BOX STYLES
+********************************/
+
+.default-actions-box {
+
+    .table {
+        margin: 0;
+
+        tbody {
+
+            tr {
+
+                td {
+                    border: 0;
+
+                    &:first-child {
+                        width: 20%;
+                    }
+
+                    &:last-child {
+                        width: 80%;
+                    }
+
+                    @media only screen and (max-width: 1445px) {
+            
+                        &:first-child {
+                            width: 40%;
+                        }
+    
+                        &:last-child {
+                            width: 60%;
+                        }
+                        
+                    }
+
+                    label {
+                        display: block;
+                        margin-bottom: 0;
+                        font-family: $default-font-1;
+                        font-size: 13px;
+                        color: $default-color-grey;
+
+                        svg {
+                            vertical-align: middle;
+                            margin-top: -3px;
+                            margin-right: 5px;
+                            width: 18px;
+                            height: 18px;
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

@@ -1,0 +1,112 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+THEME GLOBAL COLORS
+********************************/
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Inter:wght@200;300;400;500;600&display=swap");
+/*******************************
+THEME GLOBAL FONTS
+********************************/
+/*******************************
+WEEK CALENDAR STYLES
+********************************/
+.default-week-calendar {
+  border: 0;
+  background-color: transparent; }
+  .default-week-calendar .card-header {
+    padding: 0;
+    border: 0;
+    background-color: transparent; }
+    .default-week-calendar .card-header h3 {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+      font-size: 17px;
+      color: #344564; }
+    .default-week-calendar .card-header .btn-group {
+      margin: -10px -3px 0 0; }
+      .default-week-calendar .card-header .btn-group .btn-secondary {
+        padding: 0;
+        border: 0;
+        background-color: transparent; }
+        .default-week-calendar .card-header .btn-group .btn-secondary:last-child {
+          margin-left: 10px; }
+        .default-week-calendar .card-header .btn-group .btn-secondary i {
+          font-size: 28px;
+          color: #344564; }
+  .default-week-calendar .card-body {
+    padding: 15px 0 0; }
+    .default-week-calendar .card-body .default-week-calendar-days a {
+      display: block;
+      padding: 0;
+      width: auto;
+      min-width: 19.5px;
+      border: 0;
+      text-align: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      color: #8F9EC2;
+      background-color: transparent; }
+      .default-week-calendar .card-body .default-week-calendar-days a span {
+        display: block;
+        margin-top: 5px;
+        font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        color: #344564; }
+      .default-week-calendar .card-body .default-week-calendar-days a:hover, .default-week-calendar .card-body .default-week-calendar-days a.default-week-calendar-day-active {
+        text-decoration: none; }
+        .default-week-calendar .card-body .default-week-calendar-days a:hover span, .default-week-calendar .card-body .default-week-calendar-days a.default-week-calendar-day-active span {
+          color: #2E92FA; }
+  .default-week-calendar .card-footer {
+    padding: 15px 0 0;
+    border: 0;
+    background-color: transparent; }
+    .default-week-calendar .card-footer .default-week-calendar-events {
+      margin: 0;
+      padding: 0; }
+      .default-week-calendar .card-footer .default-week-calendar-events .default-week-calendar-no-events {
+        margin-top: 14px;
+        padding: 10px;
+        list-style: none;
+        font-weight: 400;
+        font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+        font-size: 14px;
+        color: #344564;
+        background-color: #FFFFFF; }
+      .default-week-calendar .card-footer .default-week-calendar-events .default-week-calendar-event {
+        padding: 14px 0 0;
+        list-style: none;
+        font-weight: 400;
+        font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+        font-size: 14px;
+        color: #344564; }
+        .default-week-calendar .card-footer .default-week-calendar-events .default-week-calendar-event .default-week-calendar-event-icon-1 {
+          display: inline-block;
+          vertical-align: middle;
+          margin-top: -4px;
+          margin-right: 10px;
+          font-size: 19px;
+          color: #344564; }
+        .default-week-calendar .card-footer .default-week-calendar-events .default-week-calendar-event a {
+          border-bottom: 1px solid transparent;
+          text-decoration: none;
+          color: #344564; }
+          .default-week-calendar .card-footer .default-week-calendar-events .default-week-calendar-event a:hover {
+            border-bottom: 1px solid #344564;
+            text-decoration: none; }
+        .default-week-calendar .card-footer .default-week-calendar-events .default-week-calendar-event .media {
+          padding: 5px 10px;
+          background-color: #FFFFFF; }
+          .default-week-calendar .card-footer .default-week-calendar-events .default-week-calendar-event .media .media-body h5 {
+            margin-bottom: 5px;
+            font-size: 13px; }
+          .default-week-calendar .card-footer .default-week-calendar-events .default-week-calendar-event .media .media-body span {
+            font-size: 12px;
+            color: #8F9EC2; }
+
+/*# sourceMappingURL=week-calendar.css.map */

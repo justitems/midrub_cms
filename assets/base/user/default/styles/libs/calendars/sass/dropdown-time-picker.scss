@@ -1,0 +1,195 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../user/default/styles/colors";
+@import "../../../../user/default/styles/fonts";
+@import "../../../../user/default/styles/scrollbar";
+
+/*******************************
+DROPDOWN TIME PICKER STYLES
+********************************/
+
+.default-dropdown-time-picker {
+    margin-top: -7px;
+    padding: 5px 10px;
+    width: 157px;
+
+    .dropdown {
+
+        .btn-link {
+            padding: 0;
+            border: 0;
+            line-height: initial;
+            color: $default-color-grey;
+
+            .theme-dropdown-arrow-icon {
+                vertical-align: middle;
+                margin-top: -2px;
+                font-size: 19px !important;                                                    
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                border: 0;
+                text-decoration: none;
+                color: $default-color-black;
+            }
+
+        }
+
+        .dropdown-menu {
+            padding: 10px 25px !important;
+            width: 157px;
+            transform: translate3d(-122px, 28px, 0px) !important;   
+
+            &.default-dropdown-time-with-meridiem {
+                width: 177px;
+                transform: translate3d(-142px, 28px, 0px) !important;
+            }
+
+            .row {
+
+                .col-4 {
+                    padding: 0;
+
+                    ul {
+                        margin: 0 0 0 2px;
+                        padding: 0 5px 0 0 !important;
+                        height: 200px;
+                        overflow-x: auto;
+
+                        @include default-scrollbar-1;
+
+                        &::-webkit-scrollbar {
+                            width: 5px;
+                        }
+                        
+                        &::-webkit-scrollbar-track {
+                            border-radius: 3px;
+                            background-color: transparent;
+                        }
+                        
+                        &::-webkit-scrollbar-thumb {
+                            border-radius: 3px;
+                            background-color: transparent;
+                        }
+
+                        &:hover {
+
+                            &::-webkit-scrollbar-track {
+                                background-color: $default-color-scrollbar-1-track;
+                            }
+                            
+                            &::-webkit-scrollbar-thumb {
+                                background-color: $default-color-scrollbar-1-thumb;
+                            }
+
+                        }
+
+                        &.default-dropdown-time-picker-dropdown-meridiem {
+                            margin: 0 2px 0 7px;
+                            width: 40.66px;
+                        }
+
+                        li {
+                            padding: 3px 0;
+                            list-style: none;
+                            text-align: center;
+                            height: 33px;
+
+                            &:hover {
+                                background-color: transparent;
+                            }
+
+                            a {
+                                height: 27px;
+                                line-height: 27px;
+                                border-radius: 7px;
+                                font-size: 13px;
+
+                                &:hover {
+                                    border-radius: 7px;
+                                    background-color: $default-background-color;
+                                }
+
+                                &.default-dropdown-time-picker-dropdown-selected {
+                                    background-color: $default-color-grey-light;
+                                }
+
+                            }
+
+                        }
+
+                        &.default-dropdown-time-picker-dropdown-meridiem {
+
+                            li {
+
+                                a {
+
+                                    &.default-dropdown-time-picker-dropdown-selected {
+                                        color: #FFFFFF;
+                                        background-color: $default-color-violet;
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .default-dropdown-time-picker-container {
+        width: 120px;
+        height: 24px;
+        text-align: center;
+
+        .default-dropdown-time-picker-hour,
+        .default-dropdown-time-picker-minute,
+        .default-dropdown-time-picker-separator,
+        .default-dropdown-time-picker-meridiem {
+            display: inline-block;
+            margin-top: 2px;
+            font-family: $default-font-4;
+            font-size: 13px;
+            font-weight: 600;
+            color: $default-color-black;
+
+            &[contenteditable=true] {
+                outline: none !important;
+
+                &:empty:after{
+                    content: attr(placeholder);
+                    color: $default-color-grey;
+                }
+
+            }
+
+        }
+
+        .default-dropdown-time-picker-hour,
+        .default-dropdown-time-picker-minute {
+            width: 15px;
+        }
+
+        .default-dropdown-time-picker-separator {
+            width: 10px;
+            text-align: center;
+        }
+
+        .default-dropdown-time-picker-meridiem {
+            width: 23px;
+        }                                                
+
+    }
+
+}

@@ -14,3 +14,5 @@ $lang["braintree_enter_merchant"] = "Enter the merchant id ...";
 $lang["braintree_enter_merchant_account_id"] = "Enter the merchant account id ...";
 $lang["braintree_enter_api_key"] = "Enter the api public key ...";
 $lang["braintree_enter_api_private_key"] = "Enter the api secret key ...";
+$lang["braintree_sandbox"] = "Sandbox";
+$lang["braintree_sandbox_description"] = "Ths option enables the testing mode for Braintree.";

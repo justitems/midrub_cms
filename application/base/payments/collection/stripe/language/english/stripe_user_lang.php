@@ -22,3 +22,7 @@ $lang["stripe_customer_was_not_saved"] = "The Stripe's customer was not created 
 $lang["stripe_credit_card_was_not_saved"] = "The credit card was not saved successfully.";
 $lang["stripe_3d_secure_authentication_failed"] = "3D Secure authentication failed.";
 $lang["stripe_unexpected_ecure_status"] = "Unexpected 3D Secure status";
+$lang["stripe_plan_not_found"] = "The plan was not found.";
+$lang["stripe_product_not_created"] = "The product was not created successfully.";
+$lang["stripe_price_not_created"] = "The price was not created successfully.";
+$lang["stripe_session_not_created"] = "The session was not created successfully.";

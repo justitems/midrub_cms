@@ -1,0 +1,140 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+THEME GLOBAL COLORS
+********************************/
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Inter:wght@200;300;400;500;600&display=swap");
+/*******************************
+THEME GLOBAL FONTS
+********************************/
+/*******************************
+SCROLLBAR GLOBAL COLORS
+********************************/
+/*******************************
+DEFAULT MIXING FOR SCROLLING
+********************************/
+/*******************************
+DROPDOWN TIME PICKER STYLES
+********************************/
+.default-dropdown-time-picker {
+  margin-top: -7px;
+  padding: 5px 10px;
+  width: 157px; }
+  .default-dropdown-time-picker .dropdown .btn-link {
+    padding: 0;
+    border: 0;
+    line-height: initial;
+    color: #8F9EC2; }
+    .default-dropdown-time-picker .dropdown .btn-link .theme-dropdown-arrow-icon {
+      vertical-align: middle;
+      margin-top: -2px;
+      font-size: 19px !important; }
+    .default-dropdown-time-picker .dropdown .btn-link:hover, .default-dropdown-time-picker .dropdown .btn-link:focus, .default-dropdown-time-picker .dropdown .btn-link:active {
+      border: 0;
+      text-decoration: none;
+      color: #344564; }
+  .default-dropdown-time-picker .dropdown .dropdown-menu {
+    padding: 10px 25px !important;
+    width: 157px;
+    transform: translate3d(-122px, 28px, 0px) !important; }
+    .default-dropdown-time-picker .dropdown .dropdown-menu.default-dropdown-time-with-meridiem {
+      width: 177px;
+      transform: translate3d(-142px, 28px, 0px) !important; }
+    .default-dropdown-time-picker .dropdown .dropdown-menu .row .col-4 {
+      padding: 0; }
+      .default-dropdown-time-picker .dropdown .dropdown-menu .row .col-4 ul {
+        margin: 0 0 0 2px;
+        padding: 0 5px 0 0 !important;
+        height: 200px;
+        overflow-x: auto;
+        padding-right: 15px;
+        overflow-x: hidden;
+        overflow-y: auto; }
+        .default-dropdown-time-picker .dropdown .dropdown-menu .row .col-4 ul::-webkit-scrollbar {
+          border: 3px solid transparent;
+          width: 8px; }
+        .default-dropdown-time-picker .dropdown .dropdown-menu .row .col-4 ul::-webkit-scrollbar-track {
+          border: 3px solid transparent;
+          border-radius: 6px;
+          background-color: #F9FAFC;
+          -webkit-transition: background-color 0.7s linear;
+          transition: background-color 0.7s linear; }
+        .default-dropdown-time-picker .dropdown .dropdown-menu .row .col-4 ul::-webkit-scrollbar-thumb {
+          border-radius: 6px;
+          background-color: #dee2ea;
+          -webkit-transition: background-color 0.7s linear;
+          transition: background-color 0.7s linear; }
+        .default-dropdown-time-picker .dropdown .dropdown-menu .row .col-4 ul::-webkit-scrollbar {
+          width: 5px; }
+        .default-dropdown-time-picker .dropdown .dropdown-menu .row .col-4 ul::-webkit-scrollbar-track {
+          border-radius: 3px;
+          background-color: transparent; }
+        .default-dropdown-time-picker .dropdown .dropdown-menu .row .col-4 ul::-webkit-scrollbar-thumb {
+          border-radius: 3px;
+          background-color: transparent; }
+        .default-dropdown-time-picker .dropdown .dropdown-menu .row .col-4 ul:hover::-webkit-scrollbar-track {
+          background-color: #F9FAFC; }
+        .default-dropdown-time-picker .dropdown .dropdown-menu .row .col-4 ul:hover::-webkit-scrollbar-thumb {
+          background-color: #dee2ea; }
+        .default-dropdown-time-picker .dropdown .dropdown-menu .row .col-4 ul.default-dropdown-time-picker-dropdown-meridiem {
+          margin: 0 2px 0 7px;
+          width: 40.66px; }
+        .default-dropdown-time-picker .dropdown .dropdown-menu .row .col-4 ul li {
+          padding: 3px 0;
+          list-style: none;
+          text-align: center;
+          height: 33px; }
+          .default-dropdown-time-picker .dropdown .dropdown-menu .row .col-4 ul li:hover {
+            background-color: transparent; }
+          .default-dropdown-time-picker .dropdown .dropdown-menu .row .col-4 ul li a {
+            height: 27px;
+            line-height: 27px;
+            border-radius: 7px;
+            font-size: 13px; }
+            .default-dropdown-time-picker .dropdown .dropdown-menu .row .col-4 ul li a:hover {
+              border-radius: 7px;
+              background-color: #f7f9fc; }
+            .default-dropdown-time-picker .dropdown .dropdown-menu .row .col-4 ul li a.default-dropdown-time-picker-dropdown-selected {
+              background-color: #F4F9FF; }
+        .default-dropdown-time-picker .dropdown .dropdown-menu .row .col-4 ul.default-dropdown-time-picker-dropdown-meridiem li a.default-dropdown-time-picker-dropdown-selected {
+          color: #FFFFFF;
+          background-color: #736691; }
+  .default-dropdown-time-picker .default-dropdown-time-picker-container {
+    width: 120px;
+    height: 24px;
+    text-align: center; }
+    .default-dropdown-time-picker .default-dropdown-time-picker-container .default-dropdown-time-picker-hour,
+    .default-dropdown-time-picker .default-dropdown-time-picker-container .default-dropdown-time-picker-minute,
+    .default-dropdown-time-picker .default-dropdown-time-picker-container .default-dropdown-time-picker-separator,
+    .default-dropdown-time-picker .default-dropdown-time-picker-container .default-dropdown-time-picker-meridiem {
+      display: inline-block;
+      margin-top: 2px;
+      font-family: "Open Sans", sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #344564; }
+      .default-dropdown-time-picker .default-dropdown-time-picker-container .default-dropdown-time-picker-hour[contenteditable=true],
+      .default-dropdown-time-picker .default-dropdown-time-picker-container .default-dropdown-time-picker-minute[contenteditable=true],
+      .default-dropdown-time-picker .default-dropdown-time-picker-container .default-dropdown-time-picker-separator[contenteditable=true],
+      .default-dropdown-time-picker .default-dropdown-time-picker-container .default-dropdown-time-picker-meridiem[contenteditable=true] {
+        outline: none !important; }
+        .default-dropdown-time-picker .default-dropdown-time-picker-container .default-dropdown-time-picker-hour[contenteditable=true]:empty:after,
+        .default-dropdown-time-picker .default-dropdown-time-picker-container .default-dropdown-time-picker-minute[contenteditable=true]:empty:after,
+        .default-dropdown-time-picker .default-dropdown-time-picker-container .default-dropdown-time-picker-separator[contenteditable=true]:empty:after,
+        .default-dropdown-time-picker .default-dropdown-time-picker-container .default-dropdown-time-picker-meridiem[contenteditable=true]:empty:after {
+          content: attr(placeholder);
+          color: #8F9EC2; }
+    .default-dropdown-time-picker .default-dropdown-time-picker-container .default-dropdown-time-picker-hour,
+    .default-dropdown-time-picker .default-dropdown-time-picker-container .default-dropdown-time-picker-minute {
+      width: 15px; }
+    .default-dropdown-time-picker .default-dropdown-time-picker-container .default-dropdown-time-picker-separator {
+      width: 10px;
+      text-align: center; }
+    .default-dropdown-time-picker .default-dropdown-time-picker-container .default-dropdown-time-picker-meridiem {
+      width: 23px; }
+
+/*# sourceMappingURL=dropdown-time-picker.css.map */
