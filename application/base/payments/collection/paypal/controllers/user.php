@@ -116,10 +116,15 @@ class User {
                     // Verify the plan's ID exists
                     if ( isset($incomplete_transaction['options']['plan_id']) ) {
 
+                        // Set token url
+                        $token_url = md_the_option('paypal_sandbox_enabled')?'https://api-m.sandbox.paypal.com/v1/oauth2/token':'https://api.paypal.com/v1/oauth2/token';
+
                         // First get the token
                         $curl = curl_init();
+
+                        // Set parameters
                         curl_setopt_array($curl, array(
-                        CURLOPT_URL => 'https://api.paypal.com/v1/oauth2/token',
+                        CURLOPT_URL => $token_url,
                         CURLOPT_RETURNTRANSFER => true,
                         CURLOPT_ENCODING => '',
                         CURLOPT_MAXREDIRS => 10,
@@ -134,7 +139,10 @@ class User {
                             )
                         ));
 
+                        // Decode the response
                         $token_response = json_decode(curl_exec($curl), true);
+
+                        // Close the CURL
                         curl_close($curl);
 
                         // Verify if access token exists
@@ -146,10 +154,22 @@ class User {
                                 'type' => 'SERVICE'
                             );
 
+                            // Set product url
+                            $product_url = md_the_option('paypal_sandbox_enabled')?'https://api-m.sandbox.paypal.com/v1/catalogs/products':'https://api.paypal.com/v1/catalogs/products';
+
+                            // Init CURL
                             $curl = curl_init();
-                            curl_setopt($curl, CURLOPT_URL, 'https://api.paypal.com/v1/catalogs/products');
+
+                            // Set url
+                            curl_setopt($curl, CURLOPT_URL, $product_url);
+
+                            // Enable post
                             curl_setopt($curl, CURLOPT_POST, 1);
+
+                            // Set fields
                             curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($product_params));
+
+                            // Set parameters
                             curl_setopt(
                                 $curl,
                                 CURLOPT_HTTPHEADER,
@@ -159,8 +179,14 @@ class User {
                                     'PayPal-Request-Id: plan_' . $incomplete_transaction['options']['plan_id']
                                 )
                             );
+
+                            // Enable transfer
                             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+                            // Get product
                             $product_response = json_decode( curl_exec ($curl), true);
+
+                            // Close curl
                             curl_close ($curl);
                             
                             // Verify if the product was created
@@ -212,12 +238,24 @@ class User {
 
                                 );
 
-                                $ch = curl_init();
-                                curl_setopt($ch, CURLOPT_URL, 'https://api.paypal.com/v1/billing/plans');
-                                curl_setopt($ch, CURLOPT_POST, 1);
-                                curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($plan_params));
+                                // Set plan url
+                                $plan_url = md_the_option('paypal_sandbox_enabled')?'https://api-m.sandbox.paypal.com/v1/billing/plans':'https://api.paypal.com/v1/billing/plans';
+
+                                // Init curl
+                                $curl = curl_init();
+
+                                // Set url
+                                curl_setopt($curl, CURLOPT_URL, $plan_url);
+
+                                // Enable post
+                                curl_setopt($curl, CURLOPT_POST, 1);
+
+                                // Set fields
+                                curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($plan_params));
+
+                                // Enable access token
                                 curl_setopt(
-                                    $ch,
+                                    $curl,
                                     CURLOPT_HTTPHEADER,
                                     array(
                                         'Content-Type: application/json',
@@ -225,9 +263,15 @@ class User {
                                         'Prefer: return=representation'
                                     )
                                 );
-                                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                                $plan_response = json_decode( curl_exec ($ch), true);
-                                curl_close ($ch);                    
+
+                                // Enable transfer
+                                curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+                                // Decode response
+                                $plan_response = json_decode( curl_exec ($curl), true);
+
+                                // Close CURL
+                                curl_close ($curl);                    
 
                                 // Verify if the plan was created
                                 if ( isset($plan_response['id']) ) {

@@ -1,0 +1,169 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../user/default/styles/colors";
+@import "../../../../../../user/default/styles/fonts";
+
+/*******************************
+WEEK CALENDAR STYLES
+********************************/
+
+.default-week-calendar {
+    border: 0;
+    background-color: transparent;
+
+    .card-header {
+        padding: 0;
+        border: 0;
+        background-color: transparent;
+
+        h3 {
+            margin: 0;
+            padding: 0;
+            font-family: $default-font-1;
+            font-size: 17px;
+            color: $default-color-black;
+        }
+
+        .btn-group {
+            margin: -10px -3px 0 0;
+
+            .btn-secondary {
+                padding: 0;
+                border: 0;       
+                background-color: transparent;
+
+                &:last-child {
+                    margin-left: 10px;
+                }
+
+                i {
+                    font-size: 28px;
+                    color: $default-color-black;   
+                }
+
+            }
+
+        }
+
+    }
+
+    .card-body {
+        padding: 15px 0 0;
+
+        .default-week-calendar-days {
+
+            a {
+                display: block;
+                padding: 0;
+                width: auto;
+                min-width: 19.5px;
+                border: 0;
+                text-align: center;
+                font-family: $default-font-2;
+                font-size: 12px;
+                color: $default-color-grey;
+                background-color: transparent;
+
+                span {
+                    display: block;
+                    margin-top: 5px;
+                    font-family: $default-font-1;
+                    font-size: 14px;
+                    font-weight: 600;                    
+                    color: $default-color-black;
+
+                }
+
+                &:hover,
+                &.default-week-calendar-day-active {
+                    text-decoration: none;
+
+                    span {                    
+                        color: $default-color-blue;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .card-footer {
+        padding: 15px 0 0;
+        border: 0;
+        background-color: transparent;
+
+        .default-week-calendar-events {
+            margin: 0;
+            padding: 0;
+
+            .default-week-calendar-no-events {
+                margin-top: 14px;
+                padding: 10px;
+                list-style: none;
+                font-weight: 400;
+                font-family: $default-font-1;
+                font-size: 14px;
+                color: $default-color-black;
+                background-color: #FFFFFF;
+            }
+        
+            .default-week-calendar-event {
+                padding: 14px 0 0;
+                list-style: none;
+                font-weight: 400;
+                font-family: $default-font-1;
+                font-size: 14px;
+                color: $default-color-black;
+        
+                .default-week-calendar-event-icon-1 {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-top: -4px;
+                    margin-right: 10px;
+                    font-size: 19px;
+                    color: $default-color-black;
+                }
+
+                a {
+                    border-bottom: 1px solid transparent;
+                    text-decoration: none;
+                    color: $default-color-black;
+
+                    &:hover {
+                        border-bottom: 1px solid $default-color-black;
+                        text-decoration: none;
+                    }
+
+                }
+
+                .media {
+                    padding: 5px 10px;
+                    background-color: #FFFFFF;
+
+                    .media-body {
+                        
+                        h5 {
+                            margin-bottom: 5px;
+                            font-size: 13px;
+                        }
+    
+                        span {
+                            font-size: 12px;
+                            color: $default-color-grey;
+                        } 
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

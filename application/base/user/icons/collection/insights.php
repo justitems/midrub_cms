@@ -17,9 +17,7 @@ if ( !function_exists('md_user_icon_insights') ) {
         $class = !empty($params['class'])?' ' . $params['class']:'';
 
         // Return icon
-        return '<i class="material-icons-outlined' . $class . '">'
-            . 'insights'
-        . '</i>';
+        return '<i class="ri-line-chart-line' . $class . '"></i>';
 
     }
     

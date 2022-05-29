@@ -15,7 +15,7 @@ namespace CmsBase\Payments\Collection\Braintree;
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 defined('CMS_BASE_PAYMENTS_BRAINTREE') OR define('CMS_BASE_PAYMENTS_BRAINTREE', CMS_BASE_PAYMENTS . 'collection/braintree/');
-defined('CMS_BASE_PAYMENTS_BRAINTREE_VERSION') OR define('CMS_BASE_PAYMENTS_BRAINTREE_VERSION', '0.0.2');
+defined('CMS_BASE_PAYMENTS_BRAINTREE_VERSION') OR define('CMS_BASE_PAYMENTS_BRAINTREE_VERSION', '0.0.3');
 
 // Define the namespaces to use
 use CmsBase\Payments\Interfaces as CmsBasePaymentsInterfaces;
@@ -92,7 +92,7 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
     public function pay() {
 
         // Verify if the gateway is enabled
-        if ( md_the_option('braintree') ) {
+        if ( md_the_option('gateway_braintree_enabled') ) {
 
             // Instantiate the class
             (new CmsBasePaymentsCollectionBraintreeControllers\User)->view();
@@ -147,12 +147,7 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
      * 
      * @return void
      */
-    public function cron_jobs() {
-
-        // Process the subscriptions
-        (new CmsBasePaymentsCollectionBraintreeControllers\Cron)->subscriptions();        
-        
-    }
+    public function cron_jobs() {}
     
     /**
      * The public method hooks contains the gateway's hooks
@@ -175,7 +170,7 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
             case 'admin_init':
 
                 // Verify if admin has opened the settings component
-                if ( ( md_the_data('component') === 'settings' ) || ( md_the_data('component') === 'plans' ) || ( md_the_data('component') === 'upgrade' ) ) {
+                if ( md_the_data('hook') === 'payments' ) {
 
                     // Require the admin file
                     require_once CMS_BASE_PAYMENTS_BRAINTREE . '/inc/admin.php';
@@ -204,7 +199,7 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
 
             // Set the Braintree configuration
             $config = new \Braintree_Configuration([
-                'environment' => 'production',
+                'environment' => md_the_option('braintree_sandbox_enabled')?'sandbox':'production',
                 'merchantId' => md_the_option('braintree_merchant_id'),
                 'publicKey' => md_the_option('braintree_public_key'),
                 'privateKey' => md_the_option('braintree_private_key')
@@ -416,7 +411,7 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
 
             // Set the Braintree configuration
             $config = new \Braintree_Configuration([
-                'environment' => 'production',
+                'environment' => md_the_option('braintree_sandbox_enabled')?'sandbox':'production',
                 'merchantId' => md_the_option('braintree_merchant_id'),
                 'publicKey' => md_the_option('braintree_public_key'),
                 'privateKey' => md_the_option('braintree_private_key')
@@ -441,31 +436,9 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
      */
     public function gateway_info() {
 
-        // Load language
-        $this->CI->lang->load( 'braintree_admin', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_PAYMENTS_BRAINTREE );
-
         // Create and return array
         return array(
-            'gateway' => $this->CI->lang->line('braintree'),
-            'configuration' => array(
-                array(
-                    'type' => 'text_input',
-                    'slug' => 'braintree_merchant_id',
-                    'label' => $this->CI->lang->line('braintree_merchant_id')
-                ),
-                array(
-                    'type' => 'text_input',
-                    'slug' => 'braintree_public_key',
-                    'label' => $this->CI->lang->line('braintree_public_key')
-                ),
-                array(
-                    'type' => 'text_input',
-                    'slug' => 'braintree_private_key',
-                    'label' => $this->CI->lang->line('braintree_private_key')
-                )
-
-            )
-            
+            'gateway' => 'Braintree'
         );
 
     }

@@ -3,12 +3,10 @@
 namespace Stripe;
 
 /**
- * Class OAuthErrorObject
+ * Class OAuthErrorObject.
  *
  * @property string $error
  * @property string $error_description
- *
- * @package Stripe
  */
 class OAuthErrorObject extends StripeObject
 {
@@ -16,15 +14,15 @@ class OAuthErrorObject extends StripeObject
      * Refreshes this object using the provided values.
      *
      * @param array $values
-     * @param null|string|array|Util\RequestOptions $opts
-     * @param boolean $partial Defaults to false.
+     * @param null|array|string|Util\RequestOptions $opts
+     * @param bool $partial defaults to false
      */
     public function refreshFrom($values, $opts, $partial = false)
     {
         // Unlike most other API resources, the API will omit attributes in
         // error objects when they have a null value. We manually set default
         // values here to facilitate generic error handling.
-        $values = array_merge([
+        $values = \array_merge([
             'error' => null,
             'error_description' => null,
         ], $values);

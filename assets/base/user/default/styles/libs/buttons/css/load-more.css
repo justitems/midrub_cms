@@ -1,0 +1,28 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+THEME GLOBAL COLORS
+********************************/
+/*******************************
+LOAD MORE STYLES
+********************************/
+.default-load-more {
+  padding: 0 !important;
+  width: 35px !important;
+  height: 35px !important;
+  border-radius: 50% !important;
+  background-color: transparent !important; }
+  .default-load-more .default-load-more-btn {
+    width: 25px;
+    height: 25px;
+    color: #8F9EC2;
+    transition: all 0.5s;
+    opacity: 0.7; }
+  .default-load-more:hover .default-load-more-btn {
+    width: 25px;
+    height: 25px;
+    color: #2E92FA;
+    opacity: 1; }
+
+/*# sourceMappingURL=load-more.css.map */

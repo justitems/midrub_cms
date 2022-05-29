@@ -127,7 +127,7 @@ class User {
 
                 // Set the Braintree configuration
                 $config = new \Braintree_Configuration([
-                    'environment' => 'production',
+                    'environment' => md_the_option('braintree_sandbox_enabled')?'sandbox':'production',
                     'merchantId' => md_the_option('braintree_merchant_id'),
                     'publicKey' => md_the_option('braintree_public_key'),
                     'privateKey' => md_the_option('braintree_private_key')

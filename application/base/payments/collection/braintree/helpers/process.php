@@ -62,8 +62,11 @@ class Process {
      */ 
     public function prepare() {
 
+        // Set mode
+        $mode = md_the_option('braintree_sandbox_enabled')?'sandbox':'production';
+
         // Set the configuration's parameters
-        \Braintree_Configuration::environment('production');
+        \Braintree_Configuration::environment($mode);
         \Braintree_Configuration::merchantId(md_the_option('braintree_merchant_id'));
         \Braintree_Configuration::publicKey(md_the_option('braintree_public_key'));
         \Braintree_Configuration::privateKey(md_the_option('braintree_private_key'));
@@ -121,7 +124,7 @@ class Process {
 
                 // Get the user's email
                 $get_user = $this->CI->base_model->the_data_where('users', '*', array(
-                    'user_id' => $this->CI->user_id
+                    'user_id' => md_the_user_id()
                 ));
 
                 // Verify if should be created a subscription
@@ -156,7 +159,7 @@ class Process {
                         // Save transaction error
                         save_complete_transaction(
                             $transaction['transaction_id'],
-                            $this->CI->user_id,
+                            md_the_user_id(),
                             array(
                                 'gateway' => 'braintree',
                                 'status' => 2
@@ -186,7 +189,7 @@ class Process {
                         // Save transaction success
                         save_complete_transaction(
                             $transaction['transaction_id'],
-                            $this->CI->user_id,
+                            md_the_user_id(),
                             array(
                                 'net_id' => $subscriptionId,
                                 'gateway' => 'Braintree',
@@ -207,7 +210,7 @@ class Process {
 
                         // We need to delete the previous subscription
                         $subscriptions = $this->CI->base_model->the_data_where('subscriptions', '*', array(
-                            'user_id' => $this->CI->user_id
+                            'user_id' => md_the_user_id()
                         ));
 
                         // Verify if old subscribtions exists
@@ -235,14 +238,14 @@ class Process {
 
                             // Delete the subscription from the database
                             $this->CI->base_model->delete('subscriptions', array(
-                                'user_id' => $this->CI->user_id,
+                                'user_id' => md_the_user_id(),
                             ) );
 
                         }
 
                         // Try to save the subscription
                         $subscription_create = create_subscription(array(
-                            'user_id' => $this->CI->user_id,
+                            'user_id' => md_the_user_id(),
                             'net_id' => $subscriptionId,
                             'gateway' => 'braintree',
                             'status' => 1,
@@ -286,7 +289,7 @@ class Process {
                         // Save transaction error
                         save_complete_transaction(
                             $transaction['transaction_id'],
-                            $this->CI->user_id,
+                            md_the_user_id(),
                             array(
                                 'gateway' => 'braintree',
                                 'status' => 2
@@ -315,7 +318,7 @@ class Process {
 
                         // We need to delete the previous subscription
                         $subscriptions = $this->CI->base_model->the_data_where('subscriptions', '*', array(
-                            'user_id' => $this->CI->user_id
+                            'user_id' => md_the_user_id()
                         ));
 
                         // Verify if old subscribtions exists
@@ -343,7 +346,7 @@ class Process {
 
                             // Delete the subscription from the database
                             $this->CI->base_model->delete('subscriptions', array(
-                                'user_id' => $this->CI->user_id,
+                                'user_id' => md_the_user_id(),
                             ) );
 
                         }
@@ -351,7 +354,7 @@ class Process {
                         // Save transaction success
                         save_complete_transaction(
                             $transaction['transaction_id'],
-                            $this->CI->user_id,
+                            md_the_user_id(),
                             array(
                                 'net_id' => $response->transaction->id,
                                 'gateway' => 'braintree',

@@ -1,0 +1,81 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../user/default/styles/colors";
+@import "../../../../user/default/styles/fonts";
+
+/*******************************
+FULL TABS STYLES
+********************************/
+
+.default-full-tabs {
+
+    .nav-tabs {
+        margin-top: 0;
+        width: 100%;
+        border: 0;
+        border-bottom: 2px solid $default-color-violet;
+        border-radius: 5px !important;
+        background-color: #FFFFFF !important;
+
+        .nav-item {
+            margin-bottom: 0;
+
+            .nav-link {
+                padding: 0.5rem 1rem 0.3rem;
+                width: 100%;
+                border: 0;
+                text-align: center;
+                font-family: $default-font-4;
+                font-size: 14px;
+                color: $default-color-black;
+
+                i {
+                    display: inline-block;
+                    vertical-align: top;
+                    margin-top: -2px;
+                    margin-right: 5px;
+                    font-size: 18px;
+                }
+
+                &.active {
+                    border-radius: 0;
+                    color: #FFFFFF;
+                    background-color: $default-color-violet;
+                }
+
+            }
+
+            &:first-child {
+
+                .nav-link {
+
+                    &.active {
+                        border-radius: 4px 0 0 4px;
+                        color: #FFFFFF;
+                        background-color: $default-color-violet;
+                    }
+
+                }
+
+            }
+
+            &:last-child {
+
+                .nav-link {
+
+                    &.active {
+                        border-radius: 0 4px 4px 0;
+                        color: #FFFFFF;
+                        background-color: $default-color-violet;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

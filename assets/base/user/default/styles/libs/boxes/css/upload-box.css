@@ -1,0 +1,227 @@
+/*******************************
+CRM UPLOAD BOX STYLES
+********************************/
+.crm-drag-and-drop-files {
+  display: table;
+  margin: 7px 0;
+  width: 100%;
+  height: 300px;
+  border: 2px dashed #C7D7FD;
+  border-radius: 3px;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out; }
+  .crm-drag-and-drop-files > div.crm-upload-main {
+    display: table-cell;
+    position: absolute;
+    z-index: 3;
+    vertical-align: middle;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 1;
+    -webkit-transition: opacity 0.4s ease-in-out;
+    -moz-transition: opacity 0.4s ease-in-out;
+    -ms-transition: opacity 0.4s ease-in-out;
+    -o-transition: opacity 0.4s ease-in-out;
+    transition: opacity 0.4s ease-in-out; }
+    .crm-drag-and-drop-files > div.crm-upload-main .crm-upload-icon {
+      display: block;
+      margin-top: 50px;
+      margin-bottom: 10px; }
+      .crm-drag-and-drop-files > div.crm-upload-main .crm-upload-icon i {
+        margin-top: -10px;
+        font-size: 60px;
+        color: #6F65A7; }
+    .crm-drag-and-drop-files > div.crm-upload-main .crm-upload-text h2 {
+      margin: 0 0 10px;
+      text-transform: inherit !important;
+      font-size: 19px;
+      color: #707788; }
+    .crm-drag-and-drop-files > div.crm-upload-main .crm-upload-text p {
+      margin: 0;
+      padding: 0 45px;
+      font-size: 14px;
+      color: #A4ABBD; }
+    .crm-drag-and-drop-files > div.crm-upload-main .crm-upload-btn a {
+      display: inline-table;
+      margin-top: 22px;
+      margin-bottom: -15px;
+      padding: 7px 15px;
+      height: calc(1.5em + 0.75rem + 2px);
+      line-height: 1.5;
+      border: 0;
+      border-radius: .25rem;
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: #344564;
+      background-color: #f7f9fc;
+      background-clip: padding-box; }
+      .crm-drag-and-drop-files > div.crm-upload-main .crm-upload-btn a:hover {
+        text-decoration: none;
+        color: #344564;
+        background-color: #edf0f5; }
+      .crm-drag-and-drop-files > div.crm-upload-main .crm-upload-btn a:active, .crm-drag-and-drop-files > div.crm-upload-main .crm-upload-btn a:focus {
+        text-decoration: none; }
+  .crm-drag-and-drop-files > div.crm-upload-over {
+    display: table-cell;
+    position: absolute;
+    z-index: 2;
+    vertical-align: middle;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -ms-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+    transition-duration: 0.7s, 1.2s;
+    transition-delay: 0s, 0.7s; }
+    .crm-drag-and-drop-files > div.crm-upload-over .crm-upload-icon {
+      margin-top: 100px; }
+      .crm-drag-and-drop-files > div.crm-upload-over .crm-upload-icon i {
+        display: block;
+        font-size: 90px;
+        color: #6F65A7; }
+  .crm-drag-and-drop-files > div.crm-upload-drop {
+    display: table-cell;
+    position: absolute;
+    z-index: 1;
+    vertical-align: middle;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -ms-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+    transition-duration: 0.5s, 1s;
+    transition-delay: 0s, 0.5s; }
+    .crm-drag-and-drop-files > div.crm-upload-drop .crm-upload-progress {
+      padding: 0 100px;
+      margin-top: 120px; }
+      .crm-drag-and-drop-files > div.crm-upload-drop .crm-upload-progress p {
+        font-size: 25px;
+        color: #A99AFF; }
+      .crm-drag-and-drop-files > div.crm-upload-drop .crm-upload-progress .progress {
+        height: 7px;
+        background-color: #E5D7FF; }
+        .crm-drag-and-drop-files > div.crm-upload-drop .crm-upload-progress .progress .progress-bar {
+          background-color: #6F65A7; }
+  .crm-drag-and-drop-files.crm-drag-and-drop-files-over-active {
+    border: 2px dashed #6F65A7;
+    background-color: #fdfcff; }
+    .crm-drag-and-drop-files.crm-drag-and-drop-files-over-active > div.crm-upload-main {
+      opacity: 0; }
+    .crm-drag-and-drop-files.crm-drag-and-drop-files-over-active > div.crm-upload-over {
+      opacity: 1; }
+  .crm-drag-and-drop-files.crm-drag-and-drop-files-drop-active {
+    border: 2px dashed #6F65A7;
+    background-color: #fdfcff; }
+    .crm-drag-and-drop-files.crm-drag-and-drop-files-drop-active > div.crm-upload-main {
+      opacity: 0; }
+    .crm-drag-and-drop-files.crm-drag-and-drop-files-drop-active > div.crm-upload-over {
+      opacity: 0; }
+    .crm-drag-and-drop-files.crm-drag-and-drop-files-drop-active > div.crm-upload-drop {
+      opacity: 1; }
+
+.crm-attached-files,
+.crm-error-upload-files {
+  padding: 15px;
+  width: 100%;
+  min-height: 50px;
+  background-color: #f7f9fc; }
+  .crm-attached-files .list-group,
+  .crm-error-upload-files .list-group {
+    margin: 0;
+    padding: 0;
+    border: 0; }
+    .crm-attached-files .list-group li,
+    .crm-error-upload-files .list-group li {
+      margin: 0 0 15px;
+      padding: 0;
+      width: 100%;
+      min-height: 55px;
+      border: 0;
+      background-color: #FFFFFF; }
+      .crm-attached-files .list-group li:last-child,
+      .crm-error-upload-files .list-group li:last-child {
+        margin: 0; }
+      .crm-attached-files .list-group li .crm-attached-file,
+      .crm-error-upload-files .list-group li .crm-attached-file {
+        display: flex;
+        padding: 15px; }
+        .crm-attached-files .list-group li .crm-attached-file .crm-attached-file-icon,
+        .crm-error-upload-files .list-group li .crm-attached-file .crm-attached-file-icon {
+          display: inline-block;
+          width: 50px;
+          background-color: #F3FAFF; }
+          .crm-attached-files .list-group li .crm-attached-file .crm-attached-file-icon .crm-attached-file-icon-top,
+          .crm-error-upload-files .list-group li .crm-attached-file .crm-attached-file-icon .crm-attached-file-icon-top {
+            text-align: center;
+            font-size: 24px;
+            color: #545F6E; }
+          .crm-attached-files .list-group li .crm-attached-file .crm-attached-file-icon .crm-attached-file-icon-bottom,
+          .crm-error-upload-files .list-group li .crm-attached-file .crm-attached-file-icon .crm-attached-file-icon-bottom {
+            margin-top: -6px;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 500;
+            color: #545F6E; }
+        .crm-attached-files .list-group li .crm-attached-file .crm-attached-file-name,
+        .crm-error-upload-files .list-group li .crm-attached-file .crm-attached-file-name {
+          display: inline-block;
+          padding: 10px 15px;
+          width: calc(100% - 95px); }
+          .crm-attached-files .list-group li .crm-attached-file .crm-attached-file-name h3,
+          .crm-error-upload-files .list-group li .crm-attached-file .crm-attached-file-name h3 {
+            margin: 0;
+            padding: 0;
+            font-size: 14px; }
+          .crm-attached-files .list-group li .crm-attached-file .crm-attached-file-name h4,
+          .crm-error-upload-files .list-group li .crm-attached-file .crm-attached-file-name h4 {
+            margin: 3px 0 0;
+            padding: 0;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 400; }
+        .crm-attached-files .list-group li .crm-attached-file .crm-attached-file-manage,
+        .crm-error-upload-files .list-group li .crm-attached-file .crm-attached-file-manage {
+          display: inline-block;
+          padding: 10px 15px;
+          width: 30px; }
+          .crm-attached-files .list-group li .crm-attached-file .crm-attached-file-manage a,
+          .crm-error-upload-files .list-group li .crm-attached-file .crm-attached-file-manage a {
+            display: block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #f7f9fc; }
+            .crm-attached-files .list-group li .crm-attached-file .crm-attached-file-manage a:hover, .crm-attached-files .list-group li .crm-attached-file .crm-attached-file-manage a:focus, .crm-attached-files .list-group li .crm-attached-file .crm-attached-file-manage a:active,
+            .crm-error-upload-files .list-group li .crm-attached-file .crm-attached-file-manage a:hover,
+            .crm-error-upload-files .list-group li .crm-attached-file .crm-attached-file-manage a:focus,
+            .crm-error-upload-files .list-group li .crm-attached-file .crm-attached-file-manage a:active {
+              text-decoration: none;
+              background-color: #edf0f5; }
+            .crm-attached-files .list-group li .crm-attached-file .crm-attached-file-manage a i,
+            .crm-error-upload-files .list-group li .crm-attached-file .crm-attached-file-manage a i {
+              font-size: 16px; }
+
+/*# sourceMappingURL=upload-box.css.map */

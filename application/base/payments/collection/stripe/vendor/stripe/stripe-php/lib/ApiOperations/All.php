@@ -10,8 +10,8 @@ namespace Stripe\ApiOperations;
 trait All
 {
     /**
-     * @param array|null $params
-     * @param array|string|null $opts
+     * @param null|array $params
+     * @param null|array|string $opts
      *
      * @throws \Stripe\Exception\ApiErrorException if the request fails
      *
@@ -26,11 +26,12 @@ trait All
         $obj = \Stripe\Util\Util::convertToStripeObject($response->json, $opts);
         if (!($obj instanceof \Stripe\Collection)) {
             throw new \Stripe\Exception\UnexpectedValueException(
-                'Expected type ' . \Stripe\Collection::class . ', got "' . get_class($obj) . '" instead.'
+                'Expected type ' . \Stripe\Collection::class . ', got "' . \get_class($obj) . '" instead.'
             );
         }
         $obj->setLastResponse($response);
         $obj->setFilters($params);
+
         return $obj;
     }
 }

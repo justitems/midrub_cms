@@ -44,7 +44,7 @@ if ( !function_exists('the_incomplete_transaction') ) {
 
                 // Prepare data to save
                 $transaction_params = array(
-                    'user_id' => $CI->user_id,
+                    'user_id' => md_the_user_id(),
                     'amount' => $CI->security->xss_clean($transaction['pay']['amount']),
                     'currency' => $CI->security->xss_clean($transaction['pay']['currency']),
                     'created' => time()

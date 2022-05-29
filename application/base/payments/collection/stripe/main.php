@@ -1,11 +1,11 @@
 <?php
 /**
- * Midrub Payments Stripe
+ * Cms Payments Stripe
  *
  * This file loads the Stripe's gateway
  *
  * @author Scrisoft
- * @package Midrub
+ * @package Cms
  * @since 0.0.8.0
  */
 
@@ -15,7 +15,7 @@ namespace CmsBase\Payments\Collection\Stripe;
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 defined('CMS_BASE_PAYMENTS_STRIPE') OR define('CMS_BASE_PAYMENTS_STRIPE', CMS_BASE_PAYMENTS . 'collection/stripe/');
-defined('CMS_BASE_PAYMENTS_STRIPE_VERSION') OR define('CMS_BASE_PAYMENTS_STRIPE_VERSION', '0.0.2');
+defined('CMS_BASE_PAYMENTS_STRIPE_VERSION') OR define('CMS_BASE_PAYMENTS_STRIPE_VERSION', '0.0.5');
 
 // Define the namespaces to use
 use CmsBase\Payments\Interfaces as CmsBasePaymentsInterfaces;
@@ -26,7 +26,7 @@ use CmsBase\Payments\Collection\Stripe\Controllers as CmsBasePaymentsCollectionS
  * Main class loads the Stripe's gateway
  * 
  * @author Scrisoft
- * @package Midrub
+ * @package Cms
  * @since 0.0.8.0
  */
 class Main implements CmsBasePaymentsInterfaces\Payments {
@@ -92,7 +92,7 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
     public function pay() {
 
         // Verify if the gateway is enabled
-        if ( md_the_option('stripe') ) {
+        if ( md_the_option('gateway_stripe_enabled') ) {
 
             // Instantiate the class
             (new CmsBasePaymentsCollectionStripeControllers\User)->view();
@@ -113,32 +113,7 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
      * 
      * @return void
      */
-    public function ajax() {    
-        
-        // Get action's get input
-        $action = $this->CI->input->get('action');
-
-        if ( !$action ) {
-            $action = $this->CI->input->post('action');
-        }
-        
-        try {
-            
-            // Call method if exists
-            (new CmsBasePaymentsCollectionStripeControllers\Ajax)->$action();
-            
-        } catch (Exception $ex) {
-            
-            $data = array(
-                'success' => FALSE,
-                'message' => $ex->getMessage()
-            );
-            
-            echo json_encode($data);
-            
-        }
-
-    }
+    public function ajax() {}
 
     /**
      * The public method cron_jobs loads the cron jobs commands
@@ -147,10 +122,7 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
      * 
      * @return void
      */
-    public function cron_jobs() {
-
-        // Process the subscriptions
-        (new CmsBasePaymentsCollectionStripeControllers\Cron)->subscriptions();        
+    public function cron_jobs() {     
         
     }
     
@@ -175,7 +147,7 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
             case 'admin_init':
 
                 // Verify if admin has opened the settings component
-                if ( ( md_the_data('component') === 'settings' ) || ( md_the_data('component') === 'plans' ) || ( md_the_data('component') === 'upgrade' ) ) {
+                if ( md_the_data('hook') === 'payments' ) {
 
                     // Require the admin file
                     require_once CMS_BASE_PAYMENTS_STRIPE . '/inc/admin.php';
@@ -212,18 +184,73 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
             // Handle the event
             switch ( $payload['type'] ) {
 
+                case 'customer.subscription.created':
+
+                    // Verify if data exists
+                    if ( !empty($payload['data']) ) {
+
+                        // Verify if object exists
+                        if ( !empty($payload['data']['object']) ) {
+
+                            // Verify if plan exists
+                            if ( !empty($payload['data']['object']['plan']) ) {
+
+                                // Verify if plan's id exists
+                                if ( !empty($payload['data']['object']['plan']['id']) ) {
+
+                                    // Get the transaction
+                                    $the_transaction = $this->CI->base_model->the_data_where('transactions',
+                                    '*',
+                                    array(
+                                        'net_id' => $payload['data']['object']['items']['data'][0]['price']['id'],
+                                        'gateway' => 'stripe'
+                                    ));
+
+                                    // Verify if transaction exists
+                                    if ( $the_transaction ) {
+
+                                        // Prepare subscription's parameters
+                                        $subscription_params = array(
+                                            'user_id' => $the_transaction[0]['user_id'],
+                                            'net_id' => $payload['data']['object']['id'],
+                                            'amount' => $the_transaction[0]['amount'],
+                                            'currency' => $the_transaction[0]['currency'],
+                                            'gateway' => 'stripe',
+                                            'status' => 1,
+                                            'last_update' => date('Y-m-d'),
+                                            'created' => time()
+                                        );
+
+                                        // Save user subscription
+                                        md_update_user_option($the_transaction[0]['user_id'], 'subscription', 1);
+
+                                        // Save the subscription
+                                        $this->CI->base_model->insert('subscriptions', $subscription_params);
+
+                                    }                                    
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+                    
+                    break;
+
                 case 'customer.subscription.updated':
 
-                    // Get the subscribtion saved in the database
+                    // Get the subscription saved in the database
                     $subscription = $this->CI->base_model->the_data_where('subscriptions', '*', array(
                         'net_id' => $payload['data']['object']['id'],
                         'gateway' => 'stripe'
                     ));
 
-                    // Verify if subscribtion exists
+                    // Verify if subscription exists
                     if ( $subscription ) {
 
-                        // Get the first transaction by subscribtion
+                        // Get the first transaction by subscription
                         $transaction = $this->CI->base_model->the_data_where('transactions', '*', array(
                             'net_id' => $payload['data']['object']['id'],
                             'gateway' => 'stripe'
@@ -320,16 +347,16 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
 
                 case 'customer.subscription.deleted':
 
-                    // Get the subscribtion saved in the database
+                    // Get the subscription saved in the database
                     $subscription = $this->CI->base_model->the_data_where('subscriptions', '*', array(
                         'net_id' => $payload['data']['object']['id'],
                         'gateway' => 'stripe'
                     ));
 
                     // Delete subscription's mark
-                    delete_user_option($subscription[0]['user_id'], 'subscription');
+                    md_delete_user_option($subscription[0]['user_id'], 'subscription');
 
-                    // Verify if subscribtion exists
+                    // Verify if subscription exists
                     if ( $subscription ) {
 
                         // Delete the subscription from the database
@@ -398,7 +425,7 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
         if ( isset($subscription['net_id']) ) {
 
             // Delete subscription's mark
-            delete_user_option($subscription['user_id'], 'subscription');
+            md_delete_user_option($subscription['user_id'], 'subscription');
 
             // Request the Stripe's vendor
             require_once CMS_BASE_PAYMENTS_STRIPE . 'vendor/autoload.php';
@@ -410,9 +437,22 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
             $get_subscription = \Stripe\Subscription::retrieve(
                 $subscription['net_id']
             );
+
+            // Verify if status exists
+            if ( !empty($get_subscription->status) ) {
+
+                // Verify if the status is not cancelled
+                if ( $get_subscription->status !== 'canceled' ) {
+
+                    // Delete the subscription
+                    $get_subscription->delete();
+
+                }
+
+            }
             
             // Delete the subscription
-            $get_subscription->delete();
+            $this->CI->base_model->delete('subscriptions', array('gateway' => 'stripe', 'net_id' => $subscription['net_id']));
 
         }
 
@@ -427,29 +467,9 @@ class Main implements CmsBasePaymentsInterfaces\Payments {
      */
     public function gateway_info() {
 
-        // Load language
-        $this->CI->lang->load( 'stripe_admin', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_PAYMENTS_STRIPE );
-
         // Create and return array
         return array(
-            'gateway' => 'Stripe',
-            'configuration' => array(
-                array(
-                    'type' => 'text_input',
-                    'slug' => 'stripe_merchant_id',
-                    'label' => $this->CI->lang->line('stripe_merchant_id')
-                ),
-                array(
-                    'type' => 'text_input',
-                    'slug' => 'stripe_public_key',
-                    'label' => $this->CI->lang->line('stripe_public_key')
-                ),
-                array(
-                    'type' => 'text_input',
-                    'slug' => 'stripe_private_key',
-                    'label' => $this->CI->lang->line('stripe_private_key')
-                ),
-            )
+            'gateway' => 'Stripe'
         );
 
     }

@@ -124,7 +124,7 @@ class Process {
                         // Save transaction error
                         save_complete_transaction(
                             $transaction['transaction_id'],
-                            $this->CI->user_id,
+                            md_the_user_id(),
                             array(
                                 'gateway' => 'paypal',
                                 'status' => 2
@@ -151,7 +151,7 @@ class Process {
                         // Save transaction success
                         save_complete_transaction(
                             $transaction['transaction_id'],
-                            $this->CI->user_id,
+                            md_the_user_id(),
                             array(
                                 'net_id' => $data['orderID'],
                                 'gateway' => 'PayPal',
@@ -172,7 +172,7 @@ class Process {
 
                         // We need to delete the previous subscription
                         $subscriptions = $this->CI->base_model->the_data_where('subscriptions', '*', array(
-                            'user_id' => $this->CI->user_id
+                            'user_id' => md_the_user_id()
                         ));
 
                         // Verify if old subscribtions exists
@@ -200,14 +200,14 @@ class Process {
 
                             // Delete the subscription from the database
                             $this->CI->base_model->delete('subscriptions', array(
-                                'user_id' => $this->CI->user_id,
+                                'user_id' => md_the_user_id(),
                             ) );
 
                         }
 
                         // Try to save the subscription
                         $subscription_create = create_subscription(array(
-                            'user_id' => $this->CI->user_id,
+                            'user_id' => md_the_user_id(),
                             'net_id' => $data['subscriptionID'],
                             'gateway' => 'paypal',
                             'status' => 1,
@@ -228,10 +228,15 @@ class Process {
 
                 } else {
 
-                    // First get the token
+                    // Set token url
+                    $token_url = md_the_option('paypal_sandbox_enabled')?'https://api-m.sandbox.paypal.com/v1/oauth2/token':'https://api.paypal.com/v1/oauth2/token';
+
+                    // Curl Init
                     $curl = curl_init();
+
+                    // Set parameters
                     curl_setopt_array($curl, array(
-                    CURLOPT_URL => 'https://api.paypal.com/v1/oauth2/token',
+                    CURLOPT_URL => $token_url,
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_ENCODING => '',
                     CURLOPT_MAXREDIRS => 10,
@@ -246,17 +251,34 @@ class Process {
                         )
                     ));
 
+                    // Decode the response
                     $token_response = json_decode(curl_exec($curl), true);
+
+                    // Close CURL
                     curl_close($curl);
 
                     // Verify if access token exists
                     if ( isset($token_response['access_token']) ) {
 
-                        // First get the payment's details
-                        $curl = curl_init('https://api.paypal.com/v1/payments/payment/' . $data['paymentID']);
+                        // Payments details url
+                        $payments_url = md_the_option('paypal_sandbox_enabled')?'https://api-m.sandbox.paypal.com/v1/payments/payment/' . $data['paymentID']:'https://api.paypal.com/v1/payments/payment/' . $data['paymentID'];
+
+                        // Init CURL
+                        $curl = curl_init();
+
+                        // Set url
+                        curl_setopt($curl, CURLOPT_URL, $payments_url);
+
+                        // Set access token
                         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $token_response['access_token']));
+
+                        // Enable return transfer
                         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+                        // Get response
                         $payment_response = json_decode(curl_exec($curl), true);
+
+                        // Close curl
                         curl_close($curl);
                         
                         // First verify the state
@@ -273,7 +295,7 @@ class Process {
                                         // Save transaction success
                                         save_complete_transaction(
                                             $transaction['transaction_id'],
-                                            $this->CI->user_id,
+                                            md_the_user_id(),
                                             array(
                                                 'net_id' => $payment_response['id'],
                                                 'gateway' => 'paypal',
@@ -315,7 +337,7 @@ class Process {
         // Save transaction error
         save_complete_transaction(
             $transaction['transaction_id'],
-            $this->CI->user_id,
+            md_the_user_id(),
             array(
                 'gateway' => 'paypal',
                 'status' => 2

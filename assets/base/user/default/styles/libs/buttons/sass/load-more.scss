@@ -1,0 +1,36 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../user/default/styles/colors";
+
+/*******************************
+LOAD MORE STYLES
+********************************/
+
+.default-load-more {
+    padding: 0 !important;
+    width: 35px !important;
+    height: 35px !important;
+    border-radius: 50% !important;
+    background-color: transparent !important;
+
+    .default-load-more-btn {
+        width: 25px;
+        height: 25px;
+        color: $default-color-grey;
+        transition: all 0.5s;
+        opacity: 0.7;
+    }
+
+    &:hover {
+
+        .default-load-more-btn {
+            width: 25px;
+            height: 25px;
+            color: $default-color-blue;
+            opacity: 1;
+        } 
+
+    }
+
+}

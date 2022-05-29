@@ -1,0 +1,18 @@
+/*******************************
+PROGRESS BAR CIRCLE STYLES
+********************************/
+
+.default-progress-bar-circle {
+    position: relative;
+    margin: -3px 0 0;
+    width: 25px;
+    height: 25px;
+
+    canvas {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;                                                
+    }
+
+}

@@ -1,0 +1,196 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+THEME GLOBAL COLORS
+********************************/
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Inter:wght@200;300;400;500;600&display=swap");
+/*******************************
+THEME GLOBAL FONTS
+********************************/
+/*******************************
+TIME PICKER STYLES
+********************************/
+.theme-time-picker {
+  display: flex;
+  margin: 10px 15px 5px 0;
+  width: 175px;
+  height: 36px;
+  border: 1px solid #dee2ed;
+  border-radius: 2px; }
+  .theme-time-picker .theme-time-picker-selected-time {
+    display: inline-flex;
+    padding: 5px;
+    width: 150px;
+    height: 26px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400; }
+  .theme-time-picker .theme-time-picker-btn {
+    display: inline-flex;
+    padding: 5px;
+    width: 27px;
+    text-align: right; }
+    .theme-time-picker .theme-time-picker-btn a {
+      margin-top: -1px;
+      width: 100%;
+      text-align: right; }
+      .theme-time-picker .theme-time-picker-btn a i {
+        font-size: 18px; }
+
+.theme-time-picker-separator {
+  display: flex;
+  margin: 10px 15px 5px 0;
+  width: 18px;
+  height: 36px;
+  text-align: center; }
+  .theme-time-picker-separator i {
+    margin-top: 5px;
+    font-size: 18px; }
+
+#theme-open-time-picker-modal .modal-content {
+  margin: auto;
+  max-width: 350px;
+  border: 0; }
+  #theme-open-time-picker-modal .modal-content .modal-body {
+    padding: 0;
+    min-height: 391px; }
+    #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table {
+      width: 100%; }
+      #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > thead {
+        color: #FFFFFF;
+        background-color: #9776A4; }
+        #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > thead tr th {
+          height: 70px; }
+          #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > thead tr th:first-child {
+            padding-left: 15px;
+            width: 250px;
+            text-align: left;
+            font-weight: 400;
+            font-size: 18px; }
+          #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > thead tr th a {
+            color: #FFFFFF; }
+            #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > thead tr th a svg {
+              font-size: 24px; }
+      #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tbody > tr > td {
+        padding: 15px 10px 0; }
+        #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tbody > tr > td table {
+          width: 100%; }
+          #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tbody > tr > td table tbody tr:first-child td {
+            line-height: 38px; }
+          #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tbody > tr > td table tbody tr td {
+            text-align: center; }
+            #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tbody > tr > td table tbody tr td:nth-child(1), #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tbody > tr > td table tbody tr td:nth-child(7) {
+              background-color: #F4F9FF; }
+            #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tbody > tr > td table tbody tr td a {
+              display: block;
+              margin: 5px;
+              width: 32px;
+              height: 32px;
+              line-height: 32px;
+              font-size: 14px;
+              font-weight: 400;
+              color: #4D4351; }
+              #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tbody > tr > td table tbody tr td a.default-current-day {
+                color: #CEAADB; }
+              #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tbody > tr > td table tbody tr td a.default-selected-date {
+                border-radius: 50%;
+                color: #FFFFFF;
+                background-color: #8FAECE; }
+              #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tbody > tr > td table tbody tr td a:hover {
+                border-radius: 50px;
+                text-decoration: none;
+                color: #4D4351;
+                background-color: #CADEF5; }
+      #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes {
+        margin-bottom: 10px;
+        text-align: center; }
+        #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes .btn {
+          border: 0;
+          letter-spacing: 1px;
+          font-size: 15px;
+          font-weight: 400;
+          color: #4D4351;
+          background-color: #f8f5f9; }
+          #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes .btn::after {
+            display: none; }
+          #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes .btn i {
+            vertical-align: text-top; }
+        #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes .dropdown-menu {
+          margin-left: -121px;
+          padding: 15px;
+          min-height: 150px;
+          min-width: 360px;
+          border: 1px solid #ebf4ff;
+          border-radius: 3px;
+          -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05); }
+          #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes .dropdown-menu .theme-time-picker-hour-24-format {
+            display: initial; }
+          #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes .dropdown-menu .theme-time-picker-meridiem-fieldset {
+            display: none; }
+          #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes .dropdown-menu > .row > div fieldset {
+            margin: 0 0 30px;
+            padding: 10px;
+            position: relative;
+            width: 100%;
+            border-radius: 4px;
+            border: 1px solid #ebebeb; }
+            #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes .dropdown-menu > .row > div fieldset legend {
+              margin-bottom: 0px;
+              padding: 5px 5px 5px 10px;
+              width: auto;
+              border-radius: 4px;
+              font-size: 14px;
+              color: #3d5154;
+              background-color: #ffffff; }
+            #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes .dropdown-menu > .row > div fieldset .theme-time-picker-hour-select,
+            #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes .dropdown-menu > .row > div fieldset .theme-time-picker-minute-select {
+              display: block;
+              margin-bottom: 5px;
+              padding: 5px;
+              width: 25px;
+              height: 25px;
+              line-height: 14px;
+              text-align: center;
+              font-size: 13px;
+              font-weight: 400;
+              color: #4D4351; }
+              #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes .dropdown-menu > .row > div fieldset .theme-time-picker-hour-select:hover, #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes .dropdown-menu > .row > div fieldset .theme-time-picker-hour-select.theme-time-picker-hour-selected, #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes .dropdown-menu > .row > div fieldset .theme-time-picker-hour-select.theme-time-picker-minute-selected,
+              #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes .dropdown-menu > .row > div fieldset .theme-time-picker-minute-select:hover,
+              #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes .dropdown-menu > .row > div fieldset .theme-time-picker-minute-select.theme-time-picker-hour-selected,
+              #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes .dropdown-menu > .row > div fieldset .theme-time-picker-minute-select.theme-time-picker-minute-selected {
+                border-radius: 50px;
+                text-decoration: none;
+                color: #FFFFFF;
+                background-color: #9776A4; }
+            #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes .dropdown-menu > .row > div fieldset .theme-time-picker-meridiem {
+              margin: 0;
+              padding: 0; }
+              #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes .dropdown-menu > .row > div fieldset .theme-time-picker-meridiem .btn {
+                font-size: 12px;
+                color: #9776A4;
+                background-color: #FFF5FF; }
+                #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes .dropdown-menu > .row > div fieldset .theme-time-picker-meridiem .btn.theme-time-picker-meridiem-selected {
+                  color: #FFF5FF;
+                  background-color: #9776A4; }
+          #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes .dropdown-menu.theme-time-picker-show-meridiem .theme-time-picker-hour-24-format {
+            display: none !important; }
+          #theme-open-time-picker-modal .modal-content .modal-body .theme-time-picker-table > tfoot .theme-time-picker-hours-minutes .dropdown-menu.theme-time-picker-show-meridiem .theme-time-picker-meridiem-fieldset {
+            display: initial !important; }
+  #theme-open-time-picker-modal .modal-content .modal-footer {
+    padding: 0 15px 15px 0;
+    border: 0; }
+    #theme-open-time-picker-modal .modal-content .modal-footer .btn {
+      border: 0;
+      text-transform: uppercase;
+      font-size: 15px;
+      color: #9776A4;
+      background-color: transparent; }
+#theme-open-time-picker-modal[data-time="0"] .theme-time-picker-hours-minutes {
+  display: none; }
+
+/*# sourceMappingURL=time-picker.css.map */

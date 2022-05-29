@@ -3,16 +3,17 @@
 namespace Stripe;
 
 /**
- * Class Collection
+ * Class Collection.
+ *
+ * @template TStripeObject of StripeObject
+ * @template-implements \IteratorAggregate<TStripeObject>
  *
  * @property string $object
  * @property string $url
  * @property bool $has_more
- * @property mixed $data
- *
- * @package Stripe
+ * @property TStripeObject[] $data
  */
-class Collection extends StripeObject implements \IteratorAggregate
+class Collection extends StripeObject implements \Countable, \IteratorAggregate
 {
     const OBJECT_NAME = 'list';
 
@@ -22,7 +23,7 @@ class Collection extends StripeObject implements \IteratorAggregate
     protected $filters = [];
 
     /**
-     * @return string The base URL for the given class.
+     * @return string the base URL for the given class
      */
     public static function baseUrl()
     {
@@ -32,7 +33,7 @@ class Collection extends StripeObject implements \IteratorAggregate
     /**
      * Returns the filters.
      *
-     * @return array The filters.
+     * @return array the filters
      */
     public function getFilters()
     {
@@ -42,26 +43,35 @@ class Collection extends StripeObject implements \IteratorAggregate
     /**
      * Sets the filters, removing paging options.
      *
-     * @param array $filters The filters.
+     * @param array $filters the filters
      */
     public function setFilters($filters)
     {
         $this->filters = $filters;
     }
 
+    #[\ReturnTypeWillChange]
     public function offsetGet($k)
     {
-        if (is_string($k)) {
+        if (\is_string($k)) {
             return parent::offsetGet($k);
-        } else {
-            $msg = "You tried to access the {$k} index, but Collection " .
-                   "types only support string keys. (HINT: List calls " .
-                   "return an object with a `data` (which is the data " .
-                   "array). You likely want to call ->data[{$k}])";
-            throw new Exception\InvalidArgumentException($msg);
         }
+        $msg = "You tried to access the {$k} index, but Collection " .
+                   'types only support string keys. (HINT: List calls ' .
+                   'return an object with a `data` (which is the data ' .
+                   "array). You likely want to call ->data[{$k}])";
+
+        throw new Exception\InvalidArgumentException($msg);
     }
 
+    /**
+     * @param null|array $params
+     * @param null|array|string $opts
+     *
+     * @throws Exception\ApiErrorException
+     *
+     * @return Collection<TStripeObject>
+     */
     public function all($params = null, $opts = null)
     {
         self::_validateParams($params);
@@ -71,58 +81,88 @@ class Collection extends StripeObject implements \IteratorAggregate
         $obj = Util\Util::convertToStripeObject($response, $opts);
         if (!($obj instanceof \Stripe\Collection)) {
             throw new \Stripe\Exception\UnexpectedValueException(
-                'Expected type ' . \Stripe\Collection::class . ', got "' . get_class($obj) . '" instead.'
+                'Expected type ' . \Stripe\Collection::class . ', got "' . \get_class($obj) . '" instead.'
             );
         }
         $obj->setFilters($params);
+
         return $obj;
     }
 
+    /**
+     * @param null|array $params
+     * @param null|array|string $opts
+     *
+     * @throws Exception\ApiErrorException
+     *
+     * @return TStripeObject
+     */
     public function create($params = null, $opts = null)
     {
         self::_validateParams($params);
         list($url, $params) = $this->extractPathAndUpdateParams($params);
 
         list($response, $opts) = $this->_request('post', $url, $params, $opts);
+
         return Util\Util::convertToStripeObject($response, $opts);
     }
 
+    /**
+     * @param string $id
+     * @param null|array $params
+     * @param null|array|string $opts
+     *
+     * @throws Exception\ApiErrorException
+     *
+     * @return TStripeObject
+     */
     public function retrieve($id, $params = null, $opts = null)
     {
         self::_validateParams($params);
         list($url, $params) = $this->extractPathAndUpdateParams($params);
 
         $id = Util\Util::utf8($id);
-        $extn = urlencode($id);
+        $extn = \urlencode($id);
         list($response, $opts) = $this->_request(
             'get',
-            "$url/$extn",
+            "{$url}/{$extn}",
             $params,
             $opts
         );
+
         return Util\Util::convertToStripeObject($response, $opts);
     }
 
     /**
-     * @return \ArrayIterator An iterator that can be used to iterate
-     *    across objects in the current page.
+     * @return int the number of objects in the current page
      */
+    #[\ReturnTypeWillChange]
+    public function count()
+    {
+        return \count($this->data);
+    }
+
+    /**
+     * @return \ArrayIterator an iterator that can be used to iterate
+     *    across objects in the current page
+     */
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         return new \ArrayIterator($this->data);
     }
 
     /**
-     * @return \ArrayIterator An iterator that can be used to iterate
-     *    backwards across objects in the current page.
+     * @return \ArrayIterator an iterator that can be used to iterate
+     *    backwards across objects in the current page
      */
     public function getReverseIterator()
     {
-        return new \ArrayIterator(array_reverse($this->data));
+        return new \ArrayIterator(\array_reverse($this->data));
     }
 
     /**
-     * @return \Generator|StripeObject[] A generator that can be used to
+     * @return \Generator|TStripeObject[] A generator that can be used to
      *    iterate across all objects across all pages. As page boundaries are
      *    encountered, the next page will be fetched automatically for
      *    continued iteration.
@@ -133,8 +173,8 @@ class Collection extends StripeObject implements \IteratorAggregate
 
         while (true) {
             $filters = $this->filters ?: [];
-            if (array_key_exists('ending_before', $filters) &&
-                !array_key_exists('starting_after', $filters)) {
+            if (\array_key_exists('ending_before', $filters)
+                && !\array_key_exists('starting_after', $filters)) {
                 foreach ($page->getReverseIterator() as $item) {
                     yield $item;
                 }
@@ -157,7 +197,8 @@ class Collection extends StripeObject implements \IteratorAggregate
      * when we know that there isn't a next page in order to replicate the
      * behavior of the API when it attempts to return a page beyond the last.
      *
-     * @param array|string|null $opts
+     * @param null|array|string $opts
+     *
      * @return Collection
      */
     public static function emptyCollection($opts = null)
@@ -168,7 +209,7 @@ class Collection extends StripeObject implements \IteratorAggregate
     /**
      * Returns true if the page object contains no element.
      *
-     * @return boolean
+     * @return bool
      */
     public function isEmpty()
     {
@@ -181,9 +222,10 @@ class Collection extends StripeObject implements \IteratorAggregate
      * This method will try to respect the limit of the current page. If none
      * was given, the default limit will be fetched again.
      *
-     * @param array|null $params
-     * @param array|string|null $opts
-     * @return Collection
+     * @param null|array $params
+     * @param null|array|string $opts
+     *
+     * @return Collection<TStripeObject>
      */
     public function nextPage($params = null, $opts = null)
     {
@@ -191,9 +233,9 @@ class Collection extends StripeObject implements \IteratorAggregate
             return static::emptyCollection($opts);
         }
 
-        $lastId = end($this->data)->id;
+        $lastId = \end($this->data)->id;
 
-        $params = array_merge(
+        $params = \array_merge(
             $this->filters ?: [],
             ['starting_after' => $lastId],
             $params ?: []
@@ -208,9 +250,10 @@ class Collection extends StripeObject implements \IteratorAggregate
      * This method will try to respect the limit of the current page. If none
      * was given, the default limit will be fetched again.
      *
-     * @param array|null $params
-     * @param array|string|null $opts
-     * @return Collection
+     * @param null|array $params
+     * @param null|array|string $opts
+     *
+     * @return Collection<TStripeObject>
      */
     public function previousPage($params = null, $opts = null)
     {
@@ -220,7 +263,7 @@ class Collection extends StripeObject implements \IteratorAggregate
 
         $firstId = $this->data[0]->id;
 
-        $params = array_merge(
+        $params = \array_merge(
             $this->filters ?: [],
             ['ending_before' => $firstId],
             $params ?: []
@@ -229,19 +272,39 @@ class Collection extends StripeObject implements \IteratorAggregate
         return $this->all($params, $opts);
     }
 
+    /**
+     * Gets the first item from the current page. Returns `null` if the current page is empty.
+     *
+     * @return null|TStripeObject
+     */
+    public function first()
+    {
+        return \count($this->data) > 0 ? $this->data[0] : null;
+    }
+
+    /**
+     * Gets the last item from the current page. Returns `null` if the current page is empty.
+     *
+     * @return null|TStripeObject
+     */
+    public function last()
+    {
+        return \count($this->data) > 0 ? $this->data[\count($this->data) - 1] : null;
+    }
+
     private function extractPathAndUpdateParams($params)
     {
-        $url = parse_url($this->url);
+        $url = \parse_url($this->url);
         if (!isset($url['path'])) {
-            throw new Exception\UnexpectedValueException("Could not parse list url into parts: $url");
+            throw new Exception\UnexpectedValueException("Could not parse list url into parts: {$url}");
         }
 
         if (isset($url['query'])) {
             // If the URL contains a query param, parse it out into $params so they
             // don't interact weirdly with each other.
             $query = [];
-            parse_str($url['query'], $query);
-            $params = array_merge($params ?: [], $query);
+            \parse_str($url['query'], $query);
+            $params = \array_merge($params ?: [], $query);
         }
 
         return [$url['path'], $params];
