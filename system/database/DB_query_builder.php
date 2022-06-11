@@ -6,7 +6,7 @@
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2014 - 2018, British Columbia Institute of Technology
+ * Copyright (c) 2019 - 2022, CodeIgniter Foundation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,8 +29,9 @@
  * @package	CodeIgniter
  * @author	EllisLab Dev Team
  * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2018, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
+ * @copyright	Copyright (c) 2014 - 2019, British Columbia Institute of Technology (https://bcit.ca/)
+ * @copyright	Copyright (c) 2019 - 2022, CodeIgniter Foundation (https://codeigniter.com/)
+ * @license	https://opensource.org/licenses/MIT	MIT License
  * @link	https://codeigniter.com
  * @since	Version 1.0.0
  * @filesource
@@ -46,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @subpackage	Drivers
  * @category	Database
  * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/database/
+ * @link		https://codeigniter.com/userguide3/database/
  */
 
 abstract class CI_DB_query_builder extends CI_DB_driver {
@@ -529,7 +530,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 		{
 			$type = strtoupper(trim($type));
 
-			if ( ! in_array($type, array('LEFT', 'RIGHT', 'OUTER', 'INNER', 'LEFT OUTER', 'RIGHT OUTER'), TRUE))
+			if ( ! in_array($type, array('LEFT', 'RIGHT', 'OUTER', 'INNER', 'LEFT OUTER', 'RIGHT OUTER', 'FULL OUTER', 'FULL'), TRUE))
 			{
 				$type = '';
 			}
@@ -970,7 +971,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 					$v = "'{$v}'";
 					break;
 				case 'before':
-					$v = "%'{$v}'";
+					$v = "'%{$v}'";
 					break;
 				case 'after':
 					$v = "'{$v}%'";
@@ -987,7 +988,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 				$v .= sprintf($this->_like_escape_str, $this->_like_escape_chr);
 			}
 
-			$qb_where = array('condition' => "{$prefix} {$k} {$not} LIKE", 'value' => $v, 'escape' => $escape);
+			$qb_where = array('condition' => "{$prefix} {$k} {$not} LIKE {$v}", 'value' => NULL, 'escape' => $escape);
 			$this->qb_where[] = $qb_where;
 			if ($this->qb_caching === TRUE)
 			{
@@ -1119,7 +1120,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	/**
 	 * GROUP BY
 	 *
-	 * @param	string	$by
+	 * @param	mixed	$by
 	 * @param	bool	$escape
 	 * @return	CI_DB_query_builder
 	 */
@@ -1412,7 +1413,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 		$qb_cache_orderby = $this->qb_cache_orderby;
 		$this->qb_orderby = $this->qb_cache_orderby = array();
 
-		$result = ($this->qb_distinct === TRUE OR ! empty($this->qb_groupby) OR ! empty($this->qb_cache_groupby) OR $this->qb_limit OR $this->qb_offset)
+		$result = ($this->qb_distinct === TRUE OR ! empty($this->qb_groupby) OR ! empty($this->qb_cache_groupby) OR ! empty($this->qb_having) OR $this->qb_limit OR $this->qb_offset)
 			? $this->query($this->_count_string.$this->protect_identifiers('numrows')."\nFROM (\n".$this->_compile_select()."\n) CI_count_all_results")
 			: $this->query($this->_compile_select($this->_count_string.$this->protect_identifiers('numrows')));
 
@@ -2215,7 +2216,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	protected function _delete($table)
 	{
 		return 'DELETE FROM '.$table.$this->_compile_wh('qb_where')
-			.($this->qb_limit ? ' LIMIT '.$this->qb_limit : '');
+			.($this->qb_limit !== FALSE ? ' LIMIT '.$this->qb_limit : '');
 	}
 
 	// --------------------------------------------------------------------
@@ -2365,7 +2366,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 			.$this->_compile_order_by(); // ORDER BY
 
 		// LIMIT
-		if ($this->qb_limit OR $this->qb_offset)
+		if ($this->qb_limit !== FALSE OR $this->qb_offset)
 		{
 			return $this->_limit($sql."\n");
 		}
