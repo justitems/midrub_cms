@@ -1,0 +1,64 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+THEME GLOBAL COLORS
+********************************/
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Inter:wght@200;300;400;500;600&display=swap");
+/*******************************
+THEME GLOBAL FONTS
+********************************/
+/*******************************
+BUTTONS MESSAGE LIST STYLES
+********************************/
+.default-buttons-message-list {
+  margin: 0;
+  padding: 0; }
+  .default-buttons-message-list .list-group-item {
+    padding: 10px 15px;
+    border: 0;
+    font-size: 14px; }
+    .default-buttons-message-list .list-group-item a {
+      border-bottom: 1px solid;
+      font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+      font-size: 14px;
+      color: #344564; }
+      .default-buttons-message-list .list-group-item a:hover, .default-buttons-message-list .list-group-item a:focus, .default-buttons-message-list .list-group-item a:active {
+        border-bottom: 1px solid transparent !important;
+        text-decoration: none; }
+    .default-buttons-message-list .list-group-item .card {
+      padding: 0;
+      border: 0; }
+      .default-buttons-message-list .list-group-item .card .card-header {
+        padding: 0;
+        border: 0;
+        background-color: transparent; }
+        .default-buttons-message-list .list-group-item .card .card-header p {
+          margin: 0;
+          padding: 10px;
+          width: 100%;
+          border-radius: 4px;
+          font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+          font-size: 14px;
+          color: #344564;
+          background-color: #F4F9FF; }
+        .default-buttons-message-list .list-group-item .card .card-header .btn-group {
+          margin-left: 15px; }
+          .default-buttons-message-list .list-group-item .card .card-header .btn-group .btn {
+            border: 0;
+            color: #FFFFFF;
+            background-color: #2E92FA; }
+            .default-buttons-message-list .list-group-item .card .card-header .btn-group .btn:last-child {
+              border-left: 1px solid #F0FAFF; }
+      .default-buttons-message-list .list-group-item .card .card-body {
+        display: none;
+        padding: 0;
+        min-height: inherit;
+        overflow: hidden; }
+        .default-buttons-message-list .list-group-item .card .card-body > div {
+          padding-top: 10px; }
+
+/*# sourceMappingURL=buttons-message-list.css.map */

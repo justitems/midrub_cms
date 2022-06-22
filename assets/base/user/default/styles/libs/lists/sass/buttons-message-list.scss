@@ -1,0 +1,89 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../user/default/styles/colors";
+@import "../../../../../../user/default/styles/fonts";
+
+/*******************************
+BUTTONS MESSAGE LIST STYLES
+********************************/
+
+.default-buttons-message-list {
+    margin: 0;
+    padding: 0;
+
+    .list-group-item {
+        padding: 10px 15px;
+        border: 0;
+        font-size: 14px;
+
+        a {
+            border-bottom: 1px solid;
+            font-family: $default-font-1;
+            font-size: 14px;
+            color: $default-color-black;
+
+            &:hover,
+            &:focus,
+            &:active {
+                border-bottom: 1px solid transparent !important;
+                text-decoration: none;
+            }
+
+        }
+
+        .card {
+            padding: 0;
+            border: 0;
+
+            .card-header {
+                padding: 0;
+                border: 0;
+                background-color: transparent;
+
+                p {
+                    margin: 0;
+                    padding: 10px;
+                    width: 100%;
+                    border-radius: 4px;
+                    font-family: $default-font-1;
+                    font-size: 14px;
+                    color: $default-color-black;
+                    background-color: $default-color-grey-light;
+                }
+
+                .btn-group {
+                    margin-left: 15px;
+
+                    .btn {
+                        border: 0;
+                        color: #FFFFFF;
+                        background-color: $default-color-blue;
+
+                        &:last-child {
+                            border-left: 1px solid $default-color-blue-light;
+                        }
+
+                    }
+
+                }
+
+            }
+
+            .card-body {
+                display: none;
+                padding: 0;
+                min-height: inherit;
+                overflow: hidden;
+
+                & > div {
+                    padding-top: 10px;
+                }
+
+            }
+
+        }
+
+    }
+
+}

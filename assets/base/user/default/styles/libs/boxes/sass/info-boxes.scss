@@ -1,0 +1,113 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../user/default/styles/colors";
+@import "../../../../../../user/default/styles/fonts";
+
+/*******************************
+DEFAULT INFO BOXES STYLES
+********************************/
+
+.default-info-boxes-1 {
+    margin: 0;
+    padding: 0;
+
+    .default-info-boxes-1-header {
+        margin-bottom: 15px;
+        list-style: none;
+
+        h2 {
+            padding: 0;
+            line-height: 25px;
+            font-weight: 400;
+            font-family: $default-font-1;
+            font-size: 15px;
+            color: $default-color-black;
+
+            .default-info-boxes-1-header-icon {
+                display: inline-block;
+                vertical-align: middle;
+                margin-top: -4px;
+                margin-right: 5px;
+                font-size: 17px;
+            }
+
+        }
+
+    }
+
+    .default-info-boxes-1-box {
+        margin-bottom: 15px;
+        padding: 14px 25px;
+        border-radius: 14px;
+        list-style: none;
+        font-weight: 400;
+        font-family: $default-font-1;
+        font-size: 14px;
+        color: $default-color-black;
+        background-color: #FFFFFF;
+
+        .default-info-boxes-1-box-icon-1 {
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: -4px;
+            margin-right: 10px;
+            font-size: 19px;
+        }
+
+        p {
+            margin: 0;
+            line-height: 27px;
+        }
+        
+        .btn {
+
+            &.btn-link {
+                padding: 0;
+                height: 0;
+                border: 0;
+                line-height: 27px;
+                font-size: 21px;
+                color: $default-color-black;
+                background-color: transparent;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    text-decoration: none;
+                    color: $default-color-black;
+                }
+
+            }
+
+            &.btn-danger {
+                padding: 4px 10px;
+                height: 26px;
+                border: 0;
+                border-radius: 4px;
+                font-family: $default-font-1;
+                font-size: 12px;
+                color: #FFFFFF;
+                background-color: $default-color-red;
+            }
+
+            &.btn-success {
+                padding: 4px 10px;
+                height: 26px;
+                border: 0;
+                border-radius: 4px;
+                font-family: $default-font-1;
+                font-size: 12px;
+                color: #FFFFFF;
+                background-color: $default-color-green;
+            }
+
+        }
+
+        .default-buttons-list-2 {
+            margin-bottom: -9px !important;
+        }
+
+    }
+
+}

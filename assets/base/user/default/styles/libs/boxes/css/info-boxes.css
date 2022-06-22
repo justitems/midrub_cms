@@ -1,0 +1,87 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+THEME GLOBAL COLORS
+********************************/
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Inter:wght@200;300;400;500;600&display=swap");
+/*******************************
+THEME GLOBAL FONTS
+********************************/
+/*******************************
+DEFAULT INFO BOXES STYLES
+********************************/
+.default-info-boxes-1 {
+  margin: 0;
+  padding: 0; }
+  .default-info-boxes-1 .default-info-boxes-1-header {
+    margin-bottom: 15px;
+    list-style: none; }
+    .default-info-boxes-1 .default-info-boxes-1-header h2 {
+      padding: 0;
+      line-height: 25px;
+      font-weight: 400;
+      font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+      font-size: 15px;
+      color: #344564; }
+      .default-info-boxes-1 .default-info-boxes-1-header h2 .default-info-boxes-1-header-icon {
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: -4px;
+        margin-right: 5px;
+        font-size: 17px; }
+  .default-info-boxes-1 .default-info-boxes-1-box {
+    margin-bottom: 15px;
+    padding: 14px 25px;
+    border-radius: 14px;
+    list-style: none;
+    font-weight: 400;
+    font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+    font-size: 14px;
+    color: #344564;
+    background-color: #FFFFFF; }
+    .default-info-boxes-1 .default-info-boxes-1-box .default-info-boxes-1-box-icon-1 {
+      display: inline-block;
+      vertical-align: middle;
+      margin-top: -4px;
+      margin-right: 10px;
+      font-size: 19px; }
+    .default-info-boxes-1 .default-info-boxes-1-box p {
+      margin: 0;
+      line-height: 27px; }
+    .default-info-boxes-1 .default-info-boxes-1-box .btn.btn-link {
+      padding: 0;
+      height: 0;
+      border: 0;
+      line-height: 27px;
+      font-size: 21px;
+      color: #344564;
+      background-color: transparent; }
+      .default-info-boxes-1 .default-info-boxes-1-box .btn.btn-link:hover, .default-info-boxes-1 .default-info-boxes-1-box .btn.btn-link:focus, .default-info-boxes-1 .default-info-boxes-1-box .btn.btn-link:active {
+        text-decoration: none;
+        color: #344564; }
+    .default-info-boxes-1 .default-info-boxes-1-box .btn.btn-danger {
+      padding: 4px 10px;
+      height: 26px;
+      border: 0;
+      border-radius: 4px;
+      font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+      font-size: 12px;
+      color: #FFFFFF;
+      background-color: #AE586C; }
+    .default-info-boxes-1 .default-info-boxes-1-box .btn.btn-success {
+      padding: 4px 10px;
+      height: 26px;
+      border: 0;
+      border-radius: 4px;
+      font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+      font-size: 12px;
+      color: #FFFFFF;
+      background-color: #00C6BC; }
+    .default-info-boxes-1 .default-info-boxes-1-box .default-buttons-list-2 {
+      margin-bottom: -9px !important; }
+
+/*# sourceMappingURL=info-boxes.css.map */

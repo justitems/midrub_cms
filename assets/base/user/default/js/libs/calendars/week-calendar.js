@@ -315,9 +315,12 @@ jQuery(document).ready( function ($) {
              
                 // Verify if first day of the week is monday
                 if ( parseInt($('.main .default-week-calendar').eq(0).attr('data-first-day')) === 1 ) {
-                
+
+                    // Prepare day of the week
+                    let the_week_date = (current_date_format.getDay() === 0)?6:(current_date_format.getDay() - 1);
+
                     // Set This Week
-                    this_week = new Date(current_date_format.setDate(current_date_format.getDate() - (current_date_format.getDay() - 1)));
+                    this_week = new Date(current_date_format.setDate(current_date_format.getDate() - the_week_date));
 
                 }
 
