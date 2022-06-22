@@ -1,0 +1,155 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+THEME GLOBAL COLORS
+********************************/
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Inter:wght@200;300;400;500;600&display=swap");
+/*******************************
+THEME GLOBAL FONTS
+********************************/
+/*******************************
+SMS CHAT STYLES
+********************************/
+.default-sms-chat {
+  border: 0;
+  background-color: transparent; }
+  .default-sms-chat .card-header {
+    padding: 0 0 10px;
+    border: 0;
+    background-color: transparent; }
+    .default-sms-chat .card-header h3 {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+      font-size: 17px;
+      color: #344564; }
+  .default-sms-chat .card-body {
+    padding: 22px 0 0 0;
+    height: 80vh; }
+    .default-sms-chat .card-body .default-sms-chat-conversation .default-sms-chat-conversation-no-messages {
+      padding: 10px 15px;
+      width: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      color: #344564;
+      background-color: #FFFFFF; }
+    .default-sms-chat .card-body .default-sms-chat-conversation .default-sms-chat-conversation-single {
+      padding-bottom: 30px; }
+      .default-sms-chat .card-body .default-sms-chat-conversation .default-sms-chat-conversation-single .default-sms-chat-conversation-single-message {
+        margin-bottom: 3px;
+        padding: 9px 10px;
+        width: 90%;
+        border-radius: 9px 9px 9px 0;
+        line-height: 25px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 13px;
+        color: #344564;
+        background-color: #e5eaf3; }
+      .default-sms-chat .card-body .default-sms-chat-conversation .default-sms-chat-conversation-single .default-sms-chat-conversation-single-time {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        color: #8F9EC2; }
+      .default-sms-chat .card-body .default-sms-chat-conversation .default-sms-chat-conversation-single.default-sms-chat-conversation-single-message-sent .default-sms-chat-conversation-single-message {
+        margin-left: 8%;
+        border-radius: 9px 9px 0 9px;
+        color: #FFFFFF;
+        background-color: #2E92FA; }
+      .default-sms-chat .card-body .default-sms-chat-conversation .default-sms-chat-conversation-single.default-sms-chat-conversation-single-message-sent .default-sms-chat-conversation-single-time {
+        padding-right: 2%;
+        text-align: right; }
+    .default-sms-chat .card-body .default-sms-chat-conversation-load-old-messages .btn-link,
+    .default-sms-chat .card-body .default-sms-chat-conversation-load-new-messages .btn-link {
+      display: none;
+      margin: 0 auto 15px;
+      padding: 0;
+      border-bottom: 1px solid transparent;
+      line-height: 25px;
+      text-decoration: none;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      color: #8F9EC2; }
+      .default-sms-chat .card-body .default-sms-chat-conversation-load-old-messages .btn-link:hover, .default-sms-chat .card-body .default-sms-chat-conversation-load-old-messages .btn-link:focus, .default-sms-chat .card-body .default-sms-chat-conversation-load-old-messages .btn-link:active,
+      .default-sms-chat .card-body .default-sms-chat-conversation-load-new-messages .btn-link:hover,
+      .default-sms-chat .card-body .default-sms-chat-conversation-load-new-messages .btn-link:focus,
+      .default-sms-chat .card-body .default-sms-chat-conversation-load-new-messages .btn-link:active {
+        text-decoration: none;
+        box-shadow: none !important;
+        outline: none !important; }
+      .default-sms-chat .card-body .default-sms-chat-conversation-load-old-messages .btn-link:hover,
+      .default-sms-chat .card-body .default-sms-chat-conversation-load-new-messages .btn-link:hover {
+        padding-bottom: 0;
+        border-bottom: 1px solid #8F9EC2;
+        border-radius: 0; }
+    .default-sms-chat .card-body .default-sms-chat-conversation-loading-old-messages-animation,
+    .default-sms-chat .card-body .default-sms-chat-conversation-loading-new-messages-animation {
+      display: none; }
+      .default-sms-chat .card-body .default-sms-chat-conversation-loading-old-messages-animation .spinner-grow-sm,
+      .default-sms-chat .card-body .default-sms-chat-conversation-loading-new-messages-animation .spinner-grow-sm {
+        margin: 0 5px;
+        width: 10px;
+        height: 10px;
+        color: #8F9EC2; }
+  .default-sms-chat .card-notifications {
+    position: relative; }
+    .default-sms-chat .card-notifications .default-sms-chat-conversation-load-unseen-messages-btn {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -30px;
+      padding: 5px 15px;
+      border: 0;
+      border-radius: 6px;
+      font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+      font-size: 13px;
+      color: #FFFFFF;
+      background-color: #00C6BC;
+      box-shadow: 0px 0.1rem 0.3rem rgba(46, 146, 250, 0.3);
+      -webkit-box-shadow: 0px 0.1rem 0.3rem rgba(46, 146, 250, 0.3);
+      transform: translate(-50%, -50%); }
+      .default-sms-chat .card-notifications .default-sms-chat-conversation-load-unseen-messages-btn i {
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: -3px;
+        margin-right: 5px;
+        font-size: 14px; }
+  .default-sms-chat .card-footer {
+    padding: 15px 0 0;
+    border: 0;
+    background-color: transparent; }
+    .default-sms-chat .card-footer textarea {
+      padding: 12px 15px;
+      height: 45px;
+      border: 0;
+      border-radius: 12px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      background-color: #eef1f7;
+      resize: none; }
+      .default-sms-chat .card-footer textarea:hover, .default-sms-chat .card-footer textarea:focus, .default-sms-chat .card-footer textarea:active {
+        box-shadow: none !important;
+        outline: none !important; }
+    .default-sms-chat .card-footer .btn-light {
+      margin-left: 5px;
+      border: 0 !important; }
+      .default-sms-chat .card-footer .btn-light:hover, .default-sms-chat .card-footer .btn-light:focus, .default-sms-chat .card-footer .btn-light:active {
+        border: 0 !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        outline: none !important; }
+      .default-sms-chat .card-footer .btn-light i {
+        font-size: 24px;
+        color: #344564; }
+      .default-sms-chat .card-footer .btn-light svg {
+        vertical-align: middle;
+        margin-top: -3px;
+        margin-right: 5px;
+        width: 18px;
+        height: 18px;
+        color: #344564; }
+
+/*# sourceMappingURL=sms-chat.css.map */

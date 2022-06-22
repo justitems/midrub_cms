@@ -1,0 +1,113 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../user/default/styles/colors";
+@import "../../../../../../user/default/styles/fonts";
+
+/*******************************
+BUTTONS LIST STYLES
+********************************/
+
+.default-buttons-list-1 {
+    margin:  15px 0 0;
+    padding: 0;
+
+    li {
+        display: inline-block;
+        margin: 0 10px 10px 0;
+        list-style: none;
+
+        &.default-buttons-list-1-no-lists {
+            display: block;
+            margin: 0;
+            padding: 7px 15px;
+            width: 100%;
+            font-size: 14px;
+            background-color: $default-color-grey-light;
+        }
+
+        a {
+            display: block;
+            padding: 7px 15px;
+            border-radius: 4px;
+            font-family: $default-font-1;
+            font-size: 14px;
+            color: $default-color-black;
+            background-color: #F4F7FF;
+
+            &:hover,
+            &.default-buttons-list-1-list-active {
+                text-decoration: none;
+                color: #FFFFFF;
+                background-color: $default-color-new;
+            }
+
+            i {
+                display: inline-block;
+                vertical-align: text-top;
+                margin-top: 0px;
+                margin-right: 5px;
+                line-height: initial;
+                font-size: 14px;
+            }
+
+            &.default-load-more {
+                background-color: transparent;
+            }
+
+        }
+
+    }
+
+}
+
+.default-buttons-list-2 {
+    margin:  15px 0 0;
+    padding: 0;
+
+    li {
+        display: inline-block;
+        margin: 0 10px 10px 0;
+        list-style: none;
+
+        &.default-buttons-list-2-no-lists {
+            display: block;
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 14px;
+        }
+
+        a {
+            display: block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-family: $default-font-1;
+            font-size: 12px;
+            color: $default-color-black;
+            background-color: #F4F7FF;
+
+            &:hover,
+            &.default-buttons-list-2-list-active {
+                text-decoration: none;
+                color: #FFFFFF;
+                background-color: $default-color-new;
+            }
+
+            i {
+                display: inline-block;
+                vertical-align: text-top;
+                margin-top: 0px;
+                margin-right: 5px;
+                line-height: initial;
+                font-size: 16px;
+            }
+
+            &.default-load-more {
+                background-color: transparent;
+            }
+
+        }
+
+    }
+
+}

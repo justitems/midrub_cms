@@ -1,0 +1,87 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+THEME GLOBAL COLORS
+********************************/
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Inter:wght@200;300;400;500;600&display=swap");
+/*******************************
+THEME GLOBAL FONTS
+********************************/
+/*******************************
+BUTTONS LIST STYLES
+********************************/
+.default-buttons-list-1 {
+  margin: 15px 0 0;
+  padding: 0; }
+  .default-buttons-list-1 li {
+    display: inline-block;
+    margin: 0 10px 10px 0;
+    list-style: none; }
+    .default-buttons-list-1 li.default-buttons-list-1-no-lists {
+      display: block;
+      margin: 0;
+      padding: 7px 15px;
+      width: 100%;
+      font-size: 14px;
+      background-color: #F4F9FF; }
+    .default-buttons-list-1 li a {
+      display: block;
+      padding: 7px 15px;
+      border-radius: 4px;
+      font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+      font-size: 14px;
+      color: #344564;
+      background-color: #F4F7FF; }
+      .default-buttons-list-1 li a:hover, .default-buttons-list-1 li a.default-buttons-list-1-list-active {
+        text-decoration: none;
+        color: #FFFFFF;
+        background-color: #52567C; }
+      .default-buttons-list-1 li a i {
+        display: inline-block;
+        vertical-align: text-top;
+        margin-top: 0px;
+        margin-right: 5px;
+        line-height: initial;
+        font-size: 14px; }
+      .default-buttons-list-1 li a.default-load-more {
+        background-color: transparent; }
+
+.default-buttons-list-2 {
+  margin: 15px 0 0;
+  padding: 0; }
+  .default-buttons-list-2 li {
+    display: inline-block;
+    margin: 0 10px 10px 0;
+    list-style: none; }
+    .default-buttons-list-2 li.default-buttons-list-2-no-lists {
+      display: block;
+      width: 100%;
+      padding: 15px 20px;
+      font-size: 14px; }
+    .default-buttons-list-2 li a {
+      display: block;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+      font-size: 12px;
+      color: #344564;
+      background-color: #F4F7FF; }
+      .default-buttons-list-2 li a:hover, .default-buttons-list-2 li a.default-buttons-list-2-list-active {
+        text-decoration: none;
+        color: #FFFFFF;
+        background-color: #52567C; }
+      .default-buttons-list-2 li a i {
+        display: inline-block;
+        vertical-align: text-top;
+        margin-top: 0px;
+        margin-right: 5px;
+        line-height: initial;
+        font-size: 16px; }
+      .default-buttons-list-2 li a.default-load-more {
+        background-color: transparent; }
+
+/*# sourceMappingURL=buttons-list.css.map */

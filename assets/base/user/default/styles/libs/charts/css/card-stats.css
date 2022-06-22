@@ -24,5 +24,24 @@ CARD STATS STYLES
     width: 35px;
     height: 35px;
     color: #dee2ed; }
+  .default-card-stats .card-body .default-card-stats-list {
+    margin: 0;
+    padding: 0; }
+    .default-card-stats .card-body .default-card-stats-list li {
+      margin-bottom: 15px;
+      list-style: none;
+      padding: 14px;
+      font-size: 14px;
+      color: #344564;
+      background-color: #F4F9FF; }
+      .default-card-stats .card-body .default-card-stats-list li:last-child {
+        margin-bottom: 0; }
+      .default-card-stats .card-body .default-card-stats-list li a {
+        color: #1da1f2; }
+      .default-card-stats .card-body .default-card-stats-list li .progress {
+        height: 5px;
+        background-color: #2E92FA; }
+        .default-card-stats .card-body .default-card-stats-list li .progress .progress-bar {
+          height: 5px; }
 
 /*# sourceMappingURL=card-stats.css.map */

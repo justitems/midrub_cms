@@ -1,0 +1,65 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+THEME GLOBAL COLORS
+********************************/
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Inter:wght@200;300;400;500;600&display=swap");
+/*******************************
+THEME GLOBAL FONTS
+********************************/
+/*******************************
+REPORTS LIST STYLES
+********************************/
+.default-reports-list-1 {
+  margin: 0;
+  padding: 0; }
+  .default-reports-list-1 .list-group-item {
+    padding: 10px 15px;
+    border: 0;
+    font-size: 14px; }
+    .default-reports-list-1 .list-group-item a {
+      border-bottom: 1px solid;
+      font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+      font-size: 14px;
+      color: #344564; }
+      .default-reports-list-1 .list-group-item a:hover, .default-reports-list-1 .list-group-item a:focus, .default-reports-list-1 .list-group-item a:active {
+        border-bottom: 1px solid transparent !important;
+        text-decoration: none; }
+    .default-reports-list-1 .list-group-item .card {
+      padding: 0;
+      border: 0; }
+      .default-reports-list-1 .list-group-item .card .card-header {
+        padding: 0;
+        border: 0;
+        background-color: transparent; }
+        .default-reports-list-1 .list-group-item .card .card-header p {
+          margin: 0;
+          width: 100%;
+          font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+          font-size: 14px;
+          color: #344564; }
+        .default-reports-list-1 .list-group-item .card .card-header .default-reports-list-1-status-icon {
+          margin-top: -3px;
+          width: 20px;
+          height: 20px; }
+      .default-reports-list-1 .list-group-item .card .card-body {
+        margin-top: 15px;
+        padding: 15px 0 0;
+        min-height: inherit;
+        border-top: 1px solid #dde3ee;
+        overflow: hidden; }
+        .default-reports-list-1 .list-group-item .card .card-body p {
+          margin: 0;
+          padding: 10px;
+          width: 100%;
+          border-radius: 4px;
+          font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+          font-size: 14px;
+          color: #344564;
+          background-color: #FFF5FE; }
+
+/*# sourceMappingURL=reports-list.css.map */

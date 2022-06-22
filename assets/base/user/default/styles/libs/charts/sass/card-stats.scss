@@ -1,7 +1,7 @@
 /*******************************
 IMPORT DEPENDENCIES
 ********************************/
-@import "../../../../user/default/styles/colors";
+@import "../../../../../../user/default/styles/colors";
 
 /*******************************
 CARD STATS STYLES
@@ -31,6 +31,40 @@ CARD STATS STYLES
             width: 35px;
             height: 35px;
             color: $default-input-border-color;
+        }
+
+        .default-card-stats-list {
+            margin: 0;
+            padding: 0;  
+            
+            li {
+                margin-bottom: 15px;
+                list-style: none;
+                padding: 14px;
+                font-size: 14px;
+                color: $default-color-black;
+                background-color: $default-color-grey-light;
+        
+                &:last-child {
+                    margin-bottom: 0;
+                }
+        
+                a {
+                    color: #1da1f2;
+                }
+                
+                .progress {
+                    height: 5px;
+                    background-color: $default-color-blue;
+        
+                    .progress-bar {
+                        height: 5px;                                       
+                    }                                    
+        
+                }
+                
+            }
+        
         }
         
     }
