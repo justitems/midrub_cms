@@ -80,6 +80,40 @@ DEFAULT MIXINGS FOR BUTTONS
 
         }
 
+    } @else if $model == 'default-button-3' {
+
+        & {
+            padding: 5px 20px 5px;
+            border: 0 !important;
+            border-radius: .25rem;
+            line-height: 19px;
+            font-family: $default-font-2;
+            font-size: 13px;
+            font-weight: 600;
+            color: #FFFFFF;
+            background-color: #404068;        
+            box-shadow: none !important;
+            transition: all 0.5s ease;
+            transform-origin: top center;
+
+            &[aria-expanded="true"],
+            &:hover {
+                color: #FFFFFF;  
+                background-color: #8E8CB9;
+                opacity: 1 !important;                                
+            }
+        
+            i,
+            svg {
+                vertical-align: middle;
+                margin-top: -3.5px;
+                margin-right: 5px;
+                width: 24px;
+                height: 24px;
+            }            
+
+        }
+
     }
 
 }

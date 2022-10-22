@@ -158,7 +158,7 @@ class Helper {
                 
             } else {
                 
-                $this->CI->user_id = $token[0]->user_id;
+                md_the_user_id() = $token[0]->user_id;
 
                 return $token[0]->user_id;
                 

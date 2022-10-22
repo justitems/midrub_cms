@@ -10,7 +10,7 @@
  * @category Social
  * @package  Midrub
  * @author   Scrisoft <asksyn@gmail.com>
- * @license  https://www.gnu.org/licenses/gpl-2.0.html GNU General Public License
+ * @license  https://github.com/scrisoft/midrub_cms/blob/master/license
  * @link     https://www.midrub.com/
  */
 
@@ -33,11 +33,11 @@ md_set_support_page(
         'content' => 'md_get_support_page_faq',
         'css_urls' => array(
             array('stylesheet', base_url('assets/base/admin/components/collection/support/styles/css/faq.css?ver=' . CMS_BASE_ADMIN_COMPONENTS_SUPPORT_VERSION), 'text/css', 'all'),
-            array('stylesheet', '//cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css', 'text/css', 'all')
+            array('stylesheet', '//cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css', 'text/css', 'all')
         ),
         'js_urls' => array(
             array(base_url('assets/base/admin/components/collection/support/js/main.js?ver=' . CMS_BASE_ADMIN_COMPONENTS_SUPPORT_VERSION)),
-            array('//cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js')
+            array('//cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js')
         )  
     )
 );

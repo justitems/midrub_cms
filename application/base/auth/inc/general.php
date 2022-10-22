@@ -7,18 +7,18 @@
  *
  * @author Scrisoft
  * @package Midrub
- * @since 0.0.7.8
+ * @since 0.0.8.5
  */
 
+ // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 
 if ( !function_exists('md_auth_social_access_options') ) {
     
     /**
      * The function md_auth_the_social_access_options returns social access options
      * 
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      * 
      * @return array with social access options
      */
@@ -28,42 +28,44 @@ if ( !function_exists('md_auth_social_access_options') ) {
         $options = array();
 
         // Verify if social access is enabled
-        if ( !md_the_option('enable_auth_social_access') ) {
-
+        if ( !md_the_option('auth_enable_social_login') ) {
             return $options;
-
         }
 
         // List auth social classes
-        foreach (glob(CMS_BASE_AUTH . 'social/*.php') as $filename) {
+        foreach (glob(CMS_BASE_PATH . 'admin/components/collection/frontend/networks/collection/*.php') as $filename) {
 
             // Call the class
-            $className = str_replace(array(CMS_BASE_AUTH . 'social/', '.php'), '', $filename);
+            $network_slug = str_replace(array(CMS_BASE_PATH . 'admin/components/collection/frontend/networks/collection/', '.php'), '', $filename);
 
             // Verify if option is enabled
-            if (!md_the_option('enable_auth_' . strtolower($className))) {
+            if (!md_the_option('auth_network_' . $network_slug . '_enabled')) {
                 continue;
             }
 
             // Create an array
             $array = array(
                 'CmsBase',
-                'Auth',
-                'Social',
-                ucfirst($className)
+                'Admin',
+                'Components',
+                'Collection',
+                'Frontend',
+                'Networks',
+                'Collection',
+                ucfirst($network_slug)
             );
 
             // Implode the array above
             $cl = implode('\\', $array);
 
             // Get class info
-            $get_info = (new $cl())->get_info();
+            $the_info = (new $cl())->info();
 
             // Set option's name
-            $get_info->name = $className;
+            $the_info['network_slug'] = $network_slug;
 
             // Set option
-            $options[] = $get_info;
+            $options[] = $the_info;
 
         }
 
@@ -72,3 +74,5 @@ if ( !function_exists('md_auth_social_access_options') ) {
     }
     
 }
+
+/* End of file general.php */

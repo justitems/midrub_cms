@@ -20,7 +20,7 @@ jQuery(document).ready( function ($) {
         let bar = '<div class="theme-send-loading"></div>';
 
         // Insert bar
-        $(bar).insertAfter('.wrapper');
+        $(bar).insertAfter('.main');
 
     };
 
@@ -247,7 +247,10 @@ jQuery(document).ready( function ($) {
     /*
      * Detect fields keyup
      */
-    $(document).on('keyup', '.main .theme-settings-options .theme-text-input-1, .main .theme-settings-options .theme-textarea-1, .main .theme-settings-options .theme-password-input', function () {
+    $(document).on('keyup', '.main .theme-settings-options .theme-text-input-1, .main .theme-settings-options .theme-textarea-1, .main .theme-settings-options .theme-password-input-1', function () {
+
+        // Don't work with update input
+        if ( $(this).hasClass('updates-code-input') ) return;
 
         // Show the save button
         $('body .theme-save-changes').slideDown('slow');
@@ -257,7 +260,10 @@ jQuery(document).ready( function ($) {
     /*
      * Detect fields change
      */
-    $(document).on('change', '.main .theme-settings-options .theme-checkbox-input-2 > input, .main .theme-settings-options .theme-text-input-1, .main .theme-settings-options .theme-textarea-1, .main .theme-settings-options .theme-password-input', function () {
+    $(document).on('change', '.main .theme-settings-options .theme-checkbox-input-2 > input, .main .theme-settings-options .theme-text-input-1, .main .theme-settings-options .theme-textarea-1, .main .theme-settings-options .theme-password-input-1', function () {
+
+        // Don't work with update input
+        if ( $(this).hasClass('updates-code-input') ) return;
 
         // Show the save button
         $('body .theme-save-changes').slideDown('slow');
@@ -376,19 +382,19 @@ jQuery(document).ready( function ($) {
      * 
      * @since   0.0.8.5
      */ 
-    $( document ).on( 'click', '.wrapper .theme-toggle-quick-guide', function (e) {
+    $( document ).on( 'click', '.main .theme-toggle-quick-guide', function (e) {
         e.preventDefault();
 
         // Show or hide the Quick Guide
-        if ( $( '.wrapper .theme-quick-guide' ).hasClass( 'theme-quick-guide-show' ) ) {
+        if ( $( '.main .theme-quick-guide' ).hasClass( 'theme-quick-guide-show' ) ) {
 
             // Remove show class
-            $( '.wrapper .theme-quick-guide' ).removeClass( 'theme-quick-guide-show' );
+            $( '.main .theme-quick-guide' ).removeClass( 'theme-quick-guide-show' );
 
         } else {
 
             // Add show class
-            $( '.wrapper .theme-quick-guide' ).addClass( 'theme-quick-guide-show' );
+            $( '.main .theme-quick-guide' ).addClass( 'theme-quick-guide-show' );
             
         }
         
@@ -433,6 +439,82 @@ jQuery(document).ready( function ($) {
 
         // Hide the save button
         $('body .theme-save-changes').slideUp('slow');
+        
+    });
+
+    /*
+     * Detect dropdown multiselector selection
+     * 
+     * @param integer page contains the page number
+     * 
+     * @since   0.0.8.5
+     */ 
+    $( document ).on( 'click', '.main .theme-settings-options .dropdown .default-multiselector-dropdown-items-list a', function (e) {
+        e.preventDefault();
+
+        // Get item's ID
+        let item_id = $(this).attr('data-id');
+
+        // Get item's name
+        let item_name = $(this).text();
+
+        // Verify if the item is selected
+        if ( $(this).closest('.dropdown').find('.default-multiselector-dropdown-selected-items-list a[data-id="' + item_id + '"]').length > 0 ) {
+
+            // Remove selected class
+            $(this).removeClass('default-multiselector-dropdown-item-selected');
+
+            // Remove item
+            $(this).closest('.dropdown').find('.default-multiselector-dropdown-selected-items-list a[data-id="' + item_id + '"]').closest('li').remove();     
+
+        } else {
+
+            // Add selected class
+            $(this).addClass('default-multiselector-dropdown-item-selected');
+
+            // Create the item
+            let item = '<li>'
+                + '<a href="#" data-id="' + item_id + '">'
+                    + item_name
+                + '</a>'
+            + '</li>';
+
+            // Append item
+            $(this).closest('.dropdown').find('.default-multiselector-dropdown-selected-items-list').append(item);
+
+        }
+        
+        // Show the save button
+        $('body .theme-save-changes').slideDown('slow');      
+        
+    });
+
+    /*
+     * Detect dropdown multiselector unselection
+     * 
+     * @param integer page contains the page number
+     * 
+     * @since   0.0.8.5
+     */ 
+    $( document ).on( 'click', '.main .theme-settings-options .dropdown .default-multiselector-dropdown-selected-items-list a', function (e) {
+        e.preventDefault();
+
+        // Get item's ID
+        let item_id = $(this).attr('data-id');
+
+        // Verify if the item is selected
+        if ( $(this).closest('.dropdown').find('.default-multiselector-dropdown-items-list a[data-id="' + item_id + '"]').length > 0 ) {
+
+            // Remove selected class
+            $(this).removeClass('default-multiselector-dropdown-item-selected');   
+
+        }
+        
+        // Remove item
+        $(this).closest('li').remove();  
+        
+        // Show the save button
+        $('body .theme-save-changes').slideDown('slow');      
         
     });
    

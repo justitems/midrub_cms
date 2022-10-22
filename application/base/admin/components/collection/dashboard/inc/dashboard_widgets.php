@@ -10,7 +10,7 @@
  * @category Social
  * @package  Midrub
  * @author   Scrisoft <asksyn@gmail.com>
- * @license  https://www.gnu.org/licenses/gpl-2.0.html GNU General Public License
+ * @license  https://github.com/scrisoft/midrub_cms/blob/master/license
  * @link     https://www.midrub.com/
  */
 
@@ -99,7 +99,7 @@ if ( !function_exists('the_admin_last_transactions_widgets_dashboard') ) {
         // Use the base model to get the transactions
         $transactions = $CI->base_model->the_data_where(
             'transactions',
-            'transactions.transaction_id, transactions.amount, transactions.currency, users.user_id, users.first_name, users.last_name, users.username, users.email',
+            'transactions.transaction_id, transactions.amount, transactions.currency, transactions.status, transactions.created, users.user_id, users.first_name, users.last_name, users.username, users.email',
             array(),
             array(),
             array(),
@@ -124,7 +124,7 @@ if ( !function_exists('the_admin_last_transactions_widgets_dashboard') ) {
         if ( $transactions ) {
 
             // User date
-            $user_date = md_the_date_format($CI->user_id);
+            $user_date = md_the_date_format(md_the_user_id());
 
             // Set wanted date format
             $date_format = str_replace(array('dd', 'mm', 'yyyy'), array('d', 'm', 'Y'), $user_date);
@@ -133,7 +133,29 @@ if ( !function_exists('the_admin_last_transactions_widgets_dashboard') ) {
             foreach ( $transactions as $transaction ) {
 
                 // Format the time
-                $time_format = (($transaction['created'] + 86400) < time())?date($date_format, $transaction['created']):md_the_calculate_time($CI->user_id, $transaction['created']);
+                $time_format = (($transaction['created'] + 86400) < time())?date($date_format, $transaction['created']):md_the_calculate_time(md_the_user_id(), $transaction['created']);
+
+                // Default status
+                $status = '<span class="badge bg-light theme-badge-1">'
+                    . $CI->lang->line('dashboard_incomplete')
+                . '</span>';
+
+                // Verify if transaction was successfully
+                if ( $transaction['status'] === '1' ) {
+
+                    // Change default status
+                    $status = '<span class="badge bg-primary theme-badge-1">'
+                        . $CI->lang->line('dashboard_success')
+                    . '</span>';         
+    
+                } else if ( $transaction['status'] > 1 ) {
+
+                    // Change default status
+                    $status = '<span class="badge bg-danger theme-badge-1">'
+                        . $CI->lang->line('dashboard_error')
+                    . '</span>';                        
+
+                }
 
                 ?>
                 <li class="dashboard-widget-transactions-transaction-single dashboard-widget-transactions-transaction-complete d-flex justify-content-between align-items-center" data-id="15">
@@ -144,7 +166,7 @@ if ( !function_exists('the_admin_last_transactions_widgets_dashboard') ) {
                         <?php echo md_the_admin_icon(array('icon' => 'clock')); ?>
                         <?php echo $time_format; ?>
                     </span>
-                    <span class="badge rounded-pill bg-primary">complete</span>
+                    <?php echo $status; ?>
                 </li>
                 <?php
 
@@ -231,13 +253,13 @@ if ( !function_exists('the_admin_last_tickets_widgets_dashboard') ) {
             foreach ( $tickets as $ticket ) {
 
                 // User date
-                $user_date = the_crm_date_format($CI->user_id);
+                $user_date = the_crm_date_format(md_the_user_id());
 
                 // Set wanted date format
                 $date_format = str_replace(array('dd', 'mm', 'yyyy'), array('d', 'm', 'Y'), $user_date);
 
                 // Format the time
-                $time_format = (($ticket['created'] + 86400) < time())?date($date_format, $ticket['created']):the_crm_calculate_time($CI->user_id, $ticket['created']);
+                $time_format = (($ticket['created'] + 86400) < time())?date($date_format, $ticket['created']):the_crm_calculate_time(md_the_user_id(), $ticket['created']);
 
                 ?>
                 <li class="dashboard-widget-tickets-ticket-single">

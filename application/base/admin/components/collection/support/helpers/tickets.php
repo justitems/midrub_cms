@@ -88,7 +88,7 @@ class Tickets
                     }
 
                     // Save new ticket's reply
-                    $create = $this->CI->tickets_model->save_reply($this->CI->user_id, $ticket_id, $body);
+                    $create = $this->CI->tickets_model->save_reply(md_the_user_id(), $ticket_id, $body);
 
                     // Verify if the ticket's reply was saved 
                     if ( $create ) {

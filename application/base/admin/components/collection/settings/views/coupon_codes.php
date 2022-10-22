@@ -28,7 +28,7 @@
                                             <?php echo $this->lang->line('settings_save_coupon'); ?>
                                         </button>
                                     </div>
-                                <?php echo form_close() ?>
+                                <?php echo form_close(); ?>
                             </div>
                             <?php if ( $alert ) { ?>
                             <script language="javascript">

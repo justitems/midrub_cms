@@ -111,10 +111,10 @@ class Transactions {
                         'total' => $total[0]['total'],
                         'page' => ($page + 1),
                         'words' => array(
-                            'success' => $this->CI->lang->line('admin_success'),
-                            'incomplete' => $this->CI->lang->line('admin_incomplete'),
-                            'error' => $this->CI->lang->line('admin_error'),
-                            'delete' => $this->CI->lang->line('admin_delete'),
+                            'success' => $this->CI->lang->line('members_success'),
+                            'incomplete' => $this->CI->lang->line('members_incomplete'),
+                            'error' => $this->CI->lang->line('members_error'),
+                            'delete' => $this->CI->lang->line('members_delete'),
                             'of' => $this->CI->lang->line('members_of'),
                             'results' => $this->CI->lang->line('members_results')
                         )

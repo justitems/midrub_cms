@@ -22,7 +22,7 @@ use CmsBase\Auth\Collection\Change_password\Controllers as CmsBaseAuthCollection
 defined('CMS_BASE_AUTH_CHANGE_PASSWORD') OR define('CMS_BASE_AUTH_CHANGE_PASSWORD', APPPATH . 'base/auth/collection/change_password');
 
 // Define the component's version
-defined('CMS_BASE_AUTH_CHANGE_PASSWORD_VERSION') OR define('CMS_BASE_AUTH_CHANGE_PASSWORD_VERSION', '0.0.2');
+defined('CMS_BASE_AUTH_CHANGE_PASSWORD_VERSION') OR define('CMS_BASE_AUTH_CHANGE_PASSWORD_VERSION', '0.0.3');
 
 /*
  * Main class loads the Change Password Auth's component

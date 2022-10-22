@@ -131,7 +131,7 @@ class Users_alerts {
                         // Set as field
                         $alert_fields[] = array(
                             'field_name' => 'banner_content',
-                            'field_value' => $this->the_clean_html($banner[1][0]),
+                            'field_value' => $this->the_secure_js($banner[1][0]),
                             'language' => $this->the_clean_text($banner[0])
                         );
 
@@ -183,7 +183,7 @@ class Users_alerts {
                         if ( $alert_page_enabled ) {
 
                             // Verify if page's title exists
-                            if ( empty($page_title[0]) ) {
+                            if ( empty($page_title[1]) ) {
 
                                 // Prepare error response
                                 $data = array(
@@ -196,6 +196,21 @@ class Users_alerts {
                                 exit();
 
                             }
+
+                            // Verify if page's title exists
+                            if ( empty($page_title[1][0]) ) {
+
+                                // Prepare error response
+                                $data = array(
+                                    'success' => FALSE,
+                                    'message' => $this->CI->lang->line('notifications_alert_page_enabled_but_missing_title')
+                                );
+
+                                // Display the error response
+                                echo json_encode($data);
+                                exit();
+
+                            }                            
 
                         }                        
 
@@ -379,6 +394,9 @@ class Users_alerts {
                 // Set the limit
                 $limit = 10;
 
+                // Set like
+                $like = $key?array('LOWER(alert_name)' => strtolower(trim(str_replace('!_', '_', $this->CI->db->escape_like_str($key))))):array();
+
                 // Use the base model for a simply sql query
                 $users_alerts = $this->CI->base_model->the_data_where(
                 'notifications_alerts',
@@ -387,9 +405,7 @@ class Users_alerts {
                     'alert_type <' => 3
                 ),
                 array(),
-                array(
-                    'alert_name' => $this->CI->db->escape_like_str($key)
-                ),
+                $like,
                 array(),
                 array(
                     'order_by' => array('alert_id', 'desc'),
@@ -402,15 +418,14 @@ class Users_alerts {
 
                     // Get total number of users alerts with base model
                     $total = $this->CI->base_model->the_data_where(
-                    'notifications_alerts',
-                    'COUNT(alert_id) AS total',
-                    array(
-                        'alert_type <' => 3
-                    ),
-                    array(),
-                    array(
-                        'alert_name' => $this->CI->db->escape_like_str($key)
-                    ));
+                        'notifications_alerts',
+                        'COUNT(alert_id) AS total',
+                        array(
+                            'alert_type <' => 3
+                        ),
+                        array(),
+                        $like
+                    );
 
                     // Prepare the response
                     $data = array(
@@ -442,72 +457,6 @@ class Users_alerts {
         $data = array(
             'success' => FALSE,
             'message' => $this->CI->lang->line('notifications_no_alerts_found')
-        );
-
-        // Delete the error message
-        echo json_encode($data);
-        
-    }
-
-    /**
-     * The public method notifications_delete_users_alert deletes a users alert
-     * 
-     * @since 0.0.8.4
-     * 
-     * @return void
-     */
-    public function notifications_delete_users_alert() {
-        
-        // Check if data was submitted
-        if ( $this->CI->input->post() ) {
-
-            // Add form validation
-            $this->CI->form_validation->set_rules('alert', 'Alert', 'trim|numeric|required');
-           
-            // Get received data
-            $alert = $this->CI->input->post('alert');
-            
-            // Check form validation
-            if ($this->CI->form_validation->run() !== false ) {
-
-                // Try to delete a users alert
-                $response = $this->delete_users_alert($alert);
-
-                // Verify if the users alert was deleted
-                if ( !empty($response['success']) ) {
-
-                    // Prepare success message
-                    $data = array(
-                        'success' => TRUE,
-                        'message' => $this->CI->lang->line('notifications_users_alert_was_deleted_successfully')
-                    );
-
-                    // Display the success message
-                    echo json_encode($data);
-
-                } else {
-
-                    // Prepare error message
-                    $data = array(
-                        'success' => FALSE,
-                        'message' => $this->CI->lang->line('notifications_users_alert_was_not_deleted_successfully')
-                    );
-
-                    // Delete the error message
-                    echo json_encode($data);
-
-                }
-
-                exit();
-
-            }
-            
-        }
-
-        // Prepare error message
-        $data = array(
-            'success' => FALSE,
-            'message' => $this->CI->lang->line('notifications_an_error_occured')
         );
 
         // Delete the error message
@@ -599,6 +548,33 @@ class Users_alerts {
     //-----------------------------------------------------
 
     /**
+     * The protected method the_secure_js removes any dangerous javascript code
+     * 
+     * @param string $text contains the text which should the cleaned
+     * 
+     * @since 0.0.8.4
+     * 
+     * @return string with text
+     */ 
+    protected function the_secure_js($text) {
+
+        //  Find code
+        $find = array(
+            'alert',
+            'write',
+            'inner',
+            'insert',
+            'activexobject',
+            'unescape',
+            'cookie'
+        );
+
+        // Return clean
+        return str_replace($find, array(''), $text);
+
+    }
+
+    /**
      * The protected method the_clean_html removes any javascript code
      * 
      * @param string $text contains the text which should the cleaned
@@ -609,14 +585,8 @@ class Users_alerts {
      */ 
     protected function the_clean_html($text) {
 
-        // Remove all on attributes
-        $text = preg_replace("/\bon\w+=\S+(?=.*>)/si",'$1$2>', $text);
-
-        // Remove any javascript code
-        $text = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $text);
-
-        // Get entities and return
-        return htmlentities($text, ENT_QUOTES, 'UTF-8');
+        // Remove the tags
+        return strip_tags($text, array('iframe', 'video', 'source', 'img', 'p','b','i','br'));
 
     }
 

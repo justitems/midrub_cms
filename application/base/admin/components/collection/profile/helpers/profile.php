@@ -119,7 +119,7 @@ class Profile {
                                             if ( !empty($the_member) ) {
 
                                                 // Verify if user_id is not of the current member
-                                                if ( $the_member[0]['user_id'] !== $this->CI->user_id ) {
+                                                if ( $the_member[0]['user_id'] !== md_the_user_id() ) {
 
                                                     // Prepare error message
                                                     $data = array(
@@ -151,9 +151,9 @@ class Profile {
                                             }
 
                                             // Try to update the option
-                                            if ( md_update_user_option($this->CI->user_id, 'email', trim($text_input['value'])) ) {
+                                            if ( md_update_user_option(md_the_user_id(), 'email', trim($text_input['value'])) ) {
                                                 $success_count++;
-                                            } else if ( md_the_user_option($this->CI->user_id, 'email') === trim($text_input['value']) ) {
+                                            } else if ( md_the_user_option(md_the_user_id(), 'email') === trim($text_input['value']) ) {
                                                 $success_count++;
                                             } else {
                                                 $errors_counter++;
@@ -176,9 +176,9 @@ class Profile {
                                     } else if ( ($text_input['field'] === 'profile_first_name') || ($text_input['field'] === 'profile_last_name') ) {
 
                                         // Try to update the option
-                                        if ( md_update_user_option($this->CI->user_id, str_replace('profile_', '', trim($text_input['field'])), trim($text_input['value'])) ) {
+                                        if ( md_update_user_option(md_the_user_id(), str_replace('profile_', '', trim($text_input['field'])), trim($text_input['value'])) ) {
                                             $success_count++;
-                                        } else if ( md_the_user_option($this->CI->user_id, str_replace('profile_', '', trim($text_input['field']))) === trim($text_input['value']) ) {
+                                        } else if ( md_the_user_option(md_the_user_id(), str_replace('profile_', '', trim($text_input['field']))) === trim($text_input['value']) ) {
                                             $success_count++;
                                         } else {
                                             $errors_counter++;
@@ -187,9 +187,9 @@ class Profile {
                                     } else {
 
                                         // Try to update the option
-                                        if ( md_update_user_option($this->CI->user_id, trim($text_input['field']), trim($text_input['value'])) ) {
+                                        if ( md_update_user_option(md_the_user_id(), trim($text_input['field']), trim($text_input['value'])) ) {
                                             $success_count++;
-                                        } else if ( md_the_user_option($this->CI->user_id, trim($text_input['field'])) === trim($text_input['value']) ) {
+                                        } else if ( md_the_user_option(md_the_user_id(), trim($text_input['field'])) === trim($text_input['value']) ) {
                                             $success_count++;
                                         } else {
                                             $errors_counter++;
@@ -223,9 +223,9 @@ class Profile {
                                 if ( in_array($dynamic_dropdown['field'], $allowed_fields) ) {
 
                                     // Try to update the option
-                                    if ( md_update_user_option($this->CI->user_id, trim($dynamic_dropdown['field']), trim($dynamic_dropdown['value'])) ) {
+                                    if ( md_update_user_option(md_the_user_id(), trim($dynamic_dropdown['field']), trim($dynamic_dropdown['value'])) ) {
                                         $success_count++;
-                                    } else if ( md_the_user_option($this->CI->user_id, trim($dynamic_dropdown['field'])) === trim($dynamic_dropdown['value']) ) {
+                                    } else if ( md_the_user_option(md_the_user_id(), trim($dynamic_dropdown['field'])) === trim($dynamic_dropdown['value']) ) {
                                         $success_count++;
                                     } else {
                                         $errors_counter++;
@@ -336,9 +336,9 @@ class Profile {
                                 if ( in_array($dropdown['field'], $allowed_fields) ) {
 
                                     // Try to update the option
-                                    if ( md_update_user_option($this->CI->user_id, trim($dropdown['field']), trim($dropdown['value'])) ) {
+                                    if ( md_update_user_option(md_the_user_id(), trim($dropdown['field']), trim($dropdown['value'])) ) {
                                         $success_count++;
-                                    } else if ( md_the_user_option($this->CI->user_id, trim($dropdown['field'])) === trim($dropdown['value']) ) {
+                                    } else if ( md_the_user_option(md_the_user_id(), trim($dropdown['field'])) === trim($dropdown['value']) ) {
                                         $success_count++;
                                     } else {
                                         $errors_counter++;
@@ -555,7 +555,7 @@ class Profile {
                 $password = $this->CI->bcrypt->hash_password($profile_password);
 
                 // Try to update the password
-                if ( $this->CI->base_model->update('users', array('user_id' => $this->CI->user_id), array('password' => $password)) ) {
+                if ( $this->CI->base_model->update('users', array('user_id' => md_the_user_id()), array('password' => $password)) ) {
                     $success_count++;
                 } else {
                     $errors_counter++;

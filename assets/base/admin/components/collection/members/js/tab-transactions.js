@@ -133,22 +133,22 @@ jQuery(document).ready( function ($) {
             for ( var c = 0; c < data.transactions.length; c++ ) {
 
                 // Default status
-                let status = '<span class="theme-badge-1 bg-light">'
-                                + data.words.incomplete
-                            + '</span>';
+                var status = '<span class="badge bg-light theme-badge-1">'
+                    + data.words.incomplete
+                + '</span>';
 
                 // Verify if transaction was successfully
                 if ( data.transactions[c].status === '1' ) {
 
-                    status = '<span class="theme-badge-1 bg-primary">'
-                                    + data.words.success
-                                + '</span>';         
+                    status = '<span class="badge bg-primary theme-badge-1">'
+                        + data.words.success
+                    + '</span>';         
     
                 } else if ( data.transactions[c].status > 1 ) {
 
-                    status = '<span class="theme-badge-1 bg-danger">'
-                                    + data.words.error
-                                + '</span>';                        
+                    status = '<span class="badge bg-danger theme-badge-1">'
+                        + data.words.error
+                    + '</span>';                        
 
                 }
 
@@ -160,7 +160,7 @@ jQuery(document).ready( function ($) {
                                 + '<div class="media d-flex justify-content-start">'
                                     + '<div class="media-body">'
                                         + '<h5>'
-                                            + '<a href="' + url + 'admin/members?p=all_members&member=' + data.members[m].user_id + '">'
+                                            + '<a href="' + url + 'admin/admin?p=transactions&transaction=' + data.transactions[c].transaction_id + '">'
                                                 + '#' + data.transactions[c].transaction_id
                                             + '</a>'
                                         + '</h5>'

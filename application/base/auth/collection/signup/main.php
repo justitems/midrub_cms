@@ -22,7 +22,7 @@ use CmsBase\Auth\Collection\Signup\Controllers as CmsBaseAuthCollectionSignupCon
 defined('CMS_BASE_AUTH_SIGNUP') OR define('CMS_BASE_AUTH_SIGNUP', APPPATH . 'base/auth/collection/signup/');
 
 // Define the component's version
-defined('CMS_BASE_AUTH_SIGNUP_VERSION') OR define('CMS_BASE_AUTH_SIGNUP_VERSION', '0.0.3');
+defined('CMS_BASE_AUTH_SIGNUP_VERSION') OR define('CMS_BASE_AUTH_SIGNUP_VERSION', '0.0.4');
 
 /*
  * Main class loads the Signup Auth's component
@@ -62,35 +62,54 @@ class Main implements CmsBaseAuthInterfaces\Auth {
      */
     public function init() {
 
-        // Verify if signup is disabled
-        if ( !md_the_option('enable_registration') ) {
-
-            // Display 404 page
-            show_404();
-
-        }
-
         // Verify if connect parameter exists
         if ( $this->CI->uri->segment('3') && !$this->CI->input->server('QUERY_STRING') ) {
 
-            // Redirect user to network
-            (new CmsBaseAuthCollectionSignupControllers\Social)->connect($this->CI->uri->segment('3'));
+            // Get the session
+            $the_session = md_the_user_session();
+
+            // Verify if the session exists
+            if ( !empty($the_session['user_id']) && empty($the_session['role']) ) {
+
+                // Redirect user to network
+                (new CmsBaseAuthCollectionSignupControllers\Social)->connect($this->CI->uri->segment('3'));
+
+            } else {
+
+                // Display 404 page
+                show_404();
+
+            }
 
         } else {
 
             if ( $this->CI->uri->segment('3') ) {
 
-                // Get access token
-                $response = (new CmsBaseAuthCollectionSignupControllers\Social)->login($this->CI->uri->segment('3'));
+                // Get the session
+                $the_session = md_the_user_session();
 
-                if ( $response ) {
+                // Verify if the session exists
+                if ( !empty($the_session['user_id']) && empty($the_session['role']) ) {
 
-                    // Set auth error
-                    md_set_data('auth_error', $response['message']);
+                    // Get access token
+                    (new CmsBaseAuthCollectionSignupControllers\Social)->login($this->CI->uri->segment('3'));
 
+                } else {
+
+                    // Display 404 page
+                    show_404();
+    
                 }
 
             } else {
+
+                // Verify if signup is disabled
+                if ( !md_the_option('enable_registration') ) {
+
+                    // Display 404 page
+                    show_404();
+
+                }
 
                 // Instantiate the class
                 (new CmsBaseAuthCollectionSignupControllers\Init)->view();
@@ -151,33 +170,24 @@ class Main implements CmsBaseAuthInterfaces\Auth {
 
             case 'admin_init':
 
-                // Register the hooks for administrator
-                md_set_hook(
-                    'admin_init',
-                    function ($args) {
+                // Verify if user has opened the frontend component
+                if ( (md_the_data('component') === 'frontend') && ($this->CI->input->get('component', true) === 'signup') ) {
 
-                        // Verify if user has opened the frontend component
-                        if ( (md_the_data('component') === 'frontend') && ($this->CI->input->get('component', true) === 'signup') ) {
+                    // Load the component's language files
+                    $this->CI->lang->load( 'admin_signup', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_SIGNUP);
 
-                            // Load the component's language files
-                            $this->CI->lang->load( 'admin_signup', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_SIGNUP);
+                    // Require the contents_categories file
+                    require_once CMS_BASE_AUTH_SIGNUP . '/inc/contents_categories.php';
 
-                            // Require the contents_categories file
-                            require_once CMS_BASE_AUTH_SIGNUP . '/inc/contents_categories.php';
+                } else if (md_the_data('component') === 'notifications') {
 
-                        } else if (md_the_data('component') === 'notifications') {
+                    // Load the component's language files
+                    $this->CI->lang->load( 'admin_signup', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_SIGNUP);
 
-                            // Load the component's language files
-                            $this->CI->lang->load( 'admin_signup', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_SIGNUP);
-        
-                            // Require the email_templates file
-                            require_once CMS_BASE_AUTH_SIGNUP . 'inc/email_templates.php';
-        
-                        }
+                    // Require the email_templates file
+                    require_once CMS_BASE_AUTH_SIGNUP . 'inc/email_templates.php';
 
-                    }
-
-                );                
+                }               
 
                 break;
 
@@ -232,3 +242,5 @@ class Main implements CmsBaseAuthInterfaces\Auth {
     }
 
 }
+
+/* End of file main.php */

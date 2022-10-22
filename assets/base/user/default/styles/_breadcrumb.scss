@@ -35,8 +35,12 @@ DEFAULT BREADCRUMB MIXING
             .breadcrumb-item+.breadcrumb-item {
                 padding-left: 34px;
 
-                @media only screen and (min-width: 1320px) {
+                @media (min-width: 767px) {
+                    width: 250px;
                     min-width: 250px;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
                 }
 
                 &[contenteditable=true]:empty:after{

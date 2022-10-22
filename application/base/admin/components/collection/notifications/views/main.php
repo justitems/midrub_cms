@@ -4,7 +4,7 @@
             <div class="col-xl-2 col-lg-3 col-md-4 theme-sidebar-menu">
                 <?php md_include_component_file(CMS_BASE_ADMIN_COMPONENTS_NOTIFICATIONS . 'views/menu.php'); ?>
             </div>
-            <div class="col-xl-10 col-lg-10 col-md-9 notifications-view">
+            <div class="col-xl-10 col-lg-10 col-md-9 pb-3 notifications-view">
                 <?php get_the_admin_notifications_page_content(md_the_data('component_display')); ?>
             </div>            
         </div>
@@ -93,9 +93,9 @@
         no_languages_were_selected: '<?php echo $this->lang->line('notifications_no_languages_were_selected'); ?>',
         no_plans_were_selected: '<?php echo $this->lang->line('notifications_no_plans_were_selected'); ?>',
         all_users: '<?php echo $this->lang->line('notifications_all_users'); ?>',
+        selected_items: '<?php echo $this->lang->line('notifications_selected_items'); ?>',
         icon_mail_template: '<?php echo md_the_admin_icon(array('icon' => 'mail_template')); ?>',
         icon_more: '<?php echo md_the_admin_icon(array('icon' => 'more', 'class' => 'ms-0')); ?>',
-        icon_delete: '<?php echo md_the_admin_icon(array('icon' => 'delete')); ?>',
-        selected_items: '<?php echo $this->lang->line('frontend_selected_items'); ?>'
+        icon_delete: '<?php echo md_the_admin_icon(array('icon' => 'delete')); ?>'
     };
 </script>

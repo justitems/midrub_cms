@@ -22,7 +22,7 @@
                             <button type="submit" class="btn btn-primary verify-coupon-code"><?php echo $this->lang->line('auth_upgrade_apply'); ?></button>
                         </div>
                     </div>
-                    <?php echo form_close() ?>
+                    <?php echo form_close(); ?>
                     <div class="row">
                         <div class="col-lg-12 clean">
                             <?php

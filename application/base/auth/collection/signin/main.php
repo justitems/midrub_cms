@@ -216,3 +216,5 @@ class Main implements CmsBaseAuthInterfaces\Auth {
     }
 
 }
+
+/* End of file main.php */

@@ -188,7 +188,7 @@ class Social {
 
             // Upload file 
             if ( $this->CI->upload->do_upload('file') ) {
-                
+
                 // Verify if the ZIP file was upoaded
                 if ( file_exists($config['upload_path'] . '/' . $zip_file . '.zip') ) {
                     
@@ -272,11 +272,14 @@ class Social {
                                     // Try to open the zip
                                     if ($zip->open(CMS_BASE_ADMIN_COMPONENTS_USER . 'temp/' . $installation['php']) === TRUE) {
 
+                                        // Set network dir
+                                        $network_dir = basename($zip->getNameIndex(0));
+
                                         // First verify if files exists
                                         if ( $zip->numFiles > 0 ) {
 
                                             // Verify if the network is already installed
-                                            if ( file_exists(CMS_BASE_PATH . 'user/networks/' . $zip->getNameIndex(0)) ) {
+                                            if ( file_exists(CMS_BASE_PATH . 'user/networks/' . $network_dir) ) {
 
                                                 // Prepare the error message
                                                 $data = array(
@@ -294,7 +297,7 @@ class Social {
                                             } else {
 
                                                 // Extract the zip
-                                                $zip->extractTo(CMS_BASE_PATH . 'user/networks/');
+                                                $zip->extractTo(CMS_BASE_PATH . 'user/networks/collection/');
 
                                                 // Prepare the succes message
                                                 $data = array(

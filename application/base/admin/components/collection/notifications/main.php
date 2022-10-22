@@ -19,7 +19,7 @@ namespace CmsBase\Admin\Components\Collection\Notifications;
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 defined('CMS_BASE_ADMIN_COMPONENTS_NOTIFICATIONS') OR define('CMS_BASE_ADMIN_COMPONENTS_NOTIFICATIONS', CMS_BASE_PATH . 'admin/components/collection/notifications/');
-defined('CMS_BASE_ADMIN_COMPONENTS_NOTIFICATIONS_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_NOTIFICATIONS_VERSION', '0.0.8');
+defined('CMS_BASE_ADMIN_COMPONENTS_NOTIFICATIONS_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_NOTIFICATIONS_VERSION', '0.1.2');
 
 // Define the namespaces to use
 use CmsBase\Admin\Interfaces as CmsBaseAdminInterfaces;
@@ -108,10 +108,14 @@ class Main implements CmsBaseAdminInterfaces\Components {
     public function load_hooks($category) {
 
         // Verify if action parameter exists
-        if ( (substr($this->CI->input->post('action', TRUE), 0, 21) === 'create_email_template') || (substr($this->CI->input->post('action', TRUE), 0, 21) === 'update_email_template') ) {
+        if ( $this->CI->input->post('action', TRUE) ) {
 
-            // Set component
-            md_set_data('component', 'notifications');
+            if ( (substr($this->CI->input->post('action', TRUE), 0, 21) === 'create_email_template') || (substr($this->CI->input->post('action', TRUE), 0, 21) === 'update_email_template') ) {
+
+                // Set component
+                md_set_data('component', 'notifications');
+
+            }
 
         }
 

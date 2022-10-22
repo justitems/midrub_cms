@@ -242,7 +242,7 @@ class Youtube implements CmsBaseUserInterfaces\Networks {
                 $update_channel = $this->CI->base_model->update(
                     'networks',
                     array(
-                        'network_id' => $the_connected_channel[0]['network_id']
+                        'network_id' => $the_channel[0]['network_id']
                     ),
                     array(
                         'user_name' => $user_information['name'],

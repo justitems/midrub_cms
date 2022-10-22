@@ -29,7 +29,7 @@
                     <?php echo $this->lang->line('frontend_save'); ?>
                 </button>
             </div>
-            <?php echo form_close() ?>
+            <?php echo form_close(); ?>
         </div>
     </div>
 </div>

@@ -31,23 +31,7 @@ $lang["notifications_alert_type"] = "Alert Type";
 $lang["notifications_news"] = "News";
 $lang["notifications_fixed"] = "Fixed";
 $lang["notifications_more_information"] = "More Information";
-$lang["notifications_alert_type_instructions"] = "<p>"
-                                                    . "The alerts type allows you to decide how long will be displayed the banner in the user's panel."
-                                                . "</p>"
-                                                . "<p>"
-                                                    . "There are 3 alerts types:"
-                                                . "</p>"
-                                                . "<ul>"
-                                                    . "<li>"
-                                                        . "<strong>News</strong> - will be displayed only until user will read it or will close the banner."
-                                                    . "</li>"
-                                                    . "<li>"
-                                                        . "<strong>Promo</strong> - will be displayed only until user will read it or will close the modal."
-                                                    . "</li>"
-                                                    . "<li>"
-                                                        . "<strong>Fixed</strong> - will be displayed permanently and if you have two fixed alerts, will be displayed only the last."
-                                                    . "</li>"                                                                                                     
-                                                . "</ul>";
+$lang["notifications_alert_type_instructions"] = "<p>The alerts type allows you to decide how long will be displayed the banner in the user's panel.</p><p>There are 3 alerts types:</p><ul><li><strong>News</strong> - will be displayed only until user will read it or will close the banner.</li><li><strong>Promo</strong> - will be displayed only until user will read it or will close the modal.</li><li><strong>Fixed</strong> - will be displayed permanently and if you have two fixed alerts, will be displayed only the last.</li></ul>";
 $lang["notifications_alert_content"] = "Alert Content";
 $lang["notifications_alert_banner"] = "Alert Banner";
 $lang["notifications_alert_banner_description"] = "The banner will be displayed as modal in the user's panel.";
@@ -97,3 +81,4 @@ $lang["notifications_system_errors_was_not_deleted_successfully"] = "The system 
 $lang["notifications_template_was_updated_successfully"] = "The template was updated successfully.";
 $lang["notifications_template_was_not_updated_successfully"] = "The template was not updated successfully.";
 $lang["notifications_results"] = "results";
+$lang["notifications_selected_items"] = "selected items";

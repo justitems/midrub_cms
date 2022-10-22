@@ -98,7 +98,7 @@ class CmsBase {
                 $this->CI->user_status = $user_data[0]->status;
 
                 // Get user language
-                $user_lang = md_the_user_option($this->CI->user_id, 'user_language');
+                $user_lang = md_the_user_option(md_the_user_id(), 'user_language');
 
                 // Verify if user has selected a language
                 if ($user_lang) {

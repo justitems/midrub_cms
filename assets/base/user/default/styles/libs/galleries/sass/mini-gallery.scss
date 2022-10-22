@@ -1,0 +1,192 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../user/default/styles/colors";
+
+/*******************************
+DEFAULT EXTRA FIELDS STYLES
+********************************/
+
+.default-mini-gallery {
+    border: 0;
+    background-color: transparent;
+
+    .default-mini-gallery-header {
+        padding: 0;
+        border: 0;
+        background-color: transparent;
+
+        .input-group {
+            padding: 3px 15px;
+            border-radius: 6px;
+            background-color: #f0f4ff;
+            background-color: rgba(223, 223, 234, 0.08);
+
+            .input-group-prepend {
+
+                i {
+                    font-size: 22px;
+                    color: $default-color-new;
+                }
+
+            }
+
+            .form-control {
+                border: 0;
+                font-size: 14px;
+                color: $default-color-black;
+                background-color: transparent;
+            }
+
+            .input-group-append {
+
+                span {
+                    font-size: 13px;       
+                }
+
+                &.default-mini-gallery-search-tools {
+
+                    i {
+                        display: inline-block;
+                        vertical-align: sub;
+                        margin: 0;
+                        line-height: 35px;
+                        font-size: 19px;
+                        color: $default-color-new;
+                
+                        &.crm-search-icon-loader {
+                            -webkit-animation: rotating 2s linear infinite;
+                            -moz-animation: rotating 2s linear infinite;
+                            -ms-animation: rotating 2s linear infinite;
+                            -o-animation: rotating 2s linear infinite;
+                            animation: rotating 2s linear infinite;
+                            opacity: 0;
+                        }
+                
+                    }
+                
+                    a {
+                        display: inline-block;
+                
+                        &.crm-cancel-search {
+                            opacity: 0;
+
+                            i {
+                                margin: 0px 15px;
+                                line-height: 35px;
+                                font-size: 19px;
+                            }
+
+                        }
+                        
+                    }
+
+                }
+
+                .btn {
+                    margin-top: 2px !important;
+                    padding: 0 10px !important;
+                    height: 31px !important;
+                    line-height: 31px !important;
+                    color: $default-color-black !important;
+                    background-color: #FFFFFF !important;
+                    -webkit-box-shadow: 0 1px 2px 0 rgba(10, 31, 68, 0.05) !important;
+                    box-shadow: 0 1px 2px 0 rgba(10, 31, 68, 0.05) !important;
+
+                    i {
+                        margin: 0;
+                        font-size: 19px;
+                    }
+
+                    &:first-child {
+                        border-radius: 4px 0 0 4px !important;
+                    }
+        
+                    &:last-child {
+                        border-radius: 0 4px 4px 0 !important;
+                    }   
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .default-mini-gallery-list {
+        padding: 15px 0;
+        min-height: 400px;
+
+        ul {
+            margin: 0;
+            padding: 0;
+            width: calc(100% + 15px);
+
+            li {
+                display: inline-block;
+                position: relative;
+                margin: 0 0 3px;
+                padding: 0 3px 0 0;  
+                width: calc(25% - 3px);
+                border-radius: 6px;     
+                list-style: none;
+                background-color: $default-color-blue-light;
+
+                &.default-mini-gallery-no-media-files {
+                    padding: 10px 15px;
+                    width: calc(100% - 15px);
+                    list-style: none;
+                    font-size: 14px;
+                    background-color: #FFFFFF;
+                }
+
+                & > a {
+                    transition: all 0.3s;
+
+                    img {
+                        width: 100%;
+                        height: 120px;
+                        border-radius: 6px;
+                        object-fit: cover;
+
+                        @media only screen and (max-width: 835px)  {
+                            height: 100px;
+                        }
+
+                        @media only screen and (max-width: 620px)  {
+                            height: 80px;
+                        }
+                        
+                    }
+
+                    i {
+                        display: none;
+                    }
+
+                    &.default-mini-gallery-list-selected {
+
+                        img {
+                            opacity: 0.4;
+                        }                        
+
+                        i {
+                            display: block;
+                            position: absolute;
+                            top: 0px;
+                            right: 7px;
+                            font-size: 21px;
+                            color: #3546AB;
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

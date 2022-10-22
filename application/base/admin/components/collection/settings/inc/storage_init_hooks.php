@@ -60,7 +60,7 @@ set_storage_location (
             $CI =& get_instance();
 
             // Set default user's ID
-            $user_id = $CI->user_id;
+            $user_id = md_the_user_id();
 
             // Verify if user's ID exists
             if ( !empty($params['user_id']) ) {
@@ -96,7 +96,7 @@ set_storage_location (
 
                 // Get uploaded file
                 $data['upload_data'] = $CI->upload->data();
-                
+
                 // Set read permission
                 chmod(FCPATH . 'assets/share/' . $data['upload_data']['file_name'], 0644); 
                 
@@ -145,7 +145,8 @@ set_storage_location (
                         'body' => $CI->config->base_url() . 'assets/share/' . $data['upload_data']['file_name'],
                         'cover' => $cover,
                         'size' => $_FILES['file']['size'],
-                        'type' => $get_type[0]
+                        'type' => $get_type[0],
+                        'extension' => !empty($data['upload_data']['file_ext'])?str_replace('.', '', $data['upload_data']['file_ext']):''
                     )
                 );
                 

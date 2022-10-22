@@ -1,0 +1,341 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../user/default/styles/colors";
+@import "../../../../../../user/default/styles/fonts";
+
+/*******************************
+TOOLS STYLES
+********************************/
+
+.default-modal-tools {
+
+    .modal-content {
+
+        .modal-body {
+
+            .default-modal-tools-input-container {
+                padding: 5px 15px !important;
+
+                .input-group-prepend {
+                    padding: 6px 0;
+
+                    svg {
+                        width: 21px;
+                        height: 20px;
+                        color: $default-color-grey;
+                    }
+
+                }
+
+                .form-control {
+                    border: 0;
+                    font-size: 14px;
+                }
+
+                & > i {
+                    display: inline-block;
+                    vertical-align: sub;
+                    margin-left: 15px;
+                    font-size: 22px;
+                    color: #bac4cd;
+            
+                    &.crm-social-icon-loader {
+                        font-size: 23px;
+                        -webkit-animation: rotating 2s linear infinite;
+                        -moz-animation: rotating 2s linear infinite;
+                        -ms-animation: rotating 2s linear infinite;
+                        -o-animation: rotating 2s linear infinite;
+                        animation: rotating 2s linear infinite;
+                        opacity: 0;
+                    }
+            
+                }
+            
+                & > a {
+                    display: inline-block;
+                    opacity: 0;
+            
+                    i {
+                        display: inline-block;
+                        vertical-align: sub;
+                        margin-left: 15px;
+                        font-size: 22px;
+                        color: #bac4cd;
+                    }
+                    
+                }
+
+            }
+
+            .default-modal-tools-input-sub {
+                padding: 7px 15px;
+                font-size: 13px;
+                color: $default-color-black;
+                background-color: $default-sidebar-menu-background-color;
+
+                svg {
+                    vertical-align: middle;
+                    margin-top: -2px;
+                    margin-right: 5px;
+                    color: $default-color-black;
+                }
+
+            }
+
+            .theme-dropdown-2 {
+                width: 100%;
+                height: 35px !important;
+
+                .default-modal-tools-dropdown-btn {
+                    margin: 0;
+                    padding: 0.375rem 15px;
+                    width: 100%;
+                    height: 35px !important;
+
+                    &.default-modal-tools-dropdown-disabled-btn {
+                        pointer-events: none;
+                        color: $default-color-grey !important;
+
+                        .theme-dropdown-arrow-icon {
+                            color: $default-color-grey !important;
+                        }
+
+                    }
+
+                }
+
+                .dropdown-menu {
+                    width: 100%;
+                }
+
+            }
+
+            .default-modal-tools-list-1 {
+                margin: 0;
+                padding: 0;
+
+                li {
+                    margin-bottom: 15px;
+                    padding: 10px 15px;
+                    list-style: none;
+
+                    &.default-modal-tools-list-1-no-items {
+                        font-size: 14px;
+                    }
+
+                    a {
+
+                        &:hover {
+                            text-decoration: none;
+                        }
+
+                        .media {
+                            pointer-events: none;
+
+                            .default-modal-tools-list-1-page-icon {
+                                margin-top: 4px;
+                                margin-right: 15px !important;
+                                width: 27px;
+                                height: 27px;
+                                border-radius: 50%;
+                                text-align: center;
+                                font-size: 18px;
+                                color: #FFFFFF;
+                                background-color: #4267B2;                                        
+            
+                                &::before {
+                                    display: block;
+                                    margin-left: -1px;
+                                }
+            
+                            }
+            
+                            .media-body {
+            
+                                h5 {
+                                    margin: 0;
+                                    font-family: $default-font-2;
+                                    font-size: 13px;
+                                    font-weight: 600;
+                                    color: $default-color-black;
+            
+                                }
+        
+                                p {
+                                    margin: 0;
+                                    font-family: $default-font-2;
+                                    font-size: 13px;
+                                    font-weight: 400;
+                                    color: $default-color-grey;                         
+                                }
+            
+                            }
+
+                            .default-modal-tools-list-1-checked-icon {
+                                vertical-align: middle;
+                                margin-top: 4px;
+                                margin-left: 10px;
+                                width: 25px;
+                                height: 25px;
+                                color: $default-color-black;
+                                transform: scale(0.7);
+                                transition: all 0.2s;
+                                opacity: 0;
+                            }
+
+                        }
+
+                        &.default-modal-tools-list-1-item-selected {
+                        
+                            & > div {
+    
+                                .default-modal-tools-list-1-checked-icon {
+                                    transform: scale(1) !important;
+                                    opacity: 1 !important;
+                                }
+    
+                            }
+    
+                        }
+
+                    }
+
+                }
+
+            }
+
+            .default-modal-tools-list-2 {
+                margin: 0;
+                padding: 0;
+            
+                li {
+                    display: inline-block;
+                    margin: 0 15px 15px 0;
+                    width: auto;
+                    list-style: none;
+            
+                    &.default-modal-tools-list-2-no-items {
+                        width: 100%;
+                        font-size: 14px;
+                    }
+            
+                    a {
+                        padding: 5px 10px 7px;
+                        border: 1px solid $default-color-black;
+                        border-radius: 4px;
+                        font-family: $default-font-2;
+                        font-size: 13px;
+                        font-weight: 600;
+                        color: $default-color-black;
+                        transition: all 0.2s;
+
+                        svg {
+                            vertical-align: middle;
+                            margin-top: -3px;
+                            margin-right: 2px;
+                            width: 17px;
+                            height: 17px;
+                        }
+
+                        span {
+                            display: inline-block;
+                            vertical-align: middle;
+                            margin-top: -3px;
+                            margin-left: 10px;
+                            padding: 1px 7px;
+                            border-radius: 4px;
+                            font-size: 10px;
+                            font-weight: 400;
+                            color: $default-color-black;
+                            background-color: $default-sidebar-menu-background-color;
+                        }
+
+                        &:hover,
+                        &.default-modal-tools-list-2-item-selected {
+                            text-decoration: none;
+                            color: #FFFFFF;
+                            background-color: $default-color-black;
+                        }
+            
+                    }
+            
+                }
+            
+            }
+
+            .default-modal-tools-list-3 {
+                margin: 0;
+                padding: 0;
+
+                li {
+                    margin-bottom: 15px;
+                    padding: 10px 15px;
+                    list-style: none;
+
+                    &.default-modal-tools-list-3-no-items {
+                        font-size: 14px;
+                    }
+
+                    .media {
+
+                        & > img {
+                            margin: 8px 15px 0 10px;
+                            width: 50px;
+                            height: 46px;
+                            border-radius: 4px;
+                            object-fit: cover;
+                        }
+                
+                        & > .crm-social-item-no-picture {
+                            margin: 10px;
+                            width: 50px;
+                            height: 46px;
+                            border-radius: 4px;
+                            text-align: center;                                
+                            background-color: #fcfcff;
+                
+                            svg {
+                                margin-top: 7px;
+                                width: 32px;
+                                height: 32px;
+                                color: $default-color-blue;
+                            }
+                
+                        }
+                
+                        .media-body {
+                            padding: 15px 15px 0 0;
+                
+                            h5 {
+                                margin: 0;
+                                padding: 0;
+                                font-family: $default-font-2;
+                                font-size: 14px;
+                                color: $default-color-black;
+                            }
+                
+                            p {
+                                display: -webkit-inline-box;
+                                margin: 0;
+                                font-family: $default-font-2;
+                                font-size: 13px;
+                                color: $default-color-grey;
+                                overflow: hidden;
+                                -webkit-line-clamp: 1;
+                                -webkit-box-orient: vertical;
+                            }
+                
+                        }
+                
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

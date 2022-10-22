@@ -1,0 +1,415 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../user/default/styles/colors";
+@import "../../../../../../user/default/styles/fonts";
+
+/*******************************
+POSTS LIST STYLES
+********************************/
+
+.default-posts-list-posts {
+
+    .default-posts-list-posts-no-posts-found {
+        margin-bottom: 15px;
+        padding: 5px 15px 7px;
+        border-radius: 6px;
+        line-height: 26px;
+        font-family: $default-font-2;
+        font-size: 14px;
+        font-weight: 400;    
+        color: $default-color-black;
+        background-color: #fafafc;
+    }
+
+    .default-posts-list-posts-post {
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: inset 0px 0px 4px #efeffa;
+        -webkit-box-shadow: inset 0px 0px 4px #efeffa;
+
+        .media {
+
+            > img {
+                object-fit: cover;
+                width: 50px;
+                height: 50px;
+                border-radius: 8px;
+            }
+
+            > .default-posts-list-posts-post-time {
+                margin-right: 10px;
+                padding: 11px 10px;
+                border-radius: 6px;
+                font-size: 14px;
+                color: $default-color-black;
+                background-color: #efeffa;
+            }
+
+            .media-body {
+
+                h5 {
+                    display: -webkit-inline-box;
+                    overflow: hidden;
+                    margin: 0 0 4px;
+                    width: calc(100% - 15px);
+                    line-height: 13px;
+                    font-family: $default-font-2;
+                    font-size: 13px;
+                    font-weight: 600;
+                    -webkit-line-clamp: 1;
+                    -webkit-box-orient: vertical;
+                }
+
+                .default-posts-list-posts-post-link {
+                    display: flex;
+                    margin-bottom: 15px;
+                    padding: 3px 10px;
+                    width: calc(100% - 15px);
+                    border-radius: 4px;
+                    line-height: 14px;
+                    font-family: $default-font-2;
+                    font-size: 12px;
+                    font-weight: 400;                    
+                    color: $default-color-black;
+                    background-color: #f7f9fc;
+
+                    svg {
+                        vertical-align: middle;
+                        margin: -2px 5px 0 0;
+                        width: 33px;
+                        height: 17px;
+                    }
+
+                    span {
+                        display: -webkit-inline-box;
+                        overflow: hidden;
+                        -webkit-line-clamp: 1;
+                        -webkit-box-orient: vertical;
+                    }
+
+                }
+
+                .default-posts-list-posts-post-images {
+                    margin-bottom: 15px;
+
+                    img {
+                        display: inline-block;
+                        object-fit: cover;
+                        margin-right: 5px;
+                        width: 60px;
+                        height: 60px;
+                        border-radius: 4px;
+                    }
+
+                }
+
+                .default-posts-list-posts-post-video {
+                    margin-bottom: 15px;
+
+                    iframe {
+                        width: 100%;
+                        border: 0;
+                        border-radius: 4px;
+                    }
+
+                }                
+
+                .default-posts-list-posts-post-accounts {
+                    margin: 0;
+                    padding: 0;
+                    height: 0;
+
+                    li {
+                        display: inline-block; 
+                        position: relative;                     
+                        width: 12px;
+                        height: 28px;
+                        list-style: none;
+
+                        .default-posts-list-posts-post-account-icon {
+                            display: block;
+                            position: absolute;
+                            top: -6px;
+                            width: 24px;
+                            height: 24px;
+                            border: 2px solid #FFFFFF;
+                            border-radius: 50%;
+                            line-height: 20px;
+                            text-align: center;
+                            font-size: 12px;
+                            color: #FFFFFF;
+                            background-color: var(--color);                                 
+
+                            &::before {
+                                display: block;
+                                margin-left: 0;
+                            }
+
+                        }
+
+                        .default-posts-list-posts-post-account-more-icon {
+                            display: block;
+                            position: absolute;
+                            top: -6px;
+                            width: 24px;
+                            height: 24px;
+                            border: 2px solid #FFFFFF;
+                            border-radius: 50%;
+                            line-height: 20px;
+                            text-align: center;
+                            font-size: 10px;
+                            color: $default-color-black;
+                            background-color: #F8F8FF;
+                        }                        
+
+                        &:first-child {
+                            margin-left: 0;
+                        }
+
+                    }
+
+                }
+
+                .default-posts-list-posts-post-chart-btn {
+                    display: block;
+                    margin-top: -4px;
+                    margin-right: 15px;
+                    line-height: normal;
+                    text-decoration: none;
+                    color: $default-color-grey;
+
+                    &:hover {
+                        color: $default-color-black;
+                    }
+
+                    i {
+                        font-size: 19px;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+.default-posts-list {
+    border: 0;
+    background-color: transparent;
+
+    .card-header {
+        padding: 0;
+        border: 0;
+        background-color: transparent;
+
+        h3 {
+            margin: 0;
+            padding: 0;
+            font-family: $default-font-1;
+            font-size: 17px;
+            color: $default-color-black;
+        }
+
+        .btn-group {
+            margin: -10px -3px 0 0;
+
+            .btn-secondary {
+                padding: 0;
+                border: 0;       
+                background-color: transparent;
+
+                &:last-child {
+                    margin-left: 10px;
+                }
+
+                i {
+                    font-size: 28px;
+                    color: $default-color-black;   
+                }
+
+            }
+
+        }
+
+    }
+
+    .card-body {
+        padding: 15px 0 0;
+
+        .default-posts-list-days {
+            position: relative;
+            padding: 0 5px 5px;
+            border-radius: 6px;
+            background-color: $default-background-color;
+        
+            .default-posts-list-navigation {
+                position: inherit;
+                z-index: 0;
+                left: 0;
+                padding-top: 5px;
+                width: 100%;
+                border-radius: 6px;
+                font-size: 0;
+                
+                overflow: hidden;
+        
+                input {
+                    display: none;
+        
+                    &:checked + label {
+                        color: $default-color-new;
+                    }
+        
+                    @for $i from 1 through 10 {
+    
+                        &#default-posts-list-#{$i}:checked {
+    
+                            ~ .default-posts-list-navigation-active {
+                                left: #{($i - 1) * 14.28%};
+                            }
+    
+                            ~ .content-container #c#{$i} {
+                                opacity: 1;
+                            }
+    
+                        }
+    
+                    }
+        
+                }
+        
+                label {
+                    display: inline-block;
+                    padding: 5px 0 0;
+                    width: 14.28%;
+                    height: 44px;
+                    border: 0;
+                    text-align: center;
+                    font-family: $default-font-2;
+                    font-size: 12px;
+                    color: $default-color-black;
+                    cursor: pointer;
+    
+                    span {
+                        display: block;
+                        margin: 2px 5px 5px;
+                        border: 0;
+                        border-radius: 3px;                    
+                        font-family: $default-font-1;
+                        font-size: 14px;
+                        font-weight: 600;                    
+                        color: $default-color-black;
+                    }
+        
+                    @media only screen and (max-width: 767px)  {
+                        font-size: 13px;
+                    }
+        
+                    &:hover::after {
+                        opacity: 1;
+                    }
+        
+                    i {
+                        display: inline-block;
+                        vertical-align: middle;
+                        margin-top: -4px;
+                        margin-right: 5px;
+                        font-size: 20px;
+        
+                        &.material-icons-outlined {
+                            margin-top: -5px;
+                            font-size: 24px;
+                        }
+        
+                    }
+        
+                    svg {
+                        vertical-align: middle;
+                        margin-top: -2px;
+                        margin-right: 5px;
+                        width: 15px;
+                        height: 15px;
+                    }
+        
+                }
+        
+                .default-posts-list-navigation-active {
+                    position: absolute;
+                    z-index: -1;
+                    top: 5px;
+                    left: 5px;
+                    width: 14.28%;
+                    height: 51px;
+                    border-radius: 6px;
+                    background-color: #FFFFFF;
+                    transition: 0.27s ease;
+                }
+        
+            }
+        
+        }
+
+    }
+
+    .card-posts {
+        padding: 15px 0 0;
+        border: 0;
+        background-color: transparent;
+    }
+
+    .card-navigation {
+        padding: 3px 15px;
+        height: 41px;
+        border: 0;
+        border-radius: 6px;
+        text-align: right;
+        background-color: #f0f4ff;
+        background-color: rgba(223, 223, 234, 0.08);
+
+        .btn {
+            margin-top: 2px !important;
+            padding: 0 10px !important;
+            width: 39px !important;
+            height: 31px !important;
+            line-height: 31px !important;
+            color: $default-color-black !important;
+            background-color: #ffffff !important;
+            -webkit-box-shadow: 0 1px 2px 0 rgba(10, 31, 68, 0.05) !important;
+            box-shadow: 0 1px 2px 0 rgba(10, 31, 68, 0.05) !important;
+
+            &:first-child {
+                border-radius: 4px 0 0 4px !important;
+            }
+
+            &:last-child {
+                border-radius: 0 4px 4px 0 !important;
+            }  
+            
+            &.default-posts-list-navigation-disabled-btn {
+                opacity: 0.4;
+                pointer-events: none;
+            }
+
+            i {
+                margin: 0;
+                font-size: 19px;
+            }
+
+        }
+
+    }
+
+    &.default-posts-list-no-active {
+
+        .default-posts-list-navigation-active {
+            display: none;
+        }
+
+    }
+    
+}

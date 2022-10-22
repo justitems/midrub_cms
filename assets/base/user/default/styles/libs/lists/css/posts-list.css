@@ -1,0 +1,315 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+THEME GLOBAL COLORS
+********************************/
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Inter:wght@200;300;400;500;600&display=swap");
+/*******************************
+THEME GLOBAL FONTS
+********************************/
+/*******************************
+POSTS LIST STYLES
+********************************/
+.default-posts-list-posts .default-posts-list-posts-no-posts-found {
+  margin-bottom: 15px;
+  padding: 5px 15px 7px;
+  border-radius: 6px;
+  line-height: 26px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #344564;
+  background-color: #fafafc; }
+.default-posts-list-posts .default-posts-list-posts-post {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: inset 0px 0px 4px #efeffa;
+  -webkit-box-shadow: inset 0px 0px 4px #efeffa; }
+  .default-posts-list-posts .default-posts-list-posts-post .media > img {
+    object-fit: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px; }
+  .default-posts-list-posts .default-posts-list-posts-post .media > .default-posts-list-posts-post-time {
+    margin-right: 10px;
+    padding: 11px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #344564;
+    background-color: #efeffa; }
+  .default-posts-list-posts .default-posts-list-posts-post .media .media-body h5 {
+    display: -webkit-inline-box;
+    overflow: hidden;
+    margin: 0 0 4px;
+    width: calc(100% - 15px);
+    line-height: 13px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical; }
+  .default-posts-list-posts .default-posts-list-posts-post .media .media-body .default-posts-list-posts-post-link {
+    display: flex;
+    margin-bottom: 15px;
+    padding: 3px 10px;
+    width: calc(100% - 15px);
+    border-radius: 4px;
+    line-height: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #344564;
+    background-color: #f7f9fc; }
+    .default-posts-list-posts .default-posts-list-posts-post .media .media-body .default-posts-list-posts-post-link svg {
+      vertical-align: middle;
+      margin: -2px 5px 0 0;
+      width: 33px;
+      height: 17px; }
+    .default-posts-list-posts .default-posts-list-posts-post .media .media-body .default-posts-list-posts-post-link span {
+      display: -webkit-inline-box;
+      overflow: hidden;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical; }
+  .default-posts-list-posts .default-posts-list-posts-post .media .media-body .default-posts-list-posts-post-images {
+    margin-bottom: 15px; }
+    .default-posts-list-posts .default-posts-list-posts-post .media .media-body .default-posts-list-posts-post-images img {
+      display: inline-block;
+      object-fit: cover;
+      margin-right: 5px;
+      width: 60px;
+      height: 60px;
+      border-radius: 4px; }
+  .default-posts-list-posts .default-posts-list-posts-post .media .media-body .default-posts-list-posts-post-video {
+    margin-bottom: 15px; }
+    .default-posts-list-posts .default-posts-list-posts-post .media .media-body .default-posts-list-posts-post-video iframe {
+      width: 100%;
+      border: 0;
+      border-radius: 4px; }
+  .default-posts-list-posts .default-posts-list-posts-post .media .media-body .default-posts-list-posts-post-accounts {
+    margin: 0;
+    padding: 0;
+    height: 0; }
+    .default-posts-list-posts .default-posts-list-posts-post .media .media-body .default-posts-list-posts-post-accounts li {
+      display: inline-block;
+      position: relative;
+      width: 12px;
+      height: 28px;
+      list-style: none; }
+      .default-posts-list-posts .default-posts-list-posts-post .media .media-body .default-posts-list-posts-post-accounts li .default-posts-list-posts-post-account-icon {
+        display: block;
+        position: absolute;
+        top: -6px;
+        width: 24px;
+        height: 24px;
+        border: 2px solid #FFFFFF;
+        border-radius: 50%;
+        line-height: 20px;
+        text-align: center;
+        font-size: 12px;
+        color: #FFFFFF;
+        background-color: var(--color); }
+        .default-posts-list-posts .default-posts-list-posts-post .media .media-body .default-posts-list-posts-post-accounts li .default-posts-list-posts-post-account-icon::before {
+          display: block;
+          margin-left: 0; }
+      .default-posts-list-posts .default-posts-list-posts-post .media .media-body .default-posts-list-posts-post-accounts li .default-posts-list-posts-post-account-more-icon {
+        display: block;
+        position: absolute;
+        top: -6px;
+        width: 24px;
+        height: 24px;
+        border: 2px solid #FFFFFF;
+        border-radius: 50%;
+        line-height: 20px;
+        text-align: center;
+        font-size: 10px;
+        color: #344564;
+        background-color: #F8F8FF; }
+      .default-posts-list-posts .default-posts-list-posts-post .media .media-body .default-posts-list-posts-post-accounts li:first-child {
+        margin-left: 0; }
+  .default-posts-list-posts .default-posts-list-posts-post .media .media-body .default-posts-list-posts-post-chart-btn {
+    display: block;
+    margin-top: -4px;
+    margin-right: 15px;
+    line-height: normal;
+    text-decoration: none;
+    color: #8F9EC2; }
+    .default-posts-list-posts .default-posts-list-posts-post .media .media-body .default-posts-list-posts-post-chart-btn:hover {
+      color: #344564; }
+    .default-posts-list-posts .default-posts-list-posts-post .media .media-body .default-posts-list-posts-post-chart-btn i {
+      font-size: 19px; }
+
+.default-posts-list {
+  border: 0;
+  background-color: transparent; }
+  .default-posts-list .card-header {
+    padding: 0;
+    border: 0;
+    background-color: transparent; }
+    .default-posts-list .card-header h3 {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+      font-size: 17px;
+      color: #344564; }
+    .default-posts-list .card-header .btn-group {
+      margin: -10px -3px 0 0; }
+      .default-posts-list .card-header .btn-group .btn-secondary {
+        padding: 0;
+        border: 0;
+        background-color: transparent; }
+        .default-posts-list .card-header .btn-group .btn-secondary:last-child {
+          margin-left: 10px; }
+        .default-posts-list .card-header .btn-group .btn-secondary i {
+          font-size: 28px;
+          color: #344564; }
+  .default-posts-list .card-body {
+    padding: 15px 0 0; }
+    .default-posts-list .card-body .default-posts-list-days {
+      position: relative;
+      padding: 0 5px 5px;
+      border-radius: 6px;
+      background-color: #f7f9fc; }
+      .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation {
+        position: inherit;
+        z-index: 0;
+        left: 0;
+        padding-top: 5px;
+        width: 100%;
+        border-radius: 6px;
+        font-size: 0;
+        overflow: hidden; }
+        .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input {
+          display: none; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input:checked + label {
+            color: #52567C; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input#default-posts-list-1:checked ~ .default-posts-list-navigation-active {
+            left: 0%; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input#default-posts-list-1:checked ~ .content-container #c1 {
+            opacity: 1; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input#default-posts-list-2:checked ~ .default-posts-list-navigation-active {
+            left: 14.28%; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input#default-posts-list-2:checked ~ .content-container #c2 {
+            opacity: 1; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input#default-posts-list-3:checked ~ .default-posts-list-navigation-active {
+            left: 28.56%; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input#default-posts-list-3:checked ~ .content-container #c3 {
+            opacity: 1; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input#default-posts-list-4:checked ~ .default-posts-list-navigation-active {
+            left: 42.84%; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input#default-posts-list-4:checked ~ .content-container #c4 {
+            opacity: 1; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input#default-posts-list-5:checked ~ .default-posts-list-navigation-active {
+            left: 57.12%; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input#default-posts-list-5:checked ~ .content-container #c5 {
+            opacity: 1; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input#default-posts-list-6:checked ~ .default-posts-list-navigation-active {
+            left: 71.4%; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input#default-posts-list-6:checked ~ .content-container #c6 {
+            opacity: 1; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input#default-posts-list-7:checked ~ .default-posts-list-navigation-active {
+            left: 85.68%; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input#default-posts-list-7:checked ~ .content-container #c7 {
+            opacity: 1; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input#default-posts-list-8:checked ~ .default-posts-list-navigation-active {
+            left: 99.96%; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input#default-posts-list-8:checked ~ .content-container #c8 {
+            opacity: 1; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input#default-posts-list-9:checked ~ .default-posts-list-navigation-active {
+            left: 114.24%; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input#default-posts-list-9:checked ~ .content-container #c9 {
+            opacity: 1; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input#default-posts-list-10:checked ~ .default-posts-list-navigation-active {
+            left: 128.52%; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation input#default-posts-list-10:checked ~ .content-container #c10 {
+            opacity: 1; }
+        .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation label {
+          display: inline-block;
+          padding: 5px 0 0;
+          width: 14.28%;
+          height: 44px;
+          border: 0;
+          text-align: center;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 12px;
+          color: #344564;
+          cursor: pointer; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation label span {
+            display: block;
+            margin: 2px 5px 5px;
+            border: 0;
+            border-radius: 3px;
+            font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #344564; }
+          @media only screen and (max-width: 767px) {
+            .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation label {
+              font-size: 13px; } }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation label:hover::after {
+            opacity: 1; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation label i {
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: -4px;
+            margin-right: 5px;
+            font-size: 20px; }
+            .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation label i.material-icons-outlined {
+              margin-top: -5px;
+              font-size: 24px; }
+          .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation label svg {
+            vertical-align: middle;
+            margin-top: -2px;
+            margin-right: 5px;
+            width: 15px;
+            height: 15px; }
+        .default-posts-list .card-body .default-posts-list-days .default-posts-list-navigation .default-posts-list-navigation-active {
+          position: absolute;
+          z-index: -1;
+          top: 5px;
+          left: 5px;
+          width: 14.28%;
+          height: 51px;
+          border-radius: 6px;
+          background-color: #FFFFFF;
+          transition: 0.27s ease; }
+  .default-posts-list .card-posts {
+    padding: 15px 0 0;
+    border: 0;
+    background-color: transparent; }
+  .default-posts-list .card-navigation {
+    padding: 3px 15px;
+    height: 41px;
+    border: 0;
+    border-radius: 6px;
+    text-align: right;
+    background-color: #f0f4ff;
+    background-color: rgba(223, 223, 234, 0.08); }
+    .default-posts-list .card-navigation .btn {
+      margin-top: 2px !important;
+      padding: 0 10px !important;
+      width: 39px !important;
+      height: 31px !important;
+      line-height: 31px !important;
+      color: #344564 !important;
+      background-color: #ffffff !important;
+      -webkit-box-shadow: 0 1px 2px 0 rgba(10, 31, 68, 0.05) !important;
+      box-shadow: 0 1px 2px 0 rgba(10, 31, 68, 0.05) !important; }
+      .default-posts-list .card-navigation .btn:first-child {
+        border-radius: 4px 0 0 4px !important; }
+      .default-posts-list .card-navigation .btn:last-child {
+        border-radius: 0 4px 4px 0 !important; }
+      .default-posts-list .card-navigation .btn.default-posts-list-navigation-disabled-btn {
+        opacity: 0.4;
+        pointer-events: none; }
+      .default-posts-list .card-navigation .btn i {
+        margin: 0;
+        font-size: 19px; }
+  .default-posts-list.default-posts-list-no-active .default-posts-list-navigation-active {
+    display: none; }
+
+/*# sourceMappingURL=posts-list.css.map */

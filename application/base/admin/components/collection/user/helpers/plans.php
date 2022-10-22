@@ -165,12 +165,14 @@ class Plans {
             // Add form validation
             $this->CI->form_validation->set_rules('plan_id', 'Plan ID', 'trim|required');
             $this->CI->form_validation->set_rules('all_dropdowns', 'All Dropdowns', 'trim');
+            $this->CI->form_validation->set_rules('all_multiselector_dropdowns', 'All Multiselector Dropdowns', 'trim');
             $this->CI->form_validation->set_rules('all_textareas', 'All Textareas', 'trim');
             $this->CI->form_validation->set_rules('texts', 'Texts', 'trim');
 
             // Get data
             $plan_id = $this->CI->input->post('plan_id', TRUE);
             $all_dropdowns = $this->CI->input->post('all_dropdowns', TRUE);
+            $all_multiselector_dropdowns = $this->CI->input->post('all_multiselector_dropdowns', TRUE);
             $all_textareas = $this->CI->input->post('all_textareas', TRUE);
             $texts = $this->CI->input->post('texts', TRUE);
 
@@ -194,6 +196,19 @@ class Plans {
                         }
 
                         $plan_metas[$dropdown[0]] = $dropdown[1];
+                    }
+
+                }
+
+                // Verify if multiselector dropdowns exists
+                if ( $all_multiselector_dropdowns ) {
+
+                    // List all multiselector dropdowns
+                    foreach( $all_multiselector_dropdowns as $multiselector_dropdown ) {
+
+                        // Set meta
+                        $plan_metas[$multiselector_dropdown[0]] = !empty($multiselector_dropdown[1])?serialize($multiselector_dropdown[1]):'';
+
                     }
 
                 }

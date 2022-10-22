@@ -6,7 +6,7 @@
  *
  * @author Scrisoft
  * @package Midrub
- * @since 0.0.7.8
+ * @since 0.0.8.5
  */
 
 // Define the page namespace
@@ -15,7 +15,7 @@ namespace CmsBase\Admin\Components\Collection\Frontend;
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 defined('CMS_BASE_ADMIN_COMPONENTS_FRONTEND') OR define('CMS_BASE_ADMIN_COMPONENTS_FRONTEND', APPPATH . 'base/admin/components/collection/frontend/');
-defined('CMS_BASE_ADMIN_COMPONENTS_FRONTEND_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_FRONTEND_VERSION', '0.0.6');
+defined('CMS_BASE_ADMIN_COMPONENTS_FRONTEND_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_FRONTEND_VERSION', '0.0.67');
 
 // Define the namespaces to use
 use CmsBase\Admin\Interfaces as CmsBaseAdminInterfaces;
@@ -26,14 +26,14 @@ use CmsBase\Admin\Components\Collection\Frontend\Controllers as CmsBaseAdminComp
  * 
  * @author Scrisoft
  * @package Midrub
- * @since 0.0.7.8
+ * @since 0.0.8.5
  */
 class Main implements CmsBaseAdminInterfaces\Components {
     
     /**
      * Class variables
      *
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      */
     protected
             $CI;
@@ -41,7 +41,7 @@ class Main implements CmsBaseAdminInterfaces\Components {
     /**
      * Initialise the Class
      *
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      */
     public function __construct() {
         
@@ -53,7 +53,7 @@ class Main implements CmsBaseAdminInterfaces\Components {
     /**
      * The public method init loads the component's main page in the user panel
      * 
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      * 
      * @return void
      */
@@ -67,7 +67,7 @@ class Main implements CmsBaseAdminInterfaces\Components {
     /**
      * The public method ajax processes the ajax's requests
      * 
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      * 
      * @return void
      */
@@ -101,7 +101,7 @@ class Main implements CmsBaseAdminInterfaces\Components {
     /**
      * The public method load_hooks by category
      * 
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      * 
      * @param string $category contains the hooks category
      * 
@@ -154,7 +154,7 @@ class Main implements CmsBaseAdminInterfaces\Components {
     /**
      * The public method api_call processes the api's calls
      * 
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      * 
      * @return void
      */
@@ -165,7 +165,7 @@ class Main implements CmsBaseAdminInterfaces\Components {
     /**
      * The public method component_info contains the admin component's info
      * 
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      * 
      * @return array with admin component's information
      */

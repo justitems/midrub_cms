@@ -259,7 +259,7 @@ class Delete {
         }
 
         // Set default user's ID
-        $user_id = $this->CI->user_id;
+        $user_id = md_the_user_id();
 
         // Verify if user's ID exists
         if ( !empty($params['user_id']) ) {

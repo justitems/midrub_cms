@@ -108,43 +108,7 @@
                             }
                             ?>
                         </div>
-
-                        <?php
-                        if (md_auth_social_access_options()) {
-
-                            echo '<div class="form-group">'
-                                    . '<p class="or-social">'
-                                        . '<span>'
-                                            . $this->lang->line('auth_signup_or')
-                                        . '</span>'
-                                    . '</p>'
-                                . '</div>'
-
-                                . '<div class="form-group">';
-
-                            // Set the sign up page
-                            $sign_up = md_the_url_by_page_role('sign_up')?md_the_url_by_page_role('sign_up'):site_url('auth/signup');
-
-                            // List available signup options
-                            foreach (md_auth_social_access_options() as $option) {
-
-                                //  Display social option
-                                echo '<div class="row">'
-                                    . '<div class="col-12">'
-                                        . '<a href="' . $sign_up . '/' . strtolower($option->name) . '" class="sign-up-btn sign-up-' . strtolower($option->name) . '-btn" style="background-color: ' . $option->color . ';">'
-                                            . $option->icon
-                                            . $this->lang->line('auth_signup_continue_with') . ' ' . ucwords(str_replace(array('_', '-'), ' ', $option->name))
-                                        . '</a>'
-                                    . '</div>'
-                                . '</div>';
-
-                            }
-
-                            echo '</div>';
-
-                        }
-                        ?>
-                    <?php echo form_close() ?>
+                    <?php echo form_close(); ?>
                 </div>
             </div>
         </div>    

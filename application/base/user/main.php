@@ -72,11 +72,11 @@ class Main {
             redirect('/admin/dashboard');
         } else if (!$this->user_theme) {
             redirect('/error/no-user-theme');
-        } else if ( md_the_user_option($this->CI->user_id, 'nonpaid') ) {
+        } else if ( md_the_user_option(md_the_user_id(), 'nonpaid') ) {
             redirect('/auth/upgrade');
         } else if ( $this->CI->user_status !== '1' ) {
             redirect('/auth/confirmation');
-        } else if ( (strtotime(md_the_user_option($this->CI->user_id, 'plan_end')) + 86400) < time() ) {
+        } else if ( (strtotime(md_the_user_option(md_the_user_id(), 'plan_end')) + 86400) < time() ) {
             redirect('/error/subscription-expired');            
         }
 
@@ -144,7 +144,7 @@ class Main {
         // Verify if user is user
         if ( !md_the_user_session() || $this->CI->user_role === '1' || !$this->user_theme || $this->CI->user_status !== '1' ) {
             exit();
-        } else if ( md_the_user_option($this->CI->user_id, 'nonpaid') ) {
+        } else if ( md_the_user_option(md_the_user_id(), 'nonpaid') ) {
             exit();
         }
 

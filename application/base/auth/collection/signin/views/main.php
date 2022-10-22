@@ -117,16 +117,16 @@
                                 //  Display social option
                                 echo '<div class="row">'
                                         . '<div class="col-12">'
-                                            . '<a href="' . $sign_in . '/' . strtolower($option->name) . '" class="sign-in-btn sign-in-' . strtolower($option->name) . '-btn" style="background-color: ' . $option->color . ';">'
-                                                . $option->icon
-                                                . $this->lang->line('auth_signin_continue_with') . ' ' . ucwords(str_replace(array('_', '-'), ' ', $option->name))
+                                            . '<a href="' . $sign_in . '/' . $option['network_slug'] . '" class="sign-in-btn sign-in-' . $option['network_slug'] . '-btn" style="background-color: ' . $option['network_color'] . ';">'
+                                                . $option['network_icon']
+                                                . $this->lang->line('auth_signin_continue_with') . ' ' . $option['network_name']
                                             . '</a>'
                                         . '</div>'
                                     . '</div>';
                             }
                         }
                         ?>
-                    <?php echo form_close() ?>
+                    <?php echo form_close(); ?>
                 </div>
             </div>
         </div>    

@@ -86,7 +86,7 @@
                         <?php echo $this->lang->line('reply'); ?>
                     </span>
                 </button>
-            <?php echo form_close() ?>
+            <?php echo form_close(); ?>
         </div>
     </div>
 </div>

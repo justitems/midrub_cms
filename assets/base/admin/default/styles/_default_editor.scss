@@ -4,16 +4,22 @@ DEFAULT MIXINGS FOR EDITOR
 
 @mixin default-editor {
 
-    .note-editor.note-frame .note-editing-area {
+    .note-editor.note-frame .note-editing-area,
+    .note-editor.note-frame .note-codable {
         border-radius: 3px;
         min-height: 500px;
         font-size: 14px;
         background-color: #fff;
         overflow: hidden;
+
+        img {
+            max-width: 100%;
+        }
+
     }
 
     .note-btn {
-        border: 0;
+        border: 0 !important;
         line-height: 21px;
         -webkit-box-shadow: 0px 1px 0px rgba(0,0,0,0.07);
         box-shadow: 0px 1px 0px rgba(0,0,0,0.07);
@@ -26,7 +32,7 @@ DEFAULT MIXINGS FOR EDITOR
             position: initial;
             z-index: 1;
             border: 0;
-            background-color: transparent;
+            background-color: #FFFFFF;
 
             .dropdown-toggle::after {
                 display: none;
@@ -41,6 +47,7 @@ DEFAULT MIXINGS FOR EDITOR
     }
 
     .note-editor.note-frame .note-status-output {
+        display: none;
         border: 0;
     }
 

@@ -6,6 +6,7 @@ IMPORT DEPENDENCIES
 @import "../../../../../../admin/default/styles/default_shadow.scss";
 @import "../../../../../../admin/default/styles/default_dropdown.scss";
 @import "../../../../../../admin/default/styles/default_scrollbar.scss";
+@import "../../../../../../admin/default/styles/default_multiselector_dropdown.scss";
 @import "../../../../../../admin/default/styles/default_badge.scss";
 @import "../../../../../../admin/default/styles/default_buttons.scss";
 @import "../../../../../../admin/default/styles/default_input_group.scss";
@@ -227,6 +228,12 @@ input:active {
 
 }
 
+.theme-button-3 {
+
+    @include default-buttons('default-button-3');
+
+}
+
 .theme-dropdown-1 {
 
     @include default-dropdown-1;
@@ -236,6 +243,12 @@ input:active {
 .theme-dropdown-2 {
 
     @include default-dropdown-2;
+
+}
+
+.theme-multiselector-dropdown-1 {
+
+    @include default-multiselector-dropdown-1;
 
 }
 
@@ -254,6 +267,12 @@ input:active {
 .theme-input-group-2 {
 
     @include default-input-group-2();
+
+}
+
+.theme-input-group-3 {
+
+    @include default-input-group-3();
 
 }
 
@@ -389,8 +408,8 @@ input:active {
         list-style: none;
 
         .page-link {
-            width: 36px;
             height: 36px;
+            min-width: 36px;
             border: 0;
             line-height: 21px;
             text-align: center;
@@ -651,7 +670,7 @@ body {
     color: $default-color-black;
     background-color: $default-color-grey-light;
 
-    .wrapper {
+    .main {
         display: table;
         margin: 0;
         padding: 0;
@@ -786,7 +805,7 @@ body {
                         overflow-x: hidden;
                         overflow-y: auto;
 
-                        @include theme-default-scrollbar;
+                        @include default-scrollbar-1;
     
                         li {
     

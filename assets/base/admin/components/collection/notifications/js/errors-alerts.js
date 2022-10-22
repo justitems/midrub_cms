@@ -18,10 +18,11 @@ jQuery(document).ready( function ($) {
      * Load system errors by page
      * 
      * @param integer page contains the page number
+     * @param integer progress contains the progress option
      * 
-     * @since   0.0.8.4
+     * @since   0.0.8.5
      */    
-    Main.notifications_load_system_errors =  function (page) {
+    Main.notifications_load_system_errors =  function (page, progress) {
 
         // Prepare data to send
         var data = {
@@ -29,156 +30,32 @@ jQuery(document).ready( function ($) {
             page: page
         };
 
-        // Verify if a selected error type exists
-        if ( $('.notifications-page .notifications-errors-type-btn').attr('data-type') ) {
-
-            // Set selected error type
-            data['error_type'] = $('.notifications-page .notifications-errors-type-btn').attr('data-type');
-
-        }
-
         // Verify if a selected user exists
-        if ( $('.notifications-page .notifications-advanced-filters-users-btn').attr('data-user') ) {
+        if ( $('.notifications-page .notifications-advanced-filters-users-btn > .btn-secondary').attr('data-user') ) {
 
             // Set selected user
-            data['user'] = $('.notifications-page .notifications-advanced-filters-users-btn').attr('data-user');
+            data['user'] = $('.notifications-page .notifications-advanced-filters-users-btn > .btn-secondary').attr('data-user');
 
         }
-        
-        // Set the CSRF field
-        data[$('.notifications-page').attr('data-csrf')] = $('.notifications-page').attr('data-csrf-value');
 
-        // Make ajax call
-        Main.ajax_call(url + 'admin/ajax/notifications', 'POST', data, 'notifications_display_system_errors_response');
-        
-    };
+		// Set CSRF
+        data[$('.main').attr('data-csrf')] = $('.main').attr('data-csrf-value');
 
-    /*
-     * Display the users alerts pagination
-     *
-     * @param string id contains the box identifier
-     * @param integer total contains the total results 
-     * 
-     * @since   0.0.8.4
-     */
-    Main.show_system_errors_pagination = function( id, total ) {
-        
-        // Empty pagination
-        $( id + ' .pagination' ).empty();
-        
-        // Verify if page is not 1
-        if ( parseInt(Main.pagination.page) > 1 ) {
-            
-            var bac = parseInt(Main.pagination.page) - 1;
-            var pages = '<li>'
-                            + '<a href="#" data-page="' + bac + '">'
-                                + translation.mm128
-                            + '</a>'
-                        + '</li>';
-            
+        // Verify if progress exists
+        if ( typeof progress !== 'undefined' ) {
+
+            // Make ajax call
+            Main.ajax_call(url + 'admin/ajax/notifications', 'POST', data, 'notifications_display_system_errors_response', 'ajax_onprogress');
+
+            // Set progress bar
+            Main.set_progress_bar();
+
         } else {
-            
-            var pages = '<li class="pagehide">'
-                            + '<a href="#">'
-                                + translation.mm128
-                            + '</a>'
-                        + '</li>';
-            
-        }
-        
-        // Count pages
-        var tot = parseInt(total) / 20;
-        tot = Math.ceil(tot) + 1;
-        
-        // Calculate start page
-        var from = (parseInt(Main.pagination.page) > 2) ? parseInt(Main.pagination.page) - 2 : 1;
-        
-        // List all pages
-        for ( var p = from; p < parseInt(tot); p++ ) {
-            
-            // Verify if p is equal to current page
-            if ( p === parseInt(Main.pagination.page) ) {
-                
-                // Display current page
-                pages += '<li class="active">'
-                            + '<a data-page="' + p + '">'
-                                + p
-                            + '</a>'
-                        + '</li>';
-                
-            } else if ( (p < parseInt(Main.pagination.page) + 3) && (p > parseInt(Main.pagination.page) - 3) ) {
-                
-                // Display page number
-                pages += '<li>'
-                            + '<a href="#" data-page="' + p + '">'
-                                + p
-                            + '</a>'
-                        + '</li>';
-                
-            } else if ( (p < 6) && (Math.round(tot) > 5) && ((parseInt(Main.pagination.page) === 1) || (parseInt(Main.pagination.page) === 2)) ) {
-                
-                // Display page number
-                pages += '<li>'
-                            + '<a href="#" data-page="' + p + '">'
-                                + p
-                            + '</a>'
-                        + '</li>';
-                
-            } else {
-                
-                break;
-                
-            }
-            
-        }
-        
-        // Verify if current page is 1
-        if (p === 1) {
-            
-            // Display current page
-            pages += '<li class="active">'
-                        + '<a data-page="' + p + '">'
-                            + p
-                        + '</a>'
-                    + '</li>';
-            
-        }
-        
-        // Set the next page
-        var next = parseInt( Main.pagination.page );
-        next++;
-        
-        // Verify if next page should be displayed
-        if (next < Math.round(tot)) {
-            
-            $( id + ' .pagination' ).html( pages + '<li><a href="#" data-page="' + next + '">' + translation.mm129 + '</a></li>' );
-            
-        } else {
-            
-            $( id + ' .pagination' ).html( pages + '<li class="pagehide"><a href="#">' + translation.mm129 + '</a></li>' );
-            
-        }
-        
-    };
 
-    /*
-     * Load system errors types
-     * 
-     * @since   0.0.8.4
-     */    
-    Main.notifications_load_system_errors_types =  function () {
+            // Make ajax call
+            Main.ajax_call(url + 'admin/ajax/notifications', 'POST', data, 'notifications_display_system_errors_response');
 
-        // Prepare data to send
-        var data = {
-            action: 'notifications_load_system_errors_types',
-            key: $('.notifications-page #notifications-errors-types .notifications-search-errors-types').val()
-        };
-        
-        // Set the CSRF field
-        data[$('.notifications-page').attr('data-csrf')] = $('.notifications-page').attr('data-csrf-value');
-
-        // Make ajax call
-        Main.ajax_call(url + 'admin/ajax/notifications', 'POST', data, 'notifications_display_system_errors_types_response');
+        }
         
     };
 
@@ -195,8 +72,8 @@ jQuery(document).ready( function ($) {
             key: $('.notifications-page #notifications-advanced-filters-users .notifications-search-errors-users').val()
         };
         
-        // Set the CSRF field
-        data[$('.notifications-page').attr('data-csrf')] = $('.notifications-page').attr('data-csrf-value');
+		// Set CSRF
+        data[$('.main').attr('data-csrf')] = $('.main').attr('data-csrf-value');
 
         // Make ajax call
         Main.ajax_call(url + 'admin/ajax/notifications', 'POST', data, 'notifications_display_system_errors_users_response');
@@ -236,20 +113,6 @@ jQuery(document).ready( function ($) {
         }
 
     });
-
-    /*
-     * Detects errors types dropdown click
-     * 
-     * @param object e with global object
-     * 
-     * @since   0.0.8.4
-     */     
-    $('.notifications-page #notifications-errors-types').on('show.bs.dropdown', function () {
-
-        // Load system errors types
-        Main.notifications_load_system_errors_types();
-
-    });
     
     /*
      * Detects users filters dropdown click
@@ -263,18 +126,6 @@ jQuery(document).ready( function ($) {
         // Load users which have errors
         Main.notifications_load_system_errors_users();        
 
-    });
-
-    /*
-     * Search for system errors types
-     * 
-     * @since   0.0.8.3
-     */
-    $(document).on('keyup', '.notifications-page #notifications-errors-types .notifications-search-errors-types', function () {
-        
-        // Load system errors types
-        Main.notifications_load_system_errors_types();
-        
     });
 
     /*
@@ -294,9 +145,9 @@ jQuery(document).ready( function ($) {
      * 
      * @param object e with global object
      * 
-     * @since   0.0.8.4
+     * @since   0.0.8.5
      */    
-    $( document ).on( 'click', 'body .pagination li a', function (e) {
+    $( document ).on( 'click', 'body .theme-pagination li a', function (e) {
         e.preventDefault();
         
         // Get the page number
@@ -306,132 +157,13 @@ jQuery(document).ready( function ($) {
         switch ($(this).closest('ul').attr('data-type')) {
 
             case 'system-errors':
-
-                // Load system errors by page
-                Main.notifications_load_system_errors(page);
                 
-                // Display loading animation
-                $('.page-loading').fadeIn('slow');              
+                // Load system errors by page
+                Main.notifications_load_system_errors(page, 1);         
 
                 break;
 
         }
-        
-    });
-
-    /*
-     * Delete system error
-     * 
-     * @since   0.0.8.4
-     */
-    $(document).on('click', '.notifications-page .notifications-delete-alert', function (e) {
-        e.preventDefault();
-        
-        // Get alert's id
-        var alert_id = $(this).closest('.notifications-alerts-single').attr('data-alert');
-
-        // Prepare data to send
-        var data = {
-            action: 'notifications_delete_system_error',
-            alert: alert_id
-        };
-
-        // Set the CSRF field
-        data[$('.notifications-page').attr('data-csrf')] = $('.notifications-page').attr('data-csrf-value');
-        
-        // Make ajax call
-        Main.ajax_call(url + 'admin/ajax/notifications', 'POST', data, 'notifications_delete_system_errors_response');
-
-        // Display loading animation
-        $('.page-loading').fadeIn('slow');
-        
-    });
-
-    /*
-     * Delete multiple users alerts
-     * 
-     * @since   0.0.8.4
-     */
-    $(document).on('click', '.notifications-page .notifications-delete-errors', function (e) {
-        e.preventDefault();
-
-        // Define the alerts ids variable
-        var alerts_ids = [];
-        
-        // Get selected users alerts ids
-        $('.notifications-page .notifications-list-errors li input[type="checkbox"]:checkbox:checked').each(function () {
-            alerts_ids.push($(this).closest('.notifications-alerts-single').attr('data-alert'));
-        });
-
-        // Prepare data to send
-        var data = {
-            action: 'notifications_delete_system_errors',
-            alerts: alerts_ids
-        };
-
-        // Set the CSRF field
-        data[$('.notifications-page').attr('data-csrf')] = $('.notifications-page').attr('data-csrf-value');
-        
-        // Make ajax call
-        Main.ajax_call(url + 'admin/ajax/notifications', 'POST', data, 'notifications_delete_system_errors_response');
-
-        // Display loading animation
-        $('.page-loading').fadeIn('slow');
-        
-    });
-
-    /*
-     * Detect all errors selection
-     * 
-     * @since   0.0.8.4
-     */ 
-    $( document ).on( 'click', '.notifications-page #notifications-errors-select-all', function () {
-        
-        // Run after 500 mileseconds
-        setTimeout(function(){
-            
-            // Verify if slect all is checked
-            if ( $( '.notifications-page #notifications-errors-select-all' ).is(':checked') ) {
-
-                // Check all
-                $( '.notifications-page .notifications-list-errors li input[type="checkbox"]' ).prop('checked', true);
-
-            } else {
-
-                // Uncheck all
-                $( '.notifications-page .notifications-list-errors li input[type="checkbox"]' ).prop('checked', false);
-
-            }
-        
-        },500);
-        
-    });
-
-    /*
-     * Detect when an error type is selected
-     * 
-     * @since   0.0.8.4
-     */
-    $(document).on('click', '.notifications-page .notifications-errors-types-list li a', function (e) {
-        e.preventDefault();
-        
-        // Set error type
-        $(this).closest('.dropdown').find('.notifications-errors-type-btn').attr('data-type', $(this).attr('data-type'));
-
-        // Set error type text
-        $(this).closest('.dropdown').find('.notifications-errors-type-btn').text($(this).text());
-
-        // Remove the selected user
-        $('.notifications-page .notifications-advanced-filters-users-btn').removeAttr('data-user');
-
-        // Set all users text
-        $('.notifications-page .notifications-advanced-filters-users-btn').text(words.all_users);
-
-        // Hide the collapse
-        $( '.notifications-page #notifications-advanced-filters' ).collapse('hide');
-
-        // Load system errors by page
-        Main.notifications_load_system_errors(1);
         
     });
 
@@ -444,13 +176,71 @@ jQuery(document).ready( function ($) {
         e.preventDefault();
         
         // Set user's id
-        $(this).closest('.dropdown').find('.notifications-advanced-filters-users-btn').attr('data-user', $(this).attr('data-user'));
+        $(this).closest('.dropdown').find('.btn-secondary').attr('data-user', $(this).attr('data-user'));
 
         // Set user's name
-        $(this).closest('.dropdown').find('.notifications-advanced-filters-users-btn').text($(this).text());
+        $(this).closest('.dropdown').find('.btn-secondary > span').text($(this).text());
 
         // Load system errors by page
         Main.notifications_load_system_errors(1);
+        
+    });
+
+    /*
+     * Detect checkbox check
+     * 
+     * @since   0.0.8.5
+     */ 
+    $( document ).on( 'click', '.notifications-page .theme-list > .card-body input[type="checkbox"]', function () {
+
+        // Show the action
+        if ( $('.notifications-page .theme-list > .card-body :checkbox:checked').length > 0 ) {
+
+            // Show actions
+            $('.notifications-page .card-actions').slideDown('slow');
+
+            // Set selected items
+            $('.notifications-page .theme-list .theme-list-selected-items p').html($('.notifications-page .theme-list > .card-body :checkbox:checked').length + ' ' + words.selected_items);
+
+        } else {
+
+            // Hide actions
+            $('.notifications-page .card-actions').slideUp('slow');
+            
+        }
+        
+    });
+
+    /*
+     * Delete system errors by id
+     * 
+     * @since   0.0.8.5
+     */
+    $(document).on('click', '.notifications-page .notifications-delete-alerts', function (e) {
+        e.preventDefault();
+
+        // Define the alerts ids variable
+        var alerts_ids = [];
+
+        // Get selected alerts ids
+        $('.notifications-page .theme-list > .card-body input[type="checkbox"]:checkbox:checked').each(function () {
+            alerts_ids.push($(this).closest('.card-alert').attr('data-alert'));
+        });
+
+        // Prepare data to send
+        var data = {
+            action: 'notifications_delete_system_errors',
+            alerts: alerts_ids
+        };
+
+		// Set CSRF
+        data[$('.main').attr('data-csrf')] = $('.main').attr('data-csrf-value');    
+        
+        // Make ajax call
+        Main.ajax_call(url + 'admin/ajax/notifications', 'POST', data, 'notifications_delete_alerts_response', 'ajax_onprogress');
+
+        // Set progress bar
+        Main.set_progress_bar();
         
     });
    
@@ -468,20 +258,17 @@ jQuery(document).ready( function ($) {
      */
     Main.methods.notifications_display_system_errors_response = function ( status, data ) {
 
-        // Hide Pagination
-        $('.notifications-page .pagination-area').hide();  
+        // Remove progress bar
+        Main.remove_progress_bar();
 
-        // Uncheck all selected alerts
-        $( '.notifications-page #notifications-errors-select-all' ).prop('checked', false)
+        // Hide pagination
+        $('.notifications-page .theme-list > .card-footer').hide();
+
+        // Hide actions
+        $('.notifications-page .card-actions').slideUp('slow');
 
         // Verify if the success response exists
         if ( status === 'success' ) {
-
-            // Set the current page
-            Main.pagination.page = data.page;
-
-            // Display the pagination
-            Main.show_system_errors_pagination('.notifications-page', data.total);
 
             // All alerts
             var all_alerts = '';
@@ -489,205 +276,80 @@ jQuery(document).ready( function ($) {
             // List all alerts
             for ( var a = 0; a < data.alerts.length; a++ ) {
 
-                // Set start user's area
-                var user_area = '<div class="col-lg-2 col-md-4 col-xs-4">';
-
-                // Verify if user's id exists
-                if ( data.alerts[a].user_id ) {
-
-                    // Verify if a selected error type exists
-                    if ( $('.notifications-page .notifications-errors-type-btn').attr('data-type') ) {
-
-                        // Show the collapse
-                        $( '.notifications-page #notifications-advanced-filters' ).collapse('show');
-
-                    }
-
-                    // Get user's name
-                    var name = (data.alerts[a].first_name)?data.alerts[a].first_name + ' ' + data.alerts[a].last_name:data.alerts[a].username;  
-
-                    // Add user to user's area
-                    user_area += '<a href="' + url + 'admin/members?p=all_members&amp;member=118" class="notifications-alert-user">'
-                        + '<i class="material-icons-outlined">'
-                            + 'person_outline'
-                        + '</i>'
-                        + name
-                    + '</a>';
-
-                } else {
-
-                    // Verify if a selected error type exists
-                    if ( $('.notifications-page .notifications-errors-type-btn').attr('data-type') ) {
-
-                        // Hide the collapse
-                        $( '.notifications-page #notifications-advanced-filters' ).collapse('hide');
-
-                    }
-
-                }
-
-                // Set end user's area
-                user_area += '</div>';
-                
                 // Set start error's type area
-                var error_type_area = '<div class="col-lg-1 col-md-2 col-xs-2">';
+                var error_type_area = '';
 
                 // Verify if error's type exists
                 if ( data.alerts[a].error_type ) {
 
                     // Set error type
-                    error_type_area += ' <span class="label label-default">'
+                    error_type_area = ' <span class="badge bg-light theme-badge-1">'
                         + data.alerts[a].error_type
                     + '</span>';
 
                 }
 
-                // Set end error's type area
-                error_type_area += '</div>';                
-
-                // Set template
-                all_alerts += '<li class="notifications-alerts-single" data-alert="' + data.alerts[a].alert_id + '">'
-                    + '<div class="row">'
-                        + '<div class="col-lg-8 col-md-6 col-xs-6">'
-                            + '<div class="checkbox-option-select">'
-                                + '<input id="notifications-alert-single-' + data.alerts[a].alert_id + '" name="notifications-alert-single-' + data.alerts[a].alert_id + '" data-id="' + data.alerts[a].alert_id + '" type="checkbox">'
-                                + '<label for="notifications-alert-single-' + data.alerts[a].alert_id + '"></label>'
+                // Set alert
+                all_alerts += '<div class="card theme-box-1 card-alert" data-alert="' + data.alerts[a].alert_id + '">'
+                    + '<div class="card-header">'
+                        + '<div class="row">'
+                            + '<div class="col-lg-9 col-md-4 col-xs-4">'
+                                + '<div class="media d-flex justify-content-start">'
+                                    + '<div class="theme-checkbox-input-1">'
+                                        + '<label for="notifications-alerts-single-' + data.alerts[a].alert_id + '">'
+                                            + '<input type="checkbox" id="notifications-alerts-single-' + data.alerts[a].alert_id + '" data-content="' + data.alerts[a].alert_id + '">'
+                                            + '<span class="theme-checkbox-checkmark"></span>'
+                                        + '</label>'
+                                    + '</div>'
+                                    + '<div class="media-body">'
+                                        + '<h5>'
+                                            + '<a href="' + url + 'admin/notifications?p=system_errors&alert=' + data.alerts[a].alert_id + '">'
+                                                + data.alerts[a].alert_name
+                                            + '</a>'
+                                        + '</h5>'
+                                    + '</div>'
+                                + '</div>'
                             + '</div>'
-                            + '<a href="' + url + 'admin/notifications?p=system_errors&alert=' + data.alerts[a].alert_id + '">'
-                                + data.alerts[a].alert_name
-                            + '</a>'
-                        + '</div>'
-                        + user_area
-                        + error_type_area
-                        + '<div class="col-lg-1 col-md-2 col-xs-2 text-right">'
-                            + '<div class="btn-group">'
-                                + '<button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'
-                                    + '<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">'
-                                        + '<path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />'
-                                    + '</svg>'
-                                + '</button>'
-                                + '<ul class="dropdown-menu">'
-                                    + '<li>'
-                                        + '<a href="#" class="notifications-delete-alert">'
-                                            + '<i class="icon-trash"></i>'
-                                            + data.words.delete
-                                        + '</a>'
-                                    + '</li>'
-                                + '</ul>'
+                            + '<div class="col-lg-3 col-md-4 col-xs-4 text-end">'
+                                + error_type_area                               
                             + '</div>'
                         + '</div>'
                     + '</div>'
-                + '</li>';
+                + '</div>';
 
             }
 
-            // Get the page
-            var page = ( (data.page - 1) < 1)?1:((data.page - 1) * 20);
-
-            // Get results to
-            var to = ((parseInt(page) * 20) < data.total)?(parseInt(data.page) * 20):data.total;
-
-            // Display the errors alerts
-            $('.notifications-page .notifications-list-errors').html(all_alerts);
-
-            // Display start listing
-            $('.notifications-page .pagination-from').text(page);  
+            // Display alerts
+            $('.notifications-page .theme-list > .card-body').html(all_alerts);   
             
-            // Display end listing
-            $('.notifications-page .pagination-to').text(to);  
+            // Set limit
+            let limit = ((data.page * 10) < data.total)?(data.page * 10):data.total;
 
-            // Display total items
-            $('.notifications-page .pagination-total').text(data.total);
+            // Set text
+            $('.notifications-page .theme-list > .card-footer h6').html((((data.page - 1) * 10) + 1) + '-' + limit + ' ' + data.words.of + ' ' + data.total + ' ' + data.words.results);
 
-            // Show Pagination
-            $('.notifications-page .pagination-area').show();  
+            // Set page
+            Main.pagination.page = data.page;
+
+            // Display the pagination
+            Main.show_pagination('.notifications-page .theme-list', data.total);
+
+            // Show pagination
+            $('.notifications-page .theme-list > .card-footer').show();   
             
         } else {
             
             // Set no data found message
-            var no_data = '<li>'
+            var no_data = '<p class="theme-box-1 theme-list-no-results-found">'
                                 + data.message
-                            + '</li>';
+                            + '</p>';
 
             // Display the no data found message
-            $('.notifications-page .notifications-list-errors').html(no_data);   
+            $('.notifications-page .theme-list > .card-body').html(no_data);   
             
         }
 
     }
-
-    /*
-     * Display the system errors deletion response
-     * 
-     * @param string status contains the response status
-     * @param object data contains the response content
-     * 
-     * @since   0.0.8.4
-     */
-    Main.methods.notifications_delete_system_errors_response = function ( status, data ) {
-
-        // Verify if the success response exists
-        if ( status === 'success' ) {
-            
-            // Display alert
-            Main.popup_fon('subi', data.message, 1500, 2000);
-            
-            // Load all system errors by page
-            Main.notifications_load_system_errors(1);
-            
-        } else {
-            
-            // Display alert
-            Main.popup_fon('sube', data.message, 1500, 2000);
-            
-        }
-
-    };
-
-    /*
-     * Display the system errors types response
-     * 
-     * @param string status contains the response status
-     * @param object data contains the response content
-     * 
-     * @since   0.0.8.4
-     */
-    Main.methods.notifications_display_system_errors_types_response = function ( status, data ) {
-
-        // Verify if the success response exists
-        if ( status === 'success' ) {
-            
-            // Types container
-            var types = '';
-
-            // List all errors types
-            for ( var e = 0; e < data.errors_types.length; e++ ) {
-
-                // Set type
-                types += '<li class="list-group-item">'
-                    + '<a href="#" data-type="' + data.errors_types[e].field_value + '">'
-                        + data.errors_types[e].field_value
-                    + '</a>'
-                + '</li>';
-
-            }
-
-            // Display the types
-            $('.notifications-page #notifications-errors-types .notifications-errors-types-list').html(types);
-            
-        } else {
-            
-            // Create the no errors types message
-            var no_errors_types = '<li class="list-group-item no-results-found">'
-                + data.message
-            + '</li>';
-            
-            // Display the types
-            $('.notifications-page #notifications-errors-types .notifications-errors-types-list').html(no_errors_types);
-            
-        }
-
-    };
 
     /*
      * Display users which have errors response
@@ -726,8 +388,10 @@ jQuery(document).ready( function ($) {
         } else {
             
             // Create the no users message
-            var no_errors_users = '<li class="list-group-item no-results-found">'
-                + data.message
+            var no_errors_users = '<li class="list-group-item">'
+                + '<p>'
+                    + data.message
+                + '</p>'
             + '</li>';
             
             // Display the users
@@ -737,12 +401,35 @@ jQuery(document).ready( function ($) {
 
     };
 
-    /*******************************
-    FORMS
-    ********************************/
-    
-    /*******************************
-    DEPENDENCIES
-    ********************************/
+    /*
+     * Display alerts deletion response
+     * 
+     * @param string status contains the response status
+     * @param object data contains the response content
+     * 
+     * @since   0.0.8.5
+     */
+    Main.methods.notifications_delete_alerts_response = function ( status, data ) {
+
+        // Remove progress bar
+        Main.remove_progress_bar();
+
+        // Verify if the success response exists
+        if ( status === 'success' ) {
+            
+            // Display alert
+            Main.show_alert('success', data.message, 1500, 2000);
+            
+            // Load all system errors by page
+            Main.notifications_load_system_errors(1);
+            
+        } else {
+            
+            // Display alert
+            Main.show_alert('error', data.message, 1500, 2000);
+            
+        }
+
+    };
  
 });

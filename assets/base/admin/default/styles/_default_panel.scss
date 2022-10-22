@@ -103,7 +103,7 @@ DEFAULT MIXINGS FOR PANEL
                     overflow-y: auto;
                     overflow-x: hidden;  
                     
-                    @include theme-default-scrollbar();
+                    @include default-scrollbar-1;
                     
                 }
 

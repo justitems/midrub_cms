@@ -163,27 +163,32 @@ class Init {
                 case 'gateways':
 
                     // Get the user's plan
-                    $plan_id = md_the_user_option($this->CI->user_id, 'plan');
+                    $plan_id = md_the_user_option(md_the_user_id(), 'plan');
                 
                     // Verify if plan exists
                     if ( is_numeric( $plan_id ) ) {
 
                         // Get plan
-                        $plan = $this->CI->plans->get_plan($plan_id);
+                        $plan_data = $this->CI->base_model->the_data_where('plans', '*', 
+                            array(
+                                'plan_id' => $plan_id
+                            )
+                        );
 
                         // Verify if plan exists
-                        if ( $plan ) {
+                        if ( $plan_data ) {
 
-                            // Get plan's data
-                            $plan_data = $this->CI->plans->get_plan_price($plan_id);
-
-                            if ($plan_data[0]->plan_price > 0) {
+                            // Verify if the plan is paid
+                            if ($plan_data[0]['plan_price'] > 0) {
 
                                 // Delete the user coupon code
-                                $this->CI->user->delete_user_option($this->CI->user_id, 'user_coupon_code');
+                                md_delete_user_option(md_the_user_id(), 'user_coupon_code');
 
                                 // Delete the user discount value
-                                $this->CI->user->delete_user_option($this->CI->user_id, 'user_coupon_value');
+                                md_delete_user_option(md_the_user_id(), 'user_coupon_value');
+
+                                // Enable gateways
+                                md_set_data('hook', 'payments');
 
                                 // Define the required constant
                                 defined('CMS_BASE_PAYMENTS') OR define('CMS_BASE_PAYMENTS', APPPATH . 'base/payments/');
@@ -198,7 +203,7 @@ class Init {
                                     $gateway = trim(basename($gateway) . PHP_EOL);
 
                                     // Verify if the gateway is enabled
-                                    if ( !md_the_option($gateway) ) {
+                                    if ( !md_the_option('gateway_' . $gateway . '_enabled') ) {
                                         continue;
                                     }
 
@@ -232,10 +237,10 @@ class Init {
                                 if ($discount) {
 
                                     // Calculate total discount
-                                    $total = ($plan_data[0]->plan_price / 100) * $discount['discount_value'];
+                                    $total = ($plan_data[0]['plan_price'] / 100) * $discount['discount_value'];
 
                                     // Set new price
-                                    $params['plan_data'][0]->plan_price = number_format(($plan_data[0]->plan_price - $total), 2);
+                                    $params['plan_data'][0]['plan_price'] = number_format(($plan_data[0]['plan_price'] - $total), 2);
 
                                     // Set discount
                                     $params['discount'] = $discount['discount_value'];
@@ -274,7 +279,7 @@ class Init {
                         // Get transaction's data
                         $transaction_data = $this->CI->base_model->the_data_where('transactions', '*', 
                             array(
-                                'user_id' => $this->CI->user_id,
+                                'user_id' => md_the_user_id(),
                                 'transaction_id' => $complete_transaction['transaction_id']
                             )
                         );
@@ -286,7 +291,7 @@ class Init {
                             if ( $transaction_data[0]['status'] === '1' ) {
 
                                 // Remove the unpaid option
-                                md_delete_user_option($this->CI->user_id, 'nonpaid');
+                                md_delete_user_option(md_the_user_id(), 'nonpaid');
 
                                 // Verify if options exists
                                 if ( !empty($complete_transaction['options']) ) {
@@ -312,7 +317,7 @@ class Init {
                                             if ( md_the_option('enable_referral') ) {
 
                                                 // Get referral data
-                                                $referral = $this->CI->base_referrals->get_referral($this->CI->user_id);
+                                                $referral = $this->CI->base_referrals->get_referral(md_the_user_id());
 
                                                 // Verify if referrer exists
                                                 if ( $referral ) {
@@ -336,7 +341,7 @@ class Init {
                                                                 if ( is_numeric($the_plan_meta[0]['referrals_exact_revenue']) ) {
                                                                     
                                                                     // Add referral earning
-                                                                    $this->CI->base_referrals->add_earnings_to_referral($this->CI->user_id, $options['plan_id'], $the_plan_meta[0]['referrals_exact_revenue']);
+                                                                    $this->CI->base_referrals->add_earnings_to_referral(md_the_user_id(), $options['plan_id'], $the_plan_meta[0]['referrals_exact_revenue']);
                                                                     
                                                                 }                                                        
 
@@ -360,7 +365,7 @@ class Init {
                                                                     $total = number_format( ( ($the_plan_meta[0]['referrals_percentage_revenue'] / 100) * $complete_transaction['amount']), 2);   
                                                                     
                                                                     // Add referral earning
-                                                                    $this->CI->base_referrals->add_earnings_to_referral($this->CI->user_id, $options['plan_id'], $total);
+                                                                    $this->CI->base_referrals->add_earnings_to_referral(md_the_user_id(), $options['plan_id'], $total);
                                                                     
                                                                 }                                                        
 
@@ -428,7 +433,7 @@ class Init {
         } else {
 
             // Get the user's plan
-            $plan_id = md_the_user_option($this->CI->user_id, 'plan');
+            $plan_id = md_the_user_option(md_the_user_id(), 'plan');
 
             // Get plan's data
             $plan_data = $this->CI->base_model->the_data_where('plans', 'plan_id,plan_price,currency_sign', array('plan_id' => $plan_id));

@@ -13,6 +13,7 @@ DEFAULT TIME INPUT MIXING
             padding: 0 5px;
             height: 39px;
             border: 0;
+            border-radius: 0;
             border-bottom: 1px solid $default-input-border-color;
             font-size: 14px;
         }
@@ -95,7 +96,8 @@ DEFAULT TIME INPUT MIXING
             .dropdown-menu {
                 position: absolute;
                 top: 100%;
-                left: 0;                                        
+                right: -5px !important;  
+                left: inherit !important;                              
                 padding: 0 !important;
                 -webkit-backface-visibility: hidden;
                 backface-visibility: hidden;
@@ -106,6 +108,14 @@ DEFAULT TIME INPUT MIXING
                 -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
                 opacity: 1 !important;
+
+                &[x-placement="top-start"] {
+                    transform: translate3d(0, -122px, 0px) !important;
+                }
+
+                &[x-placement="bottom-start"] {
+                    transform: translate3d(0, 39px, 0px) !important;
+                }
     
                 input[type="text"] {
                     margin: 0;

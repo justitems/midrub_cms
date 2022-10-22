@@ -128,7 +128,7 @@ jQuery(document).ready( function ($) {
      * 
      * @since   0.0.8.1
      */
-    $( document ).on( 'click', '.generate-new-updates-code', function (e) {
+    $( document ).on( 'click', '.updates-generate-new-update-code', function (e) {
         e.preventDefault();
 
         // Get url 
@@ -328,10 +328,10 @@ jQuery(document).ready( function ($) {
         e.preventDefault();
         
         // Get the updates's code
-        var code = $(this).find('.code-input').val();
+        let code = $(this).find('.updates-code-input').val();
 
         // Get the app's slug
-        var slug = $(this).closest('.list-group-item').attr('data-field');        
+        let slug = $(this).closest('.list-group-item').attr('data-field');        
 
         // Prepare data to send
         var data = {

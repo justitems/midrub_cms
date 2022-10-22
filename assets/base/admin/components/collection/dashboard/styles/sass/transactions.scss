@@ -13,11 +13,10 @@ TRANSACTIONS WIDGET STYLES
     padding: 0;
 
     li {
-        margin-bottom: 15px;
-        padding: 10px 15px;
-        border: 0;
-        border-radius: 6px;
-        list-style: none;
+        margin: 0 0 10px !important;
+        padding: 5px 10px !important;
+        border: 0 !important;
+        list-style: none !important;
 
         &:last-child {
             margin-bottom: 0;
@@ -56,10 +55,12 @@ TRANSACTIONS WIDGET STYLES
 
         .badge {
             min-width: 74.78px;
+            line-height: 14px;
+            font-size: 11px !important;
         }
 
         &.dashboard-widget-transactions-transaction-complete {
-            background-color: $default-color-violet-light;
+            background-color: $default-color-violet-light !important;
 
             a {
                 border-bottom: 1px solid $default-color-violet-light;
@@ -74,14 +75,18 @@ TRANSACTIONS WIDGET STYLES
             }
 
             .dashboard-widget-transactions-transaction-time {
-                font-family: $default-font-2;
-                color: $default-color-violet; 
-            }                                    
+                font-family: $default-font-2 !important;
+                color: $default-color-violet !important; 
+            } 
+            
+            .badge {
+                color: #FFFFFF !important;
+            }
 
         }
 
         &.dashboard-widget-transactions-transaction-incomplete {
-            background-color: $default-color-grey-light;
+            background-color: $default-color-grey-light !important;
 
             a {
                 border-bottom: 1px solid $default-color-grey-light;
@@ -96,14 +101,14 @@ TRANSACTIONS WIDGET STYLES
             }
 
             .dashboard-widget-transactions-transaction-time {
-                font-family: $default-font-2;
-                color: $default-color-black; 
+                font-family: $default-font-2 !important;
+                color: $default-color-black !important; 
             }                                    
 
         }
         
         &.dashboard-widget-transactions-transaction-failed {
-            background-color: $default-color-red-light;
+            background-color: $default-color-red-light !important;
 
             a {
                 border-bottom: 1px solid $default-color-red-light;
@@ -118,9 +123,13 @@ TRANSACTIONS WIDGET STYLES
             }
 
             .dashboard-widget-transactions-transaction-time {
-                font-family: $default-font-2;
-                color: $default-color-red; 
-            }                                    
+                font-family: $default-font-2 !important;
+                color: $default-color-red !important; 
+            }
+            
+            .badge {
+                color: #FFFFFF !important;
+            }
 
         }                                
 

@@ -129,7 +129,7 @@ if ( !function_exists('md_the_single_content_meta') ) {
 
             if ( $value ) {
 
-                return $value;
+                return preg_replace('/(<[^>]+) style=".*?"/i', '$1', $value);
 
             } else {
 

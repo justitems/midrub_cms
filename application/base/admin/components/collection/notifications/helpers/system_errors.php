@@ -76,19 +76,17 @@ class System_errors {
 
             // Add form validation
             $this->CI->form_validation->set_rules('page', 'Page', 'trim|numeric|required');
-            $this->CI->form_validation->set_rules('error_type', 'Error Type', 'trim');
             $this->CI->form_validation->set_rules('user', 'User', 'trim');
             
             // Get received data
             $page = $this->CI->input->post('page');
-            $error_type = $this->CI->input->post('error_type');
             $user = $this->CI->input->post('user');
             
             // Check form validation
             if ($this->CI->form_validation->run() !== false ) {
 
                 // Set the limit
-                $limit = 20;
+                $limit = 10;
                 $page--;
 
                 // Set where condition
@@ -107,21 +105,8 @@ class System_errors {
                         'table' => 'notifications_alerts_users',
                         'condition' => 'notifications_alerts.alert_id=notifications_alerts_users.alert_id',
                         'join_from' => 'LEFT'
-                    ),
-                    array(
-                        'table' => 'users',
-                        'condition' => 'notifications_alerts_users.user_id=users.user_id',
-                        'join_from' => 'LEFT'
                     )
                 );
-
-                // Verify if error type exists
-                if ( $error_type ) {
-
-                    // Set error type
-                    $where['notifications_alerts_fields.field_value'] = $error_type;
-
-                }
 
                 // Verify if user exists
                 if ( $user ) {
@@ -134,7 +119,7 @@ class System_errors {
                 // Use the base model for a simply sql query
                 $system_errorss = $this->CI->base_model->the_data_where(
                 'notifications_alerts',
-                'notifications_alerts.*, users.*, notifications_alerts_fields.field_value AS error_type',
+                'notifications_alerts.*, notifications_alerts_fields.field_value AS error_type',
                 $where,
                 array(),
                 array(),
@@ -165,7 +150,9 @@ class System_errors {
                         'total' => $total[0]['total'],
                         'page' => ($page + 1),
                         'words' => array(
-                            'delete' => $this->CI->lang->line('notifications_delete')
+                            'delete' => $this->CI->lang->line('notifications_delete'),
+                            'of' => $this->CI->lang->line('notifications_of'),
+                            'results' => $this->CI->lang->line('notifications_results')
                         )
                     );
 
@@ -191,78 +178,6 @@ class System_errors {
     }
 
     /**
-     * The public method notifications_load_system_errors_types loads system errors types
-     * 
-     * @since 0.0.8.3
-     * 
-     * @return void
-     */
-    public function notifications_load_system_errors_types() {
-
-        // Check if data was submitted
-        if ( $this->CI->input->post() ) {
-
-            // Add form validation
-            $this->CI->form_validation->set_rules('key', 'Key', 'trim');
-            
-            // Get received data
-            $key = $this->CI->input->post('key');
-           
-            // Check form validation
-            if ($this->CI->form_validation->run() !== false ) {
-
-                // Set search
-                $search = !empty($key)?array('field_value' => $this->CI->db->escape_like_str($key)):array();
-
-                // Get the errors types
-                $the_errors_types = $this->CI->base_model->the_data_where(
-                'notifications_alerts_fields',
-                '*',
-                array(
-                    'field_name' => 'error_type'
-                ),
-                array(),
-                $search,
-                array(),
-                array(
-                    'group_by' => 'field_value',
-                    'order_by' => array('alert_id', 'desc'),
-                    'start' => 0,
-                    'limit' => 10
-                ));
-
-                // Verify if errors types exists
-                if ( $the_errors_types ) {
-
-                    // Prepare the success response
-                    $data = array(
-                        'success' => TRUE,
-                        'errors_types' => $the_errors_types
-                    );
-
-                    // Display the success response
-                    echo json_encode($data);
-                    exit();
-
-                }
-
-            }
-            
-        }
-
-        // Prepare the error message
-        $data = array(
-            'success' => FALSE,
-            'message' => $this->CI->lang->line('notifications_no_error_types_found')
-        );
-
-         // Display the error message
-        echo json_encode($data);
-        exit();
-
-    }
-
-    /**
      * The public method notifications_load_system_errors_users loads users which have errors
      * 
      * @since 0.0.8.4
@@ -275,11 +190,9 @@ class System_errors {
         if ( $this->CI->input->post() ) {
 
             // Add form validation
-            $this->CI->form_validation->set_rules('error_type', 'Error Type', 'trim');
             $this->CI->form_validation->set_rules('key', 'Key', 'trim');
             
             // Get received data
-            $error_type = $this->CI->input->post('error_type');
             $key = $this->CI->input->post('key');
             
             // Check form validation
@@ -290,14 +203,6 @@ class System_errors {
                     'page' => 0,
                     'limit' => 5
                 );
-
-                // Verify if error type exists
-                if ( $error_type ) {
-
-                    // Set error type
-                    $where['error_type'] = trim($error_type);
-
-                }
 
                 // Verify if key exists
                 if ( $key ) {

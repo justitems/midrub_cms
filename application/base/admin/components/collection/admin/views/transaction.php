@@ -6,24 +6,22 @@ $transaction = md_the_transaction_by_id($this->input->get('transaction', true));
 // Verify if transaction exists
 if ($transaction) {
     ?>
-    <div class="row transaction-header" data-transaction="<?php echo $transaction['transaction_id']; ?>">
+    <div class="row mt-3 mb-3">
         <div class="col-lg-12">
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
+            <div class="theme-box-1">
+                <nav class="navbar navbar-default theme-navbar-1">
+                    <div class="navbar-header ps-3 pe-3 pt-2 pb-2">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-xs-8">
-                                <h3>
-                                    #<?php echo $transaction['transaction_id']; ?>
-                                </h3>
+                                #<?php echo $transaction['transaction_id']; ?>
                             </div>
                             <div class="col-lg-6 col-md-6 col-xs-4 text-right">
                                 <?php md_get_invoice_by_id($transaction['transaction_id']); ?>
                             </div>
                         </div>
                     </div>
-                </div>
-            </nav>
+                </nav>            
+            </div>
         </div>
     </div>
     <div class="row transaction-details">
@@ -49,29 +47,15 @@ if ($transaction) {
 
                                             case '0':
 
-                                                echo '<div class="dropdown">'
-                                                    . '<button class="btn btn-secondary admin-dropdown-btn dropdown-toggle admin-transaction-status-btn" type="button" data-toggle="dropdown" data-title="Select a status" data-field-id="role" aria-expanded="false">'
-                                                        . ucfirst($this->lang->line('admin_incomplete'))
-                                                    . '</button>'
-                                                    . '<div class="dropdown-menu" aria-labelledby="dropdown-items">'
-                                                        . '<div class="card">'
-                                                            . '<div class="card-body">'
-                                                                . '<ul class="list-group admin-transaction-status-dropdown-list-ul">'
-                                                                    . '<li class="list-group-item">'
-                                                                        . '<a href="#" class="admin-transaction-status" data-status="1">'
-                                                                            . ucfirst($this->lang->line('admin_success'))
-                                                                        . '</a></li>'
-                                                                . '</ul>'
-                                                            . '</div>'
-                                                        . '</div>'
-                                                    . '</div>'
-                                                . '</div>';
+                                                echo '<span class="badge bg-light theme-badge-1">'
+                                                    . ucfirst($this->lang->line('admin_incomplete'))
+                                                . '</span>';
 
                                                 break;
 
                                             case '1':
 
-                                                echo '<span class="label label-primary">'
+                                                echo '<span class="badge bg-primary theme-badge-1">'
                                                         . $this->lang->line('admin_success')
                                                     . '</span>';
 
@@ -79,23 +63,9 @@ if ($transaction) {
                                                 
                                             case '2':
 
-                                                echo '<div class="dropdown">'
-                                                    . '<button class="btn btn-secondary admin-dropdown-btn dropdown-toggle admin-transaction-status-btn" type="button" data-toggle="dropdown" data-title="Select a status" data-field-id="role" aria-expanded="false">'
-                                                        . ucfirst($this->lang->line('admin_error'))
-                                                    . '</button>'
-                                                    . '<div class="dropdown-menu" aria-labelledby="dropdown-items">'
-                                                        . '<div class="card">'
-                                                            . '<div class="card-body">'
-                                                                . '<ul class="admin-transaction-status-dropdown-list-ul">'
-                                                                    . '<li class="list-group-item">'
-                                                                        . '<a href="#" class="admin-transaction-status" data-status="1">'
-                                                                            . ucfirst($this->lang->line('admin_success'))
-                                                                        . '</a></li>'
-                                                                . '</ul>'
-                                                            . '</div>'
-                                                        . '</div>'
-                                                    . '</div>'
-                                                . '</div>';
+                                                echo '<span class="badge bg-danger theme-badge-1">'
+                                                    . ucfirst($this->lang->line('admin_error'))
+                                                . '</span>';
 
                                                 break;                                                
 

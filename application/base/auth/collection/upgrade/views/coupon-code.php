@@ -40,7 +40,7 @@
                                             <button type="submit" class="btn btn-primary verify-coupon-code"><?php echo $this->lang->line('upgrade_apply'); ?></button>
                                         </div>
                                     </div>
-                                    <?php echo form_close() ?>
+                                    <?php echo form_close(); ?>
                                 </div>
                                 <div class="panel-footer">
                                     <div class="row">

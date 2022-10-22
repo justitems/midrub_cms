@@ -122,7 +122,7 @@ class Twilio_numbers implements CmsBaseUserInterfaces\Networks {
 
                 // Close curl
                 curl_close($curl);
-                
+
                 // Verify if services exists
                 if ( empty($the_services_response['services']) ) {
 
@@ -591,11 +591,6 @@ class Twilio_numbers implements CmsBaseUserInterfaces\Networks {
                     // Get the service sid
                     $service_sid = $number['service_sid'];
 
-                    // Verify if numbers limit was reached
-                    if ( $check >= $network_accounts ) {
-                        break;
-                    }
-
                     // Get connected number
                     $the_connected_number = $this->CI->base_model->the_data_where(
                         'networks',
@@ -636,6 +631,11 @@ class Twilio_numbers implements CmsBaseUserInterfaces\Networks {
                         }
 
                     } else {
+
+                        // Verify if numbers limit was reached
+                        if ( $check >= $network_accounts ) {
+                            continue;
+                        }
 
                         // Save the page
                         $the_response = $this->CI->base_model->insert(

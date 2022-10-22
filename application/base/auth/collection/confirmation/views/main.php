@@ -31,6 +31,6 @@
                 <?php echo $this->lang->line('auth_confirmation_change_email_and_resend_code'); ?>
             </button>
         </div>
-        <?php echo form_close() ?>
+        <?php echo form_close(); ?>
     </section>
 </main>

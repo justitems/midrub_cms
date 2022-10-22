@@ -173,10 +173,10 @@ class Authorize {
         }  
         
         // Get unique code
-        $code = $this->CI->user_id . '_' . sha1(rand()) . sha1(rand()) . sha1(rand());
+        $code = md_the_user_id() . '_' . sha1(rand()) . sha1(rand()) . sha1(rand());
         
         // Save the authorization code
-        $code_id = $this->CI->base_rest->save_application_authorization_code($this->CI->user_id, $application_id, $code);
+        $code_id = $this->CI->base_rest->save_application_authorization_code(md_the_user_id(), $application_id, $code);
         
         if( !$code_id ) {            
 
@@ -233,7 +233,7 @@ class Authorize {
         }
         
         // Delete application's permissions by user
-        $this->CI->base_rest->delete_application_permissions( $this->CI->user_id, $application_id );
+        $this->CI->base_rest->delete_application_permissions( md_the_user_id(), $application_id );
         
         // Load view/oauth/authorize.php file
         $this->CI->load->view('oauth/authorize', array(
@@ -330,7 +330,7 @@ class Authorize {
         if ($this->CI->user_role < 1) {
 
             // Verify if user has unpaid invoice
-            if (md_the_user_option($this->CI->user_id, 'nonpaid')) {
+            if (md_the_user_option(md_the_user_id(), 'nonpaid')) {
                 redirect('/upgrade');
             }
 

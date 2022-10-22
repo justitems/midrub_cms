@@ -320,7 +320,8 @@ class Instagram implements CmsBaseUserInterfaces\Networks {
                                     array(
                                         'user_name' => $response['data'][$y]['instagram_business_account']['username'],
                                         'token' => $response['data'][$y]['access_token'],
-                                        'secret' => $response['data'][$y]['id']
+                                        'secret' => $response['data'][$y]['id'],
+                                        'api_key' => $token
                                     )
                 
                                 );
@@ -336,7 +337,8 @@ class Instagram implements CmsBaseUserInterfaces\Networks {
                                         'user_id' => md_the_user_id(),
                                         'user_name' => $response['data'][$y]['instagram_business_account']['username'],
                                         'token' => $response['data'][$y]['access_token'],
-                                        'secret' => $response['data'][$y]['id']
+                                        'secret' => $response['data'][$y]['id'],
+                                        'api_key' => $token
                                     )
                 
                                 );

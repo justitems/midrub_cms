@@ -74,6 +74,12 @@ DEFAULT CARD BOX MIXING
         & > .card-body {
             padding: .75rem;
 
+            .theme-form-group {
+                padding: 15px;
+                border-radius: 0.25rem;
+                background-color: $default-color-grey-light-active !important;
+            }
+
             .theme-card-box-article {
 
                 h4 {

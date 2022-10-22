@@ -43,7 +43,7 @@
 
                         <div class="form-group alerts-status">
                         </div>
-                    <?php echo form_close() ?>
+                    <?php echo form_close(); ?>
                 </div>
             </div>
         </div>    

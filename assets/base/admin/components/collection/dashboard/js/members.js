@@ -119,22 +119,19 @@ jQuery(document).ready( function ($) {
                     }
                 },
                 xaxis: {
-                    labels: {
-                      format: 'dd/MM',
-                    }
+                    type: 'datetime'
                 },
                 yaxis: {
-                    tickAmount: 1,
                     labels: {
-                        offsetX: 14,
-                        offsetY: -5,
+                      offsetX: 14,
+                      offsetY: -5
                     },
                     tooltip: {
-                        enabled: true,
+                      enabled: true
                     },
                     labels: {
                         formatter: function(val) {
-                            return val.toFixed(0);
+                            return (val).toFixed(0);
                         }
                     }
                 },
@@ -150,7 +147,7 @@ jQuery(document).ready( function ($) {
                 },
                 tooltip: {
                     x: {
-                        format: "dd MMM yyyy",
+                        format: "dd MMM yyyy"
                     }
                 },
                 legend: {

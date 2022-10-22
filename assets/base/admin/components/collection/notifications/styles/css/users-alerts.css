@@ -178,10 +178,104 @@ USERS ALERTS STYLES
       border-bottom: 1px solid #e3eaef;
       line-height: 45px;
       background-color: transparent; }
+    .notifications-view .notifications-new-users-alert > form > .row > .col-lg-9 .theme-text-input-1, .notifications-view .notifications-new-users-alert > .row > .col-lg-9 .theme-text-input-1,
+    .notifications-view .notifications-users-alert > form > .row > .col-lg-9 .theme-text-input-1,
+    .notifications-view .notifications-users-alert > .row > .col-lg-9 .theme-text-input-1 {
+      padding: 0.5rem 0.6rem; }
     .notifications-view .notifications-new-users-alert > form > .row > .col-lg-9 .theme-checkbox-input-2, .notifications-view .notifications-new-users-alert > .row > .col-lg-9 .theme-checkbox-input-2,
     .notifications-view .notifications-users-alert > form > .row > .col-lg-9 .theme-checkbox-input-2,
     .notifications-view .notifications-users-alert > .row > .col-lg-9 .theme-checkbox-input-2 {
-      margin-top: -13px; }
+      margin-top: -8px; }
+    .notifications-view .notifications-new-users-alert > form > .row > .col-lg-9 .notifications-list-users, .notifications-view .notifications-new-users-alert > .row > .col-lg-9 .notifications-list-users,
+    .notifications-view .notifications-users-alert > form > .row > .col-lg-9 .notifications-list-users,
+    .notifications-view .notifications-users-alert > .row > .col-lg-9 .notifications-list-users {
+      margin: 0;
+      padding: 0; }
+      .notifications-view .notifications-new-users-alert > form > .row > .col-lg-9 .notifications-list-users li, .notifications-view .notifications-new-users-alert > .row > .col-lg-9 .notifications-list-users li,
+      .notifications-view .notifications-users-alert > form > .row > .col-lg-9 .notifications-list-users li,
+      .notifications-view .notifications-users-alert > .row > .col-lg-9 .notifications-list-users li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        background-color: #FFFFFF;
+        border-radius: 2px;
+        border: 0;
+        padding: 6px 15px;
+        -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+        border-bottom: 1px solid #f5f5f5;
+        font-family: Open Sans,sans-serif;
+        font-weight: 400; }
+        .notifications-view .notifications-new-users-alert > form > .row > .col-lg-9 .notifications-list-users li:last-child, .notifications-view .notifications-new-users-alert > .row > .col-lg-9 .notifications-list-users li:last-child,
+        .notifications-view .notifications-users-alert > form > .row > .col-lg-9 .notifications-list-users li:last-child,
+        .notifications-view .notifications-users-alert > .row > .col-lg-9 .notifications-list-users li:last-child {
+          border-bottom: 0; }
+        .notifications-view .notifications-new-users-alert > form > .row > .col-lg-9 .notifications-list-users li.notifications-no-results-found, .notifications-view .notifications-new-users-alert > .row > .col-lg-9 .notifications-list-users li.notifications-no-results-found,
+        .notifications-view .notifications-users-alert > form > .row > .col-lg-9 .notifications-list-users li.notifications-no-results-found,
+        .notifications-view .notifications-users-alert > .row > .col-lg-9 .notifications-list-users li.notifications-no-results-found {
+          padding: 5px 15px;
+          line-height: 30px; }
+        .notifications-view .notifications-new-users-alert > form > .row > .col-lg-9 .notifications-list-users li .notifications-user-activity, .notifications-view .notifications-new-users-alert > .row > .col-lg-9 .notifications-list-users li .notifications-user-activity,
+        .notifications-view .notifications-users-alert > form > .row > .col-lg-9 .notifications-list-users li .notifications-user-activity,
+        .notifications-view .notifications-users-alert > .row > .col-lg-9 .notifications-list-users li .notifications-user-activity {
+          padding-top: 12px; }
+        .notifications-view .notifications-new-users-alert > form > .row > .col-lg-9 .notifications-list-users li .notifications-user-seen-time, .notifications-view .notifications-new-users-alert > .row > .col-lg-9 .notifications-list-users li .notifications-user-seen-time,
+        .notifications-view .notifications-users-alert > form > .row > .col-lg-9 .notifications-list-users li .notifications-user-seen-time,
+        .notifications-view .notifications-users-alert > .row > .col-lg-9 .notifications-list-users li .notifications-user-seen-time {
+          text-align: right; }
+          .notifications-view .notifications-new-users-alert > form > .row > .col-lg-9 .notifications-list-users li .notifications-user-seen-time span, .notifications-view .notifications-new-users-alert > .row > .col-lg-9 .notifications-list-users li .notifications-user-seen-time span,
+          .notifications-view .notifications-users-alert > form > .row > .col-lg-9 .notifications-list-users li .notifications-user-seen-time span,
+          .notifications-view .notifications-users-alert > .row > .col-lg-9 .notifications-list-users li .notifications-user-seen-time span {
+            line-height: 52px;
+            font-size: 75%;
+            color: #ADA9BB; }
+        .notifications-view .notifications-new-users-alert > form > .row > .col-lg-9 .notifications-list-users li .col-lg-5, .notifications-view .notifications-new-users-alert > .row > .col-lg-9 .notifications-list-users li .col-lg-5,
+        .notifications-view .notifications-users-alert > form > .row > .col-lg-9 .notifications-list-users li .col-lg-5,
+        .notifications-view .notifications-users-alert > .row > .col-lg-9 .notifications-list-users li .col-lg-5 {
+          display: table; }
+          .notifications-view .notifications-new-users-alert > form > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media, .notifications-view .notifications-new-users-alert > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media,
+          .notifications-view .notifications-users-alert > form > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media,
+          .notifications-view .notifications-users-alert > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media {
+            display: table-cell;
+            vertical-align: middle;
+            width: calc(100% - 50px); }
+            .notifications-view .notifications-new-users-alert > form > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media .media-left, .notifications-view .notifications-new-users-alert > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media .media-left,
+            .notifications-view .notifications-users-alert > form > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media .media-left,
+            .notifications-view .notifications-users-alert > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media .media-left {
+              margin-top: 4px; }
+              .notifications-view .notifications-new-users-alert > form > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media .media-left img, .notifications-view .notifications-new-users-alert > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media .media-left img,
+              .notifications-view .notifications-users-alert > form > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media .media-left img,
+              .notifications-view .notifications-users-alert > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media .media-left img {
+                width: 43px; }
+            .notifications-view .notifications-new-users-alert > form > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media .media-body, .notifications-view .notifications-new-users-alert > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media .media-body,
+            .notifications-view .notifications-users-alert > form > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media .media-body,
+            .notifications-view .notifications-users-alert > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media .media-body {
+              margin-top: 6px;
+              padding-left: 15px; }
+              .notifications-view .notifications-new-users-alert > form > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media .media-body h5, .notifications-view .notifications-new-users-alert > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media .media-body h5,
+              .notifications-view .notifications-users-alert > form > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media .media-body h5,
+              .notifications-view .notifications-users-alert > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media .media-body h5 {
+                margin: 0 0 3px;
+                font-size: 14px; }
+              .notifications-view .notifications-new-users-alert > form > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media .media-body span, .notifications-view .notifications-new-users-alert > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media .media-body span,
+              .notifications-view .notifications-users-alert > form > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media .media-body span,
+              .notifications-view .notifications-users-alert > .row > .col-lg-9 .notifications-list-users li .col-lg-5 .media .media-body span {
+                display: block;
+                font-size: 13px;
+                color: #A9AABC; }
+          .notifications-view .notifications-new-users-alert > form > .row > .col-lg-9 .notifications-list-users li .col-lg-5 a, .notifications-view .notifications-new-users-alert > .row > .col-lg-9 .notifications-list-users li .col-lg-5 a,
+          .notifications-view .notifications-users-alert > form > .row > .col-lg-9 .notifications-list-users li .col-lg-5 a,
+          .notifications-view .notifications-users-alert > .row > .col-lg-9 .notifications-list-users li .col-lg-5 a {
+            color: #292F4C; }
+            .notifications-view .notifications-new-users-alert > form > .row > .col-lg-9 .notifications-list-users li .col-lg-5 a:hover, .notifications-view .notifications-new-users-alert > .row > .col-lg-9 .notifications-list-users li .col-lg-5 a:hover,
+            .notifications-view .notifications-users-alert > form > .row > .col-lg-9 .notifications-list-users li .col-lg-5 a:hover,
+            .notifications-view .notifications-users-alert > .row > .col-lg-9 .notifications-list-users li .col-lg-5 a:hover {
+              text-decoration: none;
+              border-bottom: 1px solid #292F4C; }
+    .notifications-view .notifications-new-users-alert > form > .row > .col-lg-9 .theme-card-box.theme-list, .notifications-view .notifications-new-users-alert > .row > .col-lg-9 .theme-card-box.theme-list,
+    .notifications-view .notifications-users-alert > form > .row > .col-lg-9 .theme-card-box.theme-list,
+    .notifications-view .notifications-users-alert > .row > .col-lg-9 .theme-card-box.theme-list {
+      background-color: #FFFFFF; }
 
 /*******************************
 MODALS

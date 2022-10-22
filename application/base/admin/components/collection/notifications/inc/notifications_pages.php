@@ -130,11 +130,11 @@ set_admin_notifications_page(
         'content' => 'get_admin_notifications_page_users_alerts',
         'css_urls' => array(
             array('stylesheet', base_url('assets/base/admin/components/collection/notifications/styles/css/users-alerts.css?ver=' . CMS_BASE_ADMIN_COMPONENTS_NOTIFICATIONS_VERSION), 'text/css', 'all'),
-            array('stylesheet', '//cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css', 'text/css', 'all')
+            array('stylesheet', '//cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css', 'text/css', 'all')
         ),
         'js_urls' => array(
             array(base_url('assets/base/admin/components/collection/notifications/js/users-alerts.js?ver=' . CMS_BASE_ADMIN_COMPONENTS_NOTIFICATIONS_VERSION)),
-            array('//cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js')
+            array('//cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js')
         )  
     )
 );
@@ -279,11 +279,11 @@ set_admin_notifications_page(
         'content' => 'get_admin_notifications_page_system_errors',
         'css_urls' => array(
             array('stylesheet', base_url('assets/base/admin/components/collection/notifications/styles/css/system-errors.css?ver=' . CMS_BASE_ADMIN_COMPONENTS_NOTIFICATIONS_VERSION), 'text/css', 'all'),
-            array('stylesheet', '//cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css', 'text/css', 'all')
+            array('stylesheet', '//cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css', 'text/css', 'all')
         ),
         'js_urls' => array(
             array(base_url('assets/base/admin/components/collection/notifications/js/errors-alerts.js?ver=' . CMS_BASE_ADMIN_COMPONENTS_NOTIFICATIONS_VERSION)),
-            array('//cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js')
+            array('//cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js')
         )  
     )
 );

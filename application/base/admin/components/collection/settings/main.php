@@ -15,7 +15,7 @@ namespace CmsBase\Admin\Components\Collection\Settings;
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 defined('CMS_BASE_ADMIN_COMPONENTS_SETTINGS') OR define('CMS_BASE_ADMIN_COMPONENTS_SETTINGS', APPPATH . 'base/admin/components/collection/settings/');
-defined('CMS_BASE_ADMIN_COMPONENTS_SETTINGS_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_SETTINGS_VERSION', '0.0.7');
+defined('CMS_BASE_ADMIN_COMPONENTS_SETTINGS_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_SETTINGS_VERSION', '0.0.8');
 
 // Define the namespaces to use
 use CmsBase\Admin\Interfaces as CmsBaseAdminInterfaces;
@@ -113,10 +113,14 @@ class Main implements CmsBaseAdminInterfaces\Components {
     public function load_hooks($category) {
 
         // Verify if action parameter exists
-        if ( substr($this->CI->input->post('action', TRUE), 0, 8) === 'settings' ) {
+        if ( $this->CI->input->post('action', TRUE) ) {
 
-            // Set loaded app
-            md_set_data('component', 'settings');
+            if ( substr($this->CI->input->post('action', TRUE), 0, 8) === 'settings' ) {
+
+                // Set loaded app
+                md_set_data('component', 'settings');
+
+            }
 
         }
 

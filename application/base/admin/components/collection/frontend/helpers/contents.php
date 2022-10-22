@@ -140,7 +140,7 @@ class Contents {
                 } else {
 
                     // Save the content
-                    $content_id = $this->CI->base_contents->save_content($this->CI->user_id, $contents_category, $contents_component, '', $theme_template, $status);
+                    $content_id = $this->CI->base_contents->save_content(md_the_user_id(), $contents_category, $contents_component, '', $theme_template, $status);
 
                 }
                 

@@ -22,7 +22,7 @@ use CmsBase\Auth\Collection\Reset\Controllers as CmsBaseAuthCollectionResetContr
 defined('CMS_BASE_AUTH_RESET') OR define('CMS_BASE_AUTH_RESET', APPPATH . 'base/auth/collection/reset/');
 
 // Define the component's version
-defined('CMS_BASE_AUTH_RESET_VERSION') OR define('CMS_BASE_AUTH_RESET_VERSION', '0.0.3');
+defined('CMS_BASE_AUTH_RESET_VERSION') OR define('CMS_BASE_AUTH_RESET_VERSION', '0.0.4');
 
 /*
  * Main class loads the Reset Auth's component

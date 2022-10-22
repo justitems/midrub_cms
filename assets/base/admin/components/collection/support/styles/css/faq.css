@@ -15,10 +15,7 @@ DEFAULT GLOBAL FONTS
 DEFAULT MIXINGS FOR EDITOR
 ********************************/
 /*******************************
-DEFAULT MIXINGS FOR BUTTONS
-********************************/
-/*******************************
-FRONTEND STYLES
+SUPPORT FAQ STYLES
 ********************************/
 section {
   padding-top: 50px; }
@@ -30,6 +27,7 @@ section {
       section .container-fluid .support-view .create-new-faq-article .note-editor.note-frame .note-editing-area {
         border-radius: 3px;
         min-height: 500px;
+        font-size: 14px;
         background-color: #fff;
         overflow: hidden; }
       section .container-fluid .support-view .create-new-faq-article .note-btn {
@@ -43,12 +41,13 @@ section {
           position: initial;
           z-index: 1;
           border: 0;
-          background-color: transparent; }
+          background-color: #FFFFFF; }
           section .container-fluid .support-view .create-new-faq-article .note-editor.note-frame .note-toolbar .dropdown-toggle::after {
             display: none; }
       section .container-fluid .support-view .create-new-faq-article .note-statusbar {
         display: none; }
       section .container-fluid .support-view .create-new-faq-article .note-editor.note-frame .note-status-output {
+        display: none;
         border: 0; }
       section .container-fluid .support-view .create-new-faq-article .note-editor.note-frame .note-status-output:empty {
         display: none; }

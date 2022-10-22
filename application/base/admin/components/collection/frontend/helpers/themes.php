@@ -319,7 +319,7 @@ class Themes {
                     // Prepare the response
                     $data = array(
                         'success' => TRUE,
-                        'message' => $this->CI->lang->line('user_unzipping'),
+                        'message' => $this->CI->lang->line('frontend_unzipping'),
                         'file_name' => $zip_file
                     );
 

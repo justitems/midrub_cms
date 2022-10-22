@@ -1,5 +1,5 @@
 <?php
-$lang["admin"] = "Administrator";
+$lang["admin"] = "Administrator2";
 $lang["admin_transactions"] = "Transactions";
 $lang["admin_delete"] = "Delete";
 $lang["admin_search_for_transactions"] = "Search for transactions by transaction's ID ...";
@@ -55,7 +55,7 @@ $lang["admin_placeholders_date"] = "<span class=\"badge theme-badge-1 bg-light m
 $lang["admin_placeholders_amount"] = "<span class=\"badge theme-badge-1 bg-light me-0\">[amount]</span> - will be replaced with the amount without taxes if exists.";
 $lang["admin_placeholders_total"] = "<span class=\"badge theme-badge-1 bg-light me-0\">[total]</span> - will be replaced with the total amount with taxes if exists.";
 $lang["admin_placeholders_taxes"] = "<span class=\"badge theme-badge-1 bg-light me-0\">[taxes]</span> - will be replaced with the taxes amount.";
-$lang["admin_invoices_templates_info"] = "More details about Invoices Templates you will find here: ";
+$lang["admin_invoices_templates_info"] = "More details about Invoices Templates you will find here";
 $lang["admin_search_for_invoices"] = "Search for invoices by username ...";
 $lang["admin_account_deleted"] = "account deleted";
 $lang["admin_please_select_at_least_one_invoice"] = "Please select at least one invoice.";

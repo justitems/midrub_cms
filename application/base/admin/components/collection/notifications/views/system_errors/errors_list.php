@@ -6,7 +6,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="dropdown theme-dropdown-1 notifications-advanced-filters-users-btn" id="notifications-advanced-filters-users">
-                                <button type="button" class="btn btn-secondary d-flex justify-content-between align-items-start frontend-menu-dropdown-btn" aria-expanded="false" data-bs-toggle="dropdown">
+                                <button type="button" class="btn btn-secondary d-flex justify-content-between align-items-start" aria-expanded="false" data-bs-toggle="dropdown">
                                     <span>
                                         <?php echo $this->lang->line('notifications_all_users'); ?>
                                     </span>
@@ -29,7 +29,22 @@
 <div class="row">
     <div class="col-12">
         <div class="card theme-list">
-            <div class="card-body"></div>
+            <div class="card-actions mt-0 mb-3 theme-box-1">
+                <div class="row">
+                    <div class="col theme-list-selected-items" data-total="1">
+                        <p></p>
+                    </div>
+                    <div class="col text-end">
+                        <div class="btn-group card-actions-advaced" role="group" aria-label="Actions buttons">
+                            <button type="button" class="btn btn-secondary theme-button-1 notifications-delete-alerts">
+                                <?php echo md_the_admin_icon(array('icon' => 'delete')); ?>
+                                <?php echo $this->lang->line('notifications_delete'); ?>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body pt-0"></div>
             <div class="card-footer theme-box-1">
                 <div class="row">
                     <div class="col-md-5 col-12">

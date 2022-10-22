@@ -10,7 +10,7 @@
  * @category Social
  * @package  Midrub
  * @author   Scrisoft <asksyn@gmail.com>
- * @license  https://www.gnu.org/licenses/gpl-2.0.html GNU General Public License
+ * @license  https://github.com/scrisoft/midrub_cms/blob/master/license
  * @link     https://www.midrub.com/
  */
 
@@ -216,7 +216,7 @@ if ( !function_exists('md_delete_content_meta') ) {
      * 
      * @return boolean true or false
      */
-    function md_delete_content_meta( $content_id=0, $meta_name ) {
+    function md_delete_content_meta( int $content_id, $meta_name ) {
 
         // Get codeigniter object instance
         $CI =& get_instance();

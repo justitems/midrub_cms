@@ -83,10 +83,10 @@ class Multimedia {
                 $page--;
 
                 // Get total number of medias
-                $total = $this->CI->media->get_user_medias($this->CI->user_id, 0, 0);
+                $total = $this->CI->media->get_user_medias(md_the_user_id(), 0, 0);
 
                 // Get the media files
-                $getmedias = $this->CI->media->get_user_medias($this->CI->user_id, ($page * $limit), $limit);
+                $getmedias = $this->CI->media->get_user_medias(md_the_user_id(), ($page * $limit), $limit);
 
                 // Verify if media files exists
                 if ( $getmedias ) {
@@ -214,12 +214,12 @@ class Multimedia {
                         if ( $type === 'video' ) {
 
                             // Save uploaded file data
-                            $last_id = $this->CI->media->save_media($this->CI->user_id, $this->CI->config->base_url() . 'assets/share/' . $data['upload_data']['file_name'], 'video', $cover, $_FILES['file']['size']);
+                            $last_id = $this->CI->media->save_media(md_the_user_id(), $this->CI->config->base_url() . 'assets/share/' . $data['upload_data']['file_name'], 'video', $cover, $_FILES['file']['size']);
 
                         } else {
                             
                             // Save uploaded file data
-                            $last_id = $this->CI->media->save_media($this->CI->user_id, $this->CI->config->base_url() . 'assets/share/' . $data['upload_data']['file_name'], 'image', $cover, $_FILES['file']['size']);
+                            $last_id = $this->CI->media->save_media(md_the_user_id(), $this->CI->config->base_url() . 'assets/share/' . $data['upload_data']['file_name'], 'image', $cover, $_FILES['file']['size']);
 
                         }
                         
@@ -285,13 +285,13 @@ class Multimedia {
             if ($this->CI->form_validation->run() !== false) {
 
                 // Get media
-                $get_media = $this->CI->media->single_media($this->CI->user_id, $media_id);
+                $get_media = $this->CI->media->single_media(md_the_user_id(), $media_id);
 
                 // Verify if the user is owner of the media
                 if ( $get_media ) {
                     
                     // Delete media
-                    if ( $this->CI->media->delete_media($this->CI->user_id, $media_id) ) {
+                    if ( $this->CI->media->delete_media(md_the_user_id(), $media_id) ) {
                         
                         // Get file path
                         $filename = str_replace(base_url(), FCPATH, $get_media[0]->body);

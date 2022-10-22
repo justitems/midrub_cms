@@ -52,16 +52,44 @@ BUTTONS MESSAGE LIST STYLES
                     background-color: $default-color-grey-light;
                 }
 
+                .media {
+
+                    & > i {
+                        line-height: 40px;
+                        font-size: 32px;
+                    }
+
+                    .media-body {
+                        padding-left: 15px;
+
+                        h4 {
+                            margin: 0;
+                            height: 40px;
+                            line-height: 43px;
+                            font-family: $default-font-1;
+                            font-size: 14px;
+                            color: $default-color-black;                            
+                        }
+
+                    }
+
+                }
+
                 .btn-group {
                     margin-left: 15px;
 
                     .btn {
                         border: 0;
+                        border-left: 1px solid $default-color-blue-light;
                         color: #FFFFFF;
                         background-color: $default-color-blue;
 
-                        &:last-child {
-                            border-left: 1px solid $default-color-blue-light;
+                        &:first-child {
+                            border: 0;
+                        }
+
+                        i {
+                            vertical-align: middle;
                         }
 
                     }

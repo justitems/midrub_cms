@@ -104,7 +104,7 @@ class Media {
             if ( !empty($response['success']) ) {
 
                 // Change the admin's profile image
-                md_update_user_option($this->CI->user_id, 'profile_image', $response['media_id']);
+                md_update_user_option(md_the_user_id(), 'profile_image', $response['media_id']);
 
                 // Get file type
                 $get_type = explode('/', $_FILES['file']['type']);
@@ -166,7 +166,7 @@ class Media {
         if ($this->CI->input->post()) {
 
             // Try to delete the profile's image
-            if ( md_delete_user_option($this->CI->user_id, 'profile_image') ) {
+            if ( md_delete_user_option(md_the_user_id(), 'profile_image') ) {
 
                 // Prepare response
                 $message = array(

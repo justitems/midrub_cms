@@ -91,7 +91,7 @@ class Media {
             }
 
             // Get user storage
-            $user_storage = md_the_user_option($this->CI->user_id, 'user_storage');
+            $user_storage = md_the_user_option(md_the_user_id(), 'user_storage');
 
             // Temporary storage
             $temp_storage = ($user_storage?$user_storage:0);

@@ -21,3 +21,4 @@ $lang["auth_signin_or"] = "or";
 $lang["auth_signin_sign_in_btn"] = "Sign In";
 $lang["auth_signin_email"] = "Email";
 $lang["auth_signin_enter_username_email_address"] = "Enter the username or email ...";
+$lang["auth_has_been_joined"] = "has been joined";

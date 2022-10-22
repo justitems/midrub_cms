@@ -13,6 +13,120 @@ jQuery(document).ready( function ($) {
     ********************************/
 
     /*
+     * Display dropdown calendars
+     * 
+     * @since   0.0.8.5 
+     */
+    Main.default_dropdown_calendars = function () {
+
+        // Verify if date pickers exists
+        if ( $('.main .default-dropdown-date-picker').length > 0 ) {
+
+            // Identify all time pickers
+            $( '.main .default-dropdown-date-picker' ).each(function() {
+
+                // Set day
+                day = $(this).attr('data-date');
+
+                // Set month
+                month = $(this).attr('data-month');
+                
+                // Set year
+                year = $(this).attr('data-year');
+
+                // Format the date
+                selected_date = year + '-' + month + '-' + day;
+
+                // Get date format
+                var date_format = $(this).closest('.default-dropdown-date-picker').attr('data-date-format');
+
+                // Set replacers
+                let replacers = {
+                    'd': ( 10 > parseInt($(this).closest('.default-dropdown-date-picker').attr('data-date'))?'0' + parseInt($(this).closest('.default-dropdown-date-picker').attr('data-date')):parseInt($(this).closest('.default-dropdown-date-picker').attr('data-date'))),
+                    'm': ( 10 > parseInt($(this).closest('.default-dropdown-date-picker').attr('data-month'))?'0' + parseInt($(this).closest('.default-dropdown-date-picker').attr('data-month')):parseInt($(this).closest('.default-dropdown-date-picker').attr('data-month'))),
+                    'y': parseInt($(this).closest('.default-dropdown-date-picker').attr('data-year'))
+                };
+
+                // Default date
+                var the_dropdown_date_picker = '';
+
+                // Replace the separator
+                the_dropdown_date_picker = date_format.replaceAll('/', '<span class="default-dropdown-date-picker-separator">' + '/' + '</span>');
+
+                // Set date
+                the_dropdown_date_picker = the_dropdown_date_picker.replace(/dd/g, '<span class="default-dropdown-date-picker-date" contenteditable="true" placeholder="00" maxlength="2">' + replacers['d'] + '</span>');
+
+                // Replace the month
+                the_dropdown_date_picker = the_dropdown_date_picker.replace(/mm/g, '<span class="default-dropdown-date-picker-month" contenteditable="true" placeholder="00" maxlength="2">' + replacers['m'] + '</span>');
+
+                // Replace the year
+                the_dropdown_date_picker = the_dropdown_date_picker.replace(/yyyy/g, '<span class="default-dropdown-date-picker-year" contenteditable="true" placeholder="0000" maxlength="4">' + replacers['y'] + '</span>');
+
+                // Unique id
+                let unique_id = Math.floor(Math.random() * 100);
+
+                // Prepare content
+                let content = '<div class="row">'
+                    + '<div class="col-9">'
+                        + '<div class="default-dropdown-date-picker-container">'
+                            + the_dropdown_date_picker
+                        + '</div>'
+                    + '</div>'                                                                        
+                    + '<div class="col-3 p-0 text-center">'
+                        + '<div id="default-dropdown-date-picker-dropdown-' + unique_id + '" class="dropdown dropdown-options m-0 theme-dropdown-5 theme-dropdown-icon-1">'
+                            + '<button class="btn btn-link" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">'
+                                + words.icon_arrow_down
+                            + '</button>'
+                            + '<div class="dropdown-menu default-dropdown-date-picker-dropdown-menu dropdown-menu-right">'
+                                + '<div class="card">'
+                                    + '<div class="card-body">'
+                                        + '<table>'
+                                            + '<thead>'
+                                                + '<tr>'
+                                                    + '<th class="text-center">'
+                                                        + '<button type="button" class="btn btn-primary default-dropdown-date-picker-dropdown-previous-btn">'
+                                                            + words.icon_arrow_left_line
+                                                        + '</button>'
+                                                    + '</th>'                                                                                                           
+                                                    + '<th class="default-dropdown-date-picker-year-month">'
+                                                        + Main.default_dropdown_calendar_the_month_year(month, year)
+                                                    + '</th>'
+                                                    + '<th class="text-center">'
+                                                        + '<button type="button" class="btn btn-primary default-dropdown-date-picker-dropdown-next-btn">'
+                                                            + words.icon_arrow_right_line
+                                                        + '</button>'
+                                                    + '</th>'
+                                                + '</tr>'
+                                            + '</thead>'
+                                            + '<tbody>'
+                                                + '<tr>'
+                                                    + '<td colspan="3">'
+                                                        + '<table>'
+                                                            + '<tbody class="default-dropdown-date-picker-calendar-dates">'
+                                                                + Main.default_dropdown_calendar_the_calendar(month, day, year)
+                                                            + '</tbody>'
+                                                        + '</table>'
+                                                    + '</td>'
+                                                + '</tr>'
+                                            + '</tbody>'
+                                        + '</table>'
+                                    + '</div>'
+                                + '</div>'
+                            + '</div>'
+                        + '</div>'
+                    + '</div>'                                                                       
+                + '</div>'; 
+
+                // Add content
+                $(this).html(content);
+                
+            });
+
+        }
+
+    };
+
+    /*
      * Generate month and year
      *
      * @param integer month contains the month
@@ -22,7 +136,7 @@ jQuery(document).ready( function ($) {
      * 
      * @return string with date
      */
-    Main.default_static_time_picker_the_month_year = function ( month, year ) {
+    Main.default_dropdown_calendar_the_month_year = function ( month, year ) {
 
         // Set months
         var months = [
@@ -54,10 +168,10 @@ jQuery(document).ready( function ($) {
      * 
      * @since   0.0.8.5  
      */
-    Main.default_static_time_picker_show_month_year = function ( month, year ) {
+    Main.default_dropdown_calendar_show_month_year = function ( month, year ) {
 
         // Add month and year
-        $( '.default-dropdown-date-picker .default-dropdown-date-picker-dropdown-menu.show .default-dropdown-date-picker-year-month' ).text( Main.default_static_time_picker_the_month_year(month, year) );
+        $( '.default-dropdown-date-picker .default-dropdown-date-picker-dropdown-menu.show .default-dropdown-date-picker-year-month' ).text( Main.default_dropdown_calendar_the_month_year(month, year) );
         
     }
 
@@ -72,7 +186,7 @@ jQuery(document).ready( function ($) {
      * 
      * @return string with html
      */
-    Main.default_static_time_picker_the_calendar = function ( month, day, year ) {
+    Main.default_dropdown_calendar_the_calendar = function ( month, day, year ) {
         
         // Set current date
         let current = new Date();
@@ -239,13 +353,13 @@ jQuery(document).ready( function ($) {
      * 
      * @since   0.0.8.5 
      */
-    Main.default_static_time_picker_show_calendar = function ( month, day, year ) {
+    Main.default_dropdown_calendar_show_calendar = function ( month, day, year ) {
 
         // Display month and year
-        Main.default_static_time_picker_show_month_year( month, year );
+        Main.default_dropdown_calendar_show_month_year( month, year );
         
         // Display calendar's content
-        $( '.default-dropdown-date-picker .default-dropdown-date-picker-dropdown-menu.show .default-dropdown-date-picker-calendar-dates' ).html( Main.default_static_time_picker_the_calendar( month, day, year ) );
+        $( '.default-dropdown-date-picker .default-dropdown-date-picker-dropdown-menu.show .default-dropdown-date-picker-calendar-dates' ).html( Main.default_dropdown_calendar_the_calendar( month, day, year ) );
         
     };
   
@@ -260,110 +374,8 @@ jQuery(document).ready( function ($) {
      */
     $(function () {
 
-        // Verify if date pickers exists
-        if ( $('.main .default-dropdown-date-picker').length > 0 ) {
-
-            // Identify all time pickers
-            $( '.main .default-dropdown-date-picker' ).each(function() {
-
-                // Set day
-                day = $(this).attr('data-date');
-
-                // Set month
-                month = $(this).attr('data-month');
-                
-                // Set year
-                year = $(this).attr('data-year');
-
-                // Format the date
-                selected_date = year + '-' + month + '-' + day;
-
-                // Get date format
-                var date_format = $(this).closest('.default-dropdown-date-picker').attr('data-date-format');
-
-                // Set replacers
-                let replacers = {
-                    'd': ( 10 > parseInt($(this).closest('.default-dropdown-date-picker').attr('data-date'))?'0' + parseInt($(this).closest('.default-dropdown-date-picker').attr('data-date')):parseInt($(this).closest('.default-dropdown-date-picker').attr('data-date'))),
-                    'm': ( 10 > parseInt($(this).closest('.default-dropdown-date-picker').attr('data-month'))?'0' + parseInt($(this).closest('.default-dropdown-date-picker').attr('data-month')):parseInt($(this).closest('.default-dropdown-date-picker').attr('data-month'))),
-                    'y': parseInt($(this).closest('.default-dropdown-date-picker').attr('data-year'))
-                };
-
-                // Default date
-                var the_dropdown_date_picker = '';
-
-                // Replace the separator
-                the_dropdown_date_picker = date_format.replaceAll('/', '<span class="default-dropdown-date-picker-separator">' + '/' + '</span>');
-
-                // Set date
-                the_dropdown_date_picker = the_dropdown_date_picker.replace(/dd/g, '<span class="default-dropdown-date-picker-date" contenteditable="true" placeholder="00" maxlength="2">' + replacers['d'] + '</span>');
-
-                // Replace the month
-                the_dropdown_date_picker = the_dropdown_date_picker.replace(/mm/g, '<span class="default-dropdown-date-picker-month" contenteditable="true" placeholder="00" maxlength="2">' + replacers['m'] + '</span>');
-
-                // Replace the year
-                the_dropdown_date_picker = the_dropdown_date_picker.replace(/yyyy/g, '<span class="default-dropdown-date-picker-year" contenteditable="true" placeholder="0000" maxlength="4">' + replacers['y'] + '</span>');
-
-                // Unique id
-                let unique_id = Math.floor(Math.random() * 100);
-
-                // Prepare content
-                let content = '<div class="row">'
-                    + '<div class="col-9">'
-                        + '<div class="default-dropdown-date-picker-container">'
-                            + the_dropdown_date_picker
-                        + '</div>'
-                    + '</div>'                                                                        
-                    + '<div class="col-3 p-0 text-center">'
-                        + '<div id="default-dropdown-date-picker-dropdown-' + unique_id + '" class="dropdown dropdown-options m-0 theme-dropdown-5 theme-dropdown-icon-1">'
-                            + '<button class="btn btn-link" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">'
-                                + words.icon_arrow_down
-                            + '</button>'
-                            + '<div class="dropdown-menu default-dropdown-date-picker-dropdown-menu dropdown-menu-right">'
-                                + '<div class="card">'
-                                    + '<div class="card-body">'
-                                        + '<table>'
-                                            + '<thead>'
-                                                + '<tr>'
-                                                    + '<th class="text-center">'
-                                                        + '<button type="button" class="btn btn-primary default-dropdown-date-picker-dropdown-previous-btn">'
-                                                            + words.icon_arrow_left_line
-                                                        + '</button>'
-                                                    + '</th>'                                                                                                           
-                                                    + '<th class="default-dropdown-date-picker-year-month">'
-                                                        + Main.default_static_time_picker_the_month_year(month, year)
-                                                    + '</th>'
-                                                    + '<th class="text-center">'
-                                                        + '<button type="button" class="btn btn-primary default-dropdown-date-picker-dropdown-next-btn">'
-                                                            + words.icon_arrow_right_line
-                                                        + '</button>'
-                                                    + '</th>'
-                                                + '</tr>'
-                                            + '</thead>'
-                                            + '<tbody>'
-                                                + '<tr>'
-                                                    + '<td colspan="3">'
-                                                        + '<table>'
-                                                            + '<tbody class="default-dropdown-date-picker-calendar-dates">'
-                                                                + Main.default_static_time_picker_the_calendar(month, day, year)
-                                                            + '</tbody>'
-                                                        + '</table>'
-                                                    + '</td>'
-                                                + '</tr>'
-                                            + '</tbody>'
-                                        + '</table>'
-                                    + '</div>'
-                                + '</div>'
-                            + '</div>'
-                        + '</div>'
-                    + '</div>'                                                                       
-                + '</div>'; 
-
-                // Add content
-                $(this).html(content);
-                
-            });
-
-        }
+        // Display dropdown calendars
+        Main.default_dropdown_calendars();
 
     });
 
@@ -445,10 +457,10 @@ jQuery(document).ready( function ($) {
                         $(this).closest('.default-dropdown-date-picker').attr('data-year', $(this).closest('.default-dropdown-date-picker').find('.default-dropdown-date-picker-year').text());
 
                         // Reload calendar's content
-                        $(this).closest('.default-dropdown-date-picker').find('.default-dropdown-date-picker-dropdown-menu .default-dropdown-date-picker-calendar-dates').html( Main.default_static_time_picker_the_calendar( $(this).closest('.default-dropdown-date-picker').find('.default-dropdown-date-picker-month').text(), $(this).closest('.default-dropdown-date-picker').find('.default-dropdown-date-picker-date').text(), $(this).closest('.default-dropdown-date-picker').find('.default-dropdown-date-picker-year').text() ) );
+                        $(this).closest('.default-dropdown-date-picker').find('.default-dropdown-date-picker-dropdown-menu .default-dropdown-date-picker-calendar-dates').html( Main.default_dropdown_calendar_the_calendar( $(this).closest('.default-dropdown-date-picker').find('.default-dropdown-date-picker-month').text(), $(this).closest('.default-dropdown-date-picker').find('.default-dropdown-date-picker-date').text(), $(this).closest('.default-dropdown-date-picker').find('.default-dropdown-date-picker-year').text() ) );
 
                         // Add month and year
-                        $(this).closest('.default-dropdown-date-picker').find('.default-dropdown-date-picker-dropdown-menu .default-dropdown-date-picker-year-month' ).text( Main.default_static_time_picker_the_month_year($(this).closest('.default-dropdown-date-picker').find('.default-dropdown-date-picker-month').text(), $(this).closest('.default-dropdown-date-picker').find('.default-dropdown-date-picker-year').text()) );
+                        $(this).closest('.default-dropdown-date-picker').find('.default-dropdown-date-picker-dropdown-menu .default-dropdown-date-picker-year-month' ).text( Main.default_dropdown_calendar_the_month_year($(this).closest('.default-dropdown-date-picker').find('.default-dropdown-date-picker-month').text(), $(this).closest('.default-dropdown-date-picker').find('.default-dropdown-date-picker-year').text()) );
 
                     }
 
@@ -496,7 +508,7 @@ jQuery(document).ready( function ($) {
         }
         
         // Display calendar
-        Main.default_static_time_picker_show_calendar( month, day, year);
+        Main.default_dropdown_calendar_show_calendar( month, day, year);
         
     });
     
@@ -525,7 +537,7 @@ jQuery(document).ready( function ($) {
         }
         
         // Display calendar
-        Main.default_static_time_picker_show_calendar( month, day, year);
+        Main.default_dropdown_calendar_show_calendar( month, day, year);
         
     });
 

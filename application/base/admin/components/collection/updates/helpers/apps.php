@@ -66,7 +66,7 @@ class Apps {
             // Get received data
             $code = $this->CI->input->post('code');
             $slug = $this->CI->input->post('slug');
-           
+
             // Check form validation
             if ($this->CI->form_validation->run() === false ) {
 

@@ -78,7 +78,7 @@ class Oauth {
             if ($this->CI->form_validation->run() !== false) {
                 
                 // Save application
-                $application = $this->CI->oauth_applications_model->save_application( $this->CI->user_id, $application_name, $redirect_url, $cancel_redirect );
+                $application = $this->CI->oauth_applications_model->save_application( md_the_user_id(), $application_name, $redirect_url, $cancel_redirect );
 
                 if ( $application ) {
                     

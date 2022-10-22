@@ -947,7 +947,7 @@ class Members {
         }
 
         // Verify if administrator wants to delete his account
-        if ( $member === $this->CI->user_id ) {
+        if ( $member === md_the_user_id() ) {
 
             // Prepare the error message
             return array(
@@ -1054,6 +1054,27 @@ class Members {
                     'media_id' => $media['media_id'],
                     'user_id' => $member_id
                 ), true);
+
+            }
+            
+        }
+
+        // Delete referrals
+        $this->CI->base_model->delete('referrals', array('user_id' => $member_id));
+        $this->CI->base_model->delete('referrals', array('referrer' => $member_id));
+
+        // Get all tickets
+        $the_tickets = $this->CI->base_model->the_data_where('tickets', '*', array('user_id' => $member_id));
+
+        // Verify if user tickets
+        if ( $the_tickets ) {
+            
+            // List all tickets
+            foreach( $the_tickets as $ticket ) {
+
+                // Delete ticket
+                $this->CI->base_model->delete('tickets', array('ticket_id' => $ticket['ticket_id']));
+                $this->CI->base_model->delete('tickets_meta', array('ticket_id' => $ticket['ticket_id']));
 
             }
             

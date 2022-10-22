@@ -134,7 +134,7 @@ section {
               section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-body .dashboard-events-list li {
                 margin: 0 0 15px 0;
                 padding: 0;
-                border: 1px solid #5c7fbc;
+                border: 1px dashed #c1d5e4;
                 border-radius: 10px;
                 list-style: none;
                 background-color: #FFFFFF; }
@@ -163,13 +163,26 @@ section {
                     margin-top: -3px;
                     margin-right: 15px;
                     width: 32px;
-                    height: 32px; }
+                    height: 32px;
+                    color: #C1D5E4; }
                   section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-body .dashboard-events-list li .alert > div {
+                    margin-top: -2px;
                     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
                     font-size: 13px;
                     color: #292F4C; }
+                    section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-body .dashboard-events-list li .alert > div a {
+                      padding: 1px;
+                      border-bottom: 1px solid #292F4C;
+                      text-decoration: none;
+                      color: #292F4C; }
+                      section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-body .dashboard-events-list li .alert > div a:hover {
+                        border-bottom: 1px solid transparent;
+                        text-decoration: none; }
+                      section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-body .dashboard-events-list li .alert > div a:active {
+                        border-bottom: 1px solid transparent;
+                        text-decoration: none; }
                 section.dashboard-page .dashboard-events-card > .card-body #dashboard-events-accordion .accordion-item .accordion-body .dashboard-events-list li[data-type="member-join"] .alert > svg {
-                  color: #00C6C1; }
+                  color: #c1d5e4; }
   section.dashboard-page .dashboard-widgets-list {
     position: relative; }
     section.dashboard-page .dashboard-widgets-list .dashboard-widget {

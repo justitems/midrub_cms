@@ -459,38 +459,38 @@ CUSTOM STYLES FOR TRANSACTIONS
 
                         li {
                             padding: 15px;
-                            list-style: none;
                             border-bottom: 1px solid rgba(65, 106, 166, 0.05);
+                            list-style: none;
+                            font-size: 14px;
                             
                             &:last-child {
                                 border-bottom: 0;
                             }
 
                             h4 {
+                                margin-top: 0;
                                 font-weight: 400;
                                 font-size: 15px;
                                 color: #212529;
-                                margin-top: 0;
                             }
 
                             p {
+                                margin-bottom: 0;
                                 font-size: 13px;
                                 color: $default-color-black;
-                                margin-bottom: 0;
-
                             }
                             
                             a {
+                                display: block;
+                                margin-top: 4px;
+                                padding: 7px 10px 6px;
                                 border: 1px solid #dddddd;
+                                line-height: 23px;
+                                text-align: center;
+                                color: #6c757d;
+                                background-color: #FFFFFF;
                                 -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
                                 box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-                                background-color: #FFFFFF;
-                                color: #6c757d;
-                                line-height: 23px;
-                                padding: 7px 10px 6px;
-                                margin-top: 4px;
-                                display: block;
-                                text-align: center;
                             }
 
                         }
@@ -506,12 +506,3 @@ CUSTOM STYLES FOR TRANSACTIONS
     }    
 
 }
-
-/*******************************
-MODAL STYLES
-********************************/
-
-
-/*******************************
-CSS ANIMATIONS
-********************************/

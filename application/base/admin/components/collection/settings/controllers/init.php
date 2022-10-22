@@ -135,6 +135,9 @@ class Init {
                 
                 case 'gateways':
 
+                    // Enable gateways
+                    md_set_data('hook', 'payments');
+
                     // Define the required constant
                     defined('CMS_BASE_PAYMENTS') OR define('CMS_BASE_PAYMENTS', APPPATH . 'base/payments/');
 

@@ -369,7 +369,7 @@ class Faq
 
                 } else {
 
-                    $article_id = $this->CI->faq_model->save_article($this->CI->user_id, $status);
+                    $article_id = $this->CI->faq_model->save_article(md_the_user_id(), $status);
 
                     if ($article_id) {
 

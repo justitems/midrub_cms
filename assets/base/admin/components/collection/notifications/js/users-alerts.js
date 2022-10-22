@@ -139,10 +139,11 @@ jQuery(document).ready( function ($) {
      * Load alert's users by page
      * 
      * @param integer page contains the page number
+     * @param integer progress contains the progress option
      * 
      * @since   0.0.8.3
      */    
-    Main.notifications_load_alert_users = function (page) {
+    Main.notifications_load_alert_users = function (page, progress) {
 
         // Prepare data to send
         var data = {
@@ -153,9 +154,22 @@ jQuery(document).ready( function ($) {
         
 		// Set CSRF
         data[$('.main').attr('data-csrf')] = $('.main').attr('data-csrf-value');
-        
-        // Make ajax call
-        Main.ajax_call(url + 'admin/ajax/notifications', 'POST', data, 'notifications_display_all_alert_users_response');
+
+        // Verify if progress exists
+        if ( typeof progress !== 'undefined' ) {
+
+            // Make ajax call
+            Main.ajax_call(url + 'admin/ajax/notifications', 'POST', data, 'notifications_display_all_alert_users_response', 'ajax_onprogress');
+
+            // Set progress bar
+            Main.set_progress_bar();
+
+        } else {
+
+            // Make ajax call
+            Main.ajax_call(url + 'admin/ajax/notifications', 'POST', data, 'notifications_display_all_alert_users_response');
+
+        }
         
     };
 
@@ -439,7 +453,7 @@ jQuery(document).ready( function ($) {
             case 'alert-users':
 
                 // Load all alert's users
-                Main.notifications_load_alert_users(page);            
+                Main.notifications_load_alert_users(page, 1);            
 
                 break;
 
@@ -472,37 +486,9 @@ jQuery(document).ready( function ($) {
     });
 
     /*
-     * Delete users alert
-     * 
-     * @since   0.0.8.3
-     */
-    $(document).on('click', '.notifications-page .notifications-delete-alert', function (e) {
-        e.preventDefault();
-        
-        // Get alert's id
-        var alert_id = $(this).closest('.notifications-alerts-single').attr('data-alert');
-
-        // Prepare data to send
-        var data = {
-            action: 'notifications_delete_users_alert',
-            alert: alert_id
-        };
-
-		// Set CSRF
-        data[$('.main').attr('data-csrf')] = $('.main').attr('data-csrf-value');
-        
-        // Make ajax call
-        Main.ajax_call(url + 'admin/ajax/notifications', 'POST', data, 'notifications_delete_users_alert_response', 'ajax_onprogress');
-
-        // Set progress bar
-        Main.set_progress_bar();
-        
-    });
-
-    /*
      * Delete multiple users alerts
      * 
-     * @since   0.0.8.3
+     * @since   0.0.8.5
      */
     $(document).on('click', '.notifications-page .notifications-delete-alerts', function (e) {
         e.preventDefault();
@@ -511,8 +497,8 @@ jQuery(document).ready( function ($) {
         var alerts_ids = [];
         
         // Get selected users alerts ids
-        $('.notifications-page .notifications-list-alerts li input[type="checkbox"]:checkbox:checked').each(function () {
-            alerts_ids.push($(this).closest('.notifications-alerts-single').attr('data-alert'));
+        $('.notifications-page .theme-list .card-alert input[type="checkbox"]:checkbox:checked').each(function () {
+            alerts_ids.push($(this).closest('.card-alert').attr('data-alert'));
         });
 
         // Prepare data to send
@@ -533,29 +519,27 @@ jQuery(document).ready( function ($) {
     });
 
     /*
-     * Detect all members selection
+     * Detect notifications check
      * 
-     * @since   0.0.8.3
+     * @since   0.0.8.5
      */ 
-    $( document ).on( 'click', '.notifications-page #notifications-alerts-select-all', function () {
-        
-        // Run after 500 mileseconds
-        setTimeout(function(){
+    $( document ).on( 'click', '.notifications-page .theme-list > .card-body input[type="checkbox"]', function () {
+
+        // Show the action
+        if ( $('.notifications-page .theme-list > .card-body :checkbox:checked').length > 0 ) {
+
+            // Show actions
+            $('.notifications-page .card-actions').slideDown('slow');
+
+            // Set selected items
+            $('.notifications-page .theme-list .theme-list-selected-items p').html($('.notifications-page .theme-list > .card-body :checkbox:checked').length + ' ' + words.selected_items);
+
+        } else {
+
+            // Hide actions
+            $('.notifications-page .card-actions').slideUp('slow');
             
-            // Verify if slect all is checked
-            if ( $( '.notifications-page #notifications-alerts-select-all' ).is(':checked') ) {
-
-                // Check all
-                $( '.notifications-page .notifications-list-alerts li input[type="checkbox"]' ).prop('checked', true);
-
-            } else {
-
-                // Uncheck all
-                $( '.notifications-page .notifications-list-alerts li input[type="checkbox"]' ).prop('checked', false);
-
-            }
-        
-        },500);
+        }
         
     });
    
@@ -575,6 +559,9 @@ jQuery(document).ready( function ($) {
 
         // Remove progress bar
         Main.remove_progress_bar();
+
+        // Hide actions
+        $('.notifications-page .card-actions').slideUp('slow');
 
         // Hide pagination
         $('.notifications-page .theme-list > .card-footer').hide();
@@ -614,7 +601,7 @@ jQuery(document).ready( function ($) {
                 all_alerts += '<div class="card theme-box-1 card-alert" data-alert="' + data.alerts[a].alert_id + '">'
                     + '<div class="card-header">'
                         + '<div class="row">'
-                            + '<div class="col-6">'
+                            + '<div class="col-9">'
                                 + '<div class="media d-flex justify-content-start">'
                                     + '<div class="theme-checkbox-input-1">'
                                         + '<label for="notifications-alerts-single-' + data.alerts[a].alert_id + '">'
@@ -630,24 +617,9 @@ jQuery(document).ready( function ($) {
                                         + '</h5>'
                                     + '</div>'
                                 + '</div>'
-                            + '</div>'
-                            + '<div class="col-3 text-center">'
-                                + alert_type                                
-                            + '</div>'                            
+                            + '</div>'                           
                             + '<div class="col-3 text-end">'
-                                + '<div class="btn-group theme-dropdown-2">'
-                                    + '<button type="button" class="btn dropdown-toggle text-end" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown">'
-                                        + words.icon_more
-                                    + '</button>'
-                                    + '<ul class="dropdown-menu">'
-                                        + '<li>'
-                                            + '<a href="#" class="frontend-delete-content">'
-                                                + words.icon_delete
-                                                + data.words.delete
-                                            + '</a>'
-                                        + '</li>'
-                                    + '</ul>'
-                                + '</div>'                                
+                                + alert_type                 
                             + '</div>'
                         + '</div>'
                     + '</div>'
@@ -1023,8 +995,11 @@ jQuery(document).ready( function ($) {
      */
     Main.methods.notifications_display_all_alert_users_response = function ( status, data ) {
 
-        // Hide the pagination
-        $('.notifications-page .notifications-users-alert .pagination-area').hide();
+        // Remove progress bar
+        Main.remove_progress_bar();
+
+        // Hide pagination
+        $('.notifications-page .theme-list > .card-footer').hide();
 
         // Verify if the success response exists
         if ( status === 'success' ) {
@@ -1039,10 +1014,10 @@ jQuery(document).ready( function ($) {
                 var name = (data.users[u].first_name)?data.users[u].first_name + ' ' + data.users[u].last_name:data.users[u].username;
 
                 // Set banner activity
-                var banner_activity = (parseInt(data.users[u].banner_seen) > 0)?'<span class="label label-default">' + data.words.banner_seen + '</span>':'<span class="label label-light">' + data.words.banner_unseen + '</span>';
+                var banner_activity = (parseInt(data.users[u].banner_seen) > 0)?'<span class="badge bg-primary theme-badge-1">' + data.words.banner_seen + '</span>':'<span class="badge bg-light theme-badge-1">' + data.words.banner_unseen + '</span>';
 
                 // Set page activity
-                var page_activity = (parseInt(data.users[u].page_seen) > 0)?'<span class="label label-primary">' + data.words.page_seen + '</span>':'<span class="label label-light">' + data.words.page_unseen + '</span>';
+                var page_activity = (parseInt(data.users[u].page_seen) > 0)?'<span class="badge bg-primary theme-badge-1">' + data.words.page_seen + '</span>':'<span class="badge bg-light theme-badge-1">' + data.words.page_unseen + '</span>';
 
                 // User's status
                 var member_status = '<span class="notifications-user-status-active">'
@@ -1070,7 +1045,7 @@ jQuery(document).ready( function ($) {
                 users += '<li class="notifications-user-single">'
                     + '<div class="row">'
                         + '<div class="col-lg-5 col-md-4 col-xs-4">'
-                            + '<div class="media">'
+                            + '<div class="media d-flex justify-content-start">'
                                 + '<div class="media-left">'
                                     + '<img class="mr-3" src="' + data.users[u].avatar + '" alt="User Avatar" />'
                                 + '</div>'
@@ -1097,7 +1072,7 @@ jQuery(document).ready( function ($) {
                         + '<div class="col-lg-3 col-md-3 col-xs-3">'
                             + '<div class="notifications-user-seen-time">'
                                 + '<span>'
-                                    + Main.calculate_time(data.users[u].created, data.current_time).replace(/<[^>]*>?/gm, '')
+                                    + data.users[u].created
                                 + '</span>'
                             + '</div>'
                         + '</div>'
@@ -1109,33 +1084,30 @@ jQuery(document).ready( function ($) {
             // Display users
             $('.notifications-page .notifications-users-alert .notifications-list-users').html(users);
 
-            // Get the page
-            var page = ( (data.page - 1) < 1)?1:((data.page - 1) * 20);
+            // Set limit
+            let limit = ((data.page * 10) < data.total)?(data.page * 10):data.total;
 
-            // Get results to
-            var to = ((parseInt(page) * 20) < data.total)?(parseInt(data.page) * 20):data.total;
+            // Set text
+            $('.notifications-page .theme-list > .card-footer h6').html((((data.page - 1) * 10) + 1) + '-' + limit + ' ' + data.words.of + ' ' + data.total + ' ' + data.words.results);
 
-            // Display start listing
-            $('.notifications-page .notifications-users-alert .pagination-area .pagination-from').text(page);  
-            
-            // Display end listing
-            $('.notifications-page .notifications-users-alert .pagination-area .pagination-to').text(to);  
+            // Set page
+            Main.pagination.page = data.page;
 
-            // Display total users
-            $('.notifications-page .notifications-users-alert .pagination-area .pagination-total').text(data.total);
+            // Display the pagination
+            Main.show_pagination('.notifications-page .theme-list', data.total);
 
-            // Show the pagination
-            $('.notifications-page .notifications-users-alert .pagination-area').show();
+            // Show pagination
+            $('.notifications-page .theme-list > .card-footer').show();  
             
         } else {  
-            
-            // Create the no users message
-            var no_users = '<li class="default-card-box-no-items-found">'
-                + data.message
-            + '</li>';
 
-            // Display the no users message
-            $('.notifications-page .notifications-users-alert .notifications-list-users').html(no_users);            
+            // Set no data found message
+            var no_data = '<p class="theme-box-1 theme-list-no-results-found">'
+                                + data.message
+                            + '</p>';
+
+            // Display the no data found message
+            $('.notifications-page .theme-list > .card-body').html(no_data);         
             
         }
 

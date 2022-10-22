@@ -167,46 +167,21 @@ jQuery(document).ready( function ($) {
     });
 
     /*
-     * Detect all transactions selection
-     * 
-     * @param object e with global object
-     * 
-     * @since   0.0.8.0
-     */ 
-    $( document ).on( 'click', '.admin-page #admin-transactions-select-all', function (e) {
-
-        setTimeout(function(){
-            
-            if ( $( '.admin-page #admin-transactions-select-all' ).is(':checked') ) {
-
-                $( '.admin-page .list-transactions li input[type="checkbox"]' ).prop('checked', true);
-
-            } else {
-
-                $( '.admin-page .list-transactions li input[type="checkbox"]' ).prop('checked', false);
-
-            }
-        
-        },500);
-        
-    });
-
-    /*
      * Delete transactions
      * 
      * @param object e with global object
      * 
      * @since   0.0.8.0
      */ 
-    $( document ).on( 'click', '.admin-page .delete-transactions', function (e) {
+    $( document ).on( 'click', '.admin-page .admin-delete-transactions', function (e) {
         e.preventDefault();
     
         // Define the transactions ids variable
         var transactions_ids = [];
         
         // Get selected transactions ids
-        $('.admin-page .list-transactions li input[type="checkbox"]:checkbox:checked').each(function () {
-            transactions_ids.push($(this).attr('data-id'));
+        $('.admin-page .theme-list > .card-body input[type="checkbox"]:checkbox:checked').each(function () {
+            transactions_ids.push($(this).attr('data-transaction'));
         });
 
         // Create an object with form data
@@ -231,11 +206,11 @@ jQuery(document).ready( function ($) {
      * 
      * @since   0.0.8.0
      */
-    $(document).on('click', '.admin-page .list-transactions .delete-transaction', function (e) {
+    $(document).on('click', '.admin-page .theme-list > .card-body .admin-delete-transaction', function (e) {
         e.preventDefault();
         
         // Get transaction's id
-        var transaction_id = $(this).closest('.transactions-single').attr('data-id');
+        var transaction_id = $(this).closest('.card-transaction').attr('data-transaction');
 
         // Set data to pass
         var data = {
@@ -279,6 +254,31 @@ jQuery(document).ready( function ($) {
         Main.set_progress_bar();
         
     });
+
+    /*
+     * Detect checkbox check
+     * 
+     * @since   0.0.8.5
+     */ 
+    $( document ).on( 'click', '.admin-page .theme-list > .card-body input[type="checkbox"]', function () {
+
+        // Show the action
+        if ( $('.admin-page .theme-list > .card-body :checkbox:checked').length > 0 ) {
+
+            // Show actions
+            $('.admin-page .card-actions').slideDown('slow');
+
+            // Set selected items
+            $('.admin-page .theme-list .theme-list-selected-items p').html($('.admin-page .theme-list > .card-body :checkbox:checked').length + ' ' + words.selected_items);
+
+        } else {
+
+            // Hide actions
+            $('.admin-page .card-actions').slideUp('slow');
+            
+        }
+        
+    });
    
     /*******************************
     RESPONSES
@@ -310,51 +310,51 @@ jQuery(document).ready( function ($) {
             var all_transactions = '';
             
             // List all transactions
-            for ( var c = 0; c < data.transactions.length; c++ ) {
+            for ( var m = 0; m < data.transactions.length; m++ ) {
 
                 // Default status
-                let status = '<span class="theme-badge-1 bg-light">'
-                                + data.words.incomplete
-                            + '</span>';
+                var status = '<span class="badge bg-light theme-badge-1">'
+                    + data.words.incomplete
+                + '</span>';
 
                 // Verify if transaction was successfully
-                if ( data.transactions[c].status === '1' ) {
+                if ( data.transactions[m].status === '1' ) {
 
-                    status = '<span class="theme-badge-1 bg-primary">'
-                                    + data.words.success
-                                + '</span>';         
+                    status = '<span class="badge bg-primary theme-badge-1">'
+                        + data.words.success
+                    + '</span>';         
     
-                } else if ( data.transactions[c].status > 1 ) {
+                } else if ( data.transactions[m].status > 1 ) {
 
-                    status = '<span class="theme-badge-1 bg-danger">'
-                                    + data.words.error
-                                + '</span>';                        
+                    status = '<span class="badge bg-danger theme-badge-1">'
+                        + data.words.error
+                    + '</span>';                        
 
                 }
 
                 // Set transaction
-                all_transactions += '<div class="card theme-box-1 card-transaction" data-transaction="' + data.transactions[m].user_id + '">'
+                all_transactions += '<div class="card theme-box-1 card-transaction" data-transaction="' + data.transactions[m].transaction_id + '">'
                     + '<div class="card-header">'
                         + '<div class="row">'
                             + '<div class="col-lg-10 col-md-8 col-xs-8">'
                                 + '<div class="media d-flex justify-content-start">'
                                     + '<div class="theme-checkbox-input-1">'
-                                        + '<label for="admin-single-' + data.transactions[m].user_id + '">'
-                                            + '<input type="checkbox" id="admin-single-' + data.transactions[m].user_id + '" data-transaction="' + data.transactions[m].user_id + '">'
+                                        + '<label for="admin-single-' + data.transactions[m].transaction_id + '">'
+                                            + '<input type="checkbox" id="admin-single-' + data.transactions[m].transaction_id + '" data-transaction="' + data.transactions[m].transaction_id + '">'
                                             + '<span class="theme-checkbox-checkmark"></span>'
                                         + '</label>'
                                     + '</div>'
                                     + '<div class="media-body">'
                                         + '<h5>'
-                                            + '<a href="' + url + 'admin/admin?p=all_transactions&transaction=' + data.transactions[m].user_id + '">'
-                                                + '#' + data.transactions[c].transaction_id
+                                            + '<a href="' + url + 'admin/admin?p=transactions&transaction=' + data.transactions[m].transaction_id + '">'
+                                                + '#' + data.transactions[m].transaction_id
                                             + '</a>'
                                         + '</h5>'
                                     + '</div>'
                                 + '</div>'
                             + '</div>'
                             + '<div class="col-lg-1 col-md-2 col-xs-2">'
-                                + transaction_status
+                                + status
                             + '</div>'
                             + '<div class="col-lg-1 col-md-2 col-xs-2 text-end">'
                                 + '<div class="btn-group theme-dropdown-2">'
@@ -427,6 +427,9 @@ jQuery(document).ready( function ($) {
             
             // Display alert
             Main.show_alert('success', data.message, 1500, 2000);
+
+            // Hide actions
+            $('.admin-page .card-actions').slideUp('slow');
             
             // Load all transactions
             Main.load_payments_transactions(1);

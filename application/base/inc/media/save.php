@@ -38,6 +38,7 @@ if ( !function_exists('md_save_media') ) {
                 'cover' => $params['cover'],
                 'size' => $params['size'],
                 'type' => $params['type'],
+                'extension' => $params['extension'],
                 'created' => time()
             );
 

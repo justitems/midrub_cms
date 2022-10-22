@@ -35,3 +35,6 @@ $lang["dashboard_the_event_wrong_parameters"] = "The event contains invalid para
 $lang["dashboard_no_valid_event_meta"] = "The event's meta contains invalid parameters.";
 $lang["dashboard_a_event_meta_not_saved"] = "An event's meta was not saved successfully.";
 $lang["dashboard_no_events_were_found"] = "No events were found.";
+$lang["dashboard_incomplete"] = "incomplete";
+$lang["dashboard_success"] = "success";
+$lang["dashboard_error"] = "error";

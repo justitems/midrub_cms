@@ -27,6 +27,21 @@
                     </div>
                 </div>
             </div>
+            <div class="card-actions theme-box-1">
+                <div class="row">
+                    <div class="col theme-list-selected-items" data-total="1">
+                        <p></p>
+                    </div>
+                    <div class="col text-end">
+                        <div class="btn-group card-actions-advaced" role="group" aria-label="Actions buttons">
+                            <button type="button" class="btn btn-secondary theme-button-1 notifications-delete-alerts">
+                                <?php echo md_the_admin_icon(array('icon' => 'delete')); ?>
+                                <?php echo $this->lang->line('notifications_delete'); ?>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="card-body"></div>
             <div class="card-footer theme-box-1">
                 <div class="row">

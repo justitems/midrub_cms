@@ -1,4 +1,10 @@
 /*******************************
+SCROLLBAR GLOBAL COLORS
+********************************/
+$default-color-scrollbar-1-track: #F9FAFC;
+$default-color-scrollbar-1-thumb: #dee2ea;
+
+/*******************************
 DEFAULT MIXING FOR SCROLLING
 ********************************/
 
@@ -15,12 +21,16 @@ DEFAULT MIXING FOR SCROLLING
     &::-webkit-scrollbar-track {
         border: 3px solid transparent;
         border-radius: 6px;
-        background-color: #F9FAFC;
+        background-color: $default-color-scrollbar-1-track;
+        -webkit-transition: background-color 0.7s linear;
+        transition: background-color 0.7s linear;
     }
     
     &::-webkit-scrollbar-thumb {
         border-radius: 6px;
-        background-color: #dee2ea;
+        background-color: $default-color-scrollbar-1-thumb;
+        -webkit-transition: background-color 0.7s linear;
+        transition: background-color 0.7s linear;
     }
 
 }

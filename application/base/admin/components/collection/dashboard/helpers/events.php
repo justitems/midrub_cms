@@ -218,13 +218,13 @@ class Events {
 
         }
         
-        // Prepare the false response
+        // Prepare the error response
         $data = array(
             'success' => FALSE,
             'message' => $this->CI->lang->line('dashboard_no_events_were_found')
         );
 
-        // Display the false response
+        // Display the error response
         echo json_encode($data);
         
     }

@@ -15,7 +15,7 @@ namespace CmsBase\Admin\Components\Collection\Admin;
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 defined('CMS_BASE_ADMIN_COMPONENTS_ADMIN') OR define('CMS_BASE_ADMIN_COMPONENTS_ADMIN', CMS_BASE_PATH . 'admin/components/collection/admin/');
-defined('CMS_BASE_ADMIN_COMPONENTS_ADMIN_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_ADMIN_VERSION', '0.0.4');
+defined('CMS_BASE_ADMIN_COMPONENTS_ADMIN_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_ADMIN_VERSION', '0.0.53');
 
 // Define the namespaces to use
 use CmsBase\Admin\Interfaces as CmsBaseAdminInterfaces;

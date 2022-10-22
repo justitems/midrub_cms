@@ -107,6 +107,17 @@
 
                 ),
                 array(
+                    'field_slug' => 'auth_enable_social_login',
+                    'field_type' => 'checkbox',
+                    'field_words' => array(
+                        'field_title' => $this->lang->line('frontend_enable_social_login'),
+                        'field_description' => $this->lang->line('frontend_enable_social_login_description')
+                    ),
+                    'field_params' => array(
+                        'checked' => md_the_option('auth_enable_social_login')?md_the_option('auth_enable_social_login'):0
+                    )
+
+                ), array(
                     'field_slug' => 'auth_enable_username_input',
                     'field_type' => 'checkbox',
                     'field_words' => array(
@@ -114,10 +125,10 @@
                         'field_description' => $this->lang->line('frontend_enable_username_description')
                     ),
                     'field_params' => array(
-                        'checked' => 0
+                        'checked' => md_the_option('auth_enable_username_input')?md_the_option('auth_enable_username_input'):0
                     )
 
-                )                                       
+                )                                    
 
             )
 
