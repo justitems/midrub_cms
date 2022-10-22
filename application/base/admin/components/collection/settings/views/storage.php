@@ -55,7 +55,7 @@
                     ),
                     'fields' => array(
                         array(
-                            'field_slug' => 'storage_dropdown',
+                            'field_slug' => 'storage_location',
                             'field_type' => 'dynamic_list',
                             'field_words' => array(
                                 'field_title' => $this->lang->line('settings_storage_location'),

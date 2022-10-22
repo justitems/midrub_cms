@@ -22,9 +22,15 @@ DEFAULT AREA SEPARATOR MIXING
         }
 
         i {
-            vertical-align: text-bottom;
+            vertical-align: bottom;
             margin-right: 5px;
-            font-size: 16px;            
+
+            &.material-icons-outlined {
+                vertical-align: text-bottom;
+                margin-right: 5px;
+                font-size: 16px;                  
+            }
+          
         }
 
         svg {

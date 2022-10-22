@@ -36,7 +36,7 @@
                     <?php echo $this->lang->line('frontend_create'); ?>
                 </button>
             </div>
-            <?php echo form_close() ?>
+            <?php echo form_close(); ?>
         </div>
     </div>
 </div>

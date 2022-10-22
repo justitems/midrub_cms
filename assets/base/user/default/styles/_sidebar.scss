@@ -2,7 +2,7 @@
 MIXINGS FOR SIDEBAR
 ********************************/
 
-@mixin default-sidebar {
+@mixin default-sidebar-1 {
     padding: 15px 15px 100px;
     min-height: 100vh;
     border-right: 1px solid $default-border-color;
@@ -130,8 +130,8 @@ MIXINGS FOR SIDEBAR
             background-color: transparent;
 
             
-            .default-sidebar-no-data-found,
-            .theme-sidebar-selected-item {
+            .theme-sidebar-1-no-data-found,
+            .theme-sidebar-1-selected-item {
                 margin-top: -7.5px !important;
                 margin-left: -15px !important;
                 padding: 0 !important;
@@ -142,7 +142,7 @@ MIXINGS FOR SIDEBAR
                 border-right: 15px solid #eef1f7 !important;
             }
 
-            .default-sidebar-no-data-found {
+            .theme-sidebar-1-no-data-found {
                 height: 36.5px;
                 font-size: 14px;
                 font-weight: 400;
@@ -155,7 +155,7 @@ MIXINGS FOR SIDEBAR
                 border: 0;
                 background-color: transparent;
 
-                &.theme-sidebar-selected-item {
+                &.theme-sidebar-1-selected-item {
                     margin-top: -7.5px !important;
                     margin-left: -15px !important;
                     padding: 0 !important;
@@ -176,6 +176,12 @@ MIXINGS FOR SIDEBAR
                     margin-top: -14px;
                     margin-right: 5px;
                     font-size: 16px;
+
+                    &.material-icons-outlined {
+                        line-height: inherit;
+                        font-size: 19px;
+                    }
+
                 }
                 
                 a {
@@ -195,7 +201,7 @@ MIXINGS FOR SIDEBAR
 
                 }
 
-                .theme-sidebar-label {
+                .theme-sidebar-1-label {
                     margin-top: 1px;
                     padding: 2px 8px;
                     height: 19px;
@@ -244,7 +250,7 @@ MIXINGS FOR SIDEBAR
 
     }
 
-    .default-sidebar-search-options {
+    .theme-sidebar-2-search-options {
         display: inline-block;
         width: 100%;
         border-radius: 8px;
@@ -302,7 +308,7 @@ MIXINGS FOR SIDEBAR
 
     }
 
-    .default-sidebar-search-options-list {
+    .theme-sidebar-2-search-options-list {
         display: none;
         position: absolute;
         z-index: 1;
@@ -338,13 +344,19 @@ MIXINGS FOR SIDEBAR
             }
             
             &:hover {
-                background-color: $default-background-color;
+                background-color: #f7f9fc;
             }
 
             i {
                 vertical-align: sub;
                 margin-right: 5px;
                 font-size: 18px;
+            }
+
+            img {
+                vertical-align: sub;
+                margin-right: 5px;
+                max-width: 18px;
             }
             
         }
@@ -357,7 +369,7 @@ MIXINGS FOR SIDEBAR
 
     }
 
-    .default-sidebar-pages-links {
+    .theme-sidebar-2-pages-links {
         margin: 15px 0;
         padding: 0 5px 0 0;
         width: calc(100% + 5px);
@@ -402,7 +414,7 @@ MIXINGS FOR SIDEBAR
                     background-color:#F3F9FF;                        
                 }
 
-                &.default-sidebar-pages-link-active {
+                &.theme-sidebar-2-pages-link-active {
                     border-radius: 0 14px 14px 0;
                     color: $default-color-black;
                     background-color:#E1F1FF;

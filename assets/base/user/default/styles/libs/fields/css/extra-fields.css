@@ -1,0 +1,637 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+THEME GLOBAL COLORS
+********************************/
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Inter:wght@200;300;400;500;600&display=swap");
+/*******************************
+THEME GLOBAL FONTS
+********************************/
+/*******************************
+DEFAULT EXTRA FIELDS STYLES
+********************************/
+.default-extra-fields {
+  margin: 0 0 25px;
+  padding: 0; }
+  .default-extra-fields > li {
+    margin-bottom: 15px;
+    padding: 0;
+    list-style: none; }
+    .default-extra-fields > li:last-child {
+      margin-bottom: 0; }
+    .default-extra-fields > li .default-extra-fields-no-fields-message {
+      margin: 0;
+      padding: 15px;
+      border-radius: 6px;
+      list-style: none;
+      font-size: 14px;
+      background-color: #FFFFFF; }
+    .default-extra-fields > li .default-extra-icon {
+      margin-right: 15px;
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+      line-height: 40px;
+      text-align: center;
+      color: #344564;
+      background-color: #F4F9FF; }
+      @media screen and (max-width: 1349px) {
+        .default-extra-fields > li .default-extra-icon {
+          vertical-align: top; } }
+      .default-extra-fields > li .default-extra-icon i {
+        font-size: 24px; }
+        .default-extra-fields > li .default-extra-icon i.material-icons-outlined {
+          line-height: inherit; }
+    .default-extra-fields > li .default-extra-text {
+      min-height: 40px; }
+      .default-extra-fields > li .default-extra-text h4 {
+        position: relative;
+        margin: 0 0 4px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px; }
+      .default-extra-fields > li .default-extra-text p {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 13px;
+        color: #8F9EC2; }
+        .default-extra-fields > li .default-extra-text p a {
+          padding-bottom: 1px;
+          border-bottom: 1px solid transparent;
+          text-decoration: none;
+          color: #344564; }
+          .default-extra-fields > li .default-extra-text p a:hover, .default-extra-fields > li .default-extra-text p a:focus, .default-extra-fields > li .default-extra-text p a:active {
+            text-decoration: none; }
+          .default-extra-fields > li .default-extra-text p a:hover {
+            border-bottom: 1px solid #344564; }
+    .default-extra-fields > li .default-extra-field-required {
+      position: absolute;
+      top: -5px;
+      padding-left: 3px;
+      font-size: 23px;
+      color: #AE586C; }
+    .default-extra-fields > li .default-extra-field-header {
+      margin: 0;
+      padding: 0; }
+      .default-extra-fields > li .default-extra-field-header h2 {
+        margin: 0;
+        padding: 0;
+        text-transform: uppercase;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        color: #52567C; }
+    .default-extra-fields > li .default-extra-field-basic {
+      position: relative;
+      margin: 0;
+      padding: 9px 15px 9px;
+      border-radius: 6px;
+      list-style: none;
+      background-color: #FFFFFF; }
+    .default-extra-fields > li .default-extra-field-text-1 {
+      position: relative;
+      margin: 0;
+      padding: 13px 15px 9px;
+      border-radius: 6px;
+      list-style: none;
+      background-color: #FFFFFF; }
+      .default-extra-fields > li .default-extra-field-text-1 label {
+        position: absolute;
+        top: 11px;
+        left: 15px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        color: #344564;
+        transform-origin: 0 50%;
+        transition: all 0.2s;
+        pointer-events: none; }
+      .default-extra-fields > li .default-extra-field-text-1 input[type="text"] {
+        margin-top: 0;
+        padding: 0;
+        box-sizing: border-box;
+        width: 100%;
+        height: 28px;
+        border: 0;
+        border-radius: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #344564;
+        background-color: transparent;
+        outline: 0; }
+        .default-extra-fields > li .default-extra-field-text-1 input[type="text"]:focus, .default-extra-fields > li .default-extra-field-text-1 input[type="text"]:not(:placeholder-shown) {
+          margin-top: 10px;
+          height: 18px; }
+          .default-extra-fields > li .default-extra-field-text-1 input[type="text"]:focus::placeholder, .default-extra-fields > li .default-extra-field-text-1 input[type="text"]:not(:placeholder-shown)::placeholder {
+            color: #8F9EC2 !important; }
+          .default-extra-fields > li .default-extra-field-text-1 input[type="text"]:focus:-ms-input-placeholder, .default-extra-fields > li .default-extra-field-text-1 input[type="text"]:not(:placeholder-shown):-ms-input-placeholder {
+            color: #8F9EC2 !important; }
+          .default-extra-fields > li .default-extra-field-text-1 input[type="text"]:focus::-ms-input-placeholder, .default-extra-fields > li .default-extra-field-text-1 input[type="text"]:not(:placeholder-shown)::-ms-input-placeholder {
+            color: #8F9EC2 !important; }
+        .default-extra-fields > li .default-extra-field-text-1 input[type="text"]:focus, .default-extra-fields > li .default-extra-field-text-1 input[type="text"]:active, .default-extra-fields > li .default-extra-field-text-1 input[type="text"]:-webkit-autofill, .default-extra-fields > li .default-extra-field-text-1 input[type="text"]:-webkit-autofill:hover, .default-extra-fields > li .default-extra-field-text-1 input[type="text"]:-webkit-autofill:focus, .default-extra-fields > li .default-extra-field-text-1 input[type="text"]:-webkit-autofill:active {
+          box-shadow: 0 0 0 30px #FFFFFF inset !important;
+          -webkit-box-shadow: 0 0 0 30px #FFFFFF inset !important; }
+        .default-extra-fields > li .default-extra-field-text-1 input[type="text"]::placeholder {
+          color: transparent !important; }
+        .default-extra-fields > li .default-extra-field-text-1 input[type="text"]:-ms-input-placeholder {
+          color: transparent !important; }
+        .default-extra-fields > li .default-extra-field-text-1 input[type="text"]::-ms-input-placeholder {
+          color: transparent !important; }
+      .default-extra-fields > li .default-extra-field-text-1 input[type="text"]:focus ~ label,
+      .default-extra-fields > li .default-extra-field-text-1 input[type="text"]:not(:placeholder-shown) ~ label {
+        transform: translateY(-13px) translateX(0) scale(0.8); }
+      .default-extra-fields > li .default-extra-field-text-1 input[type="text"]:not(:placeholder-shown) ~ label {
+        top: 14px;
+        color: #8F9EC2; }
+      .default-extra-fields > li .default-extra-field-text-1 input[type="text"]:focus ~ label {
+        top: 14px;
+        color: #2E92FA; }
+    .default-extra-fields > li .default-extra-field-textarea-1 {
+      position: relative;
+      margin: 0;
+      padding: 13px 15px 9px;
+      border-radius: 6px;
+      list-style: none;
+      background-color: #FFFFFF; }
+      .default-extra-fields > li .default-extra-field-textarea-1 label {
+        position: absolute;
+        top: 11px;
+        left: 15px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        color: #344564;
+        transform-origin: 0 50%;
+        transition: all 0.2s;
+        pointer-events: none; }
+        .default-extra-fields > li .default-extra-field-textarea-1 label .default-extra-field-textarea-1-required {
+          position: absolute;
+          top: -5px;
+          right: -13px;
+          font-size: 23px;
+          color: #AE586C; }
+      .default-extra-fields > li .default-extra-field-textarea-1 textarea {
+        margin-top: 0;
+        padding: 0;
+        box-sizing: border-box;
+        width: 100%;
+        height: 21px;
+        border: 0;
+        border-radius: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #344564;
+        background-color: transparent;
+        transition: all 0.3s ease-in-out;
+        outline: 0;
+        resize: none; }
+        .default-extra-fields > li .default-extra-field-textarea-1 textarea:focus, .default-extra-fields > li .default-extra-field-textarea-1 textarea:not(:placeholder-shown) {
+          margin-top: 10px;
+          height: 60px; }
+          .default-extra-fields > li .default-extra-field-textarea-1 textarea:focus::placeholder, .default-extra-fields > li .default-extra-field-textarea-1 textarea:not(:placeholder-shown)::placeholder {
+            color: #8F9EC2 !important; }
+          .default-extra-fields > li .default-extra-field-textarea-1 textarea:focus:-ms-input-placeholder, .default-extra-fields > li .default-extra-field-textarea-1 textarea:not(:placeholder-shown):-ms-input-placeholder {
+            color: #8F9EC2 !important; }
+          .default-extra-fields > li .default-extra-field-textarea-1 textarea:focus::-ms-input-placeholder, .default-extra-fields > li .default-extra-field-textarea-1 textarea:not(:placeholder-shown)::-ms-input-placeholder {
+            color: #8F9EC2 !important; }
+        .default-extra-fields > li .default-extra-field-textarea-1 textarea:focus, .default-extra-fields > li .default-extra-field-textarea-1 textarea:active, .default-extra-fields > li .default-extra-field-textarea-1 textarea:-webkit-autofill, .default-extra-fields > li .default-extra-field-textarea-1 textarea:-webkit-autofill:hover, .default-extra-fields > li .default-extra-field-textarea-1 textarea:-webkit-autofill:focus, .default-extra-fields > li .default-extra-field-textarea-1 textarea:-webkit-autofill:active {
+          box-shadow: 0 0 0 30px #FFFFFF inset !important;
+          -webkit-box-shadow: 0 0 0 30px #FFFFFF inset !important; }
+        .default-extra-fields > li .default-extra-field-textarea-1 textarea::placeholder {
+          color: transparent !important; }
+        .default-extra-fields > li .default-extra-field-textarea-1 textarea:-ms-input-placeholder {
+          color: transparent !important; }
+        .default-extra-fields > li .default-extra-field-textarea-1 textarea::-ms-input-placeholder {
+          color: transparent !important; }
+      .default-extra-fields > li .default-extra-field-textarea-1 textarea:focus ~ label,
+      .default-extra-fields > li .default-extra-field-textarea-1 textarea:not(:placeholder-shown) ~ label {
+        transform: translateY(-13px) translateX(0) scale(0.8); }
+      .default-extra-fields > li .default-extra-field-textarea-1 textarea:not(:placeholder-shown) ~ label {
+        top: 14px;
+        color: #8F9EC2; }
+      .default-extra-fields > li .default-extra-field-textarea-1 textarea:focus ~ label {
+        top: 14px;
+        color: #2E92FA; }
+    .default-extra-fields > li .default-extra-field-number-1 {
+      position: relative;
+      margin: 0;
+      padding: 13px 15px 13px;
+      border-radius: 6px;
+      list-style: none;
+      background-color: #FFFFFF; }
+      .default-extra-fields > li .default-extra-field-number-1 .default-extra-text {
+        width: calc(100% - 90px); }
+      .default-extra-fields > li .default-extra-field-number-1 .default-extra-field-number-1-option {
+        padding-right: 5px;
+        width: 100%;
+        text-align: right; }
+        .default-extra-fields > li .default-extra-field-number-1 .default-extra-field-number-1-option .input-group {
+          margin-top: 3px; }
+          .default-extra-fields > li .default-extra-field-number-1 .default-extra-field-number-1-option .input-group input[type="text"] {
+            margin-right: 10px;
+            height: 35px;
+            border: 0;
+            border-radius: 4px;
+            font-size: 14px;
+            background-color: #F4F9FF; }
+          .default-extra-fields > li .default-extra-field-number-1 .default-extra-field-number-1-option .input-group .btn {
+            height: 35px;
+            border: 0;
+            border-radius: 4px;
+            line-height: 22px;
+            background-color: #52567C; }
+            .default-extra-fields > li .default-extra-field-number-1 .default-extra-field-number-1-option .input-group .btn:last-child {
+              margin-left: 5px; }
+            .default-extra-fields > li .default-extra-field-number-1 .default-extra-field-number-1-option .input-group .btn i {
+              font-size: 18px; }
+      @media screen and (max-width: 1349px) {
+        .default-extra-fields > li .default-extra-field-number-1 {
+          display: inherit !important; }
+          .default-extra-fields > li .default-extra-field-number-1 .default-extra-icon {
+            display: inline-block; }
+          .default-extra-fields > li .default-extra-field-number-1 .default-extra-text {
+            display: inline-block;
+            width: calc(100% - 80px); }
+          .default-extra-fields > li .default-extra-field-number-1 .default-extra-field-number-1-option {
+            justify-content: inherit !important;
+            margin-top: 15px;
+            width: 100%; } }
+    .default-extra-fields > li .default-extra-field-checkbox-1 {
+      position: relative;
+      margin: 0;
+      padding: 13px 15px 13px;
+      border-radius: 6px;
+      list-style: none;
+      background-color: #FFFFFF; }
+      .default-extra-fields > li .default-extra-field-checkbox-1 .default-extra-text {
+        width: calc(100% - 90px); }
+      .default-extra-fields > li .default-extra-field-checkbox-1 .default-extra-field-checkbox-1-option {
+        padding-right: 5px;
+        width: 100%;
+        text-align: right; }
+        .default-extra-fields > li .default-extra-field-checkbox-1 .default-extra-field-checkbox-1-option input[type=checkbox] {
+          display: none; }
+        .default-extra-fields > li .default-extra-field-checkbox-1 .default-extra-field-checkbox-1-option label {
+          cursor: pointer;
+          position: relative;
+          display: inline-block !important;
+          margin: 18px 0 0;
+          width: 50px; }
+        .default-extra-fields > li .default-extra-field-checkbox-1 .default-extra-field-checkbox-1-option label::before {
+          content: '';
+          margin: -12px 0 0 -45px;
+          position: absolute;
+          width: 50px;
+          height: 26px;
+          border: 1px solid #F4F9FF;
+          border-radius: 13px;
+          background-color: #F4F9FF;
+          transition: all 0.5s ease-in-out; }
+        .default-extra-fields > li .default-extra-field-checkbox-1 .default-extra-field-checkbox-1-option label::after {
+          content: '';
+          position: absolute;
+          top: -10px;
+          left: 7px;
+          width: 22px;
+          height: 22px;
+          border-radius: 25px;
+          background-color: #8F9EC2;
+          transition: all 0.3s ease-in-out; }
+        .default-extra-fields > li .default-extra-field-checkbox-1 .default-extra-field-checkbox-1-option input[type=checkbox]:checked + label::after {
+          left: 31px;
+          background-color: #344564;
+          box-shadow: none; }
+    .default-extra-fields > li .default-extra-field-select-1 {
+      position: relative;
+      margin: 0;
+      padding: 13px 15px 13px;
+      border-radius: 6px;
+      list-style: none;
+      background-color: #FFFFFF; }
+      .default-extra-fields > li .default-extra-field-select-1 .default-extra-text {
+        width: calc(100% - 40px); }
+      .default-extra-fields > li .default-extra-field-select-1 .dropdown {
+        margin-top: 15px;
+        width: 100%;
+        height: 48px; }
+        .default-extra-fields > li .default-extra-field-select-1 .dropdown .btn-secondary {
+          padding: 0.375rem 15px;
+          height: 45px; }
+          .default-extra-fields > li .default-extra-field-select-1 .dropdown .btn-secondary span {
+            line-height: 32px; }
+        .default-extra-fields > li .default-extra-field-select-1 .dropdown .dropdown-menu {
+          width: 100%; }
+    .default-extra-fields > li .default-extra-field-time-1 {
+      position: relative;
+      margin: 0;
+      padding: 13px 15px 13px;
+      border-radius: 6px;
+      list-style: none;
+      background-color: #FFFFFF; }
+      .default-extra-fields > li .default-extra-field-time-1 .default-extra-text {
+        width: calc(100% - 300px); }
+      .default-extra-fields > li .default-extra-field-time-1 .default-extra-field-time-1-option {
+        padding-top: 10px;
+        padding-right: 5px;
+        width: 100%;
+        text-align: right; }
+      @media screen and (max-width: 1349px) {
+        .default-extra-fields > li .default-extra-field-time-1 {
+          display: inherit !important; }
+          .default-extra-fields > li .default-extra-field-time-1 .default-extra-icon {
+            display: inline-block; }
+          .default-extra-fields > li .default-extra-field-time-1 .default-extra-text {
+            display: inline-block;
+            width: calc(100% - 80px); }
+          .default-extra-fields > li .default-extra-field-time-1 .default-extra-field-time-1-option {
+            justify-content: inherit !important;
+            margin-top: 15px;
+            width: 100%; } }
+    .default-extra-fields > li .default-extra-field-media-1 {
+      position: relative;
+      margin: 0;
+      padding: 13px 15px 9px;
+      border-radius: 6px;
+      list-style: none;
+      background-color: #FFFFFF; }
+      .default-extra-fields > li .default-extra-field-media-1 label {
+        position: absolute;
+        top: 11px;
+        left: 15px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        color: #344564;
+        transform-origin: 0 50%;
+        transition: all 0.2s;
+        pointer-events: none; }
+      .default-extra-fields > li .default-extra-field-media-1 input[type="text"] {
+        margin-top: 0;
+        margin-right: 15px;
+        padding: 0;
+        box-sizing: border-box;
+        width: 100%;
+        height: 28px;
+        border: 0;
+        border-radius: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #344564;
+        background-color: transparent;
+        outline: 0; }
+        .default-extra-fields > li .default-extra-field-media-1 input[type="text"]:focus, .default-extra-fields > li .default-extra-field-media-1 input[type="text"]:not(:placeholder-shown) {
+          margin-top: 10px;
+          height: 18px; }
+          .default-extra-fields > li .default-extra-field-media-1 input[type="text"]:focus::placeholder, .default-extra-fields > li .default-extra-field-media-1 input[type="text"]:not(:placeholder-shown)::placeholder {
+            color: #8F9EC2 !important; }
+          .default-extra-fields > li .default-extra-field-media-1 input[type="text"]:focus:-ms-input-placeholder, .default-extra-fields > li .default-extra-field-media-1 input[type="text"]:not(:placeholder-shown):-ms-input-placeholder {
+            color: #8F9EC2 !important; }
+          .default-extra-fields > li .default-extra-field-media-1 input[type="text"]:focus::-ms-input-placeholder, .default-extra-fields > li .default-extra-field-media-1 input[type="text"]:not(:placeholder-shown)::-ms-input-placeholder {
+            color: #8F9EC2 !important; }
+        .default-extra-fields > li .default-extra-field-media-1 input[type="text"]:focus, .default-extra-fields > li .default-extra-field-media-1 input[type="text"]:active, .default-extra-fields > li .default-extra-field-media-1 input[type="text"]:-webkit-autofill, .default-extra-fields > li .default-extra-field-media-1 input[type="text"]:-webkit-autofill:hover, .default-extra-fields > li .default-extra-field-media-1 input[type="text"]:-webkit-autofill:focus, .default-extra-fields > li .default-extra-field-media-1 input[type="text"]:-webkit-autofill:active {
+          box-shadow: 0 0 0 30px #FFFFFF inset !important;
+          -webkit-box-shadow: 0 0 0 30px #FFFFFF inset !important; }
+        .default-extra-fields > li .default-extra-field-media-1 input[type="text"]::placeholder {
+          color: transparent !important; }
+        .default-extra-fields > li .default-extra-field-media-1 input[type="text"]:-ms-input-placeholder {
+          color: transparent !important; }
+        .default-extra-fields > li .default-extra-field-media-1 input[type="text"]::-ms-input-placeholder {
+          color: transparent !important; }
+      .default-extra-fields > li .default-extra-field-media-1 input[type="text"]:focus ~ label,
+      .default-extra-fields > li .default-extra-field-media-1 input[type="text"]:not(:placeholder-shown) ~ label {
+        transform: translateY(-13px) translateX(0) scale(0.8); }
+      .default-extra-fields > li .default-extra-field-media-1 input[type="text"]:not(:placeholder-shown) ~ label {
+        top: 14px;
+        color: #8F9EC2; }
+      .default-extra-fields > li .default-extra-field-media-1 input[type="text"]:focus ~ label {
+        top: 14px;
+        color: #2E92FA; }
+      .default-extra-fields > li .default-extra-field-media-1 .btn-light {
+        margin-top: -4px;
+        padding: 2px 8px;
+        border: 0 !important;
+        background-color: #F4F9FF; }
+        .default-extra-fields > li .default-extra-field-media-1 .btn-light:focus, .default-extra-fields > li .default-extra-field-media-1 .btn-light:active {
+          background-color: #F4F9FF; }
+        .default-extra-fields > li .default-extra-field-media-1 .btn-light i {
+          color: #344564; }
+    .default-extra-fields > li .default-extra-field-days-1 {
+      position: relative;
+      margin: 0;
+      padding: 13px 15px 13px;
+      border-radius: 6px;
+      list-style: none;
+      background-color: #FFFFFF; }
+      .default-extra-fields > li .default-extra-field-days-1 .default-extra-text {
+        width: calc(100% - 300px); }
+      .default-extra-fields > li .default-extra-field-days-1 .default-extra-field-days-1-option .default-extra-field-days-1-option-days .btn-secondary {
+        margin-top: 5.5px;
+        margin-right: 10px;
+        height: 30px;
+        min-width: 50px;
+        border: 0;
+        border-radius: 4px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        color: #344564;
+        background-color: #F4F9FF; }
+        .default-extra-fields > li .default-extra-field-days-1 .default-extra-field-days-1-option .default-extra-field-days-1-option-days .btn-secondary:last-child {
+          margin-right: 0; }
+        .default-extra-fields > li .default-extra-field-days-1 .default-extra-field-days-1-option .default-extra-field-days-1-option-days .btn-secondary:hover, .default-extra-fields > li .default-extra-field-days-1 .default-extra-field-days-1-option .default-extra-field-days-1-option-days .btn-secondary.default-extra-field-days-1-option-days-selected {
+          color: #FFFFFF;
+          background-color: #52567C;
+          opacity: 1; }
+      @media screen and (max-width: 1349px) {
+        .default-extra-fields > li .default-extra-field-days-1 {
+          display: inherit !important; }
+          .default-extra-fields > li .default-extra-field-days-1 .default-extra-icon {
+            display: inline-block; }
+          .default-extra-fields > li .default-extra-field-days-1 .default-extra-text {
+            display: inline-block;
+            width: calc(100% - 80px); }
+          .default-extra-fields > li .default-extra-field-days-1 .default-extra-field-days-1-option {
+            justify-content: inherit !important;
+            margin-top: 15px;
+            width: 100%; }
+            .default-extra-fields > li .default-extra-field-days-1 .default-extra-field-days-1-option .default-extra-field-days-1-option-days .btn-secondary {
+              min-width: 36px; } }
+    .default-extra-fields > li .default-extra-field-colors-1 {
+      position: relative;
+      margin: 0;
+      padding: 13px 15px 9px;
+      border-radius: 6px;
+      list-style: none;
+      background-color: #FFFFFF; }
+      .default-extra-fields > li .default-extra-field-colors-1 label {
+        position: absolute;
+        top: 14px;
+        left: 15px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        color: #8F9EC2;
+        transform-origin: 0 50%;
+        transform: translateY(-13px) translateX(0) scale(0.8);
+        transition: all 0.2s;
+        pointer-events: none; }
+      .default-extra-fields > li .default-extra-field-colors-1 ul {
+        margin: 20px 0 0;
+        padding: 0; }
+        .default-extra-fields > li .default-extra-field-colors-1 ul li {
+          display: inline-block;
+          margin-right: 15px;
+          list-style: none; }
+          .default-extra-fields > li .default-extra-field-colors-1 ul li.default-extra-field-colors-1-no-colors-found {
+            padding: 7px 15px;
+            width: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #344564;
+            background-color: #f7f9fc; }
+          .default-extra-fields > li .default-extra-field-colors-1 ul li a {
+            display: block;
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            line-height: 38px;
+            text-align: center;
+            background-color: var(--background); }
+            .default-extra-fields > li .default-extra-field-colors-1 ul li a svg {
+              width: 19px;
+              height: 19px;
+              color: #FFFFFF;
+              opacity: 0;
+              transform: scale(0.7);
+              transition: all 0.2s; }
+            .default-extra-fields > li .default-extra-field-colors-1 ul li a.default-extra-field-colors-selected svg {
+              width: 22px;
+              height: 22px;
+              opacity: 1;
+              transform: scale(1); }
+    .default-extra-fields > li .default-extra-field-times-1 {
+      border-radius: 4px;
+      background-color: #f2f4f9; }
+      .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-manage-times {
+        padding: 7px 15px;
+        width: 100%;
+        height: 40px;
+        border-radius: 4px 4px 0 0;
+        background-color: #FFFFFF; }
+        .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-manage-times .btn-group .btn {
+          margin-right: 15px;
+          padding: 2px 15px 4px;
+          border: 0;
+          border-radius: 4px;
+          line-height: 19px;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 13px;
+          color: #344564;
+          background-color: #eaedf6;
+          transition: all 0.3s; }
+          .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-manage-times .btn-group .btn:hover {
+            color: #FFFFFF;
+            background-color: #5e6278;
+            opacity: 1; }
+      .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times {
+        padding: 15px; }
+        .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times .default-extra-field-time {
+          margin-bottom: 15px;
+          padding: 10px 15px;
+          width: 100%;
+          border-radius: 4px;
+          background-color: #FFFFFF; }
+          .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times .default-extra-field-time:last-child {
+            margin-bottom: 0; }
+          @media screen and (max-width: 1445px) {
+            .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times .default-extra-field-time > div > div {
+              -ms-flex: 0 0 100%;
+              flex: 0 0 100%;
+              max-width: 100%; }
+              .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times .default-extra-field-time > div > div:first-child {
+                margin-bottom: 15px; } }
+          @media screen and (max-width: 830px) {
+            .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times .default-extra-field-time > div > div:last-child .d-flex {
+              display: block !important; }
+              .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times .default-extra-field-time > div > div:last-child .d-flex > div {
+                margin: 0 0 15px !important; }
+                .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times .default-extra-field-time > div > div:last-child .d-flex > div .dropdown .dropdown-menu {
+                  transform: translate3d(-146px, 28px, 0px) !important; } }
+          .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times .default-extra-field-time .default-extra-field-time-days .btn-secondary {
+            margin-right: 10px;
+            padding: 3px 0;
+            height: 25px;
+            min-width: 40px;
+            border: 0;
+            border-radius: 4px;
+            line-height: 7px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: #344564;
+            background-color: #F4F9FF; }
+            @media screen and (max-width: 540px) {
+              .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times .default-extra-field-time .default-extra-field-time-days .btn-secondary {
+                min-width: 34px;
+                font-size: 10px; } }
+            .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times .default-extra-field-time .default-extra-field-time-days .btn-secondary:last-child {
+              margin-right: 0; }
+            .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times .default-extra-field-time .default-extra-field-time-days .btn-secondary:hover, .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times .default-extra-field-time .default-extra-field-time-days .btn-secondary.default-extra-field-time-days-selected {
+              color: #FFFFFF;
+              background-color: #52567C;
+              opacity: 1; }
+          .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times .default-extra-field-time .default-dropdown-time-picker,
+          .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times .default-extra-field-time .default-dropdown-date-picker {
+            margin: 0;
+            padding: 0 5px;
+            width: auto; }
+          .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times .default-extra-field-time .default-extra-field-times-1-checkbox {
+            width: 40px; }
+            .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times .default-extra-field-time .default-extra-field-times-1-checkbox input[type=checkbox] {
+              display: none; }
+            .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times .default-extra-field-time .default-extra-field-times-1-checkbox label {
+              cursor: pointer;
+              position: relative;
+              display: inline-block !important;
+              width: 23px; }
+            .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times .default-extra-field-time .default-extra-field-times-1-checkbox label::before {
+              content: '';
+              position: absolute;
+              top: -8px;
+              width: 23px;
+              height: 23px;
+              border: 2px solid #f2f4f9;
+              border-radius: 13px;
+              background-color: transparent;
+              transition: all 0.5s ease-in-out; }
+            .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times .default-extra-field-time .default-extra-field-times-1-checkbox label::after {
+              content: '';
+              position: absolute;
+              border-radius: 25px;
+              background-color: transparent;
+              transition: all 0.3s ease-in-out; }
+            .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times .default-extra-field-time .default-extra-field-times-1-checkbox input[type=checkbox]:checked + label::before {
+              border: 2px solid #344564; }
+            .default-extra-fields > li .default-extra-field-times-1 .default-extra-field-times .default-extra-field-time .default-extra-field-times-1-checkbox input[type=checkbox]:checked + label::after {
+              top: -4px;
+              left: 4px;
+              width: 15px;
+              height: 15px;
+              background-color: #344564;
+              box-shadow: none; }
+    .default-extra-fields > li .default-extra-field-account {
+      position: relative;
+      margin: 0;
+      padding: 13px 15px 13px;
+      border-radius: 6px;
+      list-style: none;
+      background-color: #FFFFFF; }
+      .default-extra-fields > li .default-extra-field-account .default-extra-text {
+        width: calc(100% - 40px); }
+    .default-extra-fields > li .default-extra-field-header {
+      margin-top: 35px; }
+    .default-extra-fields > li:first-child .default-extra-field-header {
+      margin: 0; }
+  .default-extra-fields.default-extra-fields-with-borders > li {
+    border: 1px solid #F4F9FF; }
+
+/*# sourceMappingURL=extra-fields.css.map */

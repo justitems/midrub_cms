@@ -44,7 +44,7 @@ class Init {
         $this->CI->lang->load( 'auth_signin', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_SIGNIN );
 
         // Load Base Contents Model
-        $this->CI->load->ext_model(CMS_BASE_PATH . 'models/', 'Base_auth_social', 'base_auth_social');
+        $this->CI->load->ext_model(CMS_BASE_PATH . 'models/', 'Base_auth_social', 'base_auth_social');     
         
     }
     
@@ -148,12 +148,33 @@ class Init {
 
         );
 
+        // Params container
+        $params = array();
+
+        // Verify if auth's logo exists
+        if ( md_the_option('auth_logo') ) {
+
+            // Get the auth's logo
+            $auth_logo = $this->CI->base_model->the_data_where('medias', '*', array('media_id' => md_the_option('auth_logo')));
+
+            // Verify if the auth's logo exists
+            if ( $auth_logo ) {
+
+                // Set the auth_logo key
+                $params['auth_logo'] = $auth_logo[0]['body'];
+
+            }
+
+        }
+
         // Making temlate and send data to view.
         $this->CI->template['header'] = $this->CI->load->ext_view(CMS_BASE_AUTH_SIGNIN .  'views/layout', 'header', array(), true);
-        $this->CI->template['body'] = $this->CI->load->ext_view(CMS_BASE_AUTH_SIGNIN .  'views', 'main', array(), true);
+        $this->CI->template['body'] = $this->CI->load->ext_view(CMS_BASE_AUTH_SIGNIN .  'views', 'main', $params, true);
         $this->CI->template['footer'] = $this->CI->load->ext_view(CMS_BASE_AUTH_SIGNIN .  'views/layout', 'footer', array(), true);
         $this->CI->load->ext_view(CMS_BASE_AUTH_SIGNIN . 'views/layout', 'index', $this->CI->template);
         
     }
 
 }
+
+/* End of file init.php */

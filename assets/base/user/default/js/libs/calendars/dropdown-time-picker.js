@@ -4,17 +4,17 @@
 
 jQuery(document).ready( function ($) {
     'use strict';
-  
+
     /*******************************
-    ACTIONS
+    METHODS
     ********************************/
 
     /*
-     * Load default content
+     * Display dropdown time pickers
      * 
      * @since   0.0.8.5 
      */
-    $(function () {
+    Main.default_dropdown_time_pickers = function () {
 
         // Verify if time pickers exists
         if ( $('.main .default-dropdown-time-picker').length > 0 ) {
@@ -361,6 +361,22 @@ jQuery(document).ready( function ($) {
             });
 
         }
+
+    };
+  
+    /*******************************
+    ACTIONS
+    ********************************/
+
+    /*
+     * Load default content
+     * 
+     * @since   0.0.8.5 
+     */
+    $(function () {
+
+        // Display dropdown time pickers
+        Main.default_dropdown_time_pickers();
 
     });
 

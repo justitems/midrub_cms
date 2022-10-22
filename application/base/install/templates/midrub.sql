@@ -985,7 +985,6 @@ CREATE TABLE `users_social` (
   `social_id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `network_name` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `user_name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
   `net_id` text COLLATE utf8_unicode_ci NOT NULL,
   `created` varchar(30) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

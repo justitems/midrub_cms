@@ -1,0 +1,1676 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../user/default/styles/colors";
+@import "../../../../../../user/default/styles/fonts";
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
+
+/*******************************
+DEFAULT PLANNER VARIABLES
+********************************/
+
+:root {
+    --event-background: #f7f9fc;
+    --event-span-color: #14223d;
+    --event-small-color: #2a467e;
+}
+
+$crm-social-ibm-plex-sans: 'IBM Plex Sans', sans-serif;
+$crm-social-font-5-roboto-maven: 'Roboto', 'Maven Pro', $default-font-5;
+
+/*******************************
+DEFAULT PLANNER STYLES
+********************************/
+
+.default-planner {
+    display: flex;
+
+    @media screen and (max-width: 1446px) {
+        display: block;
+    }
+
+    .default-planner-sidebar {
+        width: 20%;
+
+        @media screen and (max-width: 1700px) {
+            width: 25%;
+        }
+
+        @media screen and (max-width: 1446px) {
+            width: 100%;
+        }
+
+        .default-planner-sidebar-block {
+            margin-bottom: 20px;
+
+            .default-planner-sidebar-calendar {
+                padding: 15px;
+                border-radius: 4px;
+                background-color: #f2f4f9;
+
+                & > table {
+                    display: inline-table;
+                    width: 100%;
+
+                    thead {
+
+                        tr {
+
+                            th {
+                                padding: 0;
+                                width: 25px;
+                                border: 0;
+                                line-height: 29px;
+                                font-family: $default-font-4;
+                                font-size: 14px;
+                                font-weight: 400;
+
+                                h4 {
+                                    margin: 0;
+                                    padding: 0;
+                                    font-family: $default-font-2;
+                                    font-size: 13px;
+                        
+                                    i {
+                                        vertical-align: sub;
+                                        margin-right: 5px;
+                                        font-size: 18px;
+                                    }
+
+                                    svg {
+                                        vertical-align: middle;
+                                        margin: -4px 5px 0 0;
+                                        width: 16px;
+                                        height: 17px;
+                                    }
+        
+                                }
+
+                                &:first-child {
+                                    width: calc(100% - 50px);
+                                }
+
+                                .btn {
+                                    margin-top: -7px;
+                                    padding: 0;
+                                    border: 0;
+                                    line-height: inherit;
+                                    background-color: transparent;
+                                    box-shadow: none;
+
+                                    &:hover,
+                                    &:focus,
+                                    &:active {
+                                        opacity: 1;
+                                    }
+
+                                    i {
+                                        font-size: 23px;
+                                        color: $default-color-black;
+                                    }
+                                    
+                                    svg {
+                                        width: 17px;
+                                        height: 18px;
+                                        color: $default-color-black;                                            
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    tbody {
+
+                        & > tr {
+
+                            & > td {
+                                padding: 8px 0;
+
+                                table {
+                                    width: 100%;
+
+                                    tbody {
+
+                                        tr {
+                                            margin-left: -10px;
+
+                                            &:first-child {
+                                                margin-bottom: 5px;
+
+                                                td {
+                                                    font-size: 13px;
+                                                    font-weight: 500;
+                                                }
+
+                                            }
+
+                                            td {
+                                                padding: 0;
+                                                width: 35.71px !important;
+                                                height: 33px;
+                                                text-align: center;
+
+                                                a {
+                                                    display: block;
+                                                    margin: auto;
+                                                    border-radius: 50%;
+                                                    width: 30px;
+                                                    height: 30px;
+                                                    line-height: 30px;
+                                                    text-decoration: none;
+                                                    font-family: $default-font-2;
+                                                    font-size: 13px;
+                                                    color: $default-color-black;
+
+                                                    &:hover {
+                                                        background-color: $default-background-color;
+                                                    }
+
+                                                    &.default-planner-small-calendar-current-day {
+                                                        background-color: #e7edf3;
+                                                    }
+
+                                                    &.default-planner-small-calendar-selected-day {
+                                                        background-color: #f8fafc;
+                                                    }
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            .default-planner-sidebar-search {
+                margin-bottom: 30px;
+
+                .default-planner-sidebar-search-form {
+
+                    .input-group {
+                        padding: 3px 15px;
+                        border-radius: 6px;
+                        background-color: #f0f4ff;
+                        background-color: rgba(223, 223, 234, 0.08);
+            
+                        .input-group-prepend {
+            
+                            i {
+                                font-size: 22px;
+                                color: $default-color-new;
+                            }
+            
+                        }
+            
+                        .form-control {
+                            border: 0;
+                            font-size: 13px;
+                            color: $default-color-black;
+                            background-color: transparent;
+                        }
+            
+                        .input-group-append {
+            
+                            span {
+                                font-size: 13px;       
+                            }
+            
+                            &.default-planner-sidebar-search-btns {
+            
+                                i {
+                                    display: inline-block;
+                                    vertical-align: sub;
+                                    margin: 0;
+                                    line-height: 35px;
+                                    font-size: 19px;
+                                    color: $default-color-new;
+                            
+                                    &.default-planner-sidebar-search-icon-loader {
+                                        opacity: 0;
+                                        -webkit-animation: rotating 2s linear infinite;
+                                        -moz-animation: rotating 2s linear infinite;
+                                        -ms-animation: rotating 2s linear infinite;
+                                        -o-animation: rotating 2s linear infinite;
+                                        animation: rotating 2s linear infinite;
+                                    }
+                            
+                                }
+                            
+                                a {
+                                    display: inline-block;
+                            
+                                    &.default-planner-sidebar-cancel-search {
+                                        opacity: 0;
+            
+                                        i {
+                                            margin: 0px 5px;
+                                            line-height: 35px;
+                                            font-size: 19px;
+                                        }
+            
+                                    }
+                                    
+                                }
+
+                                .default-planner-sidebar-search-btn {
+                                    margin-top: 4px;
+                                    padding: 5px;
+                                    height: 27px;
+                                    border: 0 !important;
+                                    border-radius: 4px !important;
+                                    line-height: 25px !important;
+                                    font-size: 14px !important;
+                                    color: $default-color-black !important;
+                                    background-color: transparent !important;
+                                    
+                                    svg {
+                                        vertical-align: middle;
+                                        margin-top: -8px;
+                                    }
+
+                                }
+            
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                .default-planner-sidebar-search-results {
+                    position: relative;
+
+                    .list-group {
+                        display: none;
+                        position: absolute;
+                        z-index: 1;
+                        top: 5px;
+                        width: 100%;
+                        max-height: 225px;
+                        background-color: #FFFFFF;
+                        -webkit-box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.02);
+                        box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.02);
+                        overflow-x: auto;
+
+                        p {
+                            margin: 0;
+                            padding: 10px 15px;
+                            font-family: $default-font-2;
+                            font-size: 14px;
+                            color: $default-color-black;                            
+                        }
+
+                        a {
+                            border: 0;
+                            font-family: $default-font-2;
+                            font-size: 14px;
+                            color: $default-color-black;
+
+                            &:hover,
+                            &:focus,
+                            &:active {
+                                background-color: rgba(223, 223, 234, 0.08);
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            .default-planner-sidebar-filters {
+
+                .default-planner-sidebar-filters-header {
+                    height: 35px;
+
+                    h4 {
+                        margin: 0;
+                        padding: 0;
+                        font-family: $default-font-2;
+                        font-size: 13px;
+            
+                        i {
+                            vertical-align: sub;
+                            margin-right: 5px;
+                            font-size: 19px;
+                        }
+                        
+                        svg {
+                            vertical-align: middle;
+                            margin: -3px 5px 0 0;
+                            width: 16px;
+                            height: 20px;
+                        }
+
+                    }
+
+                    a {
+                        display: block;
+                        margin-top: -7px;
+                        padding: 0;
+                        border-radius: 0;
+                        font-size: 22px;
+                        color: $default-color-black;
+                        background-color: transparent;
+        
+                        &:hover,
+                        &:focus,
+                        &:active {
+                            border-bottom: 1px solid transparent;
+                            text-decoration: none;
+                        }
+        
+                        i {
+                            display: inline-block;
+                            vertical-align: middle;
+                            margin-top: -13px;
+                            font-size: 24px;
+                        }
+
+                        svg {
+                            margin-top: -5px;
+                            width: 16px;
+                            height: 18px;
+                        }   
+        
+                    }
+
+                }
+
+                .default-planner-sidebar-filters-list {
+
+                    ul {
+                        margin: 5px 0 0 15px;
+                        padding: 0;
+
+                        li {
+                            list-style: none;
+                            line-height: 40px;
+
+                            &.default-planner-sidebar-filters-no-found {
+                                margin-left: -15px;
+                                padding-left: 15px;
+                                width: calc(100% + 15px);
+                                font-family: $default-font-2;
+                                font-size: 13px;
+                                color: $default-color-black;
+                                background-color: #f2f4f9;
+                            }
+
+                            input[type="checkbox"] {
+                                position: relative;
+                                vertical-align: middle;
+                                margin: -1px 10px 0 0;
+                                width: 20px;
+                                height: 20px;
+                                border: 0;
+                                border-radius: 50%;
+                                color: $default-color-black;
+                                background-color: #EBEAF5;
+                                background-color: var(--background);
+                                appearance: none;
+                                outline: 0;
+                                transition: all 0.3s cubic-bezier(0.1, 0.1, 0.25, 1);
+                                cursor: pointer;
+                                
+                                &::before {
+                                    content: '';
+                                    display: block;
+                                    position: absolute;
+                                    top: 3px;
+                                    left: 8px;
+                                    width: 5px;
+                                    height: 11px;
+                                    border-style: solid;
+                                    border-width: 0 2px 2px 0;
+                                    border-color: #FFFFFF;
+                                    transform: rotate(45deg);
+                                    opacity: 0;
+                                }
+
+                                &:checked {
+                                    color: #FFFFFF;
+                                    background: var(--checked);
+
+                                    &::before {
+                                    opacity: 1;
+                                    }
+
+                                    ~ label {
+                                        text-decoration-line: inherit;
+                                    }                                        
+
+                                    ~ label::before {
+                                        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                                    }
+
+                                }
+
+                            }
+
+                            label {
+                                margin: -1px 10px 0 0;
+                                text-decoration-line: line-through; 
+                                font-family: $default-font-2;
+                                font-size: 14px;
+                                font-weight: 400;
+                                color: var(--label);
+                                user-select: none;
+                                cursor: pointer;
+                            }
+
+                            .dropdown {
+
+                                .dropdown-toggle {
+
+                                    i {
+                                        font-size: 16px !important;
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .default-planner-calendar {
+        margin-left: 15px;
+        padding: 15px;
+        width: calc(80% - 15px);
+
+        @media screen and (max-width: 1700px) {
+            width: calc(75% - 15px);
+        }
+
+        @media screen and (max-width: 1446px) {
+            margin-left: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .default-planner-calendar-header {
+            margin-bottom: 25px;
+
+            .row {
+
+                h3 {
+                    margin: 0;
+                    line-height: 27px;
+                    font-family: $default-font-2;
+                    font-size: 16px;
+                    color: $default-color-black;
+
+                    @media screen and (max-width: 840px) {
+                        line-height: 60px;
+                    }
+
+                }
+
+                @media screen and (max-width: 1260px) {
+                    
+                    & > div:first-child {
+                        -ms-flex: 0 0 100%;
+                        flex: 0 0 100%;
+                        max-width: 100%;
+                        text-align: center !important;
+
+                        h3 {
+                            line-height: 60px; 
+                        }
+
+                    }
+
+                    & > div.col-6 {
+                        -ms-flex: 0 0 66.66%;
+                        flex: 0 0 66.66%;
+                        max-width: 66.66%;
+                        text-align: left !important; 
+
+                        .default-planner-calendar-navigation-tabs-navigation {
+                             margin: inherit !important;
+                        }                   
+    
+                    }
+
+                    & > div:last-child {
+                        -ms-flex: 0 0 33.33%;
+                        flex: 0 0 33.33%;
+                        max-width: 33.33%;
+                    }                        
+
+                }
+
+                @media screen and (max-width: 730px) {
+
+                    & > div.col-6 { 
+
+                        .default-planner-calendar-navigation-tabs-navigation {
+                             margin: auto !important;
+                        }                   
+    
+                    }
+
+                }
+
+                .default-planner-calendar-navigation {
+
+                    @media screen and (max-width: 840px) {
+                        padding: 15px 0;
+                    }
+
+                    .btn {
+                        padding: 0 15px;
+                        height: 29.5px;
+                        border: 0;
+                        border-radius: 4px;
+                        font-family: $default-font-2;
+                        font-size: 14px;
+                        color: $default-color-black;
+                        background-color: #eaedf6;
+
+                        &:first-child {
+                            margin-right: 10px;
+                        }
+
+                        &:last-child {
+                            margin-left: 10px;
+                        }
+
+                        span {
+                            display: block;
+                            margin-top: -2px;                     
+                        }
+
+                        svg {
+                            margin-top: -3px;
+                            width: 13px;
+                            height: 14px;
+                        }
+                        
+                        i {
+                            display: block;
+                            margin-top: 1px;
+                            font-size: 19px;
+                        }
+
+                    }
+
+                }
+
+                .default-planner-calendar-navigation-tabs {
+                    position: relative;
+
+                    @media screen and (max-width: 840px) {
+                        padding: 15px 0;
+                    }
+                
+                    .default-planner-calendar-navigation-tabs-navigation {
+                        position: inherit;
+                        z-index: 0;
+                        left: 0;
+                        margin: auto;
+                        width: 360px;
+                        border-radius: 4px;
+                        font-size: 0;
+                        background-color: #eaedf6;
+                        overflow: hidden;
+                
+                        input {
+                            display: none;
+                
+                            &:checked + label {
+                                color: #FFFFFF;
+                            }
+                
+                            @for $i from 1 through 10 {
+            
+                                &.default-planner-calendar-navigation-tab-#{$i}:checked {
+            
+                                    ~ .default-planner-calendar-navigation-tabs-navigation-active {
+                                        left: #{($i - 1) * 120px};
+                                    }
+            
+                                    ~ .content-container #c#{$i} {
+                                        opacity: 1;
+                                    }
+            
+                                }
+            
+                            }
+                
+                        }
+                
+                        label {
+                            display: inline-block;
+                            position: relative;
+                            z-index: 1;
+                            margin-bottom: 0;
+                            width: 120px;
+                            height: 29.5px;
+                            line-height: 28.5px;
+                            text-align: center;
+                            font-family: $default-font-2;
+                            font-size: 14px;
+                            color: $default-color-black;
+                            transition: 0.27s background-color ease;
+                            cursor: pointer;
+                
+                            &:hover::after {
+                                opacity: 1;
+                            }
+                
+                            i {
+                                display: inline-block;
+                                vertical-align: middle;
+                                margin-top: -4px;
+                                margin-right: 5px;
+                                font-size: 20px;
+                
+                                &.material-icons-outlined {
+                                    margin-top: -5px;
+                                    font-size: 24px;
+                                }
+                
+                            }
+                
+                            svg {
+                                vertical-align: middle;
+                                margin-top: -2px;
+                                margin-right: 5px;
+                                width: 15px;
+                                height: 15px;
+                            }
+                
+                        }
+                
+                        .default-planner-calendar-navigation-tabs-navigation-active {
+                            position: absolute;
+                            z-index: -1;
+                            top: 0;
+                            left: 0;
+                            width: 120px;
+                            height: 28.5px;
+                            border-radius: 4px;
+                            background-color: #5e6278;
+                            transition: 0.27s ease;
+                        }
+                
+                    }
+                
+                }
+
+            }
+
+            .col-3,
+            .col-6 {
+
+                @media screen and (max-width: 730px) {
+                    -ms-flex: 0 0 100% !important;
+                    flex: 0 0 100% !important;
+                    max-width: 100% !important;
+                    text-align: center !important;
+                }
+
+            }
+
+        }
+
+        .default-planner-calendar-body {
+            position: relative;
+            border-radius: 6px;
+            background-color: #FFFFFF;
+            overflow: hidden;
+            
+            .default-planner-calendar-tabs {
+
+                .default-planner-calendar-tab-day {
+
+                    .default-planner-calendar-tab-day-header {
+                        width: 100%;
+                        height: 50px;
+                        box-shadow: 1px 0 5px rgba(0, 0, 0, 0.05);
+
+                        .default-planner-calendar-tab-day-header-time {
+                            display: inline-block;
+                            width: 70px;
+                            line-height: 48px;
+                            text-align: center;
+
+                            @media screen and (max-width: 1446px) {
+                                width: 50px;
+                            }
+
+                            svg {
+                                width: 18px;
+                                height: 17px;
+                            }
+
+                        }
+
+                        .default-planner-calendar-tab-day-header-days {
+                            display: inline-block;
+                            width: calc(100% - 80px);
+                            height: 50px;
+                            line-height: 50px;
+
+                            @media screen and (max-width: 1446px) {
+                                width: calc(100% - 60px);
+                            }
+
+                            h3 {
+                                margin: 0;
+                                padding-left: 5px;
+                                line-height: 50px;
+                                text-transform: uppercase;
+                                font-family: $default-font-4;
+                                font-size: 12px;
+                                font-weight: 600;
+                                color: $default-color-black;
+                            }
+
+                            span {
+                                margin-right: 15px;
+                                font-family: $default-font-2;
+                                font-size: 14px;
+                                font-weight: 400;
+                                color: $default-color-grey;
+
+                                svg {
+                                    margin: -2px 5px 0 0;
+                                    width: 16px;
+                                    height: 18px;
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    .default-planner-calendar-tab-day-body {
+                        margin-bottom: -7px;
+                        padding-right: 0 !important;
+                        height: 777px;
+                        overflow-y: auto;
+
+                        &::-webkit-scrollbar {
+                            width: 6px;
+                        }
+                
+                        &::-webkit-scrollbar-track {
+                            border-radius: 4px;
+                            background-color: #f7f9fc;
+                        }
+                        
+                        &::-webkit-scrollbar-thumb {
+                            border-radius: 4px;
+                            background-color: #eef1f7;
+                        }
+
+                        .default-planner-calendar-tab-day-top {
+                            width: 100%;
+                            height: 20px;
+
+                            .default-planner-calendar-tab-day-hour-time {
+                                display: inline-block;
+                                width: 70px;
+                                height: 20px;
+                                border-right: 1px solid #eaedf6; 
+                                
+                                @media screen and (max-width: 1446px) {
+                                    width: 50px;
+                                }
+
+                            }
+
+                        }                            
+
+                        .default-planner-calendar-tab-day-hour {
+                            display: flex;
+                            width: 100%;
+                            height: 70px;
+                            border-top: 1px solid #eaedf6;
+                            color: $default-color-black;
+
+                            .default-planner-calendar-tab-day-hour-time {
+                                display: inline-block;
+                                position: relative;
+                                width: 70px;
+                                height: 70px;
+                                border-right: 1px solid #eaedf6;
+
+                                @media screen and (max-width: 1446px) {
+                                    width: 50px;
+                                }
+                                
+                                span {
+                                    display: block;
+                                    position: absolute;
+                                    top: 5px;
+                                    width: 69px;
+                                    text-align: center;
+                                    font-family: $default-font-2;
+                                    font-size: 13px;
+                                    font-weight: 400;
+
+                                    @media screen and (max-width: 1446px) {
+                                        width: 49px;
+                                    }
+
+                                }
+
+                            }
+
+                            .default-planner-calendar-events {
+                                width: calc(100% - 80px);
+                                height: 70px;
+
+                                @media screen and (max-width: 1446px) {
+                                    width: calc(100% - 60px);
+                                }
+
+                                .default-planner-calendar-events-list {
+                                    display: table;
+                                    padding: 5px;
+                                    width: 100%;
+                                    height: auto;
+                                
+                                    .default-planner-calendar-event {
+                                        display: table-cell;
+                                        margin-top: 0px;
+                                        padding: 3px 10px;
+                                        width: calc(100% - 10px);
+                                        border-radius: 12px;
+                                        background-color: var(--event-background);
+                                
+                                
+                                        &:hover,
+                                        &:focus,
+                                        &:active {
+                                            text-decoration: none;
+                                        }
+                                
+                                        small {
+                                            display: block;
+                                            margin-top: -8px;
+                                            text-transform: uppercase;
+                                            font-family: $crm-social-ibm-plex-sans;
+                                            font-size: 13px;
+                                            font-weight: 400;
+                                            color: var(--event-small-color);
+                                        }
+                                
+                                        span {
+                                            display: -webkit-inline-box;
+                                            overflow: hidden;
+                                            font-family: $crm-social-font-5-roboto-maven;
+                                            font-size: 13px;
+                                            font-weight: 500;
+                                            color: var(--event-span-color);
+                                            -webkit-line-clamp: 1;
+                                            -webkit-box-orient: vertical;                                                                                              
+                                        }
+                                
+                                    }
+                                
+                                }
+                                
+                                .default-planner-calendar-events-show-all {
+                                    margin-top: -3px;
+                                    padding: 5px;
+                                    width: 100%;
+                                    height: 20px;
+                                    
+                                    a {
+                                        display: table;
+                                        margin-top: -6px;
+                                        font-family: $default-font-2;
+                                        font-size: 12px;
+                                        font-weight: 400;
+                                        color: $default-color-grey;  
+                                        
+                                        &:hover,
+                                        &:focus,
+                                        &:active {
+                                            text-decoration: none;
+                                        }
+                                
+                                        &:hover {
+                                            color: $default-color-black;
+                                        }
+                                
+                                        svg {
+                                            vertical-align: middle;
+                                            margin-top: -5px;
+                                            margin-right: -2px;
+                                            width: 15px;
+                                            height: 15px;
+                                        }
+                                
+                                    }
+                                    
+                                }
+
+                            }
+
+                        }
+                                               
+                    }
+
+                }
+
+                .default-planner-calendar-tab-week {
+
+                    .default-planner-calendar-tab-week-header {
+                        width: 100%;
+                        height: 50px;
+                        box-shadow: 1px 0 5px rgba(0, 0, 0, 0.05);
+
+                        .default-planner-calendar-tab-week-header-time {
+                            display: inline-block;
+                            width: 70px;
+                            line-height: 50px;
+                            text-align: center;
+
+                            @media screen and (max-width: 1446px) {
+                                width: 50px;
+                            }
+
+                            svg {
+                                width: 18px;
+                                height: 17px;
+                            }
+
+                        }
+
+                        .default-planner-calendar-tab-week-header-days {
+                            display: inline-block;
+                            width: calc(100% - 80px);
+                            height: 50px;
+
+                            @media screen and (max-width: 1446px) {
+                                width: calc(100% - 60px);
+                            }
+
+                            .default-planner-calendar-tab-week-header-day {
+                                display: inline-block;
+                                padding: 7px 0 0;
+                                width: 14.28%;
+                                height: 50px;
+                                
+                                h4 {
+                                    margin: 0 0 3px;
+                                    text-align: center;
+                                    text-transform: uppercase;
+                                    font-family: $default-font-4;
+                                    font-size: 12px;
+                                    font-weight: 600;
+                                    color: $default-color-black;
+                                }
+
+                                h5 {
+                                    text-align: center;
+                                    font-family: $default-font-2;
+                                    font-size: 16px;
+                                    font-weight: 400;
+                                    color: $default-color-grey;
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    .default-planner-calendar-tab-week-body {
+                        margin-bottom: -7px;
+                        padding-right: 0 !important;
+                        height: 777px;
+                        overflow-y: auto;
+
+                        &::-webkit-scrollbar {
+                            width: 6px;
+                        }
+                
+                        &::-webkit-scrollbar-track {
+                            border-radius: 4px;
+                            background-color: #f7f9fc;
+                        }
+                        
+                        &::-webkit-scrollbar-thumb {
+                            border-radius: 4px;
+                            background-color: #eef1f7;
+                        }
+
+                        .default-planner-calendar-tab-week-top {
+                            width: 100%;
+                            height: 20px;
+
+                            .default-planner-calendar-tab-week-hour-time {
+                                display: inline-block;
+                                width: 70px;
+                                height: 20px;
+                                border-right: 1px solid #eaedf6;
+                                
+                                @media screen and (max-width: 1446px) {
+                                    width: 50px;
+                                }
+                                
+                            }
+
+                        }                            
+
+                        .default-planner-calendar-tab-week-hour {
+                            width: 100%;
+                            height: 70px;
+                            border-top: 1px solid #eaedf6;
+                            color: $default-color-black;
+
+                            .default-planner-calendar-tab-week-hour-time {
+                                display: inline-block;
+                                position: relative;
+                                width: 70px;
+                                height: 70px;
+                                border-right: 1px solid #eaedf6;
+
+                                @media screen and (max-width: 1446px) {
+                                    width: 50px;
+                                }
+                                
+                                span {
+                                    display: block;
+                                    position: absolute;
+                                    top: 5px;
+                                    width: 69px;
+                                    text-align: center;
+                                    font-family: $default-font-2;
+                                    font-size: 13px;
+                                    font-weight: 400;
+
+                                    @media screen and (max-width: 1446px) {
+                                        width: 49px;
+                                    }
+
+                                }
+
+                            }
+
+                            .default-planner-calendar-tab-week-days {
+                                display: inline-block;
+                                width: calc(100% - 76px);
+                                height: 70px;
+
+                                @media screen and (max-width: 1446px) {
+                                    width: calc(100% - 56px);
+                                }
+
+                                .default-planner-calendar-events {
+                                    display: inline-block;
+                                    padding: 0;
+                                    width: 14.28%;
+                                    height: 70px;
+                                    border-right: 1px solid #eaedf6;
+                                    overflow: hidden;
+
+                                    &:last-child {
+                                        border-right: 0;
+                                    }
+    
+                                    .default-planner-calendar-events-list {
+                                        display: table;
+                                        padding: 5px;
+                                        width: 100%;
+                                        height: auto;
+                                    
+                                        .default-planner-calendar-event {
+                                            display: table-cell;
+                                            margin-top: 0px;
+                                            padding: 3px 10px;
+                                            width: calc(100% - 10px);
+                                            border-radius: 12px;
+                                            background-color: var(--event-background);
+                                    
+                                    
+                                            &:hover,
+                                            &:focus,
+                                            &:active {
+                                                text-decoration: none;
+                                            }
+                                    
+                                            small {
+                                                display: block;
+                                                margin-top: -8px;
+                                                text-transform: uppercase;
+                                                font-family: $crm-social-ibm-plex-sans;
+                                                font-size: 13px;
+                                                font-weight: 400;
+                                                color: var(--event-small-color);
+                                            }
+                                    
+                                            span {
+                                                display: -webkit-inline-box;
+                                                overflow: hidden;
+                                                font-family: $crm-social-font-5-roboto-maven;
+                                                font-size: 13px;
+                                                font-weight: 500;
+                                                color: var(--event-span-color);
+                                                -webkit-line-clamp: 1;
+                                                -webkit-box-orient: vertical;                                                                                              
+                                            }
+                                    
+                                        }
+                                    
+                                    }
+                                    
+                                    .default-planner-calendar-events-show-all {
+                                        margin-top: -3px;
+                                        padding: 5px;
+                                        width: 100%;
+                                        height: 20px;
+                                        
+                                        a {
+                                            display: table;
+                                            margin-top: -6px;
+                                            font-family: $default-font-2;
+                                            font-size: 12px;
+                                            font-weight: 400;
+                                            color: $default-color-grey;  
+                                            
+                                            &:hover,
+                                            &:focus,
+                                            &:active {
+                                                text-decoration: none;
+                                            }
+                                    
+                                            &:hover {
+                                                color: $default-color-black;
+                                            }
+                                    
+                                            svg {
+                                                vertical-align: middle;
+                                                margin-top: -5px;
+                                                margin-right: -2px;
+                                                width: 15px;
+                                                height: 15px;
+                                            }
+                                    
+                                        }
+                                        
+                                    }
+    
+                                }
+
+                            }
+
+                        }
+                                               
+                    }
+
+                }
+
+                .default-planner-calendar-tab-month {
+
+                    .default-planner-calendar-tab-month-header {
+                        width: 100%;
+                        height: 50px;
+                        box-shadow: 1px 0 5px rgba(0, 0, 0, 0.05);
+
+                        @media screen and (max-width: 840px) {
+                            display: none;
+                        }
+                
+                        .default-planner-calendar-tab-month-header-days {
+                            display: inline-block;
+                            width: 100%;
+                            height: 50px;
+                
+                            .default-planner-calendar-tab-month-header-day {
+                                display: inline-block;
+                                width: 14.28%;
+                                height: 50px;
+                                
+                                h4 {
+                                    margin: 0;
+                                    line-height: 50px;
+                                    text-align: center;
+                                    text-transform: uppercase;
+                                    font-family: $default-font-4;
+                                    font-size: 12px;
+                                    font-weight: 600;
+                                    color: $default-color-black;
+                                }
+                
+                            }
+                
+                        }
+                
+                    }
+                
+                    .default-planner-calendar-tab-month-body {                         
+                
+                        .default-planner-calendar-eventss {
+                            display: inline-block;
+                            width: 100%;
+                            height: 128.25px;
+                            border-top: 1px solid #eaedf6;
+
+                            @media screen and (max-width: 840px) {
+                                display: inline-table;
+                                
+                                &:first-child {
+                                    border-top: 0;
+                                }
+
+                            }
+
+                            .default-planner-calendar-events {
+                                display: inline-block;
+                                width: 14.28%;
+                                height: 128.25px;
+                                border-right: 1px solid #eaedf6;
+
+                                &:last-child {
+                                    border-right: 0;
+                                }
+
+                                &.default-planner-calendar-events-disabled {
+
+                                    @media screen and (max-width: 840px) {
+                                        display: none;
+                                    }
+                                    
+                                }
+
+                                @media screen and (max-width: 840px) {
+                                    width: 100%;
+                                    border-right: 0;
+                                    border-bottom: 1px solid #eaedf6;
+
+                                    &:first-child {
+                                        border-top: 0;
+                                    }
+
+                                    &:last-child {
+                                        border-bottom: 0;
+                                    }
+
+                                }
+
+                                .default-planner-calendar-tab-month-top {
+                                    width: 100%;
+                                    height: 25px;
+
+                                    a {
+                                        display: block;
+                                        padding: 5px;
+                                        text-align: right;
+                                        font-family: $default-font-2;
+                                        color: $default-color-black;
+                                        pointer-events: none;
+
+                                        span {
+                                            opacity: 0;
+                                            text-transform: uppercase;
+                                            font-size: 12px;
+                                            font-weight: 400;
+
+                                            @media screen and (max-width: 840px) {
+                                                opacity: 1;
+                                            }
+
+                                        }
+
+                                        small {
+                                            font-size: 14px;
+                                            font-weight: 400;                                                
+                                        }
+
+                                    }
+
+                                }
+
+                                .default-planner-calendar-events-list {
+                                    display: table;
+                                    padding: 5px;
+                                    width: 100%;
+                                    height: auto;
+
+                                    .default-planner-calendar-event {
+                                        display: table-cell;
+                                        margin-top: 0px;
+                                        padding: 7px 10px;
+                                        width: calc(100% - 10px);
+                                        border-radius: 12px;
+                                        background-color: var(--event-background);
+
+
+                                        &:hover,
+                                        &:focus,
+                                        &:active {
+                                            text-decoration: none;
+                                        }
+
+                                        small {
+                                            display: block;
+                                            text-transform: uppercase;
+                                            font-family: $crm-social-ibm-plex-sans;
+                                            font-size: 13px;
+                                            font-weight: 400;
+                                            color: var(--event-small-color);
+                                        }
+
+                                        span {
+                                            display: -webkit-inline-box;
+                                            overflow: hidden;
+                                            font-family: $crm-social-font-5-roboto-maven;
+                                            font-size: 13px;
+                                            font-weight: 500;
+                                            color: var(--event-span-color);
+                                            -webkit-line-clamp: 1;
+                                            -webkit-box-orient: vertical;                                                                                              
+                                        }
+
+                                    }
+
+                                }
+
+                                .default-planner-calendar-events-show-all {
+                                    margin-top: 5px;
+                                    padding: 5px;
+                                    width: 100%;
+                                    height: 20px;
+                                    
+                                    a {
+                                        display: table;
+                                        margin-top: -6px;
+                                        font-family: $default-font-2;
+                                        font-size: 12px;
+                                        font-weight: 400;
+                                        color: $default-color-grey;  
+                                        
+                                        &:hover,
+                                        &:focus,
+                                        &:active {
+                                            text-decoration: none;
+                                        }
+
+                                        &:hover {
+                                            color: $default-color-black;
+                                        }
+
+                                        svg {
+                                            vertical-align: middle;
+                                            margin-top: -5px;
+                                            margin-right: -2px;
+                                            width: 15px;
+                                            height: 15px;
+                                        }
+
+                                    }
+                                    
+                                }
+
+                            }
+
+                            @media screen and (max-width: 1700px) {
+                                
+                                & {
+                                    height: 120px;
+
+                                    .default-planner-calendar-events {
+                                        height: 120px;
+                                    }
+
+                                }
+
+                            }
+
+                        }
+                
+                    }
+                
+                }
+
+            }
+
+            .default-planner-calendar-new-event {
+                position: absolute;
+                top: 737px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+
+                @media screen and (max-width: 1700px) {
+
+                    & {
+                        top: 55px;
+                    }
+
+                }
+
+                .default-planner-calendar-new-event-btn {
+                    padding: 0;
+                    width: 60px;
+                    height: 60px;
+                    border: 0;
+                    border-radius: 50%;
+                    background-color: #5E8DF7;
+                    -webkit-box-shadow: 10px 10px 13px 1px rgba(0, 0, 0, 0.2);
+                    box-shadow: 10px 10px 13px 1px rgba(0, 0, 0, 0.2);
+
+                    &:hover {
+                        box-shadow: none;
+                    }
+
+                    i {
+                        font-size: 26px;
+                    }
+
+                }
+
+            }                
+
+        }
+
+    }
+
+}
+
+.default-planner-events {
+    display: none;
+    position: fixed;
+    top: 15px;
+    right: 0;
+    bottom: 15px;
+    padding: 15px;
+    width: 400px;
+    border-radius: 15px 0 0 15px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(29, 140, 242, 0.08);
+
+    .default-planner-events-header {
+
+        h4 {
+            margin: 0;
+            text-transform: uppercase;
+            font-family: $default-font-2;
+            font-size: 15px;
+            font-weight: 400;
+            color: $default-color-black;  
+        }
+
+        a {
+            display: block;
+            margin-top: -3px;
+            color: $default-color-black;
+
+            &:hover {
+                animation: rotating 2s backwards;
+                -webkit-animation: rotating 2s backwards;
+            }
+
+            svg {
+                width: 26px;
+                height: 26px;
+            }
+
+        }
+
+    }
+
+    .default-planner-events-body {
+        margin-top: 20px;
+        width: calc(100% + 15px);
+        height: 820px;
+        max-height: calc(100% - 100px);
+        overflow-y: visible;
+
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+            border-radius: 4px;
+            background-color: #f7f9fc;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            border-radius: 4px;
+            background-color: #eef1f7;
+        }
+
+        .default-planner-events-list {
+            margin: 0;
+            padding: 0;
+
+            li {
+                margin-bottom: 10px;
+                list-style: none;
+
+                &.default-planner-events-no-found {
+                    padding: 10px 15px;
+                    width: 100%;
+                    border-radius: 4px;
+                    font-family: $default-font-2;
+                    font-size: 14px;
+                    background-color: $default-color-grey-light;                    
+                }
+
+                .default-planner-calendar-event {
+                    display: inline-grid;
+                    padding: 10px 15px;
+                    width: 100%;
+                    border-radius: 4px;
+                    background-color: $default-color-grey-light;
+
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        text-decoration: none;
+                    }
+
+                    small {
+                        margin-bottom: -3px;
+                        text-transform: uppercase;
+                        font-family: $default-font-2;
+                        font-size: 13px;
+                        font-weight: 600;
+                        color: $default-color-new;                                               
+                    }
+
+                    span {
+                        font-family: $default-font-2;
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: $default-color-black;                                               
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .default-planner-events-navigation {
+        padding: 15px 0;
+        width: 100%;
+        min-height: 60px;
+
+        nav {
+            text-align: right;
+        }
+
+    }
+
+}
+
+/*******************************
+DEFAULT PLANNER ANIMATIONS
+********************************/
+
+@-webkit-keyframes rotating {
+
+    from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+
+}
+  
+@keyframes rotating {
+
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+
+}

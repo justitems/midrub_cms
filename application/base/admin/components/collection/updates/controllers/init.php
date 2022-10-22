@@ -430,10 +430,10 @@ class Init {
                         );
 
                         // Verify if theme exists
-                        if ( is_dir(APPPATH . 'base/frontend/themes/' . $updates['slug']) ) {
+                        if ( is_dir(APPPATH . 'base/frontend/themes/collection/' . $updates['slug']) ) {
 
                             // Get theme's configuration
-                            $info = json_decode(file_get_contents(APPPATH . 'base/frontend/themes/' . $updates['slug'] . '/config.json'), TRUE);
+                            $info = json_decode(file_get_contents(APPPATH . 'base/frontend/themes/collection/' . $updates['slug'] . '/config.json'), TRUE);
 
                             // Set the theme's name
                             $theme['name'] = $info['name'];

@@ -24,7 +24,7 @@
 
                         ),
                         array(
-                            'field_slug' => 'upload_limit',
+                            'field_slug' => 'smtp_protocol',
                             'field_type' => 'text',
                             'field_words' => array(
                                 'field_title' => $this->lang->line('settings_smtp_protocol'),

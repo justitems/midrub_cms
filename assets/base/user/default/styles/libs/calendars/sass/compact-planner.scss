@@ -1,0 +1,138 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../user/default/styles/colors";
+@import "../../../../../../user/default/styles/fonts";
+
+/*******************************
+COMPACT PLANNER STYLES
+********************************/
+
+.default-compact-planner {
+    margin-top: -5px;
+
+    .default-compact-planner-tabs-navigation {
+
+        label {
+            border: 0;
+            border-radius: 4px;
+            text-transform: uppercase;
+            color: $default-color-black !important;
+            background-color: $default-background-color;
+
+            i {
+                vertical-align: middle;
+                margin-right: 5px;
+                font-size: 19px;
+            }
+
+            &:nth-child(2) {
+                border-radius: 4px 0 0 4px;
+            }
+
+            &:last-child {
+                border-radius: 0 4px 4px 0;
+            }
+
+        }
+
+        [type="radio"] {
+            display: none;
+        }
+
+        [type="radio"]:checked + label,
+        [type="radio"]:focus + label,
+        [type="radio"]:active + label {
+            color: #FFFFFF !important;
+            background-color: $default-color-new;
+        }
+
+    }
+
+    .default-compact-planner-tabs-container {
+
+        .default-compact-planner-tab {
+            display: none;
+
+            &.show {
+                display: block;
+            }
+
+            .default-compact-planner-tab-days {
+                margin-top: 15px;
+
+                .btn-secondary {
+                    margin-left: 5px;
+                    padding: 3px 7px;
+                    width: 14.28px;
+                    border: 1px solid $default-color-new;
+                    border-radius: 4px;
+                    font-family: $default-font-4;
+                    font-size: 11px;
+                    font-weight: 400;
+                    color: $default-color-black;
+                    background-color: #FFFFFF;
+
+                    &:first-child {
+                        margin-left: 0;
+                    }
+
+                    &.default-planner-selected-day {
+                        color: #FFFFFF;
+                        background-color: $default-color-new;                                
+                    }
+
+                }
+
+            }
+
+            table {
+                display: inline-block;
+                margin-top: 15px;
+                padding: 10px;
+                width: 100%;
+                border: 1px solid $default-color-new;
+                border-radius: 4px;
+
+                tbody {
+                    display: table;
+                    width: 100%;
+
+                    tr {
+
+                        td {
+                            padding: 0;
+                            width: 14.28% !important;
+                            text-align: center;
+
+                            a {
+                                display: block;
+                                margin: 2px;
+                                border-radius: 7px;
+                                line-height: 26px;
+                                text-decoration: none;
+                                font-family: $default-font-2;
+                                font-size: 13px;
+                                color: $default-color-black;
+
+                                &:hover,
+                                &.default-planner-selected-date {
+                                    color: #FFFFFF;
+                                    background-color: $default-color-new;
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

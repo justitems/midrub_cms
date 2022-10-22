@@ -301,8 +301,9 @@ CUSTOM STYLES FOR TRANSACTIONS
         .admin-page .transaction-body .transaction-options .panel .panel-body .fields-list li,
         .admin-page .transaction-body .transaction-options .panel .panel-body .options-list li {
           padding: 15px;
+          border-bottom: 1px solid rgba(65, 106, 166, 0.05);
           list-style: none;
-          border-bottom: 1px solid rgba(65, 106, 166, 0.05); }
+          font-size: 14px; }
           .admin-page .transaction-body .transaction-fields .panel .panel-body .fields-list li:last-child,
           .admin-page .transaction-body .transaction-fields .panel .panel-body .options-list li:last-child,
           .admin-page .transaction-body .transaction-options .panel .panel-body .fields-list li:last-child,
@@ -312,37 +313,30 @@ CUSTOM STYLES FOR TRANSACTIONS
           .admin-page .transaction-body .transaction-fields .panel .panel-body .options-list li h4,
           .admin-page .transaction-body .transaction-options .panel .panel-body .fields-list li h4,
           .admin-page .transaction-body .transaction-options .panel .panel-body .options-list li h4 {
+            margin-top: 0;
             font-weight: 400;
             font-size: 15px;
-            color: #212529;
-            margin-top: 0; }
+            color: #212529; }
           .admin-page .transaction-body .transaction-fields .panel .panel-body .fields-list li p,
           .admin-page .transaction-body .transaction-fields .panel .panel-body .options-list li p,
           .admin-page .transaction-body .transaction-options .panel .panel-body .fields-list li p,
           .admin-page .transaction-body .transaction-options .panel .panel-body .options-list li p {
+            margin-bottom: 0;
             font-size: 13px;
-            color: #343a40;
-            margin-bottom: 0; }
+            color: #343a40; }
           .admin-page .transaction-body .transaction-fields .panel .panel-body .fields-list li a,
           .admin-page .transaction-body .transaction-fields .panel .panel-body .options-list li a,
           .admin-page .transaction-body .transaction-options .panel .panel-body .fields-list li a,
           .admin-page .transaction-body .transaction-options .panel .panel-body .options-list li a {
-            border: 1px solid #dddddd;
-            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-            background-color: #FFFFFF;
-            color: #6c757d;
-            line-height: 23px;
-            padding: 7px 10px 6px;
-            margin-top: 4px;
             display: block;
-            text-align: center; }
-
-/*******************************
-MODAL STYLES
-********************************/
-/*******************************
-CSS ANIMATIONS
-********************************/
+            margin-top: 4px;
+            padding: 7px 10px 6px;
+            border: 1px solid #dddddd;
+            line-height: 23px;
+            text-align: center;
+            color: #6c757d;
+            background-color: #FFFFFF;
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); }
 
 /*# sourceMappingURL=transactions.css.map */

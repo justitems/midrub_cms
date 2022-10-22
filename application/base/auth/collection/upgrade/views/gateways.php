@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <main id="main" class="site-main main">
         <section class="gateways-page">
-            <div class="container-fluid" data-price="<?php echo $plan_data[0]->plan_price; ?>">
+            <div class="container-fluid" data-price="<?php echo $plan_data[0]['plan_price']; ?>">
                 <div class="row">
                     <div class="col-xl-4 offset-xl-4">
                         <div class="col-xl-12">
@@ -10,10 +10,10 @@
                                     <h3>
                                         <?php echo $this->lang->line('upgrade_total'); ?>
                                         <span class="pull-right plan-price">
-                                            <?php echo $plan_data[0]->plan_price ?>
+                                            <?php echo $plan_data[0]['plan_price']; ?>
                                         </span>
                                         <span class="pull-right">
-                                            <?php echo $plan_data[0]->currency_sign ?>
+                                            <?php echo $plan_data[0]['currency_sign']; ?>
                                         </span>
                                         <span class="pull-right discount-price">
                                             <?php echo isset($discount)?'(' . $this->lang->line('upgrade_discount') . ' ' . $discount . '%)':''; ?>
@@ -50,7 +50,7 @@
 
                                         // Options
                                         $options = array(
-                                            'plan_id' => $plan_data[0]->plan_id,
+                                            'plan_id' => $plan_data[0]['plan_id'],
                                             'success_redirect' => site_url('auth/upgrade?p=success'),
                                             'error_redirect' => site_url('auth/upgrade'),
                                             'recurring_payments' => 'on'
@@ -67,9 +67,9 @@
                                         // Register payment's data
                                         $gateway_url = generate_incomplete_transaction(array(
                                             'pay' => array(
-                                                'amount' => $plan_data[0]->plan_price,
-                                                'currency' => $plan_data[0]->currency_code,
-                                                'sign' => $plan_data[0]->currency_sign
+                                                'amount' => $plan_data[0]['plan_price'],
+                                                'currency' => $plan_data[0]['currency_code'],
+                                                'sign' => $plan_data[0]['currency_sign']
                                             ),
                                             'fields' => $fields,
                                             'options' => $options

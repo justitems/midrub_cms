@@ -326,10 +326,10 @@ class Classification
                         );
 
                         // Get slug
-                        $clas_slug = $this->CI->base_classifications->get_classifications_item_by_slug($args);
+                        $class_slug = $this->CI->base_classifications->get_classifications_item_by_slug($args);
 
                         // Verify if slug doesn't exists
-                        if (!$clas_slug) {
+                        if (!$class_slug) {
                             break;
                         }
                         

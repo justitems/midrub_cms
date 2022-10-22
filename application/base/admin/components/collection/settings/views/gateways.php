@@ -24,7 +24,7 @@
                                         $the_gateway_slug = array_keys($the_gateway);
 
                                         // Verify if the gateway is enabled
-                                        if ( md_the_option($the_gateway_slug[0]) ) {
+                                        if ( md_the_option('gateway_' . $the_gateway_slug[0] . '_enabled') ) {
 
                                             // Set the enable status
                                             $status = '<span class="badge bg-primary theme-badge-1">'

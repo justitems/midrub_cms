@@ -1,193 +1,90 @@
-<!--<div class="social-page">
-    <div class="row">
-        <div class="col-lg-12">
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <div class="row">
-                            <div class="col-lg-10 col-xs-6">
-                                <h3>
-                                    <i class="fas fa-share-alt"></i>
-                                    <?php echo $this->lang->line('frontend_social_access'); ?>
-                                </h3>
-                            </div>
-                            <div class="col-lg-2 col-xs-6">
-                                <div class="checkbox-option pull-right">
-                                    <input id="enable_auth_social_access" name="enable-auth-social-access" class="auth-social-option-checkbox" type="checkbox" <?php echo (md_the_option('enable_auth_social_access')) ? ' checked' : ''; ?>>
-                                    <label for="enable_auth_social_access"></label>
-                                </div>
-                            </div>
+<div class="row mt-3">
+    <div class="col-lg-12">
+        <div class="theme-box-1">
+            <nav class="navbar navbar-default theme-navbar-1">
+                <div class="navbar-header ps-3 pe-3 pt-2 pb-2">
+                    <div class="row">
+                        <div class="col-12">
+                           <a href="<?php echo site_url('admin/frontend?p=social_access&group=frontend_page&directory=1'); ?>" class="btn-option frontend-new-network theme-button-2">
+                              <?php echo md_the_admin_icon(array('icon' => 'network_add')); ?>
+                              <?php echo $this->lang->line('frontend_new_network'); ?>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </nav>
+            </nav>            
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-12 show-auth-socials">
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card mt-0 theme-list">
+            <div class="card-body">
             <?php
 
-            // Set the sign in page
-            $sign_in = md_the_url_by_page_role('sign_in')?md_the_url_by_page_role('sign_in'):site_url('auth/signin');
+            // Get networks
+            $networks = md_the_frontend_networks();
 
-            // Set the sign up page
-            $sign_up = md_the_url_by_page_role('sign_up')?md_the_url_by_page_role('sign_up'):site_url('auth/signup');
+            // Verify if networks exists
+            if ( $networks ) {
+               
+               // List the available networks
+               foreach ( $networks as $network ) {
 
-            // Verify if social classes exists
-            if ( glob(CMS_BASE_AUTH . 'social/*.php') ) {
-
-                // List auth social classes
-                foreach (glob(CMS_BASE_AUTH . 'social/*.php') as $filename) {
-
-                    // Call the class
-                    $className = str_replace(array(CMS_BASE_AUTH . 'social/', '.php'), '', $filename);
-
-                    // Create an array
-                    $array = array(
-                        'CmsBase',
-                        'Auth',
-                        'Social',
-                        ucfirst($className)
-                    );
-
-                    // Implode the array above
-                    $cl = implode('\\', $array);
-
-                    // Get class info
-                    $class = (new $cl())->get_info();
-
-                    ?>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="panel panel-default single-social">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <ul class="nav nav-tabs nav-justified">
-                                                <li class="active">
-                                                    <a data-toggle="tab" href="#<?php echo $className; ?>">
-                                                        <?php
-                                                        echo ucwords(str_replace(array('_', '-'), ' ', $className));
-                                                        ?>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="tab-content tab-all-editors">
-                                        <div id="<?php echo $className; ?>" class="tab-pane fade in active">
-                                            <?php
-                                            if ($class->api) {
-
-                                                foreach ($class->api as $api) {
-
-                                                    ?>
-                                                    <div class="form-group">
-                                                        <div class="row">
-                                                            <div class="col-lg-12">
-                                                                <label for="auth-text-input">
-                                                                    <?php
-                                                                    echo ucwords(str_replace(array('_', '-'), ' ', $api));
-                                                                    ?>
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-12">
-                                                                <input type="text" class="form-control auth-text-input" id="<?php echo strtolower($className); ?>_auth_<?php echo $api; ?>" value="<?php echo (md_the_option(strtolower($className) . '_auth_' . $api)) ? md_the_option(strtolower($className) . '_auth_' . $api) : ''; ?>" placeholder="<?php echo $this->lang->line('frontend_enter_the'); ?> <?php echo str_replace(array('_', '-'), ' ', $api); ?>">
-                                                                <small class="form-text text-muted">
-                                                                    <?php echo $this->lang->line('frontend_the_field_is_required'); ?>
-                                                                </small>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                <?php
-
-                                                }
-                                            }
-                                            ?>
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-lg-12">
-                                                        <label for="menu-item-text-input">
-                                                            <?php
-                                                            echo $this->lang->line('frontend_sign_in_redirect') . ':';
-                                                            ?>
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <?php
-                                                        echo $sign_in . '/' . $className;
-                                                        ?>
-                                                    </div>                                                
-                                                </div>
-                                            </div> 
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-lg-12">
-                                                        <label for="menu-item-text-input">
-                                                            <?php
-                                                            echo $this->lang->line('frontend_sign_up_redirect') . ':';
-                                                            ?>
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <?php
-                                                        echo $sign_up . '/' . $className;
-                                                        ?>
-                                                    </div>                                                
-                                                </div>
-                                            </div>                                      
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-lg-10 col-xs-6">
-                                                        <label for="menu-item-text-input">
-                                                            <?php
-                                                            echo $this->lang->line('frontend_enable') . ' ' . ucwords(str_replace(array('_', '-'), ' ', $className));
-                                                            ?>
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-lg-2 col-xs-6">
-                                                        <div class="checkbox-option pull-right">
-                                                            <input id="enable_auth_<?php echo strtolower($className); ?>" name="enable-auth-<?php echo strtolower($className); ?>" class="auth-social-option-checkbox" type="checkbox" <?php echo (md_the_option('enable_auth_' . strtolower($className))) ? ' checked' : ''; ?>>
-                                                            <label for="enable_auth_<?php echo strtolower($className); ?>"></label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                  ?>
+                  <div class="card theme-box-1" data-network="<?php echo $network['network_slug']; ?>">
+                     <div class="card-header">
+                        <div class="row">
+                           <div class="col-md-10 col-8">
+                              <div class="media d-flex justify-content-start">
+                                 <span class="mr-3 theme-list-item-icon">
+                                    <?php echo md_the_admin_icon(array('icon' => 'network')); ?>
+                                 </span>
+                                 <div class="media-body">
+                                    <h5>
+                                       <a href="<?php echo site_url('admin/frontend?p=social_access&group=frontend_page&network=' . $network['network_slug']); ?>">
+                                          <?php echo $network['network_name']; ?>
+                                       </a>
+                                    </h5>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-md-1 col-2 text-center">
+                                 <span class="label label-default theme-label">
+                                    v<?php echo $network['network_version']; ?>
+                                 </span>
+                           </div>
+                           <div class="col-md-1 col-2 text-end">
+                              <?php if ( md_the_option('auth_network_' . $network['network_slug'] . '_enabled') ) { ?>
+                              <span class="badge bg-primary theme-badge-1">
+                                 <?php echo $this->lang->line('frontend_network_enabled'); ?>
+                              </span>
+                              <?php } else { ?>
+                              <span class="badge bg-light theme-badge-1">   
+                                 <?php echo $this->lang->line('frontend_network_disabled'); ?>
+                              </span>
+                              <?php } ?>
+                           </div>
                         </div>
-                    </div>
-                <?php
-                }
+                     </div>
+                  </div>
+                  <?php
 
+               }
+                        
             } else {
             ?>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <nav class="navbar navbar-default">
-                            <div class="container-fluid">
-                                <div class="navbar-header">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <p>
-                                                <?php
-                                                echo $this->lang->line('frontend_no_data_found_to_show');
-                                                ?>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            <?php } ?>
+               <div class="row">
+                  <div class="col-lg-12">
+                     <p class="theme-box-1 theme-list-no-results-found">
+                        <?php echo $this->lang->line('frontend_no_data_found_to_show'); ?>
+                     </p>         
+                  </div>
+               </div>
+            <?php
+            }
+            ?>
+            </div>
         </div>
     </div>
-</div>-->
+</div>

@@ -115,8 +115,18 @@ if ( !function_exists('the_users_alerts_field') ) {
                 // Set key
                 $key = empty($field_extra)?'field_value':'field_extra';
 
-                // Return content
-                return $alert_fields[$field_name][$key];
+                // Verify if key exists
+                if ( isset($alert_fields[$field_name][$key]) ) {
+
+                    // Return content
+                    return $alert_fields[$field_name][$key];
+
+                } else {
+
+                    // Return false
+                    return false;
+
+                }
 
             }
 

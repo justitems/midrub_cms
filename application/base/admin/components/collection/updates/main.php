@@ -15,7 +15,7 @@ namespace CmsBase\Admin\Components\Collection\Updates;
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 defined('CMS_BASE_ADMIN_COMPONENTS_UPDATES') OR define('CMS_BASE_ADMIN_COMPONENTS_UPDATES', CMS_BASE_PATH . 'admin/components/collection/updates/');
-defined('CMS_BASE_ADMIN_COMPONENTS_UPDATES_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_UPDATES_VERSION', '0.0.4');
+defined('CMS_BASE_ADMIN_COMPONENTS_UPDATES_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_UPDATES_VERSION', '0.0.5');
 
 // Define the namespaces to use
 use CmsBase\Admin\Interfaces as CmsBaseAdminInterfaces;

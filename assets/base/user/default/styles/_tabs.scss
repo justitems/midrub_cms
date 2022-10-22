@@ -44,6 +44,7 @@ TABS MIXING
                 i {
                     vertical-align: middle;
                     margin-right: 5px;
+                    line-height: inherit;
                     font-size: 19px;
                 }
 
@@ -73,7 +74,6 @@ TABS MIXING
     
                         .btn {
                             margin: 0;
-                            line-height: 41px;
 
                             i {
                                 margin-top: -4px;
@@ -84,6 +84,40 @@ TABS MIXING
     
                     }    
             
+                }
+
+                .card-actions-box {
+                    margin-top: 15px;
+                    padding: 0 20px;
+                    height: 55px;
+        
+                    .crm-settings-selected-items {
+                        height: 55px;
+        
+                        p {
+                            height: 40px;
+                            line-height: 50px;
+                            font-size: 14px;
+                            font-weight: 400;
+                            color: $default-color-grey;
+                        }
+        
+                    }
+        
+                    .btn {
+                        margin-top: 10px;
+                        padding-right: 15px;
+                        height: 35px;
+                        color: #FFFFFF;
+                        background-color: $default-color-red;
+        
+                        i {
+                            font-size: 16px;
+                            color: #FFFFFF;
+                        }
+        
+                    }
+                    
                 }
             
                 .card-body {
@@ -101,6 +135,7 @@ TABS MIXING
                         & > .card-header {
                             padding: 0.5rem 1.25rem 0.2rem;
                             width: 100%;
+                            min-height: 60px;
                             text-align: left;
                             color: $default-color-black;
                             opacity: 1 !important;
@@ -137,6 +172,30 @@ TABS MIXING
                                 }
             
                                 .media-body {
+
+                                    div {
+
+                                        &.card-list-item-title {
+                                            display: inline-block;
+                                            margin-top: -3px;
+                                            font-family: $default-font-2;
+                                            font-size: 13px;
+                                            font-weight: 500;
+                                            overflow: hidden;
+                                            -webkit-line-clamp: 1;
+                                            -webkit-box-orient: vertical;
+                                        }
+
+                                        &.card-list-item-description {
+                                            margin-top: -4px;
+                                            margin-bottom: 3px;
+                                            font-family: $default-font-1;
+                                            font-size: 13px;
+                                            font-weight: 400;
+                                            color: $default-color-grey;  
+                                        }
+
+                                    }
             
                                     h5 {
                                         margin: 0;
@@ -145,7 +204,7 @@ TABS MIXING
                                         a {
                                             display: -webkit-inline-box;
                                             margin-top: 6.5px;
-                                            padding-bottom: 3px;
+                                            padding-bottom: 0;
                                             border-bottom: 1px solid #FFFFFF;
                                             font-family: $default-font-2;
                                             font-size: 14px;
@@ -163,15 +222,23 @@ TABS MIXING
                                             }
             
                                         }
+
+                                        i {
+                                            vertical-align: middle;
+                                            margin-left: 5px;
+                                            font-size: 17px;
+                                            color: $default-color-grey-light;
+                                            transition: all .2s;
+                                        }
             
                                     }
 
                                     h6 {
-                                        margin: 0;
+                                        margin: 0 0 4px;
                                         font-size: 15px;
     
                                         a {
-                                            padding-bottom: 3px;
+                                            padding-bottom: 0;
                                             font-family: $default-font-2;
                                             font-size: 14px;
                                             font-weight: 500;
@@ -200,6 +267,12 @@ TABS MIXING
                                     p {
                                         margin: 0 0 5px;
                                         font-size: 13px;
+                                        color: $default-color-grey;
+                                    }
+
+                                    small {
+                                        line-height: 45px;
+                                        font-size: 14px;
                                         color: $default-color-grey;
                                     }
             
@@ -317,7 +390,7 @@ TABS MIXING
                             }  
                             
                             .card-list-item-status {
-                                line-height: 39px;
+                                line-height: 44px;
                                 font-size: 13px;
                                 font-weight: 400;
                                 color: $default-color-grey;

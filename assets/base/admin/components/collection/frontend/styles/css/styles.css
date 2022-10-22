@@ -44,12 +44,13 @@ section {
           position: initial;
           z-index: 1;
           border: 0;
-          background-color: transparent; }
+          background-color: #FFFFFF; }
           section .container-fluid .frontend-view .form-editor .note-editor.note-frame .note-toolbar .dropdown-toggle::after {
             display: none; }
       section .container-fluid .frontend-view .form-editor .note-statusbar {
         display: none; }
       section .container-fluid .frontend-view .form-editor .note-editor.note-frame .note-status-output {
+        display: none;
         border: 0; }
       section .container-fluid .frontend-view .form-editor .note-editor.note-frame .note-status-output:empty {
         display: none; }
@@ -264,6 +265,7 @@ MODAL STYLES
   #theme-templates-selector .modal-content .modal-body .url-preview,
   #default-components-selector .modal-content .modal-body .url-preview,
   #page-url-composer .modal-content .modal-body .url-preview {
+    display: inherit;
     margin-top: 15px;
     padding: 8px 15px;
     width: 100%;

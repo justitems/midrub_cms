@@ -1,0 +1,1055 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+THEME GLOBAL COLORS
+********************************/
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Inter:wght@200;300;400;500;600&display=swap");
+/*******************************
+THEME GLOBAL FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro&family=IBM+Plex+Sans:wght@300;400;500&display=swap");
+/*******************************
+DEFAULT PLANNER VARIABLES
+********************************/
+:root {
+  --event-background: #f7f9fc;
+  --event-span-color: #14223d;
+  --event-small-color: #2a467e; }
+
+/*******************************
+DEFAULT PLANNER STYLES
+********************************/
+.default-planner {
+  display: flex; }
+  @media screen and (max-width: 1446px) {
+    .default-planner {
+      display: block; } }
+  .default-planner .default-planner-sidebar {
+    width: 20%; }
+    @media screen and (max-width: 1700px) {
+      .default-planner .default-planner-sidebar {
+        width: 25%; } }
+    @media screen and (max-width: 1446px) {
+      .default-planner .default-planner-sidebar {
+        width: 100%; } }
+    .default-planner .default-planner-sidebar .default-planner-sidebar-block {
+      margin-bottom: 20px; }
+      .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar {
+        padding: 15px;
+        border-radius: 4px;
+        background-color: #f2f4f9; }
+        .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table {
+          display: inline-table;
+          width: 100%; }
+          .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table thead tr th {
+            padding: 0;
+            width: 25px;
+            border: 0;
+            line-height: 29px;
+            font-family: "Open Sans", sans-serif;
+            font-size: 14px;
+            font-weight: 400; }
+            .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table thead tr th h4 {
+              margin: 0;
+              padding: 0;
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+              font-size: 13px; }
+              .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table thead tr th h4 i {
+                vertical-align: sub;
+                margin-right: 5px;
+                font-size: 18px; }
+              .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table thead tr th h4 svg {
+                vertical-align: middle;
+                margin: -4px 5px 0 0;
+                width: 16px;
+                height: 17px; }
+            .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table thead tr th:first-child {
+              width: calc(100% - 50px); }
+            .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table thead tr th .btn {
+              margin-top: -7px;
+              padding: 0;
+              border: 0;
+              line-height: inherit;
+              background-color: transparent;
+              box-shadow: none; }
+              .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table thead tr th .btn:hover, .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table thead tr th .btn:focus, .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table thead tr th .btn:active {
+                opacity: 1; }
+              .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table thead tr th .btn i {
+                font-size: 23px;
+                color: #344564; }
+              .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table thead tr th .btn svg {
+                width: 17px;
+                height: 18px;
+                color: #344564; }
+          .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table tbody > tr > td {
+            padding: 8px 0; }
+            .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table tbody > tr > td table {
+              width: 100%; }
+              .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table tbody > tr > td table tbody tr {
+                margin-left: -10px; }
+                .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table tbody > tr > td table tbody tr:first-child {
+                  margin-bottom: 5px; }
+                  .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table tbody > tr > td table tbody tr:first-child td {
+                    font-size: 13px;
+                    font-weight: 500; }
+                .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table tbody > tr > td table tbody tr td {
+                  padding: 0;
+                  width: 35.71px !important;
+                  height: 33px;
+                  text-align: center; }
+                  .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table tbody > tr > td table tbody tr td a {
+                    display: block;
+                    margin: auto;
+                    border-radius: 50%;
+                    width: 30px;
+                    height: 30px;
+                    line-height: 30px;
+                    text-decoration: none;
+                    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                    font-size: 13px;
+                    color: #344564; }
+                    .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table tbody > tr > td table tbody tr td a:hover {
+                      background-color: #f7f9fc; }
+                    .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table tbody > tr > td table tbody tr td a.default-planner-small-calendar-current-day {
+                      background-color: #e7edf3; }
+                    .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-calendar > table tbody > tr > td table tbody tr td a.default-planner-small-calendar-selected-day {
+                      background-color: #f8fafc; }
+      .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-search {
+        margin-bottom: 30px; }
+        .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-search .default-planner-sidebar-search-form .input-group {
+          padding: 3px 15px;
+          border-radius: 6px;
+          background-color: #f0f4ff;
+          background-color: rgba(223, 223, 234, 0.08); }
+          .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-search .default-planner-sidebar-search-form .input-group .input-group-prepend i {
+            font-size: 22px;
+            color: #52567C; }
+          .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-search .default-planner-sidebar-search-form .input-group .form-control {
+            border: 0;
+            font-size: 13px;
+            color: #344564;
+            background-color: transparent; }
+          .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-search .default-planner-sidebar-search-form .input-group .input-group-append span {
+            font-size: 13px; }
+          .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-search .default-planner-sidebar-search-form .input-group .input-group-append.default-planner-sidebar-search-btns i {
+            display: inline-block;
+            vertical-align: sub;
+            margin: 0;
+            line-height: 35px;
+            font-size: 19px;
+            color: #52567C; }
+            .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-search .default-planner-sidebar-search-form .input-group .input-group-append.default-planner-sidebar-search-btns i.default-planner-sidebar-search-icon-loader {
+              opacity: 0;
+              -webkit-animation: rotating 2s linear infinite;
+              -moz-animation: rotating 2s linear infinite;
+              -ms-animation: rotating 2s linear infinite;
+              -o-animation: rotating 2s linear infinite;
+              animation: rotating 2s linear infinite; }
+          .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-search .default-planner-sidebar-search-form .input-group .input-group-append.default-planner-sidebar-search-btns a {
+            display: inline-block; }
+            .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-search .default-planner-sidebar-search-form .input-group .input-group-append.default-planner-sidebar-search-btns a.default-planner-sidebar-cancel-search {
+              opacity: 0; }
+              .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-search .default-planner-sidebar-search-form .input-group .input-group-append.default-planner-sidebar-search-btns a.default-planner-sidebar-cancel-search i {
+                margin: 0px 5px;
+                line-height: 35px;
+                font-size: 19px; }
+          .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-search .default-planner-sidebar-search-form .input-group .input-group-append.default-planner-sidebar-search-btns .default-planner-sidebar-search-btn {
+            margin-top: 4px;
+            padding: 5px;
+            height: 27px;
+            border: 0 !important;
+            border-radius: 4px !important;
+            line-height: 25px !important;
+            font-size: 14px !important;
+            color: #344564 !important;
+            background-color: transparent !important; }
+            .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-search .default-planner-sidebar-search-form .input-group .input-group-append.default-planner-sidebar-search-btns .default-planner-sidebar-search-btn svg {
+              vertical-align: middle;
+              margin-top: -8px; }
+        .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-search .default-planner-sidebar-search-results {
+          position: relative; }
+          .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-search .default-planner-sidebar-search-results .list-group {
+            display: none;
+            position: absolute;
+            z-index: 1;
+            top: 5px;
+            width: 100%;
+            max-height: 225px;
+            background-color: #FFFFFF;
+            -webkit-box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.02);
+            box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.02);
+            overflow-x: auto; }
+            .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-search .default-planner-sidebar-search-results .list-group p {
+              margin: 0;
+              padding: 10px 15px;
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+              font-size: 14px;
+              color: #344564; }
+            .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-search .default-planner-sidebar-search-results .list-group a {
+              border: 0;
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+              font-size: 14px;
+              color: #344564; }
+              .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-search .default-planner-sidebar-search-results .list-group a:hover, .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-search .default-planner-sidebar-search-results .list-group a:focus, .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-search .default-planner-sidebar-search-results .list-group a:active {
+                background-color: rgba(223, 223, 234, 0.08); }
+      .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-filters .default-planner-sidebar-filters-header {
+        height: 35px; }
+        .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-filters .default-planner-sidebar-filters-header h4 {
+          margin: 0;
+          padding: 0;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 13px; }
+          .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-filters .default-planner-sidebar-filters-header h4 i {
+            vertical-align: sub;
+            margin-right: 5px;
+            font-size: 19px; }
+          .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-filters .default-planner-sidebar-filters-header h4 svg {
+            vertical-align: middle;
+            margin: -3px 5px 0 0;
+            width: 16px;
+            height: 20px; }
+        .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-filters .default-planner-sidebar-filters-header a {
+          display: block;
+          margin-top: -7px;
+          padding: 0;
+          border-radius: 0;
+          font-size: 22px;
+          color: #344564;
+          background-color: transparent; }
+          .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-filters .default-planner-sidebar-filters-header a:hover, .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-filters .default-planner-sidebar-filters-header a:focus, .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-filters .default-planner-sidebar-filters-header a:active {
+            border-bottom: 1px solid transparent;
+            text-decoration: none; }
+          .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-filters .default-planner-sidebar-filters-header a i {
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: -13px;
+            font-size: 24px; }
+          .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-filters .default-planner-sidebar-filters-header a svg {
+            margin-top: -5px;
+            width: 16px;
+            height: 18px; }
+      .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-filters .default-planner-sidebar-filters-list ul {
+        margin: 5px 0 0 15px;
+        padding: 0; }
+        .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-filters .default-planner-sidebar-filters-list ul li {
+          list-style: none;
+          line-height: 40px; }
+          .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-filters .default-planner-sidebar-filters-list ul li.default-planner-sidebar-filters-no-found {
+            margin-left: -15px;
+            padding-left: 15px;
+            width: calc(100% + 15px);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 13px;
+            color: #344564;
+            background-color: #f2f4f9; }
+          .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-filters .default-planner-sidebar-filters-list ul li input[type="checkbox"] {
+            position: relative;
+            vertical-align: middle;
+            margin: -1px 10px 0 0;
+            width: 20px;
+            height: 20px;
+            border: 0;
+            border-radius: 50%;
+            color: #344564;
+            background-color: #EBEAF5;
+            background-color: var(--background);
+            appearance: none;
+            outline: 0;
+            transition: all 0.3s cubic-bezier(0.1, 0.1, 0.25, 1);
+            cursor: pointer; }
+            .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-filters .default-planner-sidebar-filters-list ul li input[type="checkbox"]::before {
+              content: '';
+              display: block;
+              position: absolute;
+              top: 3px;
+              left: 8px;
+              width: 5px;
+              height: 11px;
+              border-style: solid;
+              border-width: 0 2px 2px 0;
+              border-color: #FFFFFF;
+              transform: rotate(45deg);
+              opacity: 0; }
+            .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-filters .default-planner-sidebar-filters-list ul li input[type="checkbox"]:checked {
+              color: #FFFFFF;
+              background: var(--checked); }
+              .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-filters .default-planner-sidebar-filters-list ul li input[type="checkbox"]:checked::before {
+                opacity: 1; }
+              .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-filters .default-planner-sidebar-filters-list ul li input[type="checkbox"]:checked ~ label {
+                text-decoration-line: inherit; }
+              .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-filters .default-planner-sidebar-filters-list ul li input[type="checkbox"]:checked ~ label::before {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+          .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-filters .default-planner-sidebar-filters-list ul li label {
+            margin: -1px 10px 0 0;
+            text-decoration-line: line-through;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--label);
+            user-select: none;
+            cursor: pointer; }
+          .default-planner .default-planner-sidebar .default-planner-sidebar-block .default-planner-sidebar-filters .default-planner-sidebar-filters-list ul li .dropdown .dropdown-toggle i {
+            font-size: 16px !important; }
+  .default-planner .default-planner-calendar {
+    margin-left: 15px;
+    padding: 15px;
+    width: calc(80% - 15px); }
+    @media screen and (max-width: 1700px) {
+      .default-planner .default-planner-calendar {
+        width: calc(75% - 15px); } }
+    @media screen and (max-width: 1446px) {
+      .default-planner .default-planner-calendar {
+        margin-left: 0;
+        padding: 0;
+        width: 100%; } }
+    .default-planner .default-planner-calendar .default-planner-calendar-header {
+      margin-bottom: 25px; }
+      .default-planner .default-planner-calendar .default-planner-calendar-header .row h3 {
+        margin: 0;
+        line-height: 27px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        color: #344564; }
+        @media screen and (max-width: 840px) {
+          .default-planner .default-planner-calendar .default-planner-calendar-header .row h3 {
+            line-height: 60px; } }
+      @media screen and (max-width: 1260px) {
+        .default-planner .default-planner-calendar .default-planner-calendar-header .row > div:first-child {
+          -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+          max-width: 100%;
+          text-align: center !important; }
+          .default-planner .default-planner-calendar .default-planner-calendar-header .row > div:first-child h3 {
+            line-height: 60px; }
+        .default-planner .default-planner-calendar .default-planner-calendar-header .row > div.col-6 {
+          -ms-flex: 0 0 66.66%;
+          flex: 0 0 66.66%;
+          max-width: 66.66%;
+          text-align: left !important; }
+          .default-planner .default-planner-calendar .default-planner-calendar-header .row > div.col-6 .default-planner-calendar-navigation-tabs-navigation {
+            margin: inherit !important; }
+        .default-planner .default-planner-calendar .default-planner-calendar-header .row > div:last-child {
+          -ms-flex: 0 0 33.33%;
+          flex: 0 0 33.33%;
+          max-width: 33.33%; } }
+      @media screen and (max-width: 730px) {
+        .default-planner .default-planner-calendar .default-planner-calendar-header .row > div.col-6 .default-planner-calendar-navigation-tabs-navigation {
+          margin: auto !important; } }
+      @media screen and (max-width: 840px) {
+        .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation {
+          padding: 15px 0; } }
+      .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation .btn {
+        padding: 0 15px;
+        height: 29.5px;
+        border: 0;
+        border-radius: 4px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #344564;
+        background-color: #eaedf6; }
+        .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation .btn:first-child {
+          margin-right: 10px; }
+        .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation .btn:last-child {
+          margin-left: 10px; }
+        .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation .btn span {
+          display: block;
+          margin-top: -2px; }
+        .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation .btn svg {
+          margin-top: -3px;
+          width: 13px;
+          height: 14px; }
+        .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation .btn i {
+          display: block;
+          margin-top: 1px;
+          font-size: 19px; }
+      .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs {
+        position: relative; }
+        @media screen and (max-width: 840px) {
+          .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs {
+            padding: 15px 0; } }
+        .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation {
+          position: inherit;
+          z-index: 0;
+          left: 0;
+          margin: auto;
+          width: 360px;
+          border-radius: 4px;
+          font-size: 0;
+          background-color: #eaedf6;
+          overflow: hidden; }
+          .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input {
+            display: none; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input:checked + label {
+              color: #FFFFFF; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input.default-planner-calendar-navigation-tab-1:checked ~ .default-planner-calendar-navigation-tabs-navigation-active {
+              left: 0px; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input.default-planner-calendar-navigation-tab-1:checked ~ .content-container #c1 {
+              opacity: 1; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input.default-planner-calendar-navigation-tab-2:checked ~ .default-planner-calendar-navigation-tabs-navigation-active {
+              left: 120px; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input.default-planner-calendar-navigation-tab-2:checked ~ .content-container #c2 {
+              opacity: 1; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input.default-planner-calendar-navigation-tab-3:checked ~ .default-planner-calendar-navigation-tabs-navigation-active {
+              left: 240px; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input.default-planner-calendar-navigation-tab-3:checked ~ .content-container #c3 {
+              opacity: 1; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input.default-planner-calendar-navigation-tab-4:checked ~ .default-planner-calendar-navigation-tabs-navigation-active {
+              left: 360px; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input.default-planner-calendar-navigation-tab-4:checked ~ .content-container #c4 {
+              opacity: 1; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input.default-planner-calendar-navigation-tab-5:checked ~ .default-planner-calendar-navigation-tabs-navigation-active {
+              left: 480px; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input.default-planner-calendar-navigation-tab-5:checked ~ .content-container #c5 {
+              opacity: 1; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input.default-planner-calendar-navigation-tab-6:checked ~ .default-planner-calendar-navigation-tabs-navigation-active {
+              left: 600px; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input.default-planner-calendar-navigation-tab-6:checked ~ .content-container #c6 {
+              opacity: 1; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input.default-planner-calendar-navigation-tab-7:checked ~ .default-planner-calendar-navigation-tabs-navigation-active {
+              left: 720px; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input.default-planner-calendar-navigation-tab-7:checked ~ .content-container #c7 {
+              opacity: 1; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input.default-planner-calendar-navigation-tab-8:checked ~ .default-planner-calendar-navigation-tabs-navigation-active {
+              left: 840px; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input.default-planner-calendar-navigation-tab-8:checked ~ .content-container #c8 {
+              opacity: 1; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input.default-planner-calendar-navigation-tab-9:checked ~ .default-planner-calendar-navigation-tabs-navigation-active {
+              left: 960px; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input.default-planner-calendar-navigation-tab-9:checked ~ .content-container #c9 {
+              opacity: 1; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input.default-planner-calendar-navigation-tab-10:checked ~ .default-planner-calendar-navigation-tabs-navigation-active {
+              left: 1080px; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation input.default-planner-calendar-navigation-tab-10:checked ~ .content-container #c10 {
+              opacity: 1; }
+          .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation label {
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 0;
+            width: 120px;
+            height: 29.5px;
+            line-height: 28.5px;
+            text-align: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #344564;
+            transition: 0.27s background-color ease;
+            cursor: pointer; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation label:hover::after {
+              opacity: 1; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation label i {
+              display: inline-block;
+              vertical-align: middle;
+              margin-top: -4px;
+              margin-right: 5px;
+              font-size: 20px; }
+              .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation label i.material-icons-outlined {
+                margin-top: -5px;
+                font-size: 24px; }
+            .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation label svg {
+              vertical-align: middle;
+              margin-top: -2px;
+              margin-right: 5px;
+              width: 15px;
+              height: 15px; }
+          .default-planner .default-planner-calendar .default-planner-calendar-header .row .default-planner-calendar-navigation-tabs .default-planner-calendar-navigation-tabs-navigation .default-planner-calendar-navigation-tabs-navigation-active {
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 120px;
+            height: 28.5px;
+            border-radius: 4px;
+            background-color: #5e6278;
+            transition: 0.27s ease; }
+      @media screen and (max-width: 730px) {
+        .default-planner .default-planner-calendar .default-planner-calendar-header .col-3,
+        .default-planner .default-planner-calendar .default-planner-calendar-header .col-6 {
+          -ms-flex: 0 0 100% !important;
+          flex: 0 0 100% !important;
+          max-width: 100% !important;
+          text-align: center !important; } }
+    .default-planner .default-planner-calendar .default-planner-calendar-body {
+      position: relative;
+      border-radius: 6px;
+      background-color: #FFFFFF;
+      overflow: hidden; }
+      .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-header {
+        width: 100%;
+        height: 50px;
+        box-shadow: 1px 0 5px rgba(0, 0, 0, 0.05); }
+        .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-header .default-planner-calendar-tab-day-header-time {
+          display: inline-block;
+          width: 70px;
+          line-height: 48px;
+          text-align: center; }
+          @media screen and (max-width: 1446px) {
+            .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-header .default-planner-calendar-tab-day-header-time {
+              width: 50px; } }
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-header .default-planner-calendar-tab-day-header-time svg {
+            width: 18px;
+            height: 17px; }
+        .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-header .default-planner-calendar-tab-day-header-days {
+          display: inline-block;
+          width: calc(100% - 80px);
+          height: 50px;
+          line-height: 50px; }
+          @media screen and (max-width: 1446px) {
+            .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-header .default-planner-calendar-tab-day-header-days {
+              width: calc(100% - 60px); } }
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-header .default-planner-calendar-tab-day-header-days h3 {
+            margin: 0;
+            padding-left: 5px;
+            line-height: 50px;
+            text-transform: uppercase;
+            font-family: "Open Sans", sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: #344564; }
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-header .default-planner-calendar-tab-day-header-days span {
+            margin-right: 15px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #8F9EC2; }
+            .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-header .default-planner-calendar-tab-day-header-days span svg {
+              margin: -2px 5px 0 0;
+              width: 16px;
+              height: 18px; }
+      .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body {
+        margin-bottom: -7px;
+        padding-right: 0 !important;
+        height: 777px;
+        overflow-y: auto; }
+        .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body::-webkit-scrollbar {
+          width: 6px; }
+        .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body::-webkit-scrollbar-track {
+          border-radius: 4px;
+          background-color: #f7f9fc; }
+        .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body::-webkit-scrollbar-thumb {
+          border-radius: 4px;
+          background-color: #eef1f7; }
+        .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-top {
+          width: 100%;
+          height: 20px; }
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-top .default-planner-calendar-tab-day-hour-time {
+            display: inline-block;
+            width: 70px;
+            height: 20px;
+            border-right: 1px solid #eaedf6; }
+            @media screen and (max-width: 1446px) {
+              .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-top .default-planner-calendar-tab-day-hour-time {
+                width: 50px; } }
+        .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-hour {
+          display: flex;
+          width: 100%;
+          height: 70px;
+          border-top: 1px solid #eaedf6;
+          color: #344564; }
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-hour .default-planner-calendar-tab-day-hour-time {
+            display: inline-block;
+            position: relative;
+            width: 70px;
+            height: 70px;
+            border-right: 1px solid #eaedf6; }
+            @media screen and (max-width: 1446px) {
+              .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-hour .default-planner-calendar-tab-day-hour-time {
+                width: 50px; } }
+            .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-hour .default-planner-calendar-tab-day-hour-time span {
+              display: block;
+              position: absolute;
+              top: 5px;
+              width: 69px;
+              text-align: center;
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+              font-size: 13px;
+              font-weight: 400; }
+              @media screen and (max-width: 1446px) {
+                .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-hour .default-planner-calendar-tab-day-hour-time span {
+                  width: 49px; } }
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-hour .default-planner-calendar-events {
+            width: calc(100% - 80px);
+            height: 70px; }
+            @media screen and (max-width: 1446px) {
+              .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-hour .default-planner-calendar-events {
+                width: calc(100% - 60px); } }
+            .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-hour .default-planner-calendar-events .default-planner-calendar-events-list {
+              display: table;
+              padding: 5px;
+              width: 100%;
+              height: auto; }
+              .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-hour .default-planner-calendar-events .default-planner-calendar-events-list .default-planner-calendar-event {
+                display: table-cell;
+                margin-top: 0px;
+                padding: 3px 10px;
+                width: calc(100% - 10px);
+                border-radius: 12px;
+                background-color: var(--event-background); }
+                .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-hour .default-planner-calendar-events .default-planner-calendar-events-list .default-planner-calendar-event:hover, .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-hour .default-planner-calendar-events .default-planner-calendar-events-list .default-planner-calendar-event:focus, .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-hour .default-planner-calendar-events .default-planner-calendar-events-list .default-planner-calendar-event:active {
+                  text-decoration: none; }
+                .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-hour .default-planner-calendar-events .default-planner-calendar-events-list .default-planner-calendar-event small {
+                  display: block;
+                  margin-top: -8px;
+                  text-transform: uppercase;
+                  font-family: "IBM Plex Sans", sans-serif;
+                  font-size: 13px;
+                  font-weight: 400;
+                  color: var(--event-small-color); }
+                .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-hour .default-planner-calendar-events .default-planner-calendar-events-list .default-planner-calendar-event span {
+                  display: -webkit-inline-box;
+                  overflow: hidden;
+                  font-family: "Roboto", "Maven Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                  font-size: 13px;
+                  font-weight: 500;
+                  color: var(--event-span-color);
+                  -webkit-line-clamp: 1;
+                  -webkit-box-orient: vertical; }
+            .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-hour .default-planner-calendar-events .default-planner-calendar-events-show-all {
+              margin-top: -3px;
+              padding: 5px;
+              width: 100%;
+              height: 20px; }
+              .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-hour .default-planner-calendar-events .default-planner-calendar-events-show-all a {
+                display: table;
+                margin-top: -6px;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 12px;
+                font-weight: 400;
+                color: #8F9EC2; }
+                .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-hour .default-planner-calendar-events .default-planner-calendar-events-show-all a:hover, .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-hour .default-planner-calendar-events .default-planner-calendar-events-show-all a:focus, .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-hour .default-planner-calendar-events .default-planner-calendar-events-show-all a:active {
+                  text-decoration: none; }
+                .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-hour .default-planner-calendar-events .default-planner-calendar-events-show-all a:hover {
+                  color: #344564; }
+                .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-day .default-planner-calendar-tab-day-body .default-planner-calendar-tab-day-hour .default-planner-calendar-events .default-planner-calendar-events-show-all a svg {
+                  vertical-align: middle;
+                  margin-top: -5px;
+                  margin-right: -2px;
+                  width: 15px;
+                  height: 15px; }
+      .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-header {
+        width: 100%;
+        height: 50px;
+        box-shadow: 1px 0 5px rgba(0, 0, 0, 0.05); }
+        .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-header .default-planner-calendar-tab-week-header-time {
+          display: inline-block;
+          width: 70px;
+          line-height: 50px;
+          text-align: center; }
+          @media screen and (max-width: 1446px) {
+            .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-header .default-planner-calendar-tab-week-header-time {
+              width: 50px; } }
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-header .default-planner-calendar-tab-week-header-time svg {
+            width: 18px;
+            height: 17px; }
+        .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-header .default-planner-calendar-tab-week-header-days {
+          display: inline-block;
+          width: calc(100% - 80px);
+          height: 50px; }
+          @media screen and (max-width: 1446px) {
+            .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-header .default-planner-calendar-tab-week-header-days {
+              width: calc(100% - 60px); } }
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-header .default-planner-calendar-tab-week-header-days .default-planner-calendar-tab-week-header-day {
+            display: inline-block;
+            padding: 7px 0 0;
+            width: 14.28%;
+            height: 50px; }
+            .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-header .default-planner-calendar-tab-week-header-days .default-planner-calendar-tab-week-header-day h4 {
+              margin: 0 0 3px;
+              text-align: center;
+              text-transform: uppercase;
+              font-family: "Open Sans", sans-serif;
+              font-size: 12px;
+              font-weight: 600;
+              color: #344564; }
+            .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-header .default-planner-calendar-tab-week-header-days .default-planner-calendar-tab-week-header-day h5 {
+              text-align: center;
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+              font-size: 16px;
+              font-weight: 400;
+              color: #8F9EC2; }
+      .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body {
+        margin-bottom: -7px;
+        padding-right: 0 !important;
+        height: 777px;
+        overflow-y: auto; }
+        .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body::-webkit-scrollbar {
+          width: 6px; }
+        .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body::-webkit-scrollbar-track {
+          border-radius: 4px;
+          background-color: #f7f9fc; }
+        .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body::-webkit-scrollbar-thumb {
+          border-radius: 4px;
+          background-color: #eef1f7; }
+        .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-top {
+          width: 100%;
+          height: 20px; }
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-top .default-planner-calendar-tab-week-hour-time {
+            display: inline-block;
+            width: 70px;
+            height: 20px;
+            border-right: 1px solid #eaedf6; }
+            @media screen and (max-width: 1446px) {
+              .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-top .default-planner-calendar-tab-week-hour-time {
+                width: 50px; } }
+        .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour {
+          width: 100%;
+          height: 70px;
+          border-top: 1px solid #eaedf6;
+          color: #344564; }
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-hour-time {
+            display: inline-block;
+            position: relative;
+            width: 70px;
+            height: 70px;
+            border-right: 1px solid #eaedf6; }
+            @media screen and (max-width: 1446px) {
+              .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-hour-time {
+                width: 50px; } }
+            .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-hour-time span {
+              display: block;
+              position: absolute;
+              top: 5px;
+              width: 69px;
+              text-align: center;
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+              font-size: 13px;
+              font-weight: 400; }
+              @media screen and (max-width: 1446px) {
+                .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-hour-time span {
+                  width: 49px; } }
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-days {
+            display: inline-block;
+            width: calc(100% - 76px);
+            height: 70px; }
+            @media screen and (max-width: 1446px) {
+              .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-days {
+                width: calc(100% - 56px); } }
+            .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-days .default-planner-calendar-events {
+              display: inline-block;
+              padding: 0;
+              width: 14.28%;
+              height: 70px;
+              border-right: 1px solid #eaedf6;
+              overflow: hidden; }
+              .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-days .default-planner-calendar-events:last-child {
+                border-right: 0; }
+              .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-days .default-planner-calendar-events .default-planner-calendar-events-list {
+                display: table;
+                padding: 5px;
+                width: 100%;
+                height: auto; }
+                .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-days .default-planner-calendar-events .default-planner-calendar-events-list .default-planner-calendar-event {
+                  display: table-cell;
+                  margin-top: 0px;
+                  padding: 3px 10px;
+                  width: calc(100% - 10px);
+                  border-radius: 12px;
+                  background-color: var(--event-background); }
+                  .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-days .default-planner-calendar-events .default-planner-calendar-events-list .default-planner-calendar-event:hover, .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-days .default-planner-calendar-events .default-planner-calendar-events-list .default-planner-calendar-event:focus, .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-days .default-planner-calendar-events .default-planner-calendar-events-list .default-planner-calendar-event:active {
+                    text-decoration: none; }
+                  .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-days .default-planner-calendar-events .default-planner-calendar-events-list .default-planner-calendar-event small {
+                    display: block;
+                    margin-top: -8px;
+                    text-transform: uppercase;
+                    font-family: "IBM Plex Sans", sans-serif;
+                    font-size: 13px;
+                    font-weight: 400;
+                    color: var(--event-small-color); }
+                  .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-days .default-planner-calendar-events .default-planner-calendar-events-list .default-planner-calendar-event span {
+                    display: -webkit-inline-box;
+                    overflow: hidden;
+                    font-family: "Roboto", "Maven Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                    font-size: 13px;
+                    font-weight: 500;
+                    color: var(--event-span-color);
+                    -webkit-line-clamp: 1;
+                    -webkit-box-orient: vertical; }
+              .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-days .default-planner-calendar-events .default-planner-calendar-events-show-all {
+                margin-top: -3px;
+                padding: 5px;
+                width: 100%;
+                height: 20px; }
+                .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-days .default-planner-calendar-events .default-planner-calendar-events-show-all a {
+                  display: table;
+                  margin-top: -6px;
+                  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                  font-size: 12px;
+                  font-weight: 400;
+                  color: #8F9EC2; }
+                  .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-days .default-planner-calendar-events .default-planner-calendar-events-show-all a:hover, .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-days .default-planner-calendar-events .default-planner-calendar-events-show-all a:focus, .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-days .default-planner-calendar-events .default-planner-calendar-events-show-all a:active {
+                    text-decoration: none; }
+                  .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-days .default-planner-calendar-events .default-planner-calendar-events-show-all a:hover {
+                    color: #344564; }
+                  .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-week .default-planner-calendar-tab-week-body .default-planner-calendar-tab-week-hour .default-planner-calendar-tab-week-days .default-planner-calendar-events .default-planner-calendar-events-show-all a svg {
+                    vertical-align: middle;
+                    margin-top: -5px;
+                    margin-right: -2px;
+                    width: 15px;
+                    height: 15px; }
+      .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-header {
+        width: 100%;
+        height: 50px;
+        box-shadow: 1px 0 5px rgba(0, 0, 0, 0.05); }
+        @media screen and (max-width: 840px) {
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-header {
+            display: none; } }
+        .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-header .default-planner-calendar-tab-month-header-days {
+          display: inline-block;
+          width: 100%;
+          height: 50px; }
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-header .default-planner-calendar-tab-month-header-days .default-planner-calendar-tab-month-header-day {
+            display: inline-block;
+            width: 14.28%;
+            height: 50px; }
+            .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-header .default-planner-calendar-tab-month-header-days .default-planner-calendar-tab-month-header-day h4 {
+              margin: 0;
+              line-height: 50px;
+              text-align: center;
+              text-transform: uppercase;
+              font-family: "Open Sans", sans-serif;
+              font-size: 12px;
+              font-weight: 600;
+              color: #344564; }
+      .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss {
+        display: inline-block;
+        width: 100%;
+        height: 128.25px;
+        border-top: 1px solid #eaedf6; }
+        @media screen and (max-width: 840px) {
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss {
+            display: inline-table; }
+            .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss:first-child {
+              border-top: 0; } }
+        .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events {
+          display: inline-block;
+          width: 14.28%;
+          height: 128.25px;
+          border-right: 1px solid #eaedf6; }
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events:last-child {
+            border-right: 0; }
+          @media screen and (max-width: 840px) {
+            .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events.default-planner-calendar-events-disabled {
+              display: none; } }
+          @media screen and (max-width: 840px) {
+            .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events {
+              width: 100%;
+              border-right: 0;
+              border-bottom: 1px solid #eaedf6; }
+              .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events:first-child {
+                border-top: 0; }
+              .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events:last-child {
+                border-bottom: 0; } }
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events .default-planner-calendar-tab-month-top {
+            width: 100%;
+            height: 25px; }
+            .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events .default-planner-calendar-tab-month-top a {
+              display: block;
+              padding: 5px;
+              text-align: right;
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+              color: #344564;
+              pointer-events: none; }
+              .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events .default-planner-calendar-tab-month-top a span {
+                opacity: 0;
+                text-transform: uppercase;
+                font-size: 12px;
+                font-weight: 400; }
+                @media screen and (max-width: 840px) {
+                  .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events .default-planner-calendar-tab-month-top a span {
+                    opacity: 1; } }
+              .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events .default-planner-calendar-tab-month-top a small {
+                font-size: 14px;
+                font-weight: 400; }
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events .default-planner-calendar-events-list {
+            display: table;
+            padding: 5px;
+            width: 100%;
+            height: auto; }
+            .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events .default-planner-calendar-events-list .default-planner-calendar-event {
+              display: table-cell;
+              margin-top: 0px;
+              padding: 7px 10px;
+              width: calc(100% - 10px);
+              border-radius: 12px;
+              background-color: var(--event-background); }
+              .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events .default-planner-calendar-events-list .default-planner-calendar-event:hover, .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events .default-planner-calendar-events-list .default-planner-calendar-event:focus, .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events .default-planner-calendar-events-list .default-planner-calendar-event:active {
+                text-decoration: none; }
+              .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events .default-planner-calendar-events-list .default-planner-calendar-event small {
+                display: block;
+                text-transform: uppercase;
+                font-family: "IBM Plex Sans", sans-serif;
+                font-size: 13px;
+                font-weight: 400;
+                color: var(--event-small-color); }
+              .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events .default-planner-calendar-events-list .default-planner-calendar-event span {
+                display: -webkit-inline-box;
+                overflow: hidden;
+                font-family: "Roboto", "Maven Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 13px;
+                font-weight: 500;
+                color: var(--event-span-color);
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical; }
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events .default-planner-calendar-events-show-all {
+            margin-top: 5px;
+            padding: 5px;
+            width: 100%;
+            height: 20px; }
+            .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events .default-planner-calendar-events-show-all a {
+              display: table;
+              margin-top: -6px;
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+              font-size: 12px;
+              font-weight: 400;
+              color: #8F9EC2; }
+              .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events .default-planner-calendar-events-show-all a:hover, .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events .default-planner-calendar-events-show-all a:focus, .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events .default-planner-calendar-events-show-all a:active {
+                text-decoration: none; }
+              .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events .default-planner-calendar-events-show-all a:hover {
+                color: #344564; }
+              .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events .default-planner-calendar-events-show-all a svg {
+                vertical-align: middle;
+                margin-top: -5px;
+                margin-right: -2px;
+                width: 15px;
+                height: 15px; }
+        @media screen and (max-width: 1700px) {
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss {
+            height: 120px; }
+            .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-tabs .default-planner-calendar-tab-month .default-planner-calendar-tab-month-body .default-planner-calendar-eventss .default-planner-calendar-events {
+              height: 120px; } }
+      .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-new-event {
+        position: absolute;
+        top: 737px;
+        right: 20px;
+        width: 60px;
+        height: 60px; }
+        @media screen and (max-width: 1700px) {
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-new-event {
+            top: 55px; } }
+        .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-new-event .default-planner-calendar-new-event-btn {
+          padding: 0;
+          width: 60px;
+          height: 60px;
+          border: 0;
+          border-radius: 50%;
+          background-color: #5E8DF7;
+          -webkit-box-shadow: 10px 10px 13px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 10px 10px 13px 1px rgba(0, 0, 0, 0.2); }
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-new-event .default-planner-calendar-new-event-btn:hover {
+            box-shadow: none; }
+          .default-planner .default-planner-calendar .default-planner-calendar-body .default-planner-calendar-new-event .default-planner-calendar-new-event-btn i {
+            font-size: 26px; }
+
+.default-planner-events {
+  display: none;
+  position: fixed;
+  top: 15px;
+  right: 0;
+  bottom: 15px;
+  padding: 15px;
+  width: 400px;
+  border-radius: 15px 0 0 15px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(29, 140, 242, 0.08); }
+  .default-planner-events .default-planner-events-header h4 {
+    margin: 0;
+    text-transform: uppercase;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #344564; }
+  .default-planner-events .default-planner-events-header a {
+    display: block;
+    margin-top: -3px;
+    color: #344564; }
+    .default-planner-events .default-planner-events-header a:hover {
+      animation: rotating 2s backwards;
+      -webkit-animation: rotating 2s backwards; }
+    .default-planner-events .default-planner-events-header a svg {
+      width: 26px;
+      height: 26px; }
+  .default-planner-events .default-planner-events-body {
+    margin-top: 20px;
+    width: calc(100% + 15px);
+    height: 820px;
+    max-height: calc(100% - 100px);
+    overflow-y: visible; }
+    .default-planner-events .default-planner-events-body::-webkit-scrollbar {
+      width: 6px; }
+    .default-planner-events .default-planner-events-body::-webkit-scrollbar-track {
+      border-radius: 4px;
+      background-color: #f7f9fc; }
+    .default-planner-events .default-planner-events-body::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: #eef1f7; }
+    .default-planner-events .default-planner-events-body .default-planner-events-list {
+      margin: 0;
+      padding: 0; }
+      .default-planner-events .default-planner-events-body .default-planner-events-list li {
+        margin-bottom: 10px;
+        list-style: none; }
+        .default-planner-events .default-planner-events-body .default-planner-events-list li.default-planner-events-no-found {
+          padding: 10px 15px;
+          width: 100%;
+          border-radius: 4px;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 14px;
+          background-color: #F4F9FF; }
+        .default-planner-events .default-planner-events-body .default-planner-events-list li .default-planner-calendar-event {
+          display: inline-grid;
+          padding: 10px 15px;
+          width: 100%;
+          border-radius: 4px;
+          background-color: #F4F9FF; }
+          .default-planner-events .default-planner-events-body .default-planner-events-list li .default-planner-calendar-event:hover, .default-planner-events .default-planner-events-body .default-planner-events-list li .default-planner-calendar-event:focus, .default-planner-events .default-planner-events-body .default-planner-events-list li .default-planner-calendar-event:active {
+            text-decoration: none; }
+          .default-planner-events .default-planner-events-body .default-planner-events-list li .default-planner-calendar-event small {
+            margin-bottom: -3px;
+            text-transform: uppercase;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #52567C; }
+          .default-planner-events .default-planner-events-body .default-planner-events-list li .default-planner-calendar-event span {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #344564; }
+  .default-planner-events .default-planner-events-navigation {
+    padding: 15px 0;
+    width: 100%;
+    min-height: 60px; }
+    .default-planner-events .default-planner-events-navigation nav {
+      text-align: right; }
+
+/*******************************
+DEFAULT PLANNER ANIMATIONS
+********************************/
+@-webkit-keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+/*# sourceMappingURL=planner.css.map */

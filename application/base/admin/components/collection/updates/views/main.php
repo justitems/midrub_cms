@@ -16,7 +16,7 @@
                                 'field_slug' => 'midrub',
                                 'field_type' => 'update',
                                 'field_words' => array(
-                                    'field_title' => $updates['name'] . ' ' . $updates['version'],
+                                    'field_title' => $updates['version'],
                                     'field_description' => $updates['body']
                                 ),
                                 'field_params' => array(

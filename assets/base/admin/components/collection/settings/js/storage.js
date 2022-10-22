@@ -24,7 +24,7 @@ jQuery(document).ready( function ($) {
         // Prepare data
         var data = {
             action: 'settings_get_storage_dropdown_items',
-            key: $('.settings-page [data-field="storage_dropdown"] .dropdown .theme-dropdown-search-for-items').val()
+            key: $('.settings-page [data-field="storage_location"] .dropdown .theme-dropdown-search-for-items').val()
         };
 
         // Set CSRF
@@ -47,10 +47,10 @@ jQuery(document).ready( function ($) {
      * 
      * @since   0.0.8.5
      */ 
-    $( '.settings-page [data-field="storage_dropdown"] .dropdown' ).on( 'show.bs.dropdown', function () {
+    $( '.settings-page [data-field="storage_location"] .dropdown' ).on( 'show.bs.dropdown', function () {
 
         // Reset input
-        $('.settings-page [data-field="storage_dropdown"] .dropdown .theme-dropdown-search-for-items').val('');
+        $('.settings-page [data-field="storage_location"] .dropdown .theme-dropdown-search-for-items').val('');
         
         // Get the storage's dropdown items
         Main.settings_get_storage_dropdown_items();
@@ -62,7 +62,7 @@ jQuery(document).ready( function ($) {
      * 
      * @since   0.0.8.4
      */
-    $(document).on('keyup', '.settings-page [data-field="storage_dropdown"] .dropdown .theme-dropdown-search-for-items', function () {
+    $(document).on('keyup', '.settings-page [data-field="storage_location"] .dropdown .theme-dropdown-search-for-items', function () {
 
         // Verify if an event was already scheduled
         if ( typeof Main.queue !== 'undefined' ) {
@@ -146,7 +146,7 @@ jQuery(document).ready( function ($) {
             }
 
             // Display all items
-            $('.settings-page [data-field="storage_dropdown"] .dropdown .theme-dropdown-items-list').html(items);
+            $('.settings-page [data-field="storage_location"] .dropdown .theme-dropdown-items-list').html(items);
             
         } else {
 
@@ -158,7 +158,7 @@ jQuery(document).ready( function ($) {
             + '</li>';
             
             // Display the no locations found message
-            $('.settings-page [data-field="storage_dropdown"] .dropdown .theme-dropdown-items-list').html(no_locations_found);
+            $('.settings-page [data-field="storage_location"] .dropdown .theme-dropdown-items-list').html(no_locations_found);
             
         }
 

@@ -117,3 +117,6 @@ $lang["members_member_account_updated"] = "Member Account Updated";
 $lang["members_selected_items"] = "selected items";
 $lang["members_no_countries_were_found"] = "No countries were found.";
 $lang["members_no_data_found_to_show"] = "No data found to show.";
+$lang["members_success"] = "success";
+$lang["members_error"] = "error";
+$lang["members_incomplete"] = "incomplete";

@@ -9,7 +9,7 @@
                     </button>
                 </div>
                 <div class="card-body">
-                    <div class="form-group mb-3">
+                    <div class="form-group mb-3 theme-form-group">
                         <div class="row">
                             <div class="col-lg-12">
                                 <label class="theme-label" for="notifications-alert-name">
@@ -20,13 +20,14 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <input type="text" value="<?php echo the_users_alert_name(); ?>" placeholder="<?php echo $this->lang->line('notifications_enter_name'); ?>" class="form-control theme-text-input-1" id="notifications-alert-name" />
-                                <small class="form-text text-muted theme-small">
+                                <small class="form-text text-muted mb-0 theme-small">
                                     <?php echo $this->lang->line('notifications_alert_name_description'); ?>
                                 </small>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group mb-3">
+                    <hr>
+                    <div class="form-group mb-3 theme-form-group">
                         <div class="row">
                             <div class="col-lg-12">
                                 <label class="theme-label" for="notifications-alert-type">
@@ -36,19 +37,19 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="btn-group notifications-buttons-group notifications-select-alert-type" role="group" aria-label="Alerts Type">
+                                <div class="btn-group mt-1 theme-input-group-3 notifications-buttons-group notifications-select-alert-type" role="group" aria-label="Alerts Type">
                                     <?php if (the_users_alert_type() === '0') { ?>
-                                    <button type="button" class="btn btn-secondary theme-button-1" aria-expanded="true" data-bs-tab="#notifications-users-alert-type-news" data-type="0">
+                                    <button type="button" class="btn btn-secondary theme-button-3" aria-expanded="true" data-bs-tab="#notifications-users-alert-type-news" data-type="0">
                                         <?php echo $this->lang->line('notifications_news'); ?>
                                     </button>
                                     <?php } ?>
                                     <?php if (the_users_alert_type() === '1') { ?>
-                                    <button type="button" class="btn btn-secondary theme-button-1" aria-expanded="true" data-bs-tab="#notifications-users-alert-type-promo" data-type="1">
+                                    <button type="button" class="btn btn-secondary theme-button-3" aria-expanded="true" data-bs-tab="#notifications-users-alert-type-promo" data-type="1">
                                         <?php echo $this->lang->line('notifications_promo'); ?>
                                     </button>
                                     <?php } ?>
                                     <?php if (the_users_alert_type() === '2') { ?>
-                                    <button type="button" class="btn btn-secondary theme-button-1" aria-expanded="true" data-bs-tab="#notifications-users-alert-type-fixed" data-type="2">
+                                    <button type="button" class="btn btn-secondary theme-button-3" aria-expanded="true" data-bs-tab="#notifications-users-alert-type-fixed" data-type="2">
                                         <?php echo $this->lang->line('notifications_fixed'); ?>
                                     </button>
                                     <?php } ?>
@@ -59,7 +60,7 @@
                     <hr>
                     <div class="tab-content" id="notifications-users-alert-types-content">
                         <div class="tab-pane fade<?php echo (the_users_alert_type() === '0')?' active show':''; ?>" id="notifications-users-alert-type-news" role="tabpanel" aria-labelledby="notifications-users-alert-type-news-tab">
-                            <div class="form-group mb-3">
+                            <div class="form-group mb-3 theme-form-group">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <label class="theme-label" for="notifications-alert-banner">
@@ -67,7 +68,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row mt-2">
                                     <div class="col-sm-12 theme-tabs">
                                         <?php
 
@@ -143,13 +144,13 @@
                                 </div>  
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <small class="form-text text-muted theme-small">
+                                        <small class="form-text text-muted mb-0 theme-small">
                                             <?php echo $this->lang->line('notifications_alert_banner_description'); ?>
                                         </small>
                                     </div>
                                 </div>                          
                             </div>
-                            <div class="form-group mb-3">
+                            <div class="form-group mb-3 theme-form-group">
                                 <div class="row">
                                     <div class="col-lg-10 col-xs-6">
                                         <label class="theme-label" for="menu-item-text-input">
@@ -165,7 +166,7 @@
                                 </div>
                             </div>
                             <hr>
-                            <div class="form-group mb-3">
+                            <div class="form-group mb-3 theme-form-group">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <label class="theme-label" for="notifications-alert-page">
@@ -236,7 +237,7 @@
                                                     <div class="row">
                                                         <div class="col-lg-12">
                                                             <input type="text" value="<?php echo (the_users_alert_type() === '0')?the_users_alerts_field('page_title', '', $only_dir):''; ?>" placeholder="<?php echo $this->lang->line('notifications_enter_page_title'); ?>" class="form-control theme-text-input-1 notifications-alert-page-title" id="notifications-news-alert-page-title-<?php echo $only_dir; ?>" />
-                                                            <small class="form-text text-muted theme-small">
+                                                            <small class="form-text text-muted mb-0 theme-small">
                                                                 <?php echo $this->lang->line('notifications_alert_page_title_description'); ?>
                                                             </small>
                                                         </div>
@@ -258,13 +259,13 @@
                                 </div>  
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <small class="form-text text-muted theme-small">
+                                        <small class="form-text text-muted mb-0 theme-small">
                                             <?php echo $this->lang->line('notifications_alert_page_description'); ?>
                                         </small>
                                     </div>
                                 </div>                          
                             </div>
-                            <div class="form-group mb-3">
+                            <div class="form-group theme-form-group">
                                 <div class="row">
                                     <div class="col-lg-10 col-xs-6">
                                         <label class="theme-label" for="menu-item-text-input">
@@ -281,7 +282,7 @@
                             </div>
                         </div>
                         <div class="tab-pane fade<?php echo (the_users_alert_type() === '1')?' active show':''; ?>" id="notifications-users-alert-type-promo" role="tabpanel" aria-labelledby="notifications-users-alert-type-promo-tab">
-                            <div class="form-group mb-3">
+                            <div class="form-group mb-3 theme-form-group">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <label class="theme-label" for="notifications-alert-banner">
@@ -289,7 +290,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row mt-2">
                                     <div class="col-sm-12 theme-tabs">
                                         <ul class="nav nav-tabs nav-justified">
                                             <?php
@@ -355,14 +356,14 @@
                                 </div>  
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <small class="form-text text-muted theme-small">
+                                        <small class="form-text text-muted mb-0 theme-small">
                                             <?php echo $this->lang->line('notifications_alert_banner_description'); ?>
                                         </small>
                                     </div>
                                 </div>                          
                             </div>
                             <hr>
-                            <div class="form-group mb-3">
+                            <div class="form-group mb-3 theme-form-group">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <label class="theme-label" for="notifications-alert-page">
@@ -423,7 +424,7 @@
                                                     <div class="row">
                                                         <div class="col-lg-12">
                                                             <input type="text" value="<?php echo (the_users_alert_type() === '1')?the_users_alerts_field('page_title', '', $only_dir):''; ?>" placeholder="<?php echo $this->lang->line('notifications_enter_page_title'); ?>" class="form-control theme-text-input-1 notifications-alert-page-title" id="notifications-promo-alert-page-title-<?php echo $only_dir; ?>" />
-                                                            <small class="form-text text-muted theme-small">
+                                                            <small class="form-text text-muted mb-0 theme-small">
                                                                 <?php echo $this->lang->line('notifications_alert_page_title_description'); ?>
                                                             </small>
                                                         </div>
@@ -445,13 +446,13 @@
                                 </div>  
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <small class="form-text text-muted theme-small">
+                                        <small class="form-text text-muted mb-0 theme-small">
                                             <?php echo $this->lang->line('notifications_alert_page_description'); ?>
                                         </small>
                                     </div>
                                 </div>                          
                             </div>
-                            <div class="form-group mb-3">
+                            <div class="form-group theme-form-group">
                                 <div class="row">
                                     <div class="col-lg-10 col-xs-6">
                                         <label class="theme-label" for="menu-item-text-input">
@@ -468,7 +469,7 @@
                             </div>
                         </div>
                         <div class="tab-pane fade<?php echo (the_users_alert_type() === '2')?' active show':''; ?>" id="notifications-users-alert-type-fixed" role="tabpanel" aria-labelledby="notifications-users-alert-type-fixed-tab">
-                            <div class="form-group mb-3">
+                            <div class="form-group mb-3 theme-form-group">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <label class="theme-label" for="notifications-alert-banner">
@@ -476,7 +477,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row mt-2">
                                     <div class="col-sm-12 theme-tabs">
                                         <ul class="nav nav-tabs nav-justified">
                                             <?php
@@ -484,25 +485,31 @@
                                             // Get all languages
                                             $languages = glob(APPPATH . 'language' . '/*', GLOB_ONLYDIR);
 
-                                            // List all languages
-                                            foreach ($languages as $language) {
+                                            // Verify if there are more than 1 language
+                                            if ( count($languages) > 1 ) {
 
-                                                // Get language dir name
-                                                $only_dir = str_replace(APPPATH . 'language' . '/', '', $language);
+                                                // List all languages
+                                                foreach ($languages as $language) {
 
-                                                // Active variable
-                                                $active = '';
+                                                    // Get language dir name
+                                                    $only_dir = str_replace(APPPATH . 'language' . '/', '', $language);
 
-                                                // Verify if is the configured language
-                                                if ($this->config->item('language') === $only_dir) {
-                                                    $active = ' class="active"';
+                                                    // Active variable
+                                                    $active = '';
+
+                                                    // Verify if is the configured language
+                                                    if ($this->config->item('language') === $only_dir) {
+                                                        $active = ' class="active"';
+                                                    }
+
+                                                    echo '<li' . $active . '>'
+                                                        . '<a data-bs-toggle="tab" href="#notifications-type-fixed-alert-banner-' . $only_dir . '">'
+                                                            . ucfirst($only_dir)
+                                                        . '</a>'
+                                                    . '</li>';
+
                                                 }
 
-                                                echo '<li' . $active . '>'
-                                                    . '<a data-bs-toggle="tab" href="#notifications-type-fixed-alert-banner-' . $only_dir . '">'
-                                                        . ucfirst($only_dir)
-                                                    . '</a>'
-                                                . '</li>';
                                             }
 
                                             ?>
@@ -542,14 +549,14 @@
                                 </div>  
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <small class="form-text text-muted theme-small">
+                                        <small class="form-text text-muted mb-0 theme-small">
                                             <?php echo $this->lang->line('notifications_alert_banner_description'); ?>
                                         </small>
                                     </div>
                                 </div>                          
                             </div>
                             <hr>
-                            <div class="form-group mb-3">
+                            <div class="form-group mb-3 theme-form-group">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <label class="theme-label" for="notifications-alert-page">
@@ -565,25 +572,31 @@
                                             // Get all languages
                                             $languages = glob(APPPATH . 'language' . '/*', GLOB_ONLYDIR);
 
-                                            // List all languages
-                                            foreach ($languages as $language) {
+                                            // Verify if there are more than 1 language
+                                            if ( count($languages) > 1 ) {
 
-                                                // Get language dir name
-                                                $only_dir = str_replace(APPPATH . 'language' . '/', '', $language);
+                                                // List all languages
+                                                foreach ($languages as $language) {
 
-                                                // Active variable
-                                                $active = '';
+                                                    // Get language dir name
+                                                    $only_dir = str_replace(APPPATH . 'language' . '/', '', $language);
 
-                                                // Verify if is the configured language
-                                                if ($this->config->item('language') === $only_dir) {
-                                                    $active = ' class="active"';
+                                                    // Active variable
+                                                    $active = '';
+
+                                                    // Verify if is the configured language
+                                                    if ($this->config->item('language') === $only_dir) {
+                                                        $active = ' class="active"';
+                                                    }
+
+                                                    echo '<li' . $active . '>'
+                                                        . '<a data-bs-toggle="tab" href="#notifications-type-fixed-alert-page-' . $only_dir . '">'
+                                                            . ucfirst($only_dir)
+                                                        . '</a>'
+                                                    . '</li>';
+                                                    
                                                 }
 
-                                                echo '<li' . $active . '>'
-                                                    . '<a data-bs-toggle="tab" href="#notifications-type-fixed-alert-page-' . $only_dir . '">'
-                                                        . ucfirst($only_dir)
-                                                    . '</a>'
-                                                . '</li>';
                                             }
 
                                             ?>
@@ -610,7 +623,7 @@
                                                     <div class="row">
                                                         <div class="col-lg-12">
                                                             <input type="text" value="<?php echo (the_users_alert_type() === '2')?the_users_alerts_field('page_title', '', $only_dir):''; ?>" placeholder="<?php echo $this->lang->line('notifications_enter_page_title'); ?>" class="form-control theme-text-input-1 notifications-alert-page-title" id="notifications-fixed-alert-page-title-<?php echo $only_dir; ?>" />
-                                                            <small class="form-text text-muted theme-small">
+                                                            <small class="form-text text-muted mb-0 theme-small">
                                                                 <?php echo $this->lang->line('notifications_alert_page_title_description'); ?>
                                                             </small>
                                                         </div>
@@ -632,13 +645,13 @@
                                 </div>  
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <small class="form-text text-muted theme-small">
+                                        <small class="form-text text-muted mb-0 theme-small">
                                             <?php echo $this->lang->line('notifications_alert_page_description'); ?>
                                         </small>
                                     </div>
                                 </div>                          
                             </div>
-                            <div class="form-group mb-3">
+                            <div class="form-group theme-form-group">
                                 <div class="row">
                                     <div class="col-lg-10 col-xs-6">
                                         <label class="theme-label" for="menu-item-text-input">
@@ -657,10 +670,10 @@
                     </div>
                 </div>
             </div>
-            <div class="card theme-card-box">
+            <div class="card mt-3 mb-0 theme-card-box theme-list">
                 <div class="card-header">
                     <button class="btn btn-link">
-                        <?php echo md_the_admin_icon(array('icon' => 'users')); ?>
+                        <?php echo md_the_admin_icon(array('icon' => 'users', 'class' => 'ms-0')); ?>
                         <?php echo $this->lang->line('notifications_users'); ?>
                     </button>
                 </div>
@@ -668,23 +681,15 @@
                     <ul class="notifications-list-users"></ul>
                 </div>
                 <div class="card-footer">
-                    <div class="pagination-area">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-xs-6">
-                                <ul class="pagination" data-type="alert-users">
+                    <div class="row">
+                        <div class="col-md-5 col-12">
+                            <h6 class="theme-color-black"></h6>
+                        </div>
+                        <div class="col-md-7 col-12 text-end">
+                            <nav aria-label="alert-users">
+                                <ul class="theme-pagination" data-type="alert-users">
                                 </ul>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-xs-6 text-right">
-                                <p>
-                                    <span>
-                                        <span class="pagination-from"></span>
-                                        –
-                                        <span class="pagination-to"></span>
-                                    </span>
-                                    <?php echo $this->lang->line('notifications_of'); ?>
-                                    <span class="pagination-total"></span>
-                                </p>
-                            </div>
+                            </nav>
                         </div>
                     </div>
                 </div>
@@ -702,7 +707,7 @@
                                 </button>
                             </div>
                             <div class="card-body">
-                                <div class="form-group mb-3">
+                                <div class="form-group mb-3 theme-form-group">
                                     <div class="card theme-box-1 theme-card-box notifications-users-alert-selected-plans">
                                         <div class="card-header">
                                             <button class="btn btn-link">
@@ -715,7 +720,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group mb-3 theme-form-group">
                                     <div class="card theme-box-1 theme-card-box notifications-users-alert-selected-languages">
                                         <div class="card-header">
                                             <button class="btn btn-link">
@@ -747,7 +752,7 @@
                                                 } else {
 
                                                     // Display no languages message
-                                                    echo '<li class="notifications-no-results-found">'
+                                                    echo '<li class="default-card-box-no-items-found">'
                                                         . $this->lang->line('notifications_no_languages_were_selected')
                                                     . '</li>';
 

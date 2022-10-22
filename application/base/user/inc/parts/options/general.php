@@ -120,9 +120,9 @@ if (!function_exists('md_the_plan_feature_from_parts')) {
 
         if ( !$plan_id ) {
 
-            if ( !empty($CI->user_id) ) {
+            if ( !empty(md_the_user_id()) ) {
 
-                $plan_id = md_the_user_option($CI->user_id, 'plan');
+                $plan_id = md_the_user_option(md_the_user_id(), 'plan');
 
             }
 

@@ -2,7 +2,7 @@
     <?php echo form_open('admin/notifications', array('class' => 'notifications-create-users-alert', 'data-csrf' => $this->security->get_csrf_token_name())) ?>
         <div class="row">
             <div class="col-lg-9 theme-editor">
-                <div class="theme-box-1 mb-3">
+                <div class="theme-box-1">
                     <div class="card theme-card-box">
                         <div class="card-header">
                             <button class="btn btn-link">
@@ -11,7 +11,7 @@
                             </button>
                         </div>
                         <div class="card-body">
-                            <div class="form-group mb-3">
+                            <div class="form-group mb-3 theme-form-group">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <label class="theme-label" for="notifications-alert-name">
@@ -22,13 +22,14 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <input type="text" class="form-control theme-text-input-1" id="notifications-alert-name" placeholder="<?php echo $this->lang->line('notifications_enter_name'); ?>" />
-                                        <small class="form-text text-muted theme-small">
+                                        <small class="form-text mb-0 text-muted theme-small">
                                             <?php echo $this->lang->line('notifications_alert_name_description'); ?>
                                         </small>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group mb-3 default-buttons-group">
+                            <hr>
+                            <div class="form-group mb-3 theme-form-group">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <label class="theme-label" for="notifications-alert-type">
@@ -38,18 +39,18 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="btn-group theme-input-group-1 notifications-buttons-group notifications-select-alert-type" role="group" aria-label="Alerts Type">
-                                            <button type="button" class="btn btn-secondary theme-button-1" aria-expanded="true" data-bs-tab="#notifications-users-alert-type-news" data-type="0">
+                                        <div class="btn-group mt-1 theme-input-group-3 notifications-buttons-group notifications-select-alert-type" role="group" aria-label="Alerts Type">
+                                            <button type="button" class="btn btn-secondary theme-button-3" aria-expanded="true" data-bs-tab="#notifications-users-alert-type-news" data-type="0">
                                                 <?php echo $this->lang->line('notifications_news'); ?>
                                             </button>
-                                            <button type="button" class="btn btn-secondary theme-button-1" data-bs-tab="#notifications-users-alert-type-promo" data-type="1">
+                                            <button type="button" class="btn btn-secondary theme-button-3" data-bs-tab="#notifications-users-alert-type-promo" data-type="1">
                                                 <?php echo $this->lang->line('notifications_promo'); ?>
                                             </button>
-                                            <button type="button" class="btn btn-secondary theme-button-1" data-bs-tab="#notifications-users-alert-type-fixed" data-type="2">
+                                            <button type="button" class="btn btn-secondary theme-button-3" data-bs-tab="#notifications-users-alert-type-fixed" data-type="2">
                                                 <?php echo $this->lang->line('notifications_fixed'); ?>
                                             </button>
                                         </div>
-                                        <small class="form-text text-muted mt-2 mb-3 theme-small">
+                                        <small class="form-text text-muted mt-2 mb-0 theme-small">
                                             <a href="#notifications-users-alert-type" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="notifications-users-alert-type">
                                                 <?php echo $this->lang->line('notifications_more_information'); ?>
                                             </a>
@@ -69,7 +70,7 @@
                             <hr>
                             <div class="tab-content" id="notifications-users-alert-types-content">
                                 <div class="tab-pane fade active show" id="notifications-users-alert-type-news" role="tabpanel" aria-labelledby="notifications-users-alert-type-news-tab">
-                                    <div class="form-group">
+                                    <div class="form-group theme-form-group mb-3">
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <label class="theme-label" for="notifications-alert-banner">
@@ -77,7 +78,7 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mt-2">
                                             <div class="col-sm-12 theme-tabs">
                                                 <?php
 
@@ -153,13 +154,13 @@
                                         </div>  
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <small class="form-text text-muted theme-small">
+                                                <small class="form-text text-muted mb-0 theme-small">
                                                     <?php echo $this->lang->line('notifications_alert_banner_description'); ?>
                                                 </small>
                                             </div>
                                         </div>                          
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group theme-form-group">
                                         <div class="row">
                                             <div class="col-lg-10 col-xs-6">
                                                 <label class="theme-label" for="menu-item-text-input">
@@ -175,7 +176,7 @@
                                         </div>
                                     </div>
                                     <hr>
-                                    <div class="form-group">
+                                    <div class="form-group theme-form-group mb-3">
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <label class="theme-label" for="notifications-alert-page">
@@ -245,7 +246,7 @@
                                                             <div class="row">
                                                                 <div class="col-lg-12">
                                                                     <input type="text" class="form-control theme-text-input-1 notifications-alert-page-title" id="notifications-news-alert-page-title-<?php echo $only_dir; ?>" placeholder="<?php echo $this->lang->line('notifications_enter_page_title'); ?>" />
-                                                                    <small class="form-text text-muted theme-small">
+                                                                    <small class="form-text text-muted mb-0 theme-small">
                                                                         <?php echo $this->lang->line('notifications_alert_page_title_description'); ?>
                                                                     </small>
                                                                 </div>
@@ -267,13 +268,13 @@
                                         </div>  
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <small class="form-text text-muted theme-small">
+                                                <small class="form-text text-muted mb-0 theme-small">
                                                     <?php echo $this->lang->line('notifications_alert_page_description'); ?>
                                                 </small>
                                             </div>
                                         </div>                          
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group theme-form-group">
                                         <div class="row">
                                             <div class="col-lg-10 col-xs-6">
                                                 <label class="theme-label" for="menu-item-text-input">
@@ -290,7 +291,7 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="notifications-users-alert-type-promo" role="tabpanel" aria-labelledby="notifications-users-alert-type-promo-tab">
-                                    <div class="form-group">
+                                    <div class="form-group theme-form-group">
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <label class="theme-label" for="notifications-alert-banner">
@@ -298,7 +299,7 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mt-2">
                                             <div class="col-sm-12 theme-tabs">
                                                 <?php
 
@@ -373,14 +374,14 @@
                                         </div>  
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <small class="form-text text-muted theme-small">
+                                                <small class="form-text text-muted mb-0 theme-small">
                                                     <?php echo $this->lang->line('notifications_alert_banner_description'); ?>
                                                 </small>
                                             </div>
                                         </div>                          
                                     </div>
                                     <hr>
-                                    <div class="form-group">
+                                    <div class="form-group theme-form-group mb-3">
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <label class="theme-label" for="notifications-alert-page">
@@ -450,7 +451,7 @@
                                                             <div class="row">
                                                                 <div class="col-lg-12">
                                                                     <input type="text" class="form-control theme-text-input-1 notifications-alert-page-title" id="notifications-promo-alert-page-title-<?php echo $only_dir; ?>" placeholder="<?php echo $this->lang->line('notifications_enter_page_title'); ?>" />
-                                                                    <small class="form-text text-muted theme-small">
+                                                                    <small class="form-text text-muted mb-0 theme-small">
                                                                         <?php echo $this->lang->line('notifications_alert_page_title_description'); ?>
                                                                     </small>
                                                                 </div>
@@ -472,13 +473,13 @@
                                         </div>  
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <small class="form-text text-muted theme-small">
+                                                <small class="form-text text-muted mb-0 theme-small">
                                                     <?php echo $this->lang->line('notifications_alert_page_description'); ?>
                                                 </small>
                                             </div>
                                         </div>                          
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group theme-form-group">
                                         <div class="row">
                                             <div class="col-lg-10 col-xs-6">
                                                 <label class="theme-label" for="menu-item-text-input">
@@ -495,7 +496,7 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="notifications-users-alert-type-fixed" role="tabpanel" aria-labelledby="notifications-users-alert-type-fixed-tab">
-                                    <div class="form-group">
+                                    <div class="form-group theme-form-group">
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <label class="theme-label" for="notifications-alert-banner">
@@ -503,7 +504,7 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mt-2">
                                             <div class="col-sm-12 theme-tabs">
                                                 <?php
 
@@ -578,14 +579,14 @@
                                         </div>  
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <small class="form-text text-muted theme-small">
+                                                <small class="form-text text-muted mb-0 theme-small">
                                                     <?php echo $this->lang->line('notifications_alert_banner_description'); ?>
                                                 </small>
                                             </div>
                                         </div>                          
                                     </div>
                                     <hr>
-                                    <div class="form-group">
+                                    <div class="form-group theme-form-group mb-3">
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <label class="theme-label" for="notifications-alert-page">
@@ -657,7 +658,7 @@
                                                             <div class="row">
                                                                 <div class="col-lg-12">
                                                                     <input type="text" class="form-control theme-text-input-1 notifications-alert-page-title" id="notifications-fixed-alert-page-title-<?php echo $only_dir; ?>" placeholder="<?php echo $this->lang->line('notifications_enter_page_title'); ?>" />
-                                                                    <small class="form-text text-muted theme-small">
+                                                                    <small class="form-text text-muted mb-0 theme-small">
                                                                         <?php echo $this->lang->line('notifications_alert_page_title_description'); ?>
                                                                     </small>
                                                                 </div>
@@ -679,13 +680,13 @@
                                         </div>  
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <small class="form-text text-muted theme-small">
+                                                <small class="form-text text-muted mb-0 theme-small">
                                                     <?php echo $this->lang->line('notifications_alert_page_description'); ?>
                                                 </small>
                                             </div>
                                         </div>                          
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group theme-form-group">
                                         <div class="row">
                                             <div class="col-lg-10 col-xs-6">
                                                 <label class="theme-label" for="menu-item-text-input">
@@ -729,7 +730,7 @@
                                     </button>
                                 </div>
                                 <div class="card-body">
-                                    <div class="form-group mb-3">
+                                    <div class="form-group mb-3 theme-form-group">
                                         <div class="card theme-box-1 theme-card-box notifications-users-alert-selected-plans">
                                             <div class="card-header">
                                                 <div class="row">
@@ -754,7 +755,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group theme-form-group">
                                         <div class="card theme-box-1 theme-card-box notifications-users-alert-selected-languages">
                                             <div class="card-header">
                                                 <div class="row">
@@ -786,5 +787,5 @@
                 </div>
             </div>
         </div>
-    <?php echo form_close() ?>
+    <?php echo form_close(); ?>
 </div>

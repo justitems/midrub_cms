@@ -18,11 +18,10 @@ TRANSACTIONS WIDGET STYLES
   margin: 0;
   padding: 0; }
   .dashboard-widget-transactions-list li {
-    margin-bottom: 15px;
-    padding: 10px 15px;
-    border: 0;
-    border-radius: 6px;
-    list-style: none; }
+    margin: 0 0 10px !important;
+    padding: 5px 10px !important;
+    border: 0 !important;
+    list-style: none !important; }
     .dashboard-widget-transactions-list li:last-child {
       margin-bottom: 0; }
     .dashboard-widget-transactions-list li a {
@@ -45,36 +44,42 @@ TRANSACTIONS WIDGET STYLES
         width: 20px;
         height: 20px; }
     .dashboard-widget-transactions-list li .badge {
-      min-width: 74.78px; }
+      min-width: 74.78px;
+      line-height: 14px;
+      font-size: 11px !important; }
     .dashboard-widget-transactions-list li.dashboard-widget-transactions-transaction-complete {
-      background-color: #F7F8FF; }
+      background-color: #F7F8FF !important; }
       .dashboard-widget-transactions-list li.dashboard-widget-transactions-transaction-complete a {
         border-bottom: 1px solid #F7F8FF;
         color: #292F4C; }
         .dashboard-widget-transactions-list li.dashboard-widget-transactions-transaction-complete a:hover, .dashboard-widget-transactions-list li.dashboard-widget-transactions-transaction-complete a:active, .dashboard-widget-transactions-list li.dashboard-widget-transactions-transaction-complete a:focus {
           border-bottom: 1px solid #292F4C; }
       .dashboard-widget-transactions-list li.dashboard-widget-transactions-transaction-complete .dashboard-widget-transactions-transaction-time {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        color: #698BF5; }
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+        color: #698BF5 !important; }
+      .dashboard-widget-transactions-list li.dashboard-widget-transactions-transaction-complete .badge {
+        color: #FFFFFF !important; }
     .dashboard-widget-transactions-list li.dashboard-widget-transactions-transaction-incomplete {
-      background-color: #fafbfd; }
+      background-color: #fafbfd !important; }
       .dashboard-widget-transactions-list li.dashboard-widget-transactions-transaction-incomplete a {
         border-bottom: 1px solid #fafbfd;
         color: #292F4C; }
         .dashboard-widget-transactions-list li.dashboard-widget-transactions-transaction-incomplete a:hover, .dashboard-widget-transactions-list li.dashboard-widget-transactions-transaction-incomplete a:active, .dashboard-widget-transactions-list li.dashboard-widget-transactions-transaction-incomplete a:focus {
           border-bottom: 1px solid #292F4C; }
       .dashboard-widget-transactions-list li.dashboard-widget-transactions-transaction-incomplete .dashboard-widget-transactions-transaction-time {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        color: #292F4C; }
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+        color: #292F4C !important; }
     .dashboard-widget-transactions-list li.dashboard-widget-transactions-transaction-failed {
-      background-color: #FFF5F8; }
+      background-color: #FFF5F8 !important; }
       .dashboard-widget-transactions-list li.dashboard-widget-transactions-transaction-failed a {
         border-bottom: 1px solid #FFF5F8;
         color: #AE586C; }
         .dashboard-widget-transactions-list li.dashboard-widget-transactions-transaction-failed a:hover, .dashboard-widget-transactions-list li.dashboard-widget-transactions-transaction-failed a:active, .dashboard-widget-transactions-list li.dashboard-widget-transactions-transaction-failed a:focus {
           border-bottom: 1px solid #AE586C; }
       .dashboard-widget-transactions-list li.dashboard-widget-transactions-transaction-failed .dashboard-widget-transactions-transaction-time {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        color: #AE586C; }
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+        color: #AE586C !important; }
+      .dashboard-widget-transactions-list li.dashboard-widget-transactions-transaction-failed .badge {
+        color: #FFFFFF !important; }
 
 /*# sourceMappingURL=transactions.css.map */

@@ -10,7 +10,7 @@
  * @category Social
  * @package  Midrub
  * @author   Scrisoft <asksyn@gmail.com>
- * @license  https://www.gnu.org/licenses/gpl-2.0.html GNU General Public License
+ * @license  https://github.com/scrisoft/midrub_cms/blob/master/license
  * @link     https://www.midrub.com/
  */
 
@@ -66,7 +66,7 @@ if ( !function_exists('the_complete_transaction') ) {
                 if ( is_numeric($transaction['transaction_id']) ) {
 
                     // Try to find the transaction
-                    $get_transaction = $CI->base_model->the_data_where('transactions', 'transactions.*, users.username', array('transactions.transaction_id' => $transaction['transaction_id'], 'transactions.user_id' => $CI->user_id),
+                    $get_transaction = $CI->base_model->the_data_where('transactions', 'transactions.*, users.username', array('transactions.transaction_id' => $transaction['transaction_id'], 'transactions.user_id' => md_the_user_id()),
                         array(),
                         array(),
                         array(array(

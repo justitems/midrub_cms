@@ -10,7 +10,7 @@
  * @category Social
  * @package  Midrub
  * @author   Scrisoft <asksyn@gmail.com>
- * @license  https://www.gnu.org/licenses/gpl-2.0.html GNU General Public License
+ * @license  https://github.com/scrisoft/midrub_cms/blob/master/license
  * @link     https://www.midrub.com/
  */
 
@@ -23,7 +23,7 @@ $CI = &get_instance();
 /**
  * The public method md_set_frontend_page adds a frontend page in the admin panel
  * 
- * @since 0.0.7.8
+ * @since 0.0.8.5
  */
 md_set_frontend_page(
     'themes',
@@ -75,7 +75,7 @@ if ( !function_exists('md_get_frontend_page_themes') ) {
 /**
  * The public method md_set_frontend_page adds a frontend page in the admin panel
  * 
- * @since 0.0.7.8
+ * @since 0.0.8.5
  */
 md_set_frontend_page(
     'menu',
@@ -115,7 +115,7 @@ if ( !function_exists('md_the_url_by_page_role') ) {
      * 
      * @param string $type contains the role
      * 
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      * 
      * @return void
      */
@@ -160,7 +160,7 @@ if ( !function_exists('md_the_url_by_page_role') ) {
 /**
  * The public method md_set_frontend_page adds a frontend page in the admin panel
  * 
- * @since 0.0.7.8
+ * @since 0.0.8.5
  */
 md_set_frontend_page(
     'social_access',
@@ -186,8 +186,29 @@ if ( !function_exists('md_get_frontend_page_social_access') ) {
      */
     function md_get_frontend_page_social_access() {
 
-        // Include auth social view for frontend
-        md_include_component_file(CMS_BASE_ADMIN_COMPONENTS_FRONTEND . 'views/auth_social.php'); 
+        // Get codeigniter object instance
+        $CI =& get_instance();
+
+        // Require the Networks Functions
+        require_once CMS_BASE_ADMIN_COMPONENTS_FRONTEND . 'inc/networks.php';
+
+        // Display the page
+        if ( $CI->input->get('directory', true) ) {
+
+            // Include network's install view
+            md_include_component_file(CMS_BASE_ADMIN_COMPONENTS_FRONTEND . 'views/networks_directory.php');
+
+        } elseif ( $CI->input->get('network', true) ) {
+
+            // Include Network view for Frontend
+            md_include_component_file(CMS_BASE_ADMIN_COMPONENTS_FRONTEND . 'views/network.php'); 
+
+        } else {
+
+            // Include Auth Social view for Frontend
+            md_include_component_file(CMS_BASE_ADMIN_COMPONENTS_FRONTEND . 'views/auth_social.php'); 
+
+        }
 
     }
 
@@ -196,7 +217,7 @@ if ( !function_exists('md_get_frontend_page_social_access') ) {
 /**
  * The public method md_set_frontend_page adds a frontend page in the admin panel
  * 
- * @since 0.0.7.8
+ * @since 0.0.8.5
  */
 md_set_frontend_page(
     'settings',
@@ -328,7 +349,7 @@ if ( !function_exists('frontend_settings_footer') ) {
 /**
  * The public method md_set_hook registers a hook
  * 
- * @since 0.0.7.8
+ * @since 0.0.8.5
  */
 md_set_hook(
     'update_content',
@@ -357,7 +378,7 @@ md_set_hook(
 /**
  * The public method md_set_hook registers a hook
  * 
- * @since 0.0.7.8
+ * @since 0.0.8.5
  */
 md_set_hook(
     'delete_content',

@@ -39,6 +39,7 @@ if ( !function_exists('md_the_get') ) {
             CURLOPT_FAILONERROR => true,
             CURLOPT_FOLLOWLOCATION => false,
             CURLOPT_SSL_VERIFYPEER => 0,
+            CURLOPT_SSL_VERIFYHOST => 0,
             CURLOPT_URL => $params['url'],
             CURLOPT_HEADER => 'User-Agent: Chrome\r\n',
             CURLOPT_TIMEOUT => '3L'));

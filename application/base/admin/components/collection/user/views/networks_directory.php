@@ -16,7 +16,7 @@
                </a>
                <div class="d-none">
                   <?php
-                     $attributes = array('class' => 'upload-theme', 'id' => 'upload-theme', 'method' => 'post', 'data-csrf' => $this->security->get_csrf_token_name());
+                     $attributes = array('class' => 'upload-network', 'id' => 'upload-network', 'method' => 'post', 'data-csrf' => $this->security->get_csrf_token_name());
                      echo form_open_multipart('admin/user?p=themes&directory=1', $attributes);
                      ?>
                      <input type="file" name="file[]" id="file" accept=".zip">

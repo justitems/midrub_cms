@@ -80,7 +80,7 @@ class Alerts {
         }
 
         // Verify if the alert's parameters have correct value
-        if ( ($args['alert_type'] < 0) || ($args['alert_type'] > 3) || !is_numeric($args['alert_type']) || ($args['alert_audience'] < 0) || ($args['alert_audience'] > 2) || !is_numeric($args['alert_audience']) || !is_array($args['alert_fields']) ) {
+        if ( ($args['alert_type'] < 0) || ($args['alert_type'] > 5) || !is_numeric($args['alert_type']) || ($args['alert_audience'] < 0) || ($args['alert_audience'] > 2) || !is_numeric($args['alert_audience']) || !is_array($args['alert_fields']) ) {
 
             // Return the error
             return array(
@@ -124,7 +124,7 @@ class Alerts {
         }
 
         // Check for errors by type
-        if ( $args['alert_type'] === '0' ) {
+        if ( (int)$args['alert_type'] === 0 ) {
 
             // Banner count
             $banner_count = 0;
@@ -198,7 +198,7 @@ class Alerts {
 
             }
 
-        } else if ( $args['alert_type'] === '1' ) {
+        } else if ( (int)$args['alert_type'] === 1 ) {
 
             // Banner count
             $banner_count = 0;

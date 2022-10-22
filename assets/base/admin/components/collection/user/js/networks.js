@@ -17,9 +17,9 @@ jQuery(document).ready( function ($) {
     /*
      * Unzipping the network's zip
      * 
-     * @param integer file_name contains the file name
+     * @param string file_name contains the file name
      * 
-     * @since   0.0.8.1
+     * @since   0.0.8.5
      */    
     Main.unzipping = function (file_name) {
 
@@ -43,9 +43,9 @@ jQuery(document).ready( function ($) {
      * 
      * @param object e with global object
      * 
-     * @since   0.0.8.1
+     * @since   0.0.8.5
      */
-    $(document).on('change', '#file', function (e) {
+    $(document).on('change', '#file', function () {
 
         // Upload network
         $('#upload-network').submit();
@@ -149,9 +149,11 @@ jQuery(document).ready( function ($) {
     /*
      * Select network
      * 
-     * @since   0.0.8.1
+     * @param object e with global object
+     * 
+     * @since   0.0.8.5
      */ 
-    $( document ).on( 'click', '.user-page .select-network', function (e) {
+    $( document ).on( 'click', '.user-page .default-installation-select-btn', function (e) {
         e.preventDefault();
         
         // Select an network
@@ -169,7 +171,7 @@ jQuery(document).ready( function ($) {
      * @param string status contains the response status
      * @param object data contains the response content
      * 
-     * @since   0.0.7.9
+     * @since   0.0.8.5
      */
     Main.methods.user_save_social_data_response = function ( status, data ) {
 
@@ -200,7 +202,7 @@ jQuery(document).ready( function ($) {
      * @param string status contains the response status
      * @param object data contains the response content
      * 
-     * @since   0.0.8.1
+     * @since   0.0.8.5
      */
     Main.methods.unzipping_zip = function ( status, data ) {
 
@@ -240,7 +242,7 @@ jQuery(document).ready( function ($) {
      * 
      * @param object e with global object
      * 
-     * @since   0.0.8.1
+     * @since   0.0.8.5
      */
     $('#upload-network').submit(function (e) {
         e.preventDefault();
@@ -295,7 +297,10 @@ jQuery(document).ready( function ($) {
                     }
 
                 },
-                error: function (jqXHR, textStatus, errorThrown) {
+                error: function (jqXHR) {
+
+                    // Show error
+                    console.log(jqXHR);
 
                     // Hide the modal
                     $('#network-installation').modal('hide');
@@ -307,9 +312,5 @@ jQuery(document).ready( function ($) {
         }
 
     });
-    
-    /*******************************
-    DEPENDENCIES
-    ********************************/
  
 });

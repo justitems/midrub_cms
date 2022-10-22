@@ -195,7 +195,7 @@ section {
                                 li {
                                     margin: 0 0 15px 0;
                                     padding: 0;
-                                    border: 1px solid #5c7fbc;
+                                    border: 1px dashed #c1d5e4;
                                     border-radius: 10px;                      
                                     list-style: none;
                                     background-color: #FFFFFF;
@@ -237,12 +237,33 @@ section {
                                             margin-right: 15px;
                                             width: 32px;
                                             height: 32px;
+                                            color: #C1D5E4;
                                         }
 
                                         & > div {
+                                            margin-top: -2px;
                                             font-family: $default-font-5;
                                             font-size: 13px;
                                             color: $default-color-black;
+
+                                            a {
+                                                padding: 1px;
+                                                border-bottom: 1px solid $default-color-black;
+                                                text-decoration: none;
+                                                color: $default-color-black;
+
+                                                &:hover {
+                                                    border-bottom: 1px solid transparent;
+                                                    text-decoration: none;
+                                                }
+
+                                                &:active {
+                                                    border-bottom: 1px solid transparent;
+                                                    text-decoration: none;
+                                                }
+
+                                            }
+
                                         }
 
                                     }
@@ -252,7 +273,7 @@ section {
                                         .alert {
 
                                             & > svg {
-                                                color: $default-color-green;
+                                                color: #c1d5e4;
                                             }
                                             
                                         }

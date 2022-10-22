@@ -1,0 +1,470 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../user/default/styles/colors";
+@import "../../../../../../user/default/styles/fonts";
+
+/*******************************
+ARTICLES LIST STYLES
+********************************/
+
+.default-articles-list {
+    border: 0;
+    background-color: transparent;
+
+    .default-articles-list-header {
+        padding: 0;
+        border: 0;
+        background-color: transparent;
+
+        .input-group {
+            padding: 3px 15px;
+            height: 41px;
+            border-radius: 6px;
+            background-color: #f0f4ff;
+            background-color: rgba(223, 223, 234, 0.08);
+
+            .input-group-prepend {
+
+                i {
+                    font-size: 22px;
+                    color: $default-color-new;
+                }
+
+            }
+
+            .form-control {
+                border: 0;
+                font-size: 14px;
+                color: $default-color-black;
+                background-color: transparent;
+            }
+
+            .input-group-append {
+
+                span {
+                    font-size: 13px;       
+                }
+
+                &.default-articles-list-header-search {
+
+                    i {
+                        display: inline-block;
+                        vertical-align: sub;
+                        margin: 0;
+                        line-height: 35px;
+                        font-size: 19px;
+                        color: $default-color-new;
+
+                        &.crm-search-icon-loader {
+                            opacity: 0;
+                        }
+
+                    }
+                
+                    a {
+                        display: inline-block;
+                
+                        &.crm-cancel-search {
+                            opacity: 0;
+
+                            i {
+                                margin: 0px 15px;
+                                line-height: 35px;
+                                font-size: 19px;
+                            }
+
+                        }
+                        
+                    }
+
+                }
+
+                .btn {
+                    margin-top: 2px !important;
+                    padding: 0 10px !important;
+                    height: 31px !important;
+                    line-height: 31px !important;
+                    color: $default-color-black !important;
+                    background-color: #FFFFFF !important;
+                    -webkit-box-shadow: 0 1px 2px 0 rgba(10, 31, 68, 0.05) !important;
+                    box-shadow: 0 1px 2px 0 rgba(10, 31, 68, 0.05) !important;
+
+                    &:first-child {
+                        border-radius: 4px 0 0 4px !important;
+                    }
+        
+                    &:last-child {
+                        border-radius: 0 4px 4px 0 !important;
+                    }   
+
+                    &.default-articles-list-navigation-disabled-btn {
+                        opacity: 0.4;
+                        pointer-events: none;
+                    }
+
+                    i {
+                        margin: 0;
+                        font-size: 19px;
+                    }
+
+                }
+
+                .dropdown-menu {
+                    width: 250px;
+
+                    ul {
+
+                        li {
+
+                            a {
+                                overflow: hidden; 
+                                white-space: nowrap; 
+                                text-overflow: ellipsis;
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .default-articles-list-container {
+        padding: 15px 0;
+
+        .default-articles-list-no-results-found {
+            padding: 10px 15px;
+            border-radius: 6px;
+            background-color: #f0f4ff;
+            background-color: rgba(223, 223, 234, 0.08);
+
+            p {
+                margin-bottom: 0;
+                line-height: 25px;
+                font-family: $default-font-1;
+                font-size: 14px;
+                font-weight: 400;
+                color: $default-color-black; 
+            }
+
+        }
+
+        .default-articles-list-article {
+            margin-bottom: 15px;
+            padding: 15px 15px;
+            border: 0 !important;
+            box-shadow: inset 0px 0px 4px #f0f4ff !important;
+
+            .card {
+                border: 0;
+                background-color: transparent;
+
+                .card-header {
+                    padding: 0;
+                    border: 0;
+                    background-color: transparent;                    
+
+                    h3 {
+                        margin-bottom: 15px;
+                        font-family: $default-font-1;
+                        font-size: 15px;
+                        font-weight: 500;
+                        color: $default-color-black;
+
+                        a {
+                            padding-bottom: 1px;
+                            border-bottom: 1px solid transparent;
+                            line-height: 27px;
+                            text-decoration: none;
+                            color: $default-color-black;
+        
+                            &:hover,
+                            &:focus,
+                            &:active {
+                                text-decoration: none;
+                            }
+        
+                            &:hover {
+                                border-bottom: 1px solid $default-color-black;
+                            }
+        
+                        }
+
+                    }
+
+                }
+
+                .card-body {
+                    padding: 0;
+                    border: 0;
+                    background-color: transparent;
+                    
+                    p {
+                        margin-bottom: 15px;
+                        line-height: 25px;
+                        font-family: $default-font-1;
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: $default-color-black;                        
+                    }
+
+                }
+
+                .card-image {
+
+                    img {
+                        max-width: 100%;
+                        max-height: 300px;
+                    }
+
+                }
+
+                .card-link {
+
+                    a {
+                        padding-bottom: 1px;
+                        border-bottom: 1px solid transparent;
+                        text-decoration: none;
+                        color: $default-color-black;
+    
+                        &:hover,
+                        &:focus,
+                        &:active {
+                            text-decoration: none;
+                        }
+    
+                        &:hover {
+                            border-bottom: 1px solid $default-color-black;
+                        }
+    
+                    }
+
+                }                
+
+                .card-footer {
+                    margin-top: 15px;
+                    padding: 10px 0 0;
+                    border: 0;
+                    background-color: transparent;
+
+                    .default-articles-list-article-feed {
+                        padding: 7px 15px;
+                        border-radius: 16px;
+                        text-decoration: none;
+                        font-size: 14px;
+                        color: $default-color-black;
+                        background-color: $default-color-grey-light;
+
+                        &:hover,
+                        &:focus,
+                        &:active {
+                            text-decoration: none;
+                        }
+    
+                        &:hover {
+                            opacity: 0.7;
+                        }
+
+                        &.default-articles-list-cover-a {
+                            color: #344564;
+                            background-color: #F4F9FF;                                    
+                        }
+                    
+                        &.default-articles-list-cover-b {
+                            color: #344564;
+                            background-color: #F2FEDC;                                    
+                        }
+                    
+                        &.default-articles-list-cover-c {
+                            color: #344564;
+                            background-color: #FFF5FE;                                    
+                        }
+                    
+                        &.default-articles-list-cover-d {
+                            color: #344564;
+                            background-color: #FFF8E6;                                    
+                        } 
+                        
+                        &.default-articles-list-cover-e {
+                            color: #344564;
+                            background-color: #FFEECB;                                    
+                        }
+                        
+                        &.default-articles-list-cover-f {
+                            color: #344564;
+                            background-color: #FFF3F7;                                    
+                        } 
+                        
+                        &.default-articles-list-cover-g {
+                            color: #344564;
+                            background-color: #FFF7D6;                                    
+                        } 
+                    
+                        &.default-articles-list-cover-h {
+                            color: #344564;
+                            background-color: #F1F1E6;                                    
+                        } 
+                        
+                        &.default-articles-list-cover-i {
+                            color: #344564;
+                            background-color: #E5FFFC;                                    
+                        } 
+                    
+                        &.default-articles-list-cover-j {
+                            color: #344564;
+                            background-color: #FAF8FF;                                    
+                        } 
+                        
+                        &.default-articles-list-cover-k {
+                            color: #344564;
+                            background-color: #FFF4FF;                                    
+                        } 
+                    
+                        &.default-articles-list-cover-l {
+                            color: #344564;
+                            background-color: #F4FAFF;                                    
+                        } 
+                    
+                        &.default-articles-list-cover-m {
+                            color: #344564;
+                            background-color: #EEFBFF;                                    
+                        }  
+                        
+                        &.default-articles-list-cover-n {
+                            color: #344564;
+                            background-color: #FEFEDF;                                    
+                        }
+                        
+                        &.default-articles-list-cover-o {
+                            color: #344564;
+                            background-color: #FFF5FF;                                    
+                        }  
+                        
+                        &.default-articles-list-cover-p {
+                            color: #344564;
+                            background-color: #E2EEE8;                                    
+                        } 
+                        
+                        &.default-articles-list-cover-q {
+                            color: #344564;
+                            background-color: #FFF6F5;                                    
+                        } 
+                    
+                        &.default-articles-list-cover-r {
+                            color: #344564;
+                            background-color: #F8F8FF;                                    
+                        }
+                        
+                        &.default-articles-list-cover-s {
+                            color: #344564;
+                            background-color: #FFE3EC;                                    
+                        }   
+                        
+                        &.default-articles-list-cover-t {
+                            color: #344564;
+                            background-color: #F2F9FF;                                    
+                        } 
+                        
+                        &.default-articles-list-cover-u {
+                            color: #344564;
+                            background-color: #E9FEF7;                                    
+                        }  
+                        
+                        &.default-articles-list-cover-v {
+                            color: #344564;
+                            background-color: #EBEAF5;                                    
+                        } 
+                        
+                        &.default-articles-list-cover-w {
+                            color: #344564;
+                            background-color: #F5F9FF;                                    
+                        }  
+                        
+                        &.default-articles-list-cover-x {
+                            color: #344564;
+                            background-color: #C9F7FF;                                    
+                        }
+                        
+                        &.default-articles-list-cover-y {
+                            color: #344564;
+                            background-color: #E4FFFE;                                    
+                        } 
+                        
+                        &.default-articles-list-cover-z {
+                            color: #344564;
+                            background-color: #F5F9FF;                                    
+                        } 
+
+                    }
+
+                    .default-articles-list-article-time {
+                        font-size: 14px;
+                        color: $default-color-grey;
+
+                        i {
+                            display: inline-block;
+                            vertical-align: middle;
+                            margin-top: -2px;
+                            margin-right: 5px;
+                            font-size: 18px;
+                        }
+
+                    }
+
+                }                
+
+            }
+
+        }
+
+    }
+
+    .default-articles-list-footer {
+        padding: 3px 15px;
+        height: 41px;
+        border: 0;
+        border-radius: 6px;
+        text-align: right;
+        background-color: #f0f4ff;
+        background-color: rgba(223, 223, 234, 0.08);
+
+        .btn {
+            margin-top: 2px !important;
+            padding: 0 10px !important;
+            width: 39px !important;
+            height: 31px !important;
+            line-height: 31px !important;
+            color: $default-color-black !important;
+            background-color: #ffffff !important;
+            -webkit-box-shadow: 0 1px 2px 0 rgba(10, 31, 68, 0.05) !important;
+            box-shadow: 0 1px 2px 0 rgba(10, 31, 68, 0.05) !important;
+
+            &:first-child {
+                border-radius: 4px 0 0 4px !important;
+            }
+
+            &:last-child {
+                border-radius: 0 4px 4px 0 !important;
+            }  
+            
+            &.default-articles-list-navigation-disabled-btn {
+                opacity: 0.4;
+                pointer-events: none;
+            }
+
+            i {
+                margin: 0;
+                font-size: 19px;
+            }
+
+        }
+
+    }
+
+}

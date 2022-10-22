@@ -163,7 +163,7 @@ class Facebook_pages implements CmsBaseUserInterfaces\Networks {
             if ($this->CI->form_validation->run() == false) {
 
                 // Get user data
-                $response = json_decode(file_get_contents('https://graph.facebook.com/' . $this->api_version . '/me/accounts?fields=name,picture,access_token&access_token=' . $token), true);
+                $response = json_decode(file_get_contents('https://graph.facebook.com/' . $this->api_version . '/me/accounts?limit=500&fields=name,picture,access_token&access_token=' . $token), true);
 
                 // Get connected facebook pages
                 $the_connected_facebook_pages = $this->CI->base_model->the_data_where(
@@ -442,7 +442,7 @@ class Facebook_pages implements CmsBaseUserInterfaces\Networks {
             }
 
             // Get the Facebook Pages
-            $the_facebook_pages = json_decode(file_get_contents('https://graph.facebook.com/' . $this->api_version . '/me/accounts?access_token=' . $the_token['access_token']), true);
+            $the_facebook_pages = json_decode(file_get_contents('https://graph.facebook.com/' . $this->api_version . '/me/accounts?limit=500&access_token=' . $the_token['access_token']), true);
 
             // Verify if user has pages
             if ( isset($the_facebook_pages['data'][0]['id']) ) {

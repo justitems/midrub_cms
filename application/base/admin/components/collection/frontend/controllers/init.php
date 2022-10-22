@@ -52,6 +52,7 @@ class Init {
         // Get codeigniter object instance
         $this->CI =& get_instance();
         
+        // Load the Main Component Language
         $this->CI->lang->load( 'frontend', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_ADMIN_COMPONENTS_FRONTEND);
 
         // Load Base Contents Model

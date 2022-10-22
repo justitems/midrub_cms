@@ -12,6 +12,26 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+if ( !function_exists('md_the_user_id') ) {
+    
+    /**
+     * The function md_the_user_id gets the current user's id
+     * 
+     * @since 0.0.8.5
+     * 
+     * @return integer with user's id or boolean false
+     */
+    function md_the_user_id() {
+        
+        // Get codeigniter object instance
+        $CI = get_instance();
+        
+        return !empty($CI->user_id)?$CI->user_id:FALSE;
+        
+    }
+    
+}
+
 if ( !function_exists('md_set_hook') ) {
     
     /**
@@ -464,7 +484,7 @@ if ( !function_exists('md_the_user_session') ) {
                 }
 
                 // Get the user's plan
-                $plan_id = md_the_user_option($CI->user_id, 'plan');
+                $plan_id = md_the_user_option(md_the_user_id(), 'plan');
 
                 // Redirect url
                 $redirect_url = base_url('user/app/dashboard');
@@ -546,6 +566,24 @@ if ( !function_exists('md_the_date_format') ) {
 
 }
 
+if ( !function_exists('md_the_hours_format') ) {
+    
+    /**
+     * The function md_the_hours_format provides the user wanted hours format
+     * 
+     * @param integer $user_id contains the user's ID
+     * 
+     * @return string with time format
+     */
+    function md_the_hours_format($user_id) {
+
+        // Get hour's format
+        return md_the_user_option($user_id, 'user_hours_format')?md_the_user_option($user_id, 'user_hours_format'):'24';
+
+    }
+
+}
+
 if ( !function_exists('md_the_time_format') ) {
     
     /**
@@ -567,7 +605,7 @@ if ( !function_exists('md_the_time_format') ) {
 if ( !function_exists('md_the_calculate_time') ) {
     
     /**
-     * The function md_the_hours_format calculates the time
+     * The function md_the_calculate_time calculates the time
      * 
      * @param integer $user_id contains the user's ID
      * @param integer $time contains the user's time
@@ -581,6 +619,79 @@ if ( !function_exists('md_the_calculate_time') ) {
 
         // Calculate time
         return (md_the_hours_format($user_id) === '12')?date($format . ' a', $time):date(str_replace('h', 'H', $format), $time);
+
+    }
+
+}
+
+if ( !function_exists('md_the_user_time') ) {
+    
+    /**
+     * The function md_the_user_time calculates the user's time
+     * 
+     * @param integer $user_id contains the user's ID
+     * @param integer $time contains the user's time
+     * 
+     * @return string with time
+     */
+    function md_the_user_time($user_id, $time) {
+        
+        // User date
+        $user_date = the_crm_date_format($user_id);
+
+        // Set wanted date format
+        $date_format = str_replace(array('dd', 'mm', 'yyyy'), array('d', 'm', 'Y'), $user_date);
+
+        // Get time zone
+        $time_zone = md_the_user_option($user_id, 'user_time_zone');
+
+        // Check for timezone
+        if ( $time_zone !== FALSE ) {
+
+            // Calculate time
+            $time = strtotime(gmdate('Y-m-d H:i:s', ($time + ($time_zone * 3600))));
+
+            return (gmdate('Y-m-d', ($time + ($time_zone * 3600))) !== gmdate('Y-m-d', (time() + ($time_zone * 3600))))?date($date_format, $time):the_crm_calculate_time(md_the_user_id(), $time);
+
+        } else {
+
+            return (gmdate('Y-m-d', $time) !== gmdate('Y-m-d', time()))?date($date_format, $time):the_crm_calculate_time(md_the_user_id(), $time);
+
+        }
+
+    }
+
+}
+
+if ( !function_exists('md_the_user_timestamp') ) {
+    
+    /**
+     * The function md_the_user_timestamp calculates the user's time
+     * 
+     * @param integer $user_id contains the user's ID
+     * @param integer $time contains the user's time
+     * 
+     * @return integer with timestamp
+     */
+    function md_the_user_timestamp($user_id, $time = 0) {
+
+        // Prepare the time
+        $time = !empty($time)?$time:time();
+
+        // Get time zone
+        $time_zone = md_the_user_option($user_id, 'user_time_zone');
+
+        // Check for timezone
+        if ( $time_zone !== FALSE ) {
+
+            // Calculate time with timezone
+            return ($time + ($time_zone * 3600));
+
+        } else {
+
+            return $time;
+
+        }
 
     }
 
@@ -724,8 +835,6 @@ if ( !function_exists('md_smtp') ) {
 
 }
 
-
-
 if ( !function_exists( 'md_calculate_size' ) ) {
     
     /**
@@ -833,6 +942,48 @@ if ( !function_exists('md_get_the_file') ) {
 
     }
     
+}
+
+if ( !function_exists('md_the_time_by_time_zone') ) {
+    
+    /**
+     * The function md_the_time_by_time_zone gets the time by time zone
+     * 
+     * @param integer $time contains the time
+     * @param integer $time_zone contains the time zone
+     * 
+     * @since 0.0.8.5
+     * 
+     * @return integer with time
+     */
+    function md_the_time_by_time_zone($time, $time_zone) {
+
+        // Calculate the time diference
+        $time_diference = (time() - (time() + ($time_zone * 3600)));
+
+        // Calculate time
+        return $time + $time_diference;
+
+    }
+    
+}
+
+if ( !function_exists('md_the_member_name') ) {
+    
+    /**
+     * The function md_the_member_name gets the member name
+     * 
+     * @param integer $user_id contains the user's ID
+     * @param integer $member_id contains the member's ID
+     * 
+     * @return string with member name or boolean
+     */
+    function md_the_member_name($user_id, $member_id) {
+
+        return (new CmsBase\Classes\Team\Member)->the_name( $user_id, $member_id );
+
+    }
+
 }
 
 /* End of file general.php */

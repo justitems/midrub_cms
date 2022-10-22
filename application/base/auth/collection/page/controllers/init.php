@@ -40,9 +40,6 @@ class Init {
         // Get codeigniter object instance
         $this->CI =& get_instance();
         
-        // Load the component's language files
-        $this->CI->lang->load( 'auth_page', $this->CI->config->item('language'), FALSE, TRUE, CMS_BASE_AUTH_PAGE );
-        
     }
     
     /**

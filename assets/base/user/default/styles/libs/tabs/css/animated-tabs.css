@@ -1,0 +1,129 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+THEME GLOBAL COLORS
+********************************/
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Inter:wght@200;300;400;500;600&display=swap");
+/*******************************
+THEME GLOBAL FONTS
+********************************/
+/*******************************
+ANIMATED TABS STYLES
+********************************/
+.default-animated-tabs {
+  position: relative;
+  margin-bottom: 15px; }
+  .default-animated-tabs .default-animated-tabs-navigation {
+    position: inherit;
+    z-index: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 6px;
+    font-size: 0;
+    background-color: rgba(255, 255, 255, 0.3);
+    overflow: hidden; }
+    .default-animated-tabs .default-animated-tabs-navigation input {
+      display: none; }
+      .default-animated-tabs .default-animated-tabs-navigation input:checked + label {
+        color: #52567C; }
+        @media only screen and (max-width: 600px) {
+          .default-animated-tabs .default-animated-tabs-navigation input:checked + label {
+            background-color: #FFFFFF; } }
+      @media only screen and (min-width: 601px) {
+        .default-animated-tabs .default-animated-tabs-navigation input#default-animated-tab-1:checked ~ .default-animated-tabs-navigation-active {
+          left: 0%; }
+        .default-animated-tabs .default-animated-tabs-navigation input#default-animated-tab-1:checked ~ .content-container #c1 {
+          opacity: 1; }
+        .default-animated-tabs .default-animated-tabs-navigation input#default-animated-tab-2:checked ~ .default-animated-tabs-navigation-active {
+          left: 33.33%; }
+        .default-animated-tabs .default-animated-tabs-navigation input#default-animated-tab-2:checked ~ .content-container #c2 {
+          opacity: 1; }
+        .default-animated-tabs .default-animated-tabs-navigation input#default-animated-tab-3:checked ~ .default-animated-tabs-navigation-active {
+          left: 66.66%; }
+        .default-animated-tabs .default-animated-tabs-navigation input#default-animated-tab-3:checked ~ .content-container #c3 {
+          opacity: 1; }
+        .default-animated-tabs .default-animated-tabs-navigation input#default-animated-tab-4:checked ~ .default-animated-tabs-navigation-active {
+          left: 99.99%; }
+        .default-animated-tabs .default-animated-tabs-navigation input#default-animated-tab-4:checked ~ .content-container #c4 {
+          opacity: 1; }
+        .default-animated-tabs .default-animated-tabs-navigation input#default-animated-tab-5:checked ~ .default-animated-tabs-navigation-active {
+          left: 133.32%; }
+        .default-animated-tabs .default-animated-tabs-navigation input#default-animated-tab-5:checked ~ .content-container #c5 {
+          opacity: 1; }
+        .default-animated-tabs .default-animated-tabs-navigation input#default-animated-tab-6:checked ~ .default-animated-tabs-navigation-active {
+          left: 166.65%; }
+        .default-animated-tabs .default-animated-tabs-navigation input#default-animated-tab-6:checked ~ .content-container #c6 {
+          opacity: 1; }
+        .default-animated-tabs .default-animated-tabs-navigation input#default-animated-tab-7:checked ~ .default-animated-tabs-navigation-active {
+          left: 199.98%; }
+        .default-animated-tabs .default-animated-tabs-navigation input#default-animated-tab-7:checked ~ .content-container #c7 {
+          opacity: 1; }
+        .default-animated-tabs .default-animated-tabs-navigation input#default-animated-tab-8:checked ~ .default-animated-tabs-navigation-active {
+          left: 233.31%; }
+        .default-animated-tabs .default-animated-tabs-navigation input#default-animated-tab-8:checked ~ .content-container #c8 {
+          opacity: 1; }
+        .default-animated-tabs .default-animated-tabs-navigation input#default-animated-tab-9:checked ~ .default-animated-tabs-navigation-active {
+          left: 266.64%; }
+        .default-animated-tabs .default-animated-tabs-navigation input#default-animated-tab-9:checked ~ .content-container #c9 {
+          opacity: 1; }
+        .default-animated-tabs .default-animated-tabs-navigation input#default-animated-tab-10:checked ~ .default-animated-tabs-navigation-active {
+          left: 299.97%; }
+        .default-animated-tabs .default-animated-tabs-navigation input#default-animated-tab-10:checked ~ .content-container #c10 {
+          opacity: 1; } }
+    .default-animated-tabs .default-animated-tabs-navigation label {
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 0;
+      width: 33.33%;
+      height: 32px;
+      line-height: 32px;
+      text-align: center;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #8F9EC2;
+      transition: 0.27s background-color ease;
+      cursor: pointer; }
+      @media only screen and (max-width: 767px) {
+        .default-animated-tabs .default-animated-tabs-navigation label {
+          font-size: 13px; } }
+      @media only screen and (max-width: 600px) {
+        .default-animated-tabs .default-animated-tabs-navigation label {
+          width: 100%;
+          font-size: 14px; } }
+      .default-animated-tabs .default-animated-tabs-navigation label:hover::after {
+        opacity: 1; }
+      .default-animated-tabs .default-animated-tabs-navigation label i {
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: -4px;
+        margin-right: 5px;
+        font-size: 20px; }
+        .default-animated-tabs .default-animated-tabs-navigation label i.material-icons-outlined {
+          margin-top: -5px;
+          font-size: 24px; }
+      .default-animated-tabs .default-animated-tabs-navigation label svg {
+        vertical-align: middle;
+        margin-top: -2px;
+        margin-right: 5px;
+        width: 15px;
+        height: 15px; }
+    .default-animated-tabs .default-animated-tabs-navigation .default-animated-tabs-navigation-active {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 33.33%;
+      height: 32px;
+      border-radius: 6px;
+      background-color: #FFFFFF;
+      transition: 0.27s ease; }
+      @media only screen and (max-width: 600px) {
+        .default-animated-tabs .default-animated-tabs-navigation .default-animated-tabs-navigation-active {
+          display: none; } }
+
+/*# sourceMappingURL=animated-tabs.css.map */

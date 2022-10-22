@@ -120,7 +120,7 @@
                             ),
                             'field_params' => array(
                                 'button_text' => (md_the_user_option($this->user_id, 'user_hours_format') === '12')?$this->lang->line('profile_12_hour_clock'):$this->lang->line('profile_24_hour_clock'),
-                                'button_value' => md_the_user_option($this->user_id, 'user_hours_format')?md_the_user_option($this->user_id, 'user_hours_format'):0,
+                                'button_value' => md_the_user_option($this->user_id, 'user_hours_format')?md_the_user_option($this->user_id, 'user_hours_format'):'24',
                                 'field_items' => array (
                                     array(
                                         'id' => '12',

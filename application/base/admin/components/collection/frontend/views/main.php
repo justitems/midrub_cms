@@ -14,8 +14,6 @@
 <?php md_get_the_file(CMS_BASE_ADMIN_COMPONENTS_FRONTEND . 'views/modals/components_selector.php'); ?>
 <?php md_get_the_file(CMS_BASE_ADMIN_COMPONENTS_FRONTEND . 'views/modals/templates_selector.php'); ?>
 
-<?php md_get_admin_quick_guide(the_frontend_quick_guide()); ?>
-
 <script language="javascript">
 
     // Words container

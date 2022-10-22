@@ -1,0 +1,130 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../user/default/styles/colors";
+@import "../../../../../../user/default/styles/fonts";
+
+/*******************************
+ANIMATED TABS STYLES
+********************************/
+
+.default-animated-tabs {
+    position: relative;
+    margin-bottom: 15px;
+
+    .default-animated-tabs-navigation {
+        position: inherit;
+        z-index: 0;
+        left: 0;
+        width: 100%;
+        border-radius: 6px;
+        font-size: 0;
+        background-color: rgba(255, 255, 255, 0.3);
+        overflow: hidden;
+
+        input {
+            display: none;
+
+            &:checked + label {
+                color: $default-color-new;
+
+                @media only screen and (max-width: 600px)  {
+                    background-color: #FFFFFF;
+                }
+
+            }
+
+            @media only screen and (min-width: 601px)  {
+
+                @for $i from 1 through 10 {
+
+                    &#default-animated-tab-#{$i}:checked {
+
+                        ~ .default-animated-tabs-navigation-active {
+                            left: #{($i - 1) * 33.33%};
+                        }
+
+                        ~ .content-container #c#{$i} {
+                            opacity: 1;
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        label {
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 0;
+            width: 33.33%;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            font-family: $default-font-5;
+            font-size: 14px;
+            color: $default-color-grey;
+            transition: 0.27s background-color ease;
+            cursor: pointer;
+
+            @media only screen and (max-width: 767px)  {
+                font-size: 13px;
+            }
+
+            @media only screen and (max-width: 600px)  {
+                width: 100%;
+                font-size: 14px;
+            }
+
+            &:hover::after {
+                opacity: 1;
+            }
+
+            i {
+                display: inline-block;
+                vertical-align: middle;
+                margin-top: -4px;
+                margin-right: 5px;
+                font-size: 20px;
+
+                &.material-icons-outlined {
+                    margin-top: -5px;
+                    font-size: 24px;
+                }
+
+            }
+
+            svg {
+                vertical-align: middle;
+                margin-top: -2px;
+                margin-right: 5px;
+                width: 15px;
+                height: 15px;
+            }
+
+        }
+
+        .default-animated-tabs-navigation-active {
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 33.33%;
+            height: 32px;
+            border-radius: 6px;
+            background-color: #FFFFFF;
+            transition: 0.27s ease;
+
+            @media only screen and (max-width: 600px)  {
+                display: none;
+            }
+
+        }
+
+    }
+
+}

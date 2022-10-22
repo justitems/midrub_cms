@@ -309,18 +309,23 @@ jQuery(document).ready( function ($) {
 
                 // Format
                 let current_date_format = new Date(year + '-' + month + '-' + date);
-
+                
                 // Set This Week
-                var this_week = new Date(current_date_format.setDate(current_date_format.getDate() - (current_date_format.getDay())));
-             
+                var this_week;
+                
                 // Verify if first day of the week is monday
-                if ( parseInt($('.main .default-week-calendar').eq(0).attr('data-first-day')) === 1 ) {
+                if ( parseInt($('.main .default-events-list').eq(0).attr('data-first-day')) === 1 ) {
 
                     // Prepare day of the week
                     let the_week_date = (current_date_format.getDay() === 0)?6:(current_date_format.getDay() - 1);
 
                     // Set This Week
                     this_week = new Date(current_date_format.setDate(current_date_format.getDate() - the_week_date));
+
+                } else {
+
+                    // Set This Week
+                    this_week = new Date(current_date_format.setDate(current_date_format.getDate() - (current_date_format.getDay() - 1)))
 
                 }
 

@@ -15,7 +15,7 @@ namespace CmsBase\Admin\Components\Collection\Dashboard;
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 defined('CMS_BASE_ADMIN_COMPONENTS_DASHBOARD') OR define('CMS_BASE_ADMIN_COMPONENTS_DASHBOARD', CMS_BASE_PATH . 'admin/components/collection/dashboard/');
-defined('CMS_BASE_ADMIN_COMPONENTS_DASHBOARD_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_DASHBOARD_VERSION', '0.0.4');
+defined('CMS_BASE_ADMIN_COMPONENTS_DASHBOARD_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_DASHBOARD_VERSION', '0.0.6');
 
 // Define the namespaces to use
 use CmsBase\Admin\Interfaces as CmsBaseAdminInterfaces;

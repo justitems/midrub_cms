@@ -46,6 +46,9 @@ BUTTONS MIXINGS
         &:active {
             text-decoration: none;
             background-color: transparent;
+        }
+
+        &:hover {
             opacity: 0.7;
         }
 
@@ -79,12 +82,41 @@ BUTTONS MIXINGS
             text-decoration: none;
             background-color: transparent;
             -webkit-box-shadow: 0 1px 2px 0 rgba(10, 31, 68, 0.10) !important;
-            box-shadow: 0 1px 2px 0 rgba(10, 31, 68, 0.10) !important;            
+            box-shadow: 0 1px 2px 0 rgba(10, 31, 68, 0.10) !important;
+        }
+
+        &:hover {
             opacity: 0.7;
         }
 
         i {
             vertical-align: bottom;
+            margin-right: 5px;
+            font-size: 16px;
+        }
+
+    }
+
+}
+
+@mixin default-btn-4 {
+
+    & {
+        margin-top: 15px;
+        padding: 6px 10px;
+        border: 0;
+        font-size: 14px;
+        color: #ffffff;
+        background-color: #A4ABBD;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        i {
+            display: inline-block;
+            vertical-align: top;
+            margin-top: -2px;
             margin-right: 5px;
             font-size: 16px;
         }

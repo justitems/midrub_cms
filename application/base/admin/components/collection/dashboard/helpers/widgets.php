@@ -83,7 +83,7 @@ class Widgets {
 
         }
 
-        // Prepare the false response
+        // Prepare the error response
         $data = array(
             'success' => FALSE,
             'words' => array(
@@ -91,7 +91,7 @@ class Widgets {
             )
         );
 
-        // Display the false response
+        // Display the error response
         echo json_encode($data);
 
     }
@@ -187,13 +187,13 @@ class Widgets {
 
         }
         
-        // Prepare the false response
+        // Prepare the error response
         $data = array(
             'success' => FALSE,
             'message' => $this->CI->lang->line('dashboard_widgets_order_not_saved')
         );
 
-        // Display the false response
+        // Display the error response
         echo json_encode($data);
         
     }

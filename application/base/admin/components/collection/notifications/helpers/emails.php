@@ -166,7 +166,7 @@ class Emails {
 
                 // Prepare template args
                 $template_args = array(
-                    'user_id' => $this->CI->user_id,
+                    'user_id' => md_the_user_id(),
                     'template_slug' => $template,
                     'created' => time()
                 );

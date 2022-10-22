@@ -429,6 +429,44 @@ jQuery(document).ready( function ($) {
 
         }
 
+        // Get all multiselector buttons
+        let multiselector_dropdowns = $('.user-page .theme-multiselector-dropdown-1').length;
+
+        // All dropdowns container
+        var all_multiselector_dropdowns = [];
+
+        // Verify if dropdowns exists
+        if ( multiselector_dropdowns > 0 ) {
+
+            // List all dropdowns
+            for (var md = 0; md < multiselector_dropdowns; md++) {
+
+                // Selected items
+                var selected_items = [];
+
+                // Verify if selected items exists
+                if ( $('.user-page .theme-multiselector-dropdown-1').eq(md).find('.default-multiselector-dropdown-selected-items-list a').length > 0 ) {
+
+                    // Get the selected items
+                    let the_selected_items = $('.user-page .theme-multiselector-dropdown-1').eq(md).find('.default-multiselector-dropdown-selected-items-list a');
+
+                    // List the selected items
+                    for ( var si = 0; si < the_selected_items.length; si++ ) {
+
+                        // Add the item id to the list
+                        selected_items.push($(the_selected_items[si]).attr('data-id'));                        
+
+                    }
+
+                }
+
+                // Append dropdown's value
+                all_multiselector_dropdowns[$('.user-page .theme-multiselector-dropdown-1').eq(md).closest('.list-group-item').attr('data-field')] = selected_items;
+
+            }
+
+        }
+
         // Get all textareas
         var textareas = $('.user-page .theme-text-input-1').length;
         
@@ -527,6 +565,7 @@ jQuery(document).ready( function ($) {
             plan_id: $('.user-page .update-plan').attr('data-plan-id'),
             all_dropdowns: Object.entries(all_dropdowns),
             all_textareas: Object.entries(all_textareas),
+            all_multiselector_dropdowns: Object.entries(all_multiselector_dropdowns),
             texts: Object.entries(texts)
         };
         

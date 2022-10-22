@@ -126,7 +126,7 @@
                         <?php md_get_all_contents_categories_options(); ?>
                     </div>
                 </div>
-                <?php echo form_close() ?>
+                <?php echo form_close(); ?>
             </div>
         </div>
     </div>

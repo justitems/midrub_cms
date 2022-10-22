@@ -71,7 +71,7 @@ class Url {
             if ($this->CI->form_validation->run() !== false) {
 
                 // Remove non allowed characters
-                $new_slug = preg_replace(array('#[\\s-]+#', '#[^A-Za-z0-9 -]+#'), array('-', ''), $url_slug);
+                $new_slug = preg_replace(array('/\./', '#[\\s-]+#', '#[^A-Za-z0-9 -]+#'), array('-', '-', ''), $url_slug);
 
                 // Verify if url's slug is still valid
                 if ($new_slug) {

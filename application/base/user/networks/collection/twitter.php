@@ -189,14 +189,14 @@ class Twitter implements CmsBaseUserInterfaces\Networks {
             )), $response);
 
             // Verify if the code exists
-            if ( empty($response['oauth_token']) && empty($response['oauth_token_secret']) ) {
+            if ( empty($response['oauth_token']) || empty($response['oauth_token_secret']) ) {
 
                 // Set view
                 echo $this->CI->load->ext_view(
                     CMS_BASE_PATH . 'user/default/php',
                     'network_error',
                     array(
-                        'message' => $this->CI->lang->line('user_no_oauth_token_verifier_found')
+                        'message' => $this->CI->lang->line('user_networks_oauth_token_oauth_token_secret_not_generated')
                     ),
                     TRUE
                 );

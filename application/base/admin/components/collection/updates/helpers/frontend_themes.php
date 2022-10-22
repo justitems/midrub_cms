@@ -16,6 +16,9 @@ namespace CmsBase\Admin\Components\Collection\Updates\Helpers;
 // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// Require the Curl GET Inc
+require_once APPPATH . 'base/inc/curl/get.php';
+
 /*
  * Frontend_themes class provides the methods to manage the Frontend Themes updates
  * 
@@ -80,13 +83,13 @@ class Frontend_themes {
             } else {
 
                 // Verify if theme exists
-                if ( is_dir(APPPATH . 'base/frontend/themes/' . $slug) ) {
+                if ( is_dir(APPPATH . 'base/frontend/themes/collection/' . $slug) ) {
 
                     // Set theme's dir
-                    $this->theme_dir = APPPATH . 'base/frontend/themes/' . $slug;
+                    $this->theme_dir = APPPATH . 'base/frontend/themes/collection/' . $slug;
 
                     // Get theme's configuration
-                    $info = json_decode(file_get_contents(APPPATH . 'base/frontend/themes/' . $slug . '/config.json'), TRUE);
+                    $info = json_decode(file_get_contents(APPPATH . 'base/frontend/themes/collection/' . $slug . '/config.json'), TRUE);
 
                     // theme array
                     $theme = array();
@@ -127,10 +130,10 @@ class Frontend_themes {
                     }
 
                     // Verify if updates's url exists
-                    if (  !empty($info['updates_url']) ) {
+                    if (  !empty($info['update_url']) ) {
 
                         // Set updates url
-                        $theme['updates_url'] = $info['updates_url'];
+                        $theme['update_url'] = $info['update_url'];
 
                     } else {
 
@@ -147,7 +150,9 @@ class Frontend_themes {
                     }
 
                     // Get the updates
-                    $get_updates = json_decode(get($theme['updates_url'] . $updates_code), true);
+                    $get_updates = json_decode(md_the_get(array(
+                        'url' => $theme['update_url'] . $updates_code
+                    )), true);
 
                     // Verify if url exists
                     if ( isset($get_updates['url']) ) {
@@ -242,13 +247,13 @@ class Frontend_themes {
             } else {
 
                 // Verify if theme exists
-                if ( is_dir(APPPATH . 'base/frontend/themes/' . $slug) ) {
+                if ( is_dir(APPPATH . 'base/frontend/themes/collection/' . $slug) ) {
 
                     // Set theme's dir
-                    $this->theme_dir = APPPATH . 'base/frontend/themes/' . $slug;
+                    $this->theme_dir = APPPATH . 'base/frontend/themes/collection/' . $slug;
 
                     // Get theme's configuration
-                    $info = json_decode(file_get_contents(APPPATH . 'base/frontend/themes/' . $slug . '/config.json'), TRUE);
+                    $info = json_decode(file_get_contents(APPPATH . 'base/frontend/themes/collection/' . $slug . '/config.json'), TRUE);
 
                     // theme array
                     $theme = array();
@@ -288,10 +293,10 @@ class Frontend_themes {
                     }
 
                     // Verify if updates's url exists
-                    if (  isset($info['updates_url']) ) {
+                    if (  isset($info['update_url']) ) {
 
                         // Set updates url
-                        $theme['updates_url'] = $info['updates_url'];
+                        $theme['update_url'] = $info['update_url'];
 
                     } else {
 
@@ -308,7 +313,9 @@ class Frontend_themes {
                     }
 
                     // Get the updates
-                    $get_updates = json_decode(get($theme['updates_url'] . $updates_code), true);
+                    $get_updates = json_decode(md_the_get(array(
+                        'url' => $theme['update_url'] . $updates_code
+                    )), true);
 
                     // Verify if url exists
                     if ( isset($get_updates['url']) ) {
@@ -464,10 +471,10 @@ class Frontend_themes {
             } else {
 
                 // Verify if theme exists
-                if ( is_dir(APPPATH . 'base/frontend/themes/' . $slug) ) {
+                if ( is_dir(APPPATH . 'base/frontend/themes/collection/' . $slug) ) {
 
                     // Set theme's dir
-                    $this->theme_dir = APPPATH . 'base/frontend/themes/' . $slug;
+                    $this->theme_dir = APPPATH . 'base/frontend/themes/collection/' . $slug;
         
                     // Zip name
                     $zip_name = $this->theme_dir . '/download.zip'; 
@@ -514,11 +521,11 @@ class Frontend_themes {
                         // Close the ZipArchive class
                         $zip->close();
 
-                        // Verify if the updates.json exists
-                        if ( file_exists($this->theme_dir . '/temp/updates.json') ) {
+                        // Verify if the update.json exists
+                        if ( file_exists($this->theme_dir . '/temp/update.json') ) {
 
                             // Get files to updates
-                            $updates = json_decode(file_get_contents($this->theme_dir . '/temp/updates.json'), true);
+                            $updates = json_decode(file_get_contents($this->theme_dir . '/temp/update.json'), true);
 
                             // Verify if the updates has files
                             if ( isset($updates['files']) ) {
@@ -634,10 +641,10 @@ class Frontend_themes {
             } else {
 
                 // Verify if theme exists
-                if ( is_dir(APPPATH . 'base/frontend/themes/' . $slug) ) {
+                if ( is_dir(APPPATH . 'base/frontend/themes/collection/' . $slug) ) {
 
                     // Set theme's dir
-                    $this->theme_dir = APPPATH . 'base/frontend/themes/' . $slug;
+                    $this->theme_dir = APPPATH . 'base/frontend/themes/collection/' . $slug;
 
                     // If the backup directory exists, delete
                     if ( is_dir($this->theme_dir . '/backup') ) {
@@ -689,11 +696,11 @@ class Frontend_themes {
                         
                     }
 
-                    // Verify if the updates.json exists
-                    if ( file_exists($this->theme_dir . '/temp/updates.json') ) {
+                    // Verify if the update.json exists
+                    if ( file_exists($this->theme_dir . '/temp/update.json') ) {
 
                         // Get files to updates
-                        $updates = json_decode(file_get_contents($this->theme_dir . '/temp/updates.json'), true);
+                        $updates = json_decode(file_get_contents($this->theme_dir . '/temp/update.json'), true);
 
                         // Verify if the updates has files
                         if ( isset($updates['files']) ) {
@@ -764,18 +771,18 @@ class Frontend_themes {
                             // Display success response
                             echo json_encode($data);
 
-                            // Verify if old updates.json exists
-                            if ( file_exists($this->theme_dir . '/updates.json') ) {
+                            // Verify if old update.json exists
+                            if ( file_exists($this->theme_dir . '/update.json') ) {
 
-                                // Delete the existing updates.json
-                                unlink($this->theme_dir . '/updates.json');
+                                // Delete the existing update.json
+                                unlink($this->theme_dir . '/update.json');
 
                             }
 
-                            // Copy the updates.json in the main directory
-                            copy($this->theme_dir . '/temp/updates.json', $this->theme_dir . '/updates.json');
+                            // Copy the update.json in the main directory
+                            copy($this->theme_dir . '/temp/update.json', $this->theme_dir . '/update.json');
 
-                            // Create the updates.json in the backup directory
+                            // Create the update.json in the backup directory
                             file_put_contents($this->theme_dir . '/backup/backup.json', json_encode(array(
                                 'files' => $this->copied
                             ), JSON_PRETTY_PRINT));
@@ -948,11 +955,11 @@ class Frontend_themes {
         
                     rmdir($theme_dir . '/backup');
 
-                    // Verify if old updates.json exists
-                    if ( file_exists($theme_dir . '/updates.json') ) {
+                    // Verify if old update.json exists
+                    if ( file_exists($theme_dir . '/update.json') ) {
 
-                        // Delete the existing updates.json
-                        unlink($theme_dir . '/updates.json');
+                        // Delete the existing update.json
+                        unlink($theme_dir . '/update.json');
 
                     }
 

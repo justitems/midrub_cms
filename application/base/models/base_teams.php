@@ -9,7 +9,7 @@
  * @category Social
  * @package  Midrub
  * @author   Scrisoft <asksyn@gmail.com>
- * @license  https://www.gnu.org/licenses/gpl-2.0.html GNU General Public License
+ * @license  https://github.com/scrisoft/midrub_cms/blob/master/license
  * @link     https://www.midrub.com/
  */
 
@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @category Social
  * @package  Midrub
  * @author   Scrisoft <asksyn@gmail.com>
- * @license  https://www.gnu.org/licenses/gpl-2.0.html GNU General Public License
+ * @license  https://github.com/scrisoft/midrub_cms/blob/master/license
  * @link     https://www.midrub.com/
  */
 class Base_teams extends CI_MODEL {
@@ -61,7 +61,7 @@ class Base_teams extends CI_MODEL {
      * 
      * @return boolean true or false
      */
-    public function save_member( $user_id, $username, $email, $role_id, $status, $about=NULL, $password ) {
+    public function save_member( $user_id, $username, $email, $role_id, $status, $about, $password ) {
         
         // First verify if the username already exists in the database
         $username = $this->check_member_name($username);

@@ -9,7 +9,7 @@
  * @category Social
  * @package  Midrub
  * @author   Scrisoft <asksyn@gmail.com>
- * @license  https://www.gnu.org/licenses/gpl-2.0.html GNU General Public License
+ * @license  https://github.com/scrisoft/midrub_cms/blob/master/license
  * @link     https://www.midrub.com/
  */
 
@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @category Social
  * @package  Midrub
  * @author   Scrisoft <asksyn@gmail.com>
- * @license  https://www.gnu.org/licenses/gpl-2.0.html GNU General Public License
+ * @license  https://github.com/scrisoft/midrub_cms/blob/master/license
  * @link     https://www.midrub.com/
  */
 class Base_contents extends CI_MODEL {
@@ -107,7 +107,7 @@ class Base_contents extends CI_MODEL {
      * 
      * @return integer with inserted id or false
      */
-    public function save_content( $user_id, $contents_category, $contents_component, $contents_theme=NULL, $contents_template=NULL,  $status ) {
+    public function save_content( $user_id, $contents_category, $contents_component, $contents_theme=NULL, $contents_template=NULL,  $status=0 ) {
         
         // Set data
         $data = array(
@@ -553,7 +553,11 @@ class Base_contents extends CI_MODEL {
      * 
      * @return boolean true or false
      */
-    public function delete_content_meta( $content_id=0, $meta_name ) {
+    public function delete_content_meta( $content_id=0, $meta_name=NULL ) {
+
+        if ( !$meta_name ) {
+            return false;
+        }
 
         $params = array(
             'meta_name' => $meta_name

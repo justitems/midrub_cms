@@ -701,30 +701,14 @@ class Signin {
 
             // Verify if the redirect is a component
             if ( is_dir(CMS_BASE_USER . 'components/collection/' . $user_redirect . '/') ) {
-                
-                // Get the component
-                $cl = implode('\\', array('CmsBase', 'User', 'Components', 'Collection', ucfirst($user_redirect), 'Main'));
 
-                // Verify if the component is available
-                if ( (new $cl())->check_availability() ) {
-
-                    // Set new redirect
-                    $redirect_url = site_url('user/' . $user_redirect);
-
-                }
+                // Set new redirect
+                $redirect_url = site_url('user/' . $user_redirect);
 
             } else if ( is_dir(CMS_BASE_USER . 'apps/collection/' . $user_redirect . '/') ) {
 
-                // Get the app
-                $cl = implode('\\', array('CmsBase', 'User', 'Apps', 'Collection', ucfirst($user_redirect), 'Main'));
-
-                // Verify if the app is available
-                if ( (new $cl())->check_availability() ) {
-
-                    // Set new redirect
-                    $redirect_url = site_url('user/app/' . $user_redirect);
-
-                }
+                // Set new redirect
+                $redirect_url = site_url('user/app/' . $user_redirect);
 
             }
             

@@ -45,14 +45,29 @@ BUTTONS MESSAGE LIST STYLES
           font-size: 14px;
           color: #344564;
           background-color: #F4F9FF; }
+        .default-buttons-message-list .list-group-item .card .card-header .media > i {
+          line-height: 40px;
+          font-size: 32px; }
+        .default-buttons-message-list .list-group-item .card .card-header .media .media-body {
+          padding-left: 15px; }
+          .default-buttons-message-list .list-group-item .card .card-header .media .media-body h4 {
+            margin: 0;
+            height: 40px;
+            line-height: 43px;
+            font-family: "Roboto", "Open Sans", "Nunito", "Nunito Sans", sans-serif;
+            font-size: 14px;
+            color: #344564; }
         .default-buttons-message-list .list-group-item .card .card-header .btn-group {
           margin-left: 15px; }
           .default-buttons-message-list .list-group-item .card .card-header .btn-group .btn {
             border: 0;
+            border-left: 1px solid #F0FAFF;
             color: #FFFFFF;
             background-color: #2E92FA; }
-            .default-buttons-message-list .list-group-item .card .card-header .btn-group .btn:last-child {
-              border-left: 1px solid #F0FAFF; }
+            .default-buttons-message-list .list-group-item .card .card-header .btn-group .btn:first-child {
+              border: 0; }
+            .default-buttons-message-list .list-group-item .card .card-header .btn-group .btn i {
+              vertical-align: middle; }
       .default-buttons-message-list .list-group-item .card .card-body {
         display: none;
         padding: 0;

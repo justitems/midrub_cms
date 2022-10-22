@@ -120,7 +120,7 @@
             <?php echo get_admin_notifications_selected_template(md_the_data('template')['template_slug']); ?>
         </div>
     </div>
-    <?php echo form_close() ?>
+    <?php echo form_close(); ?>
 </div>
 
 <script language="javascript">

@@ -6,7 +6,7 @@
  *
  * @author Scrisoft
  * @package Midrub
- * @since 0.0.7.8
+ * @since 0.0.8.5
  */
 
 // Define the page namespace
@@ -25,21 +25,21 @@ use CmsBase\Admin\Components\Collection\Frontend\Helpers as CmsBaseAdminComponen
  * 
  * @author Scrisoft
  * @package Midrub
- * @since 0.0.7.8
+ * @since 0.0.8.5
  */
 class Ajax {
     
     /**
      * Class variables
      *
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      */
     protected $CI;
 
     /**
      * Initialise the Class
      *
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      */
     public function __construct() {
         
@@ -57,7 +57,7 @@ class Ajax {
     /**
      * The public method create_new_content creates new content
      * 
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      * 
      * @return void
      */
@@ -71,7 +71,7 @@ class Ajax {
     /**
      * The public method frontend_get_contents_by_category gets contents by category
      * 
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      * 
      * @return void
      */
@@ -85,7 +85,7 @@ class Ajax {
     /**
      * The public method frontend_delete_content deletes content by content's id
      * 
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      * 
      * @return void
      */
@@ -99,7 +99,7 @@ class Ajax {
     /**
      * The public method frontend_delete_contents deletes contents by contents ids
      * 
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      * 
      * @return void
      */
@@ -113,7 +113,7 @@ class Ajax {
     /**
      * The public method settings_auth_pages_list gets auth pages
      * 
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      * 
      * @return void
      */
@@ -127,7 +127,7 @@ class Ajax {
     /**
      * The public method save_frontend_settings saves settings changes
      * 
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      * 
      * @return void
      */
@@ -141,7 +141,7 @@ class Ajax {
     /**
      * The public method settings_all_options loads selected options
      * 
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      * 
      * @return void
      */
@@ -155,7 +155,7 @@ class Ajax {
     /**
      * The public method load_theme_templates loads theme's templates
      * 
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      * 
      * @return void
      */
@@ -225,7 +225,7 @@ class Ajax {
     /**
      * The public method new_menu_item creates a new menu item
      * 
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      * 
      * @return void
      */
@@ -239,7 +239,7 @@ class Ajax {
     /**
      * The public method frontend_save_menu_items saves menu's items
      * 
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      * 
      * @return void
      */
@@ -253,7 +253,7 @@ class Ajax {
     /**
      * The public method frontend_get_menu_items gets menu's items
      * 
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      * 
      * @return void
      */
@@ -267,7 +267,7 @@ class Ajax {
     /**
      * The public method load_selected_pages gets selected pages
      * 
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      * 
      * @return void
      */
@@ -281,7 +281,7 @@ class Ajax {
     /**
      * The public method generate_url_slug generate url's slug
      * 
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      * 
      * @return void
      */
@@ -293,16 +293,44 @@ class Ajax {
     }
     
     /**
-     * The public method save_auth_social_data saves social auth data
+     * The public method frontend_save_social_data saves social auth data
      * 
-     * @since 0.0.7.8
+     * @since 0.0.8.5
      * 
      * @return void
      */
-    public function save_auth_social_data() {
+    public function frontend_save_social_data() {
         
         // Save data
-        (new CmsBaseAdminComponentsCollectionFrontendHelpers\Social)->save_auth_social_data();
+        (new CmsBaseAdminComponentsCollectionFrontendHelpers\Social)->frontend_save_social_data();
+        
+    }
+
+    /**
+     * The public method frontend_upload_network uploads an network to be installed
+     * 
+     * @since 0.0.8.5
+     * 
+     * @return void
+     */
+    public function frontend_upload_network() {
+        
+        // Uploads network
+        (new CmsBaseAdminComponentsCollectionFrontendHelpers\Social)->frontend_upload_network();
+        
+    }
+
+    /**
+     * The public method frontend_unzipping_network_zip extract the network from the zip
+     * 
+     * @since 0.0.8.5
+     * 
+     * @return void
+     */
+    public function frontend_unzipping_network_zip() {
+        
+        // Extract the network
+        (new CmsBaseAdminComponentsCollectionFrontendHelpers\Social)->frontend_unzipping_network_zip();
         
     }
 

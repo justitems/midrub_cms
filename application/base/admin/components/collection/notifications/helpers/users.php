@@ -118,11 +118,20 @@ class Users {
                         'notifications_alerts_users.alert_id' => $alert
                     ));
 
+                    // User date
+                    $user_date = md_the_date_format(md_the_user_id());
+
+                    // Set wanted date format
+                    $date_format = str_replace(array('dd', 'mm', 'yyyy'), array('d', 'm', 'Y'), $user_date);
+
                     // Members container
                     $members = array();
 
                     // List members
                     foreach ( $alert_users as $get_member ) {
+
+                        // Format the time
+                        $time_format = (($get_member['created'] + 86400) < time())?date($date_format, $get_member['created']):md_the_calculate_time(md_the_user_id(), $get_member['created']);
 
                         // Set member
                         $members[] = array(
@@ -137,7 +146,7 @@ class Users {
                             'avatar' => '//www.gravatar.com/avatar/' . md5($get_member['email']),
                             'banner_seen' => $get_member['banner_seen'],
                             'page_seen' => $get_member['page_seen'],
-                            'created' => $get_member['created']
+                            'created' => $time_format
                         );
 
                     }
@@ -156,7 +165,9 @@ class Users {
                             'page_unseen' => $this->CI->lang->line('notifications_page_unseen'),
                             'inactive' => $this->CI->lang->line('notifications_inactive'),
                             'active' => $this->CI->lang->line('notifications_active'),
-                            'blocked' => $this->CI->lang->line('notifications_blocked')                  
+                            'blocked' => $this->CI->lang->line('notifications_blocked'),
+                            'of' => $this->CI->lang->line('notifications_of'),
+                            'results' => $this->CI->lang->line('notifications_results'),                                         
                         )
                     );
 

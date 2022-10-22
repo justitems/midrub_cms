@@ -63,9 +63,6 @@ class Reset {
      */
     public function reset_password($email) {
 
-        // Load Notifications Model
-        $this->CI->load->model('notifications');
-
         // Check if email address exists in database
         if ( $this->CI->base_users->get_user_ceil('email', $email ) ) {
 

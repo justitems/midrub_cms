@@ -1,4 +1,10 @@
 /*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../user/default/styles/scrollbar";
+
+
+/*******************************
 DEFAULT DROPDOWN MIXING
 ********************************/
 
@@ -39,6 +45,11 @@ DEFAULT DROPDOWN MIXING
             -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05) !important;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05) !important;
             opacity: 1 !important;
+
+            &.dropdown-menu-to-left {
+                left: inherit !important;
+                right: -7px !important;
+            }
 
             & > input[type="text"] {
                 margin: 0 !important;
@@ -197,10 +208,10 @@ DEFAULT DROPDOWN MIXING
                     border: 0;
 
                     &.theme-no-results-found {
-                        padding: 0px 15px;
-                        height: 38px;
+                        padding: 5px 15px;
+                        height: auto;
                         list-style: none;
-                        line-height: 35px;
+                        line-height: 22px;
                         font-size: 14px !important;
                         pointer-events: none;
                     }
@@ -384,12 +395,17 @@ DEFAULT DROPDOWN MIXING
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
             width: 100%;
-            min-width: 200px;                                       
+            min-width: 200px;
+            max-height: 195px;                           
             border: 1px solid $default-dropdown-menu-border-color;
             border-radius: 3px;
             -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
             opacity: 1 !important;
+            overflow-y: auto;
+            overflow-x: hidden;
+            
+            @include default-scrollbar-1();   
 
             input[type="text"] {
                 margin: 0;

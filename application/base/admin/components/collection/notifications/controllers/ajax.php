@@ -251,20 +251,6 @@ class Ajax {
         // Loads users
         (new CmsBaseAdminComponentsCollectionNotificationsHelpers\System_errors)->notifications_load_system_errors_users();
         
-    }    
-
-    /**
-     * The public method notifications_load_system_errors_types loads system errors types
-     * 
-     * @since 0.0.8.4
-     * 
-     * @return void
-     */
-    public function notifications_load_system_errors_types() {
-        
-        // Loads system errors types
-        (new CmsBaseAdminComponentsCollectionNotificationsHelpers\System_errors)->notifications_load_system_errors_types();
-        
     }
 
     /**

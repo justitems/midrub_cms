@@ -17,7 +17,7 @@
     let words = {
         icon_more: '<?php echo md_the_admin_icon(array('icon' => 'more', 'class' => 'ms-0')); ?>',
         icon_delete: '<?php echo md_the_admin_icon(array('icon' => 'delete')); ?>',
-        selected_items: '<?php echo $this->lang->line('admin_selected_items'); ?>'
+        selected_items: '<?php echo $this->lang->line('notifications_selected_items'); ?>'
     }
     
 </script>
