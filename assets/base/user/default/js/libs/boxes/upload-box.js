@@ -543,9 +543,6 @@ jQuery(document).ready( function ($) {
                                     // Remove the drop active class
                                     $this.closest('.crm-drag-and-drop-files').removeClass('crm-drag-and-drop-files-drop-active');
 
-                                    // Reload csrf
-                                    Main.reload_csrf();
-
                                 },
 
                                 // Errors catcher
