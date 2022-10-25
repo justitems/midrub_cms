@@ -46,8 +46,11 @@ jQuery(document).ready( function ($) {
             action: 'extract_midrub_updates'
         };
 
+		// Set CSRF
+        data[$('.main').attr('data-csrf')] = $('.main').attr('data-csrf-value');
+
         // Make ajax call
-        Main.ajax_call(url + 'admin/ajax/updates', 'GET', data, 'extract_midrub_updates');
+        Main.ajax_call(url + 'admin/ajax/updates', 'POST', data, 'extract_midrub_updates');
         
     };
 
@@ -63,8 +66,11 @@ jQuery(document).ready( function ($) {
             action: 'start_midrub_backup'
         };
 
+		// Set CSRF
+        data[$('.main').attr('data-csrf')] = $('.main').attr('data-csrf-value');
+
         // Make ajax call
-        Main.ajax_call(url + 'admin/ajax/updates', 'GET', data, 'start_midrub_backup');
+        Main.ajax_call(url + 'admin/ajax/updates', 'POST', data, 'start_midrub_backup');
         
     };
 
@@ -85,8 +91,11 @@ jQuery(document).ready( function ($) {
             action: 'restore_midrub_backup'
         };
 
+		// Set CSRF
+        data[$('.main').attr('data-csrf')] = $('.main').attr('data-csrf-value');
+
         // Make ajax call
-        Main.ajax_call(url + 'admin/ajax/updates', 'GET', data, 'restore_midrub_backup', 'ajax_onprogress');
+        Main.ajax_call(url + 'admin/ajax/updates', 'POST', data, 'restore_midrub_backup', 'ajax_onprogress');
 
         // Set progress bar
         Main.set_progress_bar();
@@ -125,8 +134,13 @@ jQuery(document).ready( function ($) {
             // Show message
             $('#updates-system p').text(data.message);
 
-            // Start download
-            Main.start_download();
+            // Set a pause
+            setTimeout(function () {
+
+                // Start download
+                Main.start_download();
+
+            }, 2000);
             
         } else {
             
@@ -158,8 +172,13 @@ jQuery(document).ready( function ($) {
             // Show message
             $('#updates-system p').text(data.message);
 
-            // Start extract
-            Main.start_extract();
+            // Set a pause
+            setTimeout(function () {
+
+                // Start extract
+                Main.start_extract();
+
+            }, 2000);
             
         } else {
             
@@ -194,8 +213,13 @@ jQuery(document).ready( function ($) {
             // Show message
             $('#updates-system p').text(data.message);
 
-            // Start backup
-            Main.start_backup();
+            // Set a pause
+            setTimeout(function () {
+
+                // Start backup
+                Main.start_backup();
+
+            }, 2000);
             
         } else {
             
@@ -309,9 +333,5 @@ jQuery(document).ready( function ($) {
         Main.set_progress_bar(); 
         
     });
-    
-    /*******************************
-    DEPENDENCIES
-    ********************************/
  
 });

@@ -46,9 +46,6 @@ class Change {
         
         // Get codeigniter object instance
         $this->CI =& get_instance();
-
-        // Load the bcrypt library
-        $this->CI->load->library('bcrypt');
         
     }
 
@@ -89,7 +86,7 @@ class Change {
         } else {
 
             // Encrypt the password
-            $encrypted_password = $this->CI->bcrypt->hash_password($new_password);
+            $encrypted_password = password_hash($new_password, PASSWORD_BCRYPT);
 
             // Save activation code in user's data from database
             $save_password = $this->CI->base_model->update_ceil('users', array('user_id' => $user_id, 'reset_code' => $reset_code), array('password' => $encrypted_password));

@@ -44,9 +44,6 @@ class Profile {
 
         // Load Base Teams Model
         $this->CI->load->ext_model( CMS_BASE_PATH . 'models/', 'Base_teams', 'base_teams' );
-
-        // Load the bcrypt library
-        $this->CI->load->library('bcrypt');
         
     }
 
@@ -552,7 +549,7 @@ class Profile {
                 }
                 
                 // Encrypt the password
-                $password = $this->CI->bcrypt->hash_password($profile_password);
+                $password = password_hash($profile_password, PASSWORD_BCRYPT);
 
                 // Try to update the password
                 if ( $this->CI->base_model->update('users', array('user_id' => md_the_user_id()), array('password' => $password)) ) {

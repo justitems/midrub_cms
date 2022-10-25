@@ -63,9 +63,6 @@ class Members {
         // Load Base Teams Model
         $this->CI->load->ext_model( CMS_BASE_PATH . 'models/', 'Base_teams', 'base_teams' );
 
-        // Load the bcrypt library
-        $this->CI->load->library('bcrypt');
-
         // Require the Members Fields Inc file
         require_once CMS_BASE_ADMIN_COMPONENTS_MEMBERS . 'inc/members_fields.php'; 
         
@@ -292,7 +289,7 @@ class Members {
                         $decrypted_password = $member_default['password'];
 
                         // Encrypt the password
-                        $member_default['password'] = $this->CI->bcrypt->hash_password($member_default['password']);
+                        $member_default['password'] = password_hash($member_default['password'], PASSWORD_BCRYPT);
 
                     }
 
@@ -310,7 +307,7 @@ class Members {
                         $decrypted_password = $member_default['password'];
 
                         // Encrypt the password
-                        $member_default['password'] = $this->CI->bcrypt->hash_password($member_default['password']);
+                        $member_default['password'] = password_hash($member_default['password'], PASSWORD_BCRYPT);
 
                     }
                     

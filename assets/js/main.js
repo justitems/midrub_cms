@@ -13,9 +13,13 @@ var Main = new Object({
 
 jQuery(document).ready( function ($) {
     'use strict';
-    
+
     /*
      * Load the Javascript Object's methods
+     * 
+     * @param string method for GET or POST
+     * @param object data for ajax data pass
+     * @param string fun for object's method
      * 
      * @since   0.0.0.1
      */
@@ -36,70 +40,169 @@ jQuery(document).ready( function ($) {
      */
     Main.ajax_call = function (url, method, data, fun, progress_fun) {
 
-        // Send ajax request
-        $.ajax({
-            
-            //Set the type of request
-            type: method,
-            
-            // Set url
-            url: url,
-            
-            // Set response format
-            dataType: 'json',
-            
-            // Pass data
-            data: data,
+        // Verify if the method was POST
+        if ( method === 'POST' ) {
 
-            // Get progress
-            xhr: function () {
+            // Get a new csrf
+            $.get($('meta[name=url]').attr('content') + 'auth/ajax/page?action=generate_csrf', function (response) {
 
-                var xhr = $.ajaxSettings.xhr();
+                // Parse json
+                let json = JSON.parse(response);
 
-                xhr.upload.onprogress = function (e) {
+                // Verify if csrf exists
+                if ( typeof json.csrf !== 'undefined' ) {
 
-                    if (e.lengthComputable) {
-                        
-                        if ( typeof progress_fun !== 'undefined' ) {
+                    // Verify if csrf name and hash exists
+                    if ( (typeof json.csrf.name !== 'undefined') && (typeof json.csrf.hash !== 'undefined') ) {
 
-                            Main.methods[progress_fun](e.loaded, e.total);
+                        // Set CSRF
+                        data[json.csrf.name] = json.csrf.hash;
 
-                        }
+                        // Send ajax request
+                        $.ajax({
+                            
+                            //Set the type of request
+                            type: method,
+                            
+                            // Set url
+                            url: url,
+                            
+                            // Set response format
+                            dataType: 'json',
+                            
+                            // Pass data
+                            data: data,
+
+                            // Get progress
+                            xhr: function () {
+
+                                var xhr = $.ajaxSettings.xhr();
+
+                                xhr.upload.onprogress = function (e) {
+
+                                    if (e.lengthComputable) {
+                                        
+                                        if ( typeof progress_fun !== 'undefined' ) {
+
+                                            Main.methods[progress_fun](e.loaded, e.total);
+
+                                        }
+
+                                    }
+
+                                };
+
+                                return xhr;
+
+                            },
+                            
+                            success: function (data) {
+
+                                // Verify if request was processed successfully
+                                if ( data.success === true ) {
+                                    
+                                    // Call the response function and return success message
+                                    Main.call_object('success', data, fun);
+                                
+                                } else {
+                                
+                                    // Call the response function and return error message
+                                    Main.call_object('error', data, fun);
+                                
+                                }
+
+                            },
+                            complete: function( ) {
+
+                                // Hide the loading animation
+                                $('.page-loading').fadeOut();
+
+                            },
+                            error: function (jqXHR) {
+                                
+                                // Display error
+                                console.log(jqXHR.responseText);
+
+                            }
+                        });
 
                     }
 
-                };
-
-                return xhr;
-
-            },
-            
-            success: function (data, textStatus, XMLHttpRequest) {
-
-                // Verify if request was processed successfully
-                if ( data.success === true ) {
-                    
-                    // Call the response function and return success message
-                    Main.call_object('success', data, fun);
-                
-                } else {
-                
-                    // Call the response function and return error message
-                    Main.call_object('error', data, fun);
-                
                 }
 
-            },
-            complete: function( jqXHR, textStatus, errorThrown ) {
-                $('.page-loading').fadeOut();
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                
-                // Display error
-                console.log(jqXHR.responseText);
+            });
 
-            }
-        });
+        } else {
+
+            // Send ajax request
+            $.ajax({
+                
+                //Set the type of request
+                type: method,
+                
+                // Set url
+                url: url,
+                
+                // Set response format
+                dataType: 'json',
+                
+                // Pass data
+                data: data,
+
+                // Get progress
+                xhr: function () {
+
+                    var xhr = $.ajaxSettings.xhr();
+
+                    xhr.upload.onprogress = function (e) {
+
+                        if (e.lengthComputable) {
+                            
+                            if ( typeof progress_fun !== 'undefined' ) {
+
+                                Main.methods[progress_fun](e.loaded, e.total);
+
+                            }
+
+                        }
+
+                    };
+
+                    return xhr;
+
+                },
+                
+                success: function (data) {
+
+                    // Verify if request was processed successfully
+                    if ( data.success === true ) {
+                        
+                        // Call the response function and return success message
+                        Main.call_object('success', data, fun);
+                    
+                    } else {
+                    
+                        // Call the response function and return error message
+                        Main.call_object('error', data, fun);
+                    
+                    }
+
+                },
+                complete: function( ) {
+
+                    // Hide the loading animation
+                    $('.page-loading').fadeOut();
+
+                },
+                error: function (jqXHR) {
+                    
+                    // Display error
+                    console.log(jqXHR.responseText);
+
+                }
+            });
+
+        }
 
     };
     

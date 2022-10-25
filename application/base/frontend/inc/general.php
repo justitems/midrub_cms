@@ -632,10 +632,12 @@ if ( !function_exists('md_set_replacer') ) {
     function md_set_replacer($slug, $function) {
 
         // Get replacers
-        $replacers = md_the_data('content_replacer');
+        $replacers = md_the_data('content_replacer')?md_the_data('content_replacer'):array();
 
+        // Verify if replacer missing
         if ( !isset($replacers[$slug]) ) {
 
+            // Set function
             $replacers[$slug] = $function;
 
             // Set the replacer

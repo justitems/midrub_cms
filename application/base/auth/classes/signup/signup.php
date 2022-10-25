@@ -52,9 +52,6 @@ class Signup {
 
         // Load Base Plans Model
         $this->CI->load->ext_model( CMS_BASE_PATH . 'models/', 'Base_plans', 'base_plans' );
-
-        // Load the bcrypt library
-        $this->CI->load->library('bcrypt');
         
     }
 
@@ -147,7 +144,7 @@ class Signup {
             $user_args['email'] = $args['email'];
 
             // Set the password
-            $user_args['password'] = $this->CI->bcrypt->hash_password($args['password']);
+            $user_args['password'] = password_hash($args['password'], PASSWORD_BCRYPT);
 
             // Verify if role exists
             if ( isset($args['role']) ) {

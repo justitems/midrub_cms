@@ -2,7 +2,7 @@
 /**
  * Teams Model
  *
- * PHP Version 7.2
+ * PHP Version 8.0
  *
  * Teams file contains the Teams Model
  *
@@ -43,9 +43,6 @@ class Base_teams extends CI_MODEL {
         // Set the tables value
         $this->tables = $this->config->item('tables', $this->table);
         
-        // Load the Bcrypt library
-        $this->load->library('bcrypt');
-        
     }
     
     /**
@@ -77,7 +74,7 @@ class Base_teams extends CI_MODEL {
         $data = array(
             'user_id' => $user_id,
             'member_username' => $username,
-            'member_password' => $this->bcrypt->hash_password($password),
+            'member_password' => password_hash($password, PASSWORD_BCRYPT),
             'member_email' => $email,
             'role_id' => $role_id,
             'status' => $status,
@@ -207,7 +204,7 @@ class Base_teams extends CI_MODEL {
         );
 
         if ( $password ) {
-            $data['member_password'] = $this->bcrypt->hash_password($password);
+            $data['member_password'] = password_hash($password, PASSWORD_BCRYPT);
         }
         
         $this->db->update( $this->table, $data );

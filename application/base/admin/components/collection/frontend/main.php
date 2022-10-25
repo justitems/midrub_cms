@@ -76,6 +76,7 @@ class Main implements CmsBaseAdminInterfaces\Components {
         // Get action's get input
         $action = $this->CI->input->get('action');
 
+        // Verify if get action parameter exists
         if ( !$action ) {
             $action = $this->CI->input->post('action');
         }
@@ -85,15 +86,17 @@ class Main implements CmsBaseAdminInterfaces\Components {
             // Call method if exists
             (new CmsBaseAdminComponentsCollectionFrontendControllers\Ajax)->$action();
 
-        } catch (Exception $ex) {
-
+        } catch (\Throwable $ex) {
+            
+            // Prepare the error message
             $data = array(
                 'success' => FALSE,
                 'message' => $ex->getMessage()
             );
-
+            
+            // Display the error message
             echo json_encode($data);
-
+            
         }
         
     }

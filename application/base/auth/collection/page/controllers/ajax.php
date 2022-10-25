@@ -22,21 +22,21 @@ use CmsBase\Auth\Collection\Page\Helpers as CmsBaseAuthCollectionPageHelpers;
  * 
  * @author Scrisoft
  * @package Midrub
- * @since 0.0.7.6
+ * @since 0.0.8.5
  */
 class Ajax {
     
     /**
      * Class variables
      *
-     * @since 0.0.7.6
+     * @since 0.0.8.5
      */
     protected $CI;
 
     /**
      * Initialise the Class
      *
-     * @since 0.0.7.6
+     * @since 0.0.8.5
      */
     public function __construct() {
         
@@ -46,16 +46,25 @@ class Ajax {
     }
     
     /**
-     * The public method save_new_user creates a new user
+     * The public method generate_csrf generates csrf code
      * 
-     * @since 0.0.7.6
+     * @since 0.0.8.5
      * 
      * @return void
      */
-    public function save_new_user() {
+    public function generate_csrf() {
 
-        // Create a new user
-        (new CmsBaseAuthCollectionPageHelpers\User)->save_new_user();
+        // Prepare success message 
+        $data = array(
+            'success' => TRUE,
+            'csrf' => array(
+                'name' => $this->CI->security->get_csrf_token_name(),
+                'hash' => $this->CI->security->get_csrf_hash()
+            )
+        );
+
+        // Display success message
+        echo json_encode($data);
         
     }
  

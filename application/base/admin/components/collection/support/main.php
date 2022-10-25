@@ -15,7 +15,7 @@ namespace CmsBase\Admin\Components\Collection\Support;
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 defined('CMS_BASE_ADMIN_COMPONENTS_SUPPORT') OR define('CMS_BASE_ADMIN_COMPONENTS_SUPPORT', CMS_BASE_PATH . 'admin/components/collection/support/');
-defined('CMS_BASE_ADMIN_COMPONENTS_SUPPORT_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_SUPPORT_VERSION', '0.3');
+defined('CMS_BASE_ADMIN_COMPONENTS_SUPPORT_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_SUPPORT_VERSION', '0.4');
 
 // Define the namespaces to use
 use CmsBase\Admin\Interfaces as CmsBaseAdminInterfaces;
@@ -76,6 +76,7 @@ class Main implements CmsBaseAdminInterfaces\Components {
         // Get action's get input
         $action = $this->CI->input->get('action');
 
+        // Verify if get action parameter exists
         if ( !$action ) {
             $action = $this->CI->input->post('action');
         }
@@ -85,15 +86,17 @@ class Main implements CmsBaseAdminInterfaces\Components {
             // Call method if exists
             (new CmsBaseAdminComponentsCollectionSupportControllers\Ajax)->$action();
 
-        } catch (Exception $ex) {
-
+        } catch (\Throwable $ex) {
+            
+            // Prepare the error message
             $data = array(
                 'success' => FALSE,
                 'message' => $ex->getMessage()
             );
-
+            
+            // Display the error message
             echo json_encode($data);
-
+            
         }
         
     }

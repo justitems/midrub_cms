@@ -15,7 +15,7 @@ namespace CmsBase\Admin\Components\Collection\Profile;
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 defined('CMS_BASE_ADMIN_COMPONENTS_PROFILE') OR define('CMS_BASE_ADMIN_COMPONENTS_PROFILE', CMS_BASE_PATH . 'admin/components/collection/profile/');
-defined('CMS_BASE_ADMIN_COMPONENTS_PROFILE_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_PROFILE_VERSION', '0.2');
+defined('CMS_BASE_ADMIN_COMPONENTS_PROFILE_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_PROFILE_VERSION', '0.3');
 
 // Define the namespaces to use
 use CmsBase\Admin\Interfaces as CmsBaseAdminInterfaces;
@@ -76,6 +76,7 @@ class Main implements CmsBaseAdminInterfaces\Components {
         // Get action's get input
         $action = $this->CI->input->get('action');
 
+        // Verify if get action parameter exists
         if ( !$action ) {
             $action = $this->CI->input->post('action');
         }
@@ -85,15 +86,17 @@ class Main implements CmsBaseAdminInterfaces\Components {
             // Call method if exists
             (new CmsBaseAdminComponentsCollectionProfileControllers\Ajax)->$action();
 
-        } catch (Exception $ex) {
-
+        } catch (\Throwable $ex) {
+            
+            // Prepare the error message
             $data = array(
                 'success' => FALSE,
                 'message' => $ex->getMessage()
             );
-
+            
+            // Display the error message
             echo json_encode($data);
-
+            
         }
         
     }
