@@ -998,7 +998,7 @@ class Frontend_themes {
      * 
      * @return void
      */ 
-    protected function create_directories($explode, $folder_route = NULL, $route) {
+    protected function create_directories($explode, string $folder_route = NULL, $route) {
 
         // Verify if the folder exists
         if ( !is_dir($folder_route . $route) ) {
@@ -1024,7 +1024,7 @@ class Frontend_themes {
     }
 
     /**
-     * The protected method create_directories creates the missing directories
+     * The protected method create_dir creates the missing directory
      * 
      * @param string $dir contains the real path
      * 

@@ -15,7 +15,7 @@ namespace CmsBase\Admin\Components\Collection\User;
 // Define the constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 defined('CMS_BASE_ADMIN_COMPONENTS_USER') OR define('CMS_BASE_ADMIN_COMPONENTS_USER', CMS_BASE_PATH . 'admin/components/collection/user/');
-defined('CMS_BASE_ADMIN_COMPONENTS_USER_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_USER_VERSION', '0.0.6');
+defined('CMS_BASE_ADMIN_COMPONENTS_USER_VERSION') OR define('CMS_BASE_ADMIN_COMPONENTS_USER_VERSION', '0.0.7');
 
 // Define the namespaces to use
 use CmsBase\Admin\Interfaces as CmsBaseAdminInterfaces;
@@ -76,6 +76,7 @@ class Main implements CmsBaseAdminInterfaces\Components {
         // Get action's get input
         $action = $this->CI->input->get('action');
 
+        // Verify if get action parameter exists
         if ( !$action ) {
             $action = $this->CI->input->post('action');
         }
@@ -85,15 +86,17 @@ class Main implements CmsBaseAdminInterfaces\Components {
             // Call method if exists
             (new CmsBaseAdminComponentsCollectionUserControllers\Ajax)->$action();
 
-        } catch (Exception $ex) {
-
+        } catch (\Throwable $ex) {
+            
+            // Prepare the error message
             $data = array(
                 'success' => FALSE,
                 'message' => $ex->getMessage()
             );
-
+            
+            // Display the error message
             echo json_encode($data);
-
+            
         }
         
     }

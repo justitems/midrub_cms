@@ -79,6 +79,7 @@ class Main implements CmsBaseAdminInterfaces\Components {
         // Get action's get input
         $action = $this->CI->input->get('action');
 
+        // Verify if get action parameter exists
         if ( !$action ) {
             $action = $this->CI->input->post('action');
         }
@@ -88,15 +89,17 @@ class Main implements CmsBaseAdminInterfaces\Components {
             // Call method if exists
             (new CmsBaseAdminComponentsCollectionSettingsControllers\Ajax)->$action();
 
-        } catch (Exception $ex) {
-
+        } catch (\Throwable $ex) {
+            
+            // Prepare the error message
             $data = array(
                 'success' => FALSE,
                 'message' => $ex->getMessage()
             );
-
+            
+            // Display the error message
             echo json_encode($data);
-
+            
         }
         
     }
@@ -112,15 +115,14 @@ class Main implements CmsBaseAdminInterfaces\Components {
      */
     public function load_hooks($category) {
 
-        // Verify if action parameter exists
-        if ( $this->CI->input->post('action', TRUE) ) {
+        // Set action
+        $action = $this->CI->input->post('action', TRUE)?substr($this->CI->input->post('action', TRUE), 0, 8):'';
 
-            if ( substr($this->CI->input->post('action', TRUE), 0, 8) === 'settings' ) {
+        // Verify if the action is for settings
+        if ( $action === 'settings' ) {
 
-                // Set loaded app
-                md_set_data('component', 'settings');
-
-            }
+            // Set loaded app
+            md_set_data('component', 'settings');
 
         }
 

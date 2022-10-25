@@ -454,93 +454,114 @@ jQuery(document).ready( function ($) {
                 // Append multipart
                 form.append('enctype', 'multipart/form-data');
                 
-                // Set CSRF
-                form.append($('.main').attr('data-csrf'), $('.main').attr('data-csrf-value'));
-                
                 // Set the action
                 form.append('action', form_action);
 
-                // Upload files
-                $.ajax({
+                // Get a new csrf
+                $.get($('meta[name=url]').attr('content') + 'auth/ajax/page?action=generate_csrf', function (response) {
 
-                    // Set url
-                    url: $this.closest('.crm-drag-and-drop-files').attr('data-upload-form-url'),
+                    // Parse json
+                    let json = JSON.parse(response);
 
-                    // Request type
-                    type: 'POST',
+                    // Verify if csrf exists
+                    if ( typeof json.csrf !== 'undefined' ) {
 
-                    // Data
-                    data: form,
+                        // Verify if csrf name and hash exists
+                        if ( (typeof json.csrf.name !== 'undefined') && (typeof json.csrf.hash !== 'undefined') ) {
 
-                    // Format
-                    dataType: 'JSON',
+                            // Set CSRF
+                            form.append(json.csrf.name, json.csrf.hash);
 
-                    // Don't process
-                    processData: false,
+                            // Upload files
+                            $.ajax({
 
-                    // No content's type
-                    contentType: false,
+                                // Set url
+                                url: $this.closest('.crm-drag-and-drop-files').attr('data-upload-form-url'),
 
-                    // Get progress
-                    xhr: function () {
+                                // Request type
+                                type: 'POST',
 
-                        var xhr = $.ajaxSettings.xhr();
+                                // Data
+                                data: form,
 
-                        xhr.upload.onprogress = function (e) {
+                                // Format
+                                dataType: 'JSON',
 
-                            if (e.lengthComputable) {
+                                // Don't process
+                                processData: false,
 
-                                // Get percentage
-                                let percentage = ((e.loaded/e.total) * 100).toFixed(2);
+                                // No content's type
+                                contentType: false,
 
-                                // Set percentage
-                                $this.closest('.crm-drag-and-drop-files').find('.crm-upload-progress p').text(percentage + '%');
+                                // Get progress
+                                xhr: function () {
 
-                                // Set progress
-                                $this.closest('.crm-drag-and-drop-files').find('.crm-upload-progress .progress-bar').attr('aria-valuenow', percentage).attr('style', 'width: ' + percentage + '%');
+                                    var xhr = $.ajaxSettings.xhr();
 
-                            }
+                                    xhr.upload.onprogress = function (e) {
 
-                        };
+                                        if (e.lengthComputable) {
 
-                        return xhr;
+                                            // Get percentage
+                                            let percentage = ((e.loaded/e.total) * 100).toFixed(2);
 
-                    },
+                                            // Set percentage
+                                            $this.closest('.crm-drag-and-drop-files').find('.crm-upload-progress p').text(percentage + '%');
 
-                    // Success response
-                    success: function (data) {
+                                            // Set progress
+                                            $this.closest('.crm-drag-and-drop-files').find('.crm-upload-progress .progress-bar').attr('aria-valuenow', percentage).attr('style', 'width: ' + percentage + '%');
 
-                        // Verify if request was processed successfully
-                        if ( data.success === true ) {
+                                        }
+
+                                    };
+
+                                    return xhr;
+
+                                },
+
+                                // Success response
+                                success: function (data) {
+
+                                    // Verify if request was processed successfully
+                                    if ( data.success === true ) {
+                                        
+                                        // Call the response function and return success message
+                                        Main.call_object('success', data, form_action);
+                                    
+                                    } else {
+                                    
+                                        // Call the response function and return error message
+                                        Main.call_object('error', data, form_action);
+                                    
+                                    }
+                                    
+                                },
+
+                                // Complete response
+                                complete: function() {
+
+                                    // Remove the drop active class
+                                    $this.closest('.crm-drag-and-drop-files').removeClass('crm-drag-and-drop-files-drop-active');
+
+                                    // Reload csrf
+                                    Main.reload_csrf();
+
+                                },
+
+                                // Errors catcher
+                                error: function (jqXHR) {
+                                    
+                                    // Display error
+                                    console.log(jqXHR.responseText);
+                                    
+                                }
+                                
+                            });
                             
-                            // Call the response function and return success message
-                            Main.call_object('success', data, form_action);
-                        
-                        } else {
-                        
-                            // Call the response function and return error message
-                            Main.call_object('error', data, form_action);
-                        
                         }
-                        
-                    },
 
-                    // Complete response
-                    complete: function( jqXHR ) {
-
-                        // Remove the drop active class
-                        $this.closest('.crm-drag-and-drop-files').removeClass('crm-drag-and-drop-files-drop-active');
-
-                    },
-
-                    // Errors catcher
-                    error: function (jqXHR) {
-                        
-                        // Display error
-                        console.log(jqXHR.responseText);
-                        
                     }
-                    
+
                 });
 
             });

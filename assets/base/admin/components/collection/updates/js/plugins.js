@@ -139,7 +139,7 @@ jQuery(document).ready( function ($) {
 
             // Redirect
             window.open(
-                'http://access-codes.midrub.com/',
+                data_url,
                 '_blank'
             );
 
@@ -180,11 +180,16 @@ jQuery(document).ready( function ($) {
             // Show message
             $('#updates-system p').text(data.message);
 
-            // Start download
-            Main.start_download({
-                code: data.code,
-                slug: data.slug
-            });
+            // Set a pause
+            setTimeout(function () {
+
+                // Start download
+                Main.start_download({
+                    code: data.code,
+                    slug: data.slug
+                });
+
+            }, 2000);
             
         } else {
             
@@ -216,10 +221,15 @@ jQuery(document).ready( function ($) {
             // Show message
             $('#updates-system p').text(data.message);
 
-            // Start extract
-            Main.start_extract({
-                slug: data.slug
-            });
+            // Set a pause
+            setTimeout(function () {
+
+                // Start extract
+                Main.start_extract({
+                    slug: data.slug
+                });
+
+            }, 2000);
             
         } else {
             
@@ -254,10 +264,15 @@ jQuery(document).ready( function ($) {
             // Show message
             $('#updates-system p').text(data.message);
 
-            // Start backup
-            Main.start_backup({
-                slug: data.slug
-            });
+            // Set a pause
+            setTimeout(function () {
+
+                // Start backup
+                Main.start_backup({
+                    slug: data.slug
+                });
+
+            }, 2000);
             
         } else {
             
