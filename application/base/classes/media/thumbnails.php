@@ -156,7 +156,7 @@ class Thumbnails {
             }
             
             // Set the image extension
-            $image_ext = str_replace(array('image/jpeg', 'image/jpg', 'image/png', 'image/gif'), array('.jpeg', '.jpg', '.png', '.gif'), $content_type);            
+            $image_ext = str_replace(array('image/jpeg', 'image/jpg', 'image/png', 'image/gif'), array('.jpeg', '.jpg', '.png', '.gif'), $content_type[1]);   
 
         } else {
 
@@ -175,7 +175,7 @@ class Thumbnails {
             $image_ext = str_replace(array('image/jpeg', 'image/jpg', 'image/png', 'image/gif'), array('.jpeg', '.jpg', '.png', '.gif'), $the_url_data['content-type']);
 
         }
-        
+
         try {
             
             // Set thumb path
