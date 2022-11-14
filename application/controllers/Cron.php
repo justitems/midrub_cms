@@ -395,6 +395,32 @@ class Cron extends CI_Controller {
                     // Verify if current version is not same as on server
                     if ( $update_down['version'] !== $current_version ) {
 
+                        // Metas container
+                        $metas = array(
+                            array(
+                                'meta_name' => 'event_scope',
+                                'meta_value' => $app
+                            ),
+                            array(
+                                'meta_name' => 'title',
+                                'meta_value' => '<a href="' . site_url('admin/updates?p=apps') . '">' . $info['app_name'] . ' ' . $update_down['version'] . '</a>'
+                            ),
+                            array(
+                                'meta_name' => 'font_icon',
+                                'meta_value' => 'update'
+                            )
+                            
+                        );
+
+                        // Create the event
+                        md_create_admin_dashboard_event(
+                            array(
+                                'event_type' => 'new_update',
+                                'metas' => $metas
+                            )
+
+                        );
+
                         // Add update data
                         $update = array(
                             'slug' => $app,
@@ -560,6 +586,32 @@ class Cron extends CI_Controller {
                     // Verify if current version is not same as on server
                     if ( $update_down['version'] !== $current_version ) {
 
+                        // Metas container
+                        $metas = array(
+                            array(
+                                'meta_name' => 'event_scope',
+                                'meta_value' => $theme
+                            ),
+                            array(
+                                'meta_name' => 'title',
+                                'meta_value' => '<a href="' . site_url('admin/updates?p=frontend_themes') . '">' . $info['name'] . ' ' . $update_down['version'] . '</a>'
+                            ),
+                            array(
+                                'meta_name' => 'font_icon',
+                                'meta_value' => 'update'
+                            )
+                            
+                        );
+
+                        // Create the event
+                        md_create_admin_dashboard_event(
+                            array(
+                                'event_type' => 'new_update',
+                                'metas' => $metas
+                            )
+
+                        );
+
                         // Add update data
                         $update = array(
                             'slug' => $theme,
@@ -623,6 +675,32 @@ class Cron extends CI_Controller {
 
                 // Verify if current version is not same as on server
                 if ( $update_down['version'] !== $current_version ) {
+
+                    // Metas container
+                    $metas = array(
+                        array(
+                            'meta_name' => 'event_scope',
+                            'meta_value' => 'midrub'
+                        ),
+                        array(
+                            'meta_name' => 'title',
+                            'meta_value' => '<a href="' . site_url('admin/updates') . '">Midrub CMS ' . $update_down['version'] . '</a>'
+                        ),
+                        array(
+                            'meta_name' => 'font_icon',
+                            'meta_value' => 'update'
+                        )
+                        
+                    );
+
+                    // Create the event
+                    md_create_admin_dashboard_event(
+                        array(
+                            'event_type' => 'new_update',
+                            'metas' => $metas
+                        )
+
+                    );
 
                     // Add update data
                     $update = array(
@@ -699,7 +777,7 @@ class Cron extends CI_Controller {
                     }
                     
                     // Get update
-                    $update_down = json_decode(md_the_get($info['update_url']), TRUE);
+                    $update_down = json_decode(md_the_get(array('url' => $info['update_url'])), TRUE);
 
                     // New version variable
                     $new_version = '';
@@ -712,6 +790,32 @@ class Cron extends CI_Controller {
 
                         // Verify if current version is not same as on server
                         if ( $update_down['version'] !== $current_version ) {
+
+                            // Metas container
+                            $metas = array(
+                                array(
+                                    'meta_name' => 'event_scope',
+                                    'meta_value' => $plugin
+                                ),
+                                array(
+                                    'meta_name' => 'title',
+                                    'meta_value' => '<a href="' . site_url('admin/updates?p=plugins') . '">' . $info['plugin_name'] . ' ' . $update_down['version'] . '</a>'
+                                ),
+                                array(
+                                    'meta_name' => 'font_icon',
+                                    'meta_value' => 'update'
+                                )
+                                
+                            );
+
+                            // Create the event
+                            md_create_admin_dashboard_event(
+                                array(
+                                    'event_type' => 'new_update',
+                                    'metas' => $metas
+                                )
+
+                            );
 
                             // Add update data
                             $update = array(

@@ -16,6 +16,9 @@ namespace CmsBase\Admin\Components\Collection\Updates\Helpers;
 // Constants
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// Require the Curl GET Inc
+require_once APPPATH . 'base/inc/curl/get.php';
+
 /*
  * Plugins class provides the methods to manage the plugins updates
  * 
@@ -107,18 +110,18 @@ class Plugins {
                     $updates_code = '';
 
                     // Verify if updates's code is required
-                    if (  isset($info['updates_code']) ) {
+                    if (  isset($info['update_code']) ) {
 
                         // Set updates's code requirements
-                        $plugin['updates_code'] = $info['updates_code'];
+                        $plugin['update_code'] = $info['update_code'];
 
                     } else {
 
                         // Set updates's code requirements
-                        $plugin['updates_code'] = false;
+                        $plugin['update_code'] = false;
                     }
 
-                    if ( !empty($plugin['updates_code']) && !$code ) {
+                    if ( !empty($plugin['update_code']) && !$code ) {
 
                         // Prepare error message 
                         $data = array(
@@ -130,7 +133,7 @@ class Plugins {
                         echo json_encode($data);                
                         exit();
                         
-                    } else if ( !empty($plugin['updates_code']) && $code ) {
+                    } else if ( !empty($plugin['update_code']) && $code ) {
 
                         // Set updates code
                         $updates_code = '?l=' . $code;
@@ -138,10 +141,10 @@ class Plugins {
                     }
 
                     // Verify if updates's url exists
-                    if (  isset($info['updates_url']) ) {
+                    if (  isset($info['update_url']) ) {
 
                         // Set updates url
-                        $plugin['updates_url'] = $info['updates_url'];
+                        $plugin['update_url'] = $info['update_url'];
 
                     } else {
 
@@ -158,7 +161,9 @@ class Plugins {
                     }
 
                     // Get the updates
-                    $get_updates = json_decode(get($plugin['updates_url'] . $updates_code), true);
+                    $get_updates = json_decode(md_the_get(array(
+                        'url' => $plugin['update_url'] . $updates_code
+                    )), true);
 
                     // Verify if url exists
                     if ( isset($get_updates['url']) ) {
@@ -280,18 +285,18 @@ class Plugins {
                     $updates_code = '';
 
                     // Verify if updates's code is required
-                    if (  isset($info['updates_code']) ) {
+                    if (  isset($info['update_code']) ) {
 
                         // Set updates's code requirements
-                        $plugin['updates_code'] = $info['updates_code'];
+                        $plugin['update_code'] = $info['update_code'];
 
                     } else {
 
                         // Set updates's code requirements
-                        $plugin['updates_code'] = false;
+                        $plugin['update_code'] = false;
                     }
 
-                    if ( !empty($plugin['updates_code']) && !$code ) {
+                    if ( !empty($plugin['update_code']) && !$code ) {
 
                         // Prepare error message 
                         $data = array(
@@ -303,7 +308,7 @@ class Plugins {
                         echo json_encode($data);                
                         exit();
                         
-                    } else if ( !empty($plugin['updates_code']) && $code ) {
+                    } else if ( !empty($plugin['update_code']) && $code ) {
 
                         // Set updates code
                         $updates_code = '?l=' . $code;
@@ -311,10 +316,10 @@ class Plugins {
                     }
 
                     // Verify if updates's url exists
-                    if (  isset($info['updates_url']) ) {
+                    if (  isset($info['update_url']) ) {
 
                         // Set updates url
-                        $plugin['updates_url'] = $info['updates_url'];
+                        $plugin['update_url'] = $info['update_url'];
 
                     } else {
 
@@ -331,7 +336,9 @@ class Plugins {
                     }
 
                     // Get the updates
-                    $get_updates = json_decode(get($plugin['updates_url'] . $updates_code), true);
+                    $get_updates = json_decode(md_the_get(array(
+                        'url' => $plugin['update_url'] . $updates_code
+                    )), true);
 
                     // Verify if url exists
                     if ( isset($get_updates['url']) ) {
@@ -537,11 +544,11 @@ class Plugins {
                         // Close the ZipArchive class
                         $zip->close();
 
-                        // Verify if the updates.json exists
-                        if ( file_exists($this->plugin_dir . '/temp/updates.json') ) {
+                        // Verify if the update.json exists
+                        if ( file_exists($this->plugin_dir . '/temp/update.json') ) {
 
                             // Get files to updates
-                            $updates = json_decode(file_get_contents($this->plugin_dir . '/temp/updates.json'), true);
+                            $updates = json_decode(file_get_contents($this->plugin_dir . '/temp/update.json'), true);
 
                             // Verify if the updates has files
                             if ( isset($updates['files']) ) {
@@ -712,11 +719,11 @@ class Plugins {
                         
                     }
 
-                    // Verify if the updates.json exists
-                    if ( file_exists($this->plugin_dir . '/temp/updates.json') ) {
+                    // Verify if the update.json exists
+                    if ( file_exists($this->plugin_dir . '/temp/update.json') ) {
 
                         // Get files to updates
-                        $updates = json_decode(file_get_contents($this->plugin_dir . '/temp/updates.json'), true);
+                        $updates = json_decode(file_get_contents($this->plugin_dir . '/temp/update.json'), true);
 
                         // Verify if the updates has files
                         if ( isset($updates['files']) ) {
@@ -787,18 +794,18 @@ class Plugins {
                             // Display success response
                             echo json_encode($data);
 
-                            // Verify if old updates.json exists
-                            if ( file_exists($this->plugin_dir . '/updates.json') ) {
+                            // Verify if old update.json exists
+                            if ( file_exists($this->plugin_dir . '/update.json') ) {
 
-                                // Delete the existing updates.json
-                                unlink($this->plugin_dir . '/updates.json');
+                                // Delete the existing update.json
+                                unlink($this->plugin_dir . '/update.json');
 
                             }
 
-                            // Copy the updates.json in the main directory
-                            copy($this->plugin_dir . '/temp/updates.json', $this->plugin_dir . '/updates.json');
+                            // Copy the update.json in the main directory
+                            copy($this->plugin_dir . '/temp/update.json', $this->plugin_dir . '/update.json');
 
-                            // Create the updates.json in the backup directory
+                            // Create the update.json in the backup directory
                             file_put_contents($this->plugin_dir . '/backup/backup.json', json_encode(array(
                                 'files' => $this->copied
                             ), JSON_PRETTY_PRINT));
@@ -971,11 +978,11 @@ class Plugins {
         
                     rmdir($plugin_dir . '/backup');
 
-                    // Verify if old updates.json exists
-                    if ( file_exists($plugin_dir . '/updates.json') ) {
+                    // Verify if old update.json exists
+                    if ( file_exists($plugin_dir . '/update.json') ) {
 
-                        // Delete the existing updates.json
-                        unlink($plugin_dir . '/updates.json');
+                        // Delete the existing update.json
+                        unlink($plugin_dir . '/update.json');
 
                     }
 
@@ -1040,7 +1047,7 @@ class Plugins {
     }
 
     /**
-     * The protected method create_dir creates the missing directory
+     * The protected method create_directories creates the missing directories
      * 
      * @param string $dir contains the real path
      * 
