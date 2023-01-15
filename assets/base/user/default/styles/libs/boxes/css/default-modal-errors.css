@@ -1,0 +1,156 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+/*******************************
+THEME GLOBAL COLORS
+********************************/
+/*******************************
+IMPORT FONTS
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Inter:wght@200;300;400;500;600&display=swap");
+/*******************************
+THEME GLOBAL FONTS
+********************************/
+/*******************************
+DEFAULT MODAL ERRORS STYLES
+********************************/
+.default-modal-tools-list-1 {
+  margin: 0;
+  padding: 0; }
+  .default-modal-tools-list-1 li {
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    list-style: none; }
+    .default-modal-tools-list-1 li.default-modal-tools-list-1-no-items {
+      font-size: 14px; }
+    .default-modal-tools-list-1 li a:hover {
+      text-decoration: none; }
+    .default-modal-tools-list-1 li a .media {
+      pointer-events: none; }
+      .default-modal-tools-list-1 li a .media .default-modal-tools-list-1-page-icon {
+        margin-top: 4px;
+        margin-right: 15px !important;
+        width: 27px;
+        height: 27px;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 18px;
+        color: #FFFFFF;
+        background-color: #4267B2; }
+        .default-modal-tools-list-1 li a .media .default-modal-tools-list-1-page-icon::before {
+          display: block;
+          margin-left: -1px; }
+      .default-modal-tools-list-1 li a .media .media-body h5 {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        color: #344564; }
+      .default-modal-tools-list-1 li a .media .media-body p {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 13px;
+        font-weight: 400;
+        color: #8F9EC2; }
+      .default-modal-tools-list-1 li a .media .default-modal-tools-list-1-checked-icon {
+        vertical-align: middle;
+        margin-top: 4px;
+        margin-left: 10px;
+        width: 25px;
+        height: 25px;
+        color: #344564;
+        transform: scale(0.7);
+        transition: all 0.2s;
+        opacity: 0; }
+    .default-modal-tools-list-1 li a.default-modal-tools-list-1-item-selected > div .default-modal-tools-list-1-checked-icon {
+      transform: scale(1) !important;
+      opacity: 1 !important; }
+
+.default-modal-tools-list-2 {
+  margin: 0;
+  padding: 0; }
+  .default-modal-tools-list-2 li {
+    display: inline-block;
+    margin: 0 15px 15px 0;
+    width: auto;
+    list-style: none; }
+    .default-modal-tools-list-2 li.default-modal-tools-list-2-no-items {
+      width: 100%;
+      font-size: 14px; }
+    .default-modal-tools-list-2 li a {
+      padding: 5px 10px 7px;
+      border: 1px solid #344564;
+      border-radius: 4px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #344564;
+      transition: all 0.2s; }
+      .default-modal-tools-list-2 li a svg {
+        vertical-align: middle;
+        margin-top: -3px;
+        margin-right: 2px;
+        width: 17px;
+        height: 17px; }
+      .default-modal-tools-list-2 li a span {
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: -3px;
+        margin-left: 10px;
+        padding: 1px 7px;
+        border-radius: 4px;
+        font-size: 10px;
+        font-weight: 400;
+        color: #344564;
+        background-color: #fafafc; }
+      .default-modal-tools-list-2 li a:hover, .default-modal-tools-list-2 li a.default-modal-tools-list-2-item-selected {
+        text-decoration: none;
+        color: #FFFFFF;
+        background-color: #344564; }
+
+.default-modal-tools-list-3 {
+  margin: 0;
+  padding: 0; }
+  .default-modal-tools-list-3 li {
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    list-style: none; }
+    .default-modal-tools-list-3 li.default-modal-tools-list-3-no-items {
+      font-size: 14px; }
+    .default-modal-tools-list-3 li .media > img {
+      margin: 8px 15px 0 10px;
+      width: 50px;
+      height: 46px;
+      border-radius: 4px;
+      object-fit: cover; }
+    .default-modal-tools-list-3 li .media > .default-modal-tools-list-3-item-no-picture {
+      margin: 10px;
+      width: 50px;
+      height: 46px;
+      border-radius: 4px;
+      text-align: center;
+      background-color: #fcfcff; }
+      .default-modal-tools-list-3 li .media > .default-modal-tools-list-3-item-no-picture svg {
+        margin-top: 7px;
+        width: 32px;
+        height: 32px;
+        color: #2E92FA; }
+    .default-modal-tools-list-3 li .media .media-body {
+      padding: 15px 15px 0 0; }
+      .default-modal-tools-list-3 li .media .media-body h5 {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #344564; }
+      .default-modal-tools-list-3 li .media .media-body p {
+        display: -webkit-inline-box;
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 13px;
+        color: #8F9EC2;
+        overflow: hidden;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical; }
+
+/*# sourceMappingURL=default-modal-errors.css.map */
