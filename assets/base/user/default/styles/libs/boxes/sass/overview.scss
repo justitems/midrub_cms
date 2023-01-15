@@ -1,0 +1,372 @@
+/*******************************
+IMPORT DEPENDENCIES
+********************************/
+@import "../../../../../../user/default/styles/colors";
+@import "../../../../../../user/default/styles/fonts";
+
+/*******************************
+DEFAULT OVERVIEW STYLES
+********************************/
+
+.default-overview-card {
+    border: 0;
+    padding: 15px;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+
+    .default-overview-card-no-data-found {
+        padding: 5px 15px 7px;
+        border-radius: 6px;
+        line-height: 26px;
+        font-family: $default-font-2;
+        font-size: 14px;
+        font-weight: 400;    
+        color: $default-color-black;
+        background-color: #fafafc;
+    }
+
+    .card-header {
+        padding: 0;
+        border: 0;
+        background-color: transparent;
+
+        h2 {
+            margin: 0;
+            padding: 0;
+            line-height: 34px;
+            font-family: $default-font-1;
+            font-size: 18px;
+            color: $default-color-black;
+
+            i {
+                vertical-align: middle;
+                margin: -6px 5px 0 0;
+
+                &.default-overview-card-google-icon {
+                    font-weight: normal;
+                    font-style: normal;
+                    font-size: 24px;
+                    line-height: 1;
+                    letter-spacing: normal;
+                    text-transform: none;
+                    display: inline-block;
+                    white-space: nowrap;
+                    word-wrap: normal;
+                    direction: ltr;
+                }
+
+            }
+
+            span {
+                display: inline-block;
+                vertical-align: middle;
+                margin: -4px 0 0 5px;
+                text-transform: uppercase;
+                font-family: $default-font-2;
+                font-size: 13px;
+                font-weight: 400;
+                color: $default-color-grey;
+            }
+
+        }                
+
+        h3 {
+            margin: 0;
+            padding: 0;
+            line-height: 34px;
+            font-family: $default-font-1;
+            font-size: 15px;
+            color: $default-color-black;
+
+            i {
+                display: inline-block;
+                vertical-align: middle;
+                margin: -4px 5px 0 0;
+                font-size: 24px;
+
+                &.default-overview-card-google-icon {
+                    font-weight: normal;
+                    font-style: normal;
+                    font-size: 24px;
+                    line-height: 1;
+                    letter-spacing: normal;
+                    text-transform: none;
+                    display: inline-block;
+                    white-space: nowrap;
+                    word-wrap: normal;
+                    direction: ltr;
+                }
+
+            }
+
+            .bi {
+                display: inline-block;
+                vertical-align: middle;
+                margin: -6px 5px 0 0;
+                width: 20px;
+                height: 20px;
+            }
+
+        }
+
+        .default-dropdown-date-picker {
+            margin: 0;
+            border-radius: 4px;
+            background-color: #FFFFFF;
+        }
+
+        .default-overview-card-time-separator {
+            margin: 0 15px;
+            line-height: 34px;
+        }
+
+        .default-overview-card-navigation {
+
+            .btn {
+                padding: 0 15px;
+                height: 29.5px;
+                border: 0;
+                border-radius: 4px;
+                font-family: $default-font-2;
+                font-size: 14px;
+                color: $default-color-black;
+                background-color: #F5F9FF;
+
+                &:first-child {
+                    border-radius: 4px 0 0 4px;
+                }
+
+                &:last-child {
+                    border-radius: 0 4px 4px 0;
+                }
+
+                &.btn-disabled {
+                    opacity: 0.4;
+                    pointer-events: none;
+                }
+
+                span {
+                    display: block;
+                    margin-top: -2px;                     
+                }
+
+                svg {
+                    margin-top: -3px;
+                    width: 13px;
+                    height: 14px;
+                }
+                
+                i {
+                    display: block;
+                    margin-top: 1px;
+                    font-size: 19px;
+                }
+
+            }
+
+        }
+
+    }
+
+    &.default-overview-card-general {
+
+        .card-header {
+
+            @media screen and (max-width: 767px) {
+                display: initial !important;
+            }
+
+        }
+
+    }
+
+    .card-filters {
+        padding: 20px 0 0;
+        min-height: 60px;
+
+        .theme-dropdown-3 {
+            border: 0 !important;
+            box-shadow: none !important;
+
+            .btn {
+                border: 0 !important;
+                background-color: #fafafc !important;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    opacity: 1;
+                }
+
+                i {
+                    font-size: 24px;
+                }
+
+            }
+
+        }
+
+    }
+
+    .card-stats {
+        margin: 25px 0 0;
+
+        .card-stat {
+            margin-left: 15px;
+            width: calc(25% - 10px);
+            border-radius: 4px;
+            background-color: #FFFFFF;
+
+            &:nth-child(1) {
+                margin-left: 0;
+            }
+
+            .card-stat-icon {
+                padding: 25px;
+                width: 100%;
+                height: 100px;
+
+                i {
+                    display: inline-block;
+                    padding: 15px;
+                    border-radius: 50%;
+                    line-height: 1;
+                    letter-spacing: normal;
+                    font-size: 24px;
+                    font-style: normal;
+                    font-weight: normal;
+                    background-color: #FFFFFF;
+                }
+
+            }
+
+            .card-stat-number {
+                width: 100%;
+                padding: 0 25px;
+                font-family: $default-font-1;
+                font-size: 18px;
+                font-weight: 600;
+                color: $default-color-black;
+            }
+
+            .card-stat-text {
+                width: 100%;
+                padding: 5px 25px 25px;
+                font-family: $default-font-1;
+                font-size: 14px;
+                color: $default-color-black;
+            }                    
+
+        }
+
+        @media screen and (max-width: 767px) {
+            display: initial !important;
+
+            .card-stat {
+                margin: 0 0 15px;
+                width: 100%;
+
+                &:last-child {
+                    margin: 0;
+                }
+
+            }
+            
+        }
+
+    }
+
+    .card-chart {
+        margin: 0 -20px 0 -10px;
+
+        .default-overview-card-no-data-found {
+            margin: 0 20px 0 10px;
+        }
+
+    }
+
+    .card-members {
+        margin: 25px 0 0;
+
+        .default-overview-card-no-data-found {
+            margin-top: -10px;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+
+            li {
+                margin-bottom: 25px;
+                list-style: none;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                .media {
+
+                    > img {
+                        object-fit: cover;
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 50%;
+                    }
+
+                    > .theme-name-cover {
+                        width: 32px;
+                        height: 32px;
+                        line-height: 32px;                             
+                        font-style: normal;
+                    }
+
+                    .media-body {
+
+                        h5 {
+                            margin: 0;
+                            line-height: 32px;
+                            font-family: $default-font-2;
+                            font-size: 13px;
+                            font-weight: 600;
+                        }
+
+                        .media-stats {
+                            line-height: 32px;
+
+                            span {
+                                display: inline-block;
+                                vertical-align: baseline;
+                                margin-left: 15px;
+                                padding: 0.3rem 0.7rem;
+                                white-space: nowrap;
+                                border-radius: 6px;
+                                line-height: 1;
+                                text-align: center;
+                                font-family: $default-font-2;
+                                font-size: 14px;
+                                font-weight: 400;                                        
+                                color: $default-color-black;                                     
+
+                                i {
+                                    display: inline-block;
+                                    vertical-align: middle;
+                                    margin: -4px 3px 0 0;
+                                    line-height: initial;
+                                    font-size: 16px;
+                                }
+                                
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
