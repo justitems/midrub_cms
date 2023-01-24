@@ -47,6 +47,7 @@ class Base_auth_social extends CI_MODEL {
                               `social_id` bigint(20) AUTO_INCREMENT PRIMARY KEY,
                               `user_id` bigint(20) NOT NULL,
                               `network_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+                              `user_name` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                               `net_id` TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                               `created` varchar(30) NOT NULL
                             ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;');
