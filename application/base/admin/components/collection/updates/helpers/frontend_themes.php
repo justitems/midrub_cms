@@ -10,7 +10,7 @@
  * @since 0.0.8.3
  */
 
-// Define the page namespace
+// Define the namespace
 namespace CmsBase\Admin\Components\Collection\Updates\Helpers;
 
 // Constants
@@ -347,7 +347,7 @@ class Frontend_themes {
                         }
 
                         // Try to download the zip
-                        file_put_contents($new_zip, fopen($get_updates['url'], 'r'));
+                        file_put_contents($new_zip, file_get_contents($get_updates['url']));
 
                         // Verify if the zip was dpwloaded
                         if ( !file_exists($new_zip) ) {
