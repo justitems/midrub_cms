@@ -13,7 +13,7 @@
  * @link     https://www.midrub.com/
  */
 
-// Define the page namespace
+// Define the namespace
 namespace CmsBase\User\Networks\Collection;
 
 // Define the constants
@@ -91,9 +91,7 @@ class Linkedin implements CmsBaseUserInterfaces\Networks {
     public function connect() {
 
         // Scopes to request
-        $scopes = array(
-            'r_liteprofile'
-        );
+        $scopes = array();
 
         // Verify if additional scopes exists
         if ( md_the_option('network_linkedin_scopes') ) {
@@ -186,117 +184,113 @@ class Linkedin implements CmsBaseUserInterfaces\Networks {
 
             // Request the profile
             $the_profile = json_decode(md_the_get(array(
-                'url' => 'https://api.linkedin.com/v2/me?oauth2_access_token=' . $the_token['access_token']
+                'url' => 'https://api.linkedin.com/v2/userinfo',
+                'header' => array(
+                    'Authorization: Bearer ' . $the_token['access_token'],
+                    'X-Restli-Protocol-Version: 2.0.0',
+                    'LinkedIn-Version: 202304'
+                )
+                
             )), TRUE);
             
             // Verify if first name exists
-            if ( !empty($the_profile['firstName']) ) {
+            if ( !empty($the_profile['name']) ) {
 
-                // Verify if preferredLocale exists
-                if ( !empty($the_profile['firstName']['preferredLocale']) ) {
+                // Get first and last name
+                $full_name = $the_profile['name'];
 
-                    // Verify if country exists
-                    if ( !empty($the_profile['firstName']['preferredLocale']['country']) ) {
+                // Get profile id
+                $id = $the_profile['sub'];
 
-                        // Get first and last name
-                        $full_name = $the_profile['firstName']['localized'][$the_profile['firstName']['preferredLocale']['language'] . '_' . $the_profile['firstName']['preferredLocale']['country']] . ' ' . $the_profile['lastName']['localized'][$the_profile['lastName']['preferredLocale']['language'] . '_' . $the_profile['lastName']['preferredLocale']['country']];
+                // Get exiration time
+                $expires = date('Y-m-d H:i:s', time() + $the_token['expires_in']);
 
-                        // Get profile id
-                        $id = $the_profile['id'];
+                // Get the linkedin's account
+                $the_linkedin_account = $this->CI->base_model->the_data_where(
+                    'networks',
+                    'network_id',
+                    array(
+                        'network_name' => 'linkedin',
+                        'net_id' => $id,
+                        'user_id' => md_the_user_id()
+                    )
 
-                        // Get exiration time
-                        $expires = date('Y-m-d H:i:s', time() + $the_token['expires_in']);
+                );
 
-                        // Get the linkedin's account
-                        $the_linkedin_account = $this->CI->base_model->the_data_where(
-                            'networks',
-                            'network_id',
+                // Verify if the account is already connected
+                if ( $the_linkedin_account ) {
+
+                    // Update the account
+                    $this->CI->base_model->update(
+                        'networks',
+                        array(
+                            'network_name' => 'linkedin',
+                            'net_id' => $id,
+                            'user_id' => md_the_user_id()
+                        ),
+                        array(
+                            'user_name' => $full_name,
+                            'expires' => $expires,
+                            'token' => $the_token['access_token']
+                        )
+
+                    );
+                        
+                    // Set view
+                    echo $this->CI->load->ext_view(
+                        CMS_BASE_PATH . 'user/default/php',
+                        'network_success',
+                        array(
+                            'message' => $this->CI->lang->line('user_networks_account_was_connected')
+                        ),
+                        TRUE
+                    );
+
+                } else {
+
+                    // Save the account
+                    $the_response = $this->CI->base_model->insert(
+                        'networks',
+                        array(
+                            'network_name' => 'linkedin',
+                            'net_id' => $id,
+                            'user_id' => md_the_user_id(),
+                            'user_name' => $full_name,
+                            'expires' => $expires,
+                            'token' => $the_token['access_token']
+                        )
+
+                    );
+                    
+                    // Verify if the account was saved
+                    if ( $the_response ) {
+
+                        // Set view
+                        echo $this->CI->load->ext_view(
+                            CMS_BASE_PATH . 'user/default/php',
+                            'network_success',
                             array(
-                                'network_name' => 'linkedin',
-                                'net_id' => $id,
-                                'user_id' => md_the_user_id()
-                            )
-
+                                'message' => $this->CI->lang->line('user_networks_account_was_connected')
+                            ),
+                            TRUE
                         );
 
-                        // Verify if the account is already connected
-                        if ( $the_linkedin_account ) {
+                    } else {
 
-                            // Update the account
-                            $this->CI->base_model->update(
-                                'networks',
-                                array(
-                                    'network_name' => 'linkedin',
-                                    'net_id' => $id,
-                                    'user_id' => md_the_user_id()
-                                ),
-                                array(
-                                    'user_name' => $full_name,
-                                    'expires' => $expires,
-                                    'token' => $the_token['access_token']
-                                )
-
-                            );
-                                
-                            // Set view
-                            echo $this->CI->load->ext_view(
-                                CMS_BASE_PATH . 'user/default/php',
-                                'network_success',
-                                array(
-                                    'message' => $this->CI->lang->line('user_networks_account_was_connected')
-                                ),
-                                TRUE
-                            );
-
-                        } else {
-
-                            // Save the account
-                            $the_response = $this->CI->base_model->insert(
-                                'networks',
-                                array(
-                                    'network_name' => 'linkedin',
-                                    'net_id' => $id,
-                                    'user_id' => md_the_user_id(),
-                                    'user_name' => $full_name,
-                                    'expires' => $expires,
-                                    'token' => $the_token['access_token']
-                                )
-
-                            );
-                            
-                            // Verify if the account was saved
-                            if ( $the_response ) {
-
-                                // Set view
-                                echo $this->CI->load->ext_view(
-                                    CMS_BASE_PATH . 'user/default/php',
-                                    'network_success',
-                                    array(
-                                        'message' => $this->CI->lang->line('user_networks_account_was_connected')
-                                    ),
-                                    TRUE
-                                );
-
-                            } else {
-
-                                // Set view
-                                echo $this->CI->load->ext_view(
-                                    CMS_BASE_PATH . 'user/default/php',
-                                    'network_error',
-                                    array(
-                                        'message' => $this->CI->lang->line('user_networks_account_was_not_connected')
-                                    ),
-                                    TRUE
-                                );
-                                
-                            }
-
-                        }
-                        exit();
-
+                        // Set view
+                        echo $this->CI->load->ext_view(
+                            CMS_BASE_PATH . 'user/default/php',
+                            'network_error',
+                            array(
+                                'message' => $this->CI->lang->line('user_networks_account_was_not_connected')
+                            ),
+                            TRUE
+                        );
+                        
                     }
 
                 }
+                exit();
 
             }
 
