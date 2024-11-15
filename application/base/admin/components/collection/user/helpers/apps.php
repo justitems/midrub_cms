@@ -10,7 +10,7 @@
  * @since 0.0.8.1
  */
 
-// Define the page namespace
+// Define the namespace
 namespace CmsBase\Admin\Components\Collection\User\Helpers;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -178,7 +178,7 @@ class Apps {
                                 if ($zip->open(CMS_BASE_ADMIN_COMPONENTS_USER . 'temp/' . $installation['php']) === TRUE) {
 
                                     // Set app's dir
-                                    $app_php_dir = dirname($zip->getNameIndex(0));
+                                    $app_php_dir = (dirname($zip->getNameIndex(0)) === '.')?$zip->getNameIndex(0):dirname($zip->getNameIndex(0));
 
                                     // First verify if files exists
                                     if ( $zip->numFiles > 0 ) {
@@ -239,7 +239,7 @@ class Apps {
                                                             if ( $zip->numFiles > 0 ) {
 
                                                                 // Set app's dir
-                                                                $app_assets_dir = dirname($zip->getNameIndex(0));
+                                                                $app_assets_dir = (dirname($zip->getNameIndex(0)) === '.')?$zip->getNameIndex(0):dirname($zip->getNameIndex(0));
 
                                                                 // Verify if the app is already installed
                                                                 if ( is_dir(FCPATH . 'assets/base/user/apps/collection/' . $app_assets_dir) ) {
