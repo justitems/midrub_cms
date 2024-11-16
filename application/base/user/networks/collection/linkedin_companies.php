@@ -13,7 +13,7 @@
  * @link     https://www.midrub.com/
  */
 
-// Define the page namespace
+// Define the namespace
 namespace CmsBase\User\Networks\Collection;
 
 // Define the constants
@@ -42,7 +42,7 @@ class Linkedin_companies implements CmsBaseUserInterfaces\Networks {
     /**
      * Class variables
      */
-    public $CI, $client_id, $client_secret, $redirect_uri, $api_endpoint = 'https://www.linkedin.com/oauth/v2';
+    public $CI, $client_id, $client_secret, $redirect_uri, $api_endpoint = 'https://api.linkedin.com/';
 
     /**
      * Load networks and user model.
@@ -133,7 +133,7 @@ class Linkedin_companies implements CmsBaseUserInterfaces\Networks {
         );
         
         // Set url
-        $the_url = $this->api_endpoint . '/authorization' . '?' . http_build_query($params);
+        $the_url = 'https://www.linkedin.com/oauth/v2/authorization' . '?' . http_build_query($params);
         
         // Redirect
         header('Location:' . $the_url);
@@ -160,7 +160,7 @@ class Linkedin_companies implements CmsBaseUserInterfaces\Networks {
             $this->CI->form_validation->set_rules('net_ids', 'Net Ids', 'trim|required');
 
             // Get post data
-            $token = $this->CI->input->post('token', TRUE);
+            $the_token = $this->CI->input->post('token', TRUE);
             $net_ids = $this->CI->input->post('net_ids', TRUE);
 
             // Verify if form data is valid
@@ -168,7 +168,54 @@ class Linkedin_companies implements CmsBaseUserInterfaces\Networks {
 
                 // Request the organizations
                 $the_organizations = json_decode(md_the_get(array(
-                    'url' => 'https://api.linkedin.com/v2/organizationalEntityAcls?q=roleAssignee&role=ADMINISTRATOR&state=APPROVED&projection=(*,elements*(*,organizationalTarget~(*)))&oauth2_access_token=' . $token
+                    'url' => 'https://api.linkedin.com/rest/organizationAcls?q=roleAssignee',
+                    'header' => array(
+                        'Authorization: Bearer ' . $the_token,
+                        'Content-Type: application/json',
+                        'X-Restli-Protocol-Version: 2.0.0',
+                        'LinkedIn-Version: 202402'
+                    )
+
+                )), TRUE);
+
+                // Verify if companies were found
+                if ( empty($the_organizations['elements']) ) {
+
+                    // Set view
+                    echo $this->CI->load->ext_view(
+                        CMS_BASE_PATH . 'user/default/php',
+                        'network_error',
+                        array(
+                            'message' => $this->CI->lang->line('user_networks_no_linkedin_companies_were_found')
+                        ),
+                        TRUE
+                    );
+
+                    exit();
+
+                }
+
+                // Extract Ids
+                $organizations = array_column($the_organizations['elements'], 'organization');
+
+                // Replace urn:li:organization:
+                $organizations = array_map(function($value) {
+                    return str_replace('urn:li:organization:', '', $value);
+                }, $organizations);
+
+                // Convert the array to a comma-separated string
+                $ids_string = implode(',', $organizations);
+
+                // Get the organizations with data
+                $the_organization_list = json_decode(md_the_get(array(
+                    'url' => 'https://api.linkedin.com/rest/organizations?ids=List(' . $ids_string . ')',
+                    'header' => array(
+                        'Authorization: Bearer ' . $the_token,
+                        'Content-Type: application/json',
+                        'X-Restli-Protocol-Version: 2.0.0',
+                        'LinkedIn-Version: 202402'
+                    )
+
                 )), TRUE);
 
                 // Get connected linkedin companies
@@ -192,13 +239,13 @@ class Linkedin_companies implements CmsBaseUserInterfaces\Networks {
                         if ( empty($net_ids) ) {
 
                             // Verify if companies were found
-                            if ( !empty($the_organizations['elements']) ) {
+                            if ( !empty($the_organization_list['results']) ) {
 
                                 // List the companies
-                                for ( $c = 0; $c < count($the_organizations['elements']); $c++ ) {
+                                foreach ( $the_organization_list['results'] as $key => $value ) {
 
                                     // Verify if this company is connected
-                                    if ( $the_organizations['elements'][$c]['organizationalTarget~']['id'] === (int)$connected['net_id'] ) {
+                                    if ( $value['id'] === (int)$connected['net_id'] ) {
 
                                         // Delete the account
                                         if ( $this->CI->base_model->delete( 'networks', array( 'network_id' => $connected['network_id'] ) ) ) {
@@ -228,18 +275,18 @@ class Linkedin_companies implements CmsBaseUserInterfaces\Networks {
                         if ( !in_array($connected['net_id'], $net_ids) ) {
 
                             // Verify if companies were found
-                            if ( isset($the_organizations['elements']) ) {
+                            if ( !empty($the_organization_list['results']) ) {
 
                                 // List the companies
-                                for ( $c = 0; $c < count($the_organizations['elements']); $c++ ) {
+                                foreach ( $the_organization_list['results'] as $key => $value ) {
 
                                     // Verify if user has selected this Linkedin Company
-                                    if ( in_array($the_organizations['elements'][$c]['organizationalTarget~']['id'], $net_ids) ) {
+                                    if ( in_array($value['id'], $net_ids) ) {
                                         continue;
                                     }
 
                                     // Verify if this company is connected
-                                    if ( $the_organizations['elements'][$c]['organizationalTarget~']['id'] === (int)$connected['net_id'] ) {
+                                    if ( $value['id'] === (int)$connected['net_id'] ) {
 
                                         // Delete the account
                                         if ( $this->CI->base_model->delete( 'networks', array( 'network_id' => $connected['network_id'] ) ) ) {
@@ -271,7 +318,10 @@ class Linkedin_companies implements CmsBaseUserInterfaces\Networks {
                 if ( $net_ids ) {
                     
                     // Verify if companies were found
-                    if ( isset($the_organizations['elements']) ) {
+                    if ( !empty($the_organization_list['results']) ) {
+
+                        // Connected companies
+                        $connected_linkedin_companies = !empty($the_connected_linkedin_companies)?array_column($the_connected_linkedin_companies, 'net_id'):array();
                         
                         // Calculate expire token period
                         $expires = '';
@@ -286,10 +336,16 @@ class Linkedin_companies implements CmsBaseUserInterfaces\Networks {
                         $connected_networks = $the_connected_linkedin_companies?array_column($the_connected_linkedin_companies, 'network_id', 'net_id'):array();
 
                         // List the companies
-                        for ( $c = 0; $c < count($the_organizations['elements']); $c++ ) {
+                        foreach ( $the_organization_list['results'] as $key => $value ) {
+
 
                             // Verify if user has selected this Linkedin Company
-                            if ( !in_array($the_organizations['elements'][$c]['organizationalTarget~']['id'], $net_ids) ) {
+                            if ( !in_array((string)$value['id'], $net_ids) ) {
+                                continue;
+                            }
+
+                            // Verify if the company is already connected
+                            if ( in_array((string)$value['id'], $connected_linkedin_companies) ) {
 
                                 // Set as connected
                                 $check++;
@@ -299,12 +355,12 @@ class Linkedin_companies implements CmsBaseUserInterfaces\Networks {
                                     'networks',
                                     array(
                                         'network_name' => 'linkedin_companies',
-                                        'net_id' => $the_organizations['elements'][$c]['organizationalTarget~']['id'],
+                                        'net_id' => (string)$value['id'],
                                         'user_id' => md_the_user_id()
                                     ),
                                     array(
-                                        'user_name' => $the_organizations['elements'][$c]['organizationalTarget~']['localizedName'],
-                                        'token' => $token
+                                        'user_name' => $value['localizedName'],
+                                        'token' => $the_token
                                     )
                 
                                 );
@@ -316,10 +372,10 @@ class Linkedin_companies implements CmsBaseUserInterfaces\Networks {
                                     'networks',
                                     array(
                                         'network_name' => 'linkedin_companies',
-                                        'net_id' => $the_organizations['elements'][$c]['organizationalTarget~']['id'],
+                                        'net_id' => $value['id'],
                                         'user_id' => md_the_user_id(),
-                                        'user_name' => $the_organizations['elements'][$c]['organizationalTarget~']['localizedName'],
-                                        'token' => $token
+                                        'user_name' => $value['localizedName'],
+                                        'token' => $the_token
                                     )
                 
                                 );
@@ -407,7 +463,7 @@ class Linkedin_companies implements CmsBaseUserInterfaces\Networks {
 
             // Ask for access token
             $the_token = json_decode(md_the_post(array(
-                'url' => $this->api_endpoint . '/accessToken',
+                'url' => 'https://www.linkedin.com/oauth/v2/accessToken',
                 'fields' => array(
                     'grant_type' => 'authorization_code',
                     'code' => $this->CI->input->get('code', TRUE),
@@ -437,9 +493,33 @@ class Linkedin_companies implements CmsBaseUserInterfaces\Networks {
 
             // Request the organizations
             $the_organizations = json_decode(md_the_get(array(
-                'url' => 'https://api.linkedin.com/v2/organizationalEntityAcls?q=roleAssignee&role=ADMINISTRATOR&state=APPROVED&projection=(*,elements*(*,organizationalTarget~(*)))&oauth2_access_token=' . $the_token['access_token']
+                'url' => 'https://api.linkedin.com/rest/organizationAcls?q=roleAssignee',
+                'header' => array(
+                    'Authorization: Bearer ' . $the_token['access_token'],
+                    'Content-Type: application/json',
+                    'X-Restli-Protocol-Version: 2.0.0',
+                    'LinkedIn-Version: 202402'
+                )
+
             )), TRUE);
-            
+
+            // Verify if companies were found
+            if ( !empty($the_organizations['message']) ) {
+
+                // Set view
+                echo $this->CI->load->ext_view(
+                    CMS_BASE_PATH . 'user/default/php',
+                    'network_error',
+                    array(
+                        'message' => $the_organizations['message']
+                    ),
+                    TRUE
+                );
+
+                exit();
+
+            }
+
             // Verify if companies were found
             if ( empty($the_organizations['elements']) ) {
 
@@ -449,6 +529,46 @@ class Linkedin_companies implements CmsBaseUserInterfaces\Networks {
                     'network_error',
                     array(
                         'message' => $this->CI->lang->line('user_networks_no_linkedin_companies_were_found')
+                    ),
+                    TRUE
+                );
+
+                exit();
+
+            }
+
+            // Extract Ids
+            $organizations = array_column($the_organizations['elements'], 'organization');
+
+            // Replace urn:li:organization:
+            $organizations = array_map(function($value) {
+                return str_replace('urn:li:organization:', '', $value);
+            }, $organizations);
+
+            // Convert the array to a comma-separated string
+            $ids_string = implode(',', $organizations);
+
+            // Get the organizations with data
+            $the_organization_list = json_decode(md_the_get(array(
+                'url' => 'https://api.linkedin.com/rest/organizations?ids=List(' . $ids_string . ')',
+                'header' => array(
+                    'Authorization: Bearer ' . $the_token['access_token'],
+                    'Content-Type: application/json',
+                    'X-Restli-Protocol-Version: 2.0.0',
+                    'LinkedIn-Version: 202402'
+                )
+
+            )), TRUE);
+
+            // Verify if companies were found
+            if ( !empty($the_organization_list['message']) ) {
+
+                // Set view
+                echo $this->CI->load->ext_view(
+                    CMS_BASE_PATH . 'user/default/php',
+                    'network_error',
+                    array(
+                        'message' => $the_organization_list['message']
                     ),
                     TRUE
                 );
@@ -488,21 +608,21 @@ class Linkedin_companies implements CmsBaseUserInterfaces\Networks {
             }
 
             // List the companies
-            for ( $c = 0; $c < count($the_organizations['elements']); $c++ ) {
+            foreach ( $the_organization_list['results'] as $key => $value ) {
 
                 // Set item
-                $items[$the_organizations['elements'][$c]['organizationalTarget~']['id']] = array(
-                    'net_id' => $the_organizations['elements'][$c]['organizationalTarget~']['id'],
-                    'name' => $the_organizations['elements'][$c]['organizationalTarget~']['localizedName'],
+                $items[$value['id']] = array(
+                    'net_id' => $value['id'],
+                    'name' => $value['localizedName'],
                     'label' => '',
                     'connected' => FALSE
                 );
 
                 // Verify if this Company is connected
-                if ( in_array($the_organizations['elements'][$c]['organizationalTarget~']['id'], $net_ids) ) {
+                if ( in_array($value['id'], $net_ids) ) {
 
                     // Set as connected
-                    $items[$the_organizations['elements'][$c]['organizationalTarget~']['id']]['connected'] = TRUE;
+                    $items[$value['id']]['connected'] = TRUE;
 
                 }
                 
